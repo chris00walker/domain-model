@@ -1,0 +1,126 @@
+{
+  "regulations": {
+    "food_safety": {
+      "HACCP": {
+        "description": "Hazard Analysis & Critical Control Points protocol",
+        "requirement": "Full documentation for import clearance and cruise-line audits"
+      },
+      "ISO_22000": {
+        "description": "International food-safety management standard",
+        "requirement": "Audit pass rate ≥ 95%"
+      },
+      "FSMA": {
+        "description": "Food Safety Modernization Act (US)",
+        "requirement": "HACCP & traceability stack designed to be FSMA-ready for Florida imports"
+      },
+      "ANVISA": {
+        "description": "Brazil's health-surveillance authority",
+        "requirement": "Compliant bilingual labels & dossiers for Brazilian market"
+      }
+    },
+    "trade_compliance": {
+      "EPA": {
+        "description": "CARIFORUM-EU Economic Partnership Agreement",
+        "requirement": "EUR.1 certificates proving EU origin for duty-free imports"
+      },
+      "customs_clearance": {
+        "description": "Import documentation",
+        "requirement": "Complete documentation for each shipment with zero errors"
+      }
+    },
+    "accessibility": {
+      "WCAG": {
+        "description": "Web Content Accessibility Guidelines 2.2",
+        "requirement": "100% compliance across all customer-facing web, email, chat & PDF content"
+      },
+      "multilingual": {
+        "description": "Language support",
+        "requirement": "Bilingual (EN/AR) compliance across all customer-facing content"
+      }
+    },
+    "payment_security": {
+      "PCI_DSS": {
+        "description": "Payment Card Industry Data Security Standard",
+        "requirement": "Compliance for all payment processing"
+      },
+      "3D_Secure": {
+        "description": "Additional security layer for online card transactions",
+        "requirement": "Enforced for all transactions"
+      }
+    }
+  },
+  "techStack": {
+    "frontend": {
+      "framework": "React",
+      "styling": "Tailwind CSS",
+      "state_management": "Redux",
+      "mobile_responsiveness": true
+    },
+    "backend": {
+      "framework": "Node.js",
+      "api": "Express.js",
+      "database": "MongoDB",
+      "architecture": "MERN stack"
+    },
+    "infrastructure": {
+      "hosting": "Rumble Cloud",
+      "cdn": "Cloudflare",
+      "media_pipeline": "Cloudinary",
+      "deployment": "CI/CD with IaC (Terraform)"
+    },
+    "integrations": {
+      "payment": ["Stripe", "PayPal", "Wise"],
+      "crm": "HubSpot",
+      "erp": "Odoo",
+      "shipping": "ShipStation",
+      "loyalty": "Smile.io",
+      "freight_visibility": ["Portcast", "MarineTraffic"]
+    },
+    "ai_capabilities": {
+      "chatbot": "OpenAI/Anthropic",
+      "recommendation_engine": "Vector Store (pgvector)",
+      "content_generation": "RAG (Retrieval-Augmented Generation)"
+    }
+  },
+  "business_constraints": {
+    "margin_floors": {
+      "retail": "≥ 40%",
+      "commercial": "≥ 30%",
+      "wholesale": "≥ 25%",
+      "importer_FOB": "≥ 30%"
+    },
+    "cash_cycle": {
+      "inventory_days": "≤ 30",
+      "AR_days": "≤ 15 (Barbados), ≤ 10 (regional pre-paid)",
+      "cash_to_cash_cycle": "< 45 days Barbados, < 20 days regional"
+    },
+    "marketing_efficiency": {
+      "CAC": "≤ BBD 20 (Retail) / BBD 50 (Food-Trucks)",
+      "LTV_CAC_ratio": "≥ 4:1",
+      "marketing_spend": "≤ 8% of GMV"
+    },
+    "operational_SLAs": {
+      "on_time_delivery": "≥ 95%",
+      "order_status_API_uptime": "≥ 99.9%",
+      "first_response_time": "< 2 hours",
+      "page_load_time": "< 2 seconds"
+    }
+  },
+  "scalability_requirements": {
+    "phase1": {
+      "description": "Barbados Beachhead (Months 1-12)",
+      "target_segments": ["Diaspora HH", "Expat Residents", "Indigenous Foodie Families", "Food-Truck Operators", "Specialty Mini-Markets", "Limited-Service Restaurants"],
+      "volume_expectations": "≈ 4,351 orders annually"
+    },
+    "phase2": {
+      "description": "Regional Scale (Months 12-36)",
+      "target_segments": ["Partner Importers & Distributors"],
+      "expansion_markets": "Caribbean regional markets via importers"
+    },
+    "phase3": {
+      "description": "International Trading—USA + Brazil (months 36+)",
+      "target_segments": ["Florida & Brazil Ethnic & Specialty Retail Chains"],
+      "requirements": ["Bilingual packaging", "ANVISA/HACCP dossiers", "Cross-dock facilities"]
+    }
+  }
+}

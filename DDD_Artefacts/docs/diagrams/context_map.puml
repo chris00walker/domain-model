@@ -1,0 +1,97 @@
+@startuml EFI Context Map
+!define RECTANGLE_ORDER 1
+!define RECTANGLE_SUPPLIER 2
+!define RECTANGLE_CUSTOMER 3
+!define RECTANGLE_PARTNERSHIP 4
+!define RECTANGLE_CONFORMIST 5
+!define RECTANGLE_ANTICORRUPTION 6
+!define RECTANGLE_OPENHOST 7
+!define RECTANGLE_PUBLIC 8
+
+skinparam componentStyle rectangle
+skinparam defaultFontName Arial
+
+' Core Contexts
+rectangle "Customer Management" as CustomerMgmt #ff6b6b {
+  [Customer Profile]
+  [Authentication]
+  [Preferences]
+}
+
+rectangle "Catalog & Inventory" as Catalog #ff6b6b {
+  [Product Catalog]
+  [Pricing]
+  [Stock Levels]
+}
+
+rectangle "Order Processing" as Order #ff6b6b {
+  [Order]
+  [Checkout]
+  [Fulfillment]
+}
+
+' Supporting Contexts
+rectangle "Subscription Service" as Subscription #ff9e2c {
+  [Subscription Plans]
+  [Billing]
+  [Renewals]
+}
+
+rectangle "Compliance & Safety" as Compliance #ff9e2c {
+  [Food Safety]
+  [Regulatory]
+  [Audit Logs]
+}
+
+rectangle "Analytics & Reporting" as Analytics #ff9e2c {
+  [Business Intelligence]
+  [KPIs]
+  [Forecasting]
+}
+
+' External Systems
+rectangle "Payment Processors" as Payment #51cf66 {
+  [Stripe]
+  [PayPal]
+  [Wise]
+}
+
+rectangle "Shipping Providers" as Shipping #51cf66 {
+  [Local Couriers]
+  [Freight Forwarders]
+}
+
+rectangle "ERP System" as ERP #51cf66 {
+  [Odoo]
+}
+
+' Relationships
+CustomerMgmt -r-> Order : "Places"
+Catalog -d-> Order : "Contains"
+Order -d-> Subscription : "Triggers"
+Order -r-> Payment : "Processes"
+Order -d-> Shipping : "Schedules"
+Compliance -d-> Catalog : "Validates"
+Analytics -l-> Order : "Analyzes"
+ERP -u-> Order : "Synchronizes"
+
+' Legend
+top to bottom direction
+legend right
+  <b>Context Map Legend</b>
+  --
+  <color:#ff6b6b>Core Domain</color>
+  <color:#ff9e2c>Supporting Subdomain</color>
+  <color:#51cf66>Generic Subdomain</color>
+  --
+  --> Upstream (U)
+  <-- Downstream (D)
+  <-> Partnership (P)
+  --
+  Conformist (CF)
+  Anticorruption (ACL)
+  Open Host (OH)
+  Published Language (PL)
+end legend
+
+@enduml

@@ -1,0 +1,10 @@
+# Node.js/TypeScript
+node_modules/
+dist/
+.env
+*.log
+
+# IDEs / editors
+.vscode/
+.windsurf/
+*.swp

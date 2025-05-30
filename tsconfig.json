@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es2020"],
+    "declaration": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": ["DDD_Artefacts/code/*"],
+      "@customers/*": ["DDD_Artefacts/code/customers/*"],
+      "@catalog/*": ["DDD_Artefacts/code/catalog/*"],
+      "@ordering/*": ["DDD_Artefacts/code/ordering/*"],
+      "@subscriptions/*": ["DDD_Artefacts/code/subscriptions/*"],
+      "@payments/*": ["DDD_Artefacts/code/payments/*"],
+      "@shared/*": ["DDD_Artefacts/code/shared/*"]
+    },
+    "outDir": "dist",
+    "rootDir": "./",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "DDD_Artefacts/code/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

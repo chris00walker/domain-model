@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-05-29T19:04:00-03:00",
+  "artifacts": {
+    "strategic": [
+      "docs/glossary.md",
+      "docs/subdomain_matrix.md",
+      "docs/diagrams/context_map.puml"
+    ],
+    "tactical": [
+      "schemas/events/OrderPlaced.json",
+      "code/domain/Order/Order.ts",
+      "code/app/Order/CheckoutSaga.ts"
+    ],
+    "testing": [
+      "tests/invariant/Order.spec.ts"
+    ]
+  },
+  "constraints": {
+    "regulations": ["HACCP", "ISO_22000", "FSMA", "ANVISA", "WCAG"],
+    "techStack": ["MERN", "Cloudflare", "Terraform"],
+    "businessRules": ["margin_floors", "cash_cycle", "marketing_efficiency"]
+  }
+}
