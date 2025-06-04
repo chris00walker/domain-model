@@ -21,16 +21,16 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["DDD_Artefacts/src/app/*"],
-      "@domain/*": ["DDD_Artefacts/src/domain/*"],
-      "@infra/*": ["DDD_Artefacts/src/infra/*"],
-      "@shared/*": ["DDD_Artefacts/src/shared/*"],
-      "@customers/*": ["DDD_Artefacts/src/customers/*"],
-      "@catalog/*": ["DDD_Artefacts/src/catalog/*"],
-      "@ordering/*": ["DDD_Artefacts/src/ordering/*"],
-      "@subscriptions/*": ["DDD_Artefacts/src/subscriptions/*"],
-      "@payments/*": ["DDD_Artefacts/src/payments/*"],
-      "@pricing/*": ["DDD_Artefacts/src/pricing/*"]
+      "@app/*": ["DDD_Artefacts/code/app/*"],
+      "@domain/*": ["DDD_Artefacts/code/domain/*"],
+      "@infra/*": ["DDD_Artefacts/code/infra/*"],
+      "@shared/*": ["DDD_Artefacts/code/shared/*"],
+      "@customers/*": ["DDD_Artefacts/code/customers/*"],
+      "@catalog/*": ["DDD_Artefacts/code/catalog/*"],
+      "@ordering/*": ["DDD_Artefacts/code/ordering/*"],
+      "@subscriptions/*": ["DDD_Artefacts/code/subscriptions/*"],
+      "@payments/*": ["DDD_Artefacts/code/payments/*"],
+      "@pricing/*": ["DDD_Artefacts/code/pricing/*"]
     },
     "outDir": "dist",
     "rootDir": "./",
@@ -41,7 +41,7 @@
     "isolatedModules": true
   },
   "include": [
-    "DDD_Artefacts/src/**/*.ts",
+    "DDD_Artefacts/code/**/*.ts",
     "DDD_Artefacts/tests/**/*.ts"
   ],
   "exclude": [

@@ -1,40 +1,82 @@
 # Elias Food Imports - Domain-Driven Design Implementation
 
-This repository contains the Domain-Driven Design (DDD) artifacts for the Elias Food Imports (EFI) platform. The implementation follows DDD principles and patterns to model the complex domain of food importation, inventory management, and order fulfillment.
+This repository contains the Domain-Driven Design (DDD) artifacts for the Elias Food Imports (EFI) e-commerce platform. The implementation follows DDD principles and patterns to model the complex domain of specialty food importation, inventory management, order fulfillment, and subscription services.
 
 ## Project Structure
 
 ```
 DDD_Artefacts/
-├── code/
-│   ├── app/                   # Application layer
-│   │   └── Order/
-│   │       └── CheckoutSaga.ts  # Order processing saga
+├── src/                      # Source code (organized by bounded contexts)
+│   ├── app/                   # Application layer services
+│   ├── catalog/               # Catalog bounded context
+│   │   ├── domain/             # Domain models, entities, value objects
+│   │   └── tests/              # Unit tests for catalog context
 │   │
-│   ├── domain/               # Domain layer
-│   │   ├── Order/             # Order aggregate
-│   │   ├── events/            # Domain events
-│   │   └── ...
+│   ├── customers/             # Customer management bounded context
+│   │   ├── domain/             # Customer domain models
+│   │   └── tests/              # Unit tests for customer context
 │   │
-│   └── infra/                # Infrastructure layer
-│       └── Payment/
-│           └── StripeAdapter.ts  # Payment gateway adapter
+│   ├── domain/                # Shared domain layer components
+│   │   ├── events/             # Domain events
+│   │   └── value-objects/      # Reusable value objects
+│   │
+│   ├── infra/                 # Infrastructure layer
+│   │   └── persistence/        # Data access implementations
+│   │
+│   ├── ordering/              # Order management bounded context
+│   │   ├── domain/             # Order domain models
+│   │   └── tests/              # Unit tests for ordering context
+│   │
+│   ├── pricing/               # Pricing and promotions bounded context
+│   │   ├── domain/             # Pricing domain models
+│   │   └── tests/              # Unit tests for pricing logic
+│   │
+│   ├── shared/                # Shared utilities and cross-cutting concerns
+│   │   ├── domain/             # Shared domain components
+│   │   └── tests/              # Tests for shared components
+│   │
+│   └── subscriptions/         # Subscription management bounded context
+│       ├── domain/             # Subscription domain models
+│       └── tests/              # Unit tests for subscription context
 │
 ├── docs/                     # Documentation
 │   ├── diagrams/              # System diagrams
-│   ├── glossary.md           # Ubiquitous language
-│   └── subdomain_matrix.md    # Domain decomposition
+│   ├── 2-EFI-Software-Architecture.md  # Comprehensive architecture document
+│   ├── cqrs-proposal.md      # CQRS architecture proposal
+│   └── glossary.md           # Ubiquitous language definitions
 │
-├── schemas/                  # Event schemas
-│   └── events/
-│
-├── tests/                    # Test suite
-│   └── invariant/            # Domain model tests
-│       └── Order.spec.ts      # Order aggregate tests
-│
-├── package.json             # Project configuration
-└── README.md                 # This file
+└── tests/                    # Test suite
+    ├── integration/         # Integration tests across bounded contexts
+    └── invariant/            # Domain invariant tests
+        └── Order.spec.ts     # Order aggregate invariant tests
 ```
+
+## Bounded Contexts
+
+The project implements the following key bounded contexts:
+
+1. **Catalog**: Product catalog management including items, categories, and inventory.
+2. **Customers**: Customer profiles, preferences, and account management.
+3. **Ordering**: Order processing, validation, and fulfillment workflow.
+4. **Pricing**: Price calculations, promotions, and discounts logic.
+5. **Subscriptions**: Recurring order management and subscription services.
+
+## Development Guidelines
+
+- Path aliases are configured in tsconfig.json to simplify imports
+- The `update-imports.sh` script can be used to normalize import paths
+- Follow the hexagonal architecture pattern for new modules
+- Unit tests should be co-located with their respective domain components
+
+## Key Documentation
+
+Refer to the `docs` directory for detailed architecture documentation including:
+
+- Comprehensive software architecture (`2-EFI-Software-Architecture.md`)
+- Domain glossary defining the ubiquitous language
+- CQRS implementation proposal
+
+_Last updated: June 4, 2025_
 
 ## Key Artifacts
 
