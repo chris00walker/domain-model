@@ -16,6 +16,7 @@
 | **Payment Processing** | Secure payment handling | Asynchronous Events | PCI-DSS compliant | Payments |
 | **Inventory Management** | Real-time stock tracking | Event Sourcing | <100ms latency | Catalog |
 | **Fulfillment** | Pick, pack, and ship operations | REST API | 95% OTD | Ordering |
+| **Admin Management** | Platform administration and content moderation | REST API + Events | 99.5% uptime | Admin |
 
 ## Generic Domains (Commoditized)
 

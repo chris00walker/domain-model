@@ -9,6 +9,7 @@ The codebase implements the following bounded contexts:
 3. **Ordering** - Order processing and fulfillment
 4. **Pricing** - Price calculation and rules enforcement
 5. **Subscriptions** - Subscription management for recurring orders
+6. **Admin** - Platform administration, content moderation, and system settings
 
 ## 2. Detailed Bounded Context Analysis
 
@@ -111,6 +112,45 @@ The codebase implements the following bounded contexts:
 - `SubscriptionBundleRepository` (interface)
 - Implied SubscriptionRepository (not directly found in search)
 
+### 2.6 Admin Bounded Context
+
+#### Aggregates:
+- `AdminUser` - Admin user account with credentials, MFA status, and roles
+- `ModerationTask` - Content moderation workflow management
+- `SystemSetting` - Platform configuration settings
+
+#### Entities:
+- `Role` - Role with assigned permissions
+- `AuditLogEntry` - Record of administrative actions for compliance
+
+#### Domain Events:
+- `AdminUserCreatedEvent` - Published when a new admin user is created
+- `AdminRoleChangedEvent` - Published when an admin's role is modified
+- `AdminUserDeactivatedEvent` - Published when an admin user is deactivated
+- `ModerationTaskCompletedEvent` - Published when a content moderation task is completed
+- `SystemSettingUpdatedEvent` - Published when a system setting is changed
+
+#### Repositories:
+- `IAdminUserRepository` - Repository for admin user aggregate
+- `IRoleRepository` - Repository for role entity
+- `IModerationTaskRepository` - Repository for moderation tasks
+- `ISystemSettingRepository` - Repository for system settings
+
+#### Domain Services:
+- `AdminUserService` - Manages admin user lifecycle and security policies
+- `ModerationService` - Handles content moderation workflows and policies
+- `SystemSettingService` - Manages platform configuration
+- `IAuditLogService` - Records auditable admin actions
+
+#### Value Objects:
+- `AdminUserEmail` - Email with validation for admin communications
+- `AdminUserStatus` - Status of admin account (ACTIVE, INACTIVE, PENDING_MFA)
+- `ContentType` - Type of content being moderated
+- `ModerationStatus` - Status in moderation workflow (PENDING, IN_REVIEW, APPROVED, REJECTED, CHANGES_REQUESTED)
+- `Permission` - Admin permissions with hierarchical structure
+- `SystemSettingKey` - Key for identifying system settings
+- `SystemSettingValue` - Strongly-typed configuration value
+
 ## 3. Domain Event Publishing and Subscribing Paths
 
 ### Domain Event Mechanism:
@@ -173,6 +213,8 @@ This domain model inventory aligns with the business problem acceptance criteria
 2. Complete the event subscription mechanisms
 3. Implement explicit repositories for all aggregates
 4. Enhance domain services to fully support the business metrics defined in the acceptance criteria
+5. Develop tests for Admin context invariants (e.g., MFA enforcement for privileged roles)
+6. Complete integration between Admin and other contexts (especially for moderation workflows)
 
 ## 8. "As-Is" vs. "Should-Be" Analysis
 
@@ -229,6 +271,18 @@ This section compares the expected functionality from the product requirements d
 | Currency conversion and FX management | No currency conversion mechanisms found | 0% | High |
 | Price calculation accuracy = 100% | `PriceCalculationService` exists | 70% | Medium |
 | Weighted gross margin ≥ 35% | `MarginGuardRailService` exists but no specific target found | 60% | Medium |
+
+### 8.5 Admin Bounded Context
+
+| Business Model Expectation | Current Implementation Status | Completeness Score | Gap Priority |
+|---------------------------|------------------------------|-------------------|-------------|
+| Admin account creation and management | `AdminUser` aggregate and `AdminUserService` exist | 90% | Low |
+| Role-based access control | `Role` entity with permissions exists | 85% | Low |
+| MFA enforcement for privileged actions | `AdminUserStatus` includes PENDING_MFA state, but no test validation | 70% | Medium |
+| Audit logging of administrative actions | `AuditLogEntry` entity and `IAuditLogService` exist | 80% | Low |
+| Content moderation workflow | `ModerationTask` aggregate with workflow states exists | 90% | Low |
+| System configuration management | `SystemSetting` aggregate with type-safe values exists | 85% | Low |
+| Integration with other contexts | Defined in context map but implementation details unclear | 40% | High |
 | FX risk hedging coverage ≥ 80% | No FX hedging mechanisms found | 0% | High |
 | Pricing rule application | `PricingGovernanceService` exists | 70% | Medium |
 | Promotion stacking rules | `PromotionStackingService` implied | 40% | Medium |

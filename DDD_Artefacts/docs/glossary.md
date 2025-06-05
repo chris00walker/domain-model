@@ -43,6 +43,7 @@
 4. **Subscription Service**: Manages recurring orders and subscription plans
 5. **Compliance & Safety**: Ensures regulatory compliance and food safety
 6. **Analytics & Reporting**: Provides business intelligence and metrics
+7. **Admin**: Manages platform administration, content moderation, system settings, and audit logs
 
 ## Domain Events
 - `OrderPlaced`
@@ -57,6 +58,9 @@
 - `Address`: Physical location with validation
 - `Quantity`: Product quantity with unit of measure
 - `TimeSlot`: Delivery/pickup time window
+- `Permission`: Admin access control rights with hierarchical structure
+- `ModerationStatus`: Status of content moderation workflow
+- `SystemSettingValue`: Strongly-typed system configuration value
 
 ## Aggregates
 - `Customer`
@@ -64,12 +68,20 @@
 - `Order`
 - `Subscription`
 - `InventoryItem`
+- `AdminUser`
+- `Role`
+- `ModerationTask`
+- `SystemSetting`
+- `AuditLog`
 
 ## Policies
 - **Pricing Policy**: Ensures minimum margins (40% retail, 30% commercial, 25% wholesale)
 - **Inventory Policy**: Maintains minimum stock levels and reorder points
 - **Payment Policy**: Enforces 3D Secure and PCI compliance
 - **Delivery Policy**: Ensures SLA compliance for order fulfillment
+- **Admin Security Policy**: Enforces MFA for privileged actions and role-based access controls
+- **Content Moderation Policy**: Establishes review workflows and approval thresholds
+- **Audit Policy**: Defines what actions require logging and retention periods
 
 ---
 *This document is a living artifact that evolves with the domain. Last updated: 2025-05-29*

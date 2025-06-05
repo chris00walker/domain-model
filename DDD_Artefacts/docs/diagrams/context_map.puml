@@ -31,6 +31,13 @@ rectangle "Order Processing" as Order #ff6b6b {
 }
 
 ' Supporting Contexts
+rectangle "Admin" as Admin #ff9e2c {
+  [Admin Users]
+  [Content Moderation]
+  [System Settings]
+  [Audit Logging]
+}
+
 rectangle "Subscription Service" as Subscription #ff9e2c {
   [Subscription Plans]
   [Billing]
@@ -74,6 +81,13 @@ Order -d-> Shipping : "Schedules"
 Compliance -d-> Catalog : "Validates"
 Analytics -l-> Order : "Analyzes"
 ERP -u-> Order : "Synchronizes"
+
+' Admin Relationships
+Admin -u-> CustomerMgmt : "Manages"
+Admin -u-> Catalog : "Moderates"
+Admin <-d-> Compliance : "Coordinates"
+Admin -u-> Subscription : "Configures"
+Admin -r-> Analytics : "Monitors"
 
 ' Legend
 top to bottom direction

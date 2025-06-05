@@ -12,28 +12,33 @@ module.exports = {
   testEnvironment: 'node',
   // Include both domain code and dedicated test directories
   roots: [
-    '<rootDir>/code', 
+    '<rootDir>/src', 
     '<rootDir>/tests'
   ],
   // Path aliases for cleaner imports across bounded contexts
   moduleNameMapper: {
-    '^@shared/(.*)$': '<rootDir>/code/shared/$1',
-    '^@customers/(.*)$': '<rootDir>/code/customers/$1',
-    '^@catalog/(.*)$': '<rootDir>/code/catalog/$1',
-    '^@ordering/(.*)$': '<rootDir>/code/ordering/$1',
-    '^@subscriptions/(.*)$': '<rootDir>/code/subscriptions/$1',
-    '^@payments/(.*)$': '<rootDir>/code/payments/$1',
-    '^@pricing/(.*)$': '<rootDir>/code/pricing/$1',
-    '^@app/(.*)$': '<rootDir>/code/app/$1',
-    '^@domain/(.*)$': '<rootDir>/code/domain/$1',
-    '^@infra/(.*)$': '<rootDir>/code/infra/$1',
+    '^@shared/(.*)$': '<rootDir>/src/shared/$1',
+    '^@customers/(.*)$': '<rootDir>/src/customers/$1',
+    '^@catalog/(.*)$': '<rootDir>/src/catalog/$1',
+    '^@ordering/(.*)$': '<rootDir>/src/ordering/$1',
+    '^@subscriptions/(.*)$': '<rootDir>/src/subscriptions/$1',
+    '^@payments/(.*)$': '<rootDir>/src/payments/$1',
+    '^@pricing/(.*)$': '<rootDir>/src/pricing/$1',
+    '^@app/(.*)$': '<rootDir>/src/app/$1',
+    '^@admin/(.*)$': '<rootDir>/src/admin/$1',
+    '^@domain/(.*)$': '<rootDir>/src/domain/$1',
+    '^@infra/(.*)$': '<rootDir>/src/infra/$1',
   },
   moduleFileExtensions: ['ts', 'js', 'json'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest'
   },
-  // Test files can be placed in `tests` directory or alongside domain code with .spec.ts extension
-  testRegex: '(/(tests|code)/.*\\.(test|spec))\\.(ts|js)$',
+  // Test files can be placed in `tests` directory or alongside domain code with various test naming patterns
+  testMatch: [
+    '**/__tests__/**/*.+(ts|js)',
+    '**/tests/**/*.+(ts|js)',
+    '**/?(*.)+(spec|test|Tests).+(ts|js)'
+  ],
   // Allow running specific test types with Jest tags
   testPathIgnorePatterns: [
     '/node_modules/',
@@ -43,44 +48,50 @@ module.exports = {
   verbose: true,
   // Coverage reporting by bounded context
   collectCoverageFrom: [
-    'code/**/*.{ts,js}',
+    'src/**/*.{ts,js}',
     '!**/node_modules/**',
     '!**/dist/**'
   ],
   coverageDirectory: './coverage',
   // Coverage thresholds by bounded context
   coverageThreshold: {
-    'code/shared/domain/': {
+    'src/shared/domain/': {
       branches: 80,
       functions: 80,
       lines: 80,
       statements: 80
     },
-    'code/catalog/domain/': {
+    'src/catalog/domain/': {
       branches: 80,
       functions: 80,
       lines: 80,
       statements: 80
     },
-    'code/customers/domain/': {
+    'src/customers/domain/': {
       branches: 80,
       functions: 80,
       lines: 80,
       statements: 80
     },
-    'code/ordering/domain/': {
+    'src/ordering/domain/': {
       branches: 80,
       functions: 80,
       lines: 80,
       statements: 80
     },
-    'code/subscriptions/domain/': {
+    'src/subscriptions/domain/': {
       branches: 80,
       functions: 80,
       lines: 80,
       statements: 80
     },
-    'code/pricing/domain/': {
+    'src/pricing/domain/': {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80
+    },
+    'src/admin/domain/': {
       branches: 80,
       functions: 80,
       lines: 80,

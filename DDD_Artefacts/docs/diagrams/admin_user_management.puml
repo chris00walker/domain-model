@@ -1,0 +1,59 @@
+@startuml Admin User Management Workflow
+
+skinparam componentStyle uml2
+skinparam defaultFontName Arial
+
+title Admin User Management Workflow
+
+actor "Super Admin" as super
+participant "AdminUserService" as service
+participant "AdminUser" as user
+participant "Role" as role
+participant "AuditLogService" as auditLog
+
+note over user: Aggregate Root
+note over service: Domain Service
+note over role: Entity
+
+group Admin User Creation
+    super -> service: Create Admin User (email, name)
+    service -> user: Create(email, name)
+    user -> user: SetStatus(INACTIVE)
+    user -> service: Generate Invitation Token
+    service -> auditLog: Log(AdminUserCreated)
+    note right: MFA not yet enabled
+end
+
+group Admin User Activation
+    user -> service: ActivateAccount(token, password)
+    service -> user: SetPassword(password)
+    service -> user: Enable MFA
+    user -> user: SetStatus(PENDING_MFA)
+    service -> auditLog: Log(AdminUserActivated)
+end
+
+group MFA Setup
+    user -> service: CompleteMFASetup(verification)
+    alt MFA Verification Successful
+        service -> user: SetStatus(ACTIVE)
+        service -> auditLog: Log(MFAEnabled)
+    else MFA Verification Failed
+        service -> user: Remain PENDING_MFA
+        service -> auditLog: Log(MFASetupFailed)
+    end
+end
+
+group Role Assignment
+    super -> service: AssignRole(userId, roleId)
+    alt User Has MFA Enabled
+        service -> role: ValidatePermissions()
+        service -> user: AssignRole(role)
+        service -> auditLog: Log(RoleAssigned)
+    else User Without MFA
+        service -> service: Reject Role Assignment
+        service -> auditLog: Log(PermissionDenied)
+        note right: Enforcing MFA before privileged roles
+    end
+end
+
+@enduml
