@@ -30,7 +30,8 @@
       "@ordering/*": ["DDD_Artefacts/src/ordering/*"],
       "@subscriptions/*": ["DDD_Artefacts/src/subscriptions/*"],
       "@payments/*": ["DDD_Artefacts/src/payments/*"],
-      "@pricing/*": ["DDD_Artefacts/src/pricing/*"]
+      "@pricing/*": ["DDD_Artefacts/src/pricing/*"],
+      "@invoicing/*": ["DDD_Artefacts/src/invoicing/*"]
     },
     "outDir": "dist",
     "rootDir": "./",

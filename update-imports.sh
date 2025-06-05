@@ -1,26 +1,37 @@
 #!/bin/bash
 
 # Script to update relative import paths to use path aliases
-# For the pricing domain
+# For all domains in the DDD project
 
-echo "Updating import paths in pricing domain files..."
+DDD_ROOT="/home/chris/domain-model/DDD_Artefacts/src"
+DOMAINS=("pricing" "catalog" "customers" "ordering" "subscriptions" "shared")
 
-# Replace '../../../../shared/' with '@shared/'
-find /home/chris/domain-model/DDD_Artefacts/src/pricing -type f -name "*.ts" -exec sed -i 's|../../../../shared/|@shared/|g' {} \;
+echo "Updating import paths in all domain files..."
 
-# Replace '../../../shared/' with '@shared/' (if any)
-find /home/chris/domain-model/DDD_Artefacts/src/pricing -type f -name "*.ts" -exec sed -i 's|../../../shared/|@shared/|g' {} \;
+for domain in "${DOMAINS[@]}"; do
+  echo "Processing $domain domain..."
+  
+  # Convert imports from shared module to use path aliases
+  find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i 's|../../../../shared/|@shared/|g' {} \;
+  find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i 's|../../../shared/|@shared/|g' {} \;
+  find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i 's|../../shared/|@shared/|g' {} \;
+  find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i 's|../shared/|@shared/|g' {} \;
+  
+  # Convert cross-domain imports to use path aliases
+  for other_domain in "${DOMAINS[@]}"; do
+    if [ "$other_domain" != "$domain" ]; then
+      find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i "s|../../../../$other_domain/|@$other_domain/|g" {} \;
+      find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i "s|../../../$other_domain/|@$other_domain/|g" {} \;
+      find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i "s|../../$other_domain/|@$other_domain/|g" {} \;
+      find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i "s|../$other_domain/|@$other_domain/|g" {} \;
+    fi
+  done
+  
+  # Convert internal domain relative paths to use domain path alias
+  find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i "s|../../domain/|../domain/|g" {} \;
+  find "$DDD_ROOT/$domain" -type f -name "*.ts" -exec sed -i "s|../../../domain/|../domain/|g" {} \;
+done
 
-# Replace '../../shared/' with '@shared/' (if any)
-find /home/chris/domain-model/DDD_Artefacts/src/pricing -type f -name "*.ts" -exec sed -i 's|../../shared/|@shared/|g' {} \;
-
-# Replace '../shared/' with '@shared/' (if any)
-find /home/chris/domain-model/DDD_Artefacts/src/pricing -type f -name "*.ts" -exec sed -i 's|../shared/|@shared/|g' {} \;
-
-# Replace relative paths between pricing components with path aliases
-find /home/chris/domain-model/DDD_Artefacts/src/pricing -type f -name "*.ts" -exec sed -i 's|../../../../pricing/|@pricing/|g' {} \;
-find /home/chris/domain-model/DDD_Artefacts/src/pricing -type f -name "*.ts" -exec sed -i 's|../../../pricing/|@pricing/|g' {} \;
-find /home/chris/domain-model/DDD_Artefacts/src/pricing -type f -name "*.ts" -exec sed -i 's|../../pricing/|@pricing/|g' {} \;
-find /home/chris/domain-model/DDD_Artefacts/src/pricing -type f -name "*.ts" -exec sed -i 's|../pricing/|@pricing/|g' {} \;
+echo "Import path updates completed!"
 
 echo "Import paths updated successfully."
