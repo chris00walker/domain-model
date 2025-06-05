@@ -10,6 +10,14 @@ export class Success<S, F = Error> {
   isFailure(): this is Failure<S, F> {
     return false;
   }
+
+  getValue(): S {
+    return this.value;
+  }
+
+  getErrorValue(): F {
+    throw new Error('Cannot get error from a success result');
+  }
 }
 
 export class Failure<S, F = Error> {
@@ -21,6 +29,14 @@ export class Failure<S, F = Error> {
 
   isFailure(): this is Failure<S, F> {
     return true;
+  }
+
+  getValue(): S {
+    throw new Error('Cannot get value from a failure result');
+  }
+
+  getErrorValue(): F {
+    return this.error;
   }
 }
 

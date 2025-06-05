@@ -4,6 +4,8 @@ import { UniqueEntityID } from '@shared/domain/base/UniqueEntityID';
 import { ExpatCustomer } from '@customers/domain/aggregates/ExpatCustomer';
 import { CustomerType } from '@customers/domain/value-objects/CustomerType';
 import { CustomerCreated } from '@customers/domain/events/CustomerCreated';
+import { CustomerSegment } from '@customers/domain/value-objects/CustomerSegment';
+import { CustomerSegmentType } from '@customers/domain/value-objects/CustomerSegmentType';
 
 describe('Customers Domain - ExpatCustomer', () => {
   // Helper functions to create test objects
@@ -15,10 +17,29 @@ describe('Customers Domain - ExpatCustomer', () => {
     });
 
     if (contactInfoResult.isFailure()) {
-      throw new Error('Failed to create contact info: ' + contactInfoResult.error);
+      throw new Error('Failed to create contact info: ' + contactInfoResult.getErrorValue());
     }
     
     return contactInfoResult.value;
+  };
+
+  // Create a valid customer segment for testing
+  const createValidCustomerSegment = () => {
+    const segmentResult = CustomerSegment.create({
+      segmentType: CustomerSegmentType.ExpatLongTerm,
+      customerType: CustomerType.Expat,
+      acquisitionDate: new Date(),
+      acquisitionChannel: 'Web',
+      lifetimeValue: 2500,
+      engagementScore: 85,
+      preferredCommunicationChannel: 'EMAIL'
+    });
+
+    if (segmentResult.isFailure()) {
+      throw new Error('Failed to create customer segment: ' + segmentResult.getErrorValue());
+    }
+    
+    return segmentResult.value;
   };
 
   // Base properties for creating a valid expatriate customer
@@ -29,7 +50,8 @@ describe('Customers Domain - ExpatCustomer', () => {
     residencyStatus: 'PERMANENT' as const,
     residenceDuration: 24, // 24 months
     hasSubscription: false,
-    dietaryPreferences: ['Vegan', 'Gluten-Free']
+    dietaryPreferences: ['Vegan', 'Gluten-Free'],
+    customerSegment: createValidCustomerSegment()
   };
 
   // Test configuration for subscription customers
@@ -143,7 +165,7 @@ describe('Customers Domain - ExpatCustomer', () => {
         
         expect(result.isFailure()).toBe(true);
         if (result.isFailure()) {
-          expect(result.error).toContain('Residence duration must be greater than 0');
+          expect(result.getErrorValue()).toContain('Residence duration must be greater than 0');
         }
       });
 
@@ -158,7 +180,7 @@ describe('Customers Domain - ExpatCustomer', () => {
         
         expect(result.isFailure()).toBe(true);
         if (result.isFailure()) {
-          expect(result.error).toContain('Delivery preferences must be set for subscription customers');
+          expect(result.getErrorValue()).toContain('Delivery preferences must be set for subscription customers');
         }
       });
 
@@ -169,7 +191,8 @@ describe('Customers Domain - ExpatCustomer', () => {
           // Missing countryOfOrigin
           residencyStatus: 'PERMANENT' as const,
           residenceDuration: 24,
-          hasSubscription: false
+          hasSubscription: false,
+          customerSegment: createValidCustomerSegment()
         };
         
         const result = ExpatCustomer.create(incompleteProps as any);
@@ -203,7 +226,7 @@ describe('Customers Domain - ExpatCustomer', () => {
           
           expect(updateResult.isFailure()).toBe(true);
           if (updateResult.isFailure()) {
-            expect(updateResult.error).toContain('Residence duration must be greater than 0');
+            expect(updateResult.getErrorValue()).toContain('Residence duration must be greater than 0');
           }
           expect(customer.residencyStatus).toBe('PERMANENT'); // Should not change
         }

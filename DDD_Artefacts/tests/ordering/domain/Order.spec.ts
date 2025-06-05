@@ -10,7 +10,7 @@ describe('Order', () => {
   const customerId = (() => {
     const result = CustomerId.create('customer-123');
     if (result.isFailure()) {
-      throw new Error('Failed to create customer ID: ' + result.error);
+      throw new Error('Failed to create customer ID: ' + result.getErrorValue());
     }
     return result.value;
   })();
