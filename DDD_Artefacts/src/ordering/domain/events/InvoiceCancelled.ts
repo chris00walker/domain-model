@@ -1,23 +1,61 @@
-import { IDomainEvent } from '../../../shared/domain/events/IDomainEvent';
+import { DomainEvent, DomainEventProps } from '../../../shared/domain/events/DomainEvent';
 
-export interface InvoiceCancelledProps {
+export interface InvoiceCancelledEventProps {
   invoiceId: string;
   reason: string;
-  occurredAt: Date;
 }
 
 /**
  * Domain event raised when an invoice is cancelled
  */
-export class InvoiceCancelled implements IDomainEvent {
+export class InvoiceCancelled extends DomainEvent {
   public readonly invoiceId: string;
   public readonly reason: string;
-  public readonly occurredAt: Date;
-  public readonly eventType: string = 'InvoiceCancelled';
 
-  constructor(props: InvoiceCancelledProps) {
-    this.invoiceId = props.invoiceId;
-    this.reason = props.reason;
-    this.occurredAt = props.occurredAt;
+  private constructor(props: DomainEventProps, eventProps: InvoiceCancelledEventProps) {
+    super(props);
+    this.invoiceId = eventProps.invoiceId;
+    this.reason = eventProps.reason;
+  }
+
+  public static create(invoiceId: string, reason: string): InvoiceCancelled {
+    const props: DomainEventProps = {
+      aggregateId: invoiceId
+    };
+    
+    const eventProps: InvoiceCancelledEventProps = {
+      invoiceId,
+      reason
+    };
+    
+    return new InvoiceCancelled(props, eventProps);
+  }
+  
+  public toPrimitives(): any {
+    return {
+      eventId: this.eventId,
+      occurredOn: this.occurredOn,
+      aggregateId: this.aggregateId,
+      invoiceId: this.invoiceId,
+      reason: this.reason
+    };
+  }
+  
+  public static fromPrimitives(
+    aggregateId: string,
+    payload: any,
+    occurredOn: Date
+  ): InvoiceCancelled {
+    const props: DomainEventProps = {
+      aggregateId,
+      occurredOn
+    };
+    
+    const eventProps: InvoiceCancelledEventProps = {
+      invoiceId: payload.invoiceId,
+      reason: payload.reason
+    };
+    
+    return new InvoiceCancelled(props, eventProps);
   }
 }
