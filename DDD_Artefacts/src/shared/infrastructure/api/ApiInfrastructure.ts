@@ -262,7 +262,8 @@ export class AuthenticationMiddleware implements ApiMiddleware {
         user: userContext
       });
     } catch (error) {
-      this.logger.error('Authentication middleware error', error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      this.logger.error('Authentication middleware error', error as Error);
       
       return failure({
         code: 'UNAUTHORIZED',
@@ -308,7 +309,8 @@ export class PermissionMiddleware implements ApiMiddleware {
       
       return success(req);
     } catch (error) {
-      this.logger.error('Permission middleware error', error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      this.logger.error('Permission middleware error', error as Error);
       
       return failure({
         code: 'FORBIDDEN',
@@ -378,8 +380,9 @@ export class ExpressLikeApiServer implements ApiServer {
       
       return success(undefined);
     } catch (error) {
-      this.logger.error(`Failed to start API server: ${error.message}`, error);
-      return failure(`Failed to start API server: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      this.logger.error(`Failed to start API server: ${errorMessage}`, error as Error);
+      return failure(`Failed to start API server: ${errorMessage}`);
     }
   }
   
@@ -397,8 +400,9 @@ export class ExpressLikeApiServer implements ApiServer {
       
       return success(undefined);
     } catch (error) {
-      this.logger.error(`Failed to stop API server: ${error.message}`, error);
-      return failure(`Failed to stop API server: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      this.logger.error(`Failed to stop API server: ${errorMessage}`, error as Error);
+      return failure(`Failed to stop API server: ${errorMessage}`);
     }
   }
   
@@ -498,7 +502,8 @@ export class ExpressLikeApiServer implements ApiServer {
         };
       }
     } catch (error) {
-      this.logger.error(`Unhandled error in route handler: ${error.message}`, error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      this.logger.error(`Unhandled error in route handler: ${errorMessage}`, error as Error);
       
       // Record error metric
       this.monitoringService.incrementCounter('api_unhandled_error', 1, {
