@@ -1,0 +1,1 @@
+/home/chris/domain-model/DDD_Artefacts/src/shared/core/Guard.ts
