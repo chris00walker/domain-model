@@ -2,6 +2,7 @@ import { CustomerId } from '@customers/domain/value-objects/CustomerId';
 import { ProductId } from '@catalog/domain/value-objects/ProductId';
 import { UniqueEntityID } from '@shared/domain/base/UniqueEntityID';
 import { Money } from '@shared/domain/value-objects/Money';
+import { TestClock } from '@shared/domain/Clock';
 
 import { Subscription } from '@subscriptions/domain/aggregates/Subscription';
 import { SubscriptionStatus, SubscriptionStatusType } from '@subscriptions/domain/value-objects/SubscriptionStatus';

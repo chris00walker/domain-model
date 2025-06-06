@@ -144,6 +144,11 @@ export class PromotionalCampaign extends AggregateRoot<PromotionalCampaignProps>
       return failure(guardResult.message!);
     }
 
+    // Validate that name is not empty or whitespace only
+    if (typeof props.name === 'string' && props.name.trim().length === 0) {
+      return failure('Name cannot be empty or whitespace only');
+    }
+
     if (props.startDate >= props.endDate) {
       return failure('Start date must be before end date');
     }

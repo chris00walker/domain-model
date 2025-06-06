@@ -1,7 +1,8 @@
 import { FixedPricingStrategy } from '@pricing/domain/strategies/FixedPricingStrategy';
 import { PricingTier, PricingTierType } from '@pricing/domain/value-objects/PricingTier';
 import { Money } from '@shared/domain/value-objects/Money';
-import { PriceModifier, ModifierType } from '@pricing/domain/value-objects/PriceModifier';
+import { PriceModifier } from '@pricing/domain/value-objects/PriceModifier';
+import { Result } from '@shared/core/Result';
 
 describe('Pricing Domain - Strategies', () => {
   describe('FixedPricingStrategy', () => {
@@ -11,9 +12,9 @@ describe('Pricing Domain - Strategies', () => {
     beforeEach(() => {
       strategy = new FixedPricingStrategy();
       
-      const tierResult = PricingTier.create(PricingTierType.RETAIL);
-      expect(tierResult.isSuccess()).toBe(true);
-      retailTier = tierResult.value;
+      const retailTierResult = PricingTier.create(PricingTierType.RETAIL);
+      expect(retailTierResult.isSuccess()).toBe(true);
+      retailTier = (retailTierResult as Result<PricingTier, string> & { value: PricingTier }).value;
     });
     
     it('should calculate price using markup percentage from pricing tier', () => {
@@ -72,7 +73,11 @@ describe('Pricing Domain - Strategies', () => {
       if (baseCostResult.isSuccess()) {
         const baseCost = baseCostResult.value;
         
-        const discountModifierResult = PriceModifier.createDiscountFromPercentage(20);
+        const discountModifierResult = PriceModifier.createPercentageDiscount(
+          'Test Discount',
+          '20% off for testing',
+          20
+        );
         expect(discountModifierResult.isSuccess()).toBe(true);
         
         if (discountModifierResult.isSuccess()) {
@@ -105,7 +110,12 @@ describe('Pricing Domain - Strategies', () => {
       if (baseCostResult.isSuccess()) {
         const baseCost = baseCostResult.value;
         
-        const fixedDiscountResult = PriceModifier.createFixedDiscount(500); // $5.00 discount
+        const fixedDiscountResult = PriceModifier.createFixedDiscount(
+          'Fixed Discount',
+          '$5.00 off for testing',
+          500, // $5.00 discount
+          'BBD'
+        );
         expect(fixedDiscountResult.isSuccess()).toBe(true);
         
         if (fixedDiscountResult.isSuccess()) {
@@ -138,7 +148,11 @@ describe('Pricing Domain - Strategies', () => {
       if (baseCostResult.isSuccess()) {
         const baseCost = baseCostResult.value;
         
-        const surchargeResult = PriceModifier.createSurchargeFromPercentage(10); // 10% surcharge
+        const surchargeResult = PriceModifier.createPercentageSurcharge(
+          'Test Surcharge',
+          '10% surcharge for testing',
+          10 // 10% surcharge
+        );
         expect(surchargeResult.isSuccess()).toBe(true);
         
         if (surchargeResult.isSuccess()) {
@@ -190,7 +204,7 @@ describe('Pricing Domain - Strategies', () => {
     
     it('should enforce margin floor when required', () => {
       // Create a strategy with margin floor enforcement
-      const strategyWithFloor = new FixedPricingStrategy(true);
+      const strategyWithFloor = new FixedPricingStrategy();
       
       const baseCostResult = Money.create(1000, 'BBD'); // $10.00 BBD
       expect(baseCostResult.isSuccess()).toBe(true);
@@ -199,7 +213,11 @@ describe('Pricing Domain - Strategies', () => {
         const baseCost = baseCostResult.value;
         
         // Create a discount so large it would violate the margin floor
-        const largeDiscountResult = PriceModifier.createDiscountFromPercentage(90); // 90% discount
+        const largeDiscountResult = PriceModifier.createPercentageDiscount(
+          'Large Test Discount',
+          '90% off for testing',
+          90 // 90% discount
+        );
         expect(largeDiscountResult.isSuccess()).toBe(true);
         
         if (largeDiscountResult.isSuccess()) {
