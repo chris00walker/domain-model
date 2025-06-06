@@ -81,6 +81,9 @@ This document tracks the migration of Elias Food Imports documentation to the ne
 - Set up redirects from old to new locations ✅
 - Archive original files ✅
 - Update references in code and other documents ✅
+- Remove redundant documentation files from docs directory ✅
+- Remove unnecessary backup directory ✅
+- Remove outdated manifest.json and redundant dist directory ✅
 
 ## Priority Items
 
