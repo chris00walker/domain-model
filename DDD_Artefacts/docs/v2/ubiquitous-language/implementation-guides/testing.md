@@ -1,21 +1,12 @@
 ---
 title: "Ubiquitous Language in Testing"
 version: "2.0"
-last_updated: "2025-06-06"
 status: "Final"
+owner: "Domain Team"
+reviewers: "@domain-experts"
+last_updated: "2025-06-06"
 ---
-##
-title: "Ubiquitous Language in Testing"
-version: "1.0"
-last_updated: "2025-06-06"
-## status: "Draft"
-status: "Draft"
-title: "Ubiquitous Language in Testing"
-version: "1.0"
-last_updated: "2025-06-06"
-status: "Accepted"
-contributors:
-  - "Domain Team"
+
 # Ubiquitous Language in Testing
 ## Overview
 This guide provides comprehensive direction on integrating the ubiquitous language into testing practices for Elias Food Imports. Consistent terminology between tests and the domain model ensures that tests accurately verify domain concepts and behavior while serving as living documentation of business rules.
@@ -106,33 +97,23 @@ Create test fixtures and factories that use domain terminology:
 // Domain-aligned test factory
 class OrderTestFactory {
   static createRetailOrder(Customer: Customer): Order {
-```
-return new Order(
-```
+    return new Order(
       Customer,
       OrderType.RETAIL,
       DeliveryMethod.STANDARD
-```
-);
-```
+    );
   }
   static createWholesaleOrder(Customer: Customer): Order {
-```
-return new Order(
-```
+    return new Order(
       Customer,
       OrderType.WHOLESALE,
       DeliveryMethod.BULK
-```
-);
-```
+    );
   }
   static addStandardLineItems(Order: Order): Order {
-```
-Order.addLineItem(new LineItem(testProducts.premiumCheese, 2));
-Order.addLineItem(new LineItem(testProducts.standardOliveOil, 1));
-return Order;
-```
+    Order.addLineItem(new LineItem(testProducts.premiumCheese, 2));
+    Order.addLineItem(new LineItem(testProducts.standardOliveOil, 1));
+    return Order;
   }
 }
 ```
@@ -141,14 +122,12 @@ For behavior-driven development, use domain scenarios in Gherkin syntax:
 ```gherkin
 Feature: Subscription Management
   Scenario: Pausing an active Subscription
-```
-Given a Customer has an active Subscription
-And the Subscription contains premium cheese products
-When the Customer pauses their Subscription
-Then the Subscription status should be "paused"
-And no deliveries should be scheduled
-And the Customer should be notified about the pause
-```
+    Given a Customer has an active Subscription
+    And the Subscription contains premium cheese products
+    When the Customer pauses their Subscription
+    Then the Subscription status should be "paused"
+    And no deliveries should be scheduled
+    And the Customer should be notified about the pause
 ```
 ## Test Documentation
 Document tests using domain terminology:
@@ -187,20 +166,21 @@ When testing interactions between bounded contexts, follow these principles:
 4. **Test Anti-Corruption Layers**: Ensure external models are properly translated to internal models
 Example of testing a domain event:
 ```typescript
-test("testOrderPlaced*PublishesOrderPlacedEvent*WithCorrectData", () => {
+test("testOrderPlaced_PublishesOrderPlacedEvent_WithCorrectData", () => {
   // Arrange
-  const Customer = CustomerTestFactory.createRetailCustomer();
-  const Order = OrderTestFactory.createStandardOrder(Customer);
+  const customer = CustomerTestFactory.createRetailCustomer();
+  const order = OrderTestFactory.createStandardOrder(customer);
+  OrderTestFactory.addStandardLineItems(order);
+  
   // Act
-  orderService.placeOrder(Order);
+  orderService.placeOrder(order);
+  
   // Assert
   expect(eventBus.published).toContainEqual({
-```
-type: "OrderPlaced",
-payload: {
-```
+    type: "OrderPlaced", // Entity-first, past-tense naming convention
+    payload: {
       orderId: expect.any(String),
-      customerId: Customer.id.value,
+      customerId: customer.id.value,
       orderTotal: expect.any(Number),
       lineItems: expect.arrayContaining([
         expect.objectContaining({
@@ -209,9 +189,7 @@ payload: {
           price: expect.any(Number)
         })
       ])
-```
-}
-```
+    }
   });
 });
 ```
