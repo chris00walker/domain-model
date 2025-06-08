@@ -27,5 +27,17 @@
   },
   "dependencies": {
     "uuid": "^11.1.0"
-  }
+  },
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris00walker/domain-model.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chris00walker/domain-model/issues"
+  },
+  "homepage": "https://github.com/chris00walker/domain-model#readme"
 }
