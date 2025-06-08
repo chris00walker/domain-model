@@ -7,7 +7,7 @@ module.exports = {
     '/node_modules/',
     '<rootDir>/DDD_Artefacts/tests/'
   ],
-  roots: ['<rootDir>/src'],
+  roots: ['<rootDir>/src', '<rootDir>/DDD_Artefacts/src'],
   testMatch: ['**/__tests__/**/*.test.ts'],
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
   transform: {
