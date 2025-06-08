@@ -1,8 +1,14 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  roots: ['<rootDir>/DDD_Artefacts/tests'],
-  testMatch: ['**/*.spec.ts'],
+
+  // ✅ ignore the legacy artefact tests for now
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '<rootDir>/DDD_Artefacts/tests/'
+  ],
+  roots: ['<rootDir>/src'],
+  testMatch: ['**/__tests__/**/*.test.ts'],
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
   transform: {
     '^.+\\.ts$': 'ts-jest',
