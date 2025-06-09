@@ -3,12 +3,22 @@
  * make-codex-tickets.js
  * Generates CODEX test tickets for the lowest-coverage source files.
  *********************************************************************/
+require('dotenv').config({ path: `${__dirname}/../.env` });
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-const THRESHOLD = 60; // % lines – below this we raise a ticket
-const TOP_N = 2; // how many tickets to open per run
+// Configuration
+const THRESHOLD = 80; // Minimum coverage percentage
+const TOP_N = 5; // Number of tickets to create
 const COV_FILE = 'coverage/coverage-final.json';
+
+// Validate environment
+if (!process.env.GITHUB_TOKEN) {
+  console.error('❌  GITHUB_TOKEN environment variable is not set');
+  console.log('Please add your GitHub token to the .env file:');
+  console.log('GITHUB_TOKEN=your_token_here');
+  process.exit(1);
+}
 
 if (!fs.existsSync(COV_FILE)) {
   console.error(`❌  ${COV_FILE} not found – run \`npm test --coverage\` first`);
