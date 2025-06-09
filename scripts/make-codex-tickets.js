@@ -37,10 +37,10 @@ const entries = Object.entries(cov)
   }));
 
 const worst = entries
-  .filter((e) => e.file.startsWith('src/')) // ignore legacy and node_modules
-  .filter((e) => e.pct < THRESHOLD) // below your threshold
-  .sort((a, b) => a.pct - b.pct) // worst first
-  .slice(0, TOP_N); // limit to TOP_N
+  .filter((e) => e.file.startsWith('src/') || e.file.startsWith('DDD_Artefacts/src/'))
+  .filter((e) => e.pct < THRESHOLD)
+  .sort((a, b) => a.pct - b.pct)
+  .slice(0, TOP_N);
 
 if (!worst.length) {
   console.log('🎉  Coverage above threshold – no tickets created.');
