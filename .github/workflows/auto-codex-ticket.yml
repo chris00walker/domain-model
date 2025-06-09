@@ -1,0 +1,28 @@
+name: auto-codex-ticket
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  coverage-watch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 1️⃣  run tests with coverage
+      - name: Run Jest with coverage
+        run: |
+          npm ci
+          npm test -- --coverage
+
+      # 2️⃣  generate CODEX tickets
+      - name: Generate CODEX tickets
+        run: node scripts/make-codex-tickets.js
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }} # ← exactly 6 spaces left of “GH_TOKEN”
