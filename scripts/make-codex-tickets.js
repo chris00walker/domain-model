@@ -3,12 +3,22 @@
  * make-codex-tickets.js
  * Generates CODEX test tickets for the lowest-coverage source files.
  *********************************************************************/
+require('dotenv').config({ path: `${__dirname}/../.env` });
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-const THRESHOLD = 60; // % lines – below this we raise a ticket
-const TOP_N = 2; // how many tickets to open per run
+// Configuration
+const THRESHOLD = 80; // Minimum coverage percentage
+const TOP_N = 5; // Number of tickets to create
 const COV_FILE = 'coverage/coverage-final.json';
+
+// Validate environment
+if (!process.env.GITHUB_TOKEN) {
+  console.error('❌  GITHUB_TOKEN environment variable is not set');
+  console.log('Please add your GitHub token to the .env file:');
+  console.log('GITHUB_TOKEN=your_token_here');
+  process.exit(1);
+}
 
 if (!fs.existsSync(COV_FILE)) {
   console.error(`❌  ${COV_FILE} not found – run \`npm test --coverage\` first`);
@@ -17,12 +27,20 @@ if (!fs.existsSync(COV_FILE)) {
 
 const cov = JSON.parse(fs.readFileSync(COV_FILE, 'utf8'));
 
-const worst = Object.entries(cov)
-  .map(([file, data]) => ({ file, pct: data.lines.pct }))
-  .filter((e) => e.file.startsWith('src/')) // ignore legacy folders
-  .filter((e) => e.pct < THRESHOLD)
-  .sort((a, b) => a.pct - b.pct)
-  .slice(0, TOP_N);
+const entries = Object.entries(cov)
+  // 1️⃣ only keep items with a numeric lines.pct
+  .filter(([file, data]) => data && data.lines && typeof data.lines.pct === 'number')
+  // 2️⃣ map to our {file, pct} shape
+  .map(([file, data]) => ({
+    file,
+    pct: data.lines.pct,
+  }));
+
+const worst = entries
+  .filter((e) => e.file.startsWith('src/')) // ignore legacy and node_modules
+  .filter((e) => e.pct < THRESHOLD) // below your threshold
+  .sort((a, b) => a.pct - b.pct) // worst first
+  .slice(0, TOP_N); // limit to TOP_N
 
 if (!worst.length) {
   console.log('🎉  Coverage above threshold – no tickets created.');
