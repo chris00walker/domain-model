@@ -17,12 +17,20 @@ if (!fs.existsSync(COV_FILE)) {
 
 const cov = JSON.parse(fs.readFileSync(COV_FILE, 'utf8'));
 
-const worst = Object.entries(cov)
-  .map(([file, data]) => ({ file, pct: data.lines.pct }))
-  .filter((e) => e.file.startsWith('src/')) // ignore legacy folders
-  .filter((e) => e.pct < THRESHOLD)
-  .sort((a, b) => a.pct - b.pct)
-  .slice(0, TOP_N);
+const entries = Object.entries(cov)
+  // 1️⃣ only keep items with a numeric lines.pct
+  .filter(([file, data]) => data && data.lines && typeof data.lines.pct === 'number')
+  // 2️⃣ map to our {file, pct} shape
+  .map(([file, data]) => ({
+    file,
+    pct: data.lines.pct,
+  }));
+
+const worst = entries
+  .filter((e) => e.file.startsWith('src/')) // ignore legacy and node_modules
+  .filter((e) => e.pct < THRESHOLD) // below your threshold
+  .sort((a, b) => a.pct - b.pct) // worst first
+  .slice(0, TOP_N); // limit to TOP_N
 
 if (!worst.length) {
   console.log('🎉  Coverage above threshold – no tickets created.');
