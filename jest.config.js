@@ -3,10 +3,7 @@ module.exports = {
   testEnvironment: 'node',
 
   // ✅ ignore the legacy artefact tests for now
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    '<rootDir>/DDD_Artefacts/tests/'
-  ],
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/DDD_Artefacts/tests/'],
   roots: ['<rootDir>/src', '<rootDir>/DDD_Artefacts/src'],
   testMatch: ['**/__tests__/**/*.test.ts'],
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
@@ -27,10 +24,10 @@ module.exports = {
     '^@customers/(.*)$': '<rootDir>/DDD_Artefacts/src/customers/$1',
     '^@payments/(.*)$': '<rootDir>/DDD_Artefacts/src/payments/$1',
     '^@admin/(.*)$': '<rootDir>/DDD_Artefacts/src/admin/$1',
-    '^@shared/(.*)$': '<rootDir>/DDD_Artefacts/src/shared/$1'
+    '^@shared/(.*)$': '<rootDir>/DDD_Artefacts/src/shared/$1',
   },
   collectCoverage: true,
   coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov'],
-  verbose: true
+  coverageReporters: ['text', 'lcov', 'json'],
+  verbose: true,
 };
