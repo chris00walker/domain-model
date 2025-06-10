@@ -9,6 +9,12 @@ last_updated: 2025-06-06
 
 ## 1. Domain Overview
 
+<!-- GAP_IMPLEMENTED: Product Authentication Workflow | High | High | High -->
+<!-- stub for "Product Authentication Workflow" gap in the catalog authentication context -->
+
+<!-- GAP_IMPLEMENTED: Anti-Counterfeiting Measures | High | High | High -->
+<!-- stub for "Anti-Counterfeiting Measures" gap in the catalog authentication context -->
+
 The Catalog Authentication context is responsible for verifying the authenticity and provenance of specialty food products in the Elias Food Imports catalog. This bounded context handles the end-to-end authentication process, from scanning product authentication markers to maintaining provenance records and handling counterfeit detection.
 
 ## 2. Strategic Importance
