@@ -1,10 +1,18 @@
+---
+title: Catalog Domain Documentation
+status: draft
+owner: @catalog-team
+reviewers: @domain-experts, @tech-leads
+last_updated: 2025-06-10
+---
+
 # Catalog Domain
 
 ## Overview
 
 The Catalog domain manages Elias Food Imports' product information, categorization, and search capabilities. It serves as the central repository for all product-related data, enabling customers to browse, search, and discover the company's specialty imported food products. This domain supports the company's business by maintaining accurate, detailed, and appealing product information that drives sales and customer engagement.
 
-## Strategic Classification
+## Strategic Importance
 
 **Domain Type**: Core Domain
 
@@ -552,7 +560,7 @@ A specific version of a product with unique characteristics.
 - Save a bundle (create or update)
 - Get all bundles
 
-## Bounded Context Relationships
+## Integration Points
 
 ### Integration with Catalog Authentication Domain
 
