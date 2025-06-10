@@ -1,13 +1,826 @@
+---
+title: Shipping Domain Knowledge
+status: draft
+owner: @shipping-team
+reviewers: @reviewer1, @reviewer2
+last_updated: 2025-06-10
+---
+
 # Shipping Domain
 
-<!-- GAP_IMPLEMENTED: International Shipping Compliance -->
-<!-- stub for "International Shipping Compliance" gap in the shipping context -->
+## Table of Contents
+- [Domain Overview](#domain-overview)
+- [Strategic Classification](#strategic-classification)
+- [Core Domain Concepts](#core-domain-concepts)
+- [Business Rules](#business-rules)
+- [Domain Events](#domain-events)
+- [Aggregates](#aggregates)
+- [Entities](#entities)
+- [Value Objects](#value-objects)
+- [Domain Services](#domain-services)
+- [Integration Points](#integration-points)
+- [Implementation Phases](#implementation-phases)
+- [Technical Considerations](#technical-considerations)
 
-## International Shipping Compliance
+## Domain Overview
 
 International Shipping Compliance ensures that all cross-border shipments meet the complex regulatory requirements of both origin and destination countries. This is critical for EFI's global operations, particularly for food products that are subject to strict import/export controls, tariffs, and safety regulations.
 
-### Core Compliance Areas
+### Entities
+
+### Shipment
+**Description**: Represents a shipment of one or more packages from origin to destination.
+
+**Identifier**: `shipmentId` (UUID)
+
+**Attributes**:
+- `shipmentNumber`: string (auto-generated)
+- `orderId`: string
+- `customerId`: string
+- `status`: 'draft' | 'ready_for_pickup' | 'in_transit' | 'out_for_delivery' | 'delivered' | 'exception' | 'cancelled' | 'returned'
+- `origin`: Address
+- `destination`: Address
+- `carrier`: string
+- `serviceLevel`: string
+- `trackingNumber`: string
+- `trackingUrl`: string
+- `shipDate`: Date | null
+- `estimatedDelivery`: Date | null
+- `actualDelivery`: Date | null
+- `signatureRequired`: boolean
+- `signature`: string | null
+- `signatureUrl`: string | null
+- `insuranceAmount`: Money | null
+- `customsValue`: Money | null
+- `customsStatus`: 'not_required' | 'pending' | 'in_review' | 'cleared' | 'delayed' | 'rejected'
+- `temperatureControl`: {
+    required: boolean;
+    minTemp: number | null;  // in Celsius
+    maxTemp: number | null;  // in Celsius
+    currentTemp: number | null;
+    lastReading: Date | null;
+  }
+- `notes`: string | null
+- `createdAt`: Date
+- `updatedAt`: Date
+- `metadata`: Record<string, any>
+
+**Methods**:
+- `addPackage(packageDetails)`: Promise<void>
+- `removePackage(packageId)`: Promise<void>
+- `updateStatus(newStatus, timestamp, notes)`: Promise<void>
+- `updateTracking(trackingInfo)`: Promise<void>
+- `recordTemperatureReading(temperature, timestamp, sensorId)`: Promise<void>
+- `addDocument(document)`: Promise<void>
+- `removeDocument(documentId)`: Promise<void>
+- `calculateShippingCost()`: Promise<Money>
+- `toJSON()`: object
+
+### Package
+**Description**: Represents a physical package within a shipment.
+
+**Identifier**: `packageId` (UUID)
+
+**Attributes**:
+- `packageNumber`: string (auto-generated)
+- `shipmentId`: string
+- `trackingNumber`: string
+- `weight`: number (in kg)
+- `dimensions`: {
+    length: number;
+    width: number;
+    height: number;
+    unit: 'cm' | 'in';
+  }
+- `description`: string
+- `contents`: Array<{
+    orderItemId: string;
+    sku: string;
+    quantity: number;
+    description: string;
+    value: Money;
+    countryOfOrigin: string;
+    harmonizedCode: string;
+    isHazardous: boolean;
+    isFragile: boolean;
+  }>
+- `packageType`: string
+- `isHazardous`: boolean
+- `hazardousDetails`: string | null
+- `isFragile`: boolean
+- `requiresSignature`: boolean
+- `createdAt`: Date
+- `updatedAt`: Date
+
+**Methods**:
+- `updateDimensions(dimensions)`: Promise<void>
+- `updateWeight(weight)`: Promise<void>
+- `addContent(item)`: Promise<void>
+- `removeContent(orderItemId)`: Promise<void>
+- `calculateDimensionalWeight()`: number
+- `toJSON()`: object
+
+### Return
+**Description**: Represents a return request for one or more items from an order.
+
+**Identifier**: `returnId` (UUID)
+
+**Attributes**:
+- `returnNumber`: string (auto-generated)
+- `orderId`: string
+- `customerId`: string
+- `status`: 'requested' | 'approved' | 'rejected' | 'in_transit' | 'received' | 'inspected' | 'completed' | 'cancelled'
+- `reason`: string
+- `notes`: string | null
+- `returnLabel`: {
+    labelUrl: string | null;
+    trackingNumber: string | null;
+    carrier: string | null;
+    createdAt: Date | null;
+    expiresAt: Date | null;
+  }
+- `refund`: {
+    amount: Money | null;
+    method: string | null;
+    status: 'pending' | 'processing' | 'completed' | 'failed';
+    processedAt: Date | null;
+  }
+- `items`: Array<{
+    returnItemId: string;
+    orderItemId: string;
+    sku: string;
+    quantity: number;
+    reason: string;
+    status: 'pending' | 'received' | 'inspected' | 'approved' | 'rejected';
+    condition: 'new' | 'like_new' | 'used' | 'damaged' | 'defective';
+    inspectionNotes: string | null;
+  }>
+- `createdAt`: Date
+- `updatedAt`: Date
+
+**Methods**:
+- `approve(approverId, notes)`: Promise<void>
+- `reject(reason, notes)`: Promise<void>
+- `generateReturnLabel(carrierOptions)`: Promise<void>
+- `receiveReturn(receivedItems)`: Promise<void>
+- `inspectItems(inspections)`: Promise<void>
+- `processRefund(amount, method)`: Promise<void>
+- `toJSON()`: object
+
+## Value Objects
+
+### Address
+**Description**: Represents a physical location for shipping or billing purposes.
+
+**Attributes**:
+- `name`: string
+- `company`: string | null
+- `street1`: string
+- `street2`: string | null
+- `city`: string
+- `state`: string
+- `postalCode`: string
+- `country`: string (ISO 3166-1 alpha-2)
+- `phone`: string | null
+- `email`: string | null
+- `isResidential`: boolean
+- `isCommercial`: boolean
+- `taxId`: string | null
+- `vatNumber`: string | null
+
+**Methods**:
+- `validate()`: ValidationResult
+- `format()`: string
+- `toJSON()`: object
+- `equals(other)`: boolean
+
+### Money
+**Description**: Represents a monetary amount with currency.
+
+**Attributes**:
+- `amount`: number
+- `currency`: string (ISO 4217)
+
+**Methods**:
+- `add(other)`: Money
+- `subtract(other)`: Money
+- `multiply(factor)`: Money
+- `divide(divisor)`: Money
+- `format(locale)`: string
+- `toJSON()`: object
+- `equals(other)`: boolean
+
+### Dimensions
+**Description**: Represents the physical dimensions of a package.
+
+**Attributes**:
+- `length`: number
+- `width`: number
+- `height`: number
+- `unit`: 'cm' | 'in'
+
+**Methods**:
+- `convertTo(unit)`: Dimensions
+- `calculateVolume()`: number
+- `calculateDimensionalWeight(factor)`: number
+- `toJSON()`: object
+- `equals(other)`: boolean
+
+### Weight
+**Description**: Represents the weight of a package.
+
+**Attributes**:
+- `value`: number
+- `unit`: 'g' | 'kg' | 'lb' | 'oz'
+
+**Methods**:
+- `convertTo(unit)`: Weight
+- `add(weight)`: Weight
+- `subtract(weight)`: Weight
+- `toJSON()`: object
+- `equals(other)`: boolean
+
+### TrackingInfo
+**Description**: Represents tracking information for a shipment.
+
+**Attributes**:
+- `status`: string
+- `statusCode`: string
+- `statusDate`: Date
+- `location`: {
+    name: string;
+    city: string | null;
+    state`: string | null;
+    postalCode`: string | null;
+    country`: string | null;
+    coordinates`: {
+      latitude: number | null;
+      longitude: number | null;
+    };
+  }
+- `estimatedDelivery`: Date | null
+- `scheduledDelivery`: Date | null
+- `service`: string | null
+- `signedBy`: string | null
+- `events`: Array<{
+    date: Date;
+    status: string;
+    statusCode: string;
+    location: string;
+    description: string;
+  }>
+
+**Methods**:
+- `addEvent(event)`: void
+- `getLatestEvent()`: TrackingEvent | null
+- `toJSON()`: object
+
+### CustomsDeclaration
+**Description**: Represents customs declaration information for international shipments.
+
+**Attributes**:
+- `contentsType`: 'merchandise' | 'documents' | 'gift' | 'returned_goods' | 'sample' | 'other'
+- `contentsExplanation`: string
+- `invoiceNumber`: string | null
+- `invoiceDate`: Date | null
+- `termsOfSale`: string
+- `comments`: string | null
+- `items`: Array<{
+    description: string;
+    quantity: number;
+    value: Money;
+    weight: Weight;
+    countryOfOrigin: string;
+    harmonizedCode: string;
+    sku: string;
+  }>
+- `certificateNumbers`: string[]
+- `licenseNumbers`: string[]
+- `additionalDocuments`: Array<{
+    type: string;
+    reference: string;
+    description: string;
+    fileUrl: string | null;
+  }>
+
+**Methods**:
+- `addItem(item)`: void
+- `removeItem(index)`: void
+- `calculateTotalValue()`: Money
+- `calculateTotalWeight()`: Weight
+- `validate()`: ValidationResult
+- `toJSON()`: object
+
+## Domain Services
+
+### ShippingRateService
+**Description**: Calculates shipping rates for potential shipments based on various factors.
+
+**Methods**:
+- `calculateRates(origin, destination, packages, options)`: Promise<ShippingRate[]>
+  - `origin`: Address - Origin location
+  - `destination`: Address - Destination location
+  - `packages`: Package[] - List of packages to ship
+  - `options`: {
+      carrier?: string;
+      serviceLevels?: string[];
+      shipDate?: Date;
+      isResidential?: boolean;
+      deliveryConfirmation?: boolean;
+      insuranceAmount?: Money;
+      saturdayDelivery?: boolean;
+      dangerousGoods?: boolean;
+    }
+  - Returns: Array of available shipping rates with carrier, service, cost, and delivery estimates
+
+- `getServiceLevels(carrier)`: Promise<ServiceLevel[]>
+  - `carrier`: string - Carrier identifier
+  - Returns: Available service levels for the carrier
+
+### LabelGenerationService
+**Description**: Handles the generation of shipping labels and documentation.
+
+**Methods**:
+- `generateLabel(shipment, options)`: Promise<Label>
+  - `shipment`: Shipment - The shipment to generate label for
+  - `options`: {
+      format?: 'PDF' | 'PNG' | 'ZPL';
+      includeReturnLabel?: boolean;
+      thermalLabel?: boolean;
+      customsDocType?: 'COMMERCIAL_INVOICE' | 'PRO_FORMA' | 'CN22' | 'CN23';
+    }
+  - Returns: Generated label with tracking information
+
+- `voidLabel(labelId)`: Promise<void>
+  - `labelId`: string - ID of the label to void
+  - Throws: Error if label cannot be voided
+
+### TrackingService
+**Description**: Provides real-time tracking information for shipments.
+
+**Methods**:
+- `getTrackingInfo(trackingNumber, carrier)`: Promise<TrackingInfo>
+  - `trackingNumber`: string - The tracking number
+  - `carrier`: string - Carrier code
+  - Returns: Current tracking information
+
+- `subscribeToUpdates(trackingNumber, callback)`: Promise<Subscription>
+  - `trackingNumber`: string - The tracking number
+  - `callback`: (update: TrackingUpdate) => void - Callback for tracking updates
+  - Returns: Subscription object with unsubscribe method
+
+- `getDeliveryEta(trackingNumber)`: Promise<Date | null>
+  - `trackingNumber`: string - The tracking number
+  - Returns: Estimated delivery date or null if not available
+
+### CustomsService
+**Description**: Handles customs documentation and clearance for international shipments.
+
+**Methods**:
+- `generateCustomsDeclaration(shipment)`: Promise<CustomsDeclaration>
+  - `shipment`: Shipment - The shipment requiring customs documentation
+  - Returns: Generated customs declaration
+
+- `validateCustomsDocumentation(declaration)`: Promise<ValidationResult>
+  - `declaration`: CustomsDeclaration - The customs declaration to validate
+  - Returns: Validation result with any errors or warnings
+
+- `submitToCustoms(declaration)`: Promise<CustomsSubmissionResult>
+  - `declaration`: CustomsDeclaration - The declaration to submit
+  - Returns: Submission result with reference numbers and status
+
+### ReturnManagementService
+**Description**: Manages the return process for shipped items.
+
+**Methods**:
+- `createReturnAuthorization(orderId, items, reason)`: Promise<ReturnAuthorization>
+  - `orderId`: string - The original order ID
+  - `items`: Array<{orderItemId: string, quantity: number, reason: string}>
+  - `reason`: string - Reason for return
+  - Returns: Created return authorization
+
+- `generateReturnLabel(returnId, options)`: Promise<Label>
+  - `returnId`: string - The return authorization ID
+  - `options`: {
+      carrier?: string;
+      serviceLevel?: string;
+      rmaNumber?: string;
+    }
+  - Returns: Generated return label
+
+- `processReturnedItem(returnId, itemId, condition, notes)`: Promise<void>
+  - `returnId`: string - The return authorization ID
+  - `itemId`: string - The returned item ID
+  - `condition`: 'new' | 'used' | 'damaged' | 'defective'
+  - `notes`: string - Inspection notes
+
+### ManifestService
+**Description**: Handles creation and management of shipping manifests.
+
+**Methods**:
+- `createManifest(carrier, location, shipments)`: Promise<Manifest>
+  - `carrier`: string - Carrier code
+  - `location`: Location - Pickup location
+  - `shipments`: string[] - Array of shipment IDs to include
+  - Returns: Created manifest
+
+- `addToManifest(manifestId, shipmentIds)`: Promise<Manifest>
+  - `manifestId`: string - The manifest ID
+  - `shipmentIds`: string[] - Array of shipment IDs to add
+  - Returns: Updated manifest
+
+- `closeManifest(manifestId)`: Promise<Manifest>
+  - `manifestId`: string - The manifest ID to close
+  - Returns: Closed manifest
+
+## Integration Points
+
+### Order Context
+**Relationship Type**: Bidirectional
+
+**Integration Methods**:
+- **Event-Driven Integration**:
+  - Subscribes to:
+    - `OrderPaid`: To initiate shipping process
+    - `OrderCancelled`: To cancel pending shipments
+  - Publishes:
+    - `ShipmentCreated`: When a shipment is created for an order
+    - `ShipmentShipped`: When items are shipped
+    - `ShipmentDelivered`: When delivery is confirmed
+    - `ShipmentException`: For any shipping exceptions
+
+**Data Consistency**:
+- Order status is eventually consistent with shipment status
+- Uses compensating transactions for rollback on failures
+
+### Inventory Context
+**Relationship Type**: Bidirectional
+
+**Integration Methods**:
+- **Synchronous API Calls**:
+  - `reserveInventory(orderId, items)`: Reserve items for shipping
+  - `releaseInventory(shipmentId)`: Release reserved items
+- **Event-Driven Integration**:
+  - Subscribes to:
+    - `InventoryReserved`: To proceed with shipping
+    - `InventoryLow`: For potential shipping delays
+  - Publishes:
+    - `InventoryShipped`: When items are shipped
+    - `InventoryReturned`: For returned items
+
+**Data Consistency**:
+- Uses SAGA pattern for distributed transactions
+- Implements idempotent operations for retries
+
+### Customer Context
+**Relationship Type**: Unidirectional (Shipping → Customer)
+
+**Integration Methods**:
+- **Synchronous API Calls**:
+  - `getCustomerPreferences(customerId)`: For delivery preferences
+  - `getCustomerAddresses(customerId)`: For address validation
+- **Event-Driven Integration**:
+  - Publishes:
+    - `ShippingNotificationSent`: For tracking updates
+    - `DeliveryScheduled`: For upcoming deliveries
+
+**Data Consistency**:
+- Loose coupling with eventual consistency
+- Customer data is treated as read-only
+
+### Payment Context
+**Relationship Type**: Bidirectional
+
+**Integration Methods**:
+- **Synchronous API Calls**:
+  - `authorizePayment(orderId, amount)`: For shipping insurance
+  - `capturePayment(authorizationId)`: On shipment
+- **Event-Driven Integration**:
+  - Subscribes to:
+    - `PaymentCaptured`: To release shipment
+  - Publishes:
+    - `ShippingChargesApplied`: For shipping costs
+    - `RefundIssued`: For returns
+
+**Data Consistency**:
+- Uses SAGA pattern for payment transactions
+- Implements idempotent operations
+
+### Carrier Systems
+**Relationship Type**: External Integration
+
+**Integration Methods**:
+- **REST API**:
+  - Carrier-specific API clients for major carriers
+  - Standardized interface for common operations
+- **Webhooks**:
+  - For real-time tracking updates
+  - Delivery exceptions and notifications
+
+**Data Consistency**:
+- Eventual consistency with carrier systems
+- Retry mechanisms for failed API calls
+- Local caching of carrier service information
+
+### Warehouse Management System (WMS)
+**Relationship Type**: Bidirectional
+
+**Integration Methods**:
+- **Synchronous API**:
+  - `createPickList(shipmentId)`: For order picking
+  - `confirmPacking(shipmentId)`: When order is packed
+- **Event-Driven Integration**:
+  - Subscribes to:
+    - `OrderPicked`: To prepare for packing
+    - `OrderPacked`: To generate shipping labels
+
+**Data Consistency**:
+- Eventual consistency with warehouse operations
+- Reconciliation jobs to sync statuses
+
+### Analytics Context
+**Relationship Type**: Unidirectional (Shipping → Analytics)
+
+**Integration Methods**:
+- **Event Streaming**:
+  - Ships all shipping events to analytics
+  - Includes tracking updates, exceptions, and performance metrics
+- **Batch Processing**:
+  - Daily shipping performance reports
+  - Carrier performance analytics
+
+**Data Consistency**:
+- Eventual consistency
+- Data is treated as append-only in analytics
+
+## Implementation Phases
+
+### Phase 1: Core Shipping Functionality (Weeks 1-4)
+**Objective**: Implement basic shipping operations and carrier integrations.
+
+**Key Deliverables**:
+1. **Shipment Management**
+   - Create, read, update shipment records
+   - Basic package management
+   - Simple status tracking
+
+2. **Carrier Integration**
+   - Integrate with primary carriers (UPS, FedEx, DHL)
+   - Rate calculation
+   - Label generation
+
+3. **Basic Tracking**
+   - Track shipments by tracking number
+   - Simple status updates
+   - Basic notification system
+
+**Success Metrics**:
+- 95% successful label generation rate
+- Sub-2-second response time for rate calculations
+- 99% uptime for carrier API integrations
+
+### Phase 2: Advanced Features (Weeks 5-8)
+**Objective**: Enhance shipping capabilities with advanced features.
+
+**Key Deliverables**:
+1. **International Shipping**
+   - Customs documentation generation
+   - HS code validation
+   - Export compliance checks
+
+2. **Batch Processing**
+   - Bulk label generation
+   - Manifest creation
+   - Batch status updates
+
+3. **Advanced Tracking**
+   - Real-time tracking updates
+   - Exception management
+   - Predictive delivery dates
+
+**Success Metrics**:
+- 90% reduction in manual customs documentation
+- 3x faster batch processing
+- 50% reduction in customer inquiries about shipment status
+
+### Phase 3: Optimization & Scale (Weeks 9-12)
+**Objective**: Optimize shipping operations and prepare for scale.
+
+**Key Deliverables**:
+1. **Rate Shopping**
+   - Multi-carrier rate comparison
+   - Service level optimization
+   - Cost optimization algorithms
+
+2. **Advanced Analytics**
+   - Shipping cost analysis
+   - Carrier performance metrics
+   - Delivery performance reporting
+
+3. **System Integration**
+   - ERP/WMS integration
+   - Order management system integration
+   - Customer portal integration
+
+**Success Metrics**:
+- 15% reduction in shipping costs
+- 20% improvement in on-time delivery
+- 30% reduction in manual intervention
+
+### Phase 4: Innovation & Automation (Weeks 13-16)
+**Objective**: Implement cutting-edge features and automation.
+
+**Key Deliverables**:
+1. **AI/ML Features**
+   - Predictive shipping delays
+   - Smart package sizing
+   - Route optimization
+
+2. **Automation**
+   - Automated exception handling
+   - Self-service returns
+   - Automated claims processing
+
+3. **Sustainability**
+   - Carbon footprint tracking
+   - Eco-friendly packaging recommendations
+   - Green shipping options
+
+**Success Metrics**:
+- 25% reduction in shipping delays
+- 40% faster exception resolution
+- 20% improvement in sustainability metrics
+
+## Technical Considerations
+
+### Performance Optimization
+**Caching Strategy**:
+- Implement Redis-based caching for:
+  - Carrier rates (5-minute TTL)
+  - Address validation results (24-hour TTL)
+  - Service availability (1-hour TTL)
+
+**Database Optimization**:
+- Use read replicas for analytics and reporting
+- Implement database sharding by region for high-volume operations
+- Use time-series database for tracking data
+
+**Asynchronous Processing**:
+- Use message queues (Kafka/RabbitMQ) for:
+  - Label generation
+  - Tracking updates
+  - Batch operations
+
+### Error Handling & Resilience
+**Circuit Breakers**:
+- Implement circuit breakers for carrier API calls
+- Fallback to secondary carriers during outages
+- Graceful degradation of non-critical features
+
+**Retry Mechanisms**:
+- Exponential backoff for failed API calls
+- Dead letter queues for failed messages
+- Automatic reprocessing of failed jobs
+
+**Monitoring & Alerting**:
+- Real-time monitoring of:
+  - API response times
+  - Error rates
+  - Queue depths
+- Alerts for:
+  - Failed label generation
+  - Tracking sync failures
+  - Rate limit warnings
+
+### Security
+**Data Protection**:
+- Encrypt PII at rest and in transit
+- Mask sensitive data in logs
+- Implement role-based access control
+
+**API Security**:
+- OAuth 2.0 for authentication
+- Rate limiting and throttling
+- Request validation and sanitization
+
+**Compliance**:
+- GDPR/CCPA data handling
+- Customs and export controls
+- Audit logging for all operations
+
+### Scalability
+**Horizontal Scaling**:
+- Stateless services for easy scaling
+- Containerized deployment (Docker/Kubernetes)
+- Auto-scaling based on queue depth
+
+**Data Partitioning**:
+- Shard by shipping region
+- Separate hot/cold data storage
+- Archive old tracking data
+
+**Load Management**:
+- Request throttling
+- Priority queuing for time-sensitive operations
+- Bulk operation scheduling during off-peak hours
+
+### Integration Patterns
+**Event Sourcing**:
+- Capture all state changes as events
+- Enable temporal queries and auditing
+- Support for event replay
+
+**API Versioning**:
+- Semantic versioning for all APIs
+- Backward compatibility for at least 2 versions
+- Deprecation policy and migration guides
+
+**Webhooks**:
+- Retry with exponential backoff
+- Webhook signing for security
+- Delivery status monitoring
+
+### Testing Strategy
+**Unit Testing**:
+- Test all domain logic in isolation
+- Mock external dependencies
+- Achieve 90%+ code coverage
+
+**Integration Testing**:
+- Test carrier API integrations
+- Verify end-to-end workflows
+- Test failure scenarios
+
+**Performance Testing**:
+- Load test with production-like data volumes
+- Measure and optimize query performance
+- Establish performance baselines
+
+### Deployment Strategy
+**Blue/Green Deployments**:
+- Zero-downtime deployments
+- Easy rollback capability
+- Canary releases for high-risk changes
+
+**Feature Flags**:
+- Gradual feature rollouts
+- Kill switches for problematic features
+- A/B testing capabilities
+
+**Infrastructure as Code**:
+- Terraform for infrastructure provisioning
+- Kubernetes manifests for deployment
+- Automated rollback procedures
+
+### Monitoring & Observability
+**Logging**:
+- Structured logging with correlation IDs
+- Log aggregation and analysis
+- Retention policies for compliance
+
+**Metrics**:
+- Business metrics (shipments processed, costs)
+- System metrics (latency, error rates)
+- Custom metrics for domain-specific KPIs
+
+**Tracing**:
+- Distributed tracing across services
+- Performance bottleneck identification
+- End-to-end transaction monitoring
+
+### Disaster Recovery
+**Backup Strategy**:
+- Daily database backups
+- Point-in-time recovery capability
+- Regular backup restoration testing
+
+**Failover**:
+- Multi-region deployment
+- Automated failover procedures
+- Regular disaster recovery drills
+
+**Business Continuity**:
+- Runbook for critical incidents
+- Communication plan for outages
+- Post-mortem process for major incidents
+
+### Documentation
+**API Documentation**:
+- OpenAPI/Swagger specifications
+- Interactive API console
+- Code samples in multiple languages
+
+**Developer Onboarding**:
+- Getting started guide
+- Example implementations
+- Common troubleshooting
+
+**Operational Runbooks**:
+- Deployment procedures
+- Common operations tasks
+- Emergency procedures
+
+## Core Compliance Areas
 
 1. **Customs Documentation**
    - Commercial invoices with harmonized tariff codes (HS Codes)
