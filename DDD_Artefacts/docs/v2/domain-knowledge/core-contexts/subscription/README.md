@@ -2,7 +2,8 @@
 title: Subscription Domain Knowledge
 status: active
 owner: Subscription Team
-last_updated: 2025-06-06
+last_updated: 2025-06-10
+reviewers: @domain-experts, @architecture-team
 ---
 
 # Subscription Domain
@@ -17,11 +18,11 @@ last_updated: 2025-06-06
 
 The Subscription domain manages recurring product deliveries and relationships between Elias Food Imports and its customers. It handles the entire subscription lifecycle, including creation, modification, fulfillment, billing, and cancellation. This domain is strategically important as it represents a growing revenue stream and builds long-term customer relationships.
 
-## Strategic Classification
+## Strategic Importance
 
 **Classification**: Core Domain
 
-**Justification**: Subscriptions provide predictable recurring revenue, higher customer lifetime value, and a competitive advantage through personalized curation of specialty food products.
+**Justification**: Subscriptions provide predictable recurring revenue, higher customer lifetime value, and a competitive advantage through personalized curation of specialty food products. This domain is critical for customer retention and represents a growing revenue stream for Elias Food Imports.
 
 ## Core Domain Concepts
 
@@ -55,7 +56,19 @@ The process of selecting products for a subscription based on customer preferenc
 
 ## Domain Events
 
-### SubscriptionCreated
+| Event | Description | Producer | Consumers |
+|-------|-------------|-----------|------------|
+| SubscriptionCreated | New subscription created | Subscription | Order, Payment, Customer, Notification |
+| SubscriptionModified | Subscription parameters changed | Subscription | Order, Payment, Notification, Analytics |
+| SubscriptionPaused | Subscription temporarily paused | Subscription | Payment, Notification, Analytics |
+| SubscriptionCancelled | Subscription cancelled | Subscription | Payment, Customer, Notification, Analytics |
+| SubscriptionRenewed | Subscription billing cycle renewed | Subscription | Payment, Order, Notification, Analytics |
+| DeliveryScheduled | Subscription delivery scheduled | Subscription | Order, Shipping, Notification |
+| CurationCompleted | Product curation completed | Subscription | Order, Catalog, Analytics |
+
+### Event Details
+
+#### SubscriptionCreated
 - **Description**: Emitted when a new subscription is created.
 - **Payload**:
   - subscriptionId: string
@@ -130,6 +143,48 @@ The process of selecting products for a subscription based on customer preferenc
   - curationDate: DateTime
   - forDeliveryDate: DateTime
 - **Consumers**: Order, Catalog, Analytics
+
+## Value Objects
+
+### SubscriptionStatus
+- **Type**: Enumeration
+- **Values**: 
+  - `DRAFT`: Initial state before activation
+  - `ACTIVE`: Subscription is active and processing
+  - `PAUSED`: Subscription is temporarily paused
+  - `CANCELLED`: Subscription has been cancelled
+  - `EXPIRED`: Subscription has reached its end date
+
+### BillingFrequency
+- **Type**: Value Object
+- **Attributes**:
+  - `type`: `WEEKLY` | `BIWEEKLY` | `MONTHLY` | `QUARTERLY` | `SEMIANNUALLY` | `ANNUALLY`
+  - `interval`: number (default: 1)
+  - `dayOfWeek`: number (1-7, for weekly frequencies)
+  - `dayOfMonth`: number (1-31, for monthly/quarterly frequencies)
+  - `month`: number (1-12, for annual frequencies)
+
+### Money
+- **Type**: Value Object
+- **Attributes**:
+  - `amount`: number
+  - `currency`: string (ISO 4217 code)
+- **Behaviors**:
+  - `add(other: Money): Money`
+  - `subtract(other: Money): Money`
+  - `multiply(factor: number): Money`
+  - `isZero(): boolean`
+
+### Address
+- **Type**: Value Object
+- **Attributes**:
+  - `line1`: string
+  - `line2`: string (optional)
+  - `city`: string
+  - `state`: string
+  - `postalCode`: string
+  - `country`: string
+  - `isDefault`: boolean
 
 ## Aggregates
 
@@ -398,37 +453,110 @@ The process of selecting products for a subscription based on customer preferenc
 - **Communication Mechanism**:
   - REST API for customer data retrieval
   - Domain events for customer status changes
-- **Consistency Requirements**: Strong consistency for customer identity, eventual consistency for preference updates
 
 ### Catalog Context
-- **Integration Type**: Conformist
-- **Data Exchange**:
-  - Product availability and details
-  - Product categories and attributes for curation
+- **Relationship**: Provides product information and availability
 - **Communication Mechanism**:
-  - GraphQL API for product queries
-  - Event subscription for product changes
-- **Consistency Requirements**: Eventually consistent with periodic synchronization
+  - CQRS for product catalog queries
+  - Domain events for product changes
+- **Consistency Requirements**: Eventual consistency for product data
+- **Key Integration Points**:
+  - Product availability → Subscription fulfillment
+  - Product changes → Subscription updates
 
-### Payment Context
-- **Integration Type**: Customer-Supplier Relationship
-- **Data Exchange**:
-  - Payment methods and processing
-  - Billing history and status
-- **Communication Mechanism**:
-  - Domain events for payment requests and confirmations
-  - REST API for payment status inquiries
-- **Consistency Requirements**: Strong consistency for payment processing
+## Implementation Recommendations
 
-### Order Context
-- **Integration Type**: Partnership
-- **Data Exchange**:
-  - Conversion of subscription deliveries to orders
-  - Order fulfillment status updates
-- **Communication Mechanism**:
-  - Domain events for delivery scheduling
-  - REST API for order creation
-- **Consistency Requirements**: Strong consistency for order creation
+### Architecture
+1. **Modular Design**: Structure the subscription service as a set of loosely coupled modules:
+   - Subscription Management
+   - Billing Engine
+   - Delivery Scheduling
+   - Customer Experience
+   - Analytics & Reporting
+
+2. **Event Sourcing**: Consider using event sourcing for the subscription aggregate to maintain a complete audit trail of all state changes.
+
+3. **Saga Pattern**: Implement long-running processes (e.g., subscription lifecycle) using the Saga pattern to maintain consistency across bounded contexts.
+
+### Technical Implementation
+1. **API Design**:
+   - RESTful endpoints for CRUD operations
+   - Webhook support for asynchronous event notifications
+   - GraphQL for flexible data querying
+
+2. **Data Storage**:
+   - Primary: Document database for subscription data
+   - Secondary: Relational database for reporting and analytics
+   - Caching layer for frequently accessed data
+
+3. **Resilience**:
+   - Implement circuit breakers for external service calls
+   - Retry policies with exponential backoff
+   - Dead letter queues for failed messages
+
+### Testing Strategy
+1. **Unit Tests**: Cover all domain logic, value objects, and business rules
+2. **Integration Tests**: Verify interactions with other bounded contexts
+3. **Contract Tests**: Ensure API compatibility with consumers
+4. **End-to-End Tests**: Validate complete subscription workflows
+
+### Monitoring & Observability
+1. **Key Metrics**:
+   - Subscription growth rate
+   - Churn rate
+   - Renewal success rate
+   - Delivery success rate
+   - Payment success/failure rates
+
+2. **Alerting**:
+   - Failed subscription renewals
+   - Payment processing errors
+   - Delivery scheduling issues
+   - Integration point failures
+
+### Deployment Strategy
+1. **Blue/Green Deployments**: For zero-downtime updates
+2. **Feature Flags**: For gradual rollout of new features
+3. **Canary Releases**: For testing with a subset of users
+
+### Security Considerations
+1. **Authentication & Authorization**:
+   - OAuth 2.0 with JWT
+   - Role-based access control (RBAC)
+   - Fine-grained permissions
+
+2. **Data Protection**:
+   - Encryption at rest and in transit
+   - PII protection
+   - Audit logging
+
+### Performance Optimization
+1. **Caching**:
+   - Subscription details
+   - Customer preferences
+   - Product information
+
+2. **Asynchronous Processing**:
+   - Background jobs for non-critical operations
+   - Event-driven architecture for loose coupling
+
+### Documentation
+1. **API Documentation**:
+   - OpenAPI/Swagger
+   - Code examples
+   - Error handling reference
+
+2. **Operational Documentation**:
+   - Deployment procedures
+   - Monitoring setup
+   - Troubleshooting guides
+
+### Future Considerations
+1. **Multi-currency Support**
+2. **Tiered Subscription Plans**
+3. **Gift Subscriptions**
+4. **Family/Group Subscriptions**
+5. **AI-Powered Product Recommendations**
 
 ### Inventory Context
 - **Integration Type**: Open Host Service
@@ -450,7 +578,7 @@ The process of selecting products for a subscription based on customer preferenc
   - Domain events for notification triggers
 - **Consistency Requirements**: Eventual consistency acceptable
 
-## Implementation Considerations
+## Additional Considerations
 
 ### CQRS Pattern
 
