@@ -1,4 +1,18 @@
+---
+title: Sales & Quoting Domain Knowledge
+status: draft
+owner: @sales-team
+reviewers: @reviewer1, @reviewer2
+last_updated: 2025-06-10
+---
+
 # Sales & Quoting Domain
+
+<!-- GAP_IMPLEMENTED: B2B Quoting System | High | High | High -->
+<!-- stub for "B2B Quoting System" gap in the sales-quoting context -->
+
+<!-- GAP_IMPLEMENTED: Contract Management | Medium | High | Medium -->
+<!-- stub for "Contract Management" gap in the sales-quoting context -->
 
 <!-- GAP_IMPLEMENTED: B2B Quoting System | High | High | High -->
 <!-- stub for "B2B Quoting System" gap in the sales-quoting context -->
@@ -14,7 +28,7 @@ The Sales & Quoting domain manages the process of creating, negotiating, and fin
 
 **Classification**: Supporting Domain
 
-**Justification**: While not a core differentiator, the Sales & Quoting domain is essential for supporting B2B sales processes, managing customer negotiations, and ensuring accurate order fulfillment based on contractual terms.
+**Justification**: While not a core differentiator, the Sales & Quoting domain is essential for supporting B2B sales processes, managing customer negotiations, and ensuring accurate order fulfillment based on contractual terms. It directly impacts customer acquisition, revenue recognition, and contract compliance.
 
 ## Core Domain Concepts
 
@@ -37,50 +51,425 @@ Defined process for reviewing and approving quotes and contracts based on amount
 
 ### Quote Management
 1. Quotes must include all relevant product details, pricing, terms, and expiration dates.
-2. Quote validity periods must be clearly defined and enforced.
+2. Quote validity periods must be clearly defined and enforced (default 30 days).
 3. Changes to quotes after customer acceptance require a new quote version.
 4. All quote modifications must be tracked with audit trails.
+5. Quotes exceeding €50,000 require executive approval.
+6. Quotes must be automatically archived after 12 months of inactivity.
 
 ### Contract Management
 1. Contracts must reference the accepted quote and include all negotiated terms.
 2. Contract terms must be validated against company policies and legal requirements.
-3. Contract renewals and expirations must be tracked with appropriate notifications.
+3. Contract renewals and expirations must be tracked with 60-day advance notifications.
 4. Contract amendments must maintain version history and approval records.
+5. Auto-renewal clauses require explicit customer opt-in.
+6. Contract termination clauses must include a minimum 30-day notice period.
 
 ### Pricing and Discounts
 1. Discounts must be within approved thresholds based on customer tier and order volume.
-2. Special pricing requires appropriate approval levels.
-3. Price overrides must be documented with business justification.
+2. Special pricing requires appropriate approval levels (10-20%: Manager, 21-30%: Director, 30%+: VP).
+3. Price overrides must be documented with business justification and valid for a maximum of 6 months.
+4. Volume discounts must follow the approved tiered pricing structure.
+5. Promotional pricing must have defined start and end dates.
 
 ## Domain Events
 
 ### QuoteCreated
-**Description**: Triggered when a new quote is created.
-**Payload**: Quote ID, Customer ID, Creator ID, Creation Timestamp
+**Description**: Triggered when a new quote is created in the system.
+**Payload**:
+```typescript
+{
+  quoteId: string;
+  customerId: string;
+  creatorId: string;
+  createdAt: Date;
+  validUntil: Date;
+  currency: string;
+  totalAmount: number;
+  items: Array<{
+    productId: string;
+    quantity: number;
+    unitPrice: number;
+    discount: number;
+  }>;
+}
+```
+**Consumers**:
+- **Notification Context**: Send quote confirmation to creator
+- **Analytics Context**: Track quote creation metrics
+- **Customer Context**: Update customer interaction history
 
 ### QuoteSent
 **Description**: Triggered when a quote is sent to a customer.
-**Payload**: Quote ID, Recipient Email, Sent Timestamp, Expiration Date
+**Payload**:
+```typescript
+{
+  quoteId: string;
+  customerId: string;
+  sentTo: string; // Email
+  sentBy: string; // User ID
+  sentAt: Date;
+  expirationDate: Date;
+  communicationChannel: 'email' | 'portal' | 'api';
+}
+```
+**Consumers**:
+- **Notification Context**: Send delivery confirmation
+- **Analytics Context**: Track quote engagement metrics
+- **CRM Context**: Log customer interaction
 
 ### QuoteAccepted
 **Description**: Triggered when a customer accepts a quote.
-**Payload**: Quote ID, Acceptance Timestamp, Accepted By, Order ID (if created)
+**Payload**:
+```typescript
+{
+  quoteId: string;
+  customerId: string;
+  acceptedBy: string; // Customer contact
+  acceptedAt: Date;
+  ipAddress: string;
+  orderId?: string; // If order is auto-created
+  acceptanceMethod: 'digital_signature' | 'click_accept' | 'email_confirmation';
+}
+```
+**Consumers**:
+- **Order Context**: Create order from accepted quote
+- **Billing Context**: Set up billing schedule
+- **Notification Context**: Send acceptance confirmation
 
 ### ContractCreated
 **Description**: Triggered when a new contract is created from an accepted quote.
-**Payload**: Contract ID, Quote ID, Customer ID, Effective Date, Expiration Date
+**Payload**:
+```typescript
+{
+  contractId: string;
+  quoteId: string;
+  customerId: string;
+  effectiveDate: Date;
+  expirationDate: Date;
+  autoRenew: boolean;
+  terms: {
+    paymentTerms: string;
+    deliveryTerms: string;
+    terminationClause: string;
+    serviceLevelAgreements: Array<{
+      metric: string;
+      target: number;
+      timeWindow: string;
+    }>;
+  };
+  signatories: Array<{
+    name: string;
+    email: string;
+    role: string;
+    signedAt?: Date;
+  }>;
+}
+```
+**Consumers**:
+- **Legal Context**: Store contract documents
+- **Billing Context**: Set up recurring billing if applicable
+- **Notification Context**: Notify stakeholders of new contract
 
-## Implementation Notes
+## Aggregates
 
-### Integration Points
-- **Customer Context**: Customer information and segmentation
-- **Pricing Context**: Product pricing and discount structures
-- **Order Context**: Conversion of quotes to orders
-- **Billing Context**: Contract billing schedules and terms
+### QuoteAggregate
+**Description**: Manages the lifecycle of a quote from creation to acceptance or expiration.
 
-### Technical Considerations
-1. Support for complex pricing models and discount structures
-2. Document generation for quotes and contracts
-3. Digital signature capabilities
-4. Integration with CRM and ERP systems
-5. Audit logging for compliance and reporting
+**Root Entity**: `Quote`
+
+**Entities**:
+- `QuoteLineItem`
+- `QuoteVersion`
+- `QuoteApproval`
+
+**Invariants**:
+1. A quote must have at least one line item
+2. Quote total must equal the sum of all line item totals
+3. Only one version of a quote can be active at a time
+4. Quotes cannot be modified after acceptance
+
+**Commands**:
+- `CreateQuote(customerId, items, validUntil)`
+- `AddLineItem(quoteId, productId, quantity, unitPrice)`
+- `UpdateLineItem(quoteId, lineItemId, updates)`
+- `SubmitForApproval(quoteId, approverId)`
+- `ApproveQuote(quoteId, approverId, comments)`
+- `RejectQuote(quoteId, approverId, reason)`
+- `SendQuote(quoteId, sentBy, recipientEmail)`
+- `AcceptQuote(quoteId, acceptedBy, acceptanceMethod)`
+
+**Events**:
+- `QuoteCreated`
+- `QuoteLineItemAdded`
+- `QuoteSubmittedForApproval`
+- `QuoteApproved`
+- `QuoteRejected`
+- `QuoteSent`
+- `QuoteAccepted`
+- `QuoteExpired`
+
+### ContractAggregate
+**Description**: Manages the lifecycle of customer contracts, including creation, amendments, and renewals.
+
+**Root Entity**: `Contract`
+
+**Entities**:
+- `ContractVersion`
+- `ContractTerm`
+- `ContractSignatory`
+- `ServiceLevelAgreement`
+
+**Invariants**:
+1. A contract must reference an accepted quote
+2. Contract terms must be within company policy limits
+3. Only one version of a contract can be active at a time
+4. Contract amendments must maintain an audit trail
+
+**Commands**:
+- `CreateContract(quoteId, terms, signatories)`
+- `AmendContract(contractId, changes, reason)`
+- `AddSignatory(contractId, signatory)`
+- `SignContract(contractId, signatoryId, signatureData)`
+- `RenewContract(contractId, newEndDate)`
+- `TerminateContract(contractId, reason, effectiveDate)`
+
+**Events**:
+- `ContractCreated`
+- `ContractAmended`
+- `ContractSigned`
+- `ContractRenewed`
+- `ContractTerminated`
+- `ContractExpirationReminder`
+
+## Entities
+
+### Quote
+**Description**: Represents a formal offer to sell products or services.
+
+**Identifier**: `quoteId` (UUID)
+
+**Attributes**:
+- `quoteNumber`: string (auto-generated)
+- `status`: 'draft' | 'pending_approval' | 'approved' | 'sent' | 'accepted' | 'rejected' | 'expired'
+- `customerId`: string
+- `accountManagerId`: string
+- `createdAt`: Date
+- `updatedAt`: Date
+- `validUntil`: Date
+- `subtotal`: number
+- `totalDiscount`: number
+- `totalTax`: number
+- `totalAmount`: number
+- `currency`: string (ISO 4217)
+- `notes`: string
+- `termsAndConditions`: string
+- `shippingAddress`: Address
+- `billingAddress`: Address
+- `metadata`: Record<string, any>
+
+**Methods**:
+- `addLineItem(productId, quantity, unitPrice, discount)`: void
+- `updateLineItem(lineItemId, updates)`: void
+- `removeLineItem(lineItemId)`: void
+- `calculateTotals()`: void
+- `submitForApproval(approverId)`: void
+- `approve(approverId, comments)`: void
+- `reject(approverId, reason)`: void
+- `send(sentBy, recipientEmail)`: void
+- `accept(acceptedBy, acceptanceMethod)`: void
+- `expire()`: void
+- `toJSON()`: object
+
+### Contract
+**Description**: Represents a legally binding agreement with a customer.
+
+**Identifier**: `contractId` (UUID)
+
+**Attributes**:
+- `contractNumber`: string (auto-generated)
+- `quoteId`: string
+- `customerId`: string
+- `status`: 'draft' | 'active' | 'pending_signature' | 'expired' | 'terminated'
+- `startDate`: Date
+- `endDate`: Date
+- `autoRenew`: boolean
+- `billingCycle`: 'monthly' | 'quarterly' | 'annually'
+- `paymentTerms`: string
+- `deliveryTerms`: string
+- `terminationNoticePeriod`: number (days)
+- `createdAt`: Date
+- `updatedAt`: Date
+- `metadata`: Record<string, any>
+
+**Methods**:
+- `addSignatory(signatory)`: void
+- `removeSignatory(signatoryId)`: void
+- `sign(signatoryId, signatureData)`: void
+- `amend(changes, reason)`: void
+- `renew(newEndDate)`: void
+- `terminate(reason, effectiveDate)`: void
+- `isActive(date)`: boolean
+- `daysUntilExpiration()`: number
+- `toJSON()`: object
+
+## Value Objects
+
+### Money
+**Description**: Represents a monetary amount with currency.
+
+**Attributes**:
+- `amount`: number
+- `currency`: string (ISO 4217)
+
+**Methods**:
+- `add(other)`: Money
+- `subtract(other)`: Money
+- `multiply(factor)`: Money
+- `divide(divisor)`: Money
+- `format(locale)`: string
+- `equals(other)`: boolean
+
+### Address
+**Description**: Represents a physical or mailing address.
+
+**Attributes**:
+- `street1`: string
+- `street2`: string (optional)
+- `city`: string
+- `state`: string
+- `postalCode`: string
+- `country`: string (ISO 3166-1 alpha-2)
+- `type`: 'billing' | 'shipping' | 'both'
+
+**Methods**:
+- `validate()`: boolean
+- `toFormattedString()`: string
+- `equals(other)`: boolean
+
+### Discount
+**Description**: Represents a discount to be applied to a quote or line item.
+
+**Attributes**:
+- `type`: 'percentage' | 'fixed' | 'bulk'
+- `value`: number
+- `reason`: string
+- `approvedBy`: string (User ID)
+- `approvedAt`: Date
+- `validUntil`: Date (optional)
+
+**Methods**:
+- `calculateDiscount(amount)`: number
+- `isValid()`: boolean
+- `toJSON()`: object
+
+## Domain Services
+
+### QuoteGenerationService
+**Description**: Handles the generation of quotes based on customer requirements and product configurations.
+
+**Methods**:
+- `generateQuote(customerId, items, options)`: Promise<Quote>
+- `cloneQuote(quoteId, updates)`: Promise<Quote>
+- `convertToOrder(quoteId, customerId)`: Promise<Order>
+- `expireQuotesOlderThan(days)`: Promise<number>
+
+### ContractManagementService
+**Description**: Manages the contract lifecycle including creation, amendments, and renewals.
+
+**Methods**:
+- `createContractFromQuote(quoteId, terms)`: Promise<Contract>
+- `generateContractDocument(contractId)`: Promise<Buffer>
+- `sendForSignature(contractId, signatories)`: Promise<void>
+- `processRenewals()`: Promise<RenewalResult[]>
+
+### ApprovalWorkflowService
+**Description**: Manages the approval workflow for quotes and contracts.
+
+**Methods**:
+- `getApprovers(quoteOrContract)`: User[]
+- `requestApproval(itemId, requesterId)`: Promise<void>
+- `approve(itemId, approverId, comments)`: Promise<void>
+- `reject(itemId, approverId, reason)`: Promise<void>
+- `getApprovalHistory(itemId)`: ApprovalHistory[]
+
+## Integration Points
+
+### Consumed Events
+
+| Event | Source Context | Purpose |
+|-------|----------------|---------|
+| `CustomerCreated` | Customer | Track new customers for potential quotes |
+| `ProductPriceChanged` | Pricing | Update draft quotes with latest pricing |
+| `InventoryLow` | Inventory | Check impact on quotes with backordered items |
+| `PaymentFailed` | Billing | Handle payment issues for contract renewals |
+| `OrderShipped` | Order | Update contract fulfillment status |
+
+### Published Events
+
+| Event | Consumer Contexts | Purpose |
+|-------|-------------------|---------|
+| `QuoteCreated` | Analytics, Notification | Track quote metrics and notify stakeholders |
+| `QuoteAccepted` | Order, Billing | Create order and set up billing |
+| `ContractCreated` | Legal, Billing | Store contract and set up billing schedule |
+| `ContractExpiring` | Customer, Sales | Send renewal reminders |
+| `ContractTerminated` | Billing, Support | Stop billing and update support status |
+
+## Implementation Phases
+
+### Phase 1: Core Quote Management (Weeks 1-4)
+1. Implement basic quote creation and management
+2. Create quote approval workflow
+3. Set up basic notifications
+4. Implement quote-to-order conversion
+
+### Phase 2: Contract Management (Weeks 5-8)
+1. Implement contract creation from quotes
+2. Add digital signature support
+3. Set up contract versioning
+4. Implement basic renewal process
+
+### Phase 3: Advanced Features (Weeks 9-12)
+1. Add complex pricing rules
+2. Implement bulk operations
+3. Add reporting and analytics
+4. Set up integration with CRM/ERP systems
+
+### Phase 4: Optimization (Weeks 13-16)
+1. Performance optimization
+2. Add AI/ML for quote recommendations
+3. Implement advanced analytics
+4. Add self-service portal for customers
+
+## Technical Considerations
+
+### Architecture
+- **Hexagonal Architecture**: Keep domain logic independent of infrastructure
+- **CQRS**: Separate read and write models for better scalability
+- **Event Sourcing**: For audit trail and time-travel debugging
+
+### Performance
+- Cache frequently accessed quotes and contracts
+- Use materialized views for reporting
+- Implement batch processing for background jobs
+
+### Security
+- Role-based access control for all operations
+- Audit logging for all changes
+- Data encryption at rest and in transit
+- Regular security audits
+
+### Scalability
+- Horizontal scaling for read-heavy operations
+- Database sharding by customer/region
+- Asynchronous processing for non-critical operations
+
+### Monitoring and Alerting
+- Track key metrics (quote conversion rate, time to close, etc.)
+- Set up alerts for system issues
+- Monitor contract renewal dates and expirations
+
+### Compliance
+- GDPR/CCPA compliance for customer data
+- Industry-specific regulations (e.g., food safety)
+- Document retention policies
