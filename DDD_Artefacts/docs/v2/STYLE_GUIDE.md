@@ -65,9 +65,35 @@ Structure for implementation documents:
 3. Technical Details
 4. Next Steps
 
+## Gap-Implementation Markers & Stubs
+
+To support our incremental stub-and-marker workflow, documentation may include HTML comments of the form:
+
+```html
+<!-- GAP_IMPLEMENTED: <Gap Title> | <Severity> | <Business Impact> | <Implementation Complexity> -->
+<!-- TODO: stub for "<Gap Title>" gap in the <Context Name> context -->
+```
+
+Lint rules must ignore these comments (e.g., disable or whitelist under markdownlint).
+
+Formatters should preserve them verbatim.
+
+When filling in stubs, remove only the TODO comment; retain the GAP_IMPLEMENTED marker.
+
+### Example
+
+```markdown
+## Batch and Expiration Tracking
+<!-- GAP_IMPLEMENTED: Batch and Expiration Tracking | High | High | Medium -->
+<!-- TODO: stub for "Batch and Expiration Tracking" gap in the Inventory & Warehouse context -->
+```
+
+That way, any automated checks or formatters know to leave your markers and stubs intact.
+
 ## Conventions
 
 ### Links
+
 - Use relative links within the documentation
 - Use descriptive link text (not "click here")
 - Link to other relevant documents when referencing them
@@ -77,14 +103,15 @@ Structure for implementation documents:
 ```typescript
 // Good: Include type annotations
 function calculateTotal(items: OrderItem[]): Money {
-  return items.reduce((total, item) => 
-    total.add(item.price.multiply(item.quantity)), 
+  return items.reduce(
+    (total, item) => total.add(item.price.multiply(item.quantity)),
     Money.zero('USD')
   );
 }
 ```
 
 ### Diagrams
+
 - Use Mermaid for diagrams when possible
 - Include descriptive captions
 - Keep diagrams simple and focused
