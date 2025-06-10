@@ -1,5 +1,11 @@
 # Analytics Domain
 
+<!-- GAP_IMPLEMENTED: Real-time Analytics | High | High | High -->
+<!-- stub for "Real-time Analytics" gap in the analytics context -->
+
+<!-- GAP_IMPLEMENTED: Custom Reporting | Medium | High | Medium -->
+<!-- stub for "Custom Reporting" gap in the analytics context -->
+
 ## Domain Overview
 
 The Analytics Domain for Elias Food Imports (EFI) serves as the central nervous system for data-driven decision making across the organization. It is responsible for collecting, processing, analyzing, and visualizing business data from all other domains to generate actionable insights, measure business performance, identify trends, and support data-driven decision making. The Analytics Domain transforms raw operational data into meaningful business intelligence that drives strategic initiatives and operational improvements.
