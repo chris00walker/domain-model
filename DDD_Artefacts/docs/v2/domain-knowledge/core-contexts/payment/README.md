@@ -1,3 +1,11 @@
+---
+title: Payment Domain Knowledge
+status: draft
+owner: @payment-team
+reviewers: @reviewer1, @reviewer2
+last_updated: 2025-06-10
+---
+
 # Payment Domain
 
 ## Overview
