@@ -1,11 +1,37 @@
 ---
 title: Domain Event Catalog
 status: active
-owner: Integration Team
+owner: @integration-team
+reviewers: @domain-owners, @architecture-team
 last_updated: 2025-06-06
 ---
 
+<!-- GAP_IMPLEMENTED: Domain Event Catalog | Medium | High | Low -->
+
 # Domain Event Catalog
+
+## Domain Overview
+
+This catalog documents all domain events across the Elias Food Imports domain model, following the [Ubiquitous Language](../ubiquitous-language/README.md) and [Architecture Decision Records](../adr/README.md). Events are the primary mechanism for communication between bounded contexts in our domain-driven architecture.
+
+## Strategic Importance
+
+Domain events play a critical role in:
+- Maintaining consistency across bounded contexts
+- Enabling eventual consistency in a distributed system
+- Supporting event sourcing patterns
+- Facilitating system scalability and resilience
+
+## Purpose
+
+This document provides a comprehensive reference for all domain events, including their definitions, payload structures, and integration patterns. It serves as a contract between bounded contexts and ensures consistent event handling across the system.
+
+## Core Concepts
+
+- **Event Sourcing**: Persisting state changes as a sequence of events
+- **Eventual Consistency**: Allowing temporary inconsistencies that are resolved over time
+- **Idempotency**: Ensuring event handlers can process the same event multiple times safely
+- **Causality**: Maintaining the order of related events
 
 This catalog documents all domain events across the Elias Food Imports domain model. Each event includes its definition, payload structure, producing and consuming contexts, and delivery guarantee mechanism.
 
@@ -36,7 +62,9 @@ All domain events follow these naming conventions:
 1. **Entity-First**: Events are named starting with the entity they relate to
 2. **Past Tense**: Events use past tense to indicate something that has happened
 3. **Specificity**: Names are specific about what changed or occurred
-4. **Consistency**: Naming aligns with the Ubiquitous Language glossary
+4. **Consistency**: Naming aligns with the [Ubiquitous Language](../ubiquitous-language/glossary.md) glossary
+
+For detailed naming guidelines, see the [Event Naming Standards](../ubiquitous-language/event-naming.md).
 
 Examples: `OrderPlaced`, `PaymentProcessed`, `InventoryAdjusted`
 
@@ -287,6 +315,26 @@ Events use different delivery guarantees based on business criticality:
 
 ## Context-to-Context Event Flow Diagrams
 
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffd8d8', 'primaryBorderColor': '#ff8080' }}}%%
+flowchart LR
+    A[Order Context] -->|OrderPlaced| B[Payment Context]
+    B -->|PaymentProcessed| C[Inventory Context]
+    C -->|InventoryReserved| D[Shipping Context]
+    D -->|OrderShipped| E[Customer Context]
+    E -->|OrderDelivered| F[Analytics Context]
+    
+    style A fill:#e1f5fe,stroke:#01579b
+    style B fill:#e8f5e9,stroke:#1b5e20
+    style C fill:#fff3e0,stroke:#e65100
+    style D fill:#f3e5f5,stroke:#4a148c
+    style E fill:#e8eaf6,stroke:#1a237e
+    style F fill:#f1f8e9,stroke#33691e
+```
+*Figure 1: High-level event flow between bounded contexts*
+
+For more detailed sequence diagrams of specific flows, see the [Integration Flows](../integration-flows/README.md) documentation.
+
 ### Order Processing Flow
 
 ```mermaid
@@ -333,11 +381,25 @@ sequenceDiagram
 ### Subscription Management Flow
 
 ```mermaid
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e3f2fd' }}}%%
 sequenceDiagram
+    title Subscription Renewal Flow
     participant Subscription
     participant Payment
     participant Order
     participant Inventory
+    
+    Note over Subscription: Subscription renewal triggered
+    Subscription->>Payment: ProcessRecurringPayment()
+    Payment-->>Subscription: PaymentProcessed
+    Subscription->>Order: CreateOrder()
+    Order->>Inventory: ReserveInventory()
+    Inventory-->>Order: InventoryReserved
+    Order-->>Subscription: OrderCreated
+    Note right of Subscription: Sends notification to customer
+```
+*Figure 2: Sequence diagram for subscription renewal process*
     participant Shipping
     
     Subscription->>Subscription: SubscriptionRenewalDue
