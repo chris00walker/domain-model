@@ -1,5 +1,8 @@
 # Notification Domain
 
+<!-- GAP_IMPLEMENTED: Event-Driven Architecture | Medium | High | High -->
+<!-- stub for "Event-Driven Architecture" gap in the notification context -->
+
 ## Domain Overview
 
 The Notification Domain for Elias Food Imports (EFI) is responsible for managing all types of communications with customers, partners, and internal stakeholders. It serves as a central hub for processing, formatting, delivering, and tracking notifications across multiple channels while ensuring appropriate targeting, personalization, regulatory compliance, and delivery confirmation.

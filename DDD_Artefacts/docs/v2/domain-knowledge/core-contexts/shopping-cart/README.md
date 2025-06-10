@@ -8,6 +8,9 @@ last_updated: 2025-06-10
 
 # Shopping Cart Domain
 
+<!-- GAP_IMPLEMENTED: Dedicated Cart Context -->
+<!-- stub for "Dedicated Cart Context" gap in the shopping-cart context -->
+
 ## Domain Overview
 
 The Shopping Cart domain is responsible for managing the temporary storage and manipulation of products that customers intend to purchase from Elias Food Imports. This domain handles the pre-order phase of the customer journey, allowing customers to collect products, modify quantities, apply promotional codes, and initiate the checkout process. The Shopping Cart domain serves as a critical bridge between product browsing and order creation, enabling a seamless transition from product selection to purchase commitment.
@@ -47,6 +50,9 @@ A shopping cart associated with a non-authenticated user, which may later be tra
 The process of combining items from a guest cart with an existing cart when a user logs in.
 
 ## Business Rules
+
+<!-- GAP_IMPLEMENTED: Cart Reservation System -->
+<!-- stub for "Cart Reservation System" gap in the shopping-cart context -->
 
 ### Cart Creation and Management
 

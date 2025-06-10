@@ -211,9 +211,191 @@ A time-bound pricing adjustment applied to specific products or categories, pote
   - applyExchangeRate(): Money
   - generateAuditTrail(): AuditEntry[]
 
+## Multi-Currency Support
+
+Multi-currency support is essential for Elias Food Imports' global operations, enabling pricing, transactions, and reporting in multiple currencies while managing foreign exchange (FX) risk and maintaining consistent profit margins.
+
+### Currency Management
+
+```typescript
+interface Currency {
+  code: string;           // ISO 4217 currency code (e.g., 'USD', 'EUR', 'GBP')
+  symbol: string;         // Currency symbol (e.g., '$', '€', '£')
+  decimalPlaces: number;  // Standard decimal places (e.g., 2 for most currencies)
+  isBaseCurrency: boolean;// Whether this is the system's base currency
+  isActive: boolean;      // Whether the currency is active for use
+  format: string;         // Format string for display (e.g., '#,##0.00 ¤')
+}
+```
+
+### Exchange Rate Management
+
+```mermaid
+classDiagram
+    class ExchangeRate {
+        +string baseCurrency
+        +string targetCurrency
+        +decimal rate
+        +DateTime effectiveFrom
+        +DateTime? effectiveTo
+        +string source
+        +calculateAmount(Money amount) Money
+        +isValidForDate(DateTime date) boolean
+    }
+    
+    class ExchangeRateProvider {
+        +fetchLatestRates(baseCurrency) ExchangeRate[]
+        +getHistoricalRate(currency, date) ExchangeRate
+        +getRate(base, target, date) ExchangeRate
+    }
+    
+    ExchangeRateProvider --> ExchangeRate : provides
+```
+
+### Key Features
+
+1. **Multi-Currency Pricing**
+   - Store prices in multiple currencies
+   - Automatic conversion using latest exchange rates
+   - Support for currency-specific pricing overrides
+   - Rounding rules per currency
+
+2. **FX Risk Management**
+   - Real-time FX exposure reporting
+   - Automated hedging recommendations
+   - Historical rate analysis
+   - Forward contract integration
+
+3. **Currency Conversion**
+   - Real-time and historical conversions
+   - Bulk conversion operations
+   - Markup/markdown capabilities
+   - Audit trail of all conversions
+
+### Integration Points
+
+| System | Integration Type | Purpose |
+|--------|-----------------|---------|
+| FX Data Providers | API | Real-time and historical exchange rates |
+| ERP | Data Sync | Financial reporting in base currency |
+| Payment Processors | API | Multi-currency transaction processing |
+| Tax Systems | Events | Currency-specific tax calculations |
+| Reporting | Data Export | Multi-currency financial reports |
+
+### Implementation Phases
+
+| Phase | Timeline | Deliverables |
+|-------|----------|--------------|
+| 1. Core Currency Support | 0-2 months | Basic currency model, exchange rate management |
+| 2. Multi-Currency Pricing | 2-4 months | Currency-specific prices, conversions |
+| 3. FX Risk Management | 4-6 months | Exposure reporting, hedging |
+| 4. Localization | 6-8 months | Regional formatting, compliance |
+
 ## Value Objects
 
 ### Money
+
+**Enhanced with Multi-Currency Support**
+
+```typescript
+class Money {
+  private readonly amount: number;
+  private readonly currency: string;
+  
+  constructor(amount: number, currency: string) {
+    this.amount = this.roundToDecimalPlaces(amount, this.getDecimalPlaces(currency));
+    this.currency = currency.toUpperCase();
+    this.validate();
+  }
+  
+  convert(targetCurrency: string, exchangeRateService: ExchangeRateService): Money {
+    if (this.currency === targetCurrency) {
+      return this;
+    }
+    
+    const rate = exchangeRateService.getRate(this.currency, targetCurrency);
+    const convertedAmount = this.amount * rate.rate;
+    
+    return new Money(convertedAmount, targetCurrency);
+  }
+  
+  format(locale: string = 'en-US'): string {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: this.currency,
+      minimumFractionDigits: this.getDecimalPlaces(this.currency),
+      maximumFractionDigits: this.getDecimalPlaces(this.currency)
+    }).format(this.amount);
+  }
+  
+  private getDecimalPlaces(currency: string): number {
+    // Standard decimal places (can be overridden per currency)
+    const decimalPlaces: Record<string, number> = {
+      'JPY': 0,  // Japanese Yen
+      'KRW': 0,  // South Korean Won
+      'BIF': 0,  // Burundian Franc
+      'CLP': 0,  // Chilean Peso
+      'DJF': 0,  // Djiboutian Franc
+      'GNF': 0,  // Guinean Franc
+      'ISK': 0,  // Icelandic Króna
+      'KMF': 0,  // Comorian Franc
+      'PYG': 0,  // Paraguayan Guaraní
+      'RWF': 0,  // Rwandan Franc
+      'UGX': 0,  // Ugandan Shilling
+      'VND': 0,  // Vietnamese Đồng
+      'VUV': 0,  // Vanuatu Vatu
+      'XAF': 0,  // CFA Franc BEAC
+      'XOF': 0,  // CFA Franc BCEAO
+      'XPF': 0,  // CFP Franc
+      'MRO': 0   // Mauritanian Ouguiya
+    };
+    
+    return decimalPlaces[currency] ?? 2; // Default to 2 decimal places
+  }
+  
+  private roundToDecimalPlaces(value: number, places: number): number {
+    const factor = Math.pow(10, places);
+    return Math.round((value + Number.EPSILON) * factor) / factor;
+  }
+  
+  private validate(): void {
+    if (!isValidCurrency(this.currency)) {
+      throw new Error(`Invalid currency code: ${this.currency}`);
+    }
+    
+    if (isNaN(this.amount)) {
+      throw new Error('Amount must be a valid number');
+    }
+  }
+}
+```
+
+**Usage Example**:
+
+```typescript
+// Create prices in different currencies
+const usdPrice = new Money(19.99, 'USD');
+const eurPrice = new Money(18.50, 'EUR');
+
+// Convert between currencies
+const exchangeRateService = new ExchangeRateService();
+const convertedPrice = usdPrice.convert('EUR', exchangeRateService);
+
+// Format for display
+console.log(usdPrice.format('en-US'));  // $19.99
+console.log(convertedPrice.format('de-DE'));  // 18,50 €
+console.log(new Money(1000, 'JPY').format('ja-JP'));  // ¥1,000
+```
+
+**Key Enhancements**:
+1. Strict currency code validation
+2. Proper rounding based on currency-specific decimal places
+3. Immutable value object pattern
+4. Built-in formatting using Intl API
+5. Type-safe currency conversions
+6. Support for zero-decimal currencies
+
+This implementation ensures accurate financial calculations while providing a clean, type-safe API for working with monetary values across different currencies.
 - **Attributes**:
   - amount: decimal
   - currency: string

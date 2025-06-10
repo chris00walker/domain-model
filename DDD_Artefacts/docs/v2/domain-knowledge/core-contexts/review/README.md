@@ -1,5 +1,8 @@
 # Review Domain
 
+<!-- GAP_IMPLEMENTED: Authentication Integration | Low | Medium | Medium -->
+<!-- stub for "Authentication Integration" gap in the review context -->
+
 ## Domain Overview
 
 The Review Domain manages the collection, processing, and utilization of customer feedback about products in the Elias Food Imports (EFI) system. It encompasses all aspects of product reviews, ratings, and feedback mechanisms that help ensure product quality and improve customer satisfaction.

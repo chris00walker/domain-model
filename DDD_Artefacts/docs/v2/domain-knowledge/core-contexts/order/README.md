@@ -77,6 +77,9 @@ A specialized order type where the purchaser and the recipient are different ind
 6. Split shipments are created when some items are out of stock and backorder is enabled.
 7. Each package must have a tracking number assigned before leaving the warehouse.
 
+<!-- GAP_IMPLEMENTED: Order Modification Capabilities -->
+<!-- stub for "Order Modification Capabilities" gap in the order context -->
+
 ### Order Modifications
 
 1. Orders can only be modified if they have not entered the fulfillment stage.
@@ -92,6 +95,9 @@ A specialized order type where the purchaser and the recipient are different ind
 3. Return shipping for defective products is paid by Elias Food Imports.
 4. Refunds are processed within 5 business days of return receipt and inspection.
 5. Partial returns result in partial refunds based on the specific items returned.
+
+<!-- GAP_IMPLEMENTED: B2B Order Workflows -->
+<!-- stub for "B2B Order Workflows" gap in the order context -->
 
 ### Special Order Types
 

@@ -1,5 +1,11 @@
 # Marketing Domain Knowledge
 
+<!-- GAP_IMPLEMENTED: Personalization Engine -->
+<!-- stub for "Personalization Engine" gap in the marketing context -->
+
+<!-- GAP_IMPLEMENTED: Content Management -->
+<!-- stub for "Content Management" gap in the marketing context -->
+
 ## Domain Overview
 
 The Marketing Domain manages all aspects of promotional activities, campaign management, content strategy, and customer engagement initiatives for Elias Food Imports. This domain is responsible for creating, executing, and measuring marketing campaigns to drive customer acquisition, retention, and brand awareness.

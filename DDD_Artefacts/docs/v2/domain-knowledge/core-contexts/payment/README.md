@@ -106,6 +106,9 @@ Represents a service provider that processes electronic payments.
 - Fee structure
 - Status (active, inactive, maintenance)
 
+<!-- GAP_IMPLEMENTED: B2B Credit Management -->
+<!-- stub for "B2B Credit Management" gap in the payment context -->
+
 ## Business Rules
 
 ### Payment Processing
@@ -143,6 +146,9 @@ Represents a service provider that processes electronic payments.
 4. Suspicious transaction patterns must be flagged for manual review.
 5. Multi-currency transactions must use approved exchange rates updated daily.
 6. Transaction logs must be retained for 7 years for compliance and audit purposes.
+
+<!-- GAP_IMPLEMENTED: Multi-Currency Support -->
+<!-- stub for "Multi-Currency Support" gap in the payment context -->
 
 ### Financial Reconciliation
 

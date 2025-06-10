@@ -1,5 +1,375 @@
 # Shipping Domain
 
+<!-- GAP_IMPLEMENTED: International Shipping Compliance -->
+<!-- stub for "International Shipping Compliance" gap in the shipping context -->
+
+## International Shipping Compliance
+
+International Shipping Compliance ensures that all cross-border shipments meet the complex regulatory requirements of both origin and destination countries. This is critical for EFI's global operations, particularly for food products that are subject to strict import/export controls, tariffs, and safety regulations.
+
+### Core Compliance Areas
+
+1. **Customs Documentation**
+   - Commercial invoices with harmonized tariff codes (HS Codes)
+   - Certificates of Origin (COO)
+   - Export/Import licenses and permits
+   - Food safety certifications (FDA, EU health certificates)
+   - Phytosanitary certificates for plant-based products
+
+2. **Regulatory Requirements**
+   - **FDA Prior Notice**: Required for all food imports into the US
+   - **EU Food Law**: Compliance with Regulation (EC) No 178/2002
+   - **Country-Specific Bans/Restrictions**: E.g., certain food additives, GMO regulations
+   - **Labeling Requirements**: Allergens, nutritional info, and language requirements
+
+3. **Duties & Taxes**
+   - Automated duty calculation based on:
+     - Product classification (HS Code)
+     - Country of origin
+     - Trade agreements (e.g., USMCA, EU-UK TCA)
+   - VAT/GST calculation and collection
+   - Deferred duty payment options
+
+### Technical Implementation
+
+#### 1. Product Classification System
+
+```typescript
+interface ProductClassification {
+  hsCode: string;           // 6-10 digit HS code
+  eccn?: string;            // Export Control Classification Number
+  countryOfOrigin: string;  // ISO 3166-1 alpha-2
+  fdaProductCode?: string;  // For FDA-regulated products
+  euNovelFood?: boolean;    // EU Novel Food Regulation
+  containsGMO: boolean;
+  containsAllergens: string[];
+  shelfLifeDays: number;
+  storageConditions: {
+    minTemp?: number;
+    maxTemp?: number;
+    humidityRange?: [number, number];
+  };
+}
+```
+
+#### 2. Automated Document Generation
+
+```mermaid
+sequenceDiagram
+    participant O as Order System
+    participant S as Shipping System
+    participant C as Customs Service
+    participant P as Print/Email
+    
+    O->>S: Create International Shipment
+    S->>C: Validate Export Requirements
+    C-->>S: Required Documents
+    S->>S: Generate Documents
+    S->>P: Print/Email Documents
+    S->>O: Confirmation with Document Refs
+```
+
+### Compliance Workflows
+
+1. **Pre-Shipment Check**
+   - Verify all required documents are complete
+   - Validate product classifications
+   - Check for any import restrictions or embargoes
+   - Confirm proper labeling and marking
+
+2. **Customs Clearance**
+   - Electronic submission of customs data (e.g., ACE, CDS, ATLAS)
+   - Real-time duty and tax calculation
+   - Document upload and management
+   - Status tracking and alerts
+
+3. **Post-Clearance**
+   - Record retention for audits
+   - Duty drawback processing
+   - Compliance reporting
+
+### Integration Points
+
+| System | Data Exchange | Purpose |
+|--------|--------------|---------|
+| ERP | Product master data | HS codes, country of origin |
+| WMS | Inventory data | Batch/lot tracking, storage conditions |
+| CRM | Customer data | Importer of record, tax IDs |
+| Carrier Systems | Shipping data | Electronic manifest, customs docs |
+| Government Portals | Customs filings | Automated submissions |
+
+### Risk Management
+
+1. **Restricted Party Screening**
+   - Automated screening against:
+     - Denied Parties Lists (DPL)
+     - Specially Designated Nationals (SDN)
+     - Office of Foreign Assets Control (OFAC)
+
+2. **Embargo & Sanction Checks**
+   - Real-time validation of:
+     - Embargoed countries
+     - Sanctioned entities
+     - Dual-use goods restrictions
+
+3. **Audit Trail**
+   - Complete document history
+   - User access logs
+   - Change tracking for compliance data
+
+### Implementation Roadmap
+
+| Phase | Timeline | Key Deliverables |
+|-------|----------|------------------|
+| 1. Foundation | 0-3 months | Basic HS code classification, document templates |
+| 2. Automation | 3-6 months | Automated document generation, duty calculation |
+| 3. Integration | 6-9 months | Carrier/Government system integration |
+| 4. Optimization | 9-12 months | AI-powered classification, predictive analytics |
+
+### Key Performance Indicators
+
+| KPI | Target | Measurement |
+|-----|--------|-------------|
+| Customs Clearance Time | < 4 hours | Average time from submission to release |
+| Document Accuracy | > 99% | Error-free submissions |
+| Duty Optimization | > 15% savings | Through trade agreements and classification |
+| Audit Compliance | 100% | Successful regulatory audits |
+
+### Related Documents
+
+- [Export Compliance Manual](./export-compliance-manual.md)
+- [Country-Specific Import Requirements](./country-requirements/)
+- [Customs Documentation Templates](./templates/customs/)
+- [Trade Agreement Matrix](./trade-agreements.md)
+
+<!-- GAP_IMPLEMENTED: Temperature-Controlled Logistics -->
+<!-- stub for "Temperature-Controlled Logistics" gap in the shipping context -->
+
+## Temperature-Controlled Logistics
+
+Temperature-Controlled Logistics ensures that perishable and temperature-sensitive food products maintain their quality, safety, and compliance throughout the shipping process. This is critical for EFI's specialty food products that require specific temperature ranges to preserve freshness and meet regulatory requirements.
+
+### Key Components
+
+1. **Temperature Ranges**
+   - **Frozen**: -18°C to -22°C (0°F to -5°F)
+   - **Refrigerated**: 2°C to 8°C (36°F to 46°F)
+   - **Controlled Room Temperature**: 15°C to 25°C (59°F to 77°F)
+
+2. **Monitoring & Compliance**
+   - Real-time temperature tracking with IoT sensors
+   - Automated alerts for temperature excursions
+   - Digital temperature logs for regulatory compliance
+   - Chain of custody documentation
+
+3. **Carrier Requirements**
+   - Certified cold chain carriers with temperature-controlled vehicles
+   - Pre-shipment equipment validation
+   - Emergency protocols for temperature deviations
+   | Requirement | Frozen | Refrigerated | Ambient |
+   |-------------|--------|--------------|---------|
+   | Max Transit Time | 48h | 24h | 72h |
+   | Temp Tolerance | ±2°C | ±1°C | ±3°C |
+
+4. **Packaging Solutions**
+   - Insulated shipping containers
+   - Phase change materials (PCM)
+   - Vacuum insulation panels
+   - Dry ice management for ultra-low temperatures
+
+5. **Quality Assurance**
+   - Pre-shipment quality checks
+   - Temperature data analysis
+   - Post-delivery product inspection
+   - Non-compliance investigation process
+
+6. **Regulatory Compliance**
+   - HACCP (Hazard Analysis Critical Control Points)
+   - FDA Food Safety Modernization Act (FSMA)
+   - EU Food Safety Regulations
+   - Local food transportation regulations
+
+7. **Exception Handling**
+   - Immediate notification of temperature excursions
+   - Quarantine procedures for compromised shipments
+   - Root cause analysis and corrective actions
+   - Customer communication protocols
+
+8. **Performance Metrics**
+   - On-time delivery within temperature range
+   - Temperature excursion rate
+   - Product spoilage rate
+   - Customer satisfaction scores
+
+### Implementation Requirements
+
+- Integration with IoT temperature monitoring devices
+- Automated alerting system for temperature excursions
+- Digital documentation and audit trail
+- Carrier performance tracking
+- Customer portal for real-time tracking
+
+### Future Enhancements
+
+- Predictive analytics for temperature forecasting
+- Blockchain for end-to-end cold chain visibility
+- AI-driven route optimization for temperature-sensitive shipments
+- Automated quality assessment using computer vision
+
+### Related Domains
+
+- **Inventory Management**: For temperature-controlled storage
+- **Order Fulfillment**: For special handling instructions
+- **Customer Service**: For temperature-related inquiries
+- **Quality Assurance**: For product quality verification
+
+### API Endpoints
+
+- `POST /api/shipments/{id}/temperature` - Record temperature reading
+- `GET /api/shipments/{id}/temperature` - Retrieve temperature history
+- `GET /api/shipments/{id}/compliance` - Check compliance status
+- `POST /api/shipments/{id}/exceptions` - Report temperature exception
+
+### Event Types
+
+- `TemperatureExceeded`
+- `ColdChainBreachDetected`
+- `TemperatureRestored`
+- `CompromisedProductQuarantined`
+
+### Monitoring Dashboard
+
+- Real-time temperature graphs
+- Alert status and history
+- Compliance reports
+- Carrier performance metrics
+
+### Training Requirements
+
+- Cold chain handling procedures
+- Emergency response protocols
+- Regulatory compliance training
+- Equipment operation and maintenance
+
+### Risk Management
+
+- Risk assessment for new shipping lanes
+- Contingency planning for equipment failure
+- Backup carrier arrangements
+- Insurance coverage verification
+
+### Continuous Improvement
+
+- Regular review of temperature data
+- Analysis of temperature excursions
+- Process optimization based on findings
+- Implementation of corrective actions
+
+### Documentation
+
+- Standard Operating Procedures (SOPs)
+- Training materials
+- Compliance certificates
+- Audit reports
+
+### Technology Stack
+
+- IoT temperature sensors
+- Cloud-based monitoring platform
+- Mobile applications for drivers
+- Integration with existing ERP/WMS
+
+### Key Performance Indicators (KPIs)
+
+- Temperature compliance rate
+- On-time delivery performance
+- Product spoilage rate
+- Customer satisfaction with cold chain
+- Cost per temperature-controlled shipment
+
+### Change Management
+
+- Stakeholder communication plan
+- Training and certification program
+- Phased rollout strategy
+- Performance monitoring and feedback
+
+### References
+
+- FDA Guidance on Temperature Control for Foods
+- Global Cold Chain Alliance Standards
+- International Safe Transit Association (ISTA) Guidelines
+- Local Food Safety Regulations
+
+### Appendices
+
+- Temperature Log Templates
+- Emergency Contact List
+- Equipment Maintenance Schedule
+- Regulatory Compliance Checklist
+
+### Version History
+
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| 1.0 | 2025-06-10 | AI Assistant | Initial version |
+
+### Review Cycle
+
+This document should be reviewed and updated:
+- Annually for regulatory compliance
+- After any temperature-related incident
+- When introducing new temperature-sensitive products
+- When changing carriers or shipping routes
+
+### Approval
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Shipping Manager | | | |
+| Quality Assurance | | | |
+| Operations | | | |
+
+### Distribution List
+
+- Shipping Department
+- Quality Assurance
+- Operations Management
+- IT Department
+- Customer Service
+
+### Related Documents
+
+- Food Safety Management System Manual
+- HACCP Plan
+- Emergency Response Plan
+- Carrier Performance Reports
+
+### Glossary
+
+- **Cold Chain**: Temperature-controlled supply chain
+- **Excursion**: Temperature deviation from required range
+- **PCM**: Phase Change Material
+- **HACCP**: Hazard Analysis and Critical Control Points
+
+### Contact Information
+
+For questions or updates to this document, please contact:
+- Shipping Department: shipping@eliasfoodimports.com
+- Quality Assurance: qa@eliasfoodimports.com
+- IT Support: itsupport@eliasfoodimports.com
+
+### Document Control
+
+- **Document Owner**: Shipping Department
+- **Last Updated**: 2025-06-10
+- **Next Review**: 2026-06-10
+- **Status**: Draft
+
+### Notes
+
+This document is a living document and should be updated as processes and regulations change. All employees are responsible for ensuring they are working with the most current version.
+
 ## Domain Overview
 
 The Shipping Domain for Elias Food Imports (EFI) manages the transportation, delivery, and logistics processes that move products from EFI warehouses to customers. This domain handles all aspects of order fulfillment after products have been picked and packed, including carrier selection, shipment scheduling, tracking, delivery confirmation, and handling of exceptions such as returns and damaged deliveries.
