@@ -1,5 +1,11 @@
 # Marketing Domain Knowledge
 
+<!-- GAP_IMPLEMENTED: Customer Segmentation | Medium | High | Medium -->
+<!-- stub for "Customer Segmentation" gap in the marketing context -->
+
+<!-- GAP_IMPLEMENTED: Campaign Management | Medium | High | Medium -->
+<!-- stub for "Campaign Management" gap in the marketing context -->
+
 <!-- GAP_IMPLEMENTED: Personalization Engine -->
 <!-- stub for "Personalization Engine" gap in the marketing context -->
 

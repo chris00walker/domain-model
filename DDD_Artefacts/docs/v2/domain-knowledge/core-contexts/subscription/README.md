@@ -9,6 +9,12 @@ last_updated: 2025-06-06
 
 ## Domain Overview
 
+<!-- GAP_IMPLEMENTED: Subscription Lifecycle Management | High | High | High -->
+<!-- stub for "Subscription Lifecycle Management" gap in the subscription context -->
+
+<!-- GAP_IMPLEMENTED: Usage-Based Billing | Medium | High | Medium -->
+<!-- stub for "Usage-Based Billing" gap in the subscription context -->
+
 The Subscription domain manages recurring product deliveries and relationships between Elias Food Imports and its customers. It handles the entire subscription lifecycle, including creation, modification, fulfillment, billing, and cancellation. This domain is strategically important as it represents a growing revenue stream and builds long-term customer relationships.
 
 ## Strategic Classification
