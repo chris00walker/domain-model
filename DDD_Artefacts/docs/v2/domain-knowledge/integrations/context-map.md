@@ -2,14 +2,42 @@
 title: Bounded Context Map
 status: active
 owner: Domain Architecture Team
-last_updated: 2025-06-06
+reviewers: @domain-experts, @architecture-team
+domain_experts: @product-owners, @domain-architects
+last_updated: 2025-06-10
 ---
 
 # Elias Food Imports Bounded Context Map
 
-This document provides a comprehensive visualization and description of the bounded contexts within the Elias Food Imports domain model and defines the relationships between them.
+## Document Purpose
+This document provides a comprehensive visualization and description of the bounded contexts within the Elias Food Imports domain model, defines the relationships between them, and documents the integration patterns used for inter-context communication.
 
-## Bounded Context Diagram
+## Version History
+| Date       | Version | Description                  | Author          |
+|------------|---------|------------------------------|-----------------|
+| 2025-06-10 | 1.1.0   | Enhanced documentation, added sections, improved formatting | Architecture Team |
+| 2025-06-06 | 1.0.0   | Initial version              | Architecture Team |
+
+## Glossary
+
+### Core Concepts
+- **Bounded Context**: A boundary within which a particular domain model is defined and applicable
+- **Core Domain**: The central, most valuable part of the business that provides competitive advantage
+- **Supporting Domain**: Supports the core domain but is not a differentiator
+- **Generic Domain**: Common functionality that doesn't provide competitive advantage
+- **Integration Pattern**: Standardized approach for communication between bounded contexts
+- **Anti-Corruption Layer (ACL)**: A layer that isolates a model from external influence by translating between different models
+
+### Relationship Types
+- **Customer-Supplier**: One context provides data/services that another context consumes
+- **Partnership**: Two contexts work closely together with mutual dependency
+- **Conformist**: One context conforms to the model of another without influence
+- **Open Host Service**: Defines a protocol that gives access to the subsystem
+- **Published Language**: A well-documented, shared language for communication between contexts
+
+## 1. Bounded Context Diagram
+
+*Figure 1: High-level view of bounded contexts and their relationships*
 
 ```mermaid
 graph TB
@@ -70,9 +98,13 @@ graph TB
     classDef generic fill:#9c9,stroke:#333,stroke-width:1px;
 ```
 
-## Context Relationships
+## 2. Context Relationships
 
-### Upstream-Downstream Relationships
+### 2.1 Upstream-Downstream Relationships
+
+The following table outlines the directional relationships between bounded contexts, including the type of relationship and the integration pattern used:
+
+
 
 | Upstream Context | Downstream Context | Relationship Type | Integration Pattern |
 |-----------------|-------------------|-------------------|-------------------|
@@ -88,19 +120,25 @@ graph TB
 | Payment | Subscription | Customer-Supplier | Synchronous API |
 | Shipping | Order | Customer-Supplier | Event-Driven |
 
-### Anti-Corruption Layers
+### 2.2 Anti-Corruption Layers
 
-The following bounded contexts implement anti-corruption layers to isolate themselves from external systems or legacy domains:
+The following bounded contexts implement anti-corruption layers to isolate themselves from external systems or legacy domains. Each ACL includes translation logic to maintain the integrity of the domain model:
 
 1. **Catalog ↔ External Supplier Systems**: Translates between supplier product data formats and our domain model
 2. **Payment ↔ Payment Gateway**: Isolates payment domain from payment provider-specific implementations
 3. **Shipping ↔ Fulfillment Partners**: Translates between shipping partners' APIs and our domain model
 
-## Bounded Context Details
+## 3. Bounded Context Details
 
-### Core Domains
+This section provides detailed information about each bounded context, including its purpose, ownership, and integration points with other contexts.
 
-#### Catalog Authentication
+### 3.1 Core Domains
+
+Core domains represent the most valuable and differentiating aspects of the business.
+
+
+
+#### 3.1.1 Catalog Authentication
 
 **Business Capability**: Ensures product authenticity and provenance tracking.
 
@@ -119,7 +157,7 @@ The following bounded contexts implement anti-corruption layers to isolate thems
 - Consumes product data from Catalog context
 - Publishes authentication events to Analytics context
 
-#### Pricing
+#### 3.1.2 Pricing
 
 **Business Capability**: Dynamic price calculation and optimization
 
@@ -139,7 +177,7 @@ The following bounded contexts implement anti-corruption layers to isolate thems
 - Consumes product data from Catalog context
 - Consumes customer segment data from Customer context
 
-#### Subscription
+#### 3.1.3 Subscription
 
 **Business Capability**: Recurring product delivery management
 
@@ -160,7 +198,7 @@ The following bounded contexts implement anti-corruption layers to isolate thems
 - Processes payments through Payment context
 - Subscribes to products in Catalog context
 
-#### Order
+#### 3.1.4 Order
 
 **Business Capability**: Order processing and fulfillment
 
@@ -182,7 +220,9 @@ The following bounded contexts implement anti-corruption layers to isolate thems
 - Processes payment through Payment context
 - Arranges shipping through Shipping context
 
-### Supporting Domains
+### 3.2 Supporting Domains
+
+Supporting domains provide essential functionality that supports the core business processes.
 
 #### Catalog
 
@@ -337,9 +377,13 @@ The following bounded contexts implement anti-corruption layers to isolate thems
 - Associates reviews with customers from Customer context
 - Provides rating data to Catalog context
 
-## Context Mapping Patterns
+## 4. Integration Patterns
 
-### Customer-Supplier Pattern
+This section details the standard patterns used for communication between bounded contexts, including implementation guidelines and examples.
+
+### 4.1 Pattern Catalog
+
+#### 4.1.1 Customer-Supplier Pattern
 
 Used when one team (upstream) provides data or services to another team (downstream) with a commitment to meet the downstream team's needs.
 
@@ -347,7 +391,7 @@ Used when one team (upstream) provides data or services to another team (downstr
 - **Catalog → Order**: Catalog team provides product information required by the Order team.
 - **Customer → Subscription**: Customer team provides customer data needed for subscription management.
 
-### Partnership Pattern
+#### 4.1.2 Partnership Pattern
 
 Used when two teams have mutual dependencies and need to plan development together.
 
@@ -355,7 +399,7 @@ Used when two teams have mutual dependencies and need to plan development togeth
 - **Subscription ↔ Order**: Both teams collaborate closely to ensure subscription orders are processed correctly.
 - **Pricing ↔ Marketing**: Teams coordinate promotional pricing and campaign management.
 
-### Conformist Pattern
+#### 4.1.3 Conformist Pattern
 
 Used when a downstream team must adapt to the model of an upstream team without influence.
 
@@ -363,15 +407,24 @@ Used when a downstream team must adapt to the model of an upstream team without 
 - **Inventory ↔ Order**: Order processing must conform to inventory availability models.
 - **Analytics ↔ All Domains**: Analytics conforms to the event structures provided by other domains.
 
-### Anti-corruption Layer Pattern
+#### 4.1.4 Anti-Corruption Layer
 
-Used to isolate a domain model from external systems or legacy domains.
+Used to protect a model from corruption when integrating with external systems or legacy code.
 
 **Examples**:
+- **Catalog ↔ External Suppliers**: Translates between supplier data formats and our domain model.
 - **Payment → Payment Gateway**: Isolates payment domain from payment provider specifics.
 - **Shipping → Fulfillment Partners**: Translates between shipping partner APIs and our domain model.
 
-### Open Host Service Pattern
+#### 4.1.5 Shared Kernel
+
+Used when multiple teams share a subset of the domain model, including code or database schemas.
+
+**Examples**:
+- **Common Types Library**: Shared value objects and domain primitives used across contexts.
+- **Shared Event Definitions**: Common event schemas used for cross-context communication.
+
+#### 4.1.6 Open Host Service Pattern
 
 Used to provide a well-defined interface for integration with multiple other contexts.
 
@@ -418,3 +471,51 @@ This context map is a living document that evolves as the domain model matures. 
 ---
 
 *This context map serves as the primary reference for understanding the relationships between bounded contexts in our domain model. It guides architectural decisions, team structures, and integration patterns.*
+
+## 5. Future Considerations
+
+### 5.1 Planned Enhancements
+- [ ] Implement event-driven architecture for all cross-context communication
+- [ ] Develop comprehensive contract tests for all integration points
+- [ ] Create a service mesh for improved observability of cross-context communication
+
+### 5.2 Technical Debt
+- [ ] Document and standardize all event schemas
+- [ ] Implement circuit breakers for all external service calls
+- [ ] Add comprehensive monitoring for integration points
+
+## 6. Related Documents
+
+### Domain Documentation
+- [Domain Event Catalog](../domain-events/README.md)
+- [Integration Patterns](./integration-patterns.md)
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language](../ubiquitous-language/README.md)
+
+### Technical Documentation
+- [API Design Guidelines](../technical/api-design-guidelines.md)
+- [Event Sourcing Implementation](../technical/event-sourcing.md)
+- [Service Mesh Architecture](../technical/service-mesh.md)
+
+## 7. Gap Implementation Markers
+
+<!-- GAP_IMPLEMENTED: Context Map Documentation | High | High | Medium -->
+<!-- TODO: Add examples of event schemas for each integration point -->
+<!-- TODO: Add sequence diagrams for key integration flows -->
+<!-- TODO: Document SLAs and performance expectations for each integration point -->
+
+## 8. Reviewers
+
+- **Domain Experts**: Please review for accuracy of domain concepts and relationships
+- **Architects**: Please review technical implementation details and patterns
+- **Product Owners**: Please review alignment with business capabilities and strategy
+
+## 9. Approval
+
+| Role              | Name                | Date       | Approval Status |
+|-------------------|---------------------|------------|-----------------|
+| Domain Expert    | [Name]             | YYYY-MM-DD | Approved/Rejected |
+| Architect        | [Name]             | YYYY-MM-DD | Approved/Rejected |
+| Product Owner    | [Name]             | YYYY-MM-DD | Approved/Rejected |
+
+*Table: Document approval status and sign-off*
