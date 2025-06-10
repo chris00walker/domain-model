@@ -1,8 +1,9 @@
 ---
 title: Catalog Authentication Context
 status: active
-owner: Authentication Team
-last_updated: 2025-06-06
+owner: @auth-team
+reviewers: @reviewer1, @reviewer2
+last_updated: 2025-06-10
 ---
 
 # Catalog Authentication Context
@@ -10,10 +11,10 @@ last_updated: 2025-06-06
 ## 1. Domain Overview
 
 <!-- GAP_IMPLEMENTED: Product Authentication Workflow | High | High | High -->
-<!-- stub for "Product Authentication Workflow" gap in the catalog authentication context -->
+<!-- TODO: stub for "Product Authentication Workflow" gap in the Catalog Authentication context -->
 
 <!-- GAP_IMPLEMENTED: Anti-Counterfeiting Measures | High | High | High -->
-<!-- stub for "Anti-Counterfeiting Measures" gap in the catalog authentication context -->
+<!-- TODO: stub for "Anti-Counterfeiting Measures" gap in the Catalog Authentication context -->
 
 The Catalog Authentication context is responsible for verifying the authenticity and provenance of specialty food products in the Elias Food Imports catalog. This bounded context handles the end-to-end authentication process, from scanning product authentication markers to maintaining provenance records and handling counterfeit detection.
 
@@ -22,6 +23,8 @@ The Catalog Authentication context is responsible for verifying the authenticity
 This bounded context represents a **core domain** for Elias Food Imports as it directly addresses the primary business differentiator: guaranteed authenticity of specialty imported food products. The authentication system builds customer trust and protects brand reputation by ensuring products are genuine imports from their claimed origin.
 
 ## 3. Core Concepts
+
+The Catalog Authentication context defines several key concepts that are fundamental to its operation:
 
 ### Authentication Scan
 A process where a product's authentication markers are verified through physical, digital, or blockchain means.
@@ -50,6 +53,8 @@ Processes and algorithms for identifying potentially counterfeit products.
 
 ## 5. Domain Events
 
+Domain events represent significant occurrences within the authentication context that other parts of the system may need to react to.
+
 | Event | Description | Consumers |
 |-------|-------------|-----------|
 | `ProductAuthenticated` | Product has passed authentication checks | Catalog, Inventory |
@@ -76,9 +81,24 @@ Processes and algorithms for identifying potentially counterfeit products.
 
 ## 7. Domain Services
 
+Key domain services that encapsulate business logic and coordinate between entities:
+
 - **AuthenticationService**: Core service for verifying product authenticity
+  ```typescript
+  interface AuthenticationService {
+    authenticateProduct(markerId: string): Promise<AuthenticationResult>;
+    verifyProvenance(provenanceId: string): Promise<ProvenanceVerification>;
+  }
+  ```
+
 - **ProvenanceService**: Service for tracing product origins and handling
 - **CounterfeitDetectionService**: Specialized service for identifying suspect products
+  ```typescript
+  interface CounterfeitDetectionService {
+    analyzeProduct(productId: string): Promise<CounterfeitAnalysis>;
+    reportCounterfeit(caseDetails: CounterfeitCase): Promise<void>;
+  }
+  ```
 
 ## 8. Integration Points
 
