@@ -1,3 +1,11 @@
+---
+title: Marketing Domain Knowledge
+status: draft
+owner: @chris00walker
+reviewers: @reviewer1, @reviewer2
+last_updated: 2025-06-10
+---
+
 # Marketing Domain Knowledge
 
 <!-- GAP_IMPLEMENTED: Customer Segmentation | Medium | High | Medium -->
@@ -12,17 +20,31 @@
 <!-- GAP_IMPLEMENTED: Content Management -->
 <!-- stub for "Content Management" gap in the marketing context -->
 
-## Domain Overview
+## Changelog
+
+| Date       | Version | Description                     | Author           |
+|------------|---------|---------------------------------|------------------|
+| 2025-06-10 | 1.0.0   | Initial version                 | @chris00walker   |
+
+
+## Related Documents
+
+- [Customer Domain Knowledge](../customer/README.md)
+- [Catalog Domain Knowledge](../catalog/README.md)
+- [Order Domain Knowledge](../order/README.md)
+- [Subscription Domain Knowledge](../subscription/README.md)
+
+## 1. Domain Overview
 
 The Marketing Domain manages all aspects of promotional activities, campaign management, content strategy, and customer engagement initiatives for Elias Food Imports. This domain is responsible for creating, executing, and measuring marketing campaigns to drive customer acquisition, retention, and brand awareness.
 
-## Strategic Importance
+## 2. Strategic Importance
 
 **Domain Classification**: Supporting
 
 The Marketing Domain is a supporting domain that enhances the value of core domains by increasing customer engagement, acquisition, and retention. While not directly tied to the core product offerings, effective marketing is critical for business growth and customer engagement.
 
-## Core Concepts
+## 3. Core Concepts
 
 ### Campaign
 A coordinated series of marketing activities designed to achieve specific business objectives, such as product launches, seasonal promotions, or customer acquisition initiatives. Campaigns have defined start and end dates, target audiences, budgets, and success metrics.
@@ -42,7 +64,7 @@ Quantitative measures of customer interactions with marketing content, including
 ### A/B Test
 Controlled experiment comparing two or more variations of marketing content or strategy to determine which performs better against defined metrics. A/B tests guide optimization of marketing efforts through data-driven decision-making.
 
-## Business Rules
+## 4. Business Rules
 
 ### Campaign Rules
 1. All campaigns must have a defined target audience, budget, timeline, and success metrics before launch.
@@ -72,7 +94,7 @@ Controlled experiment comparing two or more variations of marketing content or s
 4. Marketing claims about product authenticity must be verifiable through the catalog authentication domain.
 5. Opt-out requests must be processed within 24 hours of receipt.
 
-## Domain Events
+## 5. Domain Events
 
 The Marketing domain publishes and consumes the following domain events to coordinate with other bounded contexts and maintain system consistency.
 
@@ -101,7 +123,7 @@ The Marketing domain publishes and consumes the following domain events to coord
 | `SubscriptionCancelled` | Subscription | Trigger win-back campaigns and feedback collection |
 | `CustomerSegmentAssigned` | Customer | Initiate segment-specific communications |
 
-## Aggregates
+## 6. Aggregates
 
 The Marketing domain is structured around the following key aggregates that enforce business rules and maintain consistency boundaries.
 
@@ -172,7 +194,7 @@ The Marketing domain is structured around the following key aggregates that enfo
 - Segment membership must be recalculated when criteria change
 - High-value segments require additional validation before creation
 
-## Entities
+## 7. Entities
 
 Key entities within the Marketing domain represent identifiable objects with a unique identity that persists through state changes.
 
@@ -237,7 +259,7 @@ Key entities within the Marketing domain represent identifiable objects with a u
 - `updatedAt`: DateTime - Last update timestamp
 - `lastCalculated`: DateTime - When segment membership was last refreshed
 
-## Value Objects
+## 8. Value Objects
 
 Value objects in the Marketing domain represent descriptive aspects of domain concepts that don't have a conceptual identity.
 
@@ -309,7 +331,7 @@ Value objects in the Marketing domain represent descriptive aspects of domain co
 - `revenue`: Money - Revenue attributed to the activity
 - `roi`: Float - Return on investment calculation
 
-## Domain Services
+## 9. Domain Services
 
 The Marketing domain implements the following domain services to encapsulate complex operations that don't naturally fit within individual entities.
 
@@ -353,7 +375,7 @@ The Marketing domain implements the following domain services to encapsulate com
 - `trackAttributionMetrics(OrderId, List<TouchpointData>)`: Maps customer purchases to marketing touchpoints
 - `predictCampaignOutcome(Campaign)`: Uses historical data to forecast campaign performance
 
-## Integration Points
+## 10. Integration Points
 
 The Marketing domain integrates with several other bounded contexts to ensure cohesive business operations.
 
@@ -431,7 +453,7 @@ The Marketing domain integrates with several other bounded contexts to ensure co
 
 **Integration Mechanism**: Command API, callback events
 
-## Implementation Recommendations
+## 11. Implementation Recommendations
 
 ### Architecture
 
