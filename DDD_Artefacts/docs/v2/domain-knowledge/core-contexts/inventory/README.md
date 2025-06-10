@@ -1,1431 +1,786 @@
-# Inventory Domain
+---
+title: Inventory Management Domain Knowledge
+status: draft
+owner: @domain-architecture-team
+reviewers: @product-team, @tech-lead
+last_updated: 2025-06-10
+---
 
-## Overview
+# Inventory Management Domain
 
-The Inventory domain manages the tracking, control, and optimization of Elias Food Imports' physical product inventory across multiple warehouses and facilities. It ensures accurate stock levels, efficient inventory movement, and proper handling of specialty food products with unique storage requirements. As a critical operational domain, it directly impacts customer satisfaction through product availability while optimizing working capital.
+## Domain Overview
 
-## Strategic Classification
+The Inventory Management domain is responsible for tracking, controlling, and optimizing the stock of specialty food products throughout Elias Food Imports' supply chain. This domain handles inventory levels, warehouse management, batch tracking, expiration date monitoring, and inventory forecasting. It serves as a critical component that ensures product availability while minimizing waste, particularly important for specialty food items that often have limited shelf life, special storage requirements, and varying seasonal availability.
 
-**Domain Type**: Supporting Domain
+The current implementation of the Inventory Management domain has been identified as having significant gaps, particularly in batch/expiration tracking, temperature-controlled storage management, and forecasting capabilities for perishable items. This document outlines the comprehensive domain model for Inventory Management with a focus on addressing these gaps to better support Elias Food Imports' specialty food business.
 
-**Business Value**: High  
-While not the primary value proposition, inventory management is critical to operational excellence and affects the customer experience through product availability and quality.
+## Strategic Importance
 
-**Technical Complexity**: High  
-The domain requires complex real-time tracking systems, integration with multiple contexts, and specialized handling for diverse product types with varying storage requirements.
+**Classification**: Core Domain
 
-**Volatility**: Medium  
-Core inventory concepts are stable, but specific handling rules and integrations evolve with new product types, regulations, and supply chain optimizations.
+**Justification**: The Inventory Management domain is classified as a core domain for Elias Food Imports because effective inventory management of specialty food products represents a significant competitive advantage in the market. The ability to maintain optimal inventory levels of premium, often perishable products while ensuring quality, freshness, and authenticity directly impacts customer satisfaction, operational efficiency, and profitability. The specialized requirements of food inventory management—including batch tracking, expiration monitoring, temperature control, and regulatory compliance—make this domain a key differentiator for Elias Food Imports rather than a commodity function.
 
-## Core Domain Concepts
+## Core Concepts
 
 ### Inventory Item
+The basic unit of inventory tracking, representing a specific product at a specific location with attributes including quantity, status, and storage conditions.
 
-The central concept representing a specific product variant in a specific location with its current quantity and status.
+### Inventory Batch
+A group of inventory items that share common characteristics such as production date, expiration date, supplier, and quality attributes, allowing for precise tracking and management of product lifecycle.
 
-**Key Attributes**:
-- Product identifier (maps to a product in the Catalog domain)
-- Location identifier (warehouse, section, shelf)
-- Current quantity
-- Reserved quantity (committed but not yet shipped)
-- Available quantity (current minus reserved)
-- Status (available, quarantined, expired, damaged)
-- Lot/batch number
-- Expiration date (for perishable items)
-- Last inventory count timestamp
-- Storage conditions (temperature, humidity requirements)
-
-### Warehouse
-
-A physical location where inventory items are stored and managed.
-
-**Key Attributes**:
-- Warehouse identifier
-- Name and location
-- Storage capacity
-- Temperature zones (ambient, refrigerated, freezer)
-- Specialty handling capabilities
-- Operational hours
-- Staff assignments
-
-### Stock Movement
-
-Represents the flow of inventory items between locations or state changes.
-
-**Key Attributes**:
-- Movement identifier
-- Source location
-- Destination location
-- Inventory item reference
-- Quantity moved
-- Movement type (receipt, shipment, transfer, adjustment)
-- Timestamp
-- Requesting context (Order, Purchase, Quality Control)
-- Movement status (planned, in-progress, completed)
-- Handler/operator
-
-### Inventory Count
-
-A verification activity that reconciles physical inventory with system records.
-
-**Key Attributes**:
-- Count identifier
-- Count type (cycle count, full inventory, spot check)
-- Location scope
-- Product scope
-- Start and end timestamps
-- Count status (scheduled, in-progress, completed, reconciled)
-- Discrepancies detected
-- Adjustment actions taken
+### Storage Location
+A physical or logical location where inventory is stored, including attributes such as temperature range, humidity level, and storage capacity, critical for maintaining food quality.
 
 ### Inventory Reservation
+A temporary allocation of inventory that prevents it from being assigned to other orders or processes, ensuring availability during customer checkout or other operations.
 
-A temporary allocation of inventory for a specific purpose, typically to fulfill an order.
+### Inventory Movement
+A record of inventory changing location, status, or ownership within the system, providing a complete audit trail of product flow.
 
-**Key Attributes**:
-- Reservation identifier
-- Inventory item reference
-- Quantity reserved
-- Purpose (order fulfillment, quality check, etc.)
-- Requesting entity identifier
-- Expiration (when reservation becomes invalid)
-- Priority (standard, expedited, VIP)
-- Status (pending, confirmed, fulfilled, released)
+### Expiration Tracking
+The monitoring and management of product expiration dates to ensure food safety, minimize waste, and optimize inventory rotation.
 
-### Storage Requirements
+### Temperature Control
+The monitoring and management of storage temperatures for products requiring specific temperature ranges to maintain quality and safety.
 
-Specifies how specific products must be stored based on their characteristics.
+### Inventory Forecast
+Predictions of future inventory levels based on historical data, seasonality, promotions, and other factors to optimize purchasing and production planning.
 
-**Key Attributes**:
-- Temperature range (min/max)
-- Humidity range (min/max)
-- Light exposure limitations
-- Special handling instructions
-- Stacking limitations
-- Segregation requirements (allergens, organics)
-- Shelf life under proper conditions
-- Monitoring frequency requirements
+### Quality Control
+The processes and checks that ensure inventory meets quality standards, including sensory evaluation, laboratory testing, and compliance verification.
+
+### Inventory Allocation
+The assignment of specific inventory to fulfill customer orders or other business needs, often following FIFO (First In, First Out) or FEFO (First Expired, First Out) principles.
 
 ## Business Rules
 
-### Inventory Accuracy and Control
+### Inventory Tracking and Management
 
-1. System inventory levels must be reconciled with physical counts at minimum once per quarter, with accuracy targets ≥99.9%.
-2. High-value items and perishables require cycle counts at least once monthly.
-3. All inventory discrepancies exceeding €500 or 5% of expected quantity must be investigated and documented.
-4. Inventory adjustments over €2,500 require management approval and detailed reason codes.
-5. Each inventory item must maintain a complete audit trail of all quantity changes.
-6. Negative inventory is not permitted in the system; prevention controls must block such transactions.
+1. All inventory items must be associated with a specific storage location and product SKU.
+2. Inventory levels must be updated in real-time when products are received, allocated, shipped, or adjusted.
+3. Negative inventory is not permitted; inventory operations that would result in negative quantities must be rejected.
+4. Each inventory transaction must be recorded with timestamp, user, quantity, reason code, and reference information.
+5. Inventory counts must be reconciled with physical counts at least weekly for high-value items and monthly for standard items.
+6. Inventory accuracy must be maintained at ≥ 99.9% as measured by physical inventory counts.
+7. Inventory adjustments exceeding $500 in value require manager approval and documentation.
+8. Real-time inventory visibility must be provided to all relevant stakeholders, including sales, purchasing, and fulfillment teams.
 
-### Product Receipt and Putaway
+### Batch and Expiration Management
 
-1. All received products must be inspected for quality and quantity upon arrival.
-2. Specialty food items require authentication verification before being added to available inventory.
-3. Items with special storage requirements must be placed in appropriate zones within 30 minutes of receipt.
-4. Cold chain products must have continuous temperature monitoring during receipt process.
-5. Received items must be traceable to their source purchase order and supplier lot.
-6. Imported products must have complete customs documentation verified before putaway.
-7. FIFO (First In, First Out) principles must be enforced for all perishable inventory.
+1. All perishable products must be tracked at the batch level with production and expiration dates.
+2. Inventory allocation must follow FEFO (First Expired, First Out) principles for perishable items.
+3. System must generate alerts for products approaching expiration: 30 days, 14 days, and 7 days before expiration.
+4. Products that have reached 75% of their shelf life must be flagged for potential promotional pricing.
+5. Expired products must be automatically quarantined and not available for sale.
+6. Batch information must include supplier, country of origin, production date, and any applicable certification information.
+7. Complete batch traceability must be maintained from supplier to customer for food safety and recall management.
+8. Batch sampling protocols must be defined and executed for quality assurance purposes.
+
+### Temperature-Controlled Inventory
+
+1. Products must be stored in locations with appropriate temperature ranges as defined in their product specifications.
+2. Temperature-controlled storage locations must be continuously monitored with alerts for out-of-range conditions.
+3. Temperature excursions must be logged with duration and magnitude to assess product quality impact.
+4. Cold chain compliance must be maintained and documented throughout the receiving, storage, and shipping processes.
+5. Products exposed to temperature excursions must be evaluated by quality control before being made available for sale.
+6. Temperature logs must be maintained for regulatory compliance and quality assurance for a minimum of 3 years.
+7. Different temperature zones (ambient, refrigerated, frozen) must be clearly defined with appropriate inventory segregation.
+8. Temperature-sensitive products must be labeled with appropriate handling instructions.
 
 ### Inventory Reservations
 
-1. Inventory can only be reserved for valid, approved purposes (order fulfillment, quality inspection, etc.).
-2. Reservations expire after 72 hours if not fulfilled, except for special orders with longer reservation periods.
-3. VIP customer orders take reservation priority over standard orders for limited stock items.
-4. Reserved inventory cannot be counted as available for new orders.
-5. System must prevent double-booking of the same inventory units.
-6. When available inventory falls below safety stock levels, new reservations require approval.
+1. Inventory reservations are created when items are added to a shopping cart with a default duration of 30 minutes.
+2. Reservations are automatically extended during active cart sessions.
+3. Expired reservations are automatically released back to available inventory.
+4. Reservations are converted to allocations when an order is placed.
+5. Reservation conflicts must be resolved with priority given to completed orders over cart reservations.
+6. Reservation status must be visible to customer service and sales teams.
+7. Bulk reservations for B2B customers may have extended durations based on customer agreements.
+8. Reservation capacity must not exceed 25% of available inventory for any SKU to prevent artificial stockouts.
 
-### Stock Movement and Transfers
+### Inventory Forecasting and Planning
 
-1. All inventory movements must be authorized by designated personnel with appropriate permissions.
-2. Inter-warehouse transfers require shipping and receiving confirmation from both locations.
-3. Cold chain products must maintain temperature compliance during all movements.
-4. Stock movements must update inventory levels in real-time to prevent overselling.
-5. Emergency stock relocations due to facility issues must be prioritized over standard transfers.
-6. Bulk transfers must include batch traceability information for each item.
-7. When transferring allergen-containing products, appropriate cleaning protocols must be followed.
+1. Inventory forecasts must be generated weekly for a 12-week forward horizon.
+2. Forecast accuracy must be measured and maintained at ≥ 85% for A-category items.
+3. Seasonal patterns must be incorporated into forecast algorithms for specialty food items.
+4. Safety stock levels must be dynamically calculated based on demand variability, lead time, and service level targets.
+5. Reorder points must trigger purchase recommendations automatically.
+6. Slow-moving inventory (no movement in 60 days) must be flagged for review.
+7. Forecast models must incorporate promotional events, seasonality, and historical sales patterns.
+8. Inventory optimization must balance service levels (target ≥ 98%) with inventory carrying costs.
 
-### Quality Control and Special Handling
+### Quality Control and Compliance
 
-1. Products failing quality inspections must be immediately quarantined and not available for sale.
-2. Quarantined inventory requires manager approval and documented reason before release.
-3. Temperature-sensitive products must have continuous monitoring with alerting for out-of-range conditions.
-4. Products approaching expiration must be flagged with a minimum 30-day warning.
-5. Expired products must be automatically quarantined and scheduled for proper disposal.
-6. Products with protected designations of origin must maintain authentication documentation with the inventory record.
-7. Organic and conventional versions of the same product must be physically segregated with clear labeling.
-
-### Inventory Planning and Optimization
-
-1. Safety stock levels must be maintained for all regular catalog items based on demand volatility.
-2. Seasonal items must have inventory stocking plans established 90 days before season start.
-3. Slow-moving inventory must be reviewed quarterly for potential markdown or alternative channels.
-4. Stock levels must accommodate both forecasted baseline demand and promotional uplift.
-5. Inventory turns targets must be set by product category, with exceptions documented.
-6. Critical imported products must maintain buffer stock to mitigate supply chain disruptions.
+1. All received inventory must pass quality inspection before being made available for sale.
+2. Quality control samples must be taken from each batch according to the sampling plan.
+3. Products failing quality checks must be quarantined pending supplier resolution.
+4. All quality control results must be recorded and linked to the specific inventory batch.
+5. Regulatory compliance documentation must be maintained for each product batch.
+6. Allergen control protocols must be followed for storage location assignments to prevent cross-contamination.
+7. Recall procedures must enable identification and quarantine of affected batches within 2 hours of notification.
+8. Quality metrics must be tracked and reported monthly, including rejection rates and quality incidents.
 
 ## Domain Events
 
-The Inventory domain publishes and consumes various events to maintain consistency with other bounded contexts.
+### InventoryReceived
 
-### Published Events
-
-#### InventoryItemCreated
-
-**Description**: A new inventory item has been added to the system.
+**Description**: Triggered when new inventory is received and recorded in the system.
 
 **Payload**:
 ```typescript
-{
-  inventoryId: string;
+interface InventoryReceivedEvent {
+  inventoryBatchId: string;
   productId: string;
   warehouseId: string;
   quantity: number;
-  status: InventoryStatus;
-  lot: string;
+  receivedAt: Date;
   expirationDate?: Date;
-  createdAt: Date;
+  supplierId: string;
+  purchaseOrderId?: string;
+  qualityStatus: 'PENDING_INSPECTION' | 'APPROVED' | 'REJECTED';
+  storageRequirements: StorageRequirements;
+  batchAttributes: Record<string, string>;
 }
 ```
 
-**Consumers**:
-- Catalog Context: Updates product availability flags
-- Analytics Context: Updates inventory metrics
+**Producer Context**: Inventory
 
-#### InventoryLevelChanged
+**Consumer Contexts**:
+- **Catalog**: To update product availability
+- **Analytics**: To track inventory metrics
+- **Purchasing**: To update purchase order status
 
-**Description**: The quantity of an inventory item has changed due to receipt, shipment, adjustment, or other movements.
+### InventoryAdjusted
+
+**Description**: Triggered when inventory quantities are manually adjusted due to counts, damage, or other non-transactional reasons.
 
 **Payload**:
 ```typescript
-{
-  inventoryId: string;
+interface InventoryAdjustedEvent {
+  inventoryBatchId: string;
   productId: string;
   warehouseId: string;
   previousQuantity: number;
   newQuantity: number;
-  reason: InventoryChangeReason;
-  referenceType?: string;
-  referenceId?: string;
-  timestamp: Date;
-  userId: string;
-}
-```
-
-**Consumers**:
-- Catalog Context: Updates product availability status
-- Order Context: Validates product availability for pending orders
-- Purchase Context: Triggers replenishment if below threshold
-- Analytics Context: Updates inventory metrics and trends
-
-#### InventoryItemQuarantined
-
-**Description**: An inventory item has been placed in quarantine status and is no longer available for regular sales.
-
-**Payload**:
-```typescript
-{
-  inventoryId: string;
-  productId: string;
-  warehouseId: string;
-  quantity: number;
-  reason: QuarantineReason;
+  adjustmentReason: string;
+  adjustmentType: 'COUNT' | 'DAMAGE' | 'EXPIRATION' | 'QUALITY' | 'OTHER';
+  adjustedAt: Date;
+  adjustedBy: string;
   notes?: string;
-  quarantinedBy: string;
-  quarantinedAt: Date;
-  expectedResolutionDate?: Date;
 }
 ```
 
-**Consumers**:
-- Order Context: Excludes quarantined items from availability
-- Quality Control Context: Creates investigation task
-- Purchase Context: May trigger replenishment for critical items
-- Notification Context: Alerts inventory managers
+**Producer Context**: Inventory
 
-#### InventoryItemReleased
+**Consumer Contexts**:
+- **Catalog**: To update product availability
+- **Analytics**: To track inventory adjustments
+- **Finance**: To account for inventory value changes
 
-**Description**: An inventory item previously in quarantine has been released back to available status.
+### InventoryReserved
 
-**Payload**:
-```typescript
-{
-  inventoryId: string;
-  productId: string;
-  warehouseId: string;
-  quantity: number;
-  previousStatus: InventoryStatus;
-  notes?: string;
-  releasedBy: string;
-  releasedAt: Date;
-  qualityCheckId?: string;
-}
-```
-
-**Consumers**:
-- Order Context: Updates product availability
-- Catalog Context: Updates product availability status
-- Quality Control Context: Closes investigation task
-- Notification Context: Alerts relevant staff
-
-#### InventoryReservationCreated
-
-**Description**: Inventory has been reserved for a specific purpose (typically an order).
+**Description**: Triggered when inventory is temporarily reserved for a cart or order.
 
 **Payload**:
 ```typescript
-{
+interface InventoryReservedEvent {
   reservationId: string;
-  inventoryId: string;
   productId: string;
+  batchIds: string[];
   warehouseId: string;
   quantity: number;
-  purpose: ReservationPurpose;
-  externalReferenceId: string; // e.g. orderId
+  reservationType: 'CART' | 'ORDER' | 'OTHER';
   expiresAt: Date;
-  createdAt: Date;
+  reservedAt: Date;
+  referenceId: string; // cartId or orderId
 }
 ```
 
-**Consumers**:
-- Order Context: Confirms inventory allocation for order
-- Fulfillment Context: Initiates picking process planning
+**Producer Context**: Inventory
 
-#### InventoryReservationCancelled
+**Consumer Contexts**:
+- **Order**: To update order fulfillment status
+- **Shopping Cart**: To confirm inventory availability
 
-**Description**: A previous inventory reservation has been cancelled and the inventory is available again.
+### InventoryReleased
+
+**Description**: Triggered when a temporary inventory reservation is released.
 
 **Payload**:
 ```typescript
-{
+interface InventoryReleasedEvent {
   reservationId: string;
-  inventoryId: string;
   productId: string;
+  batchIds: string[];
   warehouseId: string;
   quantity: number;
-  reason: CancellationReason;
-  externalReferenceId: string;
-  cancelledAt: Date;
+  releaseReason: 'EXPIRATION' | 'CART_ABANDONED' | 'ORDER_CANCELLED' | 'MANUAL';
+  releasedAt: Date;
+  referenceId?: string; // cartId or orderId
 }
 ```
 
-**Consumers**:
-- Order Context: Updates order status if reservation failed
-- Fulfillment Context: Removes item from picking list
+**Producer Context**: Inventory
 
-#### InventoryCountScheduled
+**Consumer Contexts**:
+- **Shopping Cart**: To update cart status
+- **Order**: To update order status
+- **Catalog**: To update product availability
 
-**Description**: An inventory count has been scheduled.
+### InventoryAllocated
+
+**Description**: Triggered when inventory is permanently allocated to fulfill an order.
 
 **Payload**:
 ```typescript
-{
-  countId: string;
-  countType: InventoryCountType;
+interface InventoryAllocatedEvent {
+  allocationId: string;
+  orderId: string;
+  orderLineItemId: string;
+  productId: string;
+  batchIds: string[];
   warehouseId: string;
-  scheduledStartDate: Date;
-  scheduledEndDate: Date;
-  productCategories?: string[];
-  locations?: string[];
-  assignedTo?: string[];
-  priority: Priority;
+  quantity: number;
+  allocatedAt: Date;
 }
 ```
 
-**Consumers**:
-- Operations Context: Staff scheduling and workload management
-- Warehouse Management Context: Area access planning
+**Producer Context**: Inventory
 
-### Consumed Events
+**Consumer Contexts**:
+- **Order**: To update order fulfillment status
+- **Shipping**: To enable shipment planning
 
-#### OrderPlaced
+### InventoryLow
 
-**Description**: A new order has been placed.
+**Description**: Triggered when product inventory falls below threshold.
 
-**Source**: Order Context
-
-**Reaction**: Creates inventory reservations for the ordered items.
-
-#### OrderCancelled
-
-**Description**: An existing order has been cancelled.
-
-**Source**: Order Context
-
-**Reaction**: Cancels any related inventory reservations, returning items to available status.
-
-#### ShipmentCreated
-
-**Description**: A shipment has been created for an order.
-
-**Source**: Shipping Context
-
-**Reaction**: Converts inventory reservations to confirmed allocations and prepares for stock movement.
-
-#### ShipmentShipped
-
-**Description**: A shipment has left the warehouse.
-
-**Source**: Shipping Context
-
-**Reaction**: Reduces inventory levels for the shipped items.
-
-#### PurchaseOrderReceived
-
-**Description**: A purchase order has been received at the warehouse.
-
-**Source**: Purchasing Context
-
-**Reaction**: Creates new inventory items or increases quantities of existing inventory.
-
-#### ProductQualityCheckFailed
-
-**Description**: A product has failed a quality check.
-
-**Source**: Quality Control Context
-
-**Reaction**: Quarantines the affected inventory until resolution.
-
-#### ReturnReceived
-
-**Description**: A customer return has been received at the warehouse.
-
-**Source**: Returns Context
-
-**Reaction**: Creates inventory items in pending status awaiting quality inspection.
-
-## Aggregates
-
-The Inventory domain is modeled with the following aggregates:
-
-### InventoryItem Aggregate
-
-**Root Entity**: InventoryItem
-
-**Purpose**: Manages the lifecycle and state of inventory items including quantity tracking, status changes, and reservations.
-
-**Entities**:
-- InventoryItem (root)
-- Reservation
-
-**Value Objects**:
-- InventoryStatus
-- Location
-- Quantity
-- BatchInfo
-
-**Invariants**:
-- Available quantity cannot be negative
-- Total inventory quantity must equal or exceed total reserved quantity
-- Quarantined items cannot be reserved for orders
-
-**Methods**:
-- `createInventory(productId, warehouseId, quantity, lot, expirationDate?)`
-- `adjustQuantity(quantity, reason, referenceId?)`
-- `reserve(quantity, purpose, referenceId, expirationDate)`
-- `releaseReservation(reservationId, reason?)`
-- `fulfillReservation(reservationId)`
-- `quarantine(quantity, reason, notes?)`
-- `releaseFromQuarantine(quantity, notes?)`
-- `moveToLocation(newLocationId, quantity?)`
-
-**Example Implementation**:
+**Payload**:
 ```typescript
-class InventoryItem extends AggregateRoot {
-  private _id: InventoryId;
-  private _productId: ProductId;
-  private _warehouseId: WarehouseId;
-  private _locationId: LocationId;
-  private _currentQuantity: number;
-  private _reservations: Reservation[] = [];
-  private _status: InventoryStatus;
-  private _lot: string;
-  private _expirationDate?: Date;
-  private _storageRequirements?: StorageRequirements;
-  private _lastCountDate?: Date;
-  
-  constructor(id: InventoryId, productId: ProductId, warehouseId: WarehouseId, 
-              locationId: LocationId, quantity: number, lot: string, 
-              expirationDate?: Date, storageRequirements?: StorageRequirements) {
-    super();
-    this._id = id;
-    this._productId = productId;
-    this._warehouseId = warehouseId;
-    this._locationId = locationId;
-    this._currentQuantity = quantity;
-    this._status = InventoryStatus.AVAILABLE;
-    this._lot = lot;
-    this._expirationDate = expirationDate;
-    this._storageRequirements = storageRequirements;
-    
-    this.applyEvent(new InventoryItemCreated(id, productId, warehouseId, locationId, 
-                                           quantity, lot, expirationDate));
-  }
-  
-  get availableQuantity(): number {
-    const reservedQuantity = this._reservations
-      .filter(r => !r.isFulfilled && !r.isCancelled)
-      .reduce((total, res) => total + res.quantity, 0);
-    return this._status === InventoryStatus.AVAILABLE ? 
-      this._currentQuantity - reservedQuantity : 0;
-  }
-  
-  reserve(quantity: number, purpose: ReservationPurpose, 
-          externalReferenceId: string, expiresAt: Date): Reservation {
-    if (this._status !== InventoryStatus.AVAILABLE) {
-      throw new Error(`Cannot reserve inventory in ${this._status} status`);
-    }
-    
-    if (quantity <= 0) {
-      throw new Error('Reservation quantity must be positive');
-    }
-    
-    if (this.availableQuantity < quantity) {
-      throw new Error(`Insufficient available quantity: ${this.availableQuantity}`);
-    }
-    
-    const reservationId = new ReservationId();
-    const reservation = new Reservation(reservationId, quantity, purpose, 
-                                       externalReferenceId, expiresAt);
-    
-    this._reservations.push(reservation);
-    this.applyEvent(new InventoryReservationCreated(reservationId, this._id, 
-                                                 this._productId, this._warehouseId,
-                                                 quantity, purpose, externalReferenceId,
-                                                 expiresAt));
-    return reservation;
-  }
-  
-  // Additional methods omitted for brevity
+interface InventoryLowEvent {
+  productId: string;
+  warehouseId: string;
+  currentQuantity: number;
+  threshold: number;
+  detectedAt: Date;
+  projectedStockoutDate?: Date;
+  reorderSuggestion?: {
+    suggestedQuantity: number;
+    suggestedSupplier: string;
+    estimatedLeadTime: number; // in days
+  };
 }
 ```
 
-### InventoryCount Aggregate
+**Producer Context**: Inventory
 
-**Root Entity**: InventoryCount
+**Consumer Contexts**:
+- **Notification**: To alert inventory managers
+- **Analytics**: To update inventory risk metrics
+- **Purchasing**: To trigger reorder processes
 
-**Purpose**: Manages the inventory counting process, including scheduling, execution, and reconciliation.
+### BatchExpirationWarning
 
-**Entities**:
-- InventoryCount (root)
-- CountLine
+**Description**: Triggered when a product batch is approaching its expiration date.
 
-**Value Objects**:
-- CountStatus
-- CountType
-- CountScope
-- Discrepancy
-
-**Invariants**:
-- Count cannot be finalized until all count lines are completed
-- Discrepancies must be resolved before count can be marked as reconciled
-- Cycle counts cannot modify inventory levels without approval if discrepancy exceeds threshold
-
-**Methods**:
-- `scheduleCount(warehouseId, type, scopeDefinition, scheduledDate)`
-- `startCount(operatorId)`
-- `recordCountLine(inventoryId, expectedQuantity, actualQuantity, notes?)`
-- `completeCount(operatorId)`
-- `resolveDiscrepancy(inventoryId, adjustmentAction, approvedBy?)`
-- `reconcileCount(operatorId)`
-
-**Example Implementation**:
+**Payload**:
 ```typescript
-class InventoryCount extends AggregateRoot {
-  private _id: CountId;
-  private _warehouseId: WarehouseId;
-  private _countType: CountType;
-  private _countLines: Map<string, CountLine> = new Map();
-  private _status: CountStatus;
-  private _scope: CountScope;
-  private _scheduledDate: Date;
-  private _startedAt?: Date;
-  private _completedAt?: Date;
-  private _reconcileAt?: Date;
-  private _createdBy: UserId;
-  
-  constructor(id: CountId, warehouseId: WarehouseId, countType: CountType, 
-              scope: CountScope, scheduledDate: Date, createdBy: UserId) {
-    super();
-    this._id = id;
-    this._warehouseId = warehouseId;
-    this._countType = countType;
-    this._scope = scope;
-    this._scheduledDate = scheduledDate;
-    this._status = CountStatus.SCHEDULED;
-    this._createdBy = createdBy;
-    
-    this.applyEvent(new InventoryCountScheduled(id, warehouseId, countType, 
-                                              scope, scheduledDate, createdBy));
-  }
-  
-  startCount(operatorId: UserId): void {
-    if (this._status !== CountStatus.SCHEDULED) {
-      throw new Error(`Count cannot be started from ${this._status} status`);
-    }
-    
-    this._status = CountStatus.IN_PROGRESS;
-    this._startedAt = new Date();
-    
-    this.applyEvent(new InventoryCountStarted(this._id, this._warehouseId, 
-                                            operatorId, this._startedAt));
-  }
-  
-  recordCountLine(inventoryId: string, expectedQuantity: number, 
-                  actualQuantity: number, notes?: string): void {
-    if (this._status !== CountStatus.IN_PROGRESS) {
-      throw new Error(`Cannot add count lines when count is ${this._status}`);
-    }
-    
-    const countLine = new CountLine(inventoryId, expectedQuantity, actualQuantity, notes);
-    this._countLines.set(inventoryId, countLine);
-    
-    this.applyEvent(new InventoryCountLineRecorded(this._id, inventoryId, 
-                                                expectedQuantity, actualQuantity,
-                                                countLine.hasDiscrepancy,
-                                                countLine.discrepancyAmount, 
-                                                notes));
-  }
-  
-  // Additional methods omitted for brevity
+interface BatchExpirationWarningEvent {
+  batchId: string;
+  productId: string;
+  warehouseId: string;
+  currentQuantity: number;
+  expirationDate: Date;
+  daysRemaining: number;
+  warningLevel: 'CRITICAL' | 'WARNING' | 'NOTICE';
+  detectedAt: Date;
 }
 ```
 
-## Entities
+**Producer Context**: Inventory
 
-The following entities are defined within the Inventory domain:
+**Consumer Contexts**:
+- **Notification**: To alert inventory managers
+- **Marketing**: To consider for promotions
+- **Pricing**: To consider for dynamic pricing
 
-### Reservation
+### TemperatureExcursionDetected
 
-Represents a temporary allocation of inventory for a specific purpose.
+**Description**: Triggered when a temperature-controlled storage location experiences a temperature outside of acceptable range.
+
+**Payload**:
+```typescript
+interface TemperatureExcursionEvent {
+  storageLocationId: string;
+  warehouseId: string;
+  detectedAt: Date;
+  expectedRange: {
+    min: number;
+    max: number;
+    unit: 'CELSIUS' | 'FAHRENHEIT';
+  };
+  actualTemperature: number;
+  excursionDuration: number; // in minutes
+  severity: 'CRITICAL' | 'MAJOR' | 'MINOR';
+  affectedBatchIds: string[];
+}
+```
+
+**Producer Context**: Inventory
+
+**Consumer Contexts**:
+- **Notification**: To alert facilities management
+- **Quality Control**: To assess product impact
+- **Catalog**: To potentially update product availability
+
+## Aggregates, Entities, and Value Objects
+
+### InventoryBatch Aggregate
 
 **Attributes**:
-- Reservation identifier
-- Quantity
-- Purpose (order fulfillment, quality check, etc.)
-- External reference identifier (e.g., order ID)
-- Expiration timestamp
-- Status (pending, confirmed, fulfilled, cancelled)
-- Creation timestamp
 
-**Behavior**:
-- Can be fulfilled (converts to an actual inventory reduction)
-- Can be cancelled (releases the inventory back to available)
-- Can expire (automatically releases inventory after timeout)
-- Can be extended (updates the expiration timestamp)
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| id | BatchId | Unique identifier for the inventory batch |
+| productId | ProductId | Reference to the associated product |
+| warehouseId | WarehouseId | Reference to the storage location |
+| quantity | number | Current quantity in stock |
+| receivedAt | Date | Date when batch was received |
+| expirationDate | Date | Expiration date for perishable items |
+| supplierId | SupplierId | Reference to the supplier |
+| qualityStatus | QualityStatus | Current quality control status |
+| storageConditions | StorageConditions | Required storage parameters |
+| batchAttributes | Record<string, string> | Additional batch-specific attributes |
 
-**Example Implementation**:
+**Invariants**:
+
+1. Batch quantity must be non-negative
+2. Expiration date must be after received date for perishable items
+3. Storage conditions must match product requirements
+4. Quality status must be valid for batch operations
+
+**Methods**:
+
 ```typescript
-class Reservation extends Entity {
-  private _id: ReservationId;
-  private _quantity: number;
-  private _purpose: ReservationPurpose;
-  private _externalReferenceId: string;
-  private _expiresAt: Date;
-  private _createdAt: Date;
-  private _fulfilledAt?: Date;
-  private _cancelledAt?: Date;
-  private _cancelReason?: string;
-  
-  constructor(id: ReservationId, quantity: number, purpose: ReservationPurpose,
-              externalReferenceId: string, expiresAt: Date) {
-    super();
-    this._id = id;
-    this._quantity = quantity;
-    this._purpose = purpose;
-    this._externalReferenceId = externalReferenceId;
-    this._expiresAt = expiresAt;
-    this._createdAt = new Date();
+class InventoryBatch {
+  constructor(
+    id: BatchId,
+    productId: ProductId,
+    warehouseId: WarehouseId,
+    quantity: number,
+    receivedAt: Date,
+    expirationDate?: Date,
+    supplierId: SupplierId,
+    qualityStatus: QualityStatus
+  ) {}
+
+  public reserve(quantity: number, reservationType: ReservationType): void {
+    // Validate available quantity
+    // Update batch status
+    // Emit InventoryReserved event
   }
-  
-  get id(): ReservationId {
-    return this._id;
+
+  public releaseReservation(reservationId: string): void {
+    // Update batch status
+    // Emit InventoryReleased event
   }
-  
-  get quantity(): number {
-    return this._quantity;
+
+  public allocateToOrder(orderId: string, quantity: number): void {
+    // Validate available quantity
+    // Update batch status
+    // Emit InventoryAllocated event
   }
-  
-  get isFulfilled(): boolean {
-    return !!this._fulfilledAt;
+
+  public adjustQuantity(
+    adjustment: number,
+    reason: AdjustmentReason,
+    notes?: string
+  ): void {
+    // Update quantity
+    // Record adjustment
+    // Emit InventoryAdjusted event
   }
-  
-  get isCancelled(): boolean {
-    return !!this._cancelledAt;
-  }
-  
-  get isActive(): boolean {
-    return !this.isFulfilled && !this.isCancelled && new Date() < this._expiresAt;
-  }
-  
-  get isExpired(): boolean {
-    return !this.isFulfilled && !this.isCancelled && new Date() >= this._expiresAt;
-  }
-  
-  fulfill(): void {
-    if (this.isFulfilled) {
-      throw new Error('Reservation is already fulfilled');
-    }
-    
-    if (this.isCancelled) {
-      throw new Error('Cannot fulfill a cancelled reservation');
-    }
-    
-    if (this.isExpired) {
-      throw new Error('Cannot fulfill an expired reservation');
-    }
-    
-    this._fulfilledAt = new Date();
-  }
-  
-  cancel(reason?: string): void {
-    if (this.isCancelled) {
-      throw new Error('Reservation is already cancelled');
-    }
-    
-    if (this.isFulfilled) {
-      throw new Error('Cannot cancel a fulfilled reservation');
-    }
-    
-    this._cancelledAt = new Date();
-    this._cancelReason = reason;
-  }
-  
-  extend(newExpirationDate: Date): void {
-    if (this.isFulfilled || this.isCancelled) {
-      throw new Error('Cannot extend a fulfilled or cancelled reservation');
-    }
-    
-    if (newExpirationDate <= this._expiresAt) {
-      throw new Error('New expiration date must be later than current');
-    }
-    
-    this._expiresAt = newExpirationDate;
+
+  public updateQualityStatus(
+    newStatus: QualityStatus,
+    reason: string
+  ): void {
+    // Update quality status
+    // Record change
+    // Emit QualityStatusChanged event
   }
 }
 ```
 
-### CountLine
-
-Represents a single line in an inventory count, comparing expected and actual quantities.
+### StorageLocation Aggregate
 
 **Attributes**:
-- Inventory item reference
-- Expected quantity
-- Actual quantity
-- Discrepancy calculation
-- Notes/comments
-- Status (pending, counted, reconciled)
-- Adjustment action (if discrepancy exists)
 
-**Behavior**:
-- Calculates discrepancy between expected and actual quantities
-- Tracks resolution status of discrepancies
-- Records adjustment decisions
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| id | LocationId | Unique identifier for the storage location |
+| warehouseId | WarehouseId | Reference to the warehouse |
+| locationType | LocationType | Type of storage (ambient, refrigerated, frozen) |
+| capacity | number | Maximum storage capacity |
+| currentOccupancy | number | Current quantity stored |
+| temperatureRange | TemperatureRange | Required temperature range |
+| humidityRange | HumidityRange | Required humidity range |
+| locationAttributes | Record<string, string> | Additional location attributes |
 
-**Example Implementation**:
+**Invariants**:
+
+1. Temperature range must be valid for location type
+2. Humidity range must be valid for location type
+3. Capacity must be positive
+4. Current occupancy cannot exceed capacity
+
+**Methods**:
+
 ```typescript
-class CountLine extends Entity {
-  private _inventoryId: string;
-  private _expectedQuantity: number;
-  private _actualQuantity: number;
-  private _notes?: string;
-  private _adjustmentAction?: AdjustmentAction;
-  private _adjustmentApprovedBy?: string;
-  private _adjustmentTimestamp?: Date;
-  
-  constructor(inventoryId: string, expectedQuantity: number, actualQuantity: number, notes?: string) {
-    super();
-    this._inventoryId = inventoryId;
-    this._expectedQuantity = expectedQuantity;
-    this._actualQuantity = actualQuantity;
-    this._notes = notes;
+class StorageLocation {
+  constructor(
+    id: LocationId,
+    warehouseId: WarehouseId,
+    locationType: LocationType,
+    capacity: number,
+    temperatureRange: TemperatureRange,
+    humidityRange: HumidityRange
+  ) {}
+
+  public canStoreProduct(product: Product): boolean {
+    // Validate if location meets product storage requirements
   }
-  
-  get inventoryId(): string {
-    return this._inventoryId;
+
+  public updateTemperatureReading(reading: TemperatureReading): void {
+    // Update current temperature
+    // Check for excursions
+    // Emit TemperatureExcursionDetected if needed
   }
-  
-  get expectedQuantity(): number {
-    return this._expectedQuantity;
-  }
-  
-  get actualQuantity(): number {
-    return this._actualQuantity;
-  }
-  
-  get hasDiscrepancy(): boolean {
-    return this._expectedQuantity !== this._actualQuantity;
-  }
-  
-  get discrepancyAmount(): number {
-    return this._actualQuantity - this._expectedQuantity;
-  }
-  
-  get discrepancyResolved(): boolean {
-    return !this.hasDiscrepancy || !!this._adjustmentAction;
-  }
-  
-  resolveDiscrepancy(action: AdjustmentAction, approvedBy?: string): void {
-    if (!this.hasDiscrepancy) {
-      throw new Error('No discrepancy exists to resolve');
-    }
-    
-    if (this.discrepancyResolved) {
-      throw new Error('Discrepancy already resolved');
-    }
-    
-    this._adjustmentAction = action;
-    this._adjustmentApprovedBy = approvedBy;
-    this._adjustmentTimestamp = new Date();
+
+  public calculateRemainingCapacity(): number {
+    // Calculate available capacity
   }
 }
 ```
 
-## Value Objects
+### Value Objects
 
-The Inventory domain uses the following value objects to encapsulate key business concepts:
+#### BatchId
 
-### InventoryId
-
-A unique identifier for inventory items.
-
-**Implementation**:
 ```typescript
-class InventoryId extends ValueObject<string> {
-  constructor(value: string) {
-    super(value);
-    this.validate();
-  }
-  
-  private validate(): void {
-    if (!this.value || !UUID_REGEX.test(this.value)) {
-      throw new Error('Invalid inventory ID format');
-    }
-  }
-  
-  static create(): InventoryId {
-    return new InventoryId(uuidv4());
-  }
+interface BatchId {
+  value: string;
+  isValid(): boolean;
+  equals(other: BatchId): boolean;
 }
 ```
 
-### InventoryStatus
+#### LocationId
 
-Represents the current status of an inventory item.
-
-**Implementation**:
 ```typescript
-enum InventoryStatus {
-  AVAILABLE = 'AVAILABLE',
+interface LocationId {
+  value: string;
+  isValid(): boolean;
+  equals(other: LocationId): boolean;
+}
+```
+
+#### TemperatureRange
+
+```typescript
+interface TemperatureRange {
+  min: number;
+  max: number;
+  unit: 'CELSIUS' | 'FAHRENHEIT';
+  isValid(): boolean;
+  contains(temperature: number): boolean;
+}
+```
+
+#### StorageConditions
+
+```typescript
+interface StorageConditions {
+  temperatureRange: TemperatureRange;
+  humidityRange: HumidityRange;
+  lightExposure: LightExposure;
+  vibrationSensitivity: boolean;
+  stackingHeight: number;
+  meetsRequirements(): boolean;
+}
+```
+
+#### QualityStatus
+
+```typescript
+enum QualityStatus {
+  PENDING_INSPECTION = 'PENDING_INSPECTION',
+  APPROVED = 'APPROVED',
+  REJECTED = 'REJECTED',
   QUARANTINED = 'QUARANTINED',
-  EXPIRED = 'EXPIRED',
-  DAMAGED = 'DAMAGED',
-  RESERVED = 'RESERVED',
-  IN_TRANSIT = 'IN_TRANSIT',
-  PENDING_QUALITY_CHECK = 'PENDING_QUALITY_CHECK'
+  EXPIRED = 'EXPIRED'
 }
 ```
 
-### QuarantineStatus
+#### ReservationType
 
-Tracks the state of quarantined inventory items, as specified in the priority implementation plan.
-
-**Implementation**:
 ```typescript
-class QuarantineStatus extends ValueObject<{
-  status: 'QUARANTINED',
-  reason: QuarantineReason,
-  quarantinedAt: Date,
-  expectedResolutionDate?: Date,
-  notes?: string,
-  quarantinedBy: string
-}> {
-  constructor(props: {
-    reason: QuarantineReason,
-    quarantinedBy: string,
-    notes?: string,
-    expectedResolutionDate?: Date
-  }) {
-    super({
-      status: 'QUARANTINED',
-      reason: props.reason,
-      quarantinedAt: new Date(),
-      expectedResolutionDate: props.expectedResolutionDate,
-      notes: props.notes,
-      quarantinedBy: props.quarantinedBy
-    });
-  }
-  
-  get reason(): QuarantineReason {
-    return this.value.reason;
-  }
-  
-  get quarantinedAt(): Date {
-    return this.value.quarantinedAt;
-  }
-  
-  get expectedResolutionDate(): Date | undefined {
-    return this.value.expectedResolutionDate;
-  }
-  
-  get isExpectedResolutionOverdue(): boolean {
-    return !!this.value.expectedResolutionDate && 
-           new Date() > this.value.expectedResolutionDate;
-  }
+enum ReservationType {
+  CART = 'CART',
+  ORDER = 'ORDER',
+  OTHER = 'OTHER'
 }
 ```
 
-### ProductSettingsVO
+#### AdjustmentReason
 
-Encapsulates product-specific inventory settings, in line with the prioritized implementation plan.
-
-**Implementation**:
 ```typescript
-class ProductSettingsVO extends ValueObject<{
-  safetyStockLevel: number,
-  reorderPoint: number,
-  reorderQuantity: number,
-  maxStockLevel: number,
-  leadTimeInDays: number,
-  minShelfLifeDays: number,
-  storageRequirements: StorageRequirement[],
-  isSeasonal: boolean,
-  seasonStartMonth?: number,
-  seasonEndMonth?: number
-}> {
-  constructor(props: {
-    safetyStockLevel: number,
-    reorderPoint: number,
-    reorderQuantity: number,
-    maxStockLevel: number,
-    leadTimeInDays: number,
-    minShelfLifeDays: number,
-    storageRequirements: StorageRequirement[],
-    isSeasonal: boolean,
-    seasonStartMonth?: number,
-    seasonEndMonth?: number
-  }) {
-    super(props);
-    this.validate();
-  }
-  
-  private validate(): void {
-    if (this.value.safetyStockLevel < 0) {
-      throw new Error('Safety stock level cannot be negative');
-    }
-    
-    if (this.value.reorderPoint < this.value.safetyStockLevel) {
-      throw new Error('Reorder point must be greater than or equal to safety stock level');
-    }
-    
-    if (this.value.maxStockLevel < this.value.reorderPoint) {
-      throw new Error('Max stock level must be greater than reorder point');
-    }
-    
-    if (this.value.leadTimeInDays <= 0) {
-      throw new Error('Lead time must be positive');
-    }
-    
-    if (this.value.isSeasonal) {
-      if (this.value.seasonStartMonth === undefined || this.value.seasonEndMonth === undefined) {
-        throw new Error('Seasonal products must define start and end months');
-      }
-      
-      if (this.value.seasonStartMonth < 1 || this.value.seasonStartMonth > 12 || 
-          this.value.seasonEndMonth < 1 || this.value.seasonEndMonth > 12) {
-        throw new Error('Season months must be between 1 and 12');
-      }
-    }
-  }
-  
-  get isLowInventoryAlert(currentStock: number): boolean {
-    return currentStock <= this.value.reorderPoint;
-  }
-  
-  get isDangerouslyLowInventory(currentStock: number): boolean {
-    return currentStock <= this.value.safetyStockLevel;
-  }
-  
-  get isOverstocked(currentStock: number): boolean {
-    return currentStock > this.value.maxStockLevel;
-  }
+enum AdjustmentReason {
+  COUNT = 'COUNT',
+  DAMAGE = 'DAMAGE',
+  EXPIRATION = 'EXPIRATION',
+  QUALITY = 'QUALITY',
+  OTHER = 'OTHER'
 }
-```
-
-### StorageRequirement
-
-Represents the specific storage conditions required for a product.
-
-**Implementation**:
-```typescript
-class StorageRequirement extends ValueObject<{
-  temperatureRangeMin?: number,
-  temperatureRangeMax?: number,
-  humidityRangeMin?: number,
-  humidityRangeMax?: number,
-  requiresRefrigeration: boolean,
-  requiresFreezing: boolean,
-  lightSensitive: boolean,
-  specialHandling?: string[]
-}> {
-  constructor(props: {
-    temperatureRangeMin?: number,
-    temperatureRangeMax?: number,
-    humidityRangeMin?: number,
-    humidityRangeMax?: number,
-    requiresRefrigeration: boolean,
-    requiresFreezing: boolean,
-    lightSensitive: boolean,
-    specialHandling?: string[]
-  }) {
-    super(props);
-    this.validate();
-  }
-  
-  private validate(): void {
-    if (this.value.temperatureRangeMin !== undefined && 
-        this.value.temperatureRangeMax !== undefined && 
-        this.value.temperatureRangeMin > this.value.temperatureRangeMax) {
-      throw new Error('Minimum temperature cannot be greater than maximum temperature');
-    }
-    
-    if (this.value.humidityRangeMin !== undefined && 
-        this.value.humidityRangeMax !== undefined && 
-        this.value.humidityRangeMin > this.value.humidityRangeMax) {
-      throw new Error('Minimum humidity cannot be greater than maximum humidity');
-    }
-    
-    if (this.value.requiresFreezing && 
-        this.value.temperatureRangeMax !== undefined && 
-        this.value.temperatureRangeMax > 0) {
-      throw new Error('Frozen products must have maximum temperature below 0°C');
-    }
-  }
-  
-  get isColdChain(): boolean {
-    return this.value.requiresRefrigeration || this.value.requiresFreezing;
-  }
-  
-  isCompliantWith(storageConditions: {
-    temperature: number,
-    humidity?: number,
-    isLightProtected: boolean
-  }): boolean {
-    // Check temperature compliance
-    if (this.value.temperatureRangeMin !== undefined && 
-        storageConditions.temperature < this.value.temperatureRangeMin) {
-      return false;
-    }
-    
-    if (this.value.temperatureRangeMax !== undefined && 
-        storageConditions.temperature > this.value.temperatureRangeMax) {
-      return false;
-    }
-    
-    // Check humidity compliance if applicable
-    if (storageConditions.humidity !== undefined && 
-        this.value.humidityRangeMin !== undefined && 
-        storageConditions.humidity < this.value.humidityRangeMin) {
-      return false;
-    }
-    
-    if (storageConditions.humidity !== undefined && 
-        this.value.humidityRangeMax !== undefined && 
-        storageConditions.humidity > this.value.humidityRangeMax) {
-      return false;
-    }
-    
-    // Check light sensitivity compliance
-    if (this.value.lightSensitive && !storageConditions.isLightProtected) {
-      return false;
-    }
-    
-    return true;
-  }
-}
-```
 
 ## Domain Services
 
-The Inventory domain defines several services that implement complex business logic:
+### InventoryReservationService
 
-### InventoryManagementService
+**Purpose**: Manages temporary inventory reservations for cart and order processes.
 
-Provides comprehensive inventory management capabilities across warehouses.
-
-**Methods**:
-| Method | Description | Parameters | Return Type |
-|--------|-------------|------------|------------|
-| `checkAvailability` | Checks if requested quantity is available | productId, quantity, warehouseId? | boolean |
-| `findAvailableInventory` | Locates inventory for a product across warehouses | productId, quantity | InventoryAllocation[] |
-| `createInventoryReservation` | Creates a reservation for specified inventory | productId, quantity, purpose, externalRef, expiry | Reservation |
-| `releaseReservation` | Releases a previously created reservation | reservationId, reason | void |
-| `recordInventoryReceipt` | Records receipt of new inventory | productId, warehouseId, quantity, lot, expiryDate? | InventoryItem |
-| `transferInventory` | Transfers inventory between warehouses | inventoryId, sourceWarehouseId, destWarehouseId, quantity | StockMovement |
-| `quarantineInventory` | Places inventory in quarantine | inventoryId, quantity, reason, notes?, expectedResolutionDate? | QuarantineAction |
-
-**Implementation Example**:
 ```typescript
-class InventoryManagementService {
-  constructor(
-    private readonly inventoryRepository: InventoryRepository,
-    private readonly warehouseRepository: WarehouseRepository,
-    private readonly productRepository: ProductRepository,
-    private readonly eventBus: EventBus
-  ) {}
+interface InventoryReservationService {
+  reserveInventory(
+    productId: string,
+    quantity: number,
+    reservationType: ReservationType,
+    duration: Duration
+  ): ReservationResult;
 
-  async checkAvailability(
-    productId: ProductId,
-    quantity: number,
-    warehouseId?: WarehouseId
-  ): Promise<boolean> {
-    if (quantity <= 0) {
-      throw new Error('Quantity must be positive');
-    }
-    
-    if (warehouseId) {
-      const inventory = await this.inventoryRepository.findByProductAndWarehouse(productId, warehouseId);
-      return inventory !== null && inventory.availableQuantity >= quantity;
-    } else {
-      const inventoryItems = await this.inventoryRepository.findAllByProduct(productId);
-      const totalAvailable = inventoryItems
-        .filter(item => item.status === InventoryStatus.AVAILABLE)
-        .reduce((sum, item) => sum + item.availableQuantity, 0);
-      
-      return totalAvailable >= quantity;
-    }
-  }
-  
-  async createInventoryReservation(
-    productId: ProductId,
-    quantity: number,
-    purpose: ReservationPurpose,
-    externalReferenceId: string,
-    expiresAt: Date
-  ): Promise<Reservation> {
-    const inventoryItems = await this.inventoryRepository.findAllByProduct(productId);
-    
-    // Sort by expiration date (FEFO - First Expired, First Out)
-    inventoryItems.sort((a, b) => {
-      if (!a.expirationDate) return 1;
-      if (!b.expirationDate) return -1;
-      return a.expirationDate.getTime() - b.expirationDate.getTime();
-    });
-    
-    let remainingToReserve = quantity;
-    const allocations: {inventoryId: InventoryId, quantity: number}[] = [];
-    
-    for (const item of inventoryItems) {
-      if (item.status !== InventoryStatus.AVAILABLE || item.availableQuantity <= 0) {
-        continue;
-      }
-      
-      const toReserve = Math.min(remainingToReserve, item.availableQuantity);
-      const reservation = item.reserve(toReserve, purpose, externalReferenceId, expiresAt);
-      
-      await this.inventoryRepository.save(item);
-      allocations.push({ inventoryId: item.id, quantity: toReserve });
-      
-      remainingToReserve -= toReserve;
-      if (remainingToReserve <= 0) break;
-    }
-    
-    if (remainingToReserve > 0) {
-      throw new Error(`Insufficient inventory available: short by ${remainingToReserve}`);
-    }
-    
-    return allocations;
-  }
-  
-  // Additional methods omitted for brevity
+  extendReservation(reservationId: string, newDuration: Duration): void;
+
+  releaseReservation(reservationId: string): void;
+
+  resolveReservationConflict(
+    reservationId: string,
+    orderId: string
+  ): ReservationResolution;
 }
-```
+
+### BatchManagementService
+
+**Purpose**: Manages inventory batch lifecycle and operations.
+
+```typescript
+interface BatchManagementService {
+  createBatch(
+    productId: string,
+    warehouseId: string,
+    quantity: number,
+    supplierId: string,
+    expirationDate?: Date,
+    batchAttributes?: Record<string, string>
+  ): BatchCreationResult;
+  
+  updateBatchAttributes(
+    batchId: string,
+    attributes: Record<string, string>
+  ): void;
+  
+  mergeBatches(
+    sourceBatchIds: string[],
+    targetLocationId: string
+  ): BatchMergeResult;
+  
+  splitBatch(
+    sourceBatchId: string,
+    quantities: Record<string, number>
+  ): BatchSplitResult;
+  
+  quarantineBatch(
+    batchId: string,
+    reason: string
+  ): void;
+  
+  releaseBatchFromQuarantine(
+    batchId: string,
+    approvedBy: string
+  ): void;
+}
+
+### TemperatureMonitoringService
+
+**Purpose**: Monitors and manages temperature conditions for storage locations.
+
+```typescript
+interface TemperatureMonitoringService {
+  registerTemperatureReading(
+    locationId: string,
+    temperature: number,
+    recordedAt: Date
+  ): void;
+  
+  getTemperatureHistory(
+    locationId: string,
+    startDate: Date,
+    endDate: Date
+  ): TemperatureReading[];
+  
+  detectExcursions(
+    locationId: string,
+    timeWindow: Duration
+  ): TemperatureExcursion[];
+  
+  evaluateProductImpact(
+    excursionId: string
+  ): ProductImpactAssessment[];
+}
 
 ### InventoryForecastingService
 
-Predicts future inventory levels and identifies potential stockouts.
+**Purpose**: Provides inventory forecasting and planning capabilities.
 
-**Methods**:
-| Method | Description | Parameters | Return Type |
-|--------|-------------|------------|------------|
-| `calculateDaysOfSupply` | Calculates how long current inventory will last based on historical demand | productId, warehouseId? | number |
-| `predictStockout` | Predicts if and when a stockout will occur | productId, timeframeInDays | StockoutPrediction |
-| `generateReplenishmentRecommendations` | Recommends orders based on current levels, demand forecast, and lead times | warehouseId?, categoryId? | ReplenishmentRecommendation[] |
-| `calculateSeasonalDemandAdjustment` | Adjusts inventory forecasts based on seasonal patterns | productId, startDate, endDate | SeasonalDemandFactor |
-| `analyzeInventoryTurns` | Calculates inventory turnover rate | productId, period | InventoryTurnRate |
-
-### InventoryCountService
-
-Manages scheduled and ad-hoc inventory counting processes.
-
-**Methods**:
-| Method | Description | Parameters | Return Type |
-|--------|-------------|------------|------------|
-| `scheduleCount` | Schedules an inventory count | countType, warehouseId, productScope?, scheduled | CountId |
-| `generateCountSheet` | Generates count sheets for inventory counting | countId | CountSheet |
-| `recordCountResults` | Records the results of inventory counting | countId, countResults[] | void |
-| `reconcileCount` | Reconciles count discrepancies and applies adjustments | countId, adjustments[] | ReconciliationResult |
-| `getCountPerformanceMetrics` | Retrieves metrics about count accuracy and efficiency | countId | CountPerformanceMetrics |
-
-### InventoryQualityService
-
-Manages the quality control aspects of inventory, including quarantine and release processes.
-
-**Methods**:
-| Method | Description | Parameters | Return Type |
-|--------|-------------|------------|------------|
-| `initiateQualityCheck` | Initiates a quality check for specific inventory | inventoryId, checkType, reason | QualityCheckId |
-| `recordQualityCheckResult` | Records the result of a quality check | checkId, result, notes? | void |
-| `quarantineInventory` | Places inventory in quarantine status | inventoryId, quantity, reason, notes? | QuarantineId |
-| `releaseFromQuarantine` | Releases inventory from quarantine | quarantineId, disposition, notes? | void |
-| `monitorExpirationDates` | Identifies inventory approaching expiration | daysToWarn, categoryId? | ExpiryWarning[] |
-
-### Integration with the Prioritized Implementation Plan
-
-In alignment with the prioritized implementation plan, the `InventoryManagementService` implements key features:
-
-1. **Quality Verification Workflow** - Through the `quarantineInventory` and `releaseFromQuarantine` methods
-2. **ProductSettingsVO Implementation** - Utilizes the ProductSettingsVO to determine reorder points and safety stock levels
-3. **InventoryLow event generation** - Monitors inventory levels against ProductSettingsVO thresholds and triggers appropriate events
+```typescript
+interface InventoryForecastingService {
+  generateForecast(
+    productId: string,
+    forecastHorizon: Duration,
+    granularity: 'DAILY' | 'WEEKLY' | 'MONTHLY'
+  ): InventoryForecast;
+  
+  calculateSafetyStock(
+    productId: string,
+    serviceLevel: number
+  ): number;
+  
+  calculateReorderPoint(
+    productId: string,
+    leadTime: Duration,
+    serviceLevel: number
+  ): number;
+  
+  identifySlowMovingInventory(
+    thresholdDays: number
+  ): SlowMovingInventoryReport;
+}
 
 ## Integration Points
 
-The Inventory domain interacts with several other bounded contexts in the Elias Food Imports system:
+### With Order Context
 
-### External Context Integration
+- **Inventory Reservation**: When items are added to cart or orders are placed, the Order Context requests inventory reservations from the Inventory Context.
+- **Order Fulfillment**: When orders are ready for fulfillment, the Order Context requests inventory allocation from the Inventory Context.
+- **Events Consumed**:
+  - `OrderPlaced`: Triggers conversion of reservations to allocations
+  - `OrderCancelled`: Triggers release of allocated inventory
+  - `OrderModified`: Triggers adjustment of allocated inventory
 
-| Bounded Context | Integration Type | Description |
-|----------------|------------------|-------------|
-| **Order** | Events | Receives OrderPlaced and OrderCancelled events to manage inventory reservations |
-| **Catalog** | Synchronous | Queries for product information and storage requirements |
-| **Purchase** | Events | Receives PurchaseOrderPlaced and PurchaseReceived events for inventory planning |
-| **Quality Control** | Events | Exchanges events related to product quality verification and quarantine status |
-| **Shipping** | Events | Receives ShipmentCreated events to finalize inventory deductions |
-| **Returns** | Events | Processes ReturnCreated events for inventory returns/restocking |
-| **Analytics** | Synchronous | Provides inventory metrics data for business intelligence |
+### With Catalog Context
 
-### Integration Patterns
+- **Product Availability**: Inventory Context provides real-time availability information to the Catalog Context.
+- **Product Information**: Catalog Context provides product specifications including storage requirements to the Inventory Context.
+- **Events Consumed**:
+  - `ProductCreated`: Triggers setup of inventory tracking for new products
+  - `ProductUpdated`: Updates storage requirements and other inventory-related attributes
+  - `ProductDiscontinued`: Triggers inventory disposition planning
 
-#### Domain Event Exchange
+### With Purchasing Context
 
-The Inventory domain publishes and consumes domain events to maintain loose coupling with other contexts:
+- **Inventory Levels**: Inventory Context provides current levels and forecasts to inform purchasing decisions.
+- **Purchase Orders**: Purchasing Context provides information about incoming inventory from purchase orders.
+- **Events Consumed**:
+  - `PurchaseOrderCreated`: Creates expected receipts in the inventory system
+  - `PurchaseOrderDelivered`: Triggers inventory receiving process
 
-```typescript
-// Example event handler for OrderPlaced event
-class OrderPlacedEventHandler implements EventHandler<OrderPlacedEvent> {
-  constructor(private readonly inventoryService: InventoryManagementService) {}
-  
-  async handle(event: OrderPlacedEvent): Promise<void> {
-    try {
-      // Create inventory reservations for each line item
-      for (const item of event.items) {
-        await this.inventoryService.createInventoryReservation(
-          new ProductId(item.productId),
-          item.quantity,
-          ReservationPurpose.ORDER_FULFILLMENT,
-          event.orderId,
-          addHours(new Date(), 24) // 24-hour reservation
-        );
-      }
-    } catch (error) {
-      // Log error and trigger compensating action
-      console.error(`Failed to reserve inventory for order ${event.orderId}`, error);
-      await this.notifyInventoryShortage(event);
-    }
-  }
-  
-  private async notifyInventoryShortage(event: OrderPlacedEvent): Promise<void> {
-    // Notify order management about inventory shortage
-  }
-}
-```
+### With Shipping Context
 
-#### Synchronous API Integration
+- **Inventory Allocation**: Inventory Context provides allocated inventory information for shipment planning.
+- **Shipment Confirmation**: Shipping Context confirms when inventory has been shipped, triggering inventory deduction.
+- **Events Consumed**:
+  - `ShipmentCreated`: Finalizes inventory allocation
+  - `ShipmentShipped`: Triggers inventory reduction
 
-For real-time inventory information, the domain exposes several APIs to other contexts:
+### With Analytics Context
 
-```typescript
-// Example API controller for inventory availability
-class InventoryApiController {
-  constructor(private readonly inventoryService: InventoryManagementService) {}
-  
-  @Get('/products/:productId/availability')
-  async checkAvailability(
-    @Param('productId') productId: string,
-    @Query('quantity') quantity: number,
-    @Query('warehouseId') warehouseId?: string
-  ) {
-    try {
-      const available = await this.inventoryService.checkAvailability(
-        new ProductId(productId),
-        quantity,
-        warehouseId ? new WarehouseId(warehouseId) : undefined
-      );
-      
-      return {
-        productId,
-        quantity,
-        available,
-        warehouseId: warehouseId || 'any'
-      };
-    } catch (error) {
-      throw new HttpException('Failed to check availability', 500);
-    }
-  }
-  
-  // Additional endpoints for inventory operations
-}
-```
+- **Inventory Metrics**: Inventory Context provides data on inventory levels, turns, accuracy, and other KPIs.
+- **Forecasting Models**: Analytics Context provides advanced forecasting models to improve inventory planning.
+- **Events Consumed**:
+  - `ForecastGenerated`: Updates inventory planning parameters
+  - `AnalyticsModelUpdated`: Improves inventory optimization algorithms
 
-### Supplier Integration
+### With Catalog Authentication Context
 
-As outlined in the implementation plan, the Inventory domain implements supplier integration:
+- **Product Authentication**: Catalog Authentication Context provides verification of product authenticity for inventory.
+- **Quarantine Management**: Inventory Context quarantines products that fail authentication.
+- **Events Consumed**:
+  - `ProductAuthenticated`: Updates inventory quality status
+  - `AuthenticationFailed`: Triggers inventory quarantine
 
-1. **Adapters**: Custom adapters for each supplier's data format
-2. **Synchronization Jobs**: Scheduled jobs to sync inventory data with supplier systems
-3. **Webhooks**: Endpoints for suppliers to push inventory updates
+## Implementation Recommendations
 
-```typescript
-// Example supplier adapter implementation
-interface SupplierInventoryAdapter {
-  fetchAvailableInventory(productIds: ProductId[]): Promise<SupplierInventoryData[]>;
-  submitPurchaseOrder(order: PurchaseOrder): Promise<PurchaseOrderResponse>;
-  getExpectedDeliveryDate(orderId: string): Promise<Date>;
-}
+### Architecture
 
-class OrganicProducerAdapter implements SupplierInventoryAdapter {
-  // Implementation details for a specific supplier
-}
-```
+1. **Microservice Architecture**: Implement the Inventory Context as a dedicated microservice with its own database to ensure scalability and isolation.
+2. **Event-Driven Communication**: Use an event-driven architecture for communication between contexts, with a robust message broker (e.g., Apache Kafka, RabbitMQ) to ensure reliable event delivery.
+3. **CQRS Pattern**: Implement Command Query Responsibility Segregation to separate read and write operations, optimizing for both high-volume inventory transactions and complex queries.
+4. **Domain-Driven Design**: Structure the implementation following DDD principles with clear boundaries between aggregates and strong enforcement of invariants.
 
-## Implementation Considerations
+### Technical Implementation
 
-### Technical Considerations
+1. **Database**: 
+   - Use a relational database for core inventory transactions to ensure ACID compliance
+   - Consider time-series database for temperature monitoring data
+   - Implement optimistic concurrency control for inventory operations
 
-1. **Real-time Inventory Updates**
-   - Use optimistic concurrency control to handle simultaneous updates to inventory records
-   - Implement event sourcing for inventory transactions to enable accurate audit trails and rebuilding state
-   - Apply CQRS pattern to separate read operations (availability checks) from write operations (reservations, movements)
+2. **API Design**:
+   - RESTful APIs for synchronous operations
+   - GraphQL for complex inventory queries
+   - Asynchronous APIs using webhooks for long-running processes
 
-2. **Cold Chain Monitoring**
-   - Integrate with IoT temperature sensors for real-time monitoring of refrigerated and frozen products
-   - Implement alerting system for temperature excursions with automated quarantine procedures
-   - Store temperature history as part of inventory item history for compliance purposes
+3. **Batch Processing**:
+   - Implement batch processing for inventory counts, adjustments, and reconciliation
+   - Use idempotent operations to prevent duplicate processing
 
-3. **Scalability and Performance**
-   - Implement data partitioning by warehouse and product category to improve query performance
-   - Use caching strategies for frequently accessed inventory data (availability, locations)
-   - Design batch processing for high-volume operations (receiving large shipments, bulk adjustments)
+4. **Caching Strategy**:
+   - Cache inventory levels with appropriate invalidation strategies
+   - Implement read-through and write-through caching for high-volume SKUs
 
-4. **Reliability and Consistency**
-   - Implement transactional outbox pattern to ensure consistent event publication
-   - Create compensating transactions for failed inventory operations
-   - Design fallback strategies for inventory verification during outages
+### Scalability and Performance
 
-### Data Management
+1. **Horizontal Scaling**: Design the service to scale horizontally for increased load, particularly during peak seasons.
+2. **Partitioning Strategy**: Partition inventory data by warehouse or product category to improve performance.
+3. **Query Optimization**: Implement specialized read models for common inventory queries.
+4. **Background Processing**: Move non-critical operations to background jobs to maintain responsiveness.
 
-1. **Historical Inventory Data**
-   - Implement time-series storage for inventory levels to support forecasting and analytics
-   - Define data retention policies based on regulatory requirements and business needs
-   - Create aggregation strategies for older inventory data to optimize storage
+### Data Quality and Resilience
 
-2. **Lot and Batch Tracking**
-   - Store comprehensive lot and batch information including certificates of authenticity
-   - Implement GS1 standards for lot tracking to ensure compatibility with industry practices
-   - Design efficient queries for trace-back and trace-forward scenarios
+1. **Data Validation**: Implement strict validation rules for all inventory operations.
+2. **Audit Trail**: Maintain a comprehensive audit trail of all inventory changes.
+3. **Reconciliation Process**: Implement automated reconciliation between physical counts and system records.
+4. **Disaster Recovery**: Design robust backup and recovery procedures with point-in-time recovery capability.
 
-### Phased Implementation Approach
+### Implementation Phases
 
-In alignment with the prioritized implementation plan:
+1. **Phase 1**: Core inventory tracking and batch management
+   - Basic inventory operations (receive, adjust, allocate)
+   - Batch tracking and expiration management
+   - Integration with Order and Catalog contexts
 
-#### Phase 1: Core Inventory Functionality
-1. Implement basic inventory tracking and movement capabilities
-2. Create the `ProductSettingsVO` value object for inventory settings
-3. Develop `InventoryLow` event detection and publication
-4. Implement core APIs for inventory availability checks
+2. **Phase 2**: Advanced inventory capabilities
+   - Temperature monitoring system
+   - Reservation system
+   - Integration with Shipping and Purchasing contexts
 
-#### Phase 2: Quality Control and Provenance
-1. Implement the Quality Verification Workflow with `QuarantineStatus` VO
-2. Create quality check events (`QualityCheckPassed`/`QualityCheckFailed`)
-3. Integrate with the Provenance Service for product authenticity verification
-
-#### Phase 3: Advanced Features and Integration
-1. Implement supplier integration adapters and sync jobs
-2. Develop advanced forecasting capabilities
-3. Create reporting and analytics integration
+3. **Phase 3**: Optimization and intelligence
+   - Forecasting and planning capabilities
+   - Advanced analytics integration
+   - Machine learning for demand prediction
 
 ### Testing Strategy
 
-1. **Unit Testing**
-   - Test value objects validation logic thoroughly
-   - Verify business rule enforcement within aggregates
-   - Mock repositories and services for isolated tests
-
-2. **Integration Testing**
-   - Test event publication and consumption across bounded contexts
-   - Verify database operations for complex inventory scenarios
-   - Test API endpoints with realistic data volumes
-
-3. **Performance Testing**
-   - Benchmark high-volume inventory operations (bulk receiving, mass reservations)
-   - Test concurrent inventory access patterns
-   - Verify event processing throughput for peak inventory activity
-
-4. **Business Scenario Testing**
-   - Create test suites for complete inventory lifecycle scenarios
-   - Validate regulatory compliance procedures
-   - Test expiration and quality control workflows
-
-## Success Metrics
-
-In alignment with the business problem acceptance criteria, the Inventory domain's success will be measured using the following metrics:
-
-### Accuracy and Reliability
-
-| Metric | Target | Measurement Method |
-|--------|--------|-------------------|
-| Inventory accuracy rate | ≥ 99.9% | (Accurate inventory records / Total inventory records) × 100% |
-| Forecast accuracy | ≥ 85% | (1 - |Forecasted demand - Actual demand| / Actual demand) × 100% |
-| Cold chain compliance | ≥ 99.9% | (Compliant cold chain readings / Total readings) × 100% |
-| Stockout rate | < 0.5% | (Number of stockouts / Number of order lines) × 100% |
-| Shrinkage rate | < 1% | (Value of lost inventory / Total inventory value) × 100% |
-
-### Operational Efficiency
-
-| Metric | Target | Measurement Method |
-|--------|--------|-------------------|
-| Inventory turnover rate | Product category specific | COGS / Average inventory value |
-| Days of inventory on hand | Product category specific | (Average inventory value / COGS) × 365 |
-| Warehouse space utilization | > 85% | (Used storage capacity / Total storage capacity) × 100% |
-| Inventory count completion time | ≤ 24 hours | Time from count initiation to reconciliation |
-| Supplier lead time accuracy | ≥ 90% | (Orders received within expected lead time / Total orders) × 100% |
-
-### System Performance
-
-| Metric | Target | Measurement Method |
-|--------|--------|-------------------|
-| Inventory query response time | ≤ 200ms | 95th percentile of API response times |
-| Inventory operation throughput | ≥ 100/sec | Maximum sustainable operations per second |
-| Event processing latency | ≤ 500ms | Time from event publication to consumption |
-| System availability | ≥ 99.95% | (Uptime / Total time) × 100% |
-
-### Business Impact
-
-| Metric | Target | Measurement Method |
-|--------|--------|-------------------|
-| Working capital efficiency | Improve by 15% | Reduction in inventory carrying costs while maintaining service levels |
-| Expired/spoiled inventory cost | Reduce by 30% | Value of expired or spoiled inventory / Total inventory value |
-| Perfect order rate | ≥ 98% | (Orders fulfilled completely and accurately / Total orders) × 100% |
-| Fulfillment cycle time | Reduce by 20% | Time from order placement to shipment |
-
-These metrics will be tracked continuously through dashboards and reviewed monthly to ensure the Inventory domain is delivering expected business value. Corrective actions will be taken when metrics fall below target thresholds, with a focus on continuous improvement.
-
-## References
-
-1. GS1 Standards for Supply Chain Management
-2. FDA Requirements for Food Traceability
-3. FEFO (First Expired, First Out) Inventory Management Principles
-4. ISO 28000 - Supply Chain Security Management Systems
-5. HACCP (Hazard Analysis Critical Control Points) Guidelines
+1. **Unit Testing**: Comprehensive unit tests for all domain logic and business rules.
+2. **Integration Testing**: Test interactions between Inventory Context and other contexts.
+3. **Performance Testing**: Ensure the system can handle peak loads and maintain response times.
+4. **Chaos Testing**: Verify system resilience under failure conditions.
+5. **Domain Scenario Testing**: Test complete business scenarios that cross multiple contexts.
