@@ -1,16 +1,25 @@
+---
+title: Customer Domain
+description: Comprehensive documentation for the Customer domain in Elias Food Imports
+status: draft
+owner: @chris00walker
+reviewers: @team
+last_updated: 2025-06-10
+---
+
 # Customer Domain
 
 <!-- GAP_IMPLEMENTED: B2B Organization Management | Medium | High | High -->
-<!-- stub for "B2B Organization Management" gap in the customer context -->
+<!-- TODO: stub for "B2B Organization Management" gap in the customer context -->
 
 <!-- GAP_IMPLEMENTED: Customer Preference Management | High | High | Medium -->
-<!-- stub for "Customer Preference Management" gap in the customer context -->
+<!-- TODO: stub for "Customer Preference Management" gap in the customer context -->
 
-## Domain Overview
+## 1. Domain Overview
 
 The Customer Domain manages all aspects related to customers in the Elias Food Imports (EFI) system. It handles different types of customers, their contact information, preferences, relationships with the business, and segmentation strategies that drive marketing and sales efforts.
 
-## Strategic Importance
+## 2. Strategic Importance
 
 The Customer Domain is a core domain for Elias Food Imports as it:
 
@@ -20,7 +29,7 @@ The Customer Domain is a core domain for Elias Food Imports as it:
 4. **Enables Loyalty Programs**: Serves as the foundation for customer retention initiatives
 5. **Informs Product Development**: Customer feedback and preferences guide new product introduction
 
-## Core Concepts
+## 3. Core Concepts
 
 ### 1. Customer Segmentation
 
@@ -46,7 +55,7 @@ The ongoing connection between EFI and a customer, including communication histo
 
 The total worth of a customer to the business over their lifetime, considering purchase frequency, average order value, and relationship duration.
 
-## Business Rules
+## 4. Business Rules
 
 ### Customer Creation and Management
 
@@ -88,14 +97,14 @@ The total worth of a customer to the business over their lifetime, considering p
 3. Changes to primary contact information require verification
 4. Loyalty tier assignments must be recalculated monthly based on spending patterns
 
-## Domain Events
+## 5. Domain Events
 
 ### Events Published by Customer Domain
 
 | Event Name | Description | Payload | Consumers |
 |-----------|-------------|---------|------------|
-| `CustomerCreated` | Fired when a new customer account is created | Customer ID, Customer Type, Name, Contact Info, Creation Date | Marketing, Analytics, Notification |
-| `CustomerUpdated` | Fired when customer information is modified | Customer ID, Modified Fields, Previous Values, New Values | Marketing, Analytics, Notification |
+| `CustomerCreated` | Fired when a new customer account is created | `{ customerId: string, customerType: string, name: string, contactInfo: object, createdAt: Date }` | Marketing, Analytics, Notification |
+| `CustomerUpdated` | Fired when customer information is modified | `{ customerId: string, modifiedFields: string[], previousValues: object, newValues: object }` | Marketing, Analytics, Notification |
 | `CustomerSegmentChanged` | Fired when a customer is moved to a new segment | Customer ID, Previous Segment, New Segment, Reason Code | Marketing, Analytics, Sales |
 | `CustomerAddressAdded` | Fired when a customer adds a new address | Customer ID, Address Type, Address Data | Order, Shipping |
 | `CustomerAddressUpdated` | Fired when a customer modifies an existing address | Customer ID, Address ID, Previous Data, Updated Data | Order, Shipping |
@@ -117,7 +126,7 @@ The total worth of a customer to the business over their lifetime, considering p
 | `MarketingCampaignEngagement` | Marketing | Track customer response to marketing initiatives | Update engagement metrics |
 | `ProductAuthenticationScanned` | Catalog Authentication | Record product authentication by customer | Update authentication history |
 
-## Aggregates
+## 6. Aggregates, Entities, and Value Objects
 
 ### Customer Aggregate
 
@@ -490,14 +499,71 @@ classDiagram
 | CRM | Events | Account hierarchy visibility |
 | Billing | API | Consolidated billing |
 
-### Implementation Phases
+### 7. Domain Services
 
-| Phase | Timeline | Deliverables |
-|-------|----------|--------------|
+### CustomerService
+
+Core service for customer-related operations.
+
+**Methods**:
+- `registerCustomer(customerData): Customer` - Creates a new customer account
+- `updateCustomer(customerId, updates): Customer` - Updates customer information
+- `deactivateCustomer(customerId, reason): void` - Deactivates a customer account
+
+### SegmentationService
+
+Manages customer segmentation logic.
+
+**Methods**:
+- `evaluateCustomerSegments(customerId): Segment[]` - Determines applicable segments
+- `applySegmentRules(segmentId, customerIds): void` - Applies segment rules to customers
+
+## 8. Integration Points
+
+### Order Context
+- Consumes: `OrderPlaced`, `OrderCancelled` events
+- Publishes: `CustomerOrderHistoryUpdated` event
+
+### Marketing Context
+- Consumes: `CustomerSegmentChanged` event
+- Publishes: `MarketingPreferenceUpdated` event
+
+### Authentication Context
+- Consumes: `UserRegistered`, `UserAuthenticated` events
+- Publishes: `CustomerAccountLinked` event
+
+## 9. Implementation Recommendations
+
+### Phase 1: Foundation (Months 1-2)
+- Implement core customer management
+- Basic segmentation capabilities
+- Essential integration points
+
+### Phase 2: Advanced Features (Months 3-4)
+- Advanced segmentation rules
+- Customer preference management
+- Enhanced integration with other contexts
+
+### Phase 3: Optimization (Months 5-6)
+- Performance optimization
+- Advanced analytics integration
+- Self-service capabilities
+
+## Implementation Phases
+
+| Phase | Timeline | Description |
+|-------|----------|-------------|
 | 1. Basic Hierarchy | 0-2 months | Core organization structure, basic roles |
 | 2. Advanced RBAC | 2-4 months | Custom roles, permission system |
 | 3. Approval Workflows | 4-6 months | Configurable approval chains |
 | 4. Self-Service Portal | 6-8 months | User management interface |
+
+## Related Documents
+
+- [Order Domain](../order/README.md)
+- [Marketing Domain](../marketing/README.md)
+- [Authentication Context](../../supporting-contexts/authentication/README.md)
+- [Ubiquitous Language Glossary](../../ubiquitous-language/README.md)
 
 ### B2B-Specific Value Objects
 
