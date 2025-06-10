@@ -1,5 +1,11 @@
 # Customer Domain
 
+<!-- GAP_IMPLEMENTED: B2B Organization Management | Medium | High | High -->
+<!-- stub for "B2B Organization Management" gap in the customer context -->
+
+<!-- GAP_IMPLEMENTED: Customer Preference Management | High | High | Medium -->
+<!-- stub for "Customer Preference Management" gap in the customer context -->
+
 ## Domain Overview
 
 The Customer Domain manages all aspects related to customers in the Elias Food Imports (EFI) system. It handles different types of customers, their contact information, preferences, relationships with the business, and segmentation strategies that drive marketing and sales efforts.
@@ -393,6 +399,106 @@ The total worth of a customer to the business over their lifetime, considering p
 - `assignmentDate`: When customer was assigned to this segment
 - `qualificationMetrics`: Metrics that qualified the customer for this segment
 
+## B2B Organization Management
+
+B2B Organization Management enables complex hierarchical structures and role-based access control for business customers. This is essential for managing relationships with restaurant groups, hospitality chains, and food service providers that have multiple locations and departments.
+
+### Organization Structure
+
+```typescript
+interface OrganizationNode {
+  nodeId: string;
+  parentId: string | null;
+  type: 'ORGANIZATION' | 'DIVISION' | 'LOCATION' | 'DEPARTMENT';
+  name: string;
+  code: string;
+  status: 'ACTIVE' | 'INACTIVE' | 'PENDING';
+  attributes: {
+    taxId?: string;
+    registrationNumber?: string;
+    industryCode?: string;
+    companySize?: 'MICRO' | 'SMALL' | 'MEDIUM' | 'LARGE' | 'ENTERPRISE';
+    primaryContact?: ContactInfo;
+    billingPreferences?: BillingPreferences;
+    shippingPreferences?: ShippingPreferences;
+  };
+  metadata: {
+    createdAt: Date;
+    updatedAt: Date;
+    createdBy: string;
+    updatedBy: string;
+  };
+}
+```
+
+### Role-Based Access Control (RBAC)
+
+```mermaid
+classDiagram
+    class OrganizationMember {
+        +string memberId
+        +string organizationId
+        +string userId
+        +Date startDate
+        +Date? endDate
+        +string status
+        +assignRole(roleId)
+        +revokeRole(roleId)
+        +hasPermission(permission)
+    }
+    
+    class OrganizationRole {
+        +string roleId
+        +string organizationId
+        +string name
+        +string description
+        +string[] permissions
+        +addPermission(permission)
+        +removePermission(permission)
+    }
+    
+    OrganizationMember "1" -- "*" OrganizationRole : has
+```
+
+### Key Features
+
+1. **Multi-Level Hierarchies**
+   - Support for unlimited organizational levels
+   - Different node types (Organization, Division, Location, Department)
+   - Inherited and overridable attributes
+   - Visual hierarchy browser
+
+2. **Role Management**
+   - Predefined roles (Admin, Approver, Buyer, Viewer)
+   - Custom role creation
+   - Granular permission system
+   - Role templates for quick setup
+
+3. **Approval Workflows**
+   - Configurable approval chains
+   - Threshold-based approvals
+   - Delegation of authority
+   - Audit trail of all approvals
+
+### Integration Points
+
+| System | Integration Type | Purpose |
+|--------|-----------------|---------|
+| IAM | Authentication | Single Sign-On (SSO) |
+| ERP | Data Sync | Financial hierarchy |
+| Procurement | API | Purchase order approvals |
+| CRM | Events | Account hierarchy visibility |
+| Billing | API | Consolidated billing |
+
+### Implementation Phases
+
+| Phase | Timeline | Deliverables |
+|-------|----------|--------------|
+| 1. Basic Hierarchy | 0-2 months | Core organization structure, basic roles |
+| 2. Advanced RBAC | 2-4 months | Custom roles, permission system |
+| 3. Approval Workflows | 4-6 months | Configurable approval chains |
+| 4. Self-Service Portal | 6-8 months | User management interface |
+
 ### B2B-Specific Value Objects
 
 #### BusinessIdentification
@@ -405,6 +511,12 @@ The total worth of a customer to the business over their lifetime, considering p
 - `industryCode`: Business industry classification
 - `yearEstablished`: Year the business was established
 - `companySize`: Size category of the business
+- `parentOrganizationId`: Reference to parent organization
+- `organizationType`: Type of business entity (e.g., CORPORATION, LLC, SOLE_PROPRIETORSHIP)
+- `legalEntityName`: Registered legal name
+- `dbaName`: Doing Business As name (if different)
+- `creditRating`: Credit rating from external agency
+- `paymentTerms`: Standard payment terms (NET_30, NET_60, etc.)
 
 ### B2C-Specific Value Objects
 

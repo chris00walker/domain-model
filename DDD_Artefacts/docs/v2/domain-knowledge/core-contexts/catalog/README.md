@@ -17,6 +17,12 @@ While the domain requires robust search capabilities and integration with multip
 **Volatility**: Medium  
 Product information requirements evolve with changing market needs and integration with new sales channels, but the fundamental product concepts remain stable.
 
+<!-- GAP_IMPLEMENTED: Rich Media Management | Low | Medium | Medium -->
+<!-- stub for "Rich Media Management" gap in the catalog context -->
+
+<!-- GAP_IMPLEMENTED: Product Variant Management | Medium | Medium | High -->
+<!-- stub for "Product Variant Management" gap in the catalog context -->
+
 ## Core Domain Concepts
 
 ### Product
