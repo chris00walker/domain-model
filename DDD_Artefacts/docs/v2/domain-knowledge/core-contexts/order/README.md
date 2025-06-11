@@ -1277,6 +1277,173 @@ class ReturnProcessingService {
 }
 ```
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### OrderManagementAdminService
+
+**Responsibility**: Provides order management capabilities for administrative users
+
+**Operations**:
+- View complete order history and details including customer interactions
+- Manually approve or reject orders flagged for review
+- Override order status transitions when necessary with justification
+- Apply special discounts or price adjustments with approval
+- Create manual orders on behalf of customers with proper authorization
+
+**Authorization**: Requires `order:manage` permission
+
+#### OrderFulfillmentAdminService
+
+**Responsibility**: Manages order fulfillment operations and exceptions
+
+**Operations**:
+- Override fulfillment priorities for expedited processing
+- Manage split shipment decisions and configurations
+- Handle special packaging instructions for fragile or signature items
+- Configure fulfillment SLAs by order type and region
+- Generate fulfillment exception reports and resolution workflows
+
+**Authorization**: Requires `order:fulfillment:manage` permission
+
+#### OrderReturnAndRefundAdminService
+
+**Responsibility**: Handles return management and refund processing
+
+**Operations**:
+- Approve or deny return requests outside of standard policy
+- Process full or partial refunds with reason documentation
+- Configure return policies by product category and region
+- Override return shipping fees when appropriate
+- Manage return merchandise authorization (RMA) workflows
+
+**Authorization**: Requires `order:returns:manage` permission
+
+### Admin Read Models
+
+#### OrderPerformanceDashboardModel
+
+**Purpose**: Visualizes order processing efficiency and performance metrics
+
+**Key Metrics**:
+- Average processing time by order type
+- Orders processed per hour/day/week by fulfillment center
+- Exception order rate and resolution time
+- Order backlog by status and priority
+- Staff performance metrics for order processing
+
+#### OrderFinancialDashboardModel
+
+**Purpose**: Provides financial insights on order revenue and profitability
+
+**Key Metrics**:
+- Average order value by customer segment
+- Discount impact on margin by promotion type
+- Refund rate and impact by reason code
+- Revenue by product category and region
+- Payment method distribution and fees impact
+
+#### OrderFulfillmentDashboardModel
+
+**Purpose**: Monitors fulfillment operations and shipping performance
+
+**Key Metrics**:
+- On-time delivery rate by carrier and region
+- Split shipment frequency and impact
+- Packaging efficiency and material usage
+- Shipping cost variance by weight and destination
+- Delivery exception rate by carrier and reason
+
+### Admin Domain Events
+
+#### OrderStatusManuallyChangedByAdmin
+
+**Description**: Emitted when an administrator manually changes an order's status
+
+**Payload**:
+```json
+{
+  "aggregateId": "uuid-string",
+  "orderId": "order-123456",
+  "customerId": "customer-uuid",
+  "previousStatus": "PAYMENT_PENDING",
+  "newStatus": "PROCESSING",
+  "reason": "Payment confirmed via offline bank transfer",
+  "adminId": "admin-uuid",
+  "adminName": "John Doe",
+  "notes": "Customer provided transfer receipt via email",
+  "requiresFollowUp": false,
+  "occurredOn": "2025-06-15T13:45:22Z"
+}
+```
+
+#### OrderRefundApprovedByAdmin
+
+**Description**: Emitted when an administrator approves a refund for an order
+
+**Payload**:
+```json
+{
+  "aggregateId": "uuid-string",
+  "orderId": "order-123456",
+  "customerId": "customer-uuid",
+  "refundId": "refund-uuid",
+  "refundAmount": {
+    "value": 128.50,
+    "currency": "EUR"
+  },
+  "refundType": "PARTIAL",
+  "refundReason": "DAMAGED_IN_TRANSIT",
+  "originalPaymentMethod": {
+    "type": "CREDIT_CARD",
+    "last4": "1234",
+    "transactionId": "payment-tx-id"
+  },
+  "refundItems": [
+    {
+      "orderLineId": "line-item-uuid",
+      "productId": "product-uuid",
+      "productName": "Aged Spanish Manchego",
+      "quantity": 2,
+      "unitPrice": {
+        "value": 64.25,
+        "currency": "EUR"
+      }
+    }
+  ],
+  "adminId": "admin-uuid",
+  "adminName": "Sarah Johnson",
+  "approvedOn": "2025-06-15T14:22:10Z",
+  "notes": "Customer provided photos of damaged packaging",
+  "returnRequired": false,
+  "occurredOn": "2025-06-15T14:22:10Z"
+}
+```
+
+#### PriorityOrderFlagAddedByAdmin
+
+**Description**: Emitted when an administrator marks an order for priority processing
+
+**Payload**:
+```json
+{
+  "aggregateId": "uuid-string",
+  "orderId": "order-123456",
+  "customerId": "customer-uuid",
+  "priorityLevel": "HIGH",
+  "priorityReason": "VIP_CUSTOMER",
+  "expectedFulfillmentDate": "2025-06-16T12:00:00Z",
+  "originalFulfillmentDate": "2025-06-19T12:00:00Z",
+  "specialInstructions": "Customer is a restaurant owner who needs products for an event",
+  "adminId": "admin-uuid",
+  "adminName": "Michael Chen",
+  "affectedDepartments": ["WAREHOUSE", "SHIPPING", "CUSTOMER_SERVICE"],
+  "notifyCustomer": true,
+  "occurredOn": "2025-06-15T10:05:33Z"
+}
+```
+
 ## Integration Points
 
 The Order bounded context integrates with numerous other bounded contexts to facilitate the entire order lifecycle. These integrations are critical for maintaining a cohesive business process while respecting domain boundaries.
