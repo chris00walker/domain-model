@@ -187,7 +187,7 @@ and follows the rules specified for our Authentication process.
 - **Blockchain Authentication**: Verification using distributed ledger records
 - **NFC Tag Authentication**: Physical tag verification using NFC technology
 - **Certificate Verification**: Manual certificate lookup and verification
-See the [Authentication Types Glossary](../glossary/authentication-types.md) for detailed descriptions.
+See the [Authentication Types](../guidelines/glossary.md#authentication) section in the Domain Glossary for detailed descriptions.
 ```
 ## Implementation Examples
 ### Example 1: Order API Reflecting Order Domain Concepts

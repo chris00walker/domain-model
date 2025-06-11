@@ -106,7 +106,7 @@ The Ubiquitous Language follows semantic versioning principles:
 - **Minor Version**: Additions and clarifications that maintain backward compatibility
 - **Patch Version**: Minor corrections and refinements
 ## Language Change Log
-The Language Change Log is maintained in [glossary/CHANGELOG.md](../glossary/CHANGELOG.md) and records:
+The Language Change Log is maintained in the [Domain Glossary](./glossary.md) and records:
 - Version
 - Date
 - Changes (additions, modifications, deprecations)
