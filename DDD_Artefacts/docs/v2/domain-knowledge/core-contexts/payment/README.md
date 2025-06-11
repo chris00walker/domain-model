@@ -460,6 +460,163 @@ interface IPaymentRepository {
 }
 ```
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### PaymentAdminService
+
+**Responsibility**: Provides administrative control over payment processing and configuration
+
+**Operations**:
+- Override payment status for exceptional cases
+- Configure payment gateway routing rules
+- Adjust payment processing parameters
+- Generate financial reconciliation reports
+- Configure fraud detection thresholds
+
+**Authorization**: Requires `payment:manage` permission
+
+#### RefundAdminService
+
+**Responsibility**: Manages administrative refund operations beyond standard business rules
+
+**Operations**:
+- Process refunds outside standard eligibility window
+- Override refund approval requirements
+- Process bulk refunds for product recalls or service issues
+- Configure automatic refund rules
+- Generate refund audit reports
+
+**Authorization**: Requires `payment:refund:manage` permission
+
+#### ChargebackAdminService
+
+**Responsibility**: Manages chargeback dispute processes and evidence collection
+
+**Operations**:
+- Review and respond to chargeback claims
+- Upload evidence for chargeback disputes
+- Configure chargeback risk scoring rules
+- Generate chargeback analytics reports
+- Manage chargeback prevention strategies
+
+**Authorization**: Requires `payment:chargeback:manage` permission
+
+### Admin Read Models
+
+#### PaymentGatewayPerformanceDashboardModel
+
+**Purpose**: Monitors performance metrics across payment gateways
+
+**Key Metrics**:
+- Success rates by payment gateway
+- Average processing time by gateway
+- Error rates and common error types
+- Cost per transaction by gateway
+- Authorization-to-capture conversion rates
+
+#### FraudDetectionDashboardModel
+
+**Purpose**: Tracks fraud detection metrics and suspicious payment patterns
+
+**Key Metrics**:
+- Fraud attempt rate by region and payment method
+- False positive and negative rates
+- Average fraud case resolution time
+- Chargeback-to-fraud correlation
+- Risk score distribution across transactions
+
+#### FinancialReconciliationDashboardModel
+
+**Purpose**: Provides visibility into payment reconciliation status
+
+**Key Metrics**:
+- Reconciliation success rate
+- Unreconciled transaction aging
+- Fee accuracy metrics
+- Settlement timing performance
+- Currency conversion variance
+
+### Admin Domain Events
+
+#### PaymentStatusOverriddenByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "paymentId": "string",
+  "orderId": "string",
+  "previousStatus": "string",
+  "newStatus": "string",
+  "reason": "string",
+  "notes": "string",
+  "affectedAmount": {
+    "value": "decimal",
+    "currency": "string"
+  }
+}
+```
+
+#### RefundApprovedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "refundId": "string",
+  "paymentId": "string",
+  "orderId": "string",
+  "amount": {
+    "value": "decimal",
+    "currency": "string"
+  },
+  "reason": "string",
+  "overrideReason": "string",
+  "policyException": "boolean",
+  "customerNotification": "boolean"
+}
+```
+
+#### PaymentGatewayConfigurationModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "gatewayId": "string",
+  "previousConfiguration": {
+    "routingPriority": "number",
+    "activePaymentMethods": ["string"],
+    "transactionLimits": {
+      "min": "decimal",
+      "max": "decimal",
+      "currency": "string"
+    },
+    "processingParameters": {}
+  },
+  "newConfiguration": {
+    "routingPriority": "number",
+    "activePaymentMethods": ["string"],
+    "transactionLimits": {
+      "min": "decimal",
+      "max": "decimal",
+      "currency": "string"
+    },
+    "processingParameters": {}
+  },
+  "effectiveDate": "ISO-8601 datetime",
+  "reason": "string"
+}
+```
+
 ## Implementation Phases
 
 ### Phase 1: Core Payment Processing

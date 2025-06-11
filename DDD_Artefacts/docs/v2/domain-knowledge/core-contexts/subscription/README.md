@@ -443,6 +443,147 @@ The process of selecting products for a subscription based on customer preferenc
   - trackProductPopularity(periodStart, periodEnd): PopularityRanking
   - generateRetentionReport(cohort): RetentionReport
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### SubscriptionManagementAdminService
+
+**Responsibility**: Provides advanced subscription management capabilities for administrative users
+
+**Operations**:
+- Override subscription state transitions with proper authorization
+- Apply special pricing or discount adjustments with approval workflow
+- Manage subscription plan catalog and feature definitions
+- Configure global subscription rules and policies
+- Generate administrative reports on subscription performance
+
+**Authorization**: Requires `subscription:manage` permission
+
+#### BillingAdminService
+
+**Responsibility**: Manages billing configurations and exceptions for subscriptions
+
+**Operations**:
+- Configure billing cycles and payment retry policies
+- Process manual billing adjustments and credits
+- Manage billing dispute resolution workflow
+- Configure multi-currency billing settings
+- Override automated billing rules with proper justification
+
+**Authorization**: Requires `subscription:billing:manage` permission
+
+#### CurationAdminService
+
+**Responsibility**: Manages product curation settings and exceptions
+
+**Operations**:
+- Configure curation algorithms and preference weights
+- Define seasonal collections and special curations
+- Override automated product selections when necessary
+- Manage product exclusion and inclusion rules
+- Configure substitution policies for unavailable items
+
+**Authorization**: Requires `subscription:curation:manage` permission
+
+### Admin Read Models
+
+#### SubscriptionPerformanceDashboardModel
+
+**Purpose**: Provides insights into subscription business performance
+
+**Key Metrics**:
+- Subscription growth and churn by plan type and cohort
+- Revenue forecasts and retention analytics
+- Conversion rates from trials to paid subscriptions
+- Plan performance comparisons and profitability analysis
+
+#### SubscriptionOperationalDashboardModel
+
+**Purpose**: Monitors operational aspects of subscription management
+
+**Key Metrics**:
+- Upcoming renewal volumes and projected inventory needs
+- Failed payment trends and recovery rates
+- Subscription modification patterns and customer behavior
+- Delivery schedule density and geographic distribution
+
+#### CurationPerformanceDashboardModel
+
+**Purpose**: Evaluates effectiveness of product curation algorithms
+
+**Key Metrics**:
+- Customer satisfaction with curated selections
+- Product return rates for curated items
+- Curation algorithm accuracy and preference matching
+- Seasonal collection performance and engagement
+
+### Admin Domain Events
+
+#### SubscriptionPlanCreatedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "planId": "string",
+  "planDetails": {
+    "name": "string",
+    "description": "string",
+    "basePrice": {
+      "amount": "decimal",
+      "currency": "string"
+    },
+    "billingFrequencies": ["string"],
+    "features": ["string"],
+    "isActive": "boolean"
+  }
+}
+```
+
+#### SubscriptionOverriddenByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "subscriptionId": "string",
+  "customerId": "string",
+  "overrideType": "string",
+  "previousValue": "any",
+  "newValue": "any",
+  "justification": "string",
+  "approvalId": "string"
+}
+```
+
+#### BillingExceptionAppliedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "subscriptionId": "string",
+  "customerId": "string",
+  "exceptionType": "CREDIT|DISCOUNT|EXTENSION|REFUND",
+  "amount": {
+    "value": "decimal",
+    "currency": "string"
+  },
+  "reason": "string",
+  "effectivePeriod": {
+    "start": "ISO-8601 datetime",
+    "end": "ISO-8601 datetime"
+  }
+}
+```
+
 ## Integration Points
 
 ### Customer Context
