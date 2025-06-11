@@ -1,31 +1,39 @@
 ---
 title: "Ubiquitous Language Consistency Framework"
 version: "2.0"
-last_updated: "2025-06-06"
+last_updated: "2025-06-11"
 status: "Final"
 ---
-##
-title: "README"
-version: "1.0"
-last_updated: "2025-06-06"
-status: "Draft"
+
 # Ubiquitous Language Framework
-This section contains the Ubiquitous Language Consistency Framework for Elias Food Imports, providing a comprehensive approach to maintaining terminology consistency across all aspects of the domain model.
+
+This document serves as the central hub for the Ubiquitous Language Consistency Framework for Elias Food Imports. It provides a comprehensive approach to maintaining terminology consistency across all aspects of the domain model.
+
 ## Framework Components
+
 ### 1. Core Guidelines
-- [Ubiquitous Language Guidelines](./guidelines/ubiquitous_language_guidelines.md)
-- [Ubiquitous Language Evolution Process](./guidelines/ubiquitous_language_evolution.md)
-- [Domain Glossary](./guidelines/glossary.md)
+
+- [Ubiquitous Language Guidelines](./guidelines/ubiquitous_language_guidelines.md) - Foundational principles and standards
+- [Ubiquitous Language Evolution Process](./guidelines/ubiquitous_language_evolution.md) - How the language evolves over time
+- [Domain Glossary](./guidelines/glossary.md) - Authoritative definitions of all domain terms
+
 ### 2. Implementation Guides
-- [Ubiquitous Language in API Design](./implementation-guides/api_design.md)
-- [Ubiquitous Language in Database Design](./implementation-guides/database_design.md)
-- [Ubiquitous Language in UI Design](./implementation-guides/ui_design.md)
-- [Ubiquitous Language in Testing](./implementation-guides/testing.md)
+
+- [API Design](./implementation-guides/api_design.md) - Applying ubiquitous language to API design
+- [Database Design](./implementation-guides/database_design.md) - Database naming and structure conventions
+- [UI Design](./implementation-guides/ui_design.md) - Consistent terminology in user interfaces
+- [Testing](./implementation-guides/testing.md) - Writing tests that reflect the domain language
+
 ### 3. Analysis Documents
-- [Domain Terms in Requirements Analysis](./analysis/domain-terms-requirements.md)
+
+- [Domain Terms in Requirements](./analysis/domain-terms-requirements.md) - Ensuring requirements use consistent terminology
+- [Domain Event Naming](./analysis/domain_event_naming.md) - Conventions for naming domain events
+- [Terminology Alignment](./analysis/terminology_alignment.md) - Aligning terms across contexts
+
 ### 4. Business Integration
-- [Business Metrics Domain Mapping](./business-integration/business_metrics_domain_mapping.md)
-- [Ubiquitous Language Onboarding](./business-integration/onboarding_program.md)
+
+- [Business Metrics Mapping](./business-integration/business_metrics_domain_mapping.md) - Connecting business metrics to domain concepts
+- [Onboarding Program](./business-integration/onboarding_program.md) - Training for new team members
 ## Using This Framework
 ### For Developers
 1. **Starting a New Feature**:

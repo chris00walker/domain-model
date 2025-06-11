@@ -1,22 +1,15 @@
 ---
 title: "Ubiquitous Language Guidelines"
 version: "2.0"
-last_updated: "2025-06-06"
+last_updated: "2025-06-11"
 status: "Final"
+owner: "DDD Implementation Team"
 ---
-##
-title: "Ubiquitous Language Guidelines"
-version: "1.0"
-last_updated: "2025-06-06"
-## status: "Draft"
-status: "Draft"
-title: Ubiquitous Language Guidelines
-version: "1.0"
-status: active
-owner: DDD Implementation Team
-last_updated: 2025-06-06
+
 # Ubiquitous Language Guidelines
+
 ## Overview
+
 This document establishes the core guidelines for creating, maintaining, and evolving the Ubiquitous Language within the Elias Food Imports domain model. These guidelines ensure consistency across all aspects of the system, from code to documentation to conversations with domain experts.
 ## Key Principles
 ### 1. Single Source of Truth
