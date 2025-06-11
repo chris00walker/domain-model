@@ -149,4 +149,3 @@ describe('Subscription renewal', () => {
 ## References
 - [Object-Oriented Software Construction by Bertrand Meyer](https://www.amazon.com/Object-Oriented-Software-Construction-Book-CD-ROM/dp/0136291554)
 - [Working Effectively with Legacy Code by Michael Feathers](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052)
-- [DDD Readiness Report](../implementation/README.md)

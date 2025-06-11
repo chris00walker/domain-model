@@ -230,7 +230,6 @@ We will implement a Shared Kernel that provides essential building blocks for al
 - Evans, Eric. "Domain-Driven Design: Tackling Complexity in the Heart of Software"
 - Vernon, Vaughn. "Implementing Domain-Driven Design"
 - [Ubiquitous Language Guidelines](../ubiquitous-language/ubiquitous_language_guidelines.md)
-- [Domain Model Gap Analysis](../implementation/domain_model_gap_analysis.md)
 
 ---
 
