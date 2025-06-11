@@ -432,6 +432,68 @@ Used to provide a well-defined interface for integration with multiple other con
 - **Catalog API**: Provides standardized interfaces for accessing product information.
 - **Customer API**: Offers standard interfaces for customer data access across contexts.
 
+## Admin Interface Integration
+
+The Admin interface is implemented as a cross-cutting concern rather than a bounded context, following the Composite UI pattern with Backend for Frontend (BFF).
+
+### Customer-Supplier Relationship
+
+The Admin BFF acts as a customer of services provided by each bounded context:
+
+- **Admin BFF (Customer)** consumes well-defined administrative APIs from each bounded context (Supplier)
+- Each context defines and owns its administrative capabilities according to its domain model
+- The Admin BFF aggregates these capabilities into a unified administrative experience
+
+### Conformist Relationship
+
+The Admin UI conforms to the domain models of each bounded context:
+
+- Domain concepts are preserved in the Admin UI without translation
+- Admin operations follow the same business rules as defined in each context
+- No anti-corruption layer is used; the Admin UI directly uses domain terminology and concepts
+
+### Open Host Service
+
+Each bounded context provides well-defined administrative APIs as an Open Host Service:
+
+- Standard patterns for administrative operations across all contexts
+- Consistent authentication and authorization mechanisms
+- Self-documenting admin endpoints with clear permissions
+
+### Context Map Visualization
+
+*Figure 2: Admin Interface Integration with Bounded Contexts*
+
+```mermaid
+graph TD
+    AdminUI[Admin UI Portal] --> AdminBFF[Admin BFF]
+    AdminBFF --> CT[Catalog Context]
+    AdminBFF --> OR[Order Context]
+    AdminBFF --> IN[Inventory Context]
+    AdminBFF --> CU[Customer Context]
+    AdminBFF --> IAM[Identity & Access Context]
+    AdminBFF --> PR[Pricing Context]
+    AdminBFF --> SU[Subscription Context]
+    AdminBFF --> PAY[Payment Context]
+    AdminBFF --> SH[Shipping Context]
+    
+    classDef interface fill:#fcba03,stroke:#333,stroke-width:1px;
+    classDef bff fill:#fc7303,stroke:#333,stroke-width:1px;
+    classDef context fill:#69f,stroke:#333,stroke-width:1px;
+    
+    AdminUI:::interface
+    AdminBFF:::bff
+    CT:::context
+    OR:::context
+    IN:::context
+    CU:::context
+    IAM:::context
+    PR:::context
+    SU:::context
+    PAY:::context
+    SH:::context
+```
+
 ## Context Boundary Enforcement
 
 To maintain clear boundaries between contexts, we enforce:

@@ -891,6 +891,165 @@ interface InventoryForecastingService {
   ): SlowMovingInventoryReport;
 }
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### InventoryManagementAdminService
+
+**Responsibility**: Provides inventory management capabilities for administrative users
+
+**Operations**:
+- Perform manual inventory adjustments with audit trail
+- Override automatic quarantine rules when necessary
+- Manage warehouse storage locations and parameters
+- Configure inventory visibility rules across channels
+- Generate inventory exception reports
+
+**Authorization**: Requires `inventory:manage` permission
+
+#### BatchAndExpirationAdminService
+
+**Responsibility**: Manages product batch lifecycle and expiration dates
+
+**Operations**:
+- Manually modify batch information when corrections are needed
+- Extend or shorten product expiration dates with proper justification
+- Approve or reject incoming batches with quality issues
+- Manage product recall and quarantine workflows
+- Configure batch rotation strategies (FIFO, FEFO, etc.)
+
+**Authorization**: Requires `inventory:batch:manage` permission
+
+#### InventoryForecastConfigurationService
+
+**Responsibility**: Configures inventory forecasting and replenishment parameters
+
+**Operations**:
+- Set safety stock levels by product category or supplier
+- Configure lead time assumptions for suppliers
+- Adjust seasonality factors for specific products
+- Define and manage inventory optimization rules
+- Override automated reorder points when necessary
+
+**Authorization**: Requires `inventory:forecast:manage` permission
+
+### Admin Read Models
+
+#### InventoryAdjustmentDashboardModel
+
+**Purpose**: Displays inventory adjustment history and audit information
+
+**Key Metrics**:
+- Adjustment frequency by reason code
+- Value of adjustments by warehouse and product category
+- User activity patterns for inventory adjustments
+- Adjustment approval rates and processing times
+
+#### ExpirationRiskDashboardModel
+
+**Purpose**: Visualizes products at risk of expiration for proactive management
+
+**Key Metrics**:
+- Products approaching expiration by time window (7/14/30 days)
+- Historical waste percentages by category
+- Expiration clusters by supplier and country of origin
+- Slow-moving inventory with expiration risk
+
+#### WarehouseCapacityDashboardModel
+
+**Purpose**: Monitors warehouse space utilization and optimization opportunities
+
+**Key Metrics**:
+- Current capacity utilization by storage zone
+- Temperature zone utilization trends
+- Storage efficiency by product category
+- Projected capacity requirements based on forecast
+
+### Admin Domain Events
+
+#### InventoryManuallyAdjustedByAdmin
+
+**Description**: Emitted when an administrator manually adjusts inventory quantities
+
+**Payload**:
+```json
+{
+  "aggregateId": "uuid-string",
+  "inventoryItemId": "uuid-string",
+  "productId": "uuid-string",
+  "productName": "Imported Italian Truffle Oil",
+  "warehouseId": "warehouse-uuid",
+  "locationId": "location-uuid",
+  "previousQuantity": 250,
+  "newQuantity": 242,
+  "unitOfMeasure": "bottle",
+  "adjustmentReason": "DAMAGE",
+  "notes": "Found broken bottles during inspection",
+  "adminId": "admin-uuid",
+  "adminName": "Jane Smith",
+  "approvedById": "manager-uuid",
+  "occurredOn": "2025-06-11T14:30:00Z"
+}
+```
+
+#### ProductBatchExpirationExtendedByAdmin
+
+**Description**: Emitted when an administrator extends the expiration date of a product batch
+
+**Payload**:
+```json
+{
+  "aggregateId": "uuid-string",
+  "batchId": "batch-uuid",
+  "productId": "uuid-string",
+  "productName": "Aged Balsamic Vinegar",
+  "previousExpirationDate": "2025-07-15",
+  "newExpirationDate": "2025-09-15",
+  "extensionReason": "Quality testing confirmed extended shelf life",
+  "qualityTestReferenceId": "test-uuid",
+  "affectedQuantity": 120,
+  "unitOfMeasure": "bottle",
+  "adminId": "admin-uuid",
+  "adminName": "Robert Johnson",
+  "approvalChain": ["quality-manager-uuid", "food-safety-uuid"],
+  "occurredOn": "2025-06-11T16:20:00Z"
+}
+```
+
+#### WarehouseStorageLocationReconfiguredByAdmin
+
+**Description**: Emitted when an administrator reconfigures warehouse storage location parameters
+
+**Payload**:
+```json
+{
+  "aggregateId": "uuid-string",
+  "warehouseId": "warehouse-uuid",
+  "locationId": "location-uuid",
+  "locationType": "COLD_STORAGE",
+  "previousParameters": {
+    "temperatureRangeMin": 2,
+    "temperatureRangeMax": 5,
+    "humidityRangeMin": 60,
+    "humidityRangeMax": 70,
+    "capacityLimit": 5000
+  },
+  "newParameters": {
+    "temperatureRangeMin": 1,
+    "temperatureRangeMax": 4,
+    "humidityRangeMin": 65,
+    "humidityRangeMax": 75,
+    "capacityLimit": 4800
+  },
+  "reconfigurationReason": "Adjusted for delicate chocolate imports",
+  "effectiveFrom": "2025-06-15T00:00:00Z",
+  "adminId": "admin-uuid",
+  "adminName": "Michael Chen",
+  "occurredOn": "2025-06-11T10:15:00Z"
+}
+```
+
 ## Integration Points
 
 ### With Order Context

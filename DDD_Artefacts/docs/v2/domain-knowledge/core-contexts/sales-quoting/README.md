@@ -393,6 +393,249 @@ Defined process for reviewing and approving quotes and contracts based on amount
 - `reject(itemId, approverId, reason)`: Promise<void>
 - `getApprovalHistory(itemId)`: ApprovalHistory[]
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### QuoteConfigurationAdminService
+
+**Responsibility**: Manages system-wide quote configuration and business rules
+
+**Operations**:
+- Configure quote validity periods and expiration rules
+- Define approval thresholds and routing rules
+- Manage quote templates and required fields
+- Configure quote numbering schemes and formats
+- Define quote statuses and state transitions
+
+**Authorization**: Requires `quote:config:manage` permission
+
+#### ContractConfigurationAdminService
+
+**Responsibility**: Manages contract templates, clauses, and compliance rules
+
+**Operations**:
+- Define standard contract templates and clauses
+- Configure contract renewal and expiration rules
+- Manage legal compliance requirements by region
+- Define contract approval workflows and thresholds
+- Configure document generation templates
+
+**Authorization**: Requires `contract:config:manage` permission
+
+#### PricingRulesAdminService
+
+**Responsibility**: Manages pricing rules, discount structures, and approval thresholds
+
+**Operations**:
+- Configure discount approval thresholds by role
+- Define volume-based pricing tiers
+- Manage special pricing programs and eligibility
+- Configure margin protection rules and alerts
+- Define customer tier-based pricing rules
+
+**Authorization**: Requires `pricing:rules:manage` permission
+
+#### SalesOperationsAdminService
+
+**Responsibility**: Manages sales operations, territories, and performance metrics
+
+**Operations**:
+- Configure sales territories and account assignments
+- Define sales performance metrics and targets
+- Manage commission structures and calculations
+- Configure sales forecasting parameters
+- Generate sales performance reports
+
+**Authorization**: Requires `sales:operations:manage` permission
+
+### Admin Read Models
+
+#### QuotePerformanceDashboardModel
+
+**Purpose**: Monitors quote creation, conversion, and performance metrics
+
+**Key Metrics**:
+- Quote volume by status, customer segment, and product category
+- Quote conversion rates and time-to-close metrics
+- Average quote value and margin by sales representative
+- Quote modification frequency and approval cycle times
+- Quote expiration and renewal rates
+
+#### ContractComplianceDashboardModel
+
+**Purpose**: Monitors contract compliance, renewals, and risk factors
+
+**Key Metrics**:
+- Contract renewal rates and advance notice compliance
+- Contract amendment frequency and approval metrics
+- Non-standard term usage and approval statistics
+- Contract risk assessment by customer and region
+- Contract value distribution and trend analysis
+
+#### PricingExceptionsDashboardModel
+
+**Purpose**: Monitors pricing exceptions, discounts, and margin impacts
+
+**Key Metrics**:
+- Discount exception frequency by approver and customer
+- Margin impact of pricing exceptions by product category
+- Special pricing program utilization and effectiveness
+- Pricing override patterns and business justifications
+- Competitive pricing adjustment impact analysis
+
+#### SalesPerformanceDashboardModel
+
+**Purpose**: Monitors sales team performance, pipeline, and forecasting accuracy
+
+**Key Metrics**:
+- Sales pipeline by stage, representative, and territory
+- Forecast accuracy and conversion metrics
+- Sales cycle duration by product category and customer segment
+- Win/loss analysis by competitor and product
+- Commission calculation and payout tracking
+
+### Admin Domain Events
+
+#### QuoteConfigurationModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "configType": "string",
+  "previousConfiguration": {
+    "validityPeriodDays": "integer",
+    "approvalThresholds": [
+      {
+        "amount": "decimal",
+        "currency": "string",
+        "requiredRole": "string"
+      }
+    ],
+    "requiredFields": ["string"],
+    "numberingFormat": "string"
+  },
+  "newConfiguration": {
+    "validityPeriodDays": "integer",
+    "approvalThresholds": [
+      {
+        "amount": "decimal",
+        "currency": "string",
+        "requiredRole": "string"
+      }
+    ],
+    "requiredFields": ["string"],
+    "numberingFormat": "string"
+  },
+  "reason": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### ContractTermsModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "contractTemplateId": "string",
+  "templateName": "string",
+  "previousTerms": {
+    "standardClauses": ["string"],
+    "renewalTerms": {
+      "autoRenewal": "boolean",
+      "noticePeriodDays": "integer"
+    },
+    "paymentTerms": "string",
+    "deliveryTerms": "string"
+  },
+  "newTerms": {
+    "standardClauses": ["string"],
+    "renewalTerms": {
+      "autoRenewal": "boolean",
+      "noticePeriodDays": "integer"
+    },
+    "paymentTerms": "string",
+    "deliveryTerms": "string"
+  },
+  "reason": "string",
+  "effectiveDate": "ISO-8601 datetime",
+  "affectsExistingContracts": "boolean"
+}
+```
+
+#### PricingRulesModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "ruleType": "string",
+  "previousRules": {
+    "discountThresholds": [
+      {
+        "maxDiscountPercentage": "decimal",
+        "requiredRole": "string"
+      }
+    ],
+    "volumeTiers": [
+      {
+        "minimumQuantity": "integer",
+        "discountPercentage": "decimal"
+      }
+    ],
+    "minimumMarginPercentage": "decimal"
+  },
+  "newRules": {
+    "discountThresholds": [
+      {
+        "maxDiscountPercentage": "decimal",
+        "requiredRole": "string"
+      }
+    ],
+    "volumeTiers": [
+      {
+        "minimumQuantity": "integer",
+        "discountPercentage": "decimal"
+      }
+    ],
+    "minimumMarginPercentage": "decimal"
+  },
+  "reason": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### QuoteApprovalOverriddenByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "quoteId": "string",
+  "customerId": "string",
+  "previousStatus": "string",
+  "newStatus": "string",
+  "bypassedApprovals": ["string"],
+  "overrideReason": "string",
+  "totalValue": {
+    "amount": "decimal",
+    "currency": "string"
+  },
+  "discountPercentage": "decimal",
+  "marginPercentage": "decimal"
+}
+```
+
 ## Integration Points
 
 ### Consumed Events

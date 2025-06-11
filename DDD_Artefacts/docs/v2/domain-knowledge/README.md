@@ -27,9 +27,23 @@ This repository contains comprehensive documentation for each bounded context in
 
 ## Cross-Cutting Concerns
 
+### Integration and Communication
+
 - [Domain Events](./integrations/events.md)
 - [Integration Patterns](./integrations/patterns.md)
 - [Bounded Context Map](./integrations/context-map.md)
+
+### Administrative Capabilities
+
+- [Admin Integration Pattern](./integrations/admin-integration.md)
+
+The Admin Integration Pattern documentation describes our approach to administrative capabilities as a cross-cutting concern rather than a separate bounded context. It outlines how administrative functionality is implemented using:
+
+1. **Composite UI Layer**: An Admin Portal aggregating capabilities from all bounded contexts
+2. **Backend for Frontend (BFF)**: A service routing admin commands and aggregating admin views
+3. **Context-Specific Admin Services**: Each bounded context exposes its own admin capabilities
+
+Ref: Each core context has an "Administrative Capabilities" section defining its admin services, read models, and events.
 
 ## Document Structure
 
