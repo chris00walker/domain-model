@@ -16,7 +16,6 @@ This document serves as the central hub for the Ubiquitous Language Consistency 
 - [Ubiquitous Language Guidelines](./guidelines/ubiquitous_language_guidelines.md) - Foundational principles and standards
 - [Ubiquitous Language Evolution Process](./guidelines/ubiquitous_language_evolution.md) - How the language evolves over time
 - [Domain Glossary](./guidelines/glossary.md) - Authoritative definitions of all domain terms
-
 ### 2. Implementation Guides
 
 - [Ubiquitous Language in API Design](./implementation-guides/api_design.md) - Applying ubiquitous language to API design
