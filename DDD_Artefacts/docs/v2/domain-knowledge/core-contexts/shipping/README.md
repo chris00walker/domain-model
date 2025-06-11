@@ -1935,6 +1935,218 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - Return logistics management
 - Return inventory processing
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### ShippingConfigurationAdminService
+
+**Responsibility**: Manages system-wide shipping configuration and carrier relationships
+
+**Operations**:
+- Configure carrier integration settings and credentials
+- Define shipping service levels and availability by region
+- Set up shipping rate tables and negotiated rates
+- Configure customs documentation templates and requirements
+- Manage shipping compliance rules and regulations
+
+**Authorization**: Requires `shipping:config:manage` permission
+
+#### ShipmentOperationsAdminService
+
+**Responsibility**: Provides administrative control over shipment operations
+
+**Operations**:
+- View and search shipments across the system
+- Manually override shipment routing decisions
+- Force shipment status updates when carrier data is delayed
+- Create and manage shipping manifests
+- Resolve shipping exceptions and issues
+
+**Authorization**: Requires `shipping:operations:manage` permission
+
+#### CustomsComplianceAdminService
+
+**Responsibility**: Manages international shipping compliance and documentation
+
+**Operations**:
+- Override customs classifications when necessary
+- Manage country-specific shipping restrictions
+- Configure harmonized tariff code mappings
+- Review and approve high-risk international shipments
+- Generate customs compliance reports
+
+**Authorization**: Requires `shipping:customs:manage` permission
+
+#### ColdChainAdminService
+
+**Responsibility**: Manages temperature-controlled shipping configurations and monitoring
+
+**Operations**:
+- Configure temperature thresholds for different product categories
+- Manage temperature monitoring device assignments
+- Review temperature excursion alerts and reports
+- Configure automated responses to temperature violations
+- Generate cold chain compliance documentation
+
+**Authorization**: Requires `shipping:coldchain:manage` permission
+
+### Admin Read Models
+
+#### ShippingPerformanceDashboardModel
+
+**Purpose**: Provides insights into shipping operations performance
+
+**Key Metrics**:
+- On-time delivery rates by carrier and service level
+- Average transit times by route and carrier
+- Shipping cost analysis and carrier comparison
+- Exception rates and resolution times
+- Delivery performance by geographic region
+
+#### CustomsComplianceDashboardModel
+
+**Purpose**: Monitors international shipping compliance
+
+**Key Metrics**:
+- Customs clearance success rates by country
+- Average customs processing times
+- Documentation accuracy rates
+- Duty and tax assessment accuracy
+- Compliance violation incidents and resolution
+
+#### ColdChainComplianceDashboardModel
+
+**Purpose**: Monitors temperature-controlled shipping compliance
+
+**Key Metrics**:
+- Temperature excursion rates by product category
+- Temperature monitoring device reliability
+- Cold chain integrity by carrier and route
+- Compliance with product-specific temperature requirements
+- Temperature excursion investigation status
+
+#### CarrierPerformanceDashboardModel
+
+**Purpose**: Evaluates and compares carrier performance
+
+**Key Metrics**:
+- Pickup compliance rates
+- Delivery time accuracy
+- Damage and loss rates
+- Tracking data accuracy and timeliness
+- Cost efficiency and contract compliance
+
+### Admin Domain Events
+
+#### ShippingConfigurationModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "configType": "string",
+  "previousConfiguration": {
+    "serviceLevel": "string",
+    "availableRegions": ["string"],
+    "transitTimeDays": "integer",
+    "carrierCode": "string",
+    "active": "boolean"
+  },
+  "newConfiguration": {
+    "serviceLevel": "string",
+    "availableRegions": ["string"],
+    "transitTimeDays": "integer",
+    "carrierCode": "string",
+    "active": "boolean"
+  },
+  "reason": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### ShipmentStatusManuallyOverriddenByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "shipmentId": "string",
+  "orderId": "string",
+  "customerId": "string",
+  "previousStatus": "string",
+  "newStatus": "string",
+  "overrideReason": "string",
+  "carrierTrackingNumber": "string",
+  "carrierLastUpdate": "ISO-8601 datetime",
+  "notifyCustomer": "boolean",
+  "notificationSent": "boolean"
+}
+```
+
+#### CustomsDocumentationApprovedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "shipmentId": "string",
+  "customsDeclarationId": "string",
+  "destinationCountry": "string",
+  "documentTypes": ["string"],
+  "reviewNotes": "string",
+  "complianceChecklistCompleted": "boolean",
+  "manualClassificationOverrides": [
+    {
+      "productId": "string",
+      "originalHsCode": "string",
+      "newHsCode": "string",
+      "overrideReason": "string"
+    }
+  ],
+  "approvalLevel": "string",
+  "submittedToCustoms": "boolean"
+}
+```
+
+#### ColdChainExceptionHandledByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "shipmentId": "string",
+  "temperatureExcursionId": "string",
+  "productIds": ["string"],
+  "temperatureReadings": [
+    {
+      "timestamp": "ISO-8601 datetime",
+      "temperature": "decimal",
+      "unit": "string",
+      "deviceId": "string"
+    }
+  ],
+  "requiredRange": {
+    "min": "decimal",
+    "max": "decimal",
+    "unit": "string"
+  },
+  "excursionDuration": "string",
+  "resolutionAction": "string",
+  "productDisposition": "string",
+  "qualityAssessmentCompleted": "boolean",
+  "customerNotified": "boolean"
+}
+```
+
 ## Integration Points
 
 ### Order Context

@@ -100,6 +100,160 @@ Key domain services that encapsulate business logic and coordinate between entit
   }
   ```
 
+## 7A. Administrative Capabilities
+
+### Admin Application Services
+
+#### AuthenticationConfigAdminService
+
+**Responsibility**: Manages system-wide authentication configuration and policies
+
+**Operations**:
+- Configure authentication marker types and validation rules
+- Define authentication threshold parameters and sensitivity levels
+- Manage counterfeit detection algorithms and parameters
+- Configure provenance verification requirements by product category
+- Set up authentication integration with external verification services
+
+**Authorization**: Requires `auth:config:manage` permission
+
+#### AuthenticationOperationsAdminService
+
+**Responsibility**: Provides administrative control over authentication operations
+
+**Operations**:
+- Review and manage quarantined products
+- Override authentication decisions in exceptional cases
+- Manage authentication marker assignments and registrations
+- Monitor authentication system performance and accuracy
+- Generate authentication audit reports and compliance documentation
+
+**Authorization**: Requires `auth:operations:manage` permission
+
+#### CounterfeitManagementAdminService
+
+**Responsibility**: Manages counterfeit detection and investigation processes
+
+**Operations**:
+- Review and investigate potential counterfeit cases
+- Manage counterfeit reporting and documentation
+- Coordinate with legal and supply chain teams on counterfeit incidents
+- Configure counterfeit alert thresholds and notification rules
+- Generate counterfeit incident reports and analytics
+
+**Authorization**: Requires `auth:counterfeit:manage` permission
+
+### Admin Read Models
+
+#### AuthenticationPerformanceDashboardModel
+
+**Purpose**: Monitors the performance and effectiveness of the authentication system
+
+**Key Metrics**:
+- Authentication success rates by product category and region
+- Authentication processing times and throughput
+- Authentication marker reliability by type
+- System uptime and availability metrics
+- Authentication exception rates and patterns
+
+#### CounterfeitDetectionDashboardModel
+
+**Purpose**: Provides insights into counterfeit detection effectiveness
+
+**Key Metrics**:
+- Counterfeit detection rates by product category
+- False positive and false negative rates
+- Counterfeit incident geographic distribution
+- Counterfeit detection method effectiveness
+- Time to resolution for counterfeit cases
+
+#### ProvenanceVerificationDashboardModel
+
+**Purpose**: Monitors the completeness and accuracy of provenance records
+
+**Key Metrics**:
+- Provenance record completeness by supplier and product category
+- Verification success rates for provenance claims
+- Supply chain visibility metrics
+- Provenance verification processing times
+- Exception rates in provenance verification
+
+### Admin Domain Events
+
+#### AuthenticationConfigurationModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "configType": "string",
+  "previousConfiguration": {
+    "markerType": "string",
+    "thresholdValue": "decimal",
+    "algorithmVersion": "string",
+    "enabled": "boolean"
+  },
+  "newConfiguration": {
+    "markerType": "string",
+    "thresholdValue": "decimal",
+    "algorithmVersion": "string",
+    "enabled": "boolean"
+  },
+  "reason": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### AuthenticationDecisionOverriddenByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "productId": "string",
+  "authenticationId": "string",
+  "originalStatus": "string",
+  "newStatus": "string",
+  "overrideReason": "string",
+  "evidenceReferences": ["string"],
+  "markerDetails": {
+    "markerId": "string",
+    "markerType": "string",
+    "originalScore": "decimal",
+    "manualVerification": "boolean"
+  },
+  "quarantineReleased": "boolean"
+}
+```
+
+#### CounterfeitCaseResolvedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "caseId": "string",
+  "productIds": ["string"],
+  "resolution": "string",
+  "resolutionCategory": "confirmed_counterfeit" | "false_positive" | "inconclusive",
+  "actionTaken": "string",
+  "supplierNotified": "boolean",
+  "legalActionInitiated": "boolean",
+  "inventoryImpact": {
+    "quantityRemoved": "integer",
+    "batchesAffected": ["string"],
+    "dispositionMethod": "string"
+  },
+  "reportDocumentId": "string"
+}
+```
+
 ## 8. Integration Points
 
 ### Upstream Contexts

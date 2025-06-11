@@ -603,6 +603,214 @@ Invoked during review submission and moderation processes to ensure content comp
 **Usage Context**:
 Used for operational monitoring, business reporting, and continuous improvement of the review system.
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### ReviewModerationAdminService
+
+**Responsibility**: Manages the review moderation workflow and policies
+
+**Operations**:
+- Configure moderation rules and content policies
+- Manage moderation queue assignments and priorities
+- Review and resolve escalated moderation cases
+- Override automated moderation decisions
+- Generate moderation performance reports
+
+**Authorization**: Requires `review:moderation:manage` permission
+
+#### ReviewQualityAdminService
+
+**Responsibility**: Manages review quality standards and metrics
+
+**Operations**:
+- Configure sentiment analysis parameters and thresholds
+- Define review quality scoring algorithms
+- Manage review fraud detection rules
+- Configure automated quality flags and alerts
+- Generate quality assurance reports
+
+**Authorization**: Requires `review:quality:manage` permission
+
+#### ReviewResponseAdminService
+
+**Responsibility**: Manages official responses to customer reviews
+
+**Operations**:
+- Create and publish official responses to reviews
+- Manage response templates and guidelines
+- Assign response tasks to appropriate teams
+- Monitor response performance metrics
+- Configure automated response suggestions
+
+**Authorization**: Requires `review:response:manage` permission
+
+#### ReviewAnalyticsAdminService
+
+**Responsibility**: Manages review analytics configuration and reporting
+
+**Operations**:
+- Configure review analytics dashboards and reports
+- Define custom metrics and KPIs for review performance
+- Manage topic extraction and trend analysis parameters
+- Configure review data export and integration settings
+- Generate executive review performance reports
+
+**Authorization**: Requires `review:analytics:manage` permission
+
+### Admin Read Models
+
+#### ModerationPerformanceDashboardModel
+
+**Purpose**: Monitors the efficiency and effectiveness of the review moderation process
+
+**Key Metrics**:
+- Moderation queue length and processing times
+- Moderation decision distribution (approved/rejected/escalated)
+- Moderator productivity and consistency metrics
+- Appeal rate and outcome statistics
+- Automated vs. manual moderation effectiveness
+
+#### ReviewQualityDashboardModel
+
+**Purpose**: Provides insights into review quality and authenticity
+
+**Key Metrics**:
+- Review quality score distribution
+- Suspected fraudulent review detection rate
+- Review sentiment analysis accuracy
+- Review helpfulness engagement metrics
+- Review content quality trends
+
+#### ProductFeedbackDashboardModel
+
+**Purpose**: Aggregates and analyzes product feedback from reviews
+
+**Key Metrics**:
+- Common topics and themes in reviews by product category
+- Sentiment trends over time by product and category
+- Critical quality issue identification and tracking
+- Competitive product comparison based on reviews
+- Review-driven product improvement opportunities
+
+#### ReviewEngagementDashboardModel
+
+**Purpose**: Monitors customer engagement with the review system
+
+**Key Metrics**:
+- Review submission rates and trends
+- Review helpfulness voting activity
+- Customer response to official review responses
+- Review coverage across product catalog
+- Review influence on conversion rates
+
+### Admin Domain Events
+
+#### ReviewModerationPolicyModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "policyType": "string",
+  "previousPolicy": {
+    "contentRules": ["string"],
+    "autoRejectionThreshold": "decimal",
+    "escalationCriteria": ["string"],
+    "moderationSLA": "integer"
+  },
+  "newPolicy": {
+    "contentRules": ["string"],
+    "autoRejectionThreshold": "decimal",
+    "escalationCriteria": ["string"],
+    "moderationSLA": "integer"
+  },
+  "reason": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### ReviewModerationDecisionOverriddenByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "reviewId": "string",
+  "productId": "string",
+  "customerId": "string",
+  "originalModerationStatus": "string",
+  "newModerationStatus": "string",
+  "overrideReason": "string",
+  "originalModeratorId": "string",
+  "contentFlags": ["string"],
+  "customerNotified": "boolean"
+}
+```
+
+#### OfficialReviewResponsePublishedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "reviewId": "string",
+  "productId": "string",
+  "customerId": "string",
+  "responseId": "string",
+  "responseText": "string",
+  "responseType": "string",
+  "respondingTeam": "string",
+  "customerNotified": "boolean",
+  "reviewRating": "integer",
+  "reviewSentiment": "string",
+  "qualityIssueReferenceId": "string"
+}
+```
+
+#### ReviewAnalyticsConfigurationModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "configType": "string",
+  "previousConfiguration": {
+    "sentimentAnalysisModel": "string",
+    "topicExtractionThreshold": "decimal",
+    "qualityScoreWeights": {
+      "length": "decimal",
+      "helpfulness": "decimal",
+      "verifiedPurchase": "decimal",
+      "images": "decimal"
+    },
+    "fraudDetectionSensitivity": "decimal"
+  },
+  "newConfiguration": {
+    "sentimentAnalysisModel": "string",
+    "topicExtractionThreshold": "decimal",
+    "qualityScoreWeights": {
+      "length": "decimal",
+      "helpfulness": "decimal",
+      "verifiedPurchase": "decimal",
+      "images": "decimal"
+    },
+    "fraudDetectionSensitivity": "decimal"
+  },
+  "reason": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
 ## Integration Points
 
 ### Catalog Context

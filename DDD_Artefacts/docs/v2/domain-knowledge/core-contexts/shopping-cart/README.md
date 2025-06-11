@@ -734,6 +734,169 @@ interface CheckoutPreparationService {
 }
 ```
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### CartConfigurationAdminService
+
+**Responsibility**: Manages system-wide shopping cart configuration and policies
+
+**Operations**:
+- Configure cart expiration timeframes and policies
+- Define inventory reservation rules and durations
+- Set cart item limits and validation rules
+- Configure cart merger strategies and rules
+- Manage cart-related feature flags and system parameters
+
+**Authorization**: Requires `cart:config:manage` permission
+
+#### CartOperationsAdminService
+
+**Responsibility**: Provides administrative control over shopping cart operations
+
+**Operations**:
+- View and search customer carts across the system
+- Manually extend cart expiration for specific customers
+- Override inventory reservation constraints when necessary
+- Force-release inventory reservations in exceptional cases
+- Assist customers with cart recovery and troubleshooting
+
+**Authorization**: Requires `cart:operations:manage` permission
+
+#### CartPromotionAdminService
+
+**Responsibility**: Manages the application of promotions and discounts to shopping carts
+
+**Operations**:
+- Override promotion code validation rules
+- Apply manual discounts to customer carts
+- Configure promotion stacking and priority rules
+- Manage promotion application constraints
+- Generate one-time use promotion codes for customer service
+
+**Authorization**: Requires `cart:promotion:manage` permission
+
+### Admin Read Models
+
+#### CartAnalyticsDashboardModel
+
+**Purpose**: Provides insights into shopping cart metrics and customer behavior
+
+**Key Metrics**:
+- Cart creation and conversion rates
+- Average cart value and item count
+- Cart abandonment rates and patterns
+- Promotion usage and effectiveness
+- Cart session duration and interaction metrics
+
+#### CartPerformanceDashboardModel
+
+**Purpose**: Monitors the technical performance of the shopping cart system
+
+**Key Metrics**:
+- Cart operation response times
+- Inventory reservation success rates
+- Cart database query performance
+- API endpoint usage and performance
+- Error rates and types by operation
+
+#### CartAnomalyDetectionDashboardModel
+
+**Purpose**: Identifies unusual patterns or potential issues in shopping cart behavior
+
+**Key Metrics**:
+- Unusual cart abandonment patterns
+- Suspicious promotion usage patterns
+- Inventory reservation anomalies
+- Cart session outliers
+- Potential system abuse indicators
+
+### Admin Domain Events
+
+#### CartConfigurationModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "configType": "string",
+  "previousConfiguration": {
+    "cartExpirationHours": "integer",
+    "inventoryReservationMinutes": "integer",
+    "maxCartItems": "integer",
+    "maxQuantityPerItem": "integer",
+    "guestCartEnabled": "boolean"
+  },
+  "newConfiguration": {
+    "cartExpirationHours": "integer",
+    "inventoryReservationMinutes": "integer",
+    "maxCartItems": "integer",
+    "maxQuantityPerItem": "integer",
+    "guestCartEnabled": "boolean"
+  },
+  "reason": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### CartInventoryReservationOverriddenByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "cartId": "string",
+  "customerId": "string",
+  "productId": "string",
+  "quantity": "integer",
+  "previousReservationStatus": "string",
+  "newReservationStatus": "string",
+  "overrideReason": "string",
+  "expirationTime": "ISO-8601 datetime",
+  "inventoryImpact": {
+    "warehouseId": "string",
+    "availableQuantityBefore": "integer",
+    "availableQuantityAfter": "integer"
+  }
+}
+```
+
+#### CartPromotionManuallyAppliedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "cartId": "string",
+  "customerId": "string",
+  "promotionId": "string",
+  "promotionCode": "string",
+  "promotionType": "string",
+  "discountAmount": {
+    "value": "decimal",
+    "currency": "string"
+  },
+  "originalCartTotal": {
+    "value": "decimal",
+    "currency": "string"
+  },
+  "newCartTotal": {
+    "value": "decimal",
+    "currency": "string"
+  },
+  "reason": "string",
+  "customerServiceTicketId": "string",
+  "expirationTime": "ISO-8601 datetime"
+}
+```
+
 ## Integration Points
 
 ### Catalog Context
