@@ -521,6 +521,146 @@ A specific version of a product with unique characteristics.
 - Validate categorization rules
 - Maintain category hierarchy integrity
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### ProductCatalogManagementService
+
+**Responsibility**: Provides advanced product management capabilities for administrative users
+
+**Operations**:
+- Create and update products with extended validation
+- Manage product discontinuation workflow
+- Handle batch product imports and updates
+- Configure product visibility across channels
+- Override automated business rules when necessary
+
+**Authorization**: Requires `catalog:product:manage` permission
+
+#### CategoryManagementService
+
+**Responsibility**: Manages the product categorization hierarchy
+
+**Operations**:
+- Create, update, and archive categories
+- Reorganize category hierarchies
+- Manage category attribute schemas
+- Define category-specific business rules
+- Generate category performance reports
+
+**Authorization**: Requires `catalog:category:manage` permission
+
+#### AttributeSchemaService
+
+**Responsibility**: Manages product attribute definitions and schemas
+
+**Operations**:
+- Define new product attributes
+- Configure attribute validation rules
+- Manage attribute relationships and dependencies
+- Create and update attribute schemas for categories
+
+**Authorization**: Requires `catalog:attributes:manage` permission
+
+### Admin Read Models
+
+#### ProductApprovalDashboardModel
+
+**Purpose**: Displays products awaiting administrative approval
+
+**Key Metrics**:
+- Products pending approval count by category
+- Average time in approval queue
+- Approval bottlenecks by attribute or requirement
+- Products with missing critical information
+
+#### CatalogHealthModel
+
+**Purpose**: Monitors overall catalog data quality and completeness
+
+**Key Metrics**:
+- Product data completeness scores by category
+- Image quality compliance rates
+- Description quality metrics
+- SEO readiness scores
+- Authentication status distribution
+
+#### CategoryPerformanceModel
+
+**Purpose**: Visualizes business performance metrics by category
+
+**Key Metrics**:
+- Revenue and margin by category
+- Conversion rates compared to browse rates
+- Search frequency versus conversion
+- Top and bottom performing products by category
+
+### Admin Domain Events
+
+#### ProductApprovedByAdmin
+
+**Description**: Emitted when a product is manually approved for publication by an administrator
+
+**Payload**:
+```json
+{
+  "aggregateId": "uuid-string",
+  "productId": "uuid-string",
+  "name": "Product Name",
+  "version": 3,
+  "adminId": "admin-uuid",
+  "notes": "Approved with special pricing conditions",
+  "overriddenValidations": ["price_tier_validation"],
+  "occurredOn": "2025-06-10T15:30:00Z"
+}
+```
+
+#### CategoryHierarchyRestructuredByAdmin
+
+**Description**: Emitted when an administrator reorganizes the category hierarchy
+
+**Payload**:
+```json
+{
+  "aggregateId": "uuid-string",
+  "categoryId": "uuid-string",
+  "name": "Category Name",
+  "oldParentId": "parent-uuid-old",
+  "newParentId": "parent-uuid-new",
+  "affectedProductCount": 42,
+  "adminId": "admin-uuid",
+  "reason": "Strategic reorganization for summer campaign",
+  "occurredOn": "2025-06-10T16:45:00Z"
+}
+```
+
+#### ProductAttributeSchemaModifiedByAdmin
+
+**Description**: Emitted when an administrator modifies attribute schemas affecting multiple products
+
+**Payload**:
+```json
+{
+  "aggregateId": "uuid-string",
+  "schemaId": "uuid-string",
+  "name": "Specialty Foods Schema",
+  "modifiedAttributes": [
+    {
+      "attributeId": "attr-uuid-1",
+      "name": "Country of Origin",
+      "changeType": "required_status_changed",
+      "oldValue": false,
+      "newValue": true
+    }
+  ],
+  "affectedCategoryIds": ["cat-uuid-1", "cat-uuid-2"],
+  "affectedProductCount": 156,
+  "adminId": "admin-uuid",
+  "occurredOn": "2025-06-10T14:20:00Z"
+}
+```
+
 ### Repositories
 
 #### ProductRepository
