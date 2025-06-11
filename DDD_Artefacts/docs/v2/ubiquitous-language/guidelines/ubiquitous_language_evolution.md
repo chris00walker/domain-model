@@ -1,22 +1,15 @@
 ---
 title: "Ubiquitous Language Evolution Process"
 version: "2.0"
-last_updated: "2025-06-06"
+last_updated: "2025-06-11"
 status: "Final"
+owner: "DDD Implementation Team"
 ---
-##
-title: "Ubiquitous Language Evolution Process"
-version: "1.0"
-last_updated: "2025-06-06"
-## status: "Draft"
-status: "Draft"
-title: Ubiquitous Language Evolution Process
-version: "1.0"
-status: active
-owner: DDD Implementation Team
-last_updated: 2025-06-06
+
 # Ubiquitous Language Evolution Process
+
 ## Overview
+
 This document defines the formal process for evolving the Ubiquitous Language within Elias Food Imports as our understanding of the domain grows and changes. A disciplined approach to language evolution ensures that we maintain consistency while allowing our language to grow with the business needs.
 ## Principles
 1. **Intentional Change**: Changes to the Ubiquitous Language should be deliberate, not accidental
