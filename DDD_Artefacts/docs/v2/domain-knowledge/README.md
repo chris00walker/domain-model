@@ -1,3 +1,13 @@
+---
+title: Domain Knowledge Repository
+status: approved
+owner: @domain-team
+reviewers: @architecture-team, @domain-experts
+last_updated: 2025-06-10
+---
+
+<!-- GAP_IMPLEMENTED: Domain Knowledge Structure | Low | Medium | Low -->
+
 # Domain Knowledge Repository
 
 This repository contains comprehensive documentation for each bounded context in the Elias Food Imports domain model.
