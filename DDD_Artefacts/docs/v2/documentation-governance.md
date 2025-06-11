@@ -171,6 +171,6 @@ Track and report on:
 
 ## Related Documents
 
-- [Style Guide](./STYLE_GUILD.md)
+- [Style Guide](./STYLE_GUIDE.md)
 - [Ubiquitous Language Framework](./ubiquitous-language/README.md)
 - [Documentation Templates](./templates/README.md)
