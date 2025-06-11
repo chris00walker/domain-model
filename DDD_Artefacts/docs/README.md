@@ -10,7 +10,6 @@ The documentation has been reorganized into a more maintainable structure follow
 
 ## Key Documents
 
-- **Implementation Status**: [DDD Readiness Report](/DDD_Artefacts/docs/v2/implementation/README.md)
 - **Domain Knowledge**: [Domain Knowledge Repository](/DDD_Artefacts/docs/v2/domain-knowledge/README.md)
 - **Architecture Decisions**: [Architecture Decision Records](/DDD_Artefacts/docs/v2/adr/README.md)
 - **Ubiquitous Language**: [Language Framework](/DDD_Artefacts/docs/v2/ubiquitous-language/README.md)

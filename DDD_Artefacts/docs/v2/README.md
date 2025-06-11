@@ -3,7 +3,6 @@
 ## Core Documentation
 
 - [Domain Knowledge](./domain-knowledge/README.md) - Detailed bounded context documentation
-- [Implementation Status](./implementation/README.md) - Current implementation status and readiness
 - [Architecture Decisions](./adr/README.md) - Architecture decision records
 - [Ubiquitous Language](./ubiquitous-language/README.md) - Domain terminology and glossary
 
