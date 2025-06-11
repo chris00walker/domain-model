@@ -375,6 +375,164 @@ The Marketing domain implements the following domain services to encapsulate com
 - `trackAttributionMetrics(OrderId, List<TouchpointData>)`: Maps customer purchases to marketing touchpoints
 - `predictCampaignOutcome(Campaign)`: Uses historical data to forecast campaign performance
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### CampaignAdminService
+
+**Responsibility**: Provides administrative control over campaign management and approval workflows
+
+**Operations**:
+- Override campaign approval status
+- Configure campaign budget thresholds and approval levels
+- Manage campaign templates and default settings
+- Generate campaign audit reports
+- Configure campaign performance alert thresholds
+
+**Authorization**: Requires `marketing:campaign:manage` permission
+
+#### ContentAdminService
+
+**Responsibility**: Manages administrative operations for marketing content across channels
+
+**Operations**:
+- Manage content approval workflows and permissions
+- Configure content publication schedules and embargoes
+- Administer content templates and brand guidelines
+- Manage digital asset repositories and taxonomies
+- Configure content localization settings
+
+**Authorization**: Requires `marketing:content:manage` permission
+
+#### SegmentationAdminService
+
+**Responsibility**: Administers customer segmentation rules and processing
+
+**Operations**:
+- Configure segment calculation rules and schedules
+- Manage segment data access permissions
+- Define segment quality thresholds and validation rules
+- Configure segment overlap and hierarchy settings
+- Administer segment data retention policies
+
+**Authorization**: Requires `marketing:segmentation:manage` permission
+
+### Admin Read Models
+
+#### CampaignPerformanceDashboardModel
+
+**Purpose**: Provides comprehensive view of marketing campaign performance
+
+**Key Metrics**:
+- Campaign ROI by channel and segment
+- Budget utilization and forecasting
+- Campaign milestone achievement rates
+- A/B test performance comparisons
+- Attribution model effectiveness
+
+#### ContentEffectivenessDashboardModel
+
+**Purpose**: Tracks performance and engagement metrics for marketing content
+
+**Key Metrics**:
+- Content engagement by channel and format
+- Content production workflow efficiency
+- Content localization coverage and effectiveness
+- Content freshness and lifecycle metrics
+- Brand guideline compliance rates
+
+#### SegmentationInsightsDashboardModel
+
+**Purpose**: Monitors segment quality and business impact
+
+**Key Metrics**:
+- Segment stability and membership fluctuation
+- Segment overlap analysis
+- Segment predictive power for conversion
+- Segment data quality and completeness
+- Cross-segment migration patterns
+
+### Admin Domain Events
+
+#### CampaignApprovalOverriddenByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "campaignId": "string",
+  "campaignName": "string",
+  "previousApprovalStatus": "string",
+  "newApprovalStatus": "string",
+  "overrideReason": "string",
+  "affectedChannels": ["string"],
+  "targetLaunchDate": "ISO-8601 datetime",
+  "budgetImpact": {
+    "amount": "decimal",
+    "currency": "string"
+  }
+}
+```
+
+#### ContentPublicationScheduleModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "contentIds": ["string"],
+  "contentType": "string",
+  "previousSchedule": {
+    "publicationDate": "ISO-8601 datetime",
+    "expirationDate": "ISO-8601 datetime",
+    "channels": ["string"]
+  },
+  "newSchedule": {
+    "publicationDate": "ISO-8601 datetime",
+    "expirationDate": "ISO-8601 datetime",
+    "channels": ["string"]
+  },
+  "reason": "string",
+  "affectedCampaigns": ["string"]
+}
+```
+
+#### SegmentDefinitionModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "segmentId": "string",
+  "segmentName": "string",
+  "previousDefinition": {
+    "criteria": [{
+      "attribute": "string",
+      "operator": "string",
+      "value": "any"
+    }],
+    "estimatedSize": "integer"
+  },
+  "newDefinition": {
+    "criteria": [{
+      "attribute": "string",
+      "operator": "string",
+      "value": "any"
+    }],
+    "estimatedSize": "integer"
+  },
+  "effectiveDate": "ISO-8601 datetime",
+  "impactAssessment": "string"
+}
+```
+
 ## 10. Integration Points
 
 The Marketing domain integrates with several other bounded contexts to ensure cohesive business operations.

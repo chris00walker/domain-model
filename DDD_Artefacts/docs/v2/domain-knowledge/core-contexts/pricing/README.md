@@ -481,6 +481,158 @@ This implementation ensures accurate financial calculations while providing a cl
   - forecastPromotionImpact(promotionDraft): ForecastResult
   - schedulePromotionCalendar(timeframe): PromotionCalendar
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### PriceManagementAdminService
+
+**Responsibility**: Provides advanced price management capabilities for administrative users
+
+**Operations**:
+- Override automated pricing rules with proper authorization
+- Approve price changes exceeding threshold limits
+- Configure pricing strategy parameters and constraints
+- Manage margin requirements by product category
+- Execute batch price updates with approval workflow
+
+**Authorization**: Requires `pricing:manage` permission
+
+#### ImportCostAdminService
+
+**Responsibility**: Manages import cost configurations and adjustments
+
+**Operations**:
+- Configure duty and tax rates for different product origins
+- Manage exchange rate sources and update frequencies
+- Override calculated import costs with manual adjustments
+- Configure landed cost calculation parameters
+- Generate import cost analysis reports
+
+**Authorization**: Requires `pricing:importcost:manage` permission
+
+#### PromotionAdminService
+
+**Responsibility**: Manages promotional pricing and discount configurations
+
+**Operations**:
+- Create and manage promotional campaigns and rules
+- Configure promotion eligibility criteria and constraints
+- Manage promotion schedules and activation workflows
+- Override promotion conflicts and stacking rules
+- Analyze promotion performance and ROI metrics
+
+**Authorization**: Requires `pricing:promotion:manage` permission
+
+### Admin Read Models
+
+#### PricingPerformanceDashboardModel
+
+**Purpose**: Provides insights into pricing strategy effectiveness
+
+**Key Metrics**:
+- Margin performance by product category and region
+- Price elasticity and competitive positioning analysis
+- Price change impact on sales volume and revenue
+- Exchange rate impact on import costs and margins
+
+#### PromotionEffectivenessDashboardModel
+
+**Purpose**: Evaluates promotion performance and financial impact
+
+**Key Metrics**:
+- Promotion redemption rates and revenue impact
+- Discount depth analysis and margin effects
+- Customer segment response to promotions
+- Cannibalization effects on non-promoted products
+
+#### ImportCostManagementDashboardModel
+
+**Purpose**: Monitors import cost trends and optimization opportunities
+
+**Key Metrics**:
+- Import cost breakdown by component (duties, taxes, shipping)
+- Exchange rate fluctuation effects on landed costs
+- Supplier cost comparison and optimization opportunities
+- Duty optimization opportunities by country of origin
+
+### Admin Domain Events
+
+#### BasePriceModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "productId": "string",
+  "previousPrice": {
+    "amount": "decimal",
+    "currency": "string"
+  },
+  "newPrice": {
+    "amount": "decimal",
+    "currency": "string"
+  },
+  "reason": "string",
+  "approvalId": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### PricingRuleCreatedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "ruleId": "string",
+  "ruleType": "string",
+  "conditions": [
+    {
+      "field": "string",
+      "operator": "string",
+      "value": "any"
+    }
+  ],
+  "actions": [
+    {
+      "type": "string",
+      "parameters": {}
+    }
+  ],
+  "priority": "integer",
+  "effectiveFrom": "ISO-8601 datetime",
+  "effectiveTo": "ISO-8601 datetime"
+}
+```
+
+#### ImportCostAdjustedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "productId": "string",
+  "costComponentType": "DUTY|TAX|SHIPPING|HANDLING",
+  "previousValue": {
+    "amount": "decimal",
+    "currency": "string"
+  },
+  "newValue": {
+    "amount": "decimal",
+    "currency": "string"
+  },
+  "justification": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
 ## Integration Points
 
 ### Inbound

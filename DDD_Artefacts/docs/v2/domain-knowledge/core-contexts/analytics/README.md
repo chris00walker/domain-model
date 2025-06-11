@@ -1157,6 +1157,150 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 - Behavioral Analytics Service
 - Campaign Management Service
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### AnalyticsConfigurationAdminService
+
+**Responsibility**: Provides administrative control over analytics platform configuration and settings
+
+**Operations**:
+- Configure data ingestion pipelines and schedules
+- Manage data retention policies and archiving rules
+- Configure system-wide analytical parameters and thresholds
+- Administer data source connections and authentication
+- Monitor and optimize analytics system performance
+
+**Authorization**: Requires `analytics:config:manage` permission
+
+#### DataGovernanceAdminService
+
+**Responsibility**: Manages data governance policies and enforcement
+
+**Operations**:
+- Define and enforce data quality rules and standards
+- Configure data classification and sensitivity levels
+- Manage data lineage tracking and documentation
+- Administer data access control policies
+- Generate data compliance reports and audit trails
+
+**Authorization**: Requires `analytics:governance:manage` permission
+
+#### ReportingAdminService
+
+**Responsibility**: Manages enterprise reporting and dashboard configurations
+
+**Operations**:
+- Create and publish enterprise-wide report templates
+- Configure dashboard layouts and visualization standards
+- Manage report distribution and scheduling
+- Define KPI calculation methodologies and business rules
+- Administer report access permissions and sharing policies
+
+**Authorization**: Requires `analytics:reporting:manage` permission
+
+### Admin Read Models
+
+#### AnalyticsPlatformHealthDashboardModel
+
+**Purpose**: Monitors the operational health of the analytics platform
+
+**Key Metrics**:
+- Data pipeline throughput and latency metrics
+- Query performance and resource utilization
+- Data freshness and synchronization status
+- System availability and error rates
+
+#### DataQualityDashboardModel
+
+**Purpose**: Tracks data quality metrics across the analytics platform
+
+**Key Metrics**:
+- Data completeness and accuracy by domain
+- Schema validation success rates
+- Data anomaly detection metrics
+- Source system data quality trends
+
+#### AnalyticsUsageDashboardModel
+
+**Purpose**: Monitors usage patterns of analytics resources
+
+**Key Metrics**:
+- Report and dashboard usage frequency by department
+- Query patterns and popular data elements
+- User engagement and self-service adoption
+- Resource utilization by analytical workload
+
+### Admin Domain Events
+
+#### DataPipelineConfiguredByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "pipelineId": "string",
+  "sourceSystem": "string",
+  "dataType": "string",
+  "configuration": {
+    "schedule": "string",
+    "transformations": ["string"],
+    "validationRules": ["string"],
+    "destination": "string"
+  },
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### DataAccessPolicyModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "policyId": "string",
+  "dataResource": "string",
+  "previousAccess": [
+    {
+      "role": "string",
+      "accessLevel": "string"
+    }
+  ],
+  "newAccess": [
+    {
+      "role": "string",
+      "accessLevel": "string"
+    }
+  ],
+  "justification": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### MetricDefinitionCreatedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "metricId": "string",
+  "metricName": "string",
+  "description": "string",
+  "calculationFormula": "string",
+  "dataSource": "string",
+  "dimensions": ["string"],
+  "owner": "string",
+  "category": "string",
+  "visibility": "INTERNAL|PUBLIC|RESTRICTED"
+}
+```
 ## Integration Points
 
 The Analytics Domain integrates with every other bounded context in the Elias Food Imports ecosystem, as it requires data from all operational systems to provide comprehensive business intelligence. These integrations follow specific patterns tailored to analytical needs.

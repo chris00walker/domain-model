@@ -793,6 +793,177 @@ A compilation of multiple notifications into a single message to reduce communic
 - Customer context (for audience segmentation)
 - Analytics context (for performance measurement)
 
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### NotificationConfigAdminService
+
+**Responsibility**: Manages system-wide notification configuration and policies
+
+**Operations**:
+- Configure global notification rate limits and throttling rules
+- Define system-wide quiet hours and emergency override policies
+- Manage channel provider configurations and failover settings
+- Configure notification priority levels and delivery guarantees
+- Define compliance and regulatory rule sets by jurisdiction
+
+**Authorization**: Requires `notification:config:manage` permission
+
+#### TemplateAdminService
+
+**Responsibility**: Manages notification templates and their lifecycle
+
+**Operations**:
+- Create, update, and archive notification templates
+- Manage template approval workflows and publishing
+- Configure template versioning and rollback capabilities
+- Define template validation rules and constraints
+- Manage template localization and translation workflows
+
+**Authorization**: Requires `notification:template:manage` permission
+
+#### NotificationCampaignAdminService
+
+**Responsibility**: Provides administrative control over notification campaigns
+
+**Operations**:
+- Override campaign scheduling and delivery parameters
+- Configure campaign throttling and pacing rules
+- Manage campaign emergency stop and resume capabilities
+- Define campaign audience override rules
+- Configure campaign analytics and reporting parameters
+
+**Authorization**: Requires `notification:campaign:manage` permission
+
+### Admin Read Models
+
+#### NotificationSystemHealthDashboardModel
+
+**Purpose**: Provides visibility into the operational health of the notification system
+
+**Key Metrics**:
+- Channel provider availability and performance
+- Queue depths and processing latencies
+- Error rates by notification type and channel
+- Rate limit utilization and throttling events
+- System capacity and scaling metrics
+
+#### NotificationComplianceDashboardModel
+
+**Purpose**: Monitors regulatory compliance across notification operations
+
+**Key Metrics**:
+- Consent verification success rates
+- Preference enforcement accuracy
+- Regulatory violation incidents
+- Opt-out processing performance
+- Data retention policy adherence
+
+#### NotificationEffectivenessDashboardModel
+
+**Purpose**: Tracks the business impact and performance of notifications
+
+**Key Metrics**:
+- Delivery success rates by channel and type
+- Engagement metrics (open, click, conversion rates)
+- A/B test performance comparisons
+- Cost per notification by channel
+- Revenue attribution to notification campaigns
+
+### Admin Domain Events
+
+#### GlobalNotificationPolicyModifiedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "policyType": "string",
+  "previousConfiguration": {
+    "rateLimits": {
+      "maxPerMinute": "integer",
+      "maxPerHour": "integer",
+      "maxPerDay": "integer"
+    },
+    "quietHours": {
+      "enabled": "boolean",
+      "startTime": "string (HH:MM)",
+      "endTime": "string (HH:MM)",
+      "timeZoneStrategy": "string"
+    },
+    "emergencyOverrideEnabled": "boolean"
+  },
+  "newConfiguration": {
+    "rateLimits": {
+      "maxPerMinute": "integer",
+      "maxPerHour": "integer",
+      "maxPerDay": "integer"
+    },
+    "quietHours": {
+      "enabled": "boolean",
+      "startTime": "string (HH:MM)",
+      "endTime": "string (HH:MM)",
+      "timeZoneStrategy": "string"
+    },
+    "emergencyOverrideEnabled": "boolean"
+  },
+  "reason": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### NotificationTemplateApprovedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "templateId": "string",
+  "templateName": "string",
+  "templateVersion": "string",
+  "notificationType": "string",
+  "supportedChannels": ["string"],
+  "supportedLocales": ["string"],
+  "approvalNotes": "string",
+  "complianceVerification": {
+    "verified": "boolean",
+    "verificationMethod": "string",
+    "verificationDate": "ISO-8601 datetime"
+  },
+  "effectiveDate": "ISO-8601 datetime",
+  "expirationDate": "ISO-8601 datetime"
+}
+```
+
+#### NotificationCampaignEmergencyHaltedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "campaignId": "string",
+  "campaignName": "string",
+  "haltReason": "string",
+  "severity": "string",
+  "affectedRecipients": {
+    "total": "integer",
+    "notified": "integer",
+    "pending": "integer"
+  },
+  "affectedChannels": ["string"],
+  "mitigationActions": ["string"],
+  "estimatedResolutionTime": "ISO-8601 datetime",
+  "businessImpact": "string"
+}
+```
+
 ## Integration Points
 
 The Notification Domain is highly integrated with other bounded contexts as it serves as a central communication hub for the entire system. Below are the key integration points with other domains:

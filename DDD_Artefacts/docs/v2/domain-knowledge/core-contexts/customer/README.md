@@ -962,3 +962,136 @@ Manages customer segmentation logic.
    - Customer data quality metrics
    - Segmentation effectiveness visualization
    - Integration health status
+
+## Administrative Capabilities
+
+### Admin Application Services
+
+#### CustomerManagementAdminService
+
+**Responsibility**: Provides advanced customer management capabilities for administrative users
+
+**Operations**:
+- Override customer verification and approval processes
+- Manage customer account status changes (activation, suspension, closure)
+- Handle customer data correction and special case management
+- Configure customer data validation rules and constraints
+- Perform customer account merges and splits when necessary
+
+**Authorization**: Requires `customer:manage` permission
+
+#### SegmentationAdminService
+
+**Responsibility**: Manages customer segmentation rules and configurations
+
+**Operations**:
+- Define and modify customer segment definitions and criteria
+- Configure segment transition rules and thresholds
+- Manage segment-specific business rules and policies
+- Execute manual segment assignments with proper justification
+- Generate segmentation analysis and effectiveness reports
+
+**Authorization**: Requires `customer:segmentation:manage` permission
+
+#### CustomerDataComplianceService
+
+**Responsibility**: Manages data privacy compliance and data management operations
+
+**Operations**:
+- Process data subject access requests (DSAR) and right to be forgotten
+- Configure data retention policies and anonymization rules
+- Manage consent records and preference centers
+- Execute data purging and archiving operations
+- Generate compliance audit reports and documentation
+
+**Authorization**: Requires `customer:compliance:manage` permission
+
+### Admin Read Models
+
+#### CustomerAcquisitionDashboardModel
+
+**Purpose**: Monitors customer acquisition performance and trends
+
+**Key Metrics**:
+- New customer registration rates by segment and channel
+- Customer acquisition cost by segment and source
+- Verification completion rates and abandonment points
+- Geographic distribution of new customer registrations
+
+#### CustomerSegmentationDashboardModel
+
+**Purpose**: Provides insights into segmentation effectiveness and dynamics
+
+**Key Metrics**:
+- Segment distribution and population changes over time
+- Segment transition patterns and velocity
+- Segment performance comparison (revenue, order frequency)
+- Segmentation accuracy and predictive power metrics
+
+#### CustomerDataQualityDashboardModel
+
+**Purpose**: Monitors customer data quality and compliance status
+
+**Key Metrics**:
+- Data completeness by customer segment and field
+- Address verification success rates and error patterns
+- Duplicate detection rates and resolution metrics
+- Compliance status by regulatory framework (GDPR, CCPA)
+
+### Admin Domain Events
+
+#### CustomerStatusChangedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "customerId": "string",
+  "previousStatus": "ACTIVE|INACTIVE|SUSPENDED|CLOSED|PENDING_VERIFICATION",
+  "newStatus": "ACTIVE|INACTIVE|SUSPENDED|CLOSED|PENDING_VERIFICATION",
+  "reason": "string",
+  "notes": "string",
+  "effectiveDate": "ISO-8601 datetime"
+}
+```
+
+#### CustomerSegmentOverriddenByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "customerId": "string",
+  "previousSegment": {
+    "segmentType": "B2C|B2B",
+    "specificSegment": "string"
+  },
+  "newSegment": {
+    "segmentType": "B2C|B2B",
+    "specificSegment": "string"
+  },
+  "justification": "string",
+  "overrideExpiration": "ISO-8601 datetime"
+}
+```
+
+#### CustomerDataPurgedByAdmin
+
+**Payload**:
+```json
+{
+  "eventId": "uuid",
+  "timestamp": "ISO-8601 datetime",
+  "adminUserId": "string",
+  "customerId": "string",
+  "purgeType": "FULL|PARTIAL",
+  "dataCategories": ["string"],
+  "legalBasis": "GDPR_REQUEST|CCPA_REQUEST|INTERNAL_POLICY",
+  "retentionRecordId": "string",
+  "completionStatus": "SUCCESS|PARTIAL|FAILED"
+}
+```
