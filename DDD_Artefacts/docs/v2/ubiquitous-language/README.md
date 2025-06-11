@@ -19,21 +19,21 @@ This document serves as the central hub for the Ubiquitous Language Consistency 
 
 ### 2. Implementation Guides
 
-- [API Design](./implementation-guides/api_design.md) - Applying ubiquitous language to API design
-- [Database Design](./implementation-guides/database_design.md) - Database naming and structure conventions
-- [UI Design](./implementation-guides/ui_design.md) - Consistent terminology in user interfaces
-- [Testing](./implementation-guides/testing.md) - Writing tests that reflect the domain language
+- [Ubiquitous Language in API Design](./implementation-guides/api_design.md) - Applying ubiquitous language to API design
+- [Ubiquitous Language in Database Design](./implementation-guides/database_design.md) - Database naming and structure conventions
+- [Ubiquitous Language in UI Design](./implementation-guides/ui_design.md) - Consistent terminology in user interfaces
+- [Ubiquitous Language in Testing](./implementation-guides/testing.md) - Writing tests that reflect the domain language
 
 ### 3. Analysis Documents
 
-- [Domain Terms in Requirements](./analysis/domain-terms-requirements.md) - Ensuring requirements use consistent terminology
-- [Domain Event Naming](./analysis/domain_event_naming.md) - Conventions for naming domain events
-- [Terminology Alignment](./analysis/terminology_alignment.md) - Aligning terms across contexts
+- [Domain Terms in Requirements Analysis](./analysis/domain-terms-requirements.md) - Ensuring requirements use consistent terminology
+- [Domain Event Naming Analysis](./analysis/domain_event_naming.md) - Conventions for naming domain events
+- [Terminology Alignment Guide](./analysis/terminology_alignment.md) - Aligning terms across contexts
 
 ### 4. Business Integration
 
-- [Business Metrics Mapping](./business-integration/business_metrics_domain_mapping.md) - Connecting business metrics to domain concepts
-- [Onboarding Program](./business-integration/onboarding_program.md) - Training for new team members
+- [Business Metrics Domain Mapping](./business-integration/business_metrics_domain_mapping.md) - Connecting business metrics to domain concepts
+- [Ubiquitous Language Onboarding](./business-integration/onboarding_program.md) - Training for new team members
 ## Using This Framework
 ### For Developers
 1. **Starting a New Feature**:
