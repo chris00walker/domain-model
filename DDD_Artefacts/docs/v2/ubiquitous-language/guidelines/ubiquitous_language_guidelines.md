@@ -20,7 +20,7 @@ last_updated: 2025-06-06
 This document establishes the core guidelines for creating, maintaining, and evolving the Ubiquitous Language within the Elias Food Imports domain model. These guidelines ensure consistency across all aspects of the system, from code to documentation to conversations with domain experts.
 ## Key Principles
 ### 1. Single Source of Truth
-Every domain concept must have a single, authoritative definition that is consistently used across all contexts. This definition should be documented and accessible to all team members.
+Every domain concept must have a single, authoritative definition that is consistently used across all contexts. These definitions are maintained in the [Domain Glossary](./glossary.md) and should be referenced from all documentation and code.
 ### 2. Business-Driven Terminology
 The Ubiquitous Language must reflect the business domain, not technical implementation. Technical terms should only be used when they have specific business meaning.
 ### 3. Bounded Context Awareness
@@ -88,7 +88,7 @@ export class ProductAuthenticated extends DomainEvent {
   Product.authenticate() // not Product.verify() or Product.check()
   ```
 ## Domain Language Glossary
-See the [Domain Language Glossary](../glossary/README.md) for the authoritative list of all domain terms, their definitions, and context-specific variations.
+See the [Domain Glossary](./glossary.md) for the authoritative list of all domain terms, their definitions, and context-specific variations.
 ## Compliance Checklist
 - [ ] Does the term reflect a concept that domain experts recognize?
 - [ ] Is the term consistently used in code, documentation, and conversation?

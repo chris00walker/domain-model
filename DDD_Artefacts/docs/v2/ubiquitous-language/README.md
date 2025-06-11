@@ -15,6 +15,7 @@ This section contains the Ubiquitous Language Consistency Framework for Elias Fo
 ### 1. Core Guidelines
 - [Ubiquitous Language Guidelines](./guidelines/ubiquitous_language_guidelines.md)
 - [Ubiquitous Language Evolution Process](./guidelines/ubiquitous_language_evolution.md)
+- [Domain Glossary](./guidelines/glossary.md)
 ### 2. Implementation Guides
 - [Ubiquitous Language in API Design](./implementation-guides/api_design.md)
 - [Ubiquitous Language in Database Design](./implementation-guides/database_design.md)
