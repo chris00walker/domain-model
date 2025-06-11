@@ -1,69 +1,132 @@
 # Documentation Style Guide
 
-This style guide ensures consistency across all documentation for the Elias Food Imports domain model.
+This style guide ensures consistency across all documentation for the Elias Food Imports domain model. For documentation processes, reviews, and governance, see the [Documentation Governance](./documentation-governance.md) guide.
 
-## General Principles
+## General Writing Principles
 
 1. **Use the Ubiquitous Language**: Always use terms consistently with the [Ubiquitous Language Framework](./ubiquitous-language/README.md).
 2. **Be Precise**: Documentation should be clear, concise, and unambiguous.
 3. **Provide Examples**: Include practical examples, especially for complex concepts.
 4. **Maintain Structure**: Follow the established document structure for each type of document.
 
-## Formatting
+## Formatting Guidelines
 
-### Markdown Rules
+### Markdown Formatting
 
-- Use ATX-style headings (`#` for title, `##` for sections)
-- Use code blocks for code examples (with language specifier)
-- Use tables for tabular data
-- Use lists for sequential or unordered items
+#### Headings
+- Use ATX-style headings with `#` for title, `##` for main sections, `###` for subsections, etc.
+- Include exactly one space between `#` and the heading text
+- Use sentence case for headings (capitalize only the first word and proper nouns)
 
-### Front Matter
+#### Text Formatting
+- Use **bold** for UI elements, buttons, and important concepts on first mention
+- Use *italics* for emphasis or to introduce new terms
+- Use `backticks` for code, commands, file names, and technical terms
+- Use ~~strikethrough~~ for deprecated or removed features
 
-All documents should include front matter:
+#### Lists
+- Use hyphens (`-`) for unordered lists
+- Use numbers with periods (`1.`) for ordered lists
+- Indent nested lists with 2 spaces
+- Include a blank line before and after lists
+
+#### Code Blocks
+
+Use fenced code blocks with language specification:
+
+```typescript
+// Example TypeScript code
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+```
+
+#### Tables
+
+Use tables for tabular data with aligned columns:
+
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| `id` | string | Yes | Unique identifier |
+| `name` | string | Yes | User's full name |
+| `email` | string | No | Contact email |
+
+#### Links
+- Use descriptive link text that makes sense out of context
+- Place the link reference at the end of the document if using reference-style links
+- Use relative paths for internal links
+
+### Document Structure
+
+#### Front Matter
+
+All documents should include the following front matter:
 
 ```yaml
 ---
-title: Document Title
-status: draft|review|approved
-owner: @github-username
-reviewers: @reviewer1, @reviewer2
-last_updated: YYYY-MM-DD
+title: "Document Title"
+version: "1.0.0"
+last_updated: "YYYY-MM-DD"
+status: "Draft | Review | Final | Deprecated"
+owner: "Team or Individual Name"
+reviewers: "@reviewer1, @reviewer2"
 ---
 ```
 
-## Document Types
+#### Standard Sections
+
+1. **Introduction**: Brief overview and purpose
+2. **Overview**: High-level description
+3. **Details**: In-depth information
+4. **Examples**: Practical usage examples
+5. **Related**: Links to related documentation
+
+## Document Types and Templates
 
 ### Domain Knowledge Documents
 
-Structure for domain knowledge documents:
-1. Domain Overview
-2. Strategic Importance
-3. Core Concepts
-4. Business Rules
-5. Domain Events
-6. Aggregates, Entities, Value Objects
-7. Domain Services
-8. Integration Points
-9. Implementation Recommendations
+```markdown
+# [Domain Name] Domain
+
+## Overview
+Brief description of the domain and its purpose.
+
+## Core Concepts
+- Key concept 1
+- Key concept 2
+- Key concept 3
+
+## Business Rules
+1. Rule 1
+2. Rule 2
+3. Rule 3
+
+## Related Documents
+- [Related Doc 1](./path/to/doc1.md)
+- [Related Doc 2](./path/to/doc2.md)
+```
 
 ### Architecture Decision Records (ADRs)
 
-Structure for ADRs:
-1. Title
-2. Status
-3. Context
-4. Decision
-5. Consequences
-6. References
+```markdown
+# [Short title]
 
-### Implementation Documentation
+## Status
+[Proposed | Accepted | Deprecated | Superseded]
 
-Structure for implementation documents:
-1. Executive Summary
-2. Current Status
-3. Technical Details
-4. Next Steps
+## Context
+What is the issue that we're seeing that is motivating this decision?
+
+## Decision
+What is the change that we're proposing and/or doing?
+
+## Consequences
+What becomes easier or more difficult to do because of this change?
+```
+
+For documentation processes, review workflows, and governance, please refer to the [Documentation Governance](./documentation-governance.md) guide.
 
 ## Gap-Implementation Markers & Stubs
 
