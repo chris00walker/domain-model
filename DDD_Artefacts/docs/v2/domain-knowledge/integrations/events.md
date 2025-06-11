@@ -313,6 +313,199 @@ Events use different delivery guarantees based on business criticality:
 
 <!-- Note: This document contains a subset of events for brevity. The full catalog contains 60+ events across all contexts -->
 
+## Administrative Domain Events
+
+Administrative domain events follow the same naming conventions as other domain events but are specifically related to actions performed by administrative users. These events are crucial for audit trails, compliance requirements, and tracking changes across the system.
+
+### Event Structure
+
+All administrative events include:
+
+- **adminId**: The unique identifier of the admin user who performed the action
+- **reason**: Optional justification for the administrative action
+- **occurredOn**: Timestamp when the action occurred
+- **metadata**: Additional contextual information necessary for audit purposes
+
+### Event Prefix Convention
+
+Administrative events follow an entity-first naming convention with actions explicitly including "ByAdmin" suffix to clearly differentiate them from standard system events.
+
+### Common Administrative Domain Events
+
+#### ProductPriceOverriddenByAdmin
+
+- **Definition**: Created when an administrative user overrides the standard pricing rules for a product
+- **Payload**:
+  ```json
+  {
+    "eventId": "UUID",
+    "productId": "UUID",
+    "productName": "String",
+    "previousPrice": {
+      "amount": "Number",
+      "currency": "String"
+    },
+    "newPrice": {
+      "amount": "Number",
+      "currency": "String"
+    },
+    "overrideReason": "String",
+    "validUntil": "Timestamp",
+    "adminId": "UUID",
+    "adminName": "String",
+    "occurredOn": "Timestamp",
+    "metadata": {
+      "ipAddress": "String",
+      "sessionId": "String",
+      "approvedBy": "UUID"
+    }
+  }
+  ```
+- **Producer**: Pricing Context
+- **Consumers**:
+  - Catalog Context: Updates product display price
+  - Analytics Context: Records pricing override for reporting
+  - Audit Context: Logs override for compliance purposes
+- **Delivery Guarantee**: At-Least-Once
+
+#### CustomerAccountSuspendedByAdmin
+
+- **Definition**: Created when an administrative user suspends a customer account
+- **Payload**:
+  ```json
+  {
+    "eventId": "UUID",
+    "customerId": "UUID",
+    "customerEmail": "String",
+    "suspensionReason": "String",
+    "suspensionCategory": "Enum(FRAUD, ABUSE, PAYMENT_ISSUE, OTHER)",
+    "suspensionDuration": "Number",
+    "durationType": "Enum(DAYS, PERMANENT)",
+    "notifyCustomer": "Boolean",
+    "adminId": "UUID",
+    "adminName": "String",
+    "occurredOn": "Timestamp",
+    "metadata": {
+      "ipAddress": "String",
+      "relatedCaseId": "String",
+      "previousWarnings": ["UUID"]
+    }
+  }
+  ```
+- **Producer**: Customer Context
+- **Consumers**:
+  - Order Context: Blocks new orders from suspended customers
+  - Payment Context: Flags payment methods for review
+  - Notification Context: Sends suspension notice to customer if notifyCustomer=true
+  - Audit Context: Logs account action for compliance purposes
+- **Delivery Guarantee**: At-Least-Once
+
+#### OrderRefundApprovedByAdmin
+
+- **Definition**: Created when an administrative user approves a refund outside of standard policy
+- **Payload**:
+  ```json
+  {
+    "eventId": "UUID",
+    "orderId": "UUID",
+    "customerId": "UUID",
+    "orderTotal": {
+      "amount": "Number",
+      "currency": "String"
+    },
+    "refundAmount": {
+      "amount": "Number",
+      "currency": "String"
+    },
+    "refundReason": "String",
+    "policyExceptions": ["String"],
+    "returnRequired": "Boolean",
+    "adminId": "UUID",
+    "adminName": "String",
+    "occurredOn": "Timestamp",
+    "metadata": {
+      "customerServiceTicketId": "String",
+      "conversationReferenceId": "UUID",
+      "approvalChain": ["UUID"]
+    }
+  }
+  ```
+- **Producer**: Order Context
+- **Consumers**:
+  - Payment Context: Processes refund transaction
+  - Inventory Context: Updates inventory if items returned
+  - Customer Context: Updates customer history and satisfaction metrics
+  - Analytics Context: Records exception for refund rate analysis
+  - Audit Context: Logs manual override for compliance purposes
+- **Delivery Guarantee**: At-Least-Once
+
+#### InventoryManuallyAdjustedByAdmin
+
+- **Definition**: Created when an administrative user manually adjusts inventory quantity
+- **Payload**:
+  ```json
+  {
+    "eventId": "UUID",
+    "productId": "UUID",
+    "productName": "String",
+    "warehouseId": "UUID",
+    "previousQuantity": "Number",
+    "newQuantity": "Number",
+    "adjustmentReason": "Enum(DAMAGE, THEFT, COUNT_ERROR, SYSTEM_RECONCILIATION, OTHER)",
+    "notes": "String",
+    "batchAffected": "String",
+    "adminId": "UUID",
+    "adminName": "String",
+    "occurredOn": "Timestamp",
+    "metadata": {
+      "auditReference": "String",
+      "photoEvidenceLinks": ["URL"],
+      "inventoryAuditId": "UUID"
+    }
+  }
+  ```
+- **Producer**: Inventory Context
+- **Consumers**:
+  - Catalog Context: Updates product availability status
+  - Order Context: Updates fulfillment capacity
+  - Analytics Context: Records inventory adjustment for shrinkage analysis
+  - Audit Context: Logs manual adjustment for inventory reconciliation
+- **Delivery Guarantee**: At-Least-Once
+
+#### SystemConfigurationChangedByAdmin
+
+- **Definition**: Created when an administrative user changes system configuration settings
+- **Payload**:
+  ```json
+  {
+    "eventId": "UUID",
+    "configurationDomain": "String",
+    "configurationType": "String",
+    "configurationKey": "String",
+    "previousValue": "Any",
+    "newValue": "Any",
+    "environmentTarget": "Enum(DEV, STAGING, PRODUCTION, ALL)",
+    "changeReason": "String",
+    "requiresRestart": "Boolean",
+    "scheduledRestartTime": "Timestamp",
+    "adminId": "UUID",
+    "adminName": "String",
+    "approvedById": "UUID",
+    "occurredOn": "Timestamp",
+    "metadata": {
+      "changeRequestId": "String",
+      "releaseVersion": "String",
+      "rollbackInstructions": "String"
+    }
+  }
+  ```
+- **Producer**: Configuration Context (part of respective domain contexts)
+- **Consumers**:
+  - System Services: Apply configuration changes
+  - Notification Context: Alert relevant teams about configuration changes
+  - Audit Context: Log configuration change for compliance purposes
+- **Delivery Guarantee**: At-Least-Once
+
 ## Context-to-Context Event Flow Diagrams
 
 ```mermaid
