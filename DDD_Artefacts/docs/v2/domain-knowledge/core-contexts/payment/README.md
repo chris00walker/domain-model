@@ -1,68 +1,68 @@
 ---
-title: Payment Domain Knowledge
+title: [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Domain Knowledge
 status: draft
-owner: @payment-team
+owner: @[Payment](../ubiquitous-language/guidelines/glossary.md#payment)-team
 reviewers: @reviewer1, @reviewer2
 last_updated: 2025-06-10
 ---
 
-# Payment Domain
+# [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Domain
 
 ## Overview
 
-The Payment domain manages the processing, tracking, and reconciliation of all financial transactions for Elias Food Imports. It handles payment capture, refunds, and chargebacks while ensuring compliance with financial regulations and security standards. The domain serves as a critical link between customer orders and financial systems, providing secure and reliable transaction processing while supporting various payment methods preferred by different international customer segments.
+The [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) domain manages the processing, tracking, and reconciliation of all financial transactions for Elias Food Imports. It handles [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) capture, refunds, and chargebacks while ensuring compliance with financial regulations and security standards. The domain serves as a critical link between [Customer](../ubiquitous-language/guidelines/glossary.md#customer) orders and financial systems, providing secure and reliable transaction processing while supporting various [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) methods preferred by different international [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segments.
 
 ## Strategic Classification
 
 **Domain Type**: Core Domain
 
 **Business Value**: High  
-Payment processing is critical to revenue collection and directly impacts customer trust, financial reporting accuracy, and operational cash flow.
+[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) processing is critical to revenue collection and directly impacts [Customer](../ubiquitous-language/guidelines/glossary.md#customer) trust, financial reporting accuracy, and operational cash flow.
 
 **Technical Complexity**: High  
-The domain requires secure integration with multiple payment gateways, strict compliance with financial regulations, fraud detection capabilities, and robust error handling.
+The domain requires secure integration with multiple [Payment](../ubiquitous-language/guidelines/glossary.md#payment) gateways, strict compliance with financial regulations, fraud detection capabilities, and robust error handling.
 
 **Volatility**: Medium  
-Core payment concepts are stable, but payment methods, gateway integrations, and compliance requirements evolve over time with new financial technologies and regulations.
+Core [Payment](../ubiquitous-language/guidelines/glossary.md#payment) concepts are stable, but [Payment](../ubiquitous-language/guidelines/glossary.md#payment) methods, gateway integrations, and compliance requirements evolve over time with new financial technologies and regulations.
 
 ## Core Domain Concepts
 
-### Payment
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)
 
-The central concept representing a financial transaction associated with an order.
+The central concept representing a financial transaction associated with an [Order](../ubiquitous-language/guidelines/glossary.md#order).
 
 **Key Attributes**:
-- Payment identifier (unique reference)
-- Order identifier (links to the Order domain)
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) identifier (unique reference)
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) identifier (links to the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) domain)
 - Amount and currency
-- Payment status (initiated, captured, failed, refunded, chargeback)
-- Payment method (credit card, PayPal, bank transfer, etc.)
-- Transaction identifier (from payment processor)
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) status (initiated, captured, failed, refunded, chargeback)
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) method (credit card, PayPal, bank transfer, etc.)
+- Transaction identifier (from [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processor)
 - Creation and update timestamps
 - Refund history
 - Failure reason (when applicable)
 - Processor-specific metadata
 
-### Payment Method
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Method
 
-Represents a way of transferring funds from customer to business.
+Represents a way of transferring funds from [Customer](../ubiquitous-language/guidelines/glossary.md#customer) to business.
 
 **Key Attributes**:
 - Method type (card, PayPal, bank transfer, etc.)
 - Supported currencies
 - Processing fees
 - Settlement timeframe
-- Customer verification requirements
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) verification requirements
 - Region availability
 - Risk level
 
 ### Transaction
 
-Represents a specific attempt to process a payment through a payment gateway.
+Represents a specific attempt to process a [Payment](../ubiquitous-language/guidelines/glossary.md#payment) through a [Payment](../ubiquitous-language/guidelines/glossary.md#payment) gateway.
 
 **Key Attributes**:
 - Transaction identifier
-- Payment identifier
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) identifier
 - Gateway identifier
 - Transaction type (authorization, capture, refund, void)
 - Amount and currency
@@ -73,11 +73,11 @@ Represents a specific attempt to process a payment through a payment gateway.
 
 ### Refund
 
-Represents the return of funds to a customer.
+Represents the return of funds to a [Customer](../ubiquitous-language/guidelines/glossary.md#customer).
 
 **Key Attributes**:
 - Refund identifier
-- Original payment identifier
+- Original [Payment](../ubiquitous-language/guidelines/glossary.md#payment) identifier
 - Amount and currency (can be partial)
 - Reason
 - Status (initiated, processing, completed, failed)
@@ -87,11 +87,11 @@ Represents the return of funds to a customer.
 
 ### Chargeback
 
-Represents a disputed transaction where the customer has requested their bank to reverse a charge.
+Represents a disputed transaction where the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) has requested their bank to reverse a charge.
 
 **Key Attributes**:
 - Chargeback identifier
-- Original payment identifier
+- Original [Payment](../ubiquitous-language/guidelines/glossary.md#payment) identifier
 - Amount and currency
 - Reason code
 - Evidence submitted
@@ -99,73 +99,73 @@ Represents a disputed transaction where the customer has requested their bank to
 - Deadlines for response
 - Resolution details
 
-### Payment Gateway
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Gateway
 
 Represents a service provider that processes electronic payments.
 
 **Key Attributes**:
 - Gateway identifier
 - Provider name
-- Supported payment methods
+- Supported [Payment](../ubiquitous-language/guidelines/glossary.md#payment) methods
 - Supported currencies
-- Authentication credentials
+- [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) credentials
 - API version
 - Connection parameters
 - Fee structure
 - Status (active, inactive, maintenance)
 
 <!-- GAP_IMPLEMENTED: B2B Credit Management -->
-<!-- stub for "B2B Credit Management" gap in the payment context -->
+<!-- stub for "B2B Credit Management" gap in the [Payment](../ubiquitous-language/guidelines/glossary.md#payment) context -->
 
 ## Business Rules
 
-### Payment Processing
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Processing
 
-1. All payment amounts must be validated against order totals before processing with a zero-tolerance variance.
-2. Payment capture must occur only after inventory has been successfully reserved.
+1. All [Payment](../ubiquitous-language/guidelines/glossary.md#payment) amounts must be validated against [Order](../ubiquitous-language/guidelines/glossary.md#order) totals before processing with a zero-tolerance variance.
+2. [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) capture must occur only after [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) has been successfully reserved.
 3. Payments exceeding €5,000 require additional verification and manual approval.
-4. Failed payment attempts must be logged with detailed error information for troubleshooting.
-5. A payment can be attempted up to 3 times before being marked as permanently failed.
-6. Payment methods availability varies by customer region and order value.
+4. Failed [Payment](../ubiquitous-language/guidelines/glossary.md#payment) attempts must be logged with detailed error information for troubleshooting.
+5. A [Payment](../ubiquitous-language/guidelines/glossary.md#payment) can be attempted up to 3 times before being marked as permanently failed.
+6. [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) methods availability varies by [Customer](../ubiquitous-language/guidelines/glossary.md#customer) region and [Order](../ubiquitous-language/guidelines/glossary.md#order) value.
 
 ### Refund Processing
 
 1. Full refunds can be processed automatically up to 30 days after purchase.
 2. Partial refunds require manager approval and documented reason codes.
 3. Refunds for orders containing perishable goods that have been shipped require special authorization.
-4. Refund amount cannot exceed the original payment amount.
+4. Refund amount cannot exceed the original [Payment](../ubiquitous-language/guidelines/glossary.md#payment) amount.
 5. Bulk refunds (affecting more than 20 orders) require finance department approval.
-6. Customer refund history must be tracked to identify potential abuse patterns.
+6. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) refund history must be tracked to identify potential abuse patterns.
 
 ### Chargebacks and Disputes
 
 1. All chargebacks must be responded to within 7 business days with appropriate evidence.
 2. Chargebacks representing more than 1% of monthly transaction volume trigger risk review procedures.
-3. Repeated chargebacks from the same customer result in account review and possible restriction.
-4. Product authenticity disputes must involve the Catalog Authentication domain for verification.
-5. Chargeback disputes must include delivery confirmation when the reason is "product not received."
+3. Repeated chargebacks from the same [Customer](../ubiquitous-language/guidelines/glossary.md#customer) result in account review and possible restriction.
+4. [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) authenticity disputes must involve the [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) domain for verification.
+5. Chargeback disputes must include delivery confirmation when the reason is "[Product](../ubiquitous-language/guidelines/glossary.md#product) not received."
 6. Settlement offers can be made for disputed transactions at 75% of the original amount with approval.
 
-### Payment Security and Compliance
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Security and Compliance
 
-1. Payment card data must never be stored in Elias Food Imports systems.
-2. All payment processing must comply with PCI-DSS standards.
-3. Strong Customer Authentication (SCA) must be implemented for European customers per PSD2 regulations.
+1. [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) card data must never be stored in Elias Food Imports systems.
+2. All [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing must comply with PCI-DSS standards.
+3. Strong [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) (SCA) must be implemented for European customers per PSD2 regulations.
 4. Suspicious transaction patterns must be flagged for manual review.
 5. Multi-currency transactions must use approved exchange rates updated daily.
 6. Transaction logs must be retained for 7 years for compliance and audit purposes.
 
 <!-- GAP_IMPLEMENTED: Multi-Currency Support -->
-<!-- stub for "Multi-Currency Support" gap in the payment context -->
+<!-- stub for "Multi-Currency Support" gap in the [Payment](../ubiquitous-language/guidelines/glossary.md#payment) context -->
 
 ### Financial Reconciliation
 
 1. All payments must be reconciled with bank statements daily with 100% accuracy.
 2. Discrepancies greater than €100 require immediate investigation and documentation.
-3. Settlement timeframes must be tracked by payment method and factored into cash flow projections.
-4. Payment fees must be recorded separately for accurate financial reporting.
+3. Settlement timeframes must be tracked by [Payment](../ubiquitous-language/guidelines/glossary.md#payment) method and factored into cash flow projections.
+4. [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) fees must be recorded separately for accurate financial reporting.
 5. Multi-currency reconciliation must account for exchange rate fluctuations.
-6. Monthly financial close processes require verification of all payment transactions.
+6. Monthly financial close processes require verification of all [Payment](../ubiquitous-language/guidelines/glossary.md#payment) transactions.
 
 ## Domain Events
 
@@ -173,7 +173,7 @@ Represents a service provider that processes electronic payments.
 
 #### PaymentCaptured
 
-**Description**: A payment has been successfully captured from the customer's payment method.
+**Description**: A [Payment](../ubiquitous-language/guidelines/glossary.md#payment) has been successfully captured from the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s [Payment](../ubiquitous-language/guidelines/glossary.md#payment) method.
 
 **Payload**:
 ```typescript
@@ -189,15 +189,15 @@ Represents a service provider that processes electronic payments.
 ```
 
 **Consumers**:
-- Order Context: Updates order status to paid
-- Inventory Context: Confirms inventory allocation
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context: Updates [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status to paid
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context: Confirms [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) allocation
 - Fulfillment Context: Triggers shipment process
 - Analytics Context: Updates sales metrics
-- Notification Context: Sends payment confirmation to customer
+- Notification Context: Sends [Payment](../ubiquitous-language/guidelines/glossary.md#payment) confirmation to [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
 
 #### PaymentFailed
 
-**Description**: A payment attempt has failed.
+**Description**: A [Payment](../ubiquitous-language/guidelines/glossary.md#payment) attempt has failed.
 
 **Payload**:
 ```typescript
@@ -213,10 +213,10 @@ Represents a service provider that processes electronic payments.
 ```
 
 **Consumers**:
-- Order Context: Updates order status and may trigger order cancellation
-- Inventory Context: May release reserved inventory
-- Notification Context: Alerts customer about payment failure
-- Analytics Context: Records failed payment metrics
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context: Updates [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status and may trigger [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) cancellation
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context: May release reserved [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
+- Notification Context: Alerts [Customer](../ubiquitous-language/guidelines/glossary.md#customer) about [Payment](../ubiquitous-language/guidelines/glossary.md#payment) failure
+- Analytics Context: Records failed [Payment](../ubiquitous-language/guidelines/glossary.md#payment) metrics
 
 #### RefundInitiated
 
@@ -235,9 +235,9 @@ Represents a service provider that processes electronic payments.
 ```
 
 **Consumers**:
-- Order Context: Updates order status
-- Customer Context: Updates customer account
-- Notification Context: Alerts customer about refund initiation
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context: Updates [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context: Updates [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) account
+- Notification Context: Alerts [Customer](../ubiquitous-language/guidelines/glossary.md#customer) about refund initiation
 
 #### RefundCompleted
 
@@ -255,14 +255,14 @@ Represents a service provider that processes electronic payments.
 ```
 
 **Consumers**:
-- Order Context: Finalizes order refund status
-- Customer Context: Updates customer refund history
-- Notification Context: Confirms refund completion to customer
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context: Finalizes [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) refund status
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context: Updates [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) refund history
+- Notification Context: Confirms refund completion to [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
 - Analytics Context: Updates refund metrics
 
 #### ChargebackReceived
 
-**Description**: A chargeback has been received from the customer's bank or payment provider.
+**Description**: A chargeback has been received from the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s bank or [Payment](../ubiquitous-language/guidelines/glossary.md#payment) provider.
 
 **Payload**:
 ```typescript
@@ -277,14 +277,14 @@ Represents a service provider that processes electronic payments.
 ```
 
 **Consumers**:
-- Order Context: Updates order status
-- Customer Context: Flags customer account for review
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context: Updates [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context: Flags [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) account for review
 - Analytics Context: Updates fraud/risk metrics
 - Notification Context: Alerts fraud team
 
 #### OrderPaymentConfirmed
 
-**Description**: Confirms to the Order context that payment has been successfully processed.
+**Description**: Confirms to the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) context that [Payment](../ubiquitous-language/guidelines/glossary.md#payment) has been successfully processed.
 
 **Payload**:
 ```typescript
@@ -298,26 +298,26 @@ Represents a service provider that processes electronic payments.
 ```
 
 **Consumers**:
-- Order Context: Confirms order payment status
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context: Confirms [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) [Payment](../ubiquitous-language/guidelines/glossary.md#payment) status
 - Fulfillment Context: May trigger fulfillment process
 
 ### Events Consumed
 
 #### OrderCreated
 
-**Description**: A new order has been created that requires payment processing.
+**Description**: A new [Order](../ubiquitous-language/guidelines/glossary.md#order) has been created that requires [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing.
 
-**Source**: Order Context
+**Source**: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context
 
-**Reaction**: Initiates a payment transaction based on order details.
+**Reaction**: Initiates a [Payment](../ubiquitous-language/guidelines/glossary.md#payment) transaction based on [Order](../ubiquitous-language/guidelines/glossary.md#order) details.
 
 #### OrderCancelled
 
-**Description**: An order has been cancelled before payment processing completed.
+**Description**: An [Order](../ubiquitous-language/guidelines/glossary.md#order) has been cancelled before [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing completed.
 
-**Source**: Order Context
+**Source**: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context
 
-**Reaction**: Cancels any pending payment authorizations.
+**Reaction**: Cancels any pending [Payment](../ubiquitous-language/guidelines/glossary.md#payment) authorizations.
 
 #### ShipmentDelivered
 
@@ -325,7 +325,7 @@ Represents a service provider that processes electronic payments.
 
 **Source**: Shipping Context
 
-**Reaction**: Finalizes payment capture for orders using deferred payment methods.
+**Reaction**: Finalizes [Payment](../ubiquitous-language/guidelines/glossary.md#payment) capture for orders using deferred [Payment](../ubiquitous-language/guidelines/glossary.md#payment) methods.
 
 #### FraudAlertRaised
 
@@ -339,52 +339,52 @@ Represents a service provider that processes electronic payments.
 
 | Term | Definition | Context Usage |
 |------|------------|---------------|
-| Payment | A financial transaction associated with an order | Core entity in the Payment domain |
-| Capture | The process of transferring funds from customer to merchant | Action performed after authorization |
-| Authorization | Verification that funds are available without transferring them | Initial step in payment processing |
-| Settlement | The process of funds being transferred to the merchant account | Final stage of successful payment |
-| Chargeback | A forced transaction reversal initiated by the customer's bank | Dispute handling process |
-| Refund | A deliberate return of funds to a customer | Customer service operation |
-| Gateway | Third-party service that processes payments | Integration point for payment processing |
-| Tokenization | Process of substituting sensitive payment data with non-sensitive equivalent | Security measure for payment methods |
-| Acquirer | Bank or financial institution that processes card payments | Part of payment processing chain |
-| Issuer | Bank or financial institution that issues payment cards | Part of payment processing chain |
+| [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) | A financial transaction associated with an [Order](../ubiquitous-language/guidelines/glossary.md#order) | Core entity in the [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) domain |
+| Capture | The process of transferring funds from [Customer](../ubiquitous-language/guidelines/glossary.md#customer) to merchant | Action performed after authorization |
+| Authorization | Verification that funds are available without transferring them | Initial step in [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing |
+| Settlement | The process of funds being transferred to the merchant account | Final stage of successful [Payment](../ubiquitous-language/guidelines/glossary.md#payment) |
+| Chargeback | A forced transaction reversal initiated by the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s bank | Dispute handling process |
+| Refund | A deliberate return of funds to a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) service operation |
+| Gateway | Third-party service that processes payments | Integration point for [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing |
+| Tokenization | Process of substituting sensitive [Payment](../ubiquitous-language/guidelines/glossary.md#payment) data with non-sensitive equivalent | Security measure for [Payment](../ubiquitous-language/guidelines/glossary.md#payment) methods |
+| Acquirer | Bank or financial institution that processes card payments | Part of [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing chain |
+| Issuer | Bank or financial institution that issues [Payment](../ubiquitous-language/guidelines/glossary.md#payment) cards | Part of [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing chain |
 
 ## Bounded Context Relationships
 
-### Payment → Order
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) → [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)
 - **Relationship Type**: Partnership
-- **Description**: Payment processes transactions for orders and communicates payment status
+- **Description**: [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) processes transactions for orders and communicates [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) status
 - **Integration**: Via domain events `OrderPaymentConfirmed` and `PaymentFailed`
 
-### Payment → Inventory
-- **Relationship Type**: Customer-Supplier
-- **Description**: Payment confirms successful transactions before inventory is committed
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) → [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
+- **Relationship Type**: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)-Supplier
+- **Description**: [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) confirms successful transactions before [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is committed
 - **Integration**: Via domain events
 
-### Payment → Customer
-- **Relationship Type**: Customer-Supplier
-- **Description**: Payment uses customer data for processing and updates customer payment history
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) → [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)
+- **Relationship Type**: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)-Supplier
+- **Description**: [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) uses [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data for processing and updates [Customer](../ubiquitous-language/guidelines/glossary.md#customer) [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) history
 - **Integration**: Via domain events and shared data
 
-### Payment → Fulfillment
-- **Relationship Type**: Customer-Supplier
-- **Description**: Payment success triggers the fulfillment process
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) → Fulfillment
+- **Relationship Type**: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)-Supplier
+- **Description**: [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) success triggers the fulfillment process
 - **Integration**: Via domain events
 
-### Payment → Analytics
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) → Analytics
 - **Relationship Type**: Supplier
-- **Description**: Payment provides transaction data for financial reporting
+- **Description**: [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) provides transaction data for financial reporting
 - **Integration**: Via domain events and data warehousing
 
 ## Implementation Guidelines
 
 ### Aggregates
 
-#### Payment Aggregate
+#### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Aggregate
 
 ```typescript
-class Payment extends AggregateRoot<PaymentProps> {
+class [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) extends AggregateRoot<PaymentProps> {
   // Properties
   private _paymentId: PaymentId;
   private _orderId: OrderId;
@@ -400,7 +400,7 @@ class Payment extends AggregateRoot<PaymentProps> {
   public receiveChargeback(chargebackId: string, amount: Money, reason: string): Result<void, string>
   
   // Invariants
-  // - Payment amount must be greater than zero
+  // - [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) amount must be greater than zero
   // - Status transitions follow lifecycle rules
   // - Captured payments cannot transition to Failed
 }
@@ -437,15 +437,15 @@ class PaymentId extends ValueObject<{ value: string }> {
 ```typescript
 // PaymentProcessor
 interface PaymentProcessor {
-  authorize(payment: Payment): Promise<Result<string, PaymentError>>
-  capture(payment: Payment): Promise<Result<void, PaymentError>>
-  refund(payment: Payment, amount: Money): Promise<Result<void, PaymentError>>
+  authorize([[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment): [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment))): Promise<Result<string, PaymentError>>
+  capture([[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment): [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment))): Promise<Result<void, PaymentError>>
+  refund([[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment): [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)), amount: Money): Promise<Result<void, PaymentError>>
 }
 
 // PaymentValidator
 class PaymentValidator {
   validateMethod(method: PaymentMethod, amount: Money, region: Region): boolean
-  validateRefundEligibility(payment: Payment, amount: Money): Result<void, string>
+  validateRefundEligibility([[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment): [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)), amount: Money): Result<void, string>
 }
 ```
 
@@ -453,10 +453,10 @@ class PaymentValidator {
 
 ```typescript
 interface IPaymentRepository {
-  save(payment: Payment): Promise<void>
-  getById(paymentId: PaymentId): Promise<Payment | null>
-  getByOrderId(orderId: OrderId): Promise<Payment[]>
-  getByStatus(status: PaymentStatus, limit: number): Promise<Payment[]>
+  save([[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment): [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment))): Promise<void>
+  getById(paymentId: PaymentId): Promise<[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) | null>
+  getByOrderId(orderId: OrderId): Promise<[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)[]>
+  getByStatus(status: PaymentStatus, limit: number): Promise<[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)[]>
 }
 ```
 
@@ -466,16 +466,16 @@ interface IPaymentRepository {
 
 #### PaymentAdminService
 
-**Responsibility**: Provides administrative control over payment processing and configuration
+**Responsibility**: Provides administrative control over [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing and configuration
 
 **Operations**:
-- Override payment status for exceptional cases
-- Configure payment gateway routing rules
-- Adjust payment processing parameters
+- Override [Payment](../ubiquitous-language/guidelines/glossary.md#payment) status for exceptional cases
+- Configure [Payment](../ubiquitous-language/guidelines/glossary.md#payment) gateway routing rules
+- Adjust [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing parameters
 - Generate financial reconciliation reports
 - Configure fraud detection thresholds
 
-**Authorization**: Requires `payment:manage` permission
+**Authorization**: Requires `[Payment](../ubiquitous-language/guidelines/glossary.md#payment):manage` permission
 
 #### RefundAdminService
 
@@ -484,11 +484,11 @@ interface IPaymentRepository {
 **Operations**:
 - Process refunds outside standard eligibility window
 - Override refund approval requirements
-- Process bulk refunds for product recalls or service issues
+- Process bulk refunds for [Product](../ubiquitous-language/guidelines/glossary.md#product) recalls or service issues
 - Configure automatic refund rules
 - Generate refund audit reports
 
-**Authorization**: Requires `payment:refund:manage` permission
+**Authorization**: Requires `[Payment](../ubiquitous-language/guidelines/glossary.md#payment):refund:manage` permission
 
 #### ChargebackAdminService
 
@@ -501,16 +501,16 @@ interface IPaymentRepository {
 - Generate chargeback analytics reports
 - Manage chargeback prevention strategies
 
-**Authorization**: Requires `payment:chargeback:manage` permission
+**Authorization**: Requires `[Payment](../ubiquitous-language/guidelines/glossary.md#payment):chargeback:manage` permission
 
 ### Admin Read Models
 
 #### PaymentGatewayPerformanceDashboardModel
 
-**Purpose**: Monitors performance metrics across payment gateways
+**Purpose**: Monitors performance metrics across [Payment](../ubiquitous-language/guidelines/glossary.md#payment) gateways
 
 **Key Metrics**:
-- Success rates by payment gateway
+- Success rates by [Payment](../ubiquitous-language/guidelines/glossary.md#payment) gateway
 - Average processing time by gateway
 - Error rates and common error types
 - Cost per transaction by gateway
@@ -518,10 +518,10 @@ interface IPaymentRepository {
 
 #### FraudDetectionDashboardModel
 
-**Purpose**: Tracks fraud detection metrics and suspicious payment patterns
+**Purpose**: Tracks fraud detection metrics and suspicious [Payment](../ubiquitous-language/guidelines/glossary.md#payment) patterns
 
 **Key Metrics**:
-- Fraud attempt rate by region and payment method
+- Fraud attempt rate by region and [Payment](../ubiquitous-language/guidelines/glossary.md#payment) method
 - False positive and negative rates
 - Average fraud case resolution time
 - Chargeback-to-fraud correlation
@@ -529,7 +529,7 @@ interface IPaymentRepository {
 
 #### FinancialReconciliationDashboardModel
 
-**Purpose**: Provides visibility into payment reconciliation status
+**Purpose**: Provides visibility into [Payment](../ubiquitous-language/guidelines/glossary.md#payment) reconciliation status
 
 **Key Metrics**:
 - Reconciliation success rate
@@ -619,45 +619,45 @@ interface IPaymentRepository {
 
 ## Implementation Phases
 
-### Phase 1: Core Payment Processing
-1. Implement Payment aggregate with core state transitions
-2. Develop basic payment gateway integration
-3. Create payment event handlers for order processing
+### Phase 1: Core [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Processing
+1. Implement [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) aggregate with core state transitions
+2. Develop basic [Payment](../ubiquitous-language/guidelines/glossary.md#payment) gateway integration
+3. Create [Payment](../ubiquitous-language/guidelines/glossary.md#payment) event handlers for [Order](../ubiquitous-language/guidelines/glossary.md#order) processing
 4. Implement basic refund functionality
 
 ### Phase 2: Advanced Features
 1. Add multi-currency support
 2. Implement chargeback handling
 3. Create fraud detection rules
-4. Develop payment analytics
+4. Develop [Payment](../ubiquitous-language/guidelines/glossary.md#payment) analytics
 
 ### Phase 3: Integration and Optimization
-1. Integrate with additional payment gateways
-2. Implement advanced payment routing based on cost and success probability
+1. Integrate with additional [Payment](../ubiquitous-language/guidelines/glossary.md#payment) gateways
+2. Implement advanced [Payment](../ubiquitous-language/guidelines/glossary.md#payment) routing based on cost and success probability
 3. Develop reconciliation mechanisms
 4. Create reporting dashboards
 
 ## Testing Strategy
 
 1. **Unit Testing**
-   - Test payment state transitions and business rules
+   - Test [Payment](../ubiquitous-language/guidelines/glossary.md#payment) state transitions and business rules
    - Verify calculation accuracy for fees, exchange rates, and totals
-   - Mock external payment gateways
+   - Mock external [Payment](../ubiquitous-language/guidelines/glossary.md#payment) gateways
 
 2. **Integration Testing**
-   - Test payment gateway integrations with sandbox environments
+   - Test [Payment](../ubiquitous-language/guidelines/glossary.md#payment) gateway integrations with sandbox environments
    - Verify event publication and consumption across contexts
-   - Test complete payment flows (order → payment → fulfillment)
+   - Test complete [Payment](../ubiquitous-language/guidelines/glossary.md#payment) flows ([Order](../ubiquitous-language/guidelines/glossary.md#order) → [Payment](../ubiquitous-language/guidelines/glossary.md#payment) → fulfillment)
 
 3. **Security Testing**
-   - Penetration tests for payment endpoints
+   - Penetration tests for [Payment](../ubiquitous-language/guidelines/glossary.md#payment) endpoints
    - PCI-DSS compliance verification
    - Sensitive data handling tests
 
 4. **Performance Testing**
-   - Test payment processing under peak load
+   - Test [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing under peak load
    - Verify transaction throughput capabilities
-   - Measure response times for critical payment operations
+   - Measure response times for critical [Payment](../ubiquitous-language/guidelines/glossary.md#payment) operations
 
 ## Success Metrics
 
@@ -665,7 +665,7 @@ interface IPaymentRepository {
 
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
-| Payment success rate | ≥ 99.5% | (Successful payments / Total payment attempts) × 100% |
+| [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) success rate | ≥ 99.5% | (Successful payments / Total [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) attempts) × 100% |
 | Reconciliation accuracy | 100% | (Correctly reconciled transactions / Total transactions) × 100% |
 | Financial reporting accuracy | 100% | (Accurate financial entries / Total entries) × 100% |
 | Chargeback rate | < 0.1% | (Number of chargebacks / Total transactions) × 100% |
@@ -675,17 +675,17 @@ interface IPaymentRepository {
 
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
-| Average payment processing time | ≤ 2 seconds | Average time from payment initiation to completion |
+| Average [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing time | ≤ 2 seconds | Average time from [Payment](../ubiquitous-language/guidelines/glossary.md#payment) initiation to completion |
 | Refund processing time | ≤ 2 business days | Average time from refund request to completion |
-| Payment gateway availability | ≥ 99.99% | (Uptime / Total time) × 100% |
-| Payment method optimization | ≥ 95% | (Transactions using optimal payment method / Total transactions) × 100% |
+| [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) gateway availability | ≥ 99.99% | (Uptime / Total time) × 100% |
+| [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) method optimization | ≥ 95% | (Transactions using optimal [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) method / Total transactions) × 100% |
 | Automated reconciliation rate | ≥ 98% | (Automatically reconciled transactions / Total transactions) × 100% |
 
 ### System Performance
 
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
-| Payment API response time | ≤ 300ms | 95th percentile of API response times |
+| [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) API response time | ≤ 300ms | 95th percentile of API response times |
 | Transaction throughput | ≥ 100/sec | Maximum sustainable transactions per second |
 | Error rate | < 0.01% | (Failed API calls excluding declined payments / Total API calls) × 100% |
 | System availability | ≥ 99.99% | (Uptime / Total time) × 100% |
@@ -694,43 +694,43 @@ interface IPaymentRepository {
 
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
-| Payment processing cost | ≤ 2.5% of transaction value | Total payment processing fees / Total transaction value |
-| Cash flow velocity | Improved by 20% | Average time from order to settled funds |
-| Failed payment recovery | ≥ 40% | (Recovered failed payments / Total failed payments) × 100% |
-| Profit margin impact | Increase by 0.5% | Reduction in payment processing costs as percentage of revenue |
+| [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) processing cost | ≤ 2.5% of transaction value | Total [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) processing fees / Total transaction value |
+| Cash flow velocity | Improved by 20% | Average time from [Order](../ubiquitous-language/guidelines/glossary.md#order) to settled funds |
+| Failed [Payment](../ubiquitous-language/guidelines/glossary.md#payment) recovery | ≥ 40% | (Recovered failed payments / Total failed payments) × 100% |
+| Profit margin impact | Increase by 0.5% | Reduction in [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing costs as percentage of revenue |
 
-These metrics will be tracked continuously through dashboards and reviewed monthly to ensure the Payment domain is delivering expected business value. Corrective actions will be taken when metrics fall below target thresholds, with a focus on continuous improvement.
+These metrics will be tracked continuously through dashboards and reviewed monthly to ensure the [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) domain is delivering expected business value. Corrective actions will be taken when metrics fall below target thresholds, with a focus on continuous improvement.
 
 ## Compliance Requirements
 
-The Payment domain must adhere to the following regulations and standards:
+The [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) domain must adhere to the following regulations and standards:
 
-1. **PCI-DSS** - Payment Card Industry Data Security Standard
-   - No storage of sensitive authentication data
+1. **PCI-DSS** - [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Card Industry Data Security Standard
+   - No storage of sensitive [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) data
    - Encryption of cardholder data
    - Restricted access to cardholder data
    - Security testing and monitoring
 
 2. **GDPR** - General Data Protection Regulation
    - Minimization of personal data collection
-   - Secure processing of payment information
+   - Secure processing of [Payment](../ubiquitous-language/guidelines/glossary.md#payment) information
    - Data retention limitations
-   - Customer rights to access and delete payment data
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) rights to access and delete [Payment](../ubiquitous-language/guidelines/glossary.md#payment) data
 
-3. **PSD2** - Payment Services Directive 2
-   - Strong Customer Authentication (SCA)
+3. **PSD2** - [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Services Directive 2
+   - Strong [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) (SCA)
    - Secure communication standards
-   - Third-party payment service provider integration
+   - Third-party [Payment](../ubiquitous-language/guidelines/glossary.md#payment) service provider integration
    - Transaction monitoring and reporting
 
 4. **AML** - Anti-Money Laundering
-   - Customer verification procedures
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) verification procedures
    - Suspicious transaction monitoring
    - Reporting to relevant authorities
    - Record keeping requirements
 
 5. **Local Financial Regulations**
-   - Country-specific payment processing requirements
+   - Country-specific [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing requirements
    - Tax implications of international transactions
    - Currency controls and reporting
 

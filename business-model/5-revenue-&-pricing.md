@@ -1,8 +1,8 @@
-# **🎯 Goal:** Define EFI’s **Revenue Streams & Pricing** block so every dollar of income is transparently linked to the value delivered, the costs incurred, and the experiments queued in *Testing Business Ideas*.
+# **🎯 Goal:** Define EFI’s **Revenue Streams & [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)** block so every dollar of income is transparently linked to the value delivered, the costs incurred, and the experiments queued in *Testing Business Ideas*.
 
 **Strategyzer Lens:** Every revenue stream must
 
-1. mirror a customer job or pain,
+1. mirror a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) job or pain,
 
 2. protect its gross-margin floor, and
 
@@ -12,7 +12,7 @@
 
 ## **1 │ Revenue Streams**
 
-| \# | Stream | Type | Pricing Mechanism | Primary Segment | Job / Pain Relieved | TBI Card |
+| \# | Stream | Type | [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Mechanism | Primary Segment | Job / Pain Relieved | TBI Card |
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | 1 | **Guest One-Off Orders** | Asset Sale | Fixed list \+ promo | Diaspora, Expats, Foodies | “I need authentic staples fast.” | 🔗 V-RS-01 |
 | 2 | **B2C Subscriptions** | Recurring Fee | Tiered flat rate (see §2a) | High-frequency B2C | “Never run out / discover new flavours.” | 🔗 V-RS-02 |
@@ -35,7 +35,7 @@
 
 ---
 
-### **2a │ Subscription Price Ladder**
+### **2a │ [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Price Ladder**
 
 | Tier | Monthly Fee (BBD) | Basket Credit | Extra Perks | Target GM % | TBI Card |
 | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -63,7 +63,7 @@
 
 ---
 
-## **4 │ Dynamic Pricing Formula & Footnotes**
+## **4 │ Dynamic [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Formula & Footnotes**
 
 **D(t,d,p) \= 1 – β × (1–d)+γ×(1–p)(1 – d) \+ γ × (1 – p) × (t/T)**  
  • β \= 0.4 γ \= 0.5 T \= 45 days  
@@ -71,20 +71,20 @@
 
 ---
 
-## **5 │ Pricing Governance & Promo Rules**
+## **5 │ [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Governance & Promo Rules**
 
-* **Pricing Governance SOP:**  
-   CFO will freeze the dynamic-pricing engine if Pocket GM falls below its floor for two consecutive weeks; pricing changes resume only after a formal CFO-approved review.
+* **[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Governance SOP:**  
+   CFO will freeze the dynamic-[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) engine if Pocket GM falls below its floor for two consecutive weeks; [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) changes resume only after a formal CFO-approved review.
 
 * **Promo Stacking Guardrail:**  
-   Enforced one-promo-per-order rule (see [1](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fn-1)) ensures margins are never eroded by multiple discounts.
+   Enforced one-promo-per-[Order](../ubiquitous-language/guidelines/glossary.md#order) rule (see [1](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fn-1)) ensures margins are never eroded by multiple discounts.
 
 * **Evidence-Level Scoring:**  
    Each Viability experiment card is scored 1–5 based on supporting data strength to prioritise tests efficiently.
 
 ---
 
-## **6 │ Revenue & Pricing Experiments**
+## **6 │ Revenue & [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Experiments**
 
 | Experiment ID | Hypothesis | Cheap Test | Success Metric | Evidence Level | TBI Card |
 | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -99,9 +99,9 @@
 
 1. Replace 🔗 placeholders with actual Viability card URLs.
 
-2. Draft the Pricing Governance SOP and circulate for CFO sign-off.
+2. Draft the [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Governance SOP and circulate for CFO sign-off.
 
-3. Configure the platform to enforce the one-promo-per-order rule.
+3. Configure the platform to enforce the one-promo-per-[Order](../ubiquitous-language/guidelines/glossary.md#order) rule.
 
 4. Score and prioritise experiment cards based on Evidence Levels.
 
@@ -111,5 +111,5 @@
 
 ## **Footnotes**
 
-1. **One-promo-per-order rule:** Only one discount code or promotion may apply per order. [↩](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fnref-1)
+1. **One-promo-per-[Order](../ubiquitous-language/guidelines/glossary.md#order) rule:** Only one discount code or promotion may apply per [Order](../ubiquitous-language/guidelines/glossary.md#order). [↩](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fnref-1)
 

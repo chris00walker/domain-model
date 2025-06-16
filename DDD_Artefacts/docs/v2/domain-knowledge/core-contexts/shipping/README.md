@@ -121,7 +121,7 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 - `toJSON()`: object
 
 ### Return
-**Description**: Represents a return request for one or more items from an order.
+**Description**: Represents a return request for one or more items from an [Order](../ubiquitous-language/guidelines/glossary.md#order).
 
 **Identifier**: `returnId` (UUID)
 
@@ -364,10 +364,10 @@ International Shipping Compliance ensures that all cross-border shipments meet t
   - `carrier`: string - Carrier code
   - Returns: Current tracking information
 
-- `subscribeToUpdates(trackingNumber, callback)`: Promise<Subscription>
+- `subscribeToUpdates(trackingNumber, callback)`: Promise<[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)>
   - `trackingNumber`: string - The tracking number
   - `callback`: (update: TrackingUpdate) => void - Callback for tracking updates
-  - Returns: Subscription object with unsubscribe method
+  - Returns: [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) object with unsubscribe method
 
 - `getDeliveryEta(trackingNumber)`: Promise<Date | null>
   - `trackingNumber`: string - The tracking number
@@ -394,7 +394,7 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 
 **Methods**:
 - `createReturnAuthorization(orderId, items, reason)`: Promise<ReturnAuthorization>
-  - `orderId`: string - The original order ID
+  - `orderId`: string - The original [Order](../ubiquitous-language/guidelines/glossary.md#order) ID
   - `items`: Array<{orderItemId: string, quantity: number, reason: string}>
   - `reason`: string - Reason for return
   - Returns: Created return authorization
@@ -435,7 +435,7 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 
 ## Integration Points
 
-### Order Context
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context
 **Relationship Type**: Bidirectional
 
 **Integration Methods**:
@@ -444,16 +444,16 @@ International Shipping Compliance ensures that all cross-border shipments meet t
     - `OrderPaid`: To initiate shipping process
     - `OrderCancelled`: To cancel pending shipments
   - Publishes:
-    - `ShipmentCreated`: When a shipment is created for an order
+    - `ShipmentCreated`: When a shipment is created for an [Order](../ubiquitous-language/guidelines/glossary.md#order)
     - `ShipmentShipped`: When items are shipped
     - `ShipmentDelivered`: When delivery is confirmed
     - `ShipmentException`: For any shipping exceptions
 
 **Data Consistency**:
-- Order status is eventually consistent with shipment status
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status is eventually consistent with shipment status
 - Uses compensating transactions for rollback on failures
 
-### Inventory Context
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context
 **Relationship Type**: Bidirectional
 
 **Integration Methods**:
@@ -472,8 +472,8 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 - Uses SAGA pattern for distributed transactions
 - Implements idempotent operations for retries
 
-### Customer Context
-**Relationship Type**: Unidirectional (Shipping → Customer)
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context
+**Relationship Type**: Unidirectional (Shipping → [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer))
 
 **Integration Methods**:
 - **Synchronous API Calls**:
@@ -486,9 +486,9 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 
 **Data Consistency**:
 - Loose coupling with eventual consistency
-- Customer data is treated as read-only
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data is treated as read-only
 
-### Payment Context
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context
 **Relationship Type**: Bidirectional
 
 **Integration Methods**:
@@ -503,7 +503,7 @@ International Shipping Compliance ensures that all cross-border shipments meet t
     - `RefundIssued`: For returns
 
 **Data Consistency**:
-- Uses SAGA pattern for payment transactions
+- Uses SAGA pattern for [Payment](../ubiquitous-language/guidelines/glossary.md#payment) transactions
 - Implements idempotent operations
 
 ### Carrier Systems
@@ -527,8 +527,8 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 
 **Integration Methods**:
 - **Synchronous API**:
-  - `createPickList(shipmentId)`: For order picking
-  - `confirmPacking(shipmentId)`: When order is packed
+  - `createPickList(shipmentId)`: For [Order](../ubiquitous-language/guidelines/glossary.md#order) picking
+  - `confirmPacking(shipmentId)`: When [Order](../ubiquitous-language/guidelines/glossary.md#order) is packed
 - **Event-Driven Integration**:
   - Subscribes to:
     - `OrderPicked`: To prepare for packing
@@ -601,7 +601,7 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 **Success Metrics**:
 - 90% reduction in manual customs documentation
 - 3x faster batch processing
-- 50% reduction in customer inquiries about shipment status
+- 50% reduction in [Customer](../ubiquitous-language/guidelines/glossary.md#customer) inquiries about shipment status
 
 ### Phase 3: Optimization & Scale (Weeks 9-12)
 **Objective**: Optimize shipping operations and prepare for scale.
@@ -619,8 +619,8 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 
 3. **System Integration**
    - ERP/WMS integration
-   - Order management system integration
-   - Customer portal integration
+   - [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) management system integration
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) portal integration
 
 **Success Metrics**:
 - 15% reduction in shipping costs
@@ -699,7 +699,7 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 - Implement role-based access control
 
 **API Security**:
-- OAuth 2.0 for authentication
+- OAuth 2.0 for [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)
 - Rate limiting and throttling
 - Request validation and sanitization
 
@@ -837,15 +837,15 @@ International Shipping Compliance ensures that all cross-border shipments meet t
 
 3. **Duties & Taxes**
    - Automated duty calculation based on:
-     - Product classification (HS Code)
+     - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) classification (HS Code)
      - Country of origin
      - Trade agreements (e.g., USMCA, EU-UK TCA)
    - VAT/GST calculation and collection
-   - Deferred duty payment options
+   - Deferred duty [Payment](../ubiquitous-language/guidelines/glossary.md#payment) options
 
 ### Technical Implementation
 
-#### 1. Product Classification System
+#### 1. [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Classification System
 
 ```typescript
 interface ProductClassification {
@@ -869,7 +869,7 @@ interface ProductClassification {
 
 ```mermaid
 sequenceDiagram
-    participant O as Order System
+    participant O as [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) System
     participant S as Shipping System
     participant C as Customs Service
     participant P as Print/Email
@@ -886,7 +886,7 @@ sequenceDiagram
 
 1. **Pre-Shipment Check**
    - Verify all required documents are complete
-   - Validate product classifications
+   - Validate [Product](../ubiquitous-language/guidelines/glossary.md#product) classifications
    - Check for any import restrictions or embargoes
    - Confirm proper labeling and marking
 
@@ -905,9 +905,9 @@ sequenceDiagram
 
 | System | Data Exchange | Purpose |
 |--------|--------------|---------|
-| ERP | Product master data | HS codes, country of origin |
-| WMS | Inventory data | Batch/lot tracking, storage conditions |
-| CRM | Customer data | Importer of record, tax IDs |
+| ERP | [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) master data | HS codes, country of origin |
+| WMS | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) data | Batch/lot tracking, storage conditions |
+| CRM | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data | Importer of record, tax IDs |
 | Carrier Systems | Shipping data | Electronic manifest, customs docs |
 | Government Portals | Customs filings | Automated submissions |
 
@@ -993,7 +993,7 @@ Temperature-Controlled Logistics ensures that perishable and temperature-sensiti
 5. **Quality Assurance**
    - Pre-shipment quality checks
    - Temperature data analysis
-   - Post-delivery product inspection
+   - Post-delivery [Product](../ubiquitous-language/guidelines/glossary.md#product) inspection
    - Non-compliance investigation process
 
 6. **Regulatory Compliance**
@@ -1006,13 +1006,13 @@ Temperature-Controlled Logistics ensures that perishable and temperature-sensiti
    - Immediate notification of temperature excursions
    - Quarantine procedures for compromised shipments
    - Root cause analysis and corrective actions
-   - Customer communication protocols
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) communication protocols
 
 8. **Performance Metrics**
    - On-time delivery within temperature range
    - Temperature excursion rate
-   - Product spoilage rate
-   - Customer satisfaction scores
+   - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) spoilage rate
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) satisfaction scores
 
 ### Implementation Requirements
 
@@ -1020,7 +1020,7 @@ Temperature-Controlled Logistics ensures that perishable and temperature-sensiti
 - Automated alerting system for temperature excursions
 - Digital documentation and audit trail
 - Carrier performance tracking
-- Customer portal for real-time tracking
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) portal for real-time tracking
 
 ### Future Enhancements
 
@@ -1031,10 +1031,10 @@ Temperature-Controlled Logistics ensures that perishable and temperature-sensiti
 
 ### Related Domains
 
-- **Inventory Management**: For temperature-controlled storage
-- **Order Fulfillment**: For special handling instructions
-- **Customer Service**: For temperature-related inquiries
-- **Quality Assurance**: For product quality verification
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Management**: For temperature-controlled storage
+- **[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Fulfillment**: For special handling instructions
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Service**: For temperature-related inquiries
+- **Quality Assurance**: For [Product](../ubiquitous-language/guidelines/glossary.md#product) quality verification
 
 ### API Endpoints
 
@@ -1096,8 +1096,8 @@ Temperature-Controlled Logistics ensures that perishable and temperature-sensiti
 
 - Temperature compliance rate
 - On-time delivery performance
-- Product spoilage rate
-- Customer satisfaction with cold chain
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) spoilage rate
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) satisfaction with cold chain
 - Cost per temperature-controlled shipment
 
 ### Change Management
@@ -1149,7 +1149,7 @@ This document should be reviewed and updated:
 - Quality Assurance
 - Operations Management
 - IT Department
-- Customer Service
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Service
 
 ### Related Documents
 
@@ -1185,17 +1185,17 @@ This document is a living document and should be updated as processes and regula
 
 ## Domain Overview
 
-The Shipping Domain for Elias Food Imports (EFI) manages the transportation, delivery, and logistics processes that move products from EFI warehouses to customers. This domain handles all aspects of order fulfillment after products have been picked and packed, including carrier selection, shipment scheduling, tracking, delivery confirmation, and handling of exceptions such as returns and damaged deliveries.
+The Shipping Domain for Elias Food Imports (EFI) manages the transportation, delivery, and logistics processes that move products from EFI warehouses to customers. This domain handles all aspects of [Order](../ubiquitous-language/guidelines/glossary.md#order) fulfillment after products have been picked and packed, including carrier selection, shipment scheduling, tracking, delivery confirmation, and handling of exceptions such as returns and damaged deliveries.
 
 ## Strategic Importance
 
 The Shipping Domain is strategically important to Elias Food Imports for the following reasons:
 
-1. **Customer Satisfaction**: On-time and intact delivery is critical for customer experience and retention
+1. **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Satisfaction**: On-time and intact delivery is critical for [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) experience and retention
 2. **Cost Management**: Shipping represents a significant operational cost that must be optimized
-3. **Brand Reputation**: Delivery quality directly impacts brand perception and customer trust
+3. **Brand Reputation**: Delivery quality directly impacts brand perception and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) trust
 4. **Operational Efficiency**: Effective shipping processes improve overall operational efficiency
-5. **Food Safety Compliance**: Proper shipping methods ensure food product quality and safety requirements are met
+5. **Food Safety Compliance**: Proper shipping methods ensure food [Product](../ubiquitous-language/guidelines/glossary.md#product) quality and safety requirements are met
 6. **Competitive Advantage**: Fast, reliable shipping options provide market differentiation
 7. **Global Reach**: Enables access to international markets through effective cross-border shipping
 
@@ -1203,11 +1203,11 @@ The Shipping Domain is strategically important to Elias Food Imports for the fol
 
 ### 1. Shipment
 
-A shipment represents a collection of order items being delivered to a specific customer address via a selected carrier and service level. It has a defined origin, destination, status, and tracking information.
+A shipment represents a collection of [Order](../ubiquitous-language/guidelines/glossary.md#order) items being delivered to a specific [Customer](../ubiquitous-language/guidelines/glossary.md#customer) address via a selected carrier and service level. It has a defined origin, destination, status, and tracking information.
 
 ### 2. Carrier
 
-A logistics service provider responsible for transporting packages from EFI's facilities to customer destinations. Carriers offer different service levels, pricing, and coverage areas.
+A logistics service provider responsible for transporting packages from EFI's facilities to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) destinations. Carriers offer different service levels, [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), and coverage areas.
 
 ### 3. Service Level
 
@@ -1215,7 +1215,7 @@ A defined standard of shipping service with specific attributes such as delivery
 
 ### 4. Delivery Window
 
-A specified timeframe during which a shipment is expected to be delivered to the customer, typically defined by a date range or specific appointment time.
+A specified timeframe during which a shipment is expected to be delivered to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer), typically defined by a date range or specific appointment time.
 
 ### 5. Shipping Manifest
 
@@ -1223,7 +1223,7 @@ A comprehensive document detailing all shipments scheduled for pickup by a carri
 
 ### 6. Tracking Information
 
-Data provided by carriers about the current status and location of a shipment throughout its journey to the customer.
+Data provided by carriers about the current status and location of a shipment throughout its journey to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer).
 
 ### 7. Shipping Exception
 
@@ -1237,16 +1237,16 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 
 ### Shipment Planning and Creation
 
-1. All shipments must be associated with an existing order in the Order Domain
+1. All shipments must be associated with an existing [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) in the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Domain
 2. Shipments can only be created for orders that have been successfully picked and packed
-3. A single order may be split into multiple shipments based on inventory location, product type, or special handling requirements
+3. A single [Order](../ubiquitous-language/guidelines/glossary.md#order) may be split into multiple shipments based on [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) location, [Product](../ubiquitous-language/guidelines/glossary.md#product) type, or special handling requirements
 4. Cold chain products must be assigned to specialized shipments with temperature-controlled transport
 5. International shipments must include all necessary customs documentation and comply with destination country regulations
 
 ### Carrier Selection and Service Levels
 
 1. Carrier selection must follow a prioritized list based on destination, package dimensions, service level, and cost
-2. Express shipping must only be used when explicitly requested by the customer or required by product type
+2. Express shipping must only be used when explicitly requested by the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) or required by [Product](../ubiquitous-language/guidelines/glossary.md#product) type
 3. Signature-required service must be used for orders exceeding $500 in value
 4. Specialty carriers must be used for wine, spirits, and other regulated products
 5. Rural or remote destinations must include extended delivery time estimates
@@ -1264,15 +1264,15 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 1. All shipments must have a valid tracking number before leaving EFI facilities
 2. Tracking status updates must be processed and stored within 15 minutes of receipt from carriers
 3. Customers must be notified of shipment creation and provided with tracking information
-4. Delivery exceptions must trigger customer notifications within 2 hours
+4. Delivery exceptions must trigger [Customer](../ubiquitous-language/guidelines/glossary.md#customer) notifications within 2 hours
 5. Estimated delivery dates must be dynamically updated based on carrier tracking information
 
 ### Delivery and Confirmation
 
 1. Proof of delivery must be captured and stored for all completed deliveries
-2. Delivery confirmation must trigger inventory and order status updates
-3. Failed deliveries must be rescheduled or returned according to product-specific rules
-4. Delivery to an alternate address must be pre-approved by the customer
+2. Delivery confirmation must trigger [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) and [Order](../ubiquitous-language/guidelines/glossary.md#order) status updates
+3. Failed deliveries must be rescheduled or returned according to [Product](../ubiquitous-language/guidelines/glossary.md#product)-specific rules
+4. Delivery to an alternate address must be pre-approved by the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
 5. Special handling instructions must be followed and confirmed by the carrier
 
 ### Exception Handling
@@ -1280,7 +1280,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 1. Shipping exceptions must be categorized by severity and impact on delivery timeline
 2. Lost shipments must be investigated if no tracking updates occur within 24 hours of expected delivery
 3. Damaged shipments must trigger the claims process with the carrier within 48 hours
-4. Address issues must be resolved with the customer within 24 hours or the shipment returned
+4. Address issues must be resolved with the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) within 24 hours or the shipment returned
 5. Weather and force majeure exceptions must be communicated to customers with updated delivery expectations
 
 ### Returns and Reverse Logistics
@@ -1297,30 +1297,30 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 
 | Event Name | Description | Payload | Consumers |
 |-----------|-------------|---------|------------|
-| `ShipmentCreated` | Fired when a new shipment is created | Shipment ID, Order ID, Customer ID, Destination, Service Level, Expected Delivery Window, Carrier, Items | Order, Customer, Notification, Analytics |
-| `ShipmentScheduled` | Fired when a shipment is scheduled for carrier pickup | Shipment ID, Scheduled Pickup Time, Carrier, Manifest Reference | Inventory, Order, Analytics |
-| `ShipmentPickedUp` | Fired when a carrier has collected the shipment | Shipment ID, Pickup Time, Carrier Tracking Number | Order, Customer, Notification, Analytics |
-| `TrackingUpdated` | Fired when new tracking information is received | Shipment ID, Tracking Status, Location, Timestamp, Estimated Delivery Date | Order, Customer, Notification, Analytics |
-| `ShipmentDelivered` | Fired when a shipment is confirmed delivered | Shipment ID, Delivery Time, Proof of Delivery, Recipient | Order, Customer, Notification, Analytics, Finance |
-| `ShipmentException` | Fired when a shipping exception occurs | Shipment ID, Exception Type, Description, Impact Severity, Resolution Status | Order, Customer, Notification, Inventory |
-| `DeliveryFailed` | Fired when a delivery attempt fails | Shipment ID, Failure Reason, Next Attempt Date | Order, Customer, Notification, Analytics |
-| `ShipmentReturned` | Fired when a shipment is returned to origin | Shipment ID, Return Reason, Return Tracking, Return Status | Order, Customer, Inventory, Finance |
-| `ColdChainComplianceAlert` | Fired when temperature monitoring indicates compliance issues | Shipment ID, Temperature Reading, Threshold Breached, Alert Severity | Order, Quality Assurance, Inventory, Notification |
-| `CustomsClearanceUpdated` | Fired when customs status changes for international shipments | Shipment ID, Customs Status, Required Documents, Estimated Clearance Time | Order, Customer, Notification |
+| `ShipmentCreated` | Fired when a new shipment is created | Shipment ID, [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) ID, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) ID, Destination, Service Level, Expected Delivery Window, Carrier, Items | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Notification, Analytics |
+| `ShipmentScheduled` | Fired when a shipment is scheduled for carrier pickup | Shipment ID, Scheduled Pickup Time, Carrier, Manifest Reference | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), Analytics |
+| `ShipmentPickedUp` | Fired when a carrier has collected the shipment | Shipment ID, Pickup Time, Carrier Tracking Number | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Notification, Analytics |
+| `TrackingUpdated` | Fired when new tracking information is received | Shipment ID, Tracking Status, Location, Timestamp, Estimated Delivery Date | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Notification, Analytics |
+| `ShipmentDelivered` | Fired when a shipment is confirmed delivered | Shipment ID, Delivery Time, Proof of Delivery, Recipient | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Notification, Analytics, Finance |
+| `ShipmentException` | Fired when a shipping exception occurs | Shipment ID, Exception Type, Description, Impact Severity, Resolution Status | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Notification, [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) |
+| `DeliveryFailed` | Fired when a delivery attempt fails | Shipment ID, Failure Reason, Next Attempt Date | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Notification, Analytics |
+| `ShipmentReturned` | Fired when a shipment is returned to origin | Shipment ID, Return Reason, Return Tracking, Return Status | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), Finance |
+| `ColdChainComplianceAlert` | Fired when temperature monitoring indicates compliance issues | Shipment ID, Temperature Reading, Threshold Breached, Alert Severity | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), Quality Assurance, [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), Notification |
+| `CustomsClearanceUpdated` | Fired when customs status changes for international shipments | Shipment ID, Customs Status, Required Documents, Estimated Clearance Time | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Notification |
 
 ### Events Consumed by Shipping Domain
 
 | Event Name | Producer Context | Purpose | Response |
 |-----------|----------------|--------|----------|
-| `OrderReadyForShipment` | Order | Indicates an order has been packed and is ready to be shipped | Create shipment(s) for the order |
-| `InventoryAllocated` | Inventory | Confirms inventory has been allocated and is available to ship | Proceed with shipment creation |
-| `CustomerAddressUpdated` | Customer | Updates to customer shipping address | Update address for unshipped orders |
-| `OrderCancelled` | Order | Stops shipping process for a cancelled order | Cancel any unshipped shipments |
-| `ReturnAuthorized` | Order | Initiates return shipping process | Generate return label and tracking |
-| `PaymentConfirmed` | Payment | Confirms payment has been received for an order | Release shipment hold if applicable |
-| `ServiceLevelChanged` | Order | Change to the desired shipping service level | Update carrier selection and scheduling |
-| `ShipmentPriorityChanged` | Order | Change in shipping priority | Reschedule pickup and update service level |
-| `SpecialHandlingRequired` | Inventory | Indicates special handling required for certain products | Apply special handling procedures to shipment |
+| `OrderReadyForShipment` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Indicates an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) has been packed and is ready to be shipped | Create shipment(s) for the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) |
+| `InventoryAllocated` | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) | Confirms [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) has been allocated and is available to ship | Proceed with shipment creation |
+| `CustomerAddressUpdated` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) | Updates to [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) shipping address | Update address for unshipped orders |
+| `OrderCancelled` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Stops shipping process for a cancelled [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | Cancel any unshipped shipments |
+| `ReturnAuthorized` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | Initiates return shipping process | Generate return label and tracking |
+| `PaymentConfirmed` | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) | Confirms [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) has been received for an [Order](../ubiquitous-language/guidelines/glossary.md#order) | Release shipment hold if applicable |
+| `ServiceLevelChanged` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | Change to the desired shipping service level | Update carrier selection and scheduling |
+| `ShipmentPriorityChanged` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | Change in shipping priority | Reschedule pickup and update service level |
+| `SpecialHandlingRequired` | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) | Indicates special handling required for certain products | Apply special handling procedures to shipment |
 
 ## Aggregates
 
@@ -1412,7 +1412,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 **Business Rules**:
 - Carrier selection must consider service level agreements
 - Performance metrics must be updated based on delivery outcomes
-- Carrier accounts must maintain valid authentication credentials
+- Carrier accounts must maintain valid [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) credentials
 - Service coverage areas must be regularly updated
 - Rate cards must reflect current contract terms
 
@@ -1422,7 +1422,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 
 ### ReturnShipment Aggregate
 
-**Description**: Manages the return shipping process from customer back to EFI facilities.
+**Description**: Manages the return shipping process from [Customer](../ubiquitous-language/guidelines/glossary.md#customer) back to EFI facilities.
 
 **Identifier**: `ReturnShipmentId` (Value Object)
 
@@ -1455,14 +1455,14 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 
 ### Shipment Entity
 
-**Description**: Core entity representing the process of transporting ordered items from EFI facilities to a customer.
+**Description**: Core entity representing the process of transporting ordered items from EFI facilities to a [Customer](../ubiquitous-language/guidelines/glossary.md#customer).
 
 **Attributes**:
 - ShipmentId: Unique identifier for the shipment (Value Object)
-- OrderId: Reference to the associated order
-- CustomerId: Reference to the customer receiving the shipment
+- OrderId: Reference to the associated [Order](../ubiquitous-language/guidelines/glossary.md#order)
+- CustomerId: Reference to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) receiving the shipment
 - Origin: Warehouse or facility from which the shipment originates
-- Destination: Customer address where the shipment will be delivered
+- Destination: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) address where the shipment will be delivered
 - CarrierDetails: Information about the selected carrier
 - ServiceLevel: Selected shipping service level
 - TrackingNumber: Carrier-provided tracking identifier
@@ -1493,13 +1493,13 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 **Attributes**:
 - ItemId: Unique identifier for the shipment item
 - ShipmentId: Reference to the parent shipment
-- ProductId: Reference to the product being shipped
+- ProductId: Reference to the [Product](../ubiquitous-language/guidelines/glossary.md#product) being shipped
 - Quantity: Number of units
 - Weight: Item weight
 - RequiresSpecialHandling: Flag for special handling requirements
 - TemperatureRequirements: Required temperature range if applicable
 - Customs: Customs information for international shipments
-- SerialNumbers: Product serial numbers if applicable
+- SerialNumbers: [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) serial numbers if applicable
 - PackageLocation: Location within the shipment packaging
 
 **Behaviors**:
@@ -1548,7 +1548,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - RecordAttempt: Document a delivery attempt
 - ScheduleNextAttempt: Plan subsequent delivery
 - CaptureProofOfDelivery: Record delivery confirmation
-- NotifyCustomer: Send delivery status to customer
+- NotifyCustomer: Send delivery status to [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
 
 ### ShippingManifest Entity
 
@@ -1592,7 +1592,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 
 **Behaviors**:
 - AddServiceLevel: Include new service option
-- UpdateRates: Refresh pricing information
+- UpdateRates: Refresh [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) information
 - LogPerformanceIssue: Document service problems
 - CalculateReliability: Compute performance metrics
 - UpdateCoverageArea: Modify service region data
@@ -1823,7 +1823,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 **Usage Context**:
 - Processing carrier webhook notifications
 - Scheduled tracking status updates
-- Customer tracking inquiries
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) tracking inquiries
 
 ### ColdChainMonitoringService
 
@@ -1888,8 +1888,8 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 
 **Usage Context**:
 - Processing carrier delivery confirmations
-- Customer delivery disputes
-- Order completion workflows
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) delivery disputes
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) completion workflows
 
 ### ShippingRateService
 
@@ -1899,7 +1899,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - `calculateShippingRate(shipment, carrier, serviceLevel)`: Determines shipping cost
 - `compareCarrierRates(shipment)`: Compares rates across multiple carriers
 - `applyDiscountRules(shipment, rate)`: Applies negotiated discounts
-- `estimateShippingCosts(order)`: Provides cost estimates for orders
+- `estimateShippingCosts([Order](../ubiquitous-language/guidelines/glossary.md#order))`: Provides cost estimates for orders
 - `auditShippingCharges(invoice, shipments)`: Verifies carrier billing accuracy
 
 **Dependencies**:
@@ -1909,20 +1909,20 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - FinanceService
 
 **Usage Context**:
-- Customer checkout shipping cost calculation
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) checkout shipping cost calculation
 - Carrier selection optimization
 - Finance reconciliation processes
 
 ### ReturnShippingService
 
-**Description**: Manages the logistics of product returns from customers to EFI facilities.
+**Description**: Manages the logistics of [Product](../ubiquitous-language/guidelines/glossary.md#product) returns from customers to EFI facilities.
 
 **Key Methods**:
 - `generateReturnLabel(returnAuthorization)`: Creates return shipping label
 - `scheduleReturnPickup(return, address, date)`: Arranges carrier pickup for return
 - `trackReturnShipment(return)`: Monitors return in transit
 - `processReturnReceipt(return, condition)`: Processes received returns
-- `reconcileReturnDiscrepancies(return, inventory)`: Handles return inconsistencies
+- `reconcileReturnDiscrepancies(return, [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory))`: Handles return inconsistencies
 
 **Dependencies**:
 - ReturnAuthorizationRepository
@@ -1931,9 +1931,9 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - OrderService
 
 **Usage Context**:
-- Customer return workflows
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) return workflows
 - Return logistics management
-- Return inventory processing
+- Return [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) processing
 
 ## Administrative Capabilities
 
@@ -1983,7 +1983,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 **Responsibility**: Manages temperature-controlled shipping configurations and monitoring
 
 **Operations**:
-- Configure temperature thresholds for different product categories
+- Configure temperature thresholds for different [Product](../ubiquitous-language/guidelines/glossary.md#product) categories
 - Manage temperature monitoring device assignments
 - Review temperature excursion alerts and reports
 - Configure automated responses to temperature violations
@@ -2020,10 +2020,10 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 **Purpose**: Monitors temperature-controlled shipping compliance
 
 **Key Metrics**:
-- Temperature excursion rates by product category
+- Temperature excursion rates by [Product](../ubiquitous-language/guidelines/glossary.md#product) category
 - Temperature monitoring device reliability
 - Cold chain integrity by carrier and route
-- Compliance with product-specific temperature requirements
+- Compliance with [Product](../ubiquitous-language/guidelines/glossary.md#product)-specific temperature requirements
 - Temperature excursion investigation status
 
 #### CarrierPerformanceDashboardModel
@@ -2149,7 +2149,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 
 ## Integration Points
 
-### Order Context
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context
 
 **Relationship Type**: Bidirectional
 
@@ -2159,14 +2159,14 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - Query APIs
 
 **Key Interactions**:
-- Order Context publishes `OrderReadyForShipment` events when orders are packed
-- Shipping Context creates shipments based on order information
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context publishes `OrderReadyForShipment` events when orders are packed
+- Shipping Context creates shipments based on [Order](../ubiquitous-language/guidelines/glossary.md#order) information
 - Shipping Context publishes `ShipmentCreated`, `ShipmentPickedUp`, and `ShipmentDelivered` events
-- Order Context updates order status based on shipping events
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context updates [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status based on shipping events
 - Shipping Context consumes `OrderCancelled` events to cancel pending shipments
-- Order Context queries shipping for tracking information and delivery estimates
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context queries shipping for tracking information and delivery estimates
 
-### Inventory Context
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context
 
 **Relationship Type**: Bidirectional
 
@@ -2175,14 +2175,14 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - Command APIs
 
 **Key Interactions**:
-- Inventory Context publishes `InventoryAllocated` events to confirm stock availability
-- Inventory Context publishes `SpecialHandlingRequired` for products with special requirements
-- Shipping Context publishes `ShipmentPickedUp` to confirm inventory departure
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context publishes `InventoryAllocated` events to confirm stock availability
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context publishes `SpecialHandlingRequired` for products with special requirements
+- Shipping Context publishes `ShipmentPickedUp` to confirm [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) departure
 - Shipping Context publishes `ShipmentReturned` for returned products
-- Inventory Context updates inventory status based on shipping events
-- Shipping Context consumes cold chain requirements from inventory for specialized shipping
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context updates [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) status based on shipping events
+- Shipping Context consumes cold chain requirements from [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) for specialized shipping
 
-### Customer Context
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context
 
 **Relationship Type**: Bidirectional
 
@@ -2191,11 +2191,11 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - Query APIs
 
 **Key Interactions**:
-- Customer Context provides shipping address and contact information
-- Customer Context publishes `CustomerAddressUpdated` events
-- Shipping Context consumes customer preference information for delivery options
-- Shipping Context provides tracking and delivery status to Customer Context
-- Customer Context retrieves historical shipping information for customer profiles
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context provides shipping address and contact information
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context publishes `CustomerAddressUpdated` events
+- Shipping Context consumes [Customer](../ubiquitous-language/guidelines/glossary.md#customer) preference information for delivery options
+- Shipping Context provides tracking and delivery status to [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context retrieves historical shipping information for [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) profiles
 
 ### Notification Context
 
@@ -2206,13 +2206,13 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - Command APIs
 
 **Key Interactions**:
-- Shipping Context publishes events that trigger customer notifications
+- Shipping Context publishes events that trigger [Customer](../ubiquitous-language/guidelines/glossary.md#customer) notifications
 - Notification Context sends shipment creation, tracking updates, and delivery notifications
 - Shipping Context requests delivery exception notifications via Command API
 - Shipping Context provides tracking links and delivery windows for notifications
 - Notification Context delivers alerts for cold chain compliance issues
 
-### Payment Context
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context
 
 **Relationship Type**: Bidirectional
 
@@ -2220,9 +2220,9 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 - Domain Events
 
 **Key Interactions**:
-- Payment Context publishes `PaymentConfirmed` events to release shipment holds
-- Shipping Context publishes `ShipmentDelivered` events for payment completion
-- Payment Context calculates shipping costs for order total
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context publishes `PaymentConfirmed` events to release shipment holds
+- Shipping Context publishes `ShipmentDelivered` events for [Payment](../ubiquitous-language/guidelines/glossary.md#payment) completion
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context calculates shipping costs for [Order](../ubiquitous-language/guidelines/glossary.md#order) total
 - Shipping Context provides final shipping costs for invoice reconciliation
 
 ### Quality Assurance Context (Internal)
@@ -2265,7 +2265,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 **Key Interactions**:
 - Shipping Context provides shipping cost data for financial reporting
 - Finance Context performs shipping invoice reconciliation
-- Shipping Context publishes delivery confirmation for payment releases
+- Shipping Context publishes delivery confirmation for [Payment](../ubiquitous-language/guidelines/glossary.md#payment) releases
 - Finance Context provides budget constraints for shipping service selection
 - Shipping Context supplies carrier billing data for accounts payable
 
@@ -2312,7 +2312,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
 2. **Integration Patterns**:
    - Adapter pattern for carrier API integration
    - Circuit breaker for external carrier services
-   - Anti-corruption layer between shipping and order contexts
+   - Anti-corruption layer between shipping and [Order](../ubiquitous-language/guidelines/glossary.md#order) contexts
    - Data transformation services for carrier format compatibility
    - Bulk operations for manifest submission
 
@@ -2324,8 +2324,8 @@ Specialized shipping processes for temperature-sensitive food items that must ma
    - Design for manual intervention workflows when automation fails
 
 4. **Security Requirements**:
-   - Encrypt sensitive shipment and customer data
-   - Implement secure carrier API authentication
+   - Encrypt sensitive shipment and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data
+   - Implement secure carrier API [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)
    - Maintain audit trails for all shipping operations
    - Control access to shipping label generation
    - Protect carrier account credentials
@@ -2336,8 +2336,8 @@ Specialized shipping processes for temperature-sensitive food items that must ma
    - Basic shipment creation and management
    - Primary carrier integration (top 2-3 carriers)
    - Shipment tracking and status updates
-   - Order-shipment association
-   - Customer notification framework
+   - [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)-shipment association
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) notification framework
 
 2. **Phase 2 (Enhanced Capabilities)**:
    - Expanded carrier integration
@@ -2367,7 +2367,7 @@ Specialized shipping processes for temperature-sensitive food items that must ma
    - Event propagation between contexts
    - Tracking update processing
    - Manifest generation and submission
-   - Order-to-shipment workflow
+   - [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)-to-shipment workflow
 
 3. **Performance Testing**:
    - High-volume tracking update processing
@@ -2377,10 +2377,10 @@ Specialized shipping processes for temperature-sensitive food items that must ma
    - Shipping document generation
 
 4. **Business Acceptance Testing**:
-   - End-to-end order-to-delivery process
+   - End-to-end [Order](../ubiquitous-language/guidelines/glossary.md#order)-to-delivery process
    - Exception handling workflows
    - Cold chain compliance monitoring
-   - Customer notification accuracy
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) notification accuracy
    - Return shipping process
 
 ### Monitoring and Observability

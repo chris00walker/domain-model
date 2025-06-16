@@ -1,92 +1,92 @@
 ---
-title: Order Domain Knowledge
+title: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Domain Knowledge
 status: active
-owner: Order Management Team
+owner: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Management Team
 last_updated: 2025-06-06
 ---
 
-# Order Domain
+# [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Domain
 
 ## Domain Overview
 
-The Order domain is responsible for managing the entire order lifecycle from creation through fulfillment and post-delivery processes. This domain handles customer orders for Elias Food Imports' specialty food products, including order placement, validation, payment processing, fulfillment, shipping, and order-related customer communications.
+The [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) domain is responsible for managing the entire [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) lifecycle from creation through fulfillment and post-delivery processes. This domain handles [Customer](../ubiquitous-language/guidelines/glossary.md#customer) orders for Elias Food Imports' specialty food products, including [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) placement, validation, [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing, fulfillment, shipping, and [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)-related [Customer](../ubiquitous-language/guidelines/glossary.md#customer) communications.
 
 ## Strategic Classification
 
 **Classification**: Core Domain
 
-**Justification**: The Order domain is central to Elias Food Imports' business operations, directly handling the company's primary value exchange with customers. It integrates numerous other domains and provides a critical customer touchpoint that directly impacts customer satisfaction, revenue generation, and operational efficiency.
+**Justification**: The [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) domain is central to Elias Food Imports' business operations, directly handling the company's primary value exchange with customers. It integrates numerous other domains and provides a critical [Customer](../ubiquitous-language/guidelines/glossary.md#customer) touchpoint that directly impacts [Customer](../ubiquitous-language/guidelines/glossary.md#customer) satisfaction, revenue generation, and operational efficiency.
 
 ## Core Domain Concepts
 
-### Order
-A customer request to purchase one or more products, representing the primary transaction between customer and Elias Food Imports.
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)
+A [Customer](../ubiquitous-language/guidelines/glossary.md#customer) request to purchase one or more products, representing the primary transaction between [Customer](../ubiquitous-language/guidelines/glossary.md#customer) and Elias Food Imports.
 
-### Order Line
-An individual product entry within an order, containing product details, quantity, pricing, and customization information.
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Line
+An individual [Product](../ubiquitous-language/guidelines/glossary.md#product) entry within an [Order](../ubiquitous-language/guidelines/glossary.md#order), containing [Product](../ubiquitous-language/guidelines/glossary.md#product) details, quantity, [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), and customization information.
 
-### Order Status
-The current state of an order within its lifecycle (e.g., Created, Confirmed, In Progress, Shipped, Delivered, Completed, Cancelled).
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Status
+The current state of an [Order](../ubiquitous-language/guidelines/glossary.md#order) within its lifecycle (e.g., Created, Confirmed, In Progress, Shipped, Delivered, Completed, Cancelled).
 
 ### Fulfillment
-The process of preparing an order for shipment, including picking, packing, and quality verification steps.
+The process of preparing an [Order](../ubiquitous-language/guidelines/glossary.md#order) for shipment, including picking, packing, and quality verification steps.
 
 ### Shipping
-The logistics process of transporting an ordered product from Elias Food Imports to the customer's delivery location.
+The logistics process of transporting an ordered [Product](../ubiquitous-language/guidelines/glossary.md#product) from Elias Food Imports to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s delivery location.
 
-### Payment
-The financial transaction associated with an order, including authorization, capture, and potential refund operations.
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)
+The financial transaction associated with an [Order](../ubiquitous-language/guidelines/glossary.md#order), including authorization, capture, and potential refund operations.
 
-### Order Modification
-A customer-initiated change to an existing order before it is shipped, which may affect price, quantities, delivery information, or payment details.
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Modification
+A [Customer](../ubiquitous-language/guidelines/glossary.md#customer)-initiated change to an existing [Order](../ubiquitous-language/guidelines/glossary.md#order) before it is shipped, which may affect price, quantities, delivery information, or [Payment](../ubiquitous-language/guidelines/glossary.md#payment) details.
 
 ### Return
-A post-delivery process where a customer sends products back to Elias Food Imports due to issues or dissatisfaction.
+A post-delivery process where a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) sends products back to Elias Food Imports due to issues or dissatisfaction.
 
-### Gift Order
-A specialized order type where the purchaser and the recipient are different individuals, with special handling for messaging, pricing display, and delivery.
+### Gift [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)
+A specialized [Order](../ubiquitous-language/guidelines/glossary.md#order) type where the purchaser and the recipient are different individuals, with special handling for messaging, [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) display, and delivery.
 
 ## Business Rules
 
-### Order Creation and Validation
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Creation and Validation
 
-1. An order must contain at least one order line.
-2. Each order line must reference a valid, available product.
-3. Order quantity must be greater than zero and less than or equal to the maximum allowed quantity per order (50 items).
+1. An [Order](../ubiquitous-language/guidelines/glossary.md#order) must contain at least one [Order](../ubiquitous-language/guidelines/glossary.md#order) line.
+2. Each [Order](../ubiquitous-language/guidelines/glossary.md#order) line must reference a valid, available [Product](../ubiquitous-language/guidelines/glossary.md#product).
+3. [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) quantity must be greater than zero and less than or equal to the maximum allowed quantity per [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) (50 items).
 4. Orders must have valid shipping and billing addresses.
 5. Orders with special handling requirements (cold chain, fragile items) must be flagged appropriately.
-6. Total order value must not exceed €10,000 without special approval.
+6. Total [Order](../ubiquitous-language/guidelines/glossary.md#order) value must not exceed €10,000 without special approval.
 7. Orders containing age-restricted products require age verification.
 
-### Payment Processing
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Processing
 
-1. Payment must be authorized before order fulfillment begins.
-2. For orders over €500, payment must be fully captured before shipping.
-3. Payment methods must match the billing address country.
-4. Failed payments must trigger notification to the customer with retry options.
-5. After three failed payment attempts, the order is automatically cancelled.
+1. [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) must be authorized before [Order](../ubiquitous-language/guidelines/glossary.md#order) fulfillment begins.
+2. For orders over €500, [Payment](../ubiquitous-language/guidelines/glossary.md#payment) must be fully captured before shipping.
+3. [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) methods must match the billing address country.
+4. Failed payments must trigger notification to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) with retry options.
+5. After three failed [Payment](../ubiquitous-language/guidelines/glossary.md#payment) attempts, the [Order](../ubiquitous-language/guidelines/glossary.md#order) is automatically cancelled.
 6. Partial payments are only allowed for split shipments.
 
 ### Fulfillment and Shipping
 
 1. Orders must pass a fraud check before entering the fulfillment process.
-2. Products requiring authentication must be verified before packing.
+2. Products requiring [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) must be verified before packing.
 3. Cold chain products require special packaging and expedited shipping.
 4. International orders require complete customs documentation.
-5. Orders with all items in stock must begin fulfillment within 24 hours of payment.
+5. Orders with all items in stock must begin fulfillment within 24 hours of [Payment](../ubiquitous-language/guidelines/glossary.md#payment).
 6. Split shipments are created when some items are out of stock and backorder is enabled.
 7. Each package must have a tracking number assigned before leaving the warehouse.
 
-<!-- GAP_IMPLEMENTED: Order Modification Capabilities -->
-<!-- stub for "Order Modification Capabilities" gap in the order context -->
+<!-- GAP_IMPLEMENTED: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Modification Capabilities -->
+<!-- stub for "[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Modification Capabilities" gap in the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) context -->
 
-### Order Modifications
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Modifications
 
 1. Orders can only be modified if they have not entered the fulfillment stage.
-2. Modification that changes the order total requires payment re-authorization.
+2. Modification that changes the [Order](../ubiquitous-language/guidelines/glossary.md#order) total requires [Payment](../ubiquitous-language/guidelines/glossary.md#payment) re-authorization.
 3. Shipping address changes on in-process orders require manager approval.
-4. Adding products to an existing order creates a new payment requirement for the difference.
-5. Order modifications must maintain all original order constraints (minimum quantity, etc.).
+4. Adding products to an existing [Order](../ubiquitous-language/guidelines/glossary.md#order) creates a new [Payment](../ubiquitous-language/guidelines/glossary.md#payment) requirement for the difference.
+5. [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) modifications must maintain all original [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) constraints (minimum quantity, etc.).
 
 ### Returns and Refunds
 
@@ -96,12 +96,12 @@ A specialized order type where the purchaser and the recipient are different ind
 4. Refunds are processed within 5 business days of return receipt and inspection.
 5. Partial returns result in partial refunds based on the specific items returned.
 
-<!-- GAP_IMPLEMENTED: B2B Order Workflows -->
-<!-- stub for "B2B Order Workflows" gap in the order context -->
+<!-- GAP_IMPLEMENTED: B2B [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Workflows -->
+<!-- stub for "B2B [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Workflows" gap in the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) context -->
 
-### Special Order Types
+### Special [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Types
 
-1. Gift orders must hide pricing information in packing slips and include gift messages when provided.
+1. Gift orders must hide [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) information in packing slips and include gift messages when provided.
 2. Wholesale orders require business verification and minimum quantity thresholds.
 3. Employee orders receive standard discount but follow normal fulfillment processes.
 4. Orders flagged as "expedited" must be processed within 4 hours during business hours.
@@ -110,7 +110,7 @@ A specialized order type where the purchaser and the recipient are different ind
 
 ### OrderCreated
 
-**Description**: Triggered when a new order is successfully created in the system.
+**Description**: Triggered when a new [Order](../ubiquitous-language/guidelines/glossary.md#order) is successfully created in the system.
 
 **Payload**:
 ```typescript
@@ -131,14 +131,14 @@ interface OrderCreatedEvent {
 ```
 
 **Consumer Contexts**:
-- **Inventory**: To reserve inventory items
-- **Payment**: To initiate payment processing
-- **Customer**: To update order history
-- **Analytics**: To record order creation metrics
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory))**: To reserve [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) items
+- **[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment))**: To initiate [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) processing
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)**: To update [Order](../ubiquitous-language/guidelines/glossary.md#order) history
+- **Analytics**: To record [Order](../ubiquitous-language/guidelines/glossary.md#order) creation metrics
 
 ### OrderConfirmed
 
-**Description**: Triggered when an order has been confirmed with successful payment authorization.
+**Description**: Triggered when an [Order](../ubiquitous-language/guidelines/glossary.md#order) has been confirmed with successful [Payment](../ubiquitous-language/guidelines/glossary.md#payment) authorization.
 
 **Payload**:
 ```typescript
@@ -156,13 +156,13 @@ interface OrderConfirmedEvent {
 ```
 
 **Consumer Contexts**:
-- **Notification**: To send order confirmation to customer
+- **Notification**: To send [Order](../ubiquitous-language/guidelines/glossary.md#order) confirmation to [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
 - **Fulfillment**: To begin the fulfillment process
 - **Analytics**: To track conversion metrics
 
 ### OrderCancelled
 
-**Description**: Triggered when an order is cancelled either by the customer, due to payment failure, or by administrative action.
+**Description**: Triggered when an [Order](../ubiquitous-language/guidelines/glossary.md#order) is cancelled either by the [Customer](../ubiquitous-language/guidelines/glossary.md#customer), due to [Payment](../ubiquitous-language/guidelines/glossary.md#payment) failure, or by administrative action.
 
 **Payload**:
 ```typescript
@@ -177,14 +177,14 @@ interface OrderCancelledEvent {
 ```
 
 **Consumer Contexts**:
-- **Inventory**: To release reserved inventory
-- **Payment**: To process refunds if necessary
-- **Customer**: To update order history
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory))**: To release reserved [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
+- **[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)**: To process refunds if necessary
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)**: To update [Order](../ubiquitous-language/guidelines/glossary.md#order) history
 - **Notification**: To send cancellation notice
 
 ### OrderShipped
 
-**Description**: Triggered when an order (or part of a split order) has been shipped from the warehouse.
+**Description**: Triggered when an [Order](../ubiquitous-language/guidelines/glossary.md#order) (or part of a split [Order](../ubiquitous-language/guidelines/glossary.md#order)) has been shipped from the warehouse.
 
 **Payload**:
 ```typescript
@@ -207,13 +207,13 @@ interface OrderShippedEvent {
 ```
 
 **Consumer Contexts**:
-- **Customer**: To update order status
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)**: To update [Order](../ubiquitous-language/guidelines/glossary.md#order) status
 - **Notification**: To send shipping confirmation
 - **Analytics**: To track fulfillment metrics
 
 ### OrderDelivered
 
-**Description**: Triggered when an order is confirmed as delivered to the customer.
+**Description**: Triggered when an [Order](../ubiquitous-language/guidelines/glossary.md#order) is confirmed as delivered to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer).
 
 **Payload**:
 ```typescript
@@ -228,9 +228,9 @@ interface OrderDeliveredEvent {
 ```
 
 **Consumer Contexts**:
-- **Customer**: To update order status
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)**: To update [Order](../ubiquitous-language/guidelines/glossary.md#order) status
 - **Notification**: To request feedback/review
-- **Analytics**: To finalize order lifecycle metrics
+- **Analytics**: To finalize [Order](../ubiquitous-language/guidelines/glossary.md#order) lifecycle metrics
 
 ### OrderReturned
 
@@ -254,14 +254,14 @@ interface OrderReturnedEvent {
 ```
 
 **Consumer Contexts**:
-- **Inventory**: To update inventory counts
-- **Payment**: To process refund
-- **Customer**: To update order history
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory))**: To update [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) counts
+- **[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)**: To process refund
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)**: To update [Order](../ubiquitous-language/guidelines/glossary.md#order) history
 - **Analytics**: To analyze return reasons and rates
 
 ### FraudCheckFailed
 
-**Description**: Triggered when an order fails fraud validation checks.
+**Description**: Triggered when an [Order](../ubiquitous-language/guidelines/glossary.md#order) fails fraud validation checks.
 
 **Payload**:
 ```typescript
@@ -277,67 +277,67 @@ interface FraudCheckFailedEvent {
 
 **Consumer Contexts**:
 - **Risk Management**: To track and analyze fraud patterns
-- **Customer**: To flag account for review
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)**: To flag account for review
 - **Admin**: To create review task for fraud team
 
 ## Aggregates and Entities
 
-### Order Aggregate
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Aggregate
 
 **Attributes**:
 
 | Attribute | Type | Description |
 |----------|------|-------------|
-| id | OrderId | Unique identifier for the order |
-| customerId | CustomerId | Reference to the customer who placed the order |
-| orderDate | Date | Date and time when the order was created |
-| status | OrderStatus | Current status of the order in its lifecycle |
+| id | OrderId | Unique identifier for the [Order](../ubiquitous-language/guidelines/glossary.md#order) |
+| customerId | CustomerId | Reference to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) who placed the [Order](../ubiquitous-language/guidelines/glossary.md#order) |
+| orderDate | Date | Date and time when the [Order](../ubiquitous-language/guidelines/glossary.md#order) was created |
+| status | OrderStatus | Current status of the [Order](../ubiquitous-language/guidelines/glossary.md#order) in its lifecycle |
 | orderType | OrderType | Type classification (Standard, Gift, Wholesale, etc.) |
 | orderLines | OrderLine[] | Collection of products ordered |
-| billingAddress | Address | Address for invoice and payment processing |
+| billingAddress | Address | Address for invoice and [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing |
 | shippingAddress | Address | Address for delivery |
-| paymentDetails | PaymentDetails | Information about payment method and transactions |
-| totalPrice | Money | Total order price including all items, tax, and shipping |
+| paymentDetails | PaymentDetails | Information about [Payment](../ubiquitous-language/guidelines/glossary.md#payment) method and transactions |
+| totalPrice | Money | Total [Order](../ubiquitous-language/guidelines/glossary.md#order) price including all items, tax, and shipping |
 | shippingDetails | ShippingDetails | Shipping method, cost, and carrier information |
 | specialInstructions | string | Any special handling or delivery instructions |
-| metadata | Map<string, string> | Additional order data (source, campaign, etc.) |
+| metadata | Map<string, string> | Additional [Order](../ubiquitous-language/guidelines/glossary.md#order) data (source, campaign, etc.) |
 
 **Invariants**:
 
-1. Order must have a valid customer association
-2. Order must contain at least one order line
-3. Total price must equal the sum of all order line prices plus shipping and tax
-4. Order status transitions must follow the defined workflow
+1. [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) must have a valid [Customer](../ubiquitous-language/guidelines/glossary.md#customer) association
+2. [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) must contain at least one [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) line
+3. Total price must equal the sum of all [Order](../ubiquitous-language/guidelines/glossary.md#order) line prices plus shipping and tax
+4. [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status transitions must follow the defined workflow
 5. Cancelled orders cannot transition to any other status
 
 **Commands**:
 
 | Command | Parameters | Description |
 |---------|------------|-------------|
-| CreateOrder | customerId, orderLines, addresses | Creates a new order |
-| AddOrderLine | productId, quantity, customizations | Adds a new product to the order |
-| RemoveOrderLine | orderLineId | Removes a product from the order |
-| UpdateOrderLineQuantity | orderLineId, newQuantity | Changes quantity of a product |
-| ConfirmOrder | paymentDetails | Confirms the order after payment authorization |
-| CancelOrder | reason | Cancels the order |
+| CreateOrder | customerId, orderLines, addresses | Creates a new [Order](../ubiquitous-language/guidelines/glossary.md#order) |
+| AddOrderLine | productId, quantity, customizations | Adds a new [Product](../ubiquitous-language/guidelines/glossary.md#product) to the [Order](../ubiquitous-language/guidelines/glossary.md#order) |
+| RemoveOrderLine | orderLineId | Removes a [Product](../ubiquitous-language/guidelines/glossary.md#product) from the [Order](../ubiquitous-language/guidelines/glossary.md#order) |
+| UpdateOrderLineQuantity | orderLineId, newQuantity | Changes quantity of a [Product](../ubiquitous-language/guidelines/glossary.md#product) |
+| ConfirmOrder | paymentDetails | Confirms the [Order](../ubiquitous-language/guidelines/glossary.md#order) after [Payment](../ubiquitous-language/guidelines/glossary.md#payment) authorization |
+| CancelOrder | reason | Cancels the [Order](../ubiquitous-language/guidelines/glossary.md#order) |
 | UpdateShippingAddress | newAddress | Changes the delivery address |
-| ApplyDiscount | discountCode | Applies a discount to the order |
+| ApplyDiscount | discountCode | Applies a discount to the [Order](../ubiquitous-language/guidelines/glossary.md#order) |
 | SplitOrder | orderLineGroups | Splits into multiple shipments |
-| MarkAsShipped | shipmentDetails | Updates order status to shipped |
-| MarkAsDelivered | deliveryDetails | Updates order status to delivered |
+| MarkAsShipped | shipmentDetails | Updates [Order](../ubiquitous-language/guidelines/glossary.md#order) status to shipped |
+| MarkAsDelivered | deliveryDetails | Updates [Order](../ubiquitous-language/guidelines/glossary.md#order) status to delivered |
 | InitiateReturn | returnDetails | Begins the return process |
 
 **Methods**:
 
 ```typescript
-class Order {
+class [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) {
   public constructor(id: OrderId, customerId: CustomerId) {
     // Implementation
   }
 
-  public addOrderLine(product: Product, quantity: number): void {
+  public addOrderLine([[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product): [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)), quantity: number): void {
     // Validation logic
-    const orderLine = new OrderLine(this.id, product, quantity);
+    const orderLine = new OrderLine(this.id, [Product](../ubiquitous-language/guidelines/glossary.md#product), quantity);
     this.orderLines.push(orderLine);
     this.recalculateTotal();
   }
@@ -353,7 +353,7 @@ class Order {
   public confirmOrder(paymentDetails: PaymentDetails): void {
     // Validation logic
     if (this.status !== OrderStatus.CREATED) {
-      throw new InvalidOrderStateException('Cannot confirm an order that is not in CREATED state');
+      throw new InvalidOrderStateException('Cannot confirm an [Order](../ubiquitous-language/guidelines/glossary.md#order) that is not in CREATED state');
     }
     
     this.paymentDetails = paymentDetails;
@@ -384,7 +384,7 @@ class Order {
   }
 
   private recalculateTotal(): void {
-    // Implementation to recalculate the total price based on order lines, shipping, and discounts
+    // Implementation to recalculate the total price based on [Order](../ubiquitous-language/guidelines/glossary.md#order) lines, shipping, and discounts
   }
 }
 ```
@@ -395,13 +395,13 @@ class Order {
 
 | Attribute | Type | Description |
 |----------|------|-------------|
-| id | OrderLineId | Unique identifier for the order line |
-| orderId | OrderId | Reference to the parent order |
-| productId | ProductId | Reference to the product ordered |
-| quantity | number | Number of product units ordered |
-| unitPrice | Money | Price per unit at time of order |
+| id | OrderLineId | Unique identifier for the [Order](../ubiquitous-language/guidelines/glossary.md#order) line |
+| orderId | OrderId | Reference to the parent [Order](../ubiquitous-language/guidelines/glossary.md#order) |
+| productId | ProductId | Reference to the [Product](../ubiquitous-language/guidelines/glossary.md#product) ordered |
+| quantity | number | Number of [Product](../ubiquitous-language/guidelines/glossary.md#product) units ordered |
+| unitPrice | Money | Price per unit at time of [Order](../ubiquitous-language/guidelines/glossary.md#order) |
 | totalPrice | Money | Total price for this line (quantity × unitPrice) |
-| customizations | Map<string, string> | Product customizations requested |
+| customizations | Map<string, string> | [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) customizations requested |
 | status | OrderLineStatus | Status of this specific line item |
 | taxAmount | Money | Tax applied to this line |
 | discountAmount | Money | Discount applied to this line |
@@ -409,14 +409,14 @@ class Order {
 **Invariants**:
 
 1. Quantity must be greater than zero
-2. Unit price must match the product price at time of order
+2. Unit price must match the [Product](../ubiquitous-language/guidelines/glossary.md#product) price at time of [Order](../ubiquitous-language/guidelines/glossary.md#order)
 3. Total price must equal quantity × unit price minus discounts plus taxes
 
 **Methods**:
 
 ```typescript
 class OrderLine {
-  public constructor(orderId: OrderId, product: Product, quantity: number) {
+  public constructor(orderId: OrderId, [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product): [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)), quantity: number) {
     // Validation and initialization
   }
 
@@ -455,8 +455,8 @@ class OrderLine {
 | Attribute | Type | Description |
 |----------|------|-------------|
 | id | ShipmentId | Unique identifier for the shipment |
-| orderId | OrderId | Reference to the parent order |
-| orderLines | ShipmentItem[] | Order lines included in this shipment |
+| orderId | OrderId | Reference to the parent [Order](../ubiquitous-language/guidelines/glossary.md#order) |
+| orderLines | ShipmentItem[] | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) lines included in this shipment |
 | carrier | string | Shipping carrier name |
 | trackingNumber | string | Carrier's tracking identifier |
 | trackingUrl | string | URL to track the shipment |
@@ -469,9 +469,9 @@ class OrderLine {
 
 **Invariants**:
 
-1. Shipment must be associated with a valid order
-2. Shipment must contain at least one order line
-3. All order lines must belong to the same order
+1. Shipment must be associated with a valid [Order](../ubiquitous-language/guidelines/glossary.md#order)
+2. Shipment must contain at least one [Order](../ubiquitous-language/guidelines/glossary.md#order) line
+3. All [Order](../ubiquitous-language/guidelines/glossary.md#order) lines must belong to the same [Order](../ubiquitous-language/guidelines/glossary.md#order)
 4. A delivered shipment must have an actual delivery date
 
 **Methods**:
@@ -511,7 +511,7 @@ class Shipment {
 | Attribute | Type | Description |
 |----------|------|-------------|
 | id | ReturnId | Unique identifier for the return |
-| orderId | OrderId | Reference to the original order |
+| orderId | OrderId | Reference to the original [Order](../ubiquitous-language/guidelines/glossary.md#order) |
 | returnedItems | ReturnItem[] | Items being returned |
 | returnReason | ReturnReason | Primary reason for the return |
 | returnStatus | ReturnStatus | Current status of the return process |
@@ -524,11 +524,11 @@ class Shipment {
 
 **Invariants**:
 
-1. Return must be associated with a valid order
+1. Return must be associated with a valid [Order](../ubiquitous-language/guidelines/glossary.md#order)
 2. Return must contain at least one item
-3. All returned items must belong to the referenced order
+3. All returned items must belong to the referenced [Order](../ubiquitous-language/guidelines/glossary.md#order)
 4. Return reason must be provided
-5. Refund amount cannot exceed the original order amount
+5. Refund amount cannot exceed the original [Order](../ubiquitous-language/guidelines/glossary.md#order) amount
 
 **Methods**:
 
@@ -577,7 +577,7 @@ class OrderId {
 
   constructor(value: string) {
     if (!this.isValidUUID(value)) {
-      throw new InvalidOrderIdException('Order ID must be a valid UUID format');
+      throw new InvalidOrderIdException('[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) ID must be a valid UUID format');
     }
     this.value = value;
   }
@@ -804,9 +804,9 @@ class OrderStatus {
 - amount: Money
 
 **Validation Rules**:
-- Payment method must be one of the supported payment types
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) method must be one of the supported [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) types
 - Transaction ID must be provided for completed payments
-- Amount must match the order total
+- Amount must match the [Order](../ubiquitous-language/guidelines/glossary.md#order) total
 
 ```typescript
 class PaymentDetails {
@@ -903,17 +903,17 @@ class ShippingDetails {
 
 ### OrderValidationService
 
-**Responsibility**: Validates all aspects of an order before it can proceed through the ordering process.
+**Responsibility**: Validates all aspects of an [Order](../ubiquitous-language/guidelines/glossary.md#order) before it can proceed through the ordering process.
 
 **Methods**:
 
 | Method | Parameters | Return Value | Description |
 |--------|------------|--------------|-------------|
-| validateNewOrder | Order | ValidationResult | Validates a newly created order against business rules |
-| validateOrderForConfirmation | Order | ValidationResult | Checks if an order meets criteria for confirmation |
-| validateOrderForFulfillment | Order | ValidationResult | Verifies order is ready to enter fulfillment |
-| validateShippingAddress | Address, Product[] | ValidationResult | Checks if products can be shipped to the address |
-| validateModification | Order, OrderModificationRequest | ValidationResult | Validates if modifications are allowed for an order |
+| validateNewOrder | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | ValidationResult | Validates a newly created [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) against business rules |
+| validateOrderForConfirmation | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | ValidationResult | Checks if an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) meets criteria for confirmation |
+| validateOrderForFulfillment | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | ValidationResult | Verifies [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) is ready to enter fulfillment |
+| validateShippingAddress | Address, [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)[] | ValidationResult | Checks if products can be shipped to the address |
+| validateModification | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)), OrderModificationRequest | ValidationResult | Validates if modifications are allowed for an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) |
 
 **Implementation**:
 
@@ -925,21 +925,21 @@ class OrderValidationService {
     private readonly inventoryService: InventoryService
   ) {}
 
-  public async validateNewOrder(order: Order): Promise<ValidationResult> {
+  public async validateNewOrder([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order): [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))): Promise<ValidationResult> {
     const validationResults: ValidationIssue[] = [];
 
-    // Validate order has required fields
-    if (!order.getCustomerId()) {
-      validationResults.push(new ValidationIssue('Customer ID is required', 'MISSING_CUSTOMER'));
+    // Validate [Order](../ubiquitous-language/guidelines/glossary.md#order) has required fields
+    if (![Order](../ubiquitous-language/guidelines/glossary.md#order).getCustomerId()) {
+      validationResults.push(new ValidationIssue('[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) ID is required', 'MISSING_CUSTOMER'));
     }
 
-    // Validate order has at least one item
-    if (order.getOrderLines().length === 0) {
-      validationResults.push(new ValidationIssue('Order must contain at least one item', 'EMPTY_ORDER'));
+    // Validate [Order](../ubiquitous-language/guidelines/glossary.md#order) has at least one item
+    if ([Order](../ubiquitous-language/guidelines/glossary.md#order).getOrderLines().length === 0) {
+      validationResults.push(new ValidationIssue('[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) must contain at least one item', 'EMPTY_ORDER'));
     }
 
     // Validate all products are available
-    const unavailableProducts = await this.validateProductAvailability(order.getOrderLines());
+    const unavailableProducts = await this.validateProductAvailability([Order](../ubiquitous-language/guidelines/glossary.md#order).getOrderLines());
     if (unavailableProducts.length > 0) {
       validationResults.push(new ValidationIssue(
         `The following products are unavailable: ${unavailableProducts.join(', ')}`,
@@ -955,25 +955,25 @@ class OrderValidationService {
   // Other validation methods...
   
   private async validateProductAvailability(orderLines: OrderLine[]): Promise<string[]> {
-    // Implementation to check product availability via inventory service
+    // Implementation to check [Product](../ubiquitous-language/guidelines/glossary.md#product) availability via [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) service
   }
 }
 ```
 
 ### OrderFulfillmentService
 
-**Responsibility**: Manages the process of fulfilling orders, coordinating inventory, packing, and shipping.
+**Responsibility**: Manages the process of fulfilling orders, coordinating [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory), packing, and shipping.
 
 **Methods**:
 
 | Method | Parameters | Return Value | Description |
 |--------|------------|--------------|-------------|
-| startFulfillmentProcess | Order | void | Initiates the fulfillment workflow for an order |
-| createShipment | Order, OrderLine[] | Shipment | Creates a shipment for specific order lines |
-| splitOrderForFulfillment | Order | Shipment[] | Splits an order into multiple shipments based on inventory availability |
+| startFulfillmentProcess | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | void | Initiates the fulfillment workflow for an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) |
+| createShipment | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)), OrderLine[] | Shipment | Creates a shipment for specific [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) lines |
+| splitOrderForFulfillment | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Shipment[] | Splits an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) into multiple shipments based on [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) availability |
 | generateShippingLabel | Shipment | ShippingLabel | Creates shipping label for a shipment |
 | assignShipmentToCarrier | Shipment | void | Requests carrier pickup and assigns tracking |
-| completeOrderFulfillment | Order | void | Marks an order as fully fulfilled |
+| completeOrderFulfillment | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | void | Marks an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) as fully fulfilled |
 
 **Implementation**:
 
@@ -987,48 +987,48 @@ class OrderFulfillmentService {
   ) {}
 
   public async startFulfillmentProcess(orderId: OrderId): Promise<void> {
-    const order = await this.orderRepository.findById(orderId);
-    if (!order) {
-      throw new OrderNotFoundException(`Order ${orderId.getValue()} not found`);
+    const [Order](../ubiquitous-language/guidelines/glossary.md#order) = await this.orderRepository.findById(orderId);
+    if (![Order](../ubiquitous-language/guidelines/glossary.md#order)) {
+      throw new OrderNotFoundException(`[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) ${orderId.getValue()} not found`);
     }
 
-    if (order.getStatus().getValue() !== OrderStatusValue.CONFIRMED) {
+    if ([Order](../ubiquitous-language/guidelines/glossary.md#order).getStatus().getValue() !== OrderStatusValue.CONFIRMED) {
       throw new InvalidOrderStateException('Only confirmed orders can begin fulfillment');
     }
 
-    // Update order status to processing
-    order.startProcessing();
-    await this.orderRepository.save(order);
+    // Update [Order](../ubiquitous-language/guidelines/glossary.md#order) status to processing
+    [Order](../ubiquitous-language/guidelines/glossary.md#order).startProcessing();
+    await this.orderRepository.save([Order](../ubiquitous-language/guidelines/glossary.md#order));
 
-    // Reserve inventory
+    // Reserve [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)
     const inventoryReservationResult = await this.inventoryService.reserveInventory(
-      order.getId(),
-      order.getOrderLines().map(line => ({
+      [Order](../ubiquitous-language/guidelines/glossary.md#order).getId(),
+      [Order](../ubiquitous-language/guidelines/glossary.md#order).getOrderLines().map(line => ({
         productId: line.getProductId(),
         quantity: line.getQuantity()
       }))
     );
 
     if (inventoryReservationResult.isPartial()) {
-      // Handle partial inventory availability
-      const shipments = await this.splitOrderForFulfillment(order);
+      // Handle partial [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) availability
+      const shipments = await this.splitOrderForFulfillment([Order](../ubiquitous-language/guidelines/glossary.md#order));
       // Process shipments...
     } else {
-      // Process complete order fulfillment
-      const shipment = await this.createShipment(order, order.getOrderLines());
+      // Process complete [Order](../ubiquitous-language/guidelines/glossary.md#order) fulfillment
+      const shipment = await this.createShipment([Order](../ubiquitous-language/guidelines/glossary.md#order), [Order](../ubiquitous-language/guidelines/glossary.md#order).getOrderLines());
       await this.processShipment(shipment);
     }
   }
 
-  public async createShipment(order: Order, orderLines: OrderLine[]): Promise<Shipment> {
+  public async createShipment([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order): [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)), orderLines: OrderLine[]): Promise<Shipment> {
     // Create shipment entity
     const shipment = new Shipment(
       ShipmentId.generate(),
-      order.getId(),
+      [Order](../ubiquitous-language/guidelines/glossary.md#order).getId(),
       orderLines.map(line => new ShipmentItem(line.getId(), line.getQuantity()))
     );
 
-    // Verify product quality before packing
+    // Verify [Product](../ubiquitous-language/guidelines/glossary.md#product) quality before packing
     for (const line of orderLines) {
       const qualityResult = await this.qualityVerificationService.verifyProductQuality(
         line.getProductId(),
@@ -1038,7 +1038,7 @@ class OrderFulfillmentService {
       if (!qualityResult.passed()) {
         // Handle quality verification failure
         throw new QualityCheckFailedException(
-          `Quality verification failed for product ${line.getProductId().getValue()}`
+          `Quality verification failed for [Product](../ubiquitous-language/guidelines/glossary.md#product) ${line.getProductId().getValue()}`
         );
       }
     }
@@ -1053,16 +1053,16 @@ class OrderFulfillmentService {
 
 ### OrderPricingService
 
-**Responsibility**: Calculates order totals, including product prices, discounts, taxes, and shipping costs.
+**Responsibility**: Calculates [Order](../ubiquitous-language/guidelines/glossary.md#order) totals, including [Product](../ubiquitous-language/guidelines/glossary.md#product) prices, discounts, taxes, and shipping costs.
 
 **Methods**:
 
 | Method | Parameters | Return Value | Description |
 |--------|------------|--------------|-------------|
-| calculateOrderTotal | Order | Money | Calculates the total price of an order |
-| applyDiscounts | Order | Order | Applies relevant discounts to an order |
-| calculateTaxes | Order | Money | Calculates taxes based on products and shipping address |
-| calculateShipping | Order, ShippingMethod | Money | Calculates shipping cost |
+| calculateOrderTotal | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Money | Calculates the total price of an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) |
+| applyDiscounts | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Applies relevant discounts to an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) |
+| calculateTaxes | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | Money | Calculates taxes based on products and shipping address |
+| calculateShipping | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), ShippingMethod | Money | Calculates shipping cost |
 
 **Implementation**:
 
@@ -1074,47 +1074,47 @@ class OrderPricingService {
     private readonly discountService: DiscountService
   ) {}
 
-  public async calculateOrderTotal(order: Order): Promise<Money> {
-    // Calculate sum of order lines
-    let subtotal = Money.zero(order.getCurrency());
-    for (const line of order.getOrderLines()) {
+  public async calculateOrderTotal([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order): [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))): Promise<Money> {
+    // Calculate sum of [Order](../ubiquitous-language/guidelines/glossary.md#order) lines
+    let subtotal = Money.zero([Order](../ubiquitous-language/guidelines/glossary.md#order).getCurrency());
+    for (const line of [Order](../ubiquitous-language/guidelines/glossary.md#order).getOrderLines()) {
       const linePrice = await this.pricingService.getProductPrice(
         line.getProductId(),
-        order.getCustomerId()
+        [Order](../ubiquitous-language/guidelines/glossary.md#order).getCustomerId()
       );
       subtotal = subtotal.add(linePrice.multiply(line.getQuantity()));
     }
 
     // Apply discounts
-    const discount = await this.discountService.calculateOrderDiscount(order);
+    const discount = await this.discountService.calculateOrderDiscount([Order](../ubiquitous-language/guidelines/glossary.md#order));
     const afterDiscount = subtotal.subtract(discount);
 
     // Calculate taxes
-    const tax = await this.taxService.calculateTax(order, afterDiscount);
+    const tax = await this.taxService.calculateTax([Order](../ubiquitous-language/guidelines/glossary.md#order), afterDiscount);
     
     // Calculate shipping
-    const shipping = await this.calculateShipping(order, order.getShippingMethod());
+    const shipping = await this.calculateShipping([Order](../ubiquitous-language/guidelines/glossary.md#order), [Order](../ubiquitous-language/guidelines/glossary.md#order).getShippingMethod());
 
     // Return total
     return afterDiscount.add(tax).add(shipping);
   }
   
-  public async applyDiscounts(order: Order): Promise<Order> {
+  public async applyDiscounts([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order): [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))): Promise<[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))> {
     const applicableDiscounts = await this.discountService.findApplicableDiscounts(
-      order.getCustomerId(),
-      order.getOrderLines().map(line => line.getProductId()),
-      order.getOrderDate()
+      [Order](../ubiquitous-language/guidelines/glossary.md#order).getCustomerId(),
+      [Order](../ubiquitous-language/guidelines/glossary.md#order).getOrderLines().map(line => line.getProductId()),
+      [Order](../ubiquitous-language/guidelines/glossary.md#order).getOrderDate()
     );
 
-    // Apply each discount to the order
+    // Apply each discount to the [Order](../ubiquitous-language/guidelines/glossary.md#order)
     for (const discount of applicableDiscounts) {
-      order.applyDiscount(discount);
+      [Order](../ubiquitous-language/guidelines/glossary.md#order).applyDiscount(discount);
     }
 
-    return order;
+    return [Order](../ubiquitous-language/guidelines/glossary.md#order);
   }
 
-  // Other pricing methods...
+  // Other [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) methods...
 }
 ```
 
@@ -1126,9 +1126,9 @@ class OrderPricingService {
 
 | Method | Parameters | Return Value | Description |
 |--------|------------|--------------|-------------|
-| analyzeOrderRisk | Order | RiskAssessment | Evaluates the risk level of an order |
-| verifyPaymentMethod | PaymentDetails, Order | VerificationResult | Verifies the payment method is valid and not fraudulent |
-| flagSuspiciousActivity | Order, FraudIndicator[] | void | Marks an order for manual review |
+| analyzeOrderRisk | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | RiskAssessment | Evaluates the risk level of an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) |
+| verifyPaymentMethod | PaymentDetails, [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | VerificationResult | Verifies the [Payment](../ubiquitous-language/guidelines/glossary.md#payment) method is valid and not fraudulent |
+| flagSuspiciousActivity | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)), FraudIndicator[] | void | Marks an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) for manual review |
 
 **Implementation**:
 
@@ -1141,26 +1141,26 @@ class FraudDetectionService {
     private readonly orderRepository: OrderRepository
   ) {}
 
-  public async analyzeOrderRisk(order: Order): Promise<RiskAssessment> {
+  public async analyzeOrderRisk([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order): [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))): Promise<RiskAssessment> {
     const indicators: FraudIndicator[] = [];
     let riskScore = 0;
 
     // Check for address mismatch
-    if (this.isAddressMismatch(order.getBillingAddress(), order.getShippingAddress())) {
+    if (this.isAddressMismatch([Order](../ubiquitous-language/guidelines/glossary.md#order).getBillingAddress(), [Order](../ubiquitous-language/guidelines/glossary.md#order).getShippingAddress())) {
       indicators.push(FraudIndicator.ADDRESS_MISMATCH);
       riskScore += 10;
     }
 
     // Check for unusual ordering pattern
-    const customerHistory = await this.customerHistoryService.getOrderHistory(order.getCustomerId());
-    if (this.isUnusualOrderingPattern(order, customerHistory)) {
+    const customerHistory = await this.customerHistoryService.getOrderHistory([Order](../ubiquitous-language/guidelines/glossary.md#order).getCustomerId());
+    if (this.isUnusualOrderingPattern([Order](../ubiquitous-language/guidelines/glossary.md#order), customerHistory)) {
       indicators.push(FraudIndicator.UNUSUAL_ORDERING_PATTERN);
       riskScore += 20;
     }
 
     // Check for IP/location mismatch
-    const ipLocation = await this.geoIPService.getLocation(order.getMetadata().get('ipAddress'));
-    if (this.isLocationMismatch(ipLocation, order.getBillingAddress())) {
+    const ipLocation = await this.geoIPService.getLocation([Order](../ubiquitous-language/guidelines/glossary.md#order).getMetadata().get('ipAddress'));
+    if (this.isLocationMismatch(ipLocation, [Order](../ubiquitous-language/guidelines/glossary.md#order).getBillingAddress())) {
       indicators.push(FraudIndicator.LOCATION_MISMATCH);
       riskScore += 30;
     }
@@ -1177,18 +1177,18 @@ class FraudDetectionService {
 
 ### ReturnProcessingService
 
-**Responsibility**: Handles the return process for orders, including authorizing returns, processing refunds, and updating inventory.
+**Responsibility**: Handles the return process for orders, including authorizing returns, processing refunds, and updating [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory).
 
 **Methods**:
 
 | Method | Parameters | Return Value | Description |
 |--------|------------|--------------|-------------|
-| initiateReturn | Order, ReturnRequest | Return | Creates a new return for an order |
+| initiateReturn | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)), ReturnRequest | Return | Creates a new return for an [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) |
 | authorizeReturn | Return | Return | Approves a return request |
 | generateReturnLabel | Return | ReturnLabel | Creates a shipping label for the return |
 | processReceivedReturn | Return, ReturnReceipt | void | Processes a return after items are received |
 | calculateRefundAmount | Return | Money | Determines the refund amount for a return |
-| processRefund | Return, Money | void | Issues a refund to the customer |
+| processRefund | Return, Money | void | Issues a refund to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) |
 
 **Implementation**:
 
@@ -1203,18 +1203,18 @@ class ReturnProcessingService {
   ) {}
 
   public async initiateReturn(orderId: OrderId, request: ReturnRequest): Promise<Return> {
-    const order = await this.orderRepository.findById(orderId);
-    if (!order) {
-      throw new OrderNotFoundException(`Order ${orderId.getValue()} not found`);
+    const [Order](../ubiquitous-language/guidelines/glossary.md#order) = await this.orderRepository.findById(orderId);
+    if (![Order](../ubiquitous-language/guidelines/glossary.md#order)) {
+      throw new OrderNotFoundException(`[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) ${orderId.getValue()} not found`);
     }
 
     // Validate return eligibility
-    if (!this.isEligibleForReturn(order)) {
-      throw new ReturnNotAllowedException('Order is not eligible for return');
+    if (!this.isEligibleForReturn([Order](../ubiquitous-language/guidelines/glossary.md#order))) {
+      throw new ReturnNotAllowedException('[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) is not eligible for return');
     }
 
     // Validate return items
-    this.validateReturnItems(order, request.items);
+    this.validateReturnItems([Order](../ubiquitous-language/guidelines/glossary.md#order), request.items);
 
     // Create return entity
     const returnEntity = new Return(
@@ -1246,9 +1246,9 @@ class ReturnProcessingService {
     // Inspect returned items and verify quality
     const inspectionResults = await Promise.all(
       returnEntity.getReturnedItems().map(async item => {
-        const product = await this.getProductForOrderLine(item.getOrderLineId());
+        const [Product](../ubiquitous-language/guidelines/glossary.md#product) = await this.getProductForOrderLine(item.getOrderLineId());
         return this.qualityVerificationService.inspectReturnedProduct(
-          product.getId(),
+          [Product](../ubiquitous-language/guidelines/glossary.md#product).getId(),
           item.getCondition(),
           receipt.inspectionNotes
         );
@@ -1259,7 +1259,7 @@ class ReturnProcessingService {
     const overallResult = this.determineOverallInspectionResult(inspectionResults);
     returnEntity.completeInspection(overallResult);
 
-    // Update inventory for accepted items
+    // Update [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) for accepted items
     if (overallResult.isAccepted()) {
       await this.updateInventoryForReturn(returnEntity);
     }
@@ -1283,29 +1283,29 @@ class ReturnProcessingService {
 
 #### OrderManagementAdminService
 
-**Responsibility**: Provides order management capabilities for administrative users
+**Responsibility**: Provides [Order](../ubiquitous-language/guidelines/glossary.md#order) management capabilities for administrative users
 
 **Operations**:
-- View complete order history and details including customer interactions
+- View complete [Order](../ubiquitous-language/guidelines/glossary.md#order) history and details including [Customer](../ubiquitous-language/guidelines/glossary.md#customer) interactions
 - Manually approve or reject orders flagged for review
-- Override order status transitions when necessary with justification
+- Override [Order](../ubiquitous-language/guidelines/glossary.md#order) status transitions when necessary with justification
 - Apply special discounts or price adjustments with approval
 - Create manual orders on behalf of customers with proper authorization
 
-**Authorization**: Requires `order:manage` permission
+**Authorization**: Requires `[Order](../ubiquitous-language/guidelines/glossary.md#order):manage` permission
 
 #### OrderFulfillmentAdminService
 
-**Responsibility**: Manages order fulfillment operations and exceptions
+**Responsibility**: Manages [Order](../ubiquitous-language/guidelines/glossary.md#order) fulfillment operations and exceptions
 
 **Operations**:
 - Override fulfillment priorities for expedited processing
 - Manage split shipment decisions and configurations
 - Handle special packaging instructions for fragile or signature items
-- Configure fulfillment SLAs by order type and region
+- Configure fulfillment SLAs by [Order](../ubiquitous-language/guidelines/glossary.md#order) type and region
 - Generate fulfillment exception reports and resolution workflows
 
-**Authorization**: Requires `order:fulfillment:manage` permission
+**Authorization**: Requires `[Order](../ubiquitous-language/guidelines/glossary.md#order):fulfillment:manage` permission
 
 #### OrderReturnAndRefundAdminService
 
@@ -1314,35 +1314,35 @@ class ReturnProcessingService {
 **Operations**:
 - Approve or deny return requests outside of standard policy
 - Process full or partial refunds with reason documentation
-- Configure return policies by product category and region
+- Configure return policies by [Product](../ubiquitous-language/guidelines/glossary.md#product) category and region
 - Override return shipping fees when appropriate
 - Manage return merchandise authorization (RMA) workflows
 
-**Authorization**: Requires `order:returns:manage` permission
+**Authorization**: Requires `[Order](../ubiquitous-language/guidelines/glossary.md#order):returns:manage` permission
 
 ### Admin Read Models
 
 #### OrderPerformanceDashboardModel
 
-**Purpose**: Visualizes order processing efficiency and performance metrics
+**Purpose**: Visualizes [Order](../ubiquitous-language/guidelines/glossary.md#order) processing efficiency and performance metrics
 
 **Key Metrics**:
-- Average processing time by order type
+- Average processing time by [Order](../ubiquitous-language/guidelines/glossary.md#order) type
 - Orders processed per hour/day/week by fulfillment center
-- Exception order rate and resolution time
-- Order backlog by status and priority
-- Staff performance metrics for order processing
+- Exception [Order](../ubiquitous-language/guidelines/glossary.md#order) rate and resolution time
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) backlog by status and priority
+- Staff performance metrics for [Order](../ubiquitous-language/guidelines/glossary.md#order) processing
 
 #### OrderFinancialDashboardModel
 
-**Purpose**: Provides financial insights on order revenue and profitability
+**Purpose**: Provides financial insights on [Order](../ubiquitous-language/guidelines/glossary.md#order) revenue and profitability
 
 **Key Metrics**:
-- Average order value by customer segment
+- Average [Order](../ubiquitous-language/guidelines/glossary.md#order) value by [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment
 - Discount impact on margin by promotion type
 - Refund rate and impact by reason code
-- Revenue by product category and region
-- Payment method distribution and fees impact
+- Revenue by [Product](../ubiquitous-language/guidelines/glossary.md#product) category and region
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) method distribution and fees impact
 
 #### OrderFulfillmentDashboardModel
 
@@ -1359,20 +1359,20 @@ class ReturnProcessingService {
 
 #### OrderStatusManuallyChangedByAdmin
 
-**Description**: Emitted when an administrator manually changes an order's status
+**Description**: Emitted when an administrator manually changes an [Order](../ubiquitous-language/guidelines/glossary.md#order)'s status
 
 **Payload**:
 ```json
 {
   "aggregateId": "uuid-string",
-  "orderId": "order-123456",
-  "customerId": "customer-uuid",
+  "orderId": "[Order](../ubiquitous-language/guidelines/glossary.md#order)-123456",
+  "customerId": "[Customer](../ubiquitous-language/guidelines/glossary.md#customer)-uuid",
   "previousStatus": "PAYMENT_PENDING",
   "newStatus": "PROCESSING",
-  "reason": "Payment confirmed via offline bank transfer",
+  "reason": "[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) confirmed via offline bank transfer",
   "adminId": "admin-uuid",
   "adminName": "John Doe",
-  "notes": "Customer provided transfer receipt via email",
+  "notes": "[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) provided transfer receipt via email",
   "requiresFollowUp": false,
   "occurredOn": "2025-06-15T13:45:22Z"
 }
@@ -1380,14 +1380,14 @@ class ReturnProcessingService {
 
 #### OrderRefundApprovedByAdmin
 
-**Description**: Emitted when an administrator approves a refund for an order
+**Description**: Emitted when an administrator approves a refund for an [Order](../ubiquitous-language/guidelines/glossary.md#order)
 
 **Payload**:
 ```json
 {
   "aggregateId": "uuid-string",
-  "orderId": "order-123456",
-  "customerId": "customer-uuid",
+  "orderId": "[Order](../ubiquitous-language/guidelines/glossary.md#order)-123456",
+  "customerId": "[Customer](../ubiquitous-language/guidelines/glossary.md#customer)-uuid",
   "refundId": "refund-uuid",
   "refundAmount": {
     "value": 128.50,
@@ -1398,12 +1398,12 @@ class ReturnProcessingService {
   "originalPaymentMethod": {
     "type": "CREDIT_CARD",
     "last4": "1234",
-    "transactionId": "payment-tx-id"
+    "transactionId": "[Payment](../ubiquitous-language/guidelines/glossary.md#payment)-tx-id"
   },
   "refundItems": [
     {
       "orderLineId": "line-item-uuid",
-      "productId": "product-uuid",
+      "productId": "[Product](../ubiquitous-language/guidelines/glossary.md#product)-uuid",
       "productName": "Aged Spanish Manchego",
       "quantity": 2,
       "unitPrice": {
@@ -1415,7 +1415,7 @@ class ReturnProcessingService {
   "adminId": "admin-uuid",
   "adminName": "Sarah Johnson",
   "approvedOn": "2025-06-15T14:22:10Z",
-  "notes": "Customer provided photos of damaged packaging",
+  "notes": "[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) provided photos of damaged packaging",
   "returnRequired": false,
   "occurredOn": "2025-06-15T14:22:10Z"
 }
@@ -1423,19 +1423,19 @@ class ReturnProcessingService {
 
 #### PriorityOrderFlagAddedByAdmin
 
-**Description**: Emitted when an administrator marks an order for priority processing
+**Description**: Emitted when an administrator marks an [Order](../ubiquitous-language/guidelines/glossary.md#order) for priority processing
 
 **Payload**:
 ```json
 {
   "aggregateId": "uuid-string",
-  "orderId": "order-123456",
-  "customerId": "customer-uuid",
+  "orderId": "[Order](../ubiquitous-language/guidelines/glossary.md#order)-123456",
+  "customerId": "[Customer](../ubiquitous-language/guidelines/glossary.md#customer)-uuid",
   "priorityLevel": "HIGH",
   "priorityReason": "VIP_CUSTOMER",
   "expectedFulfillmentDate": "2025-06-16T12:00:00Z",
   "originalFulfillmentDate": "2025-06-19T12:00:00Z",
-  "specialInstructions": "Customer is a restaurant owner who needs products for an event",
+  "specialInstructions": "[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) is a restaurant owner who needs products for an event",
   "adminId": "admin-uuid",
   "adminName": "Michael Chen",
   "affectedDepartments": ["WAREHOUSE", "SHIPPING", "CUSTOMER_SERVICE"],
@@ -1446,7 +1446,7 @@ class ReturnProcessingService {
 
 ## Integration Points
 
-The Order bounded context integrates with numerous other bounded contexts to facilitate the entire order lifecycle. These integrations are critical for maintaining a cohesive business process while respecting domain boundaries.
+The [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) bounded context integrates with numerous other bounded contexts to facilitate the entire [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) lifecycle. These integrations are critical for maintaining a cohesive business process while respecting domain boundaries.
 
 ### Inbound Dependencies
 
@@ -1454,39 +1454,39 @@ The Order bounded context integrates with numerous other bounded contexts to fac
 
 | Endpoint | Method | Purpose | Source Context |
 |----------|--------|---------|---------------|
-| `/api/orders` | POST | Create a new order | Customer UI, External API |
-| `/api/orders/{id}` | GET | Retrieve order details | Customer UI, Admin UI, External API |
-| `/api/orders/{id}/status` | GET | Check order status | Customer UI, Admin UI |
-| `/api/orders/{id}/confirm` | PUT | Confirm an order | Customer UI, Admin UI |
-| `/api/orders/{id}/cancel` | PUT | Cancel an order | Customer UI, Admin UI |
-| `/api/orders/{id}/return` | POST | Create a return request | Customer UI |
-| `/api/orders/customer/{customerId}` | GET | List customer orders | Customer UI |
+| `/api/orders` | POST | Create a new [Order](../ubiquitous-language/guidelines/glossary.md#order) | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) UI, External API |
+| `/api/orders/{id}` | GET | Retrieve [Order](../ubiquitous-language/guidelines/glossary.md#order) details | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) UI, Admin UI, External API |
+| `/api/orders/{id}/status` | GET | Check [Order](../ubiquitous-language/guidelines/glossary.md#order) status | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) UI, Admin UI |
+| `/api/orders/{id}/confirm` | PUT | Confirm an [Order](../ubiquitous-language/guidelines/glossary.md#order) | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) UI, Admin UI |
+| `/api/orders/{id}/cancel` | PUT | Cancel an [Order](../ubiquitous-language/guidelines/glossary.md#order) | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) UI, Admin UI |
+| `/api/orders/{id}/return` | POST | Create a return request | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) UI |
+| `/api/orders/[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)/{customerId}` | GET | List [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) orders | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) UI |
 | `/api/orders/search` | GET | Search orders by criteria | Admin UI |
 
 #### Command Handlers
 
 | Command | Purpose | Source Context |
 |---------|---------|---------------|
-| `PlaceOrderCommand` | Processes order creation | Customer Context |
-| `UpdateOrderStatusCommand` | Update order status | Shipping Context, Payment Context |
+| `PlaceOrderCommand` | Processes [Order](../ubiquitous-language/guidelines/glossary.md#order) creation | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context |
+| `UpdateOrderStatusCommand` | Update [Order](../ubiquitous-language/guidelines/glossary.md#order) status | Shipping Context, [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context |
 | `ApplyDiscountToOrderCommand` | Apply promotional discounts to orders | Marketing Context |
-| `AssignFraudRiskScoreCommand` | Sets fraud risk assessment on an order | Payment Context |
-| `CapturePaymentForOrderCommand` | Initiates payment capture for confirmed order | Payment Context |
-| `GenerateInvoiceCommand` | Creates invoice for an order | Admin Context |
+| `AssignFraudRiskScoreCommand` | Sets fraud risk assessment on an [Order](../ubiquitous-language/guidelines/glossary.md#order) | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context |
+| `CapturePaymentForOrderCommand` | Initiates [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) capture for confirmed [Order](../ubiquitous-language/guidelines/glossary.md#order) | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) Context |
+| `GenerateInvoiceCommand` | Creates invoice for an [Order](../ubiquitous-language/guidelines/glossary.md#order) | Admin Context |
 
 #### Events Consumed
 
 | Event | Producer Context | Handling |
 |-------|-----------------|----------|
-| `PaymentAuthorized` | Payment Context | Updates order payment status and transitions order to next state |
-| `PaymentCaptured` | Payment Context | Updates order payment status to completed |
-| `PaymentDeclined` | Payment Context | Marks order as requiring payment resolution |
-| `InventoryReserved` | Inventory Context | Updates order status and initiates fulfillment |
-| `InventoryReservationFailed` | Inventory Context | Marks items as backordered or unavailable |
-| `ProductPriceChanged` | Pricing Context | Updates pricing on pending orders if eligible |
-| `ShipmentCreated` | Shipping Context | Links shipment to order and updates tracking |
-| `ShipmentDelivered` | Shipping Context | Updates order status to delivered |
-| `FraudCheckCompleted` | Payment Context | Updates order risk status |
+| `PaymentAuthorized` | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) Context | Updates [Order](../ubiquitous-language/guidelines/glossary.md#order) [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) status and transitions [Order](../ubiquitous-language/guidelines/glossary.md#order) to next state |
+| `PaymentCaptured` | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) Context | Updates [Order](../ubiquitous-language/guidelines/glossary.md#order) [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) status to completed |
+| `PaymentDeclined` | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) Context | Marks [Order](../ubiquitous-language/guidelines/glossary.md#order) as requiring [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) resolution |
+| `InventoryReserved` | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context | Updates [Order](../ubiquitous-language/guidelines/glossary.md#order) status and initiates fulfillment |
+| `InventoryReservationFailed` | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context | Marks items as backordered or unavailable |
+| `ProductPriceChanged` | [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)) Context | Updates [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) on pending orders if eligible |
+| `ShipmentCreated` | Shipping Context | Links shipment to [Order](../ubiquitous-language/guidelines/glossary.md#order) and updates tracking |
+| `ShipmentDelivered` | Shipping Context | Updates [Order](../ubiquitous-language/guidelines/glossary.md#order) status to delivered |
+| `FraudCheckCompleted` | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context | Updates [Order](../ubiquitous-language/guidelines/glossary.md#order) risk status |
 
 ### Outbound Dependencies
 
@@ -1494,69 +1494,69 @@ The Order bounded context integrates with numerous other bounded contexts to fac
 
 | Service | Purpose | Consumer Context |
 |---------|---------|------------------|
-| `ProductService` | Retrieve product details and availability | Catalog Context |
-| `CustomerService` | Get customer information and preferences | Customer Context |
-| `PaymentGatewayService` | Process payments and refunds | Payment Context |
-| `PricingService` | Calculate product and order pricing | Pricing Context |
-| `InventoryService` | Check and reserve inventory | Inventory Context |
+| `ProductService` | Retrieve [Product](../ubiquitous-language/guidelines/glossary.md#product) details and availability | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context |
+| `CustomerService` | Get [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) information and preferences | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context |
+| `PaymentGatewayService` | Process payments and refunds | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context |
+| `PricingService` | Calculate [Product](../ubiquitous-language/guidelines/glossary.md#product) and [Order](../ubiquitous-language/guidelines/glossary.md#order) [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) | [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)) Context |
+| `InventoryService` | Check and reserve [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context |
 | `ShippingRateService` | Calculate shipping options and costs | Shipping Context |
 | `TaxCalculationService` | Determine applicable taxes | Finance Context |
-| `NotificationService` | Send order-related notifications | Notification Context |
+| `NotificationService` | Send [Order](../ubiquitous-language/guidelines/glossary.md#order)-related notifications | Notification Context |
 
 #### Events Published
 
 | Event | Purpose | Consumer Contexts |
 |-------|---------|-------------------|
-| `OrderCreated` | Signals new order creation | Inventory, Payment, Analytics |
-| `OrderConfirmed` | Signals customer confirmation | Inventory, Payment, Shipping, Analytics |
-| `OrderCancelled` | Signals order cancellation | Inventory, Payment, Analytics |
-| `OrderShipped` | Signals order shipment | Customer, Analytics, Marketing |
-| `OrderDelivered` | Signals order delivery | Customer, Analytics, Marketing |
-| `OrderReturned` | Signals return initiation | Inventory, Finance, Analytics |
+| `OrderCreated` | Signals new [Order](../ubiquitous-language/guidelines/glossary.md#order) creation | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment), Analytics |
+| `OrderConfirmed` | Signals [Customer](../ubiquitous-language/guidelines/glossary.md#customer) confirmation | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment), Shipping, Analytics |
+| `OrderCancelled` | Signals [Order](../ubiquitous-language/guidelines/glossary.md#order) cancellation | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment), Analytics |
+| `OrderShipped` | Signals [Order](../ubiquitous-language/guidelines/glossary.md#order) shipment | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Analytics, Marketing |
+| `OrderDelivered` | Signals [Order](../ubiquitous-language/guidelines/glossary.md#order) delivery | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Analytics, Marketing |
+| `OrderReturned` | Signals return initiation | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), Finance, Analytics |
 | `OrderRefunded` | Signals refund processed | Finance, Analytics |
-| `FraudCheckFailed` | Signals fraud detection | Risk Management, Customer |
+| `FraudCheckFailed` | Signals fraud detection | Risk Management, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) |
 
 ### Context Mapping
 
-The Order bounded context uses several strategic patterns to integrate with other contexts:
+The [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) bounded context uses several strategic patterns to integrate with other contexts:
 
 #### Shared Kernel
 
-The Order context shares a kernel with the following contexts:
+The [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) context shares a kernel with the following contexts:
 
-- **Customer Context**: Shares customer profile models to maintain consistent customer representation
-- **Catalog Context**: Shares product models to ensure consistent product representation across ordering
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context**: Shares [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) profile models to maintain consistent [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) representation
+- **[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context**: Shares [Product](../ubiquitous-language/guidelines/glossary.md#product) models to ensure consistent [Product](../ubiquitous-language/guidelines/glossary.md#product) representation across ordering
 
-#### Customer/Supplier Relationship
+#### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)/Supplier Relationship
 
 - As Supplier (Upstream):
-  - To **Shipping Context**: Order context defines order structure that shipping must adapt to
-  - To **Analytics Context**: Order context provides order events in a format suitable for analytics
+  - To **Shipping Context**: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) context defines [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) structure that shipping must adapt to
+  - To **Analytics Context**: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) context provides [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) events in a format suitable for analytics
 
-- As Customer (Downstream):
-  - To **Inventory Context**: Order context relies on inventory availability and reservation
-  - To **Payment Context**: Order context consumes payment processing services
-  - To **Pricing Context**: Order context uses pricing rules for order calculation
+- As [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) (Downstream):
+  - To **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context**: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) context relies on [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) availability and reservation
+  - To **[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) Context**: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) context consumes [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) processing services
+  - To **[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)) Context**: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) context uses [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) rules for [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) calculation
 
 #### Anti-Corruption Layer (ACL)
 
-- Between **Order Context** and **Legacy ERP System**: Translates between modern domain model and legacy order structure
-- Between **Order Context** and **External Marketplace APIs**: Adapts external marketplace order formats to internal domain model
+- Between **[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context** and **Legacy ERP System**: Translates between modern domain model and legacy [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) structure
+- Between **[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context** and **External Marketplace APIs**: Adapts external marketplace [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) formats to internal domain model
 
 #### Open Host Service
 
-- Order context provides a published order API for various consumers including external partners and internal services
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) context provides a published [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) API for various consumers including external partners and internal services
 
 #### Conformist
 
-- Order context conforms to the **Finance Context** for tax calculation and financial reporting
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) context conforms to the **Finance Context** for tax calculation and financial reporting
 
 ### Integration Mechanism Details
 
 #### RESTful API
 
 ```typescript
-// Example API endpoint implementation for order creation
+// Example API endpoint implementation for [Order](../ubiquitous-language/guidelines/glossary.md#order) creation
 @POST
 @Path("/orders")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -1595,14 +1595,14 @@ class OrderEventPublisher implements DomainEventPublisher {
     private readonly eventMapper: EventMapper
   ) {}
 
-  public async publishOrderCreated(order: Order): Promise<void> {
-    const event = this.eventMapper.mapToOrderCreatedEvent(order);
-    await this.eventBus.publish('order.created', event);
+  public async publishOrderCreated([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order): [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))): Promise<void> {
+    const event = this.eventMapper.mapToOrderCreatedEvent([Order](../ubiquitous-language/guidelines/glossary.md#order));
+    await this.eventBus.publish('[Order](../ubiquitous-language/guidelines/glossary.md#order).created', event);
   }
   
-  public async publishOrderConfirmed(order: Order): Promise<void> {
-    const event = this.eventMapper.mapToOrderConfirmedEvent(order);
-    await this.eventBus.publish('order.confirmed', event);
+  public async publishOrderConfirmed([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order): [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))): Promise<void> {
+    const event = this.eventMapper.mapToOrderConfirmedEvent([Order](../ubiquitous-language/guidelines/glossary.md#order));
+    await this.eventBus.publish('[Order](../ubiquitous-language/guidelines/glossary.md#order).confirmed', event);
   }
   
   // Other event publishing methods...
@@ -1622,7 +1622,7 @@ class CatalogServiceAdapter implements ProductService {
       return this.mapToProductDetails(catalogProduct);
     } catch (error) {
       // Handle integration errors
-      throw new ProductServiceException(`Failed to retrieve product: ${error.message}`);
+      throw new ProductServiceException(`Failed to retrieve [Product](../ubiquitous-language/guidelines/glossary.md#product): ${error.message}`);
     }
   }
   
@@ -1639,25 +1639,25 @@ class CatalogServiceAdapter implements ProductService {
 class LegacyErpOrderAdapter implements ExternalOrderSystem {
   constructor(private readonly erpClient: ErpClient) {}
   
-  public async exportOrder(order: Order): Promise<void> {
-    // Transform domain order to legacy format
-    const erpOrder = this.transformToErpOrder(order);
+  public async exportOrder([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order): [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))): Promise<void> {
+    // Transform domain [Order](../ubiquitous-language/guidelines/glossary.md#order) to legacy format
+    const erpOrder = this.transformToErpOrder([Order](../ubiquitous-language/guidelines/glossary.md#order));
     
     try {
       await this.erpClient.createOrder(erpOrder);
     } catch (error) {
-      throw new ErpIntegrationException(`Failed to export order: ${error.message}`);
+      throw new ErpIntegrationException(`Failed to export [Order](../ubiquitous-language/guidelines/glossary.md#order): ${error.message}`);
     }
   }
   
-  private transformToErpOrder(order: Order): ErpOrderDto {
+  private transformToErpOrder([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order): [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))): ErpOrderDto {
     // Complex mapping logic to transform modern domain model 
     // to legacy ERP system format
     return {
-      order_number: order.getId().getValue(),
-      customer_code: this.mapCustomerToLegacyCode(order.getCustomerId()),
-      order_date: this.formatDateForErp(order.getOrderDate()),
-      lines: this.mapOrderLinesToErpFormat(order.getOrderLines()),
+      order_number: [Order](../ubiquitous-language/guidelines/glossary.md#order).getId().getValue(),
+      customer_code: this.mapCustomerToLegacyCode([Order](../ubiquitous-language/guidelines/glossary.md#order).getCustomerId()),
+      order_date: this.formatDateForErp([Order](../ubiquitous-language/guidelines/glossary.md#order).getOrderDate()),
+      lines: this.mapOrderLinesToErpFormat([Order](../ubiquitous-language/guidelines/glossary.md#order).getOrderLines()),
       // Additional ERP-specific mappings
     };
   }
@@ -1672,8 +1672,8 @@ class LegacyErpOrderAdapter implements ExternalOrderSystem {
 
 #### Domain Layer Components
 
-- **Aggregates**: Order, Shipment, Return
-- **Entities**: OrderLine, Address, Payment
+- **Aggregates**: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), Shipment, Return
+- **Entities**: OrderLine, Address, [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)
 - **Value Objects**: OrderId, Money, Address, ShippingDetails
 - **Domain Services**: OrderValidationService, OrderPricingService, FraudDetectionService, ReturnProcessingService
 - **Domain Events**: OrderCreated, OrderConfirmed, OrderCancelled, OrderShipped, etc.
@@ -1696,7 +1696,7 @@ class LegacyErpOrderAdapter implements ExternalOrderSystem {
 
 #### Primary Database
 
-The Order context uses a relational database as the primary storage mechanism due to the need for ACID transactions and complex relational integrity between orders, order lines, shipments, and returns.
+The [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) context uses a relational database as the primary storage mechanism due to the need for ACID transactions and complex relational integrity between orders, [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) lines, shipments, and returns.
 
 **Database Schema**:
 
@@ -1750,17 +1750,17 @@ CREATE TABLE shipments (
   FOREIGN KEY (order_id) REFERENCES orders(id)
 );
 
--- Additional tables for returns, addresses, payment details, etc.
+-- Additional tables for returns, addresses, [Payment](../ubiquitous-language/guidelines/glossary.md#payment) details, etc.
 ```
 
 #### Event Sourcing Considerations
 
-For critical parts of the Order lifecycle, particularly those with complex state transitions and audit requirements (such as order status changes, payment authorizations, and returns), an event sourcing approach is recommended.
+For critical parts of the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) lifecycle, particularly those with complex state transitions and audit requirements (such as [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status changes, [Payment](../ubiquitous-language/guidelines/glossary.md#payment) authorizations, and returns), an event sourcing approach is recommended.
 
-Key benefits for the Order context:
+Key benefits for the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) context:
 
-1. **Complete Audit Trail**: Every order status change is captured as an immutable event
-2. **Temporal Queries**: Ability to reconstruct the state of an order at any point in time
+1. **Complete Audit Trail**: Every [Order](../ubiquitous-language/guidelines/glossary.md#order) status change is captured as an immutable event
+2. **Temporal Queries**: Ability to reconstruct the state of an [Order](../ubiquitous-language/guidelines/glossary.md#order) at any point in time
 3. **Event Replay**: Can replay events to rebuild state or for testing scenarios
 4. **Easier Integration**: Facilitates integration with other contexts through event publication
 
@@ -1773,29 +1773,29 @@ Key benefits for the Order context:
 
 ### CQRS Implementation
 
-The Order context is a good candidate for CQRS (Command Query Responsibility Segregation) due to the different access patterns for order processing versus order reporting.
+The [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) context is a good candidate for CQRS (Command Query Responsibility Segregation) due to the different access patterns for [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) processing versus [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) reporting.
 
 **Command Side**:
-- Focused on processing order transactions (create, confirm, cancel, ship)
+- Focused on processing [Order](../ubiquitous-language/guidelines/glossary.md#order) transactions (create, confirm, cancel, ship)
 - Uses the domain model for validation and business rule enforcement
 - Optimized for write operations
 - Ensures consistency with strong transactional boundaries
 
 **Query Side**:
-- Optimized for fast retrieval of order information
+- Optimized for fast retrieval of [Order](../ubiquitous-language/guidelines/glossary.md#order) information
 - Denormalized read models for different query needs
 - Asynchronously synchronized with the command side via events
 
 **Read Models**:
-1. **OrderSummaryReadModel**: For customer-facing order history
-2. **OrderDetailsReadModel**: For detailed order information
+1. **OrderSummaryReadModel**: For [Customer](../ubiquitous-language/guidelines/glossary.md#customer)-facing [Order](../ubiquitous-language/guidelines/glossary.md#order) history
+2. **OrderDetailsReadModel**: For detailed [Order](../ubiquitous-language/guidelines/glossary.md#order) information
 3. **OrderFulfillmentReadModel**: For staff handling fulfillment
 4. **OrderAnalyticsReadModel**: For reporting and analytics
 
 ### Scalability Considerations
 
 **High-Volume Processing**:
-- Implement horizontal scaling for order processing
+- Implement horizontal scaling for [Order](../ubiquitous-language/guidelines/glossary.md#order) processing
 - Use message queues to handle traffic spikes during sales events
 - Implement backpressure mechanisms to prevent system overload
 
@@ -1804,18 +1804,18 @@ The Order context is a good candidate for CQRS (Command Query Responsibility Seg
 - Consider regional partitioning for international operations
 
 **Caching Strategy**:
-- Cache frequently accessed order data
-- Use distributed caching for order status information
-- Implement cache invalidation based on order events
+- Cache frequently accessed [Order](../ubiquitous-language/guidelines/glossary.md#order) data
+- Use distributed caching for [Order](../ubiquitous-language/guidelines/glossary.md#order) status information
+- Implement cache invalidation based on [Order](../ubiquitous-language/guidelines/glossary.md#order) events
 
 ### Transaction Boundaries
 
-**Order Creation**:
-- A single transaction should cover order creation, line items, and initial inventory check
-- Payment authorization should be a separate transaction with compensation patterns
+**[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Creation**:
+- A single transaction should cover [Order](../ubiquitous-language/guidelines/glossary.md#order) creation, line items, and initial [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) check
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) authorization should be a separate transaction with compensation patterns
 
-**Order Fulfillment**:
-- Shipment creation and inventory deduction should be in the same transaction
+**[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Fulfillment**:
+- Shipment creation and [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) deduction should be in the same transaction
 - Multiple shipments may require a saga pattern to coordinate several transactions
 
 **Returns and Refunds**:
@@ -1833,11 +1833,11 @@ The Order context is a good candidate for CQRS (Command Query Responsibility Seg
    - Verify interactions with external services using test doubles
 
 3. **Acceptance Testing**:
-   - Test complete order workflows from creation to fulfillment
+   - Test complete [Order](../ubiquitous-language/guidelines/glossary.md#order) workflows from creation to fulfillment
    - Verify domain events are properly raised and handled
 
 4. **Performance Testing**:
-   - Test order processing throughput under load
+   - Test [Order](../ubiquitous-language/guidelines/glossary.md#order) processing throughput under load
    - Simulate high-volume ordering scenarios (e.g., flash sales)
 
 5. **Chaos Testing**:
@@ -1847,15 +1847,15 @@ The Order context is a good candidate for CQRS (Command Query Responsibility Seg
 ### Security Considerations
 
 1. **Data Protection**:
-   - Encrypt sensitive order data (payment details, personal information)
+   - Encrypt sensitive [Order](../ubiquitous-language/guidelines/glossary.md#order) data ([Payment](../ubiquitous-language/guidelines/glossary.md#payment) details, personal information)
    - Implement field-level encryption for PII
 
 2. **Access Control**:
-   - Define fine-grained permissions for order operations
+   - Define fine-grained permissions for [Order](../ubiquitous-language/guidelines/glossary.md#order) operations
    - Implement row-level security for multi-tenant environments
 
 3. **Audit Logging**:
-   - Log all order modifications with user information
+   - Log all [Order](../ubiquitous-language/guidelines/glossary.md#order) modifications with user information
    - Ensure compliance with regulatory requirements
 
 4. **Fraud Prevention**:
@@ -1864,19 +1864,19 @@ The Order context is a good candidate for CQRS (Command Query Responsibility Seg
 
 ### Implementation Priorities
 
-1. **Phase 1: Core Order Processing**
-   - Order aggregate with basic lifecycle
-   - Integration with Catalog and Customer contexts
-   - Basic order creation and confirmation flows
+1. **Phase 1: Core [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Processing**
+   - [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) aggregate with basic lifecycle
+   - Integration with [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) and [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) contexts
+   - Basic [Order](../ubiquitous-language/guidelines/glossary.md#order) creation and confirmation flows
 
-2. **Phase 2: Payment and Fulfillment**
-   - Integration with Payment context
-   - Order fulfillment workflows
+2. **Phase 2: [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) and Fulfillment**
+   - Integration with [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) context
+   - [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) fulfillment workflows
    - Shipment tracking and updates
 
 3. **Phase 3: Advanced Features**
    - Returns and refunds processing
-   - Gift orders and special order types
+   - Gift orders and special [Order](../ubiquitous-language/guidelines/glossary.md#order) types
    - Multi-currency support
 
 4. **Phase 4: Optimization and Scaling**
@@ -1886,50 +1886,50 @@ The Order context is a good candidate for CQRS (Command Query Responsibility Seg
 
 ## Success Metrics
 
-The Order domain implementation should be measured against the following key performance indicators:
+The [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) domain implementation should be measured against the following key performance indicators:
 
 ### Business Metrics
 
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
-| Order Accuracy | ≥ 99.9% | (Accurate orders / Total orders) × 100 |
+| [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Accuracy | ≥ 99.9% | (Accurate orders / Total orders) × 100 |
 | On-Time Delivery | ≥ 95% | (On-time deliveries / Total deliveries) × 100 |
-| Order Processing Time | ≤ 5 seconds | Average time from order submission to confirmation |
+| [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Processing Time | ≤ 5 seconds | Average time from [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) submission to confirmation |
 | Cart Abandonment Rate | ≤ 20% | (Abandoned carts / Total carts) × 100 |
 | Return Rate | ≤ 5% | (Returned orders / Total orders) × 100 |
-| Customer Satisfaction | ≥ 4.5/5 | Post-purchase survey results |
+| [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Satisfaction | ≥ 4.5/5 | Post-purchase survey results |
 | Fraud Detection Accuracy | ≥ 98% | (Correctly identified fraud cases / Total fraud cases) × 100 |
 
 ### Technical Metrics
 
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
-| Order API Response Time | ≤ 200ms (p95) | 95th percentile of API response time |
-| Order API Availability | ≥ 99.99% | (Uptime / Total time) × 100 |
-| Order Processing Throughput | ≥ 100 orders/second | Orders processed per second during peak |
+| [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) API Response Time | ≤ 200ms (p95) | 95th percentile of API response time |
+| [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) API Availability | ≥ 99.99% | (Uptime / Total time) × 100 |
+| [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Processing Throughput | ≥ 100 orders/second | Orders processed per second during peak |
 | Event Processing Latency | ≤ 500ms | Time from event publication to consumer processing |
-| Order Data Consistency | 100% | Rate of successful data validation checks |
+| [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Data Consistency | 100% | Rate of successful data validation checks |
 | Database Query Performance | ≤ 50ms (p95) | 95th percentile of database query execution time |
-| Failed Order Rate | ≤ 0.1% | (Failed orders / Total orders) × 100 |
+| Failed [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Rate | ≤ 0.1% | (Failed orders / Total orders) × 100 |
 
 ### Monitoring and Alerting
 
-To ensure the Order domain meets these metrics, implement comprehensive monitoring:
+To ensure the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) domain meets these metrics, implement comprehensive monitoring:
 
 1. **Real-time Dashboards**:
-   - Order volume and throughput
+   - [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) volume and throughput
    - Processing times and bottlenecks
    - Error rates and types
    - Integration point health
 
 2. **Alerting Thresholds**:
-   - Order failure rate > 0.5% in 5 minutes
-   - Processing time > 10 seconds for any order
+   - [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) failure rate > 0.5% in 5 minutes
+   - Processing time > 10 seconds for any [Order](../ubiquitous-language/guidelines/glossary.md#order)
    - Integration point latency > 1 second
    - Error rate > 1% for any API endpoint
 
 3. **Proactive Monitoring**:
-   - Synthetic order creation and processing
+   - Synthetic [Order](../ubiquitous-language/guidelines/glossary.md#order) creation and processing
    - Integration health checks
    - Database performance monitoring
    - Event processing backlog monitoring
@@ -1938,18 +1938,18 @@ To ensure the Order domain meets these metrics, implement comprehensive monitori
 
 Establish a feedback loop for domain improvement:
 
-1. Regularly review order-related customer feedback and support tickets
-2. Analyze patterns in order failures and exceptions
+1. Regularly review [Order](../ubiquitous-language/guidelines/glossary.md#order)-related [Customer](../ubiquitous-language/guidelines/glossary.md#customer) feedback and support tickets
+2. Analyze patterns in [Order](../ubiquitous-language/guidelines/glossary.md#order) failures and exceptions
 3. Monitor and optimize slow queries and inefficient processes
-4. Perform A/B testing on order flow improvements
+4. Perform A/B testing on [Order](../ubiquitous-language/guidelines/glossary.md#order) flow improvements
 5. Review business metrics quarterly and adjust domain model as needed
 
 ### Compliance Verification
 
-Implement checks to ensure the Order domain complies with:
+Implement checks to ensure the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) domain complies with:
 
-1. PCI DSS for payment handling
-2. GDPR/CCPA for customer data
+1. PCI DSS for [Payment](../ubiquitous-language/guidelines/glossary.md#payment) handling
+2. GDPR/CCPA for [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data
 3. Tax regulations for international orders
-4. Industry-specific regulations (food safety, product authenticity)
+4. Industry-specific regulations (food safety, [Product](../ubiquitous-language/guidelines/glossary.md#product) authenticity)
 5. Financial reporting requirements

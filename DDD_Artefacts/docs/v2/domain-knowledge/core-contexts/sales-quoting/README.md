@@ -22,13 +22,13 @@ last_updated: 2025-06-10
 
 ## Domain Overview
 
-The Sales & Quoting domain manages the process of creating, negotiating, and finalizing quotes for B2B customers in the Elias Food Imports ecosystem. This domain handles the entire quote-to-cash process, from initial quote creation to contract management and order conversion.
+The Sales & Quoting domain manages the process of creating, negotiating, and finalizing quotes for B2B customers in the Elias Food Imports ecosystem. This domain handles the entire quote-to-cash process, from initial quote creation to contract management and [Order](../ubiquitous-language/guidelines/glossary.md#order) conversion.
 
 ## Strategic Classification
 
 **Classification**: Supporting Domain
 
-**Justification**: While not a core differentiator, the Sales & Quoting domain is essential for supporting B2B sales processes, managing customer negotiations, and ensuring accurate order fulfillment based on contractual terms. It directly impacts customer acquisition, revenue recognition, and contract compliance.
+**Justification**: While not a core differentiator, the Sales & Quoting domain is essential for supporting B2B sales processes, managing [Customer](../ubiquitous-language/guidelines/glossary.md#customer) negotiations, and ensuring accurate [Order](../ubiquitous-language/guidelines/glossary.md#order) fulfillment based on contractual terms. It directly impacts [Customer](../ubiquitous-language/guidelines/glossary.md#customer) acquisition, revenue recognition, and contract compliance.
 
 ## Core Domain Concepts
 
@@ -36,23 +36,23 @@ The Sales & Quoting domain manages the process of creating, negotiating, and fin
 A formal offer to sell products or services at specified prices and terms, valid for a defined period.
 
 ### Quote Line Item
-An individual product or service included in a quote, with specific quantities, pricing, and configuration options.
+An individual [Product](../ubiquitous-language/guidelines/glossary.md#product) or service included in a quote, with specific quantities, [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), and configuration options.
 
 ### Contract
 A legally binding agreement that defines the terms and conditions for business transactions between Elias Food Imports and its B2B customers.
 
 ### Discount Structure
-Rules and parameters that determine pricing adjustments based on volume, customer segment, or other business rules.
+Rules and parameters that determine [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) adjustments based on volume, [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment, or other business rules.
 
 ### Approval Workflow
-Defined process for reviewing and approving quotes and contracts based on amount, customer type, or other criteria.
+Defined process for reviewing and approving quotes and contracts based on amount, [Customer](../ubiquitous-language/guidelines/glossary.md#customer) type, or other criteria.
 
 ## Business Rules
 
 ### Quote Management
-1. Quotes must include all relevant product details, pricing, terms, and expiration dates.
+1. Quotes must include all relevant [Product](../ubiquitous-language/guidelines/glossary.md#product) details, [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), terms, and expiration dates.
 2. Quote validity periods must be clearly defined and enforced (default 30 days).
-3. Changes to quotes after customer acceptance require a new quote version.
+3. Changes to quotes after [Customer](../ubiquitous-language/guidelines/glossary.md#customer) acceptance require a new quote version.
 4. All quote modifications must be tracked with audit trails.
 5. Quotes exceeding €50,000 require executive approval.
 6. Quotes must be automatically archived after 12 months of inactivity.
@@ -62,15 +62,15 @@ Defined process for reviewing and approving quotes and contracts based on amount
 2. Contract terms must be validated against company policies and legal requirements.
 3. Contract renewals and expirations must be tracked with 60-day advance notifications.
 4. Contract amendments must maintain version history and approval records.
-5. Auto-renewal clauses require explicit customer opt-in.
+5. Auto-renewal clauses require explicit [Customer](../ubiquitous-language/guidelines/glossary.md#customer) opt-in.
 6. Contract termination clauses must include a minimum 30-day notice period.
 
-### Pricing and Discounts
-1. Discounts must be within approved thresholds based on customer tier and order volume.
-2. Special pricing requires appropriate approval levels (10-20%: Manager, 21-30%: Director, 30%+: VP).
+### [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) and Discounts
+1. Discounts must be within approved thresholds based on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) tier and [Order](../ubiquitous-language/guidelines/glossary.md#order) volume.
+2. Special [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) requires appropriate approval levels (10-20%: Manager, 21-30%: Director, 30%+: VP).
 3. Price overrides must be documented with business justification and valid for a maximum of 6 months.
-4. Volume discounts must follow the approved tiered pricing structure.
-5. Promotional pricing must have defined start and end dates.
+4. Volume discounts must follow the approved tiered [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) structure.
+5. Promotional [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) must have defined start and end dates.
 
 ## Domain Events
 
@@ -97,10 +97,10 @@ Defined process for reviewing and approving quotes and contracts based on amount
 **Consumers**:
 - **Notification Context**: Send quote confirmation to creator
 - **Analytics Context**: Track quote creation metrics
-- **Customer Context**: Update customer interaction history
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context**: Update [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) interaction history
 
 ### QuoteSent
-**Description**: Triggered when a quote is sent to a customer.
+**Description**: Triggered when a quote is sent to a [Customer](../ubiquitous-language/guidelines/glossary.md#customer).
 **Payload**:
 ```typescript
 {
@@ -116,24 +116,24 @@ Defined process for reviewing and approving quotes and contracts based on amount
 **Consumers**:
 - **Notification Context**: Send delivery confirmation
 - **Analytics Context**: Track quote engagement metrics
-- **CRM Context**: Log customer interaction
+- **CRM Context**: Log [Customer](../ubiquitous-language/guidelines/glossary.md#customer) interaction
 
 ### QuoteAccepted
-**Description**: Triggered when a customer accepts a quote.
+**Description**: Triggered when a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) accepts a quote.
 **Payload**:
 ```typescript
 {
   quoteId: string;
   customerId: string;
-  acceptedBy: string; // Customer contact
+  acceptedBy: string; // [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) contact
   acceptedAt: Date;
   ipAddress: string;
-  orderId?: string; // If order is auto-created
+  orderId?: string; // If [Order](../ubiquitous-language/guidelines/glossary.md#order) is auto-created
   acceptanceMethod: 'digital_signature' | 'click_accept' | 'email_confirmation';
 }
 ```
 **Consumers**:
-- **Order Context**: Create order from accepted quote
+- **[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Context**: Create [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) from accepted quote
 - **Billing Context**: Set up billing schedule
 - **Notification Context**: Send acceptance confirmation
 
@@ -210,7 +210,7 @@ Defined process for reviewing and approving quotes and contracts based on amount
 - `QuoteExpired`
 
 ### ContractAggregate
-**Description**: Manages the lifecycle of customer contracts, including creation, amendments, and renewals.
+**Description**: Manages the lifecycle of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) contracts, including creation, amendments, and renewals.
 
 **Root Entity**: `Contract`
 
@@ -282,7 +282,7 @@ Defined process for reviewing and approving quotes and contracts based on amount
 - `toJSON()`: object
 
 ### Contract
-**Description**: Represents a legally binding agreement with a customer.
+**Description**: Represents a legally binding agreement with a [Customer](../ubiquitous-language/guidelines/glossary.md#customer).
 
 **Identifier**: `contractId` (UUID)
 
@@ -366,12 +366,12 @@ Defined process for reviewing and approving quotes and contracts based on amount
 ## Domain Services
 
 ### QuoteGenerationService
-**Description**: Handles the generation of quotes based on customer requirements and product configurations.
+**Description**: Handles the generation of quotes based on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) requirements and [Product](../ubiquitous-language/guidelines/glossary.md#product) configurations.
 
 **Methods**:
 - `generateQuote(customerId, items, options)`: Promise<Quote>
 - `cloneQuote(quoteId, updates)`: Promise<Quote>
-- `convertToOrder(quoteId, customerId)`: Promise<Order>
+- `convertToOrder(quoteId, customerId)`: Promise<[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)>
 - `expireQuotesOlderThan(days)`: Promise<number>
 
 ### ContractManagementService
@@ -425,16 +425,16 @@ Defined process for reviewing and approving quotes and contracts based on amount
 
 #### PricingRulesAdminService
 
-**Responsibility**: Manages pricing rules, discount structures, and approval thresholds
+**Responsibility**: Manages [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) rules, discount structures, and approval thresholds
 
 **Operations**:
 - Configure discount approval thresholds by role
-- Define volume-based pricing tiers
-- Manage special pricing programs and eligibility
+- Define volume-based [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) tiers
+- Manage special [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) programs and eligibility
 - Configure margin protection rules and alerts
-- Define customer tier-based pricing rules
+- Define [Customer](../ubiquitous-language/guidelines/glossary.md#customer) tier-based [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) rules
 
-**Authorization**: Requires `pricing:rules:manage` permission
+**Authorization**: Requires `[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing):rules:manage` permission
 
 #### SalesOperationsAdminService
 
@@ -456,7 +456,7 @@ Defined process for reviewing and approving quotes and contracts based on amount
 **Purpose**: Monitors quote creation, conversion, and performance metrics
 
 **Key Metrics**:
-- Quote volume by status, customer segment, and product category
+- Quote volume by status, [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment, and [Product](../ubiquitous-language/guidelines/glossary.md#product) category
 - Quote conversion rates and time-to-close metrics
 - Average quote value and margin by sales representative
 - Quote modification frequency and approval cycle times
@@ -470,19 +470,19 @@ Defined process for reviewing and approving quotes and contracts based on amount
 - Contract renewal rates and advance notice compliance
 - Contract amendment frequency and approval metrics
 - Non-standard term usage and approval statistics
-- Contract risk assessment by customer and region
+- Contract risk assessment by [Customer](../ubiquitous-language/guidelines/glossary.md#customer) and region
 - Contract value distribution and trend analysis
 
 #### PricingExceptionsDashboardModel
 
-**Purpose**: Monitors pricing exceptions, discounts, and margin impacts
+**Purpose**: Monitors [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) exceptions, discounts, and margin impacts
 
 **Key Metrics**:
-- Discount exception frequency by approver and customer
-- Margin impact of pricing exceptions by product category
-- Special pricing program utilization and effectiveness
-- Pricing override patterns and business justifications
-- Competitive pricing adjustment impact analysis
+- Discount exception frequency by approver and [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
+- Margin impact of [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) exceptions by [Product](../ubiquitous-language/guidelines/glossary.md#product) category
+- Special [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) program utilization and effectiveness
+- [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) override patterns and business justifications
+- Competitive [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) adjustment impact analysis
 
 #### SalesPerformanceDashboardModel
 
@@ -491,8 +491,8 @@ Defined process for reviewing and approving quotes and contracts based on amount
 **Key Metrics**:
 - Sales pipeline by stage, representative, and territory
 - Forecast accuracy and conversion metrics
-- Sales cycle duration by product category and customer segment
-- Win/loss analysis by competitor and product
+- Sales cycle duration by [Product](../ubiquitous-language/guidelines/glossary.md#product) category and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment
+- Win/loss analysis by competitor and [Product](../ubiquitous-language/guidelines/glossary.md#product)
 - Commission calculation and payout tracking
 
 ### Admin Domain Events
@@ -642,20 +642,20 @@ Defined process for reviewing and approving quotes and contracts based on amount
 
 | Event | Source Context | Purpose |
 |-------|----------------|---------|
-| `CustomerCreated` | Customer | Track new customers for potential quotes |
-| `ProductPriceChanged` | Pricing | Update draft quotes with latest pricing |
-| `InventoryLow` | Inventory | Check impact on quotes with backordered items |
-| `PaymentFailed` | Billing | Handle payment issues for contract renewals |
-| `OrderShipped` | Order | Update contract fulfillment status |
+| `CustomerCreated` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) | Track new customers for potential quotes |
+| `ProductPriceChanged` | [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)) | Update draft quotes with latest [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) |
+| `InventoryLow` | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) | Check impact on quotes with backordered items |
+| `PaymentFailed` | Billing | Handle [Payment](../ubiquitous-language/guidelines/glossary.md#payment) issues for contract renewals |
+| `OrderShipped` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | Update contract fulfillment status |
 
 ### Published Events
 
 | Event | Consumer Contexts | Purpose |
 |-------|-------------------|---------|
 | `QuoteCreated` | Analytics, Notification | Track quote metrics and notify stakeholders |
-| `QuoteAccepted` | Order, Billing | Create order and set up billing |
+| `QuoteAccepted` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)), Billing | Create [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) and set up billing |
 | `ContractCreated` | Legal, Billing | Store contract and set up billing schedule |
-| `ContractExpiring` | Customer, Sales | Send renewal reminders |
+| `ContractExpiring` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Sales | Send renewal reminders |
 | `ContractTerminated` | Billing, Support | Stop billing and update support status |
 
 ## Implementation Phases
@@ -664,7 +664,7 @@ Defined process for reviewing and approving quotes and contracts based on amount
 1. Implement basic quote creation and management
 2. Create quote approval workflow
 3. Set up basic notifications
-4. Implement quote-to-order conversion
+4. Implement quote-to-[Order](../ubiquitous-language/guidelines/glossary.md#order) conversion
 
 ### Phase 2: Contract Management (Weeks 5-8)
 1. Implement contract creation from quotes
@@ -673,7 +673,7 @@ Defined process for reviewing and approving quotes and contracts based on amount
 4. Implement basic renewal process
 
 ### Phase 3: Advanced Features (Weeks 9-12)
-1. Add complex pricing rules
+1. Add complex [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) rules
 2. Implement bulk operations
 3. Add reporting and analytics
 4. Set up integration with CRM/ERP systems
@@ -704,7 +704,7 @@ Defined process for reviewing and approving quotes and contracts based on amount
 
 ### Scalability
 - Horizontal scaling for read-heavy operations
-- Database sharding by customer/region
+- Database sharding by [Customer](../ubiquitous-language/guidelines/glossary.md#customer)/region
 - Asynchronous processing for non-critical operations
 
 ### Monitoring and Alerting
@@ -713,6 +713,6 @@ Defined process for reviewing and approving quotes and contracts based on amount
 - Monitor contract renewal dates and expirations
 
 ### Compliance
-- GDPR/CCPA compliance for customer data
+- GDPR/CCPA compliance for [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data
 - Industry-specific regulations (e.g., food safety)
 - Document retention policies

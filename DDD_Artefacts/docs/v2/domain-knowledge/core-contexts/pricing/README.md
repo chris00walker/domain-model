@@ -1,59 +1,59 @@
 ---
-title: Pricing Domain Knowledge
+title: [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Domain Knowledge
 status: active
-owner: Pricing Team
+owner: [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Team
 last_updated: 2025-06-06
 ---
 
-# Pricing Domain
+# [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Domain
 
 ## Domain Overview
 
-The Pricing domain is responsible for calculating, managing, and optimizing product pricing across the Elias Food Imports catalog. As an importer of specialty foods from diverse global regions, Elias Food Imports requires a sophisticated pricing model that accounts for import costs, currency fluctuations, market demand, customer segments, and promotional strategies. This domain represents a core competitive advantage for the business.
+The [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)) domain is responsible for calculating, managing, and optimizing [Product](../ubiquitous-language/guidelines/glossary.md#product) [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) across the Elias Food Imports [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog). As an importer of specialty foods from diverse global regions, Elias Food Imports requires a sophisticated [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) model that accounts for import costs, currency fluctuations, market demand, [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segments, and promotional strategies. This domain represents a core competitive advantage for the business.
 
 ## Strategic Classification
 
 **Classification**: Core Domain
 
-**Justification**: The pricing domain directly influences revenue generation, profit margins, and market competitiveness. Accurate and strategic pricing is fundamental to the company's financial success and growth strategy.
+**Justification**: The [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) domain directly influences revenue generation, profit margins, and market competitiveness. Accurate and strategic [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) is fundamental to the company's financial success and growth strategy.
 
 ## Core Domain Concepts
 
 ### Price
-A monetary value assigned to a product, calculated based on multiple factors and constraints. Prices may vary based on customer segment, purchase volume, subscription status, and market conditions.
+A monetary value assigned to a [Product](../ubiquitous-language/guidelines/glossary.md#product), calculated based on multiple factors and constraints. Prices may vary based on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment, purchase volume, [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) status, and market conditions.
 
-### Pricing Rule
-A configurable condition-action pair that determines when specific pricing calculations should be applied. Rules have precedence orders and validity periods.
+### [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Rule
+A configurable condition-action pair that determines when specific [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) calculations should be applied. Rules have precedence orders and validity periods.
 
 ### Margin
-The difference between cost and selling price, expressed as a percentage. Different product categories have different target margin requirements.
+The difference between cost and selling price, expressed as a percentage. Different [Product](../ubiquitous-language/guidelines/glossary.md#product) categories have different target margin requirements.
 
 ### Import Cost
-The aggregated expenses associated with importing a product, including duties, taxes, shipping, and handling fees.
+The aggregated expenses associated with importing a [Product](../ubiquitous-language/guidelines/glossary.md#product), including duties, taxes, shipping, and handling fees.
 
 ### Currency Exchange
 The conversion between currencies for products sourced from international suppliers, including risk management for exchange rate fluctuations.
 
 ### Promotion
-A time-bound pricing adjustment applied to specific products or categories, potentially with eligibility requirements.
+A time-bound [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) adjustment applied to specific products or categories, potentially with eligibility requirements.
 
 ## Business Rules
 
-1. All prices must maintain the minimum margin requirements specified for their product category.
+1. All prices must maintain the minimum margin requirements specified for their [Product](../ubiquitous-language/guidelines/glossary.md#product) category.
 2. Import cost changes must trigger automatic price recalculation.
-3. Currency exchange rates must be updated at least daily for accurate pricing.
-4. Subscription products must apply the appropriate discount tier based on subscription duration.
-5. When multiple promotions could apply to a product, the most beneficial to the customer must be selected.
-6. Premium customer segments may receive special pricing based on their tier.
+3. Currency exchange rates must be updated at least daily for accurate [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing).
+4. [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)) products must apply the appropriate discount tier based on [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) duration.
+5. When multiple promotions could apply to a [Product](../ubiquitous-language/guidelines/glossary.md#product), the most beneficial to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) must be selected.
+6. Premium [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segments may receive special [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) based on their tier.
 7. Bulk purchase discounts must be calculated on a sliding scale based on volume.
 8. Price changes exceeding 15% require management approval before taking effect.
-9. Seasonal products may have dynamic pricing based on availability and demand.
-10. Historical pricing data must be maintained for trend analysis and reporting.
+9. Seasonal products may have dynamic [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) based on availability and demand.
+10. Historical [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) data must be maintained for trend analysis and reporting.
 
 ## Domain Events
 
 ### PriceCalculated
-- **Description**: Emitted when a product price is calculated for a specific context.
+- **Description**: Emitted when a [Product](../ubiquitous-language/guidelines/glossary.md#product) price is calculated for a specific context.
 - **Payload**: 
   - productId: string
   - calculatedPrice: Money
@@ -61,30 +61,30 @@ A time-bound pricing adjustment applied to specific products or categories, pote
   - appliedRules: string[]
   - customerSegment: string (optional)
   - calculationContext: object
-- **Consumers**: Order, Catalog, Marketing
+- **Consumers**: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), Marketing
 
 ### PriceRuleActivated
-- **Description**: Emitted when a pricing rule becomes active.
+- **Description**: Emitted when a [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) rule becomes active.
 - **Payload**:
   - ruleId: string
   - ruleType: string
   - effectiveFrom: DateTime
   - effectiveTo: DateTime (optional)
   - affectedProductIds: string[]
-- **Consumers**: Catalog, Marketing
+- **Consumers**: [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), Marketing
 
 ### ImportCostUpdated
-- **Description**: Emitted when import costs change for a product.
+- **Description**: Emitted when import costs change for a [Product](../ubiquitous-language/guidelines/glossary.md#product).
 - **Payload**:
   - productId: string
   - previousCost: Money
   - newCost: Money
   - costComponents: ImportCostBreakdown
   - effectiveDate: DateTime
-- **Consumers**: Pricing (internal), Reporting
+- **Consumers**: [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) (internal), Reporting
 
 ### MarginAlertTriggered
-- **Description**: Emitted when product margins fall below the required threshold.
+- **Description**: Emitted when [Product](../ubiquitous-language/guidelines/glossary.md#product) margins fall below the required threshold.
 - **Payload**:
   - productId: string
   - currentMargin: decimal
@@ -100,17 +100,17 @@ A time-bound pricing adjustment applied to specific products or categories, pote
   - previousRate: decimal
   - newRate: decimal
   - effectiveTimestamp: DateTime
-- **Consumers**: Pricing (internal), Catalog, Reporting
+- **Consumers**: [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) (internal), [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), Reporting
 
 ## Aggregates
 
 ### PricingCatalog
 - **Root Entity**: ProductPrice
-- **Description**: Manages the collection of all product prices and their calculation rules.
+- **Description**: Manages the collection of all [Product](../ubiquitous-language/guidelines/glossary.md#product) prices and their calculation rules.
 - **Invariants**:
-  - Each product must have exactly one active base price.
+  - Each [Product](../ubiquitous-language/guidelines/glossary.md#product) must have exactly one active base price.
   - All price calculations must respect minimum margin requirements.
-  - Price effective dates must not overlap for the same product and context.
+  - Price effective dates must not overlap for the same [Product](../ubiquitous-language/guidelines/glossary.md#product) and context.
 - **Commands**:
   - CalculatePrice(productId, context)
   - UpdateBasePrice(productId, newPrice)
@@ -118,7 +118,7 @@ A time-bound pricing adjustment applied to specific products or categories, pote
 
 ### PromotionEngine
 - **Root Entity**: Promotion
-- **Description**: Manages active promotions and their application to product prices.
+- **Description**: Manages active promotions and their application to [Product](../ubiquitous-language/guidelines/glossary.md#product) prices.
 - **Invariants**:
   - Promotions must have valid start and end dates.
   - Overlapping promotions must have clear precedence rules.
@@ -188,7 +188,7 @@ A time-bound pricing adjustment applied to specific products or categories, pote
   - maxUses: integer (optional)
   - currentUses: integer
 - **Methods**:
-  - isEligible(customer, order): boolean
+  - isEligible([Customer](../ubiquitous-language/guidelines/glossary.md#customer), [Order](../ubiquitous-language/guidelines/glossary.md#order)): boolean
   - calculateDiscount(price): Money
   - isActive(): boolean
 
@@ -213,7 +213,7 @@ A time-bound pricing adjustment applied to specific products or categories, pote
 
 ## Multi-Currency Support
 
-Multi-currency support is essential for Elias Food Imports' global operations, enabling pricing, transactions, and reporting in multiple currencies while managing foreign exchange (FX) risk and maintaining consistent profit margins.
+Multi-currency support is essential for Elias Food Imports' global operations, enabling [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), transactions, and reporting in multiple currencies while managing foreign exchange (FX) risk and maintaining consistent profit margins.
 
 ### Currency Management
 
@@ -254,10 +254,10 @@ classDiagram
 
 ### Key Features
 
-1. **Multi-Currency Pricing**
+1. **Multi-Currency [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)**
    - Store prices in multiple currencies
    - Automatic conversion using latest exchange rates
-   - Support for currency-specific pricing overrides
+   - Support for currency-specific [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) overrides
    - Rounding rules per currency
 
 2. **FX Risk Management**
@@ -278,7 +278,7 @@ classDiagram
 |--------|-----------------|---------|
 | FX Data Providers | API | Real-time and historical exchange rates |
 | ERP | Data Sync | Financial reporting in base currency |
-| Payment Processors | API | Multi-currency transaction processing |
+| [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Processors | API | Multi-currency transaction processing |
 | Tax Systems | Events | Currency-specific tax calculations |
 | Reporting | Data Export | Multi-currency financial reports |
 
@@ -287,7 +287,7 @@ classDiagram
 | Phase | Timeline | Deliverables |
 |-------|----------|--------------|
 | 1. Core Currency Support | 0-2 months | Basic currency model, exchange rate management |
-| 2. Multi-Currency Pricing | 2-4 months | Currency-specific prices, conversions |
+| 2. Multi-Currency [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) | 2-4 months | Currency-specific prices, conversions |
 | 3. FX Risk Management | 4-6 months | Exposure reporting, hedging |
 | 4. Localization | 6-8 months | Regional formatting, compliance |
 
@@ -460,13 +460,13 @@ This implementation ensures accurate financial calculations while providing a cl
 ### ImportCostService
 - **Responsibility**: Manages the calculation and tracking of all import-related costs.
 - **Key Operations**:
-  - calculateImportCost(product, importDetails): ImportCostBreakdown
+  - calculateImportCost([Product](../ubiquitous-language/guidelines/glossary.md#product), importDetails): ImportCostBreakdown
   - updateExchangeRates(): void
-  - optimizeImportStrategy(product): ImportStrategy
+  - optimizeImportStrategy([Product](../ubiquitous-language/guidelines/glossary.md#product)): ImportStrategy
   - generateLandedCostReport(dateRange): Report
 
 ### MarginAnalysisService
-- **Responsibility**: Analyzes and optimizes product margins based on costs and market conditions.
+- **Responsibility**: Analyzes and optimizes [Product](../ubiquitous-language/guidelines/glossary.md#product) margins based on costs and market conditions.
 - **Key Operations**:
   - analyzeProductMargin(productId): MarginAnalysis
   - suggestOptimalPricePoint(productId, targetMargin): Money
@@ -490,30 +490,30 @@ This implementation ensures accurate financial calculations while providing a cl
 **Responsibility**: Provides advanced price management capabilities for administrative users
 
 **Operations**:
-- Override automated pricing rules with proper authorization
+- Override automated [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) rules with proper authorization
 - Approve price changes exceeding threshold limits
-- Configure pricing strategy parameters and constraints
-- Manage margin requirements by product category
+- Configure [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) strategy parameters and constraints
+- Manage margin requirements by [Product](../ubiquitous-language/guidelines/glossary.md#product) category
 - Execute batch price updates with approval workflow
 
-**Authorization**: Requires `pricing:manage` permission
+**Authorization**: Requires `[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing):manage` permission
 
 #### ImportCostAdminService
 
 **Responsibility**: Manages import cost configurations and adjustments
 
 **Operations**:
-- Configure duty and tax rates for different product origins
+- Configure duty and tax rates for different [Product](../ubiquitous-language/guidelines/glossary.md#product) origins
 - Manage exchange rate sources and update frequencies
 - Override calculated import costs with manual adjustments
 - Configure landed cost calculation parameters
 - Generate import cost analysis reports
 
-**Authorization**: Requires `pricing:importcost:manage` permission
+**Authorization**: Requires `[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing):importcost:manage` permission
 
 #### PromotionAdminService
 
-**Responsibility**: Manages promotional pricing and discount configurations
+**Responsibility**: Manages promotional [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) and discount configurations
 
 **Operations**:
 - Create and manage promotional campaigns and rules
@@ -522,16 +522,16 @@ This implementation ensures accurate financial calculations while providing a cl
 - Override promotion conflicts and stacking rules
 - Analyze promotion performance and ROI metrics
 
-**Authorization**: Requires `pricing:promotion:manage` permission
+**Authorization**: Requires `[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing):promotion:manage` permission
 
 ### Admin Read Models
 
 #### PricingPerformanceDashboardModel
 
-**Purpose**: Provides insights into pricing strategy effectiveness
+**Purpose**: Provides insights into [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) strategy effectiveness
 
 **Key Metrics**:
-- Margin performance by product category and region
+- Margin performance by [Product](../ubiquitous-language/guidelines/glossary.md#product) category and region
 - Price elasticity and competitive positioning analysis
 - Price change impact on sales volume and revenue
 - Exchange rate impact on import costs and margins
@@ -543,7 +543,7 @@ This implementation ensures accurate financial calculations while providing a cl
 **Key Metrics**:
 - Promotion redemption rates and revenue impact
 - Discount depth analysis and margin effects
-- Customer segment response to promotions
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) segment response to promotions
 - Cannibalization effects on non-promoted products
 
 #### ImportCostManagementDashboardModel
@@ -636,22 +636,22 @@ This implementation ensures accurate financial calculations while providing a cl
 ## Integration Points
 
 ### Inbound
-- **From Catalog**: Product creation and updates trigger price assignment.
+- **From [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)**: [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) creation and updates trigger price assignment.
 - **From Supplier**: Cost updates initiate price recalculation.
-- **From Marketing**: Promotion creation applies special pricing.
+- **From Marketing**: Promotion creation applies special [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing).
 - **From Finance**: Exchange rate updates affect import cost calculations.
 
 ### Outbound
-- **To Catalog**: Price updates for display in product listings.
-- **To Order**: Current product prices for order processing.
-- **To Reporting**: Margin and pricing data for analysis.
-- **To Customer**: Special offers and personalized pricing.
+- **To [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)**: Price updates for display in [Product](../ubiquitous-language/guidelines/glossary.md#product) listings.
+- **To [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))**: Current [Product](../ubiquitous-language/guidelines/glossary.md#product) prices for [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) processing.
+- **To Reporting**: Margin and [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) data for analysis.
+- **To [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)**: Special offers and personalized [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing).
 
 ## Implementation Considerations
 
 ### Performance Requirements
 - Price calculation must complete in under 100ms for individual products.
-- Bulk price updates must be processed within 5 minutes for the entire catalog.
+- Bulk price updates must be processed within 5 minutes for the entire [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog).
 - Exchange rate updates must propagate to prices within 15 minutes.
 
 ### Data Consistency
@@ -662,13 +662,13 @@ This implementation ensures accurate financial calculations while providing a cl
 ### Security Concerns
 - Price manipulation protection through role-based access control.
 - Audit logging for all price changes with user attribution.
-- Encryption of sensitive pricing strategy data.
+- Encryption of sensitive [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) strategy data.
 
 ## Success Metrics
 
 ### Business Metrics
 - Price calculation accuracy = 100%
-- Weighted gross margin across catalog ≥ 35% 
+- Weighted gross margin across [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) ≥ 35% 
 - FX risk hedging coverage ≥ 80%
 - Price optimization revenue lift ≥ 5%
 - Promotion overlap errors = 0
@@ -676,7 +676,7 @@ This implementation ensures accurate financial calculations while providing a cl
 
 ### Technical Metrics
 - Price calculation response time ≤ 100ms
-- Pricing rule evaluation time ≤ 50ms
+- [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) rule evaluation time ≤ 50ms
 - System availability ≥ 99.99%
 - Data consistency errors = 0
 - Price update propagation time ≤ 5 minutes
@@ -684,10 +684,10 @@ This implementation ensures accurate financial calculations while providing a cl
 ## Related Resources
 
 - [Business Problem Acceptance Criteria](../../business-problems/acceptance-criteria.md)
-- [Domain Event Catalog](../../integrations/events.md)
+- [Domain Event [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../../integrations/events.md)
 - [Bounded Context Map](../../integrations/context-map.md)
-- [Pricing Algorithm ADR](../../../adr/004-pricing-algorithm.md)
+- [[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)) Algorithm ADR](../../../adr/004-[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)-algorithm.md)
 
 ---
 
-*This document represents the canonical source of knowledge for the Pricing domain within Elias Food Imports. All implementations and design decisions should align with the concepts, rules, and structures defined herein.*
+*This document represents the canonical source of knowledge for the [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) domain within Elias Food Imports. All implementations and design decisions should align with the concepts, rules, and structures defined herein.*

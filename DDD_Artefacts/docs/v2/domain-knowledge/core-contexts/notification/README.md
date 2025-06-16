@@ -23,12 +23,12 @@ The Notification Domain for Elias Food Imports (EFI) is responsible for managing
 
 The Notification Domain is strategically important to Elias Food Imports for the following reasons:
 
-1. **Customer Experience**: Timely, relevant communication is essential for positive customer experience
+1. **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Experience**: Timely, relevant communication is essential for positive [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) experience
 2. **Operational Efficiency**: Centralized notification management reduces duplication and overhead
 3. **Regulatory Compliance**: Ensures all communications adhere to legal requirements (e.g., GDPR, CAN-SPAM)
 4. **Brand Consistency**: Maintains uniform messaging and branding across all communication channels
 5. **Business Agility**: Enables rapid deployment of new notification types without modifying consuming systems
-6. **Customer Engagement**: Provides insights into communication effectiveness and engagement patterns
+6. **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Engagement**: Provides insights into communication effectiveness and engagement patterns
 7. **Cross-Selling Opportunity**: Creates touchpoints for targeted marketing and cross-selling
 8. **Cost Optimization**: Consolidated communication channels reduce per-message costs
 
@@ -107,8 +107,8 @@ A compilation of multiple notifications into a single message to reduce communic
 2. Personalization must respect recipient's preferred language when available
 3. All personalization variables must be validated before insertion into templates
 4. Personally identifiable information must be minimized in notification content
-5. Product information in notifications must be current at time of delivery
-6. Pricing information must include applicable currency and tax disclaimer
+5. [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) information in notifications must be current at time of delivery
+6. [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) information must include applicable currency and tax disclaimer
 7. Links in notifications must use tracking parameters where analytics are required
 8. Images in notifications must have appropriate alt text and fallback content
 
@@ -141,8 +141,8 @@ A compilation of multiple notifications into a single message to reduce communic
 3. Personal data included in notifications must be minimized and aligned with privacy policy
 4. Retention periods for notification content and delivery records must align with data policies
 5. Geographic communication regulations must be enforced based on recipient location
-6. Sensitive product categories (e.g., alcohol) must follow additional notification restrictions
-7. Internal notifications containing customer data must be appropriately classified and secured
+6. Sensitive [Product](../ubiquitous-language/guidelines/glossary.md#product) categories (e.g., alcohol) must follow additional notification restrictions
+7. Internal notifications containing [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data must be appropriately classified and secured
 8. Data subject access requests must include notification history within scope
 
 ## Domain Events
@@ -153,10 +153,10 @@ A compilation of multiple notifications into a single message to reduce communic
 |-----------|-------------|---------|------------|
 | `NotificationCreated` | Fired when a new notification is created in the system | Notification ID, Type, Recipient ID, Channel, Priority, Scheduled Time | Analytics, Internal monitoring |
 | `NotificationDeliveryAttempted` | Fired when a notification delivery attempt is made | Notification ID, Channel, Attempt Number, Timestamp, Status, Provider | Analytics, Internal monitoring |
-| `NotificationDelivered` | Fired when a notification is successfully delivered to recipient | Notification ID, Channel, Delivery Time, Delivery Confirmation | Order, Customer, Marketing, Analytics |
-| `NotificationFailed` | Fired when a notification permanently fails after retry policy | Notification ID, Channel, Failure Reason, Attempt Count | Customer, Internal monitoring |
-| `NotificationEngagementRecorded` | Fired when a recipient engages with a notification (open, click) | Notification ID, Engagement Type, Timestamp, Link ID (if click) | Marketing, Analytics, Customer |
-| `NotificationPreferencesUpdated` | Fired when a recipient updates their notification preferences | Customer ID, Updated Preferences, Previous Preferences, Update Source | Customer, Marketing |
+| `NotificationDelivered` | Fired when a notification is successfully delivered to recipient | Notification ID, Channel, Delivery Time, Delivery Confirmation | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Marketing, Analytics |
+| `NotificationFailed` | Fired when a notification permanently fails after retry policy | Notification ID, Channel, Failure Reason, Attempt Count | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Internal monitoring |
+| `NotificationEngagementRecorded` | Fired when a recipient engages with a notification (open, click) | Notification ID, Engagement Type, Timestamp, Link ID (if click) | Marketing, Analytics, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) |
+| `NotificationPreferencesUpdated` | Fired when a recipient updates their notification preferences | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) ID, Updated Preferences, Previous Preferences, Update Source | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Marketing |
 | `NotificationTemplateActivated` | Fired when a notification template is approved and activated | Template ID, Version, Type, Languages, Approver ID | Internal monitoring |
 | `NotificationTemplateDeprecated` | Fired when a notification template is deprecated | Template ID, Version, Replacement Template ID | Internal monitoring |
 | `NotificationCampaignLaunched` | Fired when a notification campaign begins execution | Campaign ID, Type, Target Segment, Estimated Recipient Count | Marketing, Analytics |
@@ -166,19 +166,19 @@ A compilation of multiple notifications into a single message to reduce communic
 
 | Event Name | Producer Context | Purpose | Response |
 |-----------|----------------|--------|----------|
-| `OrderPlaced` | Order | Trigger order confirmation notification | Send order confirmation |
-| `OrderStatusChanged` | Order | Notify customer of order status update | Send order status update |
-| `ShipmentCreated` | Shipping | Notify customer of shipment creation with tracking | Send shipping confirmation |
-| `ShipmentDelivered` | Shipping | Notify customer of completed delivery | Send delivery confirmation |
-| `ShipmentException` | Shipping | Alert customer to shipping problems | Send shipping exception alert |
-| `PaymentConfirmed` | Payment | Confirm payment receipt to customer | Send payment confirmation |
-| `PaymentFailed` | Payment | Alert customer to failed payment | Send payment failure notice |
-| `ProductRestocked` | Inventory | Notify interested customers of product availability | Send back-in-stock notification |
-| `PriceDropped` | Pricing | Alert customers watching a product | Send price alert notification |
-| `ReviewRequested` | Review | Request post-purchase product review | Send review request |
-| `CustomerAccountCreated` | Customer | Welcome new customer to platform | Send welcome notification |
-| `SubscriptionRenewalUpcoming` | Subscription | Remind customer of upcoming renewal | Send renewal reminder |
-| `SubscriptionChanged` | Subscription | Confirm subscription changes to customer | Send subscription update |
+| `OrderPlaced` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Trigger [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) confirmation notification | Send [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) confirmation |
+| `OrderStatusChanged` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Notify [Customer](../ubiquitous-language/guidelines/glossary.md#customer) of [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status update | Send [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status update |
+| `ShipmentCreated` | Shipping | Notify [Customer](../ubiquitous-language/guidelines/glossary.md#customer) of shipment creation with tracking | Send shipping confirmation |
+| `ShipmentDelivered` | Shipping | Notify [Customer](../ubiquitous-language/guidelines/glossary.md#customer) of completed delivery | Send delivery confirmation |
+| `ShipmentException` | Shipping | Alert [Customer](../ubiquitous-language/guidelines/glossary.md#customer) to shipping problems | Send shipping exception alert |
+| `PaymentConfirmed` | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) | Confirm [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) receipt to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) | Send [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) confirmation |
+| `PaymentFailed` | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) | Alert [Customer](../ubiquitous-language/guidelines/glossary.md#customer) to failed [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) | Send [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) failure notice |
+| `ProductRestocked` | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) | Notify interested customers of [Product](../ubiquitous-language/guidelines/glossary.md#product) availability | Send back-in-stock notification |
+| `PriceDropped` | [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) | Alert customers watching a [Product](../ubiquitous-language/guidelines/glossary.md#product) | Send price alert notification |
+| `ReviewRequested` | Review | Request post-purchase [Product](../ubiquitous-language/guidelines/glossary.md#product) review | Send review request |
+| `CustomerAccountCreated` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) | Welcome new [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) to platform | Send welcome notification |
+| `SubscriptionRenewalUpcoming` | [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) | Remind [Customer](../ubiquitous-language/guidelines/glossary.md#customer) of upcoming renewal | Send renewal reminder |
+| `SubscriptionChanged` | [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)) | Confirm [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) changes to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) | Send [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) update |
 | `FoodSafetyAlertIssued` | Quality Assurance | Alert customers to potential food safety concern | Send critical safety alert |
 
 ## Aggregates
@@ -399,13 +399,13 @@ A compilation of multiple notifications into a single message to reduce communic
 
 **Attributes**:
 - PreferenceId: Unique identifier for preference set
-- RecipientId: User or customer the preferences belong to
+- RecipientId: User or [Customer](../ubiquitous-language/guidelines/glossary.md#customer) the preferences belong to
 - LastUpdated: When preferences were last changed
 - GlobalOptOut: Master switch for all optional communications
 - PreferredChannels: Ranked list of preferred communication methods
 - PreferredLanguage: Language choice for communications
 - PreferredTimezone: Time zone for scheduling
-- UpdateSource: How preferences were last updated (self-service, customer support, etc.)
+- UpdateSource: How preferences were last updated (self-service, [Customer](../ubiquitous-language/guidelines/glossary.md#customer) support, etc.)
 - MarketingConsent: Opt-in status for marketing communications
 
 **Behaviors**:
@@ -477,7 +477,7 @@ A compilation of multiple notifications into a single message to reduce communic
 - Providers: Available service providers for this channel
 - DeliveryTimeTarget: Expected delivery time SLA
 - FormatConstraints: Content limitations
-- RequiredCredentials: Authentication needs
+- RequiredCredentials: [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) needs
 
 **Behaviors**:
 - Configure: Set up channel parameters
@@ -640,7 +640,7 @@ A compilation of multiple notifications into a single message to reduce communic
 - ClickRate: Percentage with link interactions (when applicable)
 - ResponseRate: Percentage generating recipient actions
 - FailureRate: Percentage of failed deliveries
-- OptOutRate: Percentage triggering subscription cancellations
+- OptOutRate: Percentage triggering [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) cancellations
 
 **Validation Rules**:
 - Metrics must be calculated using consistent methodology
@@ -693,9 +693,9 @@ A compilation of multiple notifications into a single message to reduce communic
 - `ApplyFallbackValues`: Uses default content when personalization data is missing
 
 **Dependencies**:
-- Customer context (for recipient data)
-- Catalog context (for product information)
-- Order context (for order details)
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) context (for recipient data)
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) context (for [Product](../ubiquitous-language/guidelines/glossary.md#product) information)
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) context (for [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) details)
 
 ### ChannelRoutingService
 
@@ -773,7 +773,7 @@ A compilation of multiple notifications into a single message to reduce communic
 - `ResolvePreferenceConflicts`: Handles contradictions in preference settings
 
 **Dependencies**:
-- Customer context (for recipient identity)
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) context (for recipient identity)
 - Compliance requirements for preference management
 - Self-service preference management UI
 
@@ -790,7 +790,7 @@ A compilation of multiple notifications into a single message to reduce communic
 
 **Dependencies**:
 - Marketing context (for campaign definitions)
-- Customer context (for audience segmentation)
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) context (for audience segmentation)
 - Analytics context (for performance measurement)
 
 ## Administrative Capabilities
@@ -968,38 +968,38 @@ A compilation of multiple notifications into a single message to reduce communic
 
 The Notification Domain is highly integrated with other bounded contexts as it serves as a central communication hub for the entire system. Below are the key integration points with other domains:
 
-### Order Domain
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Domain
 
 **Integration Type**: Event-Driven + API
 
-**Description**: The Order Domain generates multiple notifications throughout the order lifecycle, including confirmations, status updates, and special handling alerts.
+**Description**: The [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Domain generates multiple notifications throughout the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) lifecycle, including confirmations, status updates, and special handling alerts.
 
 **Key Interactions**:
-- Order Domain publishes `OrderPlaced`, `OrderStatusChanged`, `OrderCancelled` events consumed by Notification Domain
-- Notification Domain provides order notification templates and preference management
-- Order Domain can directly request priority notifications via synchronous API for critical status changes
-- Notification engagement data (opens, clicks) related to orders is shared back to Order Domain for analysis
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Domain publishes `OrderPlaced`, `OrderStatusChanged`, `OrderCancelled` events consumed by Notification Domain
+- Notification Domain provides [Order](../ubiquitous-language/guidelines/glossary.md#order) notification templates and preference management
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Domain can directly request priority notifications via synchronous API for critical status changes
+- Notification engagement data (opens, clicks) related to orders is shared back to [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Domain for analysis
 
 **Data Exchange**:
-- Order information (ID, items, quantities, prices, customer details)
-- Order status changes and relevant timestamps
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) information (ID, items, quantities, prices, [Customer](../ubiquitous-language/guidelines/glossary.md#customer) details)
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status changes and relevant timestamps
 - Delivery estimates and fulfilment information
 
-### Customer Domain
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain
 
 **Integration Type**: API + Shared Database (Read) + Event-Driven
 
-**Description**: The Customer Domain provides essential recipient information and manages customer notification preferences.
+**Description**: The [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain provides essential recipient information and manages [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) notification preferences.
 
 **Key Interactions**:
-- Customer Domain maintains core customer profile data accessed by Notification Domain
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain maintains core [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) profile data accessed by Notification Domain
 - Notification Domain publishes preference changes via `NotificationPreferencesUpdated` event
-- Customer Domain publishes lifecycle events like `CustomerAccountCreated`, `CustomerProfileUpdated`
-- Notification Domain queries Customer Domain for contact channels and preference data
-- Customer engagement with notifications feeds back to customer profile analytics
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain publishes lifecycle events like `CustomerAccountCreated`, `CustomerProfileUpdated`
+- Notification Domain queries [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain for contact channels and preference data
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) engagement with notifications feeds back to [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) profile analytics
 
 **Data Exchange**:
-- Customer contact information (email, phone, address)
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) contact information (email, phone, address)
 - Communication preferences and opt-in statuses
 - Language and locale settings
 - Account status information
@@ -1012,7 +1012,7 @@ The Notification Domain is highly integrated with other bounded contexts as it s
 
 **Key Interactions**:
 - Shipping Domain publishes events like `ShipmentCreated`, `ShipmentDelivered`, `ShipmentException`
-- Notification Domain consumes these events to generate appropriate customer communications
+- Notification Domain consumes these events to generate appropriate [Customer](../ubiquitous-language/guidelines/glossary.md#customer) communications
 - Shipping status updates trigger time-sensitive notifications with tracking information
 - Delivery confirmation notifications include survey/feedback requests
 
@@ -1022,59 +1022,59 @@ The Notification Domain is highly integrated with other bounded contexts as it s
 - Delivery confirmation details and proof of delivery
 - Exception information for delayed or problematic shipments
 
-### Payment Domain
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Domain
 
 **Integration Type**: Event-Driven
 
-**Description**: The Payment Domain triggers financial notifications for payment events and status updates.
+**Description**: The [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) Domain triggers financial notifications for [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) events and status updates.
 
 **Key Interactions**:
-- Payment Domain publishes `PaymentConfirmed`, `PaymentFailed`, `RefundIssued` events
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Domain publishes `PaymentConfirmed`, `PaymentFailed`, `RefundIssued` events
 - Notification Domain generates appropriate financial communications
-- Payment receipts and invoices are delivered as notification attachments
-- Payment reminders are scheduled through notification scheduling service
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) receipts and invoices are delivered as notification attachments
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) reminders are scheduled through notification scheduling service
 
 **Data Exchange**:
-- Transaction IDs and payment amounts
-- Payment method information (partial, masked)
-- Payment status and result information
+- Transaction IDs and [Payment](../ubiquitous-language/guidelines/glossary.md#payment) amounts
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) method information (partial, masked)
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) status and result information
 - Receipt and invoice data
 
-### Inventory Domain
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Domain
 
 **Integration Type**: Event-Driven
 
-**Description**: The Inventory Domain triggers availability notifications for products customers have expressed interest in.
+**Description**: The [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Domain triggers availability notifications for products customers have expressed interest in.
 
 **Key Interactions**:
-- Inventory Domain publishes `ProductRestocked`, `ProductLowStock` events
-- Notification Domain filters these events against customer interest records
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Domain publishes `ProductRestocked`, `ProductLowStock` events
+- Notification Domain filters these events against [Customer](../ubiquitous-language/guidelines/glossary.md#customer) interest records
 - Back-in-stock notifications are generated for interested customers
-- Prioritized access notifications for loyal customers when inventory is limited
+- Prioritized access notifications for loyal customers when [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is limited
 
 **Data Exchange**:
-- Product identifiers and names
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) identifiers and names
 - Stock levels and availability status
 - Warehouse and location information
 - Restock quantities and timing
 
-### Catalog Domain
+### [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Domain
 
 **Integration Type**: API (Read) + Event-Driven
 
-**Description**: The Catalog Domain provides product information needed for rich, accurate notifications.
+**Description**: The [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Domain provides [Product](../ubiquitous-language/guidelines/glossary.md#product) information needed for rich, accurate notifications.
 
 **Key Interactions**:
-- Notification Domain queries Catalog Domain for current product details
-- Catalog Domain publishes events like `PriceChanged`, `ProductUpdated`
-- Product imagery and descriptions are included in notification content
-- New product announcements trigger targeted marketing notifications
+- Notification Domain queries [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Domain for current [Product](../ubiquitous-language/guidelines/glossary.md#product) details
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Domain publishes events like `PriceChanged`, `ProductUpdated`
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) imagery and descriptions are included in notification content
+- New [Product](../ubiquitous-language/guidelines/glossary.md#product) announcements trigger targeted marketing notifications
 
 **Data Exchange**:
-- Product descriptions, images, and pricing
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) descriptions, images, and [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)
 - Category and attribute information
-- Product comparison data
-- Related and recommended product information
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) comparison data
+- Related and recommended [Product](../ubiquitous-language/guidelines/glossary.md#product) information
 
 ### Marketing Domain
 
@@ -1094,23 +1094,23 @@ The Notification Domain is highly integrated with other bounded contexts as it s
 - Promotional content and offers
 - Performance metrics and engagement data
 
-### Subscription Domain
+### [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Domain
 
 **Integration Type**: Event-Driven
 
-**Description**: The Subscription Domain triggers lifecycle notifications for subscription management.
+**Description**: The [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)) Domain triggers lifecycle notifications for [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) management.
 
 **Key Interactions**:
-- Subscription Domain publishes events like `SubscriptionCreated`, `SubscriptionRenewalUpcoming`
-- Notification Domain generates renewal reminders and subscription updates
-- Subscription changes trigger confirmation notifications
-- Dunning communications for failed subscription payments
+- [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Domain publishes events like `SubscriptionCreated`, `SubscriptionRenewalUpcoming`
+- Notification Domain generates renewal reminders and [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) updates
+- [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) changes trigger confirmation notifications
+- Dunning communications for failed [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) payments
 
 **Data Exchange**:
-- Subscription plan details and pricing
+- [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) plan details and [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)
 - Renewal dates and billing cycles
-- Subscription status changes
-- Payment method expiration warnings
+- [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) status changes
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) method expiration warnings
 
 ### Quality Assurance Domain
 
@@ -1125,9 +1125,9 @@ The Notification Domain is highly integrated with other bounded contexts as it s
 - Regulatory reporting on notification delivery for compliance
 
 **Data Exchange**:
-- Product recall information and lot numbers
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) recall information and lot numbers
 - Safety risk descriptions and severity levels
-- Recommended customer actions
+- Recommended [Customer](../ubiquitous-language/guidelines/glossary.md#customer) actions
 - Regulatory compliance information
 
 ### Analytics Domain
@@ -1145,7 +1145,7 @@ The Notification Domain is highly integrated with other bounded contexts as it s
 **Data Exchange**:
 - Notification delivery and engagement events
 - Performance metrics by channel and notification type
-- Customer response patterns
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) response patterns
 - A/B testing results
 
 ## Implementation Recommendations
@@ -1256,7 +1256,7 @@ graph TD
 
 ## Related Documents
 
-- [Domain Event Catalog](../domain-events/README.md)
+- [Domain Event [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../domain-events/README.md)
 - [Ubiquitous Language Glossary](../ubiquitous-language/glossary.md)
 - [API Documentation](../../api/notification/README.md)
 
@@ -1337,7 +1337,7 @@ graph TD
    - Scheduled distribution for non-time-critical notifications
 
 3. **Database Considerations**
-   - Sharding by customer or notification type
+   - Sharding by [Customer](../ubiquitous-language/guidelines/glossary.md#customer) or notification type
    - Time-based partitioning for historical data
    - Hot/warm/cold data tiering strategy
    - Read replicas for analytics and reporting queries
@@ -1351,7 +1351,7 @@ graph TD
 
 2. **Caching Strategy**
    - Template caching with versioning awareness
-   - Customer preference caching with TTL
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) preference caching with TTL
    - Delivery status cache for high-volume recipients
    - Provider capability caching
 
@@ -1389,7 +1389,7 @@ graph TD
    - Tokenization of sensitive personalization data
    - Retention policies enforced at database level
 
-2. **Authentication & Authorization**
+2. **[[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) & Authorization**
    - API security with OAuth 2.0/OpenID Connect
    - Fine-grained permission model for notification operations
    - Role-based access control for template management
@@ -1412,8 +1412,8 @@ graph TD
    - Simple template system
 
 2. **Essential Integrations**
-   - Order notification triggers
-   - Customer data integration
+   - [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) notification triggers
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data integration
    - Basic preference management
    - Fundamental analytics capture
 

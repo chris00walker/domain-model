@@ -1,140 +1,140 @@
 ---
-title: Inventory Management Domain Knowledge
+title: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Management Domain Knowledge
 status: draft
-owner: @inventory-arch-team
+owner: @[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)-arch-team
 reviewers: @janesmith, @johndoe, @alexwong
 last_updated: 2025-06-10
 ---
 
-# Inventory Management Domain
+# [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Management Domain
 
 ## Domain Overview
 
-The Inventory Management domain is responsible for tracking, controlling, and optimizing the stock of specialty food products throughout Elias Food Imports' supply chain. This domain handles inventory levels, warehouse management, batch tracking, expiration date monitoring, and inventory forecasting. It serves as a critical component that ensures product availability while minimizing waste, particularly important for specialty food items that often have limited shelf life, special storage requirements, and varying seasonal availability.
+The [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Management domain is responsible for tracking, controlling, and optimizing the stock of specialty food products throughout Elias Food Imports' supply chain. This domain handles [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) levels, warehouse management, batch tracking, expiration date monitoring, and [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) forecasting. It serves as a critical component that ensures [Product](../ubiquitous-language/guidelines/glossary.md#product) availability while minimizing waste, particularly important for specialty food items that often have limited shelf life, special storage requirements, and varying seasonal availability.
 
-The current implementation of the Inventory Management domain has been identified as having significant gaps, particularly in batch/expiration tracking, temperature-controlled storage management, and forecasting capabilities for perishable items. This document outlines the comprehensive domain model for Inventory Management with a focus on addressing these gaps to better support Elias Food Imports' specialty food business.
+The current implementation of the [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Management domain has been identified as having significant gaps, particularly in batch/expiration tracking, temperature-controlled storage management, and forecasting capabilities for perishable items. This document outlines the comprehensive domain model for [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Management with a focus on addressing these gaps to better support Elias Food Imports' specialty food business.
 
 ## Strategic Importance
 
 **Classification**: Core Domain
 
-**Justification**: The Inventory Management domain is classified as a core domain for Elias Food Imports because effective inventory management of specialty food products represents a significant competitive advantage in the market. The ability to maintain optimal inventory levels of premium, often perishable products while ensuring quality, freshness, and authenticity directly impacts customer satisfaction, operational efficiency, and profitability. The specialized requirements of food inventory management—including batch tracking, expiration monitoring, temperature control, and regulatory compliance—make this domain a key differentiator for Elias Food Imports rather than a commodity function.
+**Justification**: The [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Management domain is classified as a core domain for Elias Food Imports because effective [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) management of specialty food products represents a significant competitive advantage in the market. The ability to maintain optimal [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) levels of premium, often perishable products while ensuring quality, freshness, and authenticity directly impacts [Customer](../ubiquitous-language/guidelines/glossary.md#customer) satisfaction, operational efficiency, and profitability. The specialized requirements of food [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) management—including batch tracking, expiration monitoring, temperature control, and regulatory compliance—make this domain a key differentiator for Elias Food Imports rather than a commodity function.
 
 ## Core Concepts
 
-### Inventory Item
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Item
 
-The basic unit of inventory tracking, representing a specific product at a specific location with attributes including quantity, status, and storage conditions.
+The basic unit of [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) tracking, representing a specific [Product](../ubiquitous-language/guidelines/glossary.md#product) at a specific location with attributes including quantity, status, and storage conditions.
 
-### Inventory Batch
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Batch
 
-A group of inventory items that share common characteristics such as production date, expiration date, supplier, and quality attributes, allowing for precise tracking and management of product lifecycle.
+A group of [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) items that share common characteristics such as production date, expiration date, supplier, and quality attributes, allowing for precise tracking and management of [Product](../ubiquitous-language/guidelines/glossary.md#product) lifecycle.
 
 ### Storage Location
 
-A physical or logical location where inventory is stored, including attributes such as temperature range, humidity level, and storage capacity, critical for maintaining food quality.
+A physical or logical location where [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is stored, including attributes such as temperature range, humidity level, and storage capacity, critical for maintaining food quality.
 
-### Inventory Reservation
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Reservation
 
-A temporary allocation of inventory that prevents it from being assigned to other orders or processes, ensuring availability during customer checkout or other operations.
+A temporary allocation of [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) that prevents it from being assigned to other orders or processes, ensuring availability during [Customer](../ubiquitous-language/guidelines/glossary.md#customer) checkout or other operations.
 
-### Inventory Movement
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Movement
 
-A record of inventory changing location, status, or ownership within the system, providing a complete audit trail of product flow.
+A record of [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) changing location, status, or ownership within the system, providing a complete audit trail of [Product](../ubiquitous-language/guidelines/glossary.md#product) flow.
 
 ### Expiration Tracking
 
-The monitoring and management of product expiration dates to ensure food safety, minimize waste, and optimize inventory rotation.
+The monitoring and management of [Product](../ubiquitous-language/guidelines/glossary.md#product) expiration dates to ensure food safety, minimize waste, and optimize [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) rotation.
 
 ### Temperature Control
 
 The monitoring and management of storage temperatures for products requiring specific temperature ranges to maintain quality and safety.
 
-### Inventory Forecast
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Forecast
 
-Predictions of future inventory levels based on historical data, seasonality, promotions, and other factors to optimize purchasing and production planning.
+Predictions of future [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) levels based on historical data, seasonality, promotions, and other factors to optimize purchasing and production planning.
 
 ### Quality Control
 
-The processes and checks that ensure inventory meets quality standards, including sensory evaluation, laboratory testing, and compliance verification.
+The processes and checks that ensure [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) meets quality standards, including sensory evaluation, laboratory testing, and compliance verification.
 
-### Inventory Allocation
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Allocation
 
-The assignment of specific inventory to fulfill customer orders or other business needs, often following FIFO (First In, First Out) or FEFO (First Expired, First Out) principles.
+The assignment of specific [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) to fulfill [Customer](../ubiquitous-language/guidelines/glossary.md#customer) orders or other business needs, often following FIFO (First In, First Out) or FEFO (First Expired, First Out) principles.
 
 ## Business Rules
 
-### Inventory Tracking and Management
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Tracking and Management
 
-1. All inventory items must be associated with a specific storage location and product SKU.
-2. Inventory levels must be updated in real-time when products are received, allocated, shipped, or adjusted.
-3. Negative inventory is not permitted; inventory operations that would result in negative quantities must be rejected.
-4. Each inventory transaction must be recorded with timestamp, user, quantity, reason code, and reference information.
-5. Inventory counts must be reconciled with physical counts at least weekly for high-value items and monthly for standard items.
-6. Inventory accuracy must be maintained at ≥ 99.9% as measured by physical inventory counts.
-7. Inventory adjustments exceeding $500 in value require manager approval and documentation.
-8. Real-time inventory visibility must be provided to all relevant stakeholders, including sales, purchasing, and fulfillment teams.
+1. All [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) items must be associated with a specific storage location and [Product](../ubiquitous-language/guidelines/glossary.md#product) SKU.
+2. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) levels must be updated in real-time when products are received, allocated, shipped, or adjusted.
+3. Negative [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is not permitted; [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) operations that would result in negative quantities must be rejected.
+4. Each [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) transaction must be recorded with timestamp, user, quantity, reason code, and reference information.
+5. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) counts must be reconciled with physical counts at least weekly for high-value items and monthly for standard items.
+6. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) accuracy must be maintained at ≥ 99.9% as measured by physical [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) counts.
+7. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) adjustments exceeding $500 in value require manager approval and documentation.
+8. Real-time [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) visibility must be provided to all relevant stakeholders, including sales, purchasing, and fulfillment teams.
 
 ### Batch and Expiration Management
 
 1. All perishable products must be tracked at the batch level with production and expiration dates.
-2. Inventory allocation must follow FEFO (First Expired, First Out) principles for perishable items.
+2. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) allocation must follow FEFO (First Expired, First Out) principles for perishable items.
 3. System must generate alerts for products approaching expiration: 30 days, 14 days, and 7 days before expiration.
-4. Products that have reached 75% of their shelf life must be flagged for potential promotional pricing.
+4. Products that have reached 75% of their shelf life must be flagged for potential promotional [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing).
 5. Expired products must be automatically quarantined and not available for sale.
 6. Batch information must include supplier, country of origin, production date, and any applicable certification information.
-7. Complete batch traceability must be maintained from supplier to customer for food safety and recall management.
+7. Complete batch traceability must be maintained from supplier to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) for food safety and recall management.
 8. Batch sampling protocols must be defined and executed for quality assurance purposes.
 
-### Temperature-Controlled Inventory
+### Temperature-Controlled [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
-1. Products must be stored in locations with appropriate temperature ranges as defined in their product specifications.
+1. Products must be stored in locations with appropriate temperature ranges as defined in their [Product](../ubiquitous-language/guidelines/glossary.md#product) specifications.
 2. Temperature-controlled storage locations must be continuously monitored with alerts for out-of-range conditions.
-3. Temperature excursions must be logged with duration and magnitude to assess product quality impact.
+3. Temperature excursions must be logged with duration and magnitude to assess [Product](../ubiquitous-language/guidelines/glossary.md#product) quality impact.
 4. Cold chain compliance must be maintained and documented throughout the receiving, storage, and shipping processes.
 5. Products exposed to temperature excursions must be evaluated by quality control before being made available for sale.
 6. Temperature logs must be maintained for regulatory compliance and quality assurance for a minimum of 3 years.
-7. Different temperature zones (ambient, refrigerated, frozen) must be clearly defined with appropriate inventory segregation.
+7. Different temperature zones (ambient, refrigerated, frozen) must be clearly defined with appropriate [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) segregation.
 8. Temperature-sensitive products must be labeled with appropriate handling instructions.
 
-### Inventory Reservations
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Reservations
 
-1. Inventory reservations are created when items are added to a shopping cart with a default duration of 30 minutes.
+1. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) reservations are created when items are added to a shopping cart with a default duration of 30 minutes.
 2. Reservations are automatically extended during active cart sessions.
-3. Expired reservations are automatically released back to available inventory.
-4. Reservations are converted to allocations when an order is placed.
+3. Expired reservations are automatically released back to available [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory).
+4. Reservations are converted to allocations when an [Order](../ubiquitous-language/guidelines/glossary.md#order) is placed.
 5. Reservation conflicts must be resolved with priority given to completed orders over cart reservations.
-6. Reservation status must be visible to customer service and sales teams.
-7. Bulk reservations for B2B customers may have extended durations based on customer agreements.
-8. Reservation capacity must not exceed 25% of available inventory for any SKU to prevent artificial stockouts.
+6. Reservation status must be visible to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) service and sales teams.
+7. Bulk reservations for B2B customers may have extended durations based on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) agreements.
+8. Reservation capacity must not exceed 25% of available [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) for any SKU to prevent artificial stockouts.
 
-### Inventory Forecasting and Planning
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Forecasting and Planning
 
-1. Inventory forecasts must be generated weekly for a 12-week forward horizon.
+1. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) forecasts must be generated weekly for a 12-week forward horizon.
 2. Forecast accuracy must be measured and maintained at ≥ 85% for A-category items.
 3. Seasonal patterns must be incorporated into forecast algorithms for specialty food items.
 4. Safety stock levels must be dynamically calculated based on demand variability, lead time, and service level targets.
 5. Reorder points must trigger purchase recommendations automatically.
-6. Slow-moving inventory (no movement in 60 days) must be flagged for review.
+6. Slow-moving [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) (no movement in 60 days) must be flagged for review.
 7. Forecast models must incorporate promotional events, seasonality, and historical sales patterns.
-8. Inventory optimization must balance service levels (target ≥ 98%) with inventory carrying costs.
+8. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) optimization must balance service levels (target ≥ 98%) with [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) carrying costs.
 
 ### Quality Control and Compliance
 
-1. All received inventory must pass quality inspection before being made available for sale.
+1. All received [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) must pass quality inspection before being made available for sale.
 2. Quality control samples must be taken from each batch according to the sampling plan.
 3. Products failing quality checks must be quarantined pending supplier resolution.
-4. All quality control results must be recorded and linked to the specific inventory batch.
-5. Regulatory compliance documentation must be maintained for each product batch.
+4. All quality control results must be recorded and linked to the specific [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) batch.
+5. Regulatory compliance documentation must be maintained for each [Product](../ubiquitous-language/guidelines/glossary.md#product) batch.
 6. Allergen control protocols must be followed for storage location assignments to prevent cross-contamination.
 7. Recall procedures must enable identification and quarantine of affected batches within 2 hours of notification.
 8. Quality metrics must be tracked and reported monthly, including rejection rates and quality incidents.
 
 ## Advanced Forecasting
 <!-- GAP_IMPLEMENTED: Advanced Forecasting | High | High | Medium -->
-<!-- TODO: stub for "Advanced Forecasting" gap in the Inventory context -->
+<!-- TODO: stub for "Advanced Forecasting" gap in the [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) context -->
 
-Advanced Forecasting is a critical capability for EFI's inventory management, enabling data-driven decision making for perishable and seasonal food products. This system leverages historical sales data, market trends, and external factors to optimize inventory levels and reduce waste.
+Advanced Forecasting is a critical capability for EFI's [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) management, enabling data-driven decision making for perishable and seasonal food products. This system leverages historical sales data, market trends, and external factors to optimize [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) levels and reduce waste.
 
 ### Core Capabilities
 
@@ -142,19 +142,19 @@ Advanced Forecasting is a critical capability for EFI's inventory management, en
    - Time-series analysis of historical sales data
    - Seasonality and trend detection
    - Promotional impact modeling
-   - New product introduction forecasting
+   - New [Product](../ubiquitous-language/guidelines/glossary.md#product) introduction forecasting
 
 ### 2. Machine Learning Models
-   - Product clustering for similar demand patterns
+   - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) clustering for similar demand patterns
    - Anomaly detection for unusual demand patterns
    - External factor integration (weather, events, economic indicators)
    - Continuous model retraining and validation
 
-### 3. Inventory Optimization
+### 3. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Optimization
    - Safety stock calculations
    - Reorder point optimization
    - Service level targeting
-   - Multi-echelon inventory optimization
+   - Multi-echelon [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) optimization
 
 ### Implementation Approach
 
@@ -165,7 +165,7 @@ graph TD
     B --> D[Feature Engineering]
     D --> E[Model Training]
     E --> F[Forecast Generation]
-    F --> G[Inventory Recommendations]
+    F --> G[[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Recommendations]
     G --> H[Automated Replenishment]
     H --> I[Performance Monitoring]
     I -->|Feedback| E
@@ -173,15 +173,15 @@ graph TD
 
 ### Integration Points
 
-- **Order Processing**: Informs inventory availability and lead times
-- **Supplier Management**: Drives purchase order quantities and timing
-- **Pricing**: Supports dynamic pricing decisions based on inventory levels
-- **Marketing**: Aligns promotions with inventory availability
+- **[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Processing**: Informs [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) availability and lead times
+- **Supplier Management**: Drives purchase [Order](../ubiquitous-language/guidelines/glossary.md#order) quantities and timing
+- **[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing))**: Supports dynamic [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) decisions based on [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) levels
+- **Marketing**: Aligns promotions with [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) availability
 
 ### Success Metrics
 
 - Forecast accuracy (MAPE)
-- Inventory turnover ratio
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) turnover ratio
 - Stockout rate
 - Waste percentage
 - Service level achieved
@@ -190,7 +190,7 @@ graph TD
 
 ### InventoryReceived
 
-**Description**: Triggered when new inventory is received and recorded in the system.
+**Description**: Triggered when new [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is received and recorded in the system.
 
 **Payload**:
 
@@ -210,17 +210,17 @@ interface InventoryReceivedEvent {
 }
 ```
 
-**Producer Context**: Inventory
+**Producer Context**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Consumer Contexts**:
 
-- **Catalog**: To update product availability
-- **Analytics**: To track inventory metrics
-- **Purchasing**: To update purchase order status
+- **[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)**: To update [Product](../ubiquitous-language/guidelines/glossary.md#product) availability
+- **Analytics**: To track [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) metrics
+- **Purchasing**: To update purchase [Order](../ubiquitous-language/guidelines/glossary.md#order) status
 
 ### InventoryAdjusted
 
-**Description**: Triggered when inventory quantities are manually adjusted due to counts, damage, or other non-transactional reasons.
+**Description**: Triggered when [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) quantities are manually adjusted due to counts, damage, or other non-transactional reasons.
 
 **Payload**:
 
@@ -228,112 +228,112 @@ interface InventoryReceivedEvent {
 =======
 ## Domain Overview
 
-The Inventory Management domain is responsible for tracking, controlling, and optimizing the stock of specialty food products throughout Elias Food Imports' supply chain. This domain handles inventory levels, warehouse management, batch tracking, expiration date monitoring, and inventory forecasting. It serves as a critical component that ensures product availability while minimizing waste, particularly important for specialty food items that often have limited shelf life, special storage requirements, and varying seasonal availability.
+The [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Management domain is responsible for tracking, controlling, and optimizing the stock of specialty food products throughout Elias Food Imports' supply chain. This domain handles [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) levels, warehouse management, batch tracking, expiration date monitoring, and [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) forecasting. It serves as a critical component that ensures [Product](../ubiquitous-language/guidelines/glossary.md#product) availability while minimizing waste, particularly important for specialty food items that often have limited shelf life, special storage requirements, and varying seasonal availability.
 
-The current implementation of the Inventory Management domain has been identified as having significant gaps, particularly in batch/expiration tracking, temperature-controlled storage management, and forecasting capabilities for perishable items. This document outlines the comprehensive domain model for Inventory Management with a focus on addressing these gaps to better support Elias Food Imports' specialty food business.
+The current implementation of the [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Management domain has been identified as having significant gaps, particularly in batch/expiration tracking, temperature-controlled storage management, and forecasting capabilities for perishable items. This document outlines the comprehensive domain model for [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Management with a focus on addressing these gaps to better support Elias Food Imports' specialty food business.
 
 ## Strategic Importance
 
 **Classification**: Core Domain
 
-**Justification**: The Inventory Management domain is classified as a core domain for Elias Food Imports because effective inventory management of specialty food products represents a significant competitive advantage in the market. The ability to maintain optimal inventory levels of premium, often perishable products while ensuring quality, freshness, and authenticity directly impacts customer satisfaction, operational efficiency, and profitability. The specialized requirements of food inventory management—including batch tracking, expiration monitoring, temperature control, and regulatory compliance—make this domain a key differentiator for Elias Food Imports rather than a commodity function.
+**Justification**: The [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Management domain is classified as a core domain for Elias Food Imports because effective [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) management of specialty food products represents a significant competitive advantage in the market. The ability to maintain optimal [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) levels of premium, often perishable products while ensuring quality, freshness, and authenticity directly impacts [Customer](../ubiquitous-language/guidelines/glossary.md#customer) satisfaction, operational efficiency, and profitability. The specialized requirements of food [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) management—including batch tracking, expiration monitoring, temperature control, and regulatory compliance—make this domain a key differentiator for Elias Food Imports rather than a commodity function.
 
 ## Core Concepts
 
-### Inventory Item
-The basic unit of inventory tracking, representing a specific product at a specific location with attributes including quantity, status, and storage conditions.
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Item
+The basic unit of [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) tracking, representing a specific [Product](../ubiquitous-language/guidelines/glossary.md#product) at a specific location with attributes including quantity, status, and storage conditions.
 
-### Inventory Batch
-A group of inventory items that share common characteristics such as production date, expiration date, supplier, and quality attributes, allowing for precise tracking and management of product lifecycle.
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Batch
+A group of [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) items that share common characteristics such as production date, expiration date, supplier, and quality attributes, allowing for precise tracking and management of [Product](../ubiquitous-language/guidelines/glossary.md#product) lifecycle.
 
 ### Storage Location
-A physical or logical location where inventory is stored, including attributes such as temperature range, humidity level, and storage capacity, critical for maintaining food quality.
+A physical or logical location where [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is stored, including attributes such as temperature range, humidity level, and storage capacity, critical for maintaining food quality.
 
-### Inventory Reservation
-A temporary allocation of inventory that prevents it from being assigned to other orders or processes, ensuring availability during customer checkout or other operations.
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Reservation
+A temporary allocation of [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) that prevents it from being assigned to other orders or processes, ensuring availability during [Customer](../ubiquitous-language/guidelines/glossary.md#customer) checkout or other operations.
 
-### Inventory Movement
-A record of inventory changing location, status, or ownership within the system, providing a complete audit trail of product flow.
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Movement
+A record of [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) changing location, status, or ownership within the system, providing a complete audit trail of [Product](../ubiquitous-language/guidelines/glossary.md#product) flow.
 
 ### Expiration Tracking
-The monitoring and management of product expiration dates to ensure food safety, minimize waste, and optimize inventory rotation.
+The monitoring and management of [Product](../ubiquitous-language/guidelines/glossary.md#product) expiration dates to ensure food safety, minimize waste, and optimize [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) rotation.
 
 ### Temperature Control
 The monitoring and management of storage temperatures for products requiring specific temperature ranges to maintain quality and safety.
 
-### Inventory Forecast
-Predictions of future inventory levels based on historical data, seasonality, promotions, and other factors to optimize purchasing and production planning.
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Forecast
+Predictions of future [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) levels based on historical data, seasonality, promotions, and other factors to optimize purchasing and production planning.
 
 ### Quality Control
-The processes and checks that ensure inventory meets quality standards, including sensory evaluation, laboratory testing, and compliance verification.
+The processes and checks that ensure [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) meets quality standards, including sensory evaluation, laboratory testing, and compliance verification.
 
-### Inventory Allocation
-The assignment of specific inventory to fulfill customer orders or other business needs, often following FIFO (First In, First Out) or FEFO (First Expired, First Out) principles.
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Allocation
+The assignment of specific [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) to fulfill [Customer](../ubiquitous-language/guidelines/glossary.md#customer) orders or other business needs, often following FIFO (First In, First Out) or FEFO (First Expired, First Out) principles.
 
 ## Business Rules
 
-### Inventory Tracking and Management
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Tracking and Management
 
-1. All inventory items must be associated with a specific storage location and product SKU.
-2. Inventory levels must be updated in real-time when products are received, allocated, shipped, or adjusted.
-3. Negative inventory is not permitted; inventory operations that would result in negative quantities must be rejected.
-4. Each inventory transaction must be recorded with timestamp, user, quantity, reason code, and reference information.
-5. Inventory counts must be reconciled with physical counts at least weekly for high-value items and monthly for standard items.
-6. Inventory accuracy must be maintained at ≥ 99.9% as measured by physical inventory counts.
-7. Inventory adjustments exceeding $500 in value require manager approval and documentation.
-8. Real-time inventory visibility must be provided to all relevant stakeholders, including sales, purchasing, and fulfillment teams.
+1. All [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) items must be associated with a specific storage location and [Product](../ubiquitous-language/guidelines/glossary.md#product) SKU.
+2. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) levels must be updated in real-time when products are received, allocated, shipped, or adjusted.
+3. Negative [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is not permitted; [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) operations that would result in negative quantities must be rejected.
+4. Each [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) transaction must be recorded with timestamp, user, quantity, reason code, and reference information.
+5. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) counts must be reconciled with physical counts at least weekly for high-value items and monthly for standard items.
+6. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) accuracy must be maintained at ≥ 99.9% as measured by physical [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) counts.
+7. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) adjustments exceeding $500 in value require manager approval and documentation.
+8. Real-time [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) visibility must be provided to all relevant stakeholders, including sales, purchasing, and fulfillment teams.
 
 ### Batch and Expiration Management
 
 1. All perishable products must be tracked at the batch level with production and expiration dates.
-2. Inventory allocation must follow FEFO (First Expired, First Out) principles for perishable items.
+2. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) allocation must follow FEFO (First Expired, First Out) principles for perishable items.
 3. System must generate alerts for products approaching expiration: 30 days, 14 days, and 7 days before expiration.
-4. Products that have reached 75% of their shelf life must be flagged for potential promotional pricing.
+4. Products that have reached 75% of their shelf life must be flagged for potential promotional [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing).
 5. Expired products must be automatically quarantined and not available for sale.
 6. Batch information must include supplier, country of origin, production date, and any applicable certification information.
-7. Complete batch traceability must be maintained from supplier to customer for food safety and recall management.
+7. Complete batch traceability must be maintained from supplier to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) for food safety and recall management.
 8. Batch sampling protocols must be defined and executed for quality assurance purposes.
 
-### Temperature-Controlled Inventory
+### Temperature-Controlled [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
-1. Products must be stored in locations with appropriate temperature ranges as defined in their product specifications.
+1. Products must be stored in locations with appropriate temperature ranges as defined in their [Product](../ubiquitous-language/guidelines/glossary.md#product) specifications.
 2. Temperature-controlled storage locations must be continuously monitored with alerts for out-of-range conditions.
-3. Temperature excursions must be logged with duration and magnitude to assess product quality impact.
+3. Temperature excursions must be logged with duration and magnitude to assess [Product](../ubiquitous-language/guidelines/glossary.md#product) quality impact.
 4. Cold chain compliance must be maintained and documented throughout the receiving, storage, and shipping processes.
 5. Products exposed to temperature excursions must be evaluated by quality control before being made available for sale.
 6. Temperature logs must be maintained for regulatory compliance and quality assurance for a minimum of 3 years.
-7. Different temperature zones (ambient, refrigerated, frozen) must be clearly defined with appropriate inventory segregation.
+7. Different temperature zones (ambient, refrigerated, frozen) must be clearly defined with appropriate [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) segregation.
 8. Temperature-sensitive products must be labeled with appropriate handling instructions.
 
-### Inventory Reservations
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Reservations
 
-1. Inventory reservations are created when items are added to a shopping cart with a default duration of 30 minutes.
+1. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) reservations are created when items are added to a shopping cart with a default duration of 30 minutes.
 2. Reservations are automatically extended during active cart sessions.
-3. Expired reservations are automatically released back to available inventory.
-4. Reservations are converted to allocations when an order is placed.
+3. Expired reservations are automatically released back to available [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory).
+4. Reservations are converted to allocations when an [Order](../ubiquitous-language/guidelines/glossary.md#order) is placed.
 5. Reservation conflicts must be resolved with priority given to completed orders over cart reservations.
-6. Reservation status must be visible to customer service and sales teams.
-7. Bulk reservations for B2B customers may have extended durations based on customer agreements.
-8. Reservation capacity must not exceed 25% of available inventory for any SKU to prevent artificial stockouts.
+6. Reservation status must be visible to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) service and sales teams.
+7. Bulk reservations for B2B customers may have extended durations based on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) agreements.
+8. Reservation capacity must not exceed 25% of available [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) for any SKU to prevent artificial stockouts.
 
-### Inventory Forecasting and Planning
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Forecasting and Planning
 
-1. Inventory forecasts must be generated weekly for a 12-week forward horizon.
+1. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) forecasts must be generated weekly for a 12-week forward horizon.
 2. Forecast accuracy must be measured and maintained at ≥ 85% for A-category items.
 3. Seasonal patterns must be incorporated into forecast algorithms for specialty food items.
 4. Safety stock levels must be dynamically calculated based on demand variability, lead time, and service level targets.
 5. Reorder points must trigger purchase recommendations automatically.
-6. Slow-moving inventory (no movement in 60 days) must be flagged for review.
+6. Slow-moving [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) (no movement in 60 days) must be flagged for review.
 7. Forecast models must incorporate promotional events, seasonality, and historical sales patterns.
-8. Inventory optimization must balance service levels (target ≥ 98%) with inventory carrying costs.
+8. [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) optimization must balance service levels (target ≥ 98%) with [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) carrying costs.
 
 ### Quality Control and Compliance
 
-1. All received inventory must pass quality inspection before being made available for sale.
+1. All received [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) must pass quality inspection before being made available for sale.
 2. Quality control samples must be taken from each batch according to the sampling plan.
 3. Products failing quality checks must be quarantined pending supplier resolution.
-4. All quality control results must be recorded and linked to the specific inventory batch.
-5. Regulatory compliance documentation must be maintained for each product batch.
+4. All quality control results must be recorded and linked to the specific [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) batch.
+5. Regulatory compliance documentation must be maintained for each [Product](../ubiquitous-language/guidelines/glossary.md#product) batch.
 6. Allergen control protocols must be followed for storage location assignments to prevent cross-contamination.
 7. Recall procedures must enable identification and quarantine of affected batches within 2 hours of notification.
 8. Quality metrics must be tracked and reported monthly, including rejection rates and quality incidents.
@@ -342,7 +342,7 @@ The assignment of specific inventory to fulfill customer orders or other busines
 
 ### InventoryReceived
 
-**Description**: Triggered when new inventory is received and recorded in the system.
+**Description**: Triggered when new [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is received and recorded in the system.
 
 **Payload**:
 ```typescript
@@ -361,17 +361,17 @@ interface InventoryReceivedEvent {
 }
 ````
 
-**Producer Context**: Inventory
+**Producer Context**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Consumer Contexts**:
 
-- **Catalog**: To update product availability
-- **Analytics**: To track inventory metrics
-- **Purchasing**: To update purchase order status
+- **[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)**: To update [Product](../ubiquitous-language/guidelines/glossary.md#product) availability
+- **Analytics**: To track [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) metrics
+- **Purchasing**: To update purchase [Order](../ubiquitous-language/guidelines/glossary.md#order) status
 
 ### InventoryAdjusted
 
-**Description**: Triggered when inventory quantities are manually adjusted due to counts, damage, or other non-transactional reasons.
+**Description**: Triggered when [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) quantities are manually adjusted due to counts, damage, or other non-transactional reasons.
 
 **Payload**:
 
@@ -390,17 +390,17 @@ interface InventoryAdjustedEvent {
 }
 ```
 
-**Producer Context**: Inventory
+**Producer Context**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Consumer Contexts**:
 
-- **Catalog**: To update product availability
-- **Analytics**: To track inventory adjustments
-- **Finance**: To account for inventory value changes
+- **[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)**: To update [Product](../ubiquitous-language/guidelines/glossary.md#product) availability
+- **Analytics**: To track [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) adjustments
+- **Finance**: To account for [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) value changes
 
 ### InventoryReserved
 
-**Description**: Triggered when inventory is temporarily reserved for a cart or order.
+**Description**: Triggered when [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is temporarily reserved for a cart or [Order](../ubiquitous-language/guidelines/glossary.md#order).
 
 **Payload**:
 
@@ -418,16 +418,16 @@ interface InventoryReservedEvent {
 }
 ```
 
-**Producer Context**: Inventory
+**Producer Context**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Consumer Contexts**:
 
-- **Order**: To update order fulfillment status
-- **Shopping Cart**: To confirm inventory availability
+- **[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))**: To update [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) fulfillment status
+- **Shopping Cart**: To confirm [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) availability
 
 ### InventoryReleased
 
-**Description**: Triggered when a temporary inventory reservation is released.
+**Description**: Triggered when a temporary [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) reservation is released.
 
 **Payload**:
 
@@ -444,17 +444,17 @@ interface InventoryReleasedEvent {
 }
 ```
 
-**Producer Context**: Inventory
+**Producer Context**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Consumer Contexts**:
 
 - **Shopping Cart**: To update cart status
-- **Order**: To update order status
-- **Catalog**: To update product availability
+- **[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))**: To update [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) status
+- **[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)**: To update [Product](../ubiquitous-language/guidelines/glossary.md#product) availability
 
 ### InventoryAllocated
 
-**Description**: Triggered when inventory is permanently allocated to fulfill an order.
+**Description**: Triggered when [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is permanently allocated to fulfill an [Order](../ubiquitous-language/guidelines/glossary.md#order).
 
 **Payload**:
 
@@ -471,16 +471,16 @@ interface InventoryAllocatedEvent {
 }
 ```
 
-**Producer Context**: Inventory
+**Producer Context**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Consumer Contexts**:
 
-- **Order**: To update order fulfillment status
+- **[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order))**: To update [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) fulfillment status
 - **Shipping**: To enable shipment planning
 
 ### InventoryLow
 
-**Description**: Triggered when product inventory falls below threshold.
+**Description**: Triggered when [Product](../ubiquitous-language/guidelines/glossary.md#product) [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) falls below threshold.
 
 **Payload**:
 
@@ -500,17 +500,17 @@ interface InventoryLowEvent {
 }
 ```
 
-**Producer Context**: Inventory
+**Producer Context**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Consumer Contexts**:
 
-- **Notification**: To alert inventory managers
-- **Analytics**: To update inventory risk metrics
+- **Notification**: To alert [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) managers
+- **Analytics**: To update [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) risk metrics
 - **Purchasing**: To trigger reorder processes
 
 ### BatchExpirationWarning
 
-**Description**: Triggered when a product batch is approaching its expiration date.
+**Description**: Triggered when a [Product](../ubiquitous-language/guidelines/glossary.md#product) batch is approaching its expiration date.
 
 **Payload**:
 
@@ -527,13 +527,13 @@ interface BatchExpirationWarningEvent {
 }
 ```
 
-**Producer Context**: Inventory
+**Producer Context**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Consumer Contexts**:
 
-- **Notification**: To alert inventory managers
+- **Notification**: To alert [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) managers
 - **Marketing**: To consider for promotions
-- **Pricing**: To consider for dynamic pricing
+- **[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing))**: To consider for dynamic [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)
 
 ### TemperatureExcursionDetected
 
@@ -558,13 +558,13 @@ interface TemperatureExcursionEvent {
 }
 ```
 
-**Producer Context**: Inventory
+**Producer Context**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Consumer Contexts**:
 
 - **Notification**: To alert facilities management
-- **Quality Control**: To assess product impact
-- **Catalog**: To potentially update product availability
+- **Quality Control**: To assess [Product](../ubiquitous-language/guidelines/glossary.md#product) impact
+- **[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)**: To potentially update [Product](../ubiquitous-language/guidelines/glossary.md#product) availability
 
 ## Aggregates, Entities, and Value Objects
 
@@ -574,8 +574,8 @@ interface TemperatureExcursionEvent {
 
 | Attribute         | Type                   | Description                               |
 | ----------------- | ---------------------- | ----------------------------------------- |
-| id                | BatchId                | Unique identifier for the inventory batch |
-| productId         | ProductId              | Reference to the associated product       |
+| id                | BatchId                | Unique identifier for the [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) batch |
+| productId         | ProductId              | Reference to the associated [Product](../ubiquitous-language/guidelines/glossary.md#product)       |
 | warehouseId       | WarehouseId            | Reference to the storage location         |
 | quantity          | number                 | Current quantity in stock                 |
 | receivedAt        | Date                   | Date when batch was received              |
@@ -589,7 +589,7 @@ interface TemperatureExcursionEvent {
 
 1. Batch quantity must be non-negative
 2. Expiration date must be after received date for perishable items
-3. Storage conditions must match product requirements
+3. Storage conditions must match [Product](../ubiquitous-language/guidelines/glossary.md#product) requirements
 4. Quality status must be valid for batch operations
 
 **Methods**:
@@ -673,8 +673,8 @@ class StorageLocation {
     humidityRange: HumidityRange
   ) {}
 
-  public canStoreProduct(product: Product): boolean {
-    // Validate if location meets product storage requirements
+  public canStoreProduct([[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product): [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product))): boolean {
+    // Validate if location meets [Product](../ubiquitous-language/guidelines/glossary.md#product) storage requirements
   }
 
   public updateTemperatureReading(reading: TemperatureReading): void {
@@ -773,7 +773,7 @@ enum AdjustmentReason {
 
 ### InventoryReservationService
 
-**Purpose**: Manages temporary inventory reservations for cart and order processes.
+**Purpose**: Manages temporary [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) reservations for cart and [Order](../ubiquitous-language/guidelines/glossary.md#order) processes.
 
 ```typescript
 interface InventoryReservationService {
@@ -796,7 +796,7 @@ interface InventoryReservationService {
 
 ### BatchManagementService
 
-**Purpose**: Manages inventory batch lifecycle and operations.
+**Purpose**: Manages [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) batch lifecycle and operations.
 
 ```typescript
 interface BatchManagementService {
@@ -865,7 +865,7 @@ interface TemperatureMonitoringService {
 
 ### InventoryForecastingService
 
-**Purpose**: Provides inventory forecasting and planning capabilities.
+**Purpose**: Provides [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) forecasting and planning capabilities.
 
 ```typescript
 interface InventoryForecastingService {
@@ -897,53 +897,53 @@ interface InventoryForecastingService {
 
 #### InventoryManagementAdminService
 
-**Responsibility**: Provides inventory management capabilities for administrative users
+**Responsibility**: Provides [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) management capabilities for administrative users
 
 **Operations**:
-- Perform manual inventory adjustments with audit trail
+- Perform manual [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) adjustments with audit trail
 - Override automatic quarantine rules when necessary
 - Manage warehouse storage locations and parameters
-- Configure inventory visibility rules across channels
-- Generate inventory exception reports
+- Configure [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) visibility rules across channels
+- Generate [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) exception reports
 
-**Authorization**: Requires `inventory:manage` permission
+**Authorization**: Requires `[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory):manage` permission
 
 #### BatchAndExpirationAdminService
 
-**Responsibility**: Manages product batch lifecycle and expiration dates
+**Responsibility**: Manages [Product](../ubiquitous-language/guidelines/glossary.md#product) batch lifecycle and expiration dates
 
 **Operations**:
 - Manually modify batch information when corrections are needed
-- Extend or shorten product expiration dates with proper justification
+- Extend or shorten [Product](../ubiquitous-language/guidelines/glossary.md#product) expiration dates with proper justification
 - Approve or reject incoming batches with quality issues
-- Manage product recall and quarantine workflows
+- Manage [Product](../ubiquitous-language/guidelines/glossary.md#product) recall and quarantine workflows
 - Configure batch rotation strategies (FIFO, FEFO, etc.)
 
-**Authorization**: Requires `inventory:batch:manage` permission
+**Authorization**: Requires `[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory):batch:manage` permission
 
 #### InventoryForecastConfigurationService
 
-**Responsibility**: Configures inventory forecasting and replenishment parameters
+**Responsibility**: Configures [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) forecasting and replenishment parameters
 
 **Operations**:
-- Set safety stock levels by product category or supplier
+- Set safety stock levels by [Product](../ubiquitous-language/guidelines/glossary.md#product) category or supplier
 - Configure lead time assumptions for suppliers
 - Adjust seasonality factors for specific products
-- Define and manage inventory optimization rules
+- Define and manage [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) optimization rules
 - Override automated reorder points when necessary
 
-**Authorization**: Requires `inventory:forecast:manage` permission
+**Authorization**: Requires `[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory):forecast:manage` permission
 
 ### Admin Read Models
 
 #### InventoryAdjustmentDashboardModel
 
-**Purpose**: Displays inventory adjustment history and audit information
+**Purpose**: Displays [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) adjustment history and audit information
 
 **Key Metrics**:
 - Adjustment frequency by reason code
-- Value of adjustments by warehouse and product category
-- User activity patterns for inventory adjustments
+- Value of adjustments by warehouse and [Product](../ubiquitous-language/guidelines/glossary.md#product) category
+- User activity patterns for [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) adjustments
 - Adjustment approval rates and processing times
 
 #### ExpirationRiskDashboardModel
@@ -954,7 +954,7 @@ interface InventoryForecastingService {
 - Products approaching expiration by time window (7/14/30 days)
 - Historical waste percentages by category
 - Expiration clusters by supplier and country of origin
-- Slow-moving inventory with expiration risk
+- Slow-moving [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) with expiration risk
 
 #### WarehouseCapacityDashboardModel
 
@@ -963,14 +963,14 @@ interface InventoryForecastingService {
 **Key Metrics**:
 - Current capacity utilization by storage zone
 - Temperature zone utilization trends
-- Storage efficiency by product category
+- Storage efficiency by [Product](../ubiquitous-language/guidelines/glossary.md#product) category
 - Projected capacity requirements based on forecast
 
 ### Admin Domain Events
 
 #### InventoryManuallyAdjustedByAdmin
 
-**Description**: Emitted when an administrator manually adjusts inventory quantities
+**Description**: Emitted when an administrator manually adjusts [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) quantities
 
 **Payload**:
 ```json
@@ -995,7 +995,7 @@ interface InventoryForecastingService {
 
 #### ProductBatchExpirationExtendedByAdmin
 
-**Description**: Emitted when an administrator extends the expiration date of a product batch
+**Description**: Emitted when an administrator extends the expiration date of a [Product](../ubiquitous-language/guidelines/glossary.md#product) batch
 
 **Payload**:
 ```json
@@ -1052,107 +1052,107 @@ interface InventoryForecastingService {
 
 ## Integration Points
 
-### With Order Context
+### With [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context
 
-- **Inventory Reservation**: When items are added to cart or orders are placed, the Order Context requests inventory reservations from the Inventory Context.
-- **Order Fulfillment**: When orders are ready for fulfillment, the Order Context requests inventory allocation from the Inventory Context.
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Reservation**: When items are added to cart or orders are placed, the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context requests [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) reservations from the [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context.
+- **[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Fulfillment**: When orders are ready for fulfillment, the [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context requests [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) allocation from the [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context.
 - **Events Consumed**:
   - `OrderPlaced`: Triggers conversion of reservations to allocations
-  - `OrderCancelled`: Triggers release of allocated inventory
-  - `OrderModified`: Triggers adjustment of allocated inventory
+  - `OrderCancelled`: Triggers release of allocated [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)
+  - `OrderModified`: Triggers adjustment of allocated [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)
 
-### With Catalog Context
+### With [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context
 
-- **Product Availability**: Inventory Context provides real-time availability information to the Catalog Context.
-- **Product Information**: Catalog Context provides product specifications including storage requirements to the Inventory Context.
+- **[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Availability**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context provides real-time availability information to the [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context.
+- **[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) Information**: [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context provides [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) specifications including storage requirements to the [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context.
 - **Events Consumed**:
-  - `ProductCreated`: Triggers setup of inventory tracking for new products
-  - `ProductUpdated`: Updates storage requirements and other inventory-related attributes
-  - `ProductDiscontinued`: Triggers inventory disposition planning
+  - `ProductCreated`: Triggers setup of [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) tracking for new products
+  - `ProductUpdated`: Updates storage requirements and other [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)-related attributes
+  - `ProductDiscontinued`: Triggers [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) disposition planning
 
 ### With Purchasing Context
 
-- **Inventory Levels**: Inventory Context provides current levels and forecasts to inform purchasing decisions.
-- **Purchase Orders**: Purchasing Context provides information about incoming inventory from purchase orders.
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Levels**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context provides current levels and forecasts to inform purchasing decisions.
+- **Purchase Orders**: Purchasing Context provides information about incoming [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) from purchase orders.
 - **Events Consumed**:
-  - `PurchaseOrderCreated`: Creates expected receipts in the inventory system
-  - `PurchaseOrderDelivered`: Triggers inventory receiving process
+  - `PurchaseOrderCreated`: Creates expected receipts in the [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) system
+  - `PurchaseOrderDelivered`: Triggers [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) receiving process
 
 ### With Shipping Context
 
-- **Inventory Allocation**: Inventory Context provides allocated inventory information for shipment planning.
-- **Shipment Confirmation**: Shipping Context confirms when inventory has been shipped, triggering inventory deduction.
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Allocation**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context provides allocated [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) information for shipment planning.
+- **Shipment Confirmation**: Shipping Context confirms when [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) has been shipped, triggering [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) deduction.
 - **Events Consumed**:
-  - `ShipmentCreated`: Finalizes inventory allocation
-  - `ShipmentShipped`: Triggers inventory reduction
+  - `ShipmentCreated`: Finalizes [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) allocation
+  - `ShipmentShipped`: Triggers [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) reduction
 
 ### With Analytics Context
 
-- **Inventory Metrics**: Inventory Context provides data on inventory levels, turns, accuracy, and other KPIs.
-- **Forecasting Models**: Analytics Context provides advanced forecasting models to improve inventory planning.
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Metrics**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context provides data on [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) levels, turns, accuracy, and other KPIs.
+- **Forecasting Models**: Analytics Context provides advanced forecasting models to improve [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) planning.
 - **Events Consumed**:
-  - `ForecastGenerated`: Updates inventory planning parameters
-  - `AnalyticsModelUpdated`: Improves inventory optimization algorithms
+  - `ForecastGenerated`: Updates [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) planning parameters
+  - `AnalyticsModelUpdated`: Improves [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) optimization algorithms
 
-### With Catalog Authentication Context
+### With [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Context
 
-- **Product Authentication**: Catalog Authentication Context provides verification of product authenticity for inventory.
-- **Quarantine Management**: Inventory Context quarantines products that fail authentication.
+- **[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)**: [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Context provides verification of [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) authenticity for [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory).
+- **Quarantine Management**: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context quarantines products that fail [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication).
 - **Events Consumed**:
-  - `ProductAuthenticated`: Updates inventory quality status
-  - `AuthenticationFailed`: Triggers inventory quarantine
+  - `ProductAuthenticated`: Updates [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) quality status
+  - `AuthenticationFailed`: Triggers [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) quarantine
 
 ## Implementation Recommendations
 
 ### Architecture
 
-1. **Microservice Architecture**: Implement the Inventory Context as a dedicated microservice with its own database to ensure scalability and isolation.
+1. **Microservice Architecture**: Implement the [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context as a dedicated microservice with its own database to ensure scalability and isolation.
 2. **Event-Driven Communication**: Use an event-driven architecture for communication between contexts, with a robust message broker (e.g., Apache Kafka, RabbitMQ) to ensure reliable event delivery.
-3. **CQRS Pattern**: Implement Command Query Responsibility Segregation to separate read and write operations, optimizing for both high-volume inventory transactions and complex queries.
+3. **CQRS Pattern**: Implement Command Query Responsibility Segregation to separate read and write operations, optimizing for both high-volume [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) transactions and complex queries.
 4. **Domain-Driven Design**: Structure the implementation following DDD principles with clear boundaries between aggregates and strong enforcement of invariants.
 
 ### Technical Implementation
 
 1. **Database**:
-   - Use a relational database for core inventory transactions to ensure ACID compliance
+   - Use a relational database for core [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) transactions to ensure ACID compliance
    - Consider time-series database for temperature monitoring data
-   - Implement optimistic concurrency control for inventory operations
+   - Implement optimistic concurrency control for [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) operations
 
 2. **API Design**:
    - RESTful APIs for synchronous operations
-   - GraphQL for complex inventory queries
+   - GraphQL for complex [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) queries
    - Asynchronous APIs using webhooks for long-running processes
 
 3. **Batch Processing**:
-   - Implement batch processing for inventory counts, adjustments, and reconciliation
+   - Implement batch processing for [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) counts, adjustments, and reconciliation
    - Use idempotent operations to prevent duplicate processing
 
 4. **Caching Strategy**:
-   - Cache inventory levels with appropriate invalidation strategies
+   - Cache [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) levels with appropriate invalidation strategies
    - Implement read-through and write-through caching for high-volume SKUs
 
 ### Scalability and Performance
 
 1. **Horizontal Scaling**: Design the service to scale horizontally for increased load, particularly during peak seasons.
-2. **Partitioning Strategy**: Partition inventory data by warehouse or product category to improve performance.
-3. **Query Optimization**: Implement specialized read models for common inventory queries.
+2. **Partitioning Strategy**: Partition [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) data by warehouse or [Product](../ubiquitous-language/guidelines/glossary.md#product) category to improve performance.
+3. **Query Optimization**: Implement specialized read models for common [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) queries.
 4. **Background Processing**: Move non-critical operations to background jobs to maintain responsiveness.
 
 ### Data Quality and Resilience
 
-1. **Data Validation**: Implement strict validation rules for all inventory operations.
-2. **Audit Trail**: Maintain a comprehensive audit trail of all inventory changes.
+1. **Data Validation**: Implement strict validation rules for all [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) operations.
+2. **Audit Trail**: Maintain a comprehensive audit trail of all [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) changes.
 3. **Reconciliation Process**: Implement automated reconciliation between physical counts and system records.
 4. **Disaster Recovery**: Design robust backup and recovery procedures with point-in-time recovery capability.
 
 ### Implementation Phases
 
-1. **Phase 1**: Core inventory tracking and batch management
-   - Basic inventory operations (receive, adjust, allocate)
+1. **Phase 1**: Core [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) tracking and batch management
+   - Basic [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) operations (receive, adjust, allocate)
    - Batch tracking and expiration management
-   - Integration with Order and Catalog contexts
+   - Integration with [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) and [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) contexts
 
-2. **Phase 2**: Advanced inventory capabilities
+2. **Phase 2**: Advanced [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) capabilities
    - Temperature monitoring system
    - Reservation system
    - Integration with Shipping and Purchasing contexts
@@ -1165,7 +1165,7 @@ interface InventoryForecastingService {
 ### Testing Strategy
 
 1. **Unit Testing**: Comprehensive unit tests for all domain logic and business rules.
-2. **Integration Testing**: Test interactions between Inventory Context and other contexts.
+2. **Integration Testing**: Test interactions between [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Context and other contexts.
 3. **Performance Testing**: Ensure the system can handle peak loads and maintain response times.
 4. **Chaos Testing**: Verify system resilience under failure conditions.
 5. **Domain Scenario Testing**: Test complete business scenarios that cross multiple contexts.

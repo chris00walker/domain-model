@@ -1,49 +1,49 @@
 ---
-title: Catalog Domain Documentation
+title: [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Domain Documentation
 status: draft
-owner: @catalog-team
+owner: @[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)-team
 reviewers: @domain-experts, @tech-leads
 last_updated: 2025-06-10
 ---
 
-# Catalog Domain
+# [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Domain
 
 ## Overview
 
-The Catalog domain manages Elias Food Imports' product information, categorization, and search capabilities. It serves as the central repository for all product-related data, enabling customers to browse, search, and discover the company's specialty imported food products. This domain supports the company's business by maintaining accurate, detailed, and appealing product information that drives sales and customer engagement.
+The [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) domain manages Elias Food Imports' [Product](../ubiquitous-language/guidelines/glossary.md#product) information, categorization, and search capabilities. It serves as the central repository for all [Product](../ubiquitous-language/guidelines/glossary.md#product)-related data, enabling customers to browse, search, and discover the company's specialty imported food products. This domain supports the company's business by maintaining accurate, detailed, and appealing [Product](../ubiquitous-language/guidelines/glossary.md#product) information that drives sales and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) engagement.
 
 ## Strategic Importance
 
 **Domain Type**: Core Domain
 
 **Business Value**: High  
-The catalog is essential to Elias Food Imports' business model as it directly enables product discovery and purchase decisions by customers.
+The [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) is essential to Elias Food Imports' business model as it directly enables [Product](../ubiquitous-language/guidelines/glossary.md#product) discovery and purchase decisions by customers.
 
 **Technical Complexity**: Medium  
 While the domain requires robust search capabilities and integration with multiple contexts, the core data model and operations follow established patterns.
 
 **Volatility**: Medium  
-Product information requirements evolve with changing market needs and integration with new sales channels, but the fundamental product concepts remain stable.
+[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) information requirements evolve with changing market needs and integration with new sales channels, but the fundamental [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) concepts remain stable.
 
 <!-- GAP_IMPLEMENTED: Rich Media Management | Low | Medium | Medium -->
-<!-- stub for "Rich Media Management" gap in the catalog context -->
+<!-- stub for "Rich Media Management" gap in the [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) context -->
 
-<!-- GAP_IMPLEMENTED: Product Variant Management | Medium | Medium | High -->
-<!-- stub for "Product Variant Management" gap in the catalog context -->
+<!-- GAP_IMPLEMENTED: [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Variant Management | Medium | Medium | High -->
+<!-- stub for "[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Variant Management" gap in the [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) context -->
 
 ## Core Domain Concepts
 
-### Product
+### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)
 
 The central concept representing a specific food item available for purchase.
 
 **Key Attributes**:
-- Product identifier (unique reference)
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) identifier (unique reference)
 - Name and description
 - Price and currency
-- Inventory count
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) count
 - Discontinuation status
-- QR provenance URL (linking to authentication information)
+- QR provenance URL (linking to [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) information)
 - Category associations
 - Creation and update timestamps
 - Region of origin
@@ -51,10 +51,10 @@ The central concept representing a specific food item available for purchase.
 - Allergen information
 - Ingredient list
 - Storage requirements
-- Product dimensions and weight
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) dimensions and weight
 - Shelf life information
 
-### Product Category
+### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Category
 
 A classification grouping for products with similar characteristics.
 
@@ -64,10 +64,10 @@ A classification grouping for products with similar characteristics.
 - Parent category (for hierarchical categorization)
 - Attribute schema (defining attributes specific to this category)
 - Status (active, inactive)
-- Display order
+- Display [Order](../ubiquitous-language/guidelines/glossary.md#order)
 - Creation and update timestamps
 
-### Product Bundle
+### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Bundle
 
 A curated collection of products sold together as a single offering.
 
@@ -81,9 +81,9 @@ A curated collection of products sold together as a single offering.
 - Bundle type (gift set, sampler, meal kit, etc.)
 - Creation and update timestamps
 
-### Product Attribute
+### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Attribute
 
-A characteristic or property that describes a product.
+A characteristic or property that describes a [Product](../ubiquitous-language/guidelines/glossary.md#product).
 
 **Key Attributes**:
 - Attribute identifier
@@ -91,10 +91,10 @@ A characteristic or property that describes a product.
 - Value type (text, number, boolean, enum)
 - Unit of measure (if applicable)
 - Is filterable (whether customers can filter by this attribute)
-- Is comparable (whether this attribute can be used in product comparisons)
-- Display order
+- Is comparable (whether this attribute can be used in [Product](../ubiquitous-language/guidelines/glossary.md#product) comparisons)
+- Display [Order](../ubiquitous-language/guidelines/glossary.md#order)
 
-### Product Search Query
+### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Search Query
 
 A user request to find products based on specific criteria.
 
@@ -107,75 +107,75 @@ A user request to find products based on specific criteria.
 - Search timestamp
 - Result count
 
-### Product Variant
+### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Variant
 
-A specific version of a product with unique characteristics.
+A specific version of a [Product](../ubiquitous-language/guidelines/glossary.md#product) with unique characteristics.
 
 **Key Attributes**:
 - Variant identifier
-- Parent product identifier
+- Parent [Product](../ubiquitous-language/guidelines/glossary.md#product) identifier
 - Variant attributes (size, flavor, packaging type)
-- Price adjustment (if different from parent product)
-- Inventory count
+- Price adjustment (if different from parent [Product](../ubiquitous-language/guidelines/glossary.md#product))
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) count
 - SKU (Stock Keeping Unit)
 - Barcode/UPC
 
 ## Business Rules
 
-### Product Management Rules
+### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Management Rules
 
-1. **Product Creation**
+1. **[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Creation**
    - All products must have a valid name, description, and price.
-   - Product names must be unique within the catalog.
-   - Product prices must be greater than zero.
-   - Each product must be associated with at least one category.
-   - Premium products must include region of origin and authentication information.
+   - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) names must be unique within the [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog).
+   - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) prices must be greater than zero.
+   - Each [Product](../ubiquitous-language/guidelines/glossary.md#product) must be associated with at least one category.
+   - Premium products must include region of origin and [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) information.
 
-2. **Product Updates**
+2. **[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Updates**
    - Price changes must preserve price history for audit purposes.
    - Price changes must trigger notifications to relevant stakeholders.
    - When products are modified, all search indexes must be updated.
-   - Product discontinuation doesn't delete the product but marks it as unavailable for new orders.
+   - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) discontinuation doesn't delete the [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) but marks it as unavailable for new orders.
 
-3. **Product Data Quality**
+3. **[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Data Quality**
    - Nutritional information must follow standardized formats for the target market.
    - Allergen information must be complete and prominently displayed.
-   - Product descriptions must be available in all supported languages.
-   - Product images must meet minimum quality standards (resolution, format, background).
-   - All required attributes for a product category must be provided.
+   - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) descriptions must be available in all supported languages.
+   - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) images must meet minimum quality standards (resolution, format, background).
+   - All required attributes for a [Product](../ubiquitous-language/guidelines/glossary.md#product) category must be provided.
 
-### Inventory Integration Rules
+### [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Integration Rules
 
-1. **Inventory Synchronization**
-   - Inventory counts displayed in the catalog must reflect real-time availability.
-   - Low inventory levels must trigger visibility of "limited availability" indicators.
-   - When inventory reaches zero, products must be marked as "out of stock" but remain visible.
-   - Inventory adjustments must produce events for other systems to consume.
+1. **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Synchronization**
+   - [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) counts displayed in the [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) must reflect real-time availability.
+   - Low [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) levels must trigger visibility of "limited availability" indicators.
+   - When [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) reaches zero, products must be marked as "out of stock" but remain visible.
+   - [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) adjustments must produce events for other systems to consume.
 
 ### Categorization Rules
 
 1. **Category Structure**
    - Categories must form a directed acyclic graph (no circular references).
-   - A product can belong to multiple categories.
+   - A [Product](../ubiquitous-language/guidelines/glossary.md#product) can belong to multiple categories.
    - Category hierarchy depth must not exceed 5 levels for usability.
    - Categories must have unique identifiers and names.
 
 2. **Category Management**
    - Removing a category requires reassigning or removing all its products.
-   - Category merges must maintain product relationships and search functionality.
+   - Category merges must maintain [Product](../ubiquitous-language/guidelines/glossary.md#product) relationships and search functionality.
 
-### Product Bundle Rules
+### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Bundle Rules
 
 1. **Bundle Composition**
    - A bundle must contain at least two distinct products.
-   - Bundle prices must be less than or equal to the sum of component product prices.
+   - Bundle prices must be less than or equal to the sum of component [Product](../ubiquitous-language/guidelines/glossary.md#product) prices.
    - All products in a bundle must be available (in stock and not discontinued).
    - Bundles must clearly indicate component products and quantities.
 
 2. **Bundle Lifecycle**
-   - If any component product becomes unavailable, the bundle must be marked as unavailable.
+   - If any component [Product](../ubiquitous-language/guidelines/glossary.md#product) becomes unavailable, the bundle must be marked as unavailable.
    - Seasonal bundles must have defined start and end dates.
-   - Bundle inventory is limited by the minimum available inventory of its components.
+   - Bundle [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) is limited by the minimum available [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) of its components.
 
 ### Search and Discovery Rules
 
@@ -183,10 +183,10 @@ A specific version of a product with unique characteristics.
    - Search must account for multilingual support and language-specific stemming.
    - Search results must be ranked by relevance, with business rules for promotion.
    - Search queries must be logged for analytics and improvement.
-   - Product search must support filtering by multiple attributes.
+   - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) search must support filtering by multiple attributes.
 
-2. **Product Visibility**
-   - Products pending authentication verification must be marked as "authentication pending".
+2. **[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Visibility**
+   - Products pending [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) verification must be marked as "[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) pending".
    - Products can be hidden from search results while remaining accessible by direct link.
    - Featured products must be clearly marked and prioritized in relevant searches.
    - Regional restrictions must be applied based on shipping and regulatory limitations.
@@ -195,15 +195,15 @@ A specific version of a product with unique characteristics.
 
 ### ProductCreated
 
-**Description**: Emitted when a new product is successfully created in the catalog.
+**Description**: Emitted when a new [Product](../ubiquitous-language/guidelines/glossary.md#product) is successfully created in the [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog).
 
 **Payload**:
 ```json
 {
   "aggregateId": "uuid-string",
   "productId": "uuid-string",
-  "name": "Product Name",
-  "description": "Product Description",
+  "name": "[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Name",
+  "description": "[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Description",
   "price": {
     "amount": 29.99,
     "currency": "USD"
@@ -214,15 +214,15 @@ A specific version of a product with unique characteristics.
 ```
 
 **Consumers**:
-- **Search Service**: Indexes the new product for search functionality
-- **Inventory Context**: Creates initial inventory records
-- **Recommendation Engine**: Updates product offerings
+- **Search Service**: Indexes the new [Product](../ubiquitous-language/guidelines/glossary.md#product) for search functionality
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context**: Creates initial [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) records
+- **Recommendation Engine**: Updates [Product](../ubiquitous-language/guidelines/glossary.md#product) offerings
 - **Marketing Context**: Evaluates for potential promotional campaigns
-- **Analytics Context**: Tracks product catalog growth metrics
+- **Analytics Context**: Tracks [Product](../ubiquitous-language/guidelines/glossary.md#product) [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) growth metrics
 
 ### PriceChanged
 
-**Description**: Emitted when a product's price is modified.
+**Description**: Emitted when a [Product](../ubiquitous-language/guidelines/glossary.md#product)'s price is modified.
 
 **Payload**:
 ```json
@@ -244,13 +244,13 @@ A specific version of a product with unique characteristics.
 
 **Consumers**:
 - **Search Service**: Updates price in search index
-- **Customer Context**: Notifies customers with wishlist or price alerts
-- **Pricing Context**: Updates price history records
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context**: Notifies customers with wishlist or price alerts
+- **[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Context**: Updates price history records
 - **Analytics Context**: Monitors price change patterns
 
 ### InventoryAdjusted
 
-**Description**: Emitted when a product's inventory count changes.
+**Description**: Emitted when a [Product](../ubiquitous-language/guidelines/glossary.md#product)'s [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) count changes.
 
 **Payload**:
 ```json
@@ -267,20 +267,20 @@ A specific version of a product with unique characteristics.
 
 **Consumers**:
 - **Search Service**: Updates availability status
-- **Inventory Context**: Synchronizes inventory records
-- **Analytics Context**: Tracks inventory movement patterns
-- **Purchase Context**: Updates product availability for online shopping
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context**: Synchronizes [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) records
+- **Analytics Context**: Tracks [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) movement patterns
+- **Purchase Context**: Updates [Product](../ubiquitous-language/guidelines/glossary.md#product) availability for online shopping
 
 ### ProductDiscontinued
 
-**Description**: Emitted when a product is marked as discontinued.
+**Description**: Emitted when a [Product](../ubiquitous-language/guidelines/glossary.md#product) is marked as discontinued.
 
 **Payload**:
 ```json
 {
   "aggregateId": "uuid-string",
   "productId": "uuid-string",
-  "name": "Product Name",
+  "name": "[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Name",
   "remainingInventory": 50,
   "discontinuationReason": "supplier_discontinued",
   "effectiveDate": "2025-07-01T00:00:00Z",
@@ -289,15 +289,15 @@ A specific version of a product with unique characteristics.
 ```
 
 **Consumers**:
-- **Search Service**: Updates product status
-- **Inventory Context**: Flags inventory as discontinued
-- **Purchase Context**: Adjusts product availability
+- **Search Service**: Updates [Product](../ubiquitous-language/guidelines/glossary.md#product) status
+- **[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Context**: Flags [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) as discontinued
+- **Purchase Context**: Adjusts [Product](../ubiquitous-language/guidelines/glossary.md#product) availability
 - **Marketing Context**: Potential clearance campaign trigger
-- **Customer Context**: Notifies subscribed customers
+- **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context**: Notifies subscribed customers
 
 ### ProductCategorized
 
-**Description**: Emitted when a product is assigned to a category or its categorization changes.
+**Description**: Emitted when a [Product](../ubiquitous-language/guidelines/glossary.md#product) is assigned to a category or its categorization changes.
 
 **Payload**:
 ```json
@@ -314,11 +314,11 @@ A specific version of a product with unique characteristics.
 **Consumers**:
 - **Search Service**: Updates category facets
 - **Recommendation Engine**: Updates cross-selling relationships
-- **Analytics Context**: Tracks product categorization patterns
+- **Analytics Context**: Tracks [Product](../ubiquitous-language/guidelines/glossary.md#product) categorization patterns
 
 ### ProductBundleCreated
 
-**Description**: Emitted when a new product bundle is created.
+**Description**: Emitted when a new [Product](../ubiquitous-language/guidelines/glossary.md#product) bundle is created.
 
 **Payload**:
 ```json
@@ -352,24 +352,24 @@ A specific version of a product with unique characteristics.
 
 ### Aggregates
 
-#### Product Aggregate
+#### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Aggregate
 
-**Root Entity**: Product
+**Root Entity**: [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)
 
 **Invariants**:
-- Product must have a valid name, description, and price
-- Product.inventoryCount must be >= 0
-- Product.price must be a valid Money value object with amount > 0
-- Product price changes must publish a PriceChanged event
-- Product inventory adjustments must publish an InventoryAdjusted event
-- Product can be marked as discontinued but not deleted
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) must have a valid name, description, and price
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product).inventoryCount must be >= 0
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product).price must be a valid Money value object with amount > 0
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) price changes must publish a PriceChanged event
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) adjustments must publish an InventoryAdjusted event
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) can be marked as discontinued but not deleted
 
 **Operations**:
-- Create new product
-- Adjust inventory count
+- Create new [Product](../ubiquitous-language/guidelines/glossary.md#product)
+- Adjust [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) count
 - Change price
-- Discontinue product
-- Reactivate discontinued product
+- Discontinue [Product](../ubiquitous-language/guidelines/glossary.md#product)
+- Reactivate discontinued [Product](../ubiquitous-language/guidelines/glossary.md#product)
 - Associate with categories
 
 **Lifecycle States**:
@@ -378,7 +378,7 @@ A specific version of a product with unique characteristics.
 - Out of Stock
 - Limited Availability
 
-#### Product Category Aggregate
+#### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Category Aggregate
 
 **Root Entity**: ProductCategory
 
@@ -389,12 +389,12 @@ A specific version of a product with unique characteristics.
 
 **Operations**:
 - Create new category
-- Add product to category
-- Remove product from category
+- Add [Product](../ubiquitous-language/guidelines/glossary.md#product) to category
+- Remove [Product](../ubiquitous-language/guidelines/glossary.md#product) from category
 - Update category metadata
 - Deactivate/reactivate category
 
-#### Product Bundle Aggregate
+#### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Bundle Aggregate
 
 **Root Entity**: ProductBundle
 
@@ -405,9 +405,9 @@ A specific version of a product with unique characteristics.
 
 **Operations**:
 - Create new bundle
-- Add product to bundle
-- Remove product from bundle
-- Update bundle pricing
+- Add [Product](../ubiquitous-language/guidelines/glossary.md#product) to bundle
+- Remove [Product](../ubiquitous-language/guidelines/glossary.md#product) from bundle
+- Update bundle [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)
 - Set bundle availability period
 
 ### Entities
@@ -416,10 +416,10 @@ A specific version of a product with unique characteristics.
 
 **Properties**:
 - Image ID
-- Product ID (foreign key)
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) ID (foreign key)
 - Image URL
 - Image type (primary, alternate, detail, etc.)
-- Sort order
+- Sort [Order](../ubiquitous-language/guidelines/glossary.md#order)
 - Alt text
 - Creation timestamp
 
@@ -427,8 +427,8 @@ A specific version of a product with unique characteristics.
 
 **Properties**:
 - Review ID
-- Product ID (foreign key)
-- Customer ID
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) ID (foreign key)
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) ID
 - Rating (numeric)
 - Review text
 - Review date
@@ -438,8 +438,8 @@ A specific version of a product with unique characteristics.
 #### RelatedProduct
 
 **Properties**:
-- Source product ID
-- Related product ID
+- Source [Product](../ubiquitous-language/guidelines/glossary.md#product) ID
+- Related [Product](../ubiquitous-language/guidelines/glossary.md#product) ID
 - Relationship type (complementary, accessory, alternative, etc.)
 - Relationship strength (numeric)
 
@@ -492,7 +492,7 @@ A specific version of a product with unique characteristics.
 
 #### ProductSearchService
 
-**Responsibility**: Provides advanced search capabilities across the product catalog
+**Responsibility**: Provides advanced search capabilities across the [Product](../ubiquitous-language/guidelines/glossary.md#product) [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)
 
 **Operations**:
 - Search products by text query
@@ -516,8 +516,8 @@ A specific version of a product with unique characteristics.
 **Responsibility**: Manages the placement of products in the category hierarchy
 
 **Operations**:
-- Assign product to categories
-- Remove product from categories
+- Assign [Product](../ubiquitous-language/guidelines/glossary.md#product) to categories
+- Remove [Product](../ubiquitous-language/guidelines/glossary.md#product) from categories
 - Validate categorization rules
 - Maintain category hierarchy integrity
 
@@ -527,20 +527,20 @@ A specific version of a product with unique characteristics.
 
 #### ProductCatalogManagementService
 
-**Responsibility**: Provides advanced product management capabilities for administrative users
+**Responsibility**: Provides advanced [Product](../ubiquitous-language/guidelines/glossary.md#product) management capabilities for administrative users
 
 **Operations**:
 - Create and update products with extended validation
-- Manage product discontinuation workflow
-- Handle batch product imports and updates
-- Configure product visibility across channels
+- Manage [Product](../ubiquitous-language/guidelines/glossary.md#product) discontinuation workflow
+- Handle batch [Product](../ubiquitous-language/guidelines/glossary.md#product) imports and updates
+- Configure [Product](../ubiquitous-language/guidelines/glossary.md#product) visibility across channels
 - Override automated business rules when necessary
 
-**Authorization**: Requires `catalog:product:manage` permission
+**Authorization**: Requires `[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog):[Product](../ubiquitous-language/guidelines/glossary.md#product):manage` permission
 
 #### CategoryManagementService
 
-**Responsibility**: Manages the product categorization hierarchy
+**Responsibility**: Manages the [Product](../ubiquitous-language/guidelines/glossary.md#product) categorization hierarchy
 
 **Operations**:
 - Create, update, and archive categories
@@ -549,19 +549,19 @@ A specific version of a product with unique characteristics.
 - Define category-specific business rules
 - Generate category performance reports
 
-**Authorization**: Requires `catalog:category:manage` permission
+**Authorization**: Requires `[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog):category:manage` permission
 
 #### AttributeSchemaService
 
-**Responsibility**: Manages product attribute definitions and schemas
+**Responsibility**: Manages [Product](../ubiquitous-language/guidelines/glossary.md#product) attribute definitions and schemas
 
 **Operations**:
-- Define new product attributes
+- Define new [Product](../ubiquitous-language/guidelines/glossary.md#product) attributes
 - Configure attribute validation rules
 - Manage attribute relationships and dependencies
 - Create and update attribute schemas for categories
 
-**Authorization**: Requires `catalog:attributes:manage` permission
+**Authorization**: Requires `[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog):attributes:manage` permission
 
 ### Admin Read Models
 
@@ -577,14 +577,14 @@ A specific version of a product with unique characteristics.
 
 #### CatalogHealthModel
 
-**Purpose**: Monitors overall catalog data quality and completeness
+**Purpose**: Monitors overall [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) data quality and completeness
 
 **Key Metrics**:
-- Product data completeness scores by category
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) data completeness scores by category
 - Image quality compliance rates
 - Description quality metrics
 - SEO readiness scores
-- Authentication status distribution
+- [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) status distribution
 
 #### CategoryPerformanceModel
 
@@ -600,17 +600,17 @@ A specific version of a product with unique characteristics.
 
 #### ProductApprovedByAdmin
 
-**Description**: Emitted when a product is manually approved for publication by an administrator
+**Description**: Emitted when a [Product](../ubiquitous-language/guidelines/glossary.md#product) is manually approved for publication by an administrator
 
 **Payload**:
 ```json
 {
   "aggregateId": "uuid-string",
   "productId": "uuid-string",
-  "name": "Product Name",
+  "name": "[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Name",
   "version": 3,
   "adminId": "admin-uuid",
-  "notes": "Approved with special pricing conditions",
+  "notes": "Approved with special [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) conditions",
   "overriddenValidations": ["price_tier_validation"],
   "occurredOn": "2025-06-10T15:30:00Z"
 }
@@ -665,15 +665,15 @@ A specific version of a product with unique characteristics.
 
 #### ProductRepository
 
-**Responsibility**: Persistence operations for the Product aggregate
+**Responsibility**: Persistence operations for the [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) aggregate
 
 **Operations**:
-- Find product by ID
+- Find [Product](../ubiquitous-language/guidelines/glossary.md#product) by ID
 - Find products by name (partial match)
 - Find products within a price range
-- Find products that are low in inventory
+- Find products that are low in [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)
 - Find discontinued products
-- Save a product (create or update)
+- Save a [Product](../ubiquitous-language/guidelines/glossary.md#product) (create or update)
 - Get all products
 
 #### ProductCategoryRepository
@@ -694,7 +694,7 @@ A specific version of a product with unique characteristics.
 
 **Operations**:
 - Find bundle by ID
-- Find bundles containing a specific product
+- Find bundles containing a specific [Product](../ubiquitous-language/guidelines/glossary.md#product)
 - Find active bundles
 - Find seasonal bundles
 - Save a bundle (create or update)
@@ -702,72 +702,72 @@ A specific version of a product with unique characteristics.
 
 ## Integration Points
 
-### Integration with Catalog Authentication Domain
+### Integration with [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Domain
 
 **Relationship Type**: Partnership
 
 **Integration Points**:
-- Catalog provides base product information to Authentication
-- Authentication provides authenticity verification status to Catalog
-- Both share key concepts like Product, ProductOrigin
-- The Catalog domain displays authentication status but delegates verification processes
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) provides base [Product](../ubiquitous-language/guidelines/glossary.md#product) information to [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)
+- [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) provides authenticity verification status to [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)
+- Both share key concepts like [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product), ProductOrigin
+- The [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) domain displays [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) status but delegates verification processes
 
 **Data Exchange**:
-- Catalog sends ProductCreated events to trigger authentication processes
-- Authentication sends ProductAuthenticated events to update catalog status
-- Catalog links to authentication details via QR provenance URLs
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) sends ProductCreated events to trigger [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) processes
+- [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) sends ProductAuthenticated events to update [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) status
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) links to [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) details via QR provenance URLs
 
-### Integration with Inventory Domain
+### Integration with [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Domain
 
-**Relationship Type**: Customer-Supplier
+**Relationship Type**: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)-Supplier
 
 **Integration Points**:
-- Catalog consumes inventory information (stock levels)
-- Catalog translates inventory data into customer-facing availability status
-- Both share key concepts like Product and InventoryCount
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) consumes [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) information (stock levels)
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) translates [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) data into [Customer](../ubiquitous-language/guidelines/glossary.md#customer)-facing availability status
+- Both share key concepts like [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) and InventoryCount
 
 **Data Exchange**:
-- Inventory sends StockUpdated events to Catalog
-- Catalog sends InventoryAdjusted events to Inventory
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) sends StockUpdated events to [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) sends InventoryAdjusted events to [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
 
-### Integration with Pricing Domain
+### Integration with [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Domain
 
-**Relationship Type**: Customer-Supplier
+**Relationship Type**: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)-Supplier
 
 **Integration Points**:
-- Catalog displays prices calculated by the Pricing domain
-- Pricing domain manages price rules, discounts, and promotions
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) displays prices calculated by the [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) domain
+- [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) domain manages price rules, discounts, and promotions
 - Both share the concept of ProductPrice
 
 **Data Exchange**:
-- Pricing sends PriceCalculated events to update catalog prices
-- Catalog sends PriceDisplay events for analytics
+- [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) sends PriceCalculated events to update [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) prices
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) sends PriceDisplay events for analytics
 
 ### Integration with Marketing Domain
 
 **Relationship Type**: Partnership
 
 **Integration Points**:
-- Catalog provides product data for marketing campaigns
-- Marketing provides promotion flags and featured product designations
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) provides [Product](../ubiquitous-language/guidelines/glossary.md#product) data for marketing campaigns
+- Marketing provides promotion flags and featured [Product](../ubiquitous-language/guidelines/glossary.md#product) designations
 - Both domains collaborate on bundle creation and seasonal offerings
 
 **Data Exchange**:
 - Marketing sends PromotionCreated events to highlight products
-- Catalog sends ProductBundleCreated events for promotional planning
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) sends ProductBundleCreated events for promotional planning
 
-### Integration with Customer Domain
+### Integration with [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain
 
 **Relationship Type**: Supplier
 
 **Integration Points**:
-- Catalog provides product information for customer-facing interfaces
-- Customer domain provides personalization data to customize catalog views
-- Both share concepts around product interests and recommendations
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) provides [Product](../ubiquitous-language/guidelines/glossary.md#product) information for [Customer](../ubiquitous-language/guidelines/glossary.md#customer)-facing interfaces
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) domain provides personalization data to customize [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) views
+- Both share concepts around [Product](../ubiquitous-language/guidelines/glossary.md#product) interests and recommendations
 
 **Data Exchange**:
-- Customer sends ProductViewed events for analytics
-- Catalog sends ProductDiscontinued notifications to interested customers
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) sends ProductViewed events for analytics
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) sends ProductDiscontinued notifications to interested customers
 
 ## Implementation Guidelines
 
@@ -775,9 +775,9 @@ A specific version of a product with unique characteristics.
 
 ```typescript
 // Directory structure
-src/catalog/
+src/[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)/
   domain/
-    aggregates/       // Product, ProductCategory, ProductBundle
+    aggregates/       // [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product), ProductCategory, ProductBundle
     entities/         // ProductImage, ProductReview, etc.
     value-objects/    // ProductId, ProductStatus, etc.
     events/           // ProductCreated, PriceChanged, etc.
@@ -795,10 +795,10 @@ src/catalog/
 
 ### Key Implementations
 
-#### Product Aggregate Implementation
+#### [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Aggregate Implementation
 
 ```typescript
-export class Product extends AggregateRoot<ProductProps> {
+export class [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) extends AggregateRoot<ProductProps> {
   private constructor(props: ProductProps, id?: UniqueEntityID) {
     super(props, id);
   }
@@ -807,7 +807,7 @@ export class Product extends AggregateRoot<ProductProps> {
     props: Omit<ProductProps, 'createdAt' | 'updatedAt'>,
     id?: UniqueEntityID,
     clock: Clock = new SystemClock()
-  ): Result<Product, string> {
+  ): Result<[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product), string> {
     // Validate invariants
     const guardResult = Guard.againstNullOrUndefinedBulk([
       { argument: props.name, argumentName: 'name' },
@@ -820,16 +820,16 @@ export class Product extends AggregateRoot<ProductProps> {
     }
 
     if (props.inventoryCount < 0) {
-      return failure('Product inventory count cannot be negative');
+      return failure('[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) count cannot be negative');
     }
 
     if (!props.price.isPositive()) {
-      return failure('Product price must be greater than zero');
+      return failure('[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) price must be greater than zero');
     }
 
-    // Create the product
+    // Create the [Product](../ubiquitous-language/guidelines/glossary.md#product)
     const now = clock.now();
-    const product = new Product({
+    const [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) = new [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product))({
       ...props,
       isDiscontinued: props.isDiscontinued ?? false,
       createdAt: now,
@@ -837,9 +837,9 @@ export class Product extends AggregateRoot<ProductProps> {
     }, id);
 
     // Publish domain event
-    product.addDomainEvent(new ProductCreated(product));
+    [Product](../ubiquitous-language/guidelines/glossary.md#product).addDomainEvent(new ProductCreated([Product](../ubiquitous-language/guidelines/glossary.md#product)));
 
-    return success(product);
+    return success([Product](../ubiquitous-language/guidelines/glossary.md#product));
   }
 
   // Additional methods like adjustInventory(), changePrice(), etc.
@@ -852,11 +852,11 @@ export class Product extends AggregateRoot<ProductProps> {
 export class MongoProductRepository implements ProductRepository {
   constructor(private readonly connection: mongoose.Connection) {}
 
-  async findById(id: ProductId): Promise<Product | null> {
+  async findById(id: ProductId): Promise<[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) | null> {
     // Implementation details
   }
 
-  async save(product: Product): Promise<void> {
+  async save([[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product): [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product))): Promise<void> {
     // Implementation details including domain event dispatching
   }
 
@@ -881,10 +881,10 @@ export class CatalogEventHandlers {
 
   @Subscribe(InventoryStockUpdated)
   async handleInventoryUpdated(event: InventoryStockUpdated) {
-    const product = await this.productRepo.findById(new ProductId(event.productId));
-    if (product) {
-      await product.adjustInventory(event.newCount - product.inventoryCount);
-      await this.productRepo.save(product);
+    const [Product](../ubiquitous-language/guidelines/glossary.md#product) = await this.productRepo.findById(new ProductId(event.productId));
+    if ([Product](../ubiquitous-language/guidelines/glossary.md#product)) {
+      await [Product](../ubiquitous-language/guidelines/glossary.md#product).adjustInventory(event.newCount - [Product](../ubiquitous-language/guidelines/glossary.md#product).inventoryCount);
+      await this.productRepo.save([Product](../ubiquitous-language/guidelines/glossary.md#product));
     }
   }
 
@@ -894,35 +894,35 @@ export class CatalogEventHandlers {
 
 ## Ubiquitous Language
 
-The following terms make up the ubiquitous language for the Catalog Domain and should be consistently used across all documentation, code, and communication.
+The following terms make up the ubiquitous language for the [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Domain and should be consistently used across all documentation, code, and communication.
 
 | Term | Definition |
 | --- | --- |
-| Product | A specific food item available for purchase in the Elias Food Imports catalog |
-| Product Category | A classification grouping for products with similar characteristics |
-| Product Bundle | A curated collection of products sold together as a single offering |
-| Product Variant | A specific version of a product with unique characteristics (size, packaging) |
-| SKU | Stock Keeping Unit; a unique identifier for inventory tracking |
-| Discontinuation | The process of phasing out a product from active sales |
-| Featured Product | A product given special prominence in the catalog for promotional purposes |
-| Product Origin | The geographical source of a product, especially important for specialty foods |
-| Provenance | The documented history of a product's origin and authenticity |
-| Inventory Count | The current available quantity of a product |
-| Limited Availability | A product status indicating low inventory levels |
-| Out of Stock | A product status indicating zero available inventory |
-| Product Attribute | A characteristic or property that describes a product |
-| Category Hierarchy | The tree-like structure of product categories |
-| Product Search Query | A user request to find products based on specific criteria |
-| Related Product | A product with a defined relationship to another product |
-| Seasonal Bundle | A product bundle available only during specific time periods |
-| Product Authentication | Verification of a product's authenticity and provenance |
+| [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) | A specific food item available for purchase in the Elias Food Imports [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) |
+| [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Category | A classification grouping for products with similar characteristics |
+| [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Bundle | A curated collection of products sold together as a single offering |
+| [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) Variant | A specific version of a [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) with unique characteristics (size, packaging) |
+| SKU | Stock Keeping Unit; a unique identifier for [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) tracking |
+| Discontinuation | The process of phasing out a [Product](../ubiquitous-language/guidelines/glossary.md#product) from active sales |
+| Featured [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) | A [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) given special prominence in the [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) for promotional purposes |
+| [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) Origin | The geographical source of a [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product), especially important for specialty foods |
+| Provenance | The documented history of a [Product](../ubiquitous-language/guidelines/glossary.md#product)'s origin and authenticity |
+| [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Count | The current available quantity of a [Product](../ubiquitous-language/guidelines/glossary.md#product) |
+| Limited Availability | A [Product](../ubiquitous-language/guidelines/glossary.md#product) status indicating low [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) levels |
+| Out of Stock | A [Product](../ubiquitous-language/guidelines/glossary.md#product) status indicating zero available [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) |
+| [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) Attribute | A characteristic or property that describes a [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) |
+| Category Hierarchy | The tree-like structure of [Product](../ubiquitous-language/guidelines/glossary.md#product) categories |
+| [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Search Query | A user request to find products based on specific criteria |
+| Related [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) | A [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) with a defined relationship to another [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) |
+| Seasonal Bundle | A [Product](../ubiquitous-language/guidelines/glossary.md#product) bundle available only during specific time periods |
+| [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) | Verification of a [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)'s authenticity and provenance |
 
 ## Testing Strategy
 
 ### Unit Testing
 
 **Focus Areas**:
-- Catalog domain aggregates and entities
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) domain aggregates and entities
 - Value object validations and operations
 - Domain service operations
 
@@ -934,22 +934,22 @@ The following terms make up the ubiquitous language for the Catalog Domain and s
 
 **Examples**:
 ```typescript
-describe('Product Aggregate', () => {
+describe('[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Aggregate', () => {
   test('should enforce positive price invariant', () => {
     // Arrange
     const invalidProps = {
-      name: 'Test Product',
+      name: 'Test [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)',
       description: 'Test Description',
       price: Money.create({ amount: -10, currency: 'USD' }).value,
       inventoryCount: 10,
     };
     
     // Act
-    const result = Product.create(invalidProps);
+    const result = [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product).create(invalidProps);
     
     // Assert
     expect(result.isFailure()).toBe(true);
-    expect(result.error).toBe('Product price must be greater than zero');
+    expect(result.error).toBe('[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) price must be greater than zero');
   });
 });
 ```
@@ -964,12 +964,12 @@ describe('Product Aggregate', () => {
 **Testing Approach**:
 - Test repository operations against test databases
 - Verify event handling and propagation
-- Test catalog search functionality with sample datasets
+- Test [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) search functionality with sample datasets
 - Validate category hierarchy operations
 
 **Examples**:
 ```typescript
-describe('Product Search Integration', () => {
+describe('[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Search Integration', () => {
   test('should find products by partial name match', async () => {
     // Arrange - set up test database with sample products
     // ...
@@ -987,57 +987,57 @@ describe('Product Search Integration', () => {
 ### Acceptance Testing
 
 **Focus Areas**:
-- End-to-end catalog operations
-- Complete customer journeys involving catalog
+- End-to-end [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) operations
+- Complete [Customer](../ubiquitous-language/guidelines/glossary.md#customer) journeys involving [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)
 - Performance and load testing of search operations
 
 **Testing Approach**:
-- Use BDD scenarios for critical catalog user stories
-- Test catalog performance under expected load
+- Use BDD scenarios for critical [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) user stories
+- Test [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) performance under expected load
 - Verify cross-domain integration scenarios
 
 **Examples**:
 ```gherkin
-Feature: Product Search and Filtering
+Feature: [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Search and Filtering
 
-  Scenario: Customer searches for products by region
-    Given the catalog contains products from multiple regions
-    When a customer searches for products from "Sicily"
+  Scenario: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) searches for products by region
+    Given the [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) contains products from multiple regions
+    When a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) searches for products from "Sicily"
     Then only Sicilian products should be displayed
-    And each product should show its authentication status
+    And each [Product](../ubiquitous-language/guidelines/glossary.md#product) should show its [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) status
     And results should load within 500ms
 ```
 
 ## Success Metrics
 
 **Data Quality Metrics**:
-- Product data completeness ≥ 98% (all required fields populated)
-- Product description quality score ≥ 90% (based on SEO and content guidelines)
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) data completeness ≥ 98% (all required fields populated)
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) description quality score ≥ 90% (based on SEO and content guidelines)
 - Image quality compliance ≥ 95% (resolution, format, background requirements)
 - Attribute accuracy ≥ 99% (verified against supplier specifications)
 
 **Search Performance Metrics**:
 - Search response time ≤ 500ms for 95% of queries
 - Search relevance score ≥ 85% (measured by user clickthrough rates)
-- Zero failed searches due to catalog errors
-- Search index freshness ≤ 5 minutes from product updates
+- Zero failed searches due to [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) errors
+- Search index freshness ≤ 5 minutes from [Product](../ubiquitous-language/guidelines/glossary.md#product) updates
 
 **Business Outcome Metrics**:
-- Product discovery rate ≥ 65% (percentage of catalog viewed by visitors)
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) discovery rate ≥ 65% (percentage of [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) viewed by visitors)
 - Category navigation depth ≥ 2.5 pages on average
-- Product bundle conversion rate ≥ 25% (compared to individual products)
-- Cross-sell click-through rate ≥ 15% (from related product recommendations)
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) bundle conversion rate ≥ 25% (compared to individual products)
+- Cross-sell click-through rate ≥ 15% (from related [Product](../ubiquitous-language/guidelines/glossary.md#product) recommendations)
 
-**Customer Experience Metrics**:
-- Product information satisfaction score ≥ 4.5/5
+**[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Experience Metrics**:
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) information satisfaction score ≥ 4.5/5
 - Time to find desired products ≤ 45 seconds
 - Filter usage rate ≥ 75% for complex searches
 - Category navigation clarity rating ≥ 90%
 
 ## References
 
-1. Domain Events Catalog: [Domain Event Catalog](/docs/v2/domain-event-catalog.md)
+1. Domain Events [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)): [Domain Event [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog))](/docs/v2/domain-event-[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog).md)
 2. Bounded Context Map: [Context Map](/docs/v2/bounded-context-map.md)
 3. Ubiquitous Language Guidelines: [Language Guidelines](/docs/v2/ubiquitous-language-guidelines.md)
 4. Business Problem Acceptance Criteria: [Acceptance Criteria](/docs/v2/business-problem-acceptance-criteria.md)
-5. Catalog Authentication Context: [Authentication Domain](/docs/v2/domain-knowledge/core-contexts/catalog-auth/README.md)
+5. [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Context: [[[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Domain](/docs/v2/domain-knowledge/core-contexts/[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)-auth/README.md)

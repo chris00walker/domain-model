@@ -50,9 +50,9 @@ The Analytics Domain for Elias Food Imports (EFI) serves as the central nervous 
 ```mermaid
 graph TD
     subgraph Source Systems
-        A[Order Domain] -->|Order Events| B[Event Bus]
-        C[Customer Domain] -->|Customer Events| B
-        D[Inventory Domain] -->|Inventory Events| B
+        A[[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Domain] -->|[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Events| B[Event Bus]
+        C[[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain] -->|[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Events| B
+        D[[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Domain] -->|[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Events| B
         E[Other Domains] -->|Domain Events| B
     end
 
@@ -95,11 +95,11 @@ The Analytics Domain is strategically important to Elias Food Imports for the fo
 
 1. **Decision Support**: Provides executive leadership and department managers with timely insights to make informed business decisions
 2. **Performance Measurement**: Establishes KPIs and metrics to objectively measure business performance and goal achievement
-3. **Customer Understanding**: Delivers deep insights into customer behavior, preferences, and segments for personalized experiences
+3. **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Understanding**: Delivers deep insights into [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) behavior, preferences, and segments for personalized experiences
 4. **Operational Optimization**: Identifies inefficiencies and bottlenecks across business processes through data analysis
 5. **Predictive Capabilities**: Enables forward-looking strategies through forecasting, trend analysis, and predictive modeling
 6. **Market Intelligence**: Provides competitive analysis, market trends, and growth opportunities in the specialty food industry
-7. **Product Performance**: Measures product success, identifies underperforming inventory, and guides product development
+7. **[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) Performance**: Measures [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) success, identifies underperforming [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory), and guides [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) development
 8. **ROI Tracking**: Quantifies the impact and return on investment of business initiatives and marketing campaigns
 
 ## Core Concepts
@@ -118,11 +118,11 @@ A subset of the data warehouse focused on a specific business area, department, 
 
 ### 4. Metric
 
-A quantifiable measure that tracks and assesses business performance, such as conversion rate, average order value, customer lifetime value, or inventory turnover rate.
+A quantifiable measure that tracks and assesses business performance, such as conversion rate, average [Order](../ubiquitous-language/guidelines/glossary.md#order) value, [Customer](../ubiquitous-language/guidelines/glossary.md#customer) lifetime value, or [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) turnover rate.
 
 ### 5. Dimension
 
-An attribute that provides context to metrics and allows for slicing, filtering, and segmenting of data (e.g., time, product, geography, customer segment).
+An attribute that provides context to metrics and allows for slicing, filtering, and segmenting of data (e.g., time, [Product](../ubiquitous-language/guidelines/glossary.md#product), geography, [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment).
 
 ### 6. Dashboard
 
@@ -168,17 +168,17 @@ A statistical or machine learning algorithm that processes historical data to id
 4. Historical metric values must be preserved when calculation methodologies change
 5. Target values and thresholds must be defined for key business metrics
 6. Related metrics must be reconcilable with each other and source systems
-7. Performance metrics must be comparable across time periods, product categories, and regions
+7. Performance metrics must be comparable across time periods, [Product](../ubiquitous-language/guidelines/glossary.md#product) categories, and regions
 8. Custom metrics created by users must be clearly differentiated from official corporate metrics
 
-#### Example: Customer Lifetime Value (CLV) Calculation
+#### Example: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Lifetime Value (CLV) Calculation
 
 ```typescript
 /**
- * Calculates Customer Lifetime Value (CLV) using the historical average method.
- * CLV = Average Order Value × Purchase Frequency × Average Customer Lifespan
+ * Calculates [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Lifetime Value (CLV) using the historical average method.
+ * CLV = Average [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Value × Purchase Frequency × Average [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Lifespan
  * 
- * @param customerId - Unique identifier for the customer
+ * @param customerId - Unique identifier for the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
  * @param historicalPeriodInMonths - Number of months to consider in the calculation
  * @returns Promise<number> - The calculated CLV in USD
  */
@@ -186,20 +186,20 @@ async function calculateCustomerLifetimeValue(
   customerId: string,
   historicalPeriodInMonths: number = 12
 ): Promise<number> {
-  // 1. Get customer's historical orders
+  // 1. Get [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s historical orders
   const orders = await orderRepository.findByCustomerId(
     customerId,
     historicalPeriodInMonths
   );
 
-  // 2. Calculate average order value (AOV)
-  const totalRevenue = orders.reduce((sum, order) => sum + order.totalAmount, 0);
+  // 2. Calculate average [Order](../ubiquitous-language/guidelines/glossary.md#order) value (AOV)
+  const totalRevenue = orders.reduce((sum, [Order](../ubiquitous-language/guidelines/glossary.md#order)) => sum + [Order](../ubiquitous-language/guidelines/glossary.md#order).totalAmount, 0);
   const averageOrderValue = orders.length > 0 ? totalRevenue / orders.length : 0;
 
   // 3. Calculate purchase frequency (orders per month)
   const purchaseFrequency = orders.length / historicalPeriodInMonths;
 
-  // 4. Determine average customer lifespan (in months)
+  // 4. Determine average [Customer](../ubiquitous-language/guidelines/glossary.md#customer) lifespan (in months)
   // This could be based on historical churn data or industry benchmarks
   const averageCustomerLifespan = 36; // 3 years as an example
 
@@ -210,12 +210,12 @@ async function calculateCustomerLifetimeValue(
 }
 ```
 
-#### Example: Inventory Turnover Ratio
+#### Example: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Turnover Ratio
 
 ```typescript
 /**
- * Calculates Inventory Turnover Ratio for a given product category
- * Inventory Turnover = Cost of Goods Sold (COGS) / Average Inventory
+ * Calculates [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Turnover Ratio for a given [Product](../ubiquitous-language/guidelines/glossary.md#product) category
+ * [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Turnover = Cost of Goods Sold (COGS) / Average [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)
  */
 function calculateInventoryTurnover(
   categoryId: string,
@@ -225,7 +225,7 @@ function calculateInventoryTurnover(
   // 1. Calculate COGS for the period
   const cogs = inventoryService.calculateCogs(categoryId, startDate, endDate);
   
-  // 2. Calculate average inventory
+  // 2. Calculate average [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)
   const startInventory = inventoryService.getInventoryLevel(categoryId, startDate);
   const endInventory = inventoryService.getInventoryLevel(categoryId, endDate);
   const averageInventory = (startInventory + endInventory) / 2;
@@ -238,12 +238,12 @@ function calculateInventoryTurnover(
 ### Access Control and Security
 
 1. Data access must be controlled based on role, department, and sensitivity classification
-2. Customer data used for analytics must comply with privacy regulations and consent preferences
+2. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data used for analytics must comply with privacy regulations and consent preferences
 3. Analytics users must only see data relevant to their business function and geographic responsibility
 4. Audit trails must record who accessed what data, when, and for what purpose
 5. Export of sensitive analytical data must be controlled and logged
 6. Self-service analytics must enforce data security policies automatically
-7. Test environments must not contain identifiable customer data unless specifically authorized
+7. Test environments must not contain identifiable [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data unless specifically authorized
 8. Derived insights must maintain the highest privacy classification of their source data
 
 ### Reporting and Visualization
@@ -262,7 +262,7 @@ function calculateInventoryTurnover(
 1. Analytical models must be validated using appropriate statistical methodologies
 2. Model performance must be continuously monitored with automated retraining triggers
 3. Production models must have human oversight and intervention capabilities
-4. Model bias must be evaluated regularly, especially for customer-facing predictions
+4. Model bias must be evaluated regularly, especially for [Customer](../ubiquitous-language/guidelines/glossary.md#customer)-facing predictions
 5. Model input data must be validated before processing to prevent garbage-in-garbage-out scenarios
 6. Model versions must be tracked with the ability to roll back to previous versions
 7. Predictions must include confidence intervals or scores when presented to business users
@@ -298,15 +298,15 @@ function calculateInventoryTurnover(
 
 | Event Name | Description | Payload | Consumers |
 |-----------|-------------|---------|------------|
-| `AnalyticsDashboardCreated` | Fired when a new analytics dashboard is created | Dashboard ID, Creator ID, Title, Description, Dashboard Type, Timestamp | Notification, Customer |
-| `AnalyticsDashboardShared` | Fired when a dashboard is shared with users or groups | Dashboard ID, Owner ID, Recipients, Permission Level, Timestamp | Notification, Customer |
+| `AnalyticsDashboardCreated` | Fired when a new analytics dashboard is created | Dashboard ID, Creator ID, Title, Description, Dashboard Type, Timestamp | Notification, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) |
+| `AnalyticsDashboardShared` | Fired when a dashboard is shared with users or groups | Dashboard ID, Owner ID, Recipients, Permission Level, Timestamp | Notification, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) |
 | `AnalyticsReportScheduled` | Fired when a report is scheduled for recurring generation | Report ID, Schedule Parameters, Recipients, Format, Timestamp | Notification |
-| `AnalyticsThresholdExceeded` | Fired when a monitored metric crosses a defined threshold | Metric Name, Current Value, Threshold Value, Comparison Operator, Context, Timestamp | Notification, Customer |
-| `AnalyticsModelDeployed` | Fired when a predictive model is deployed to production | Model ID, Model Type, Version, Creator ID, Performance Metrics, Timestamp | Notification, Customer |
+| `AnalyticsThresholdExceeded` | Fired when a monitored metric crosses a defined threshold | Metric Name, Current Value, Threshold Value, Comparison Operator, Context, Timestamp | Notification, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) |
+| `AnalyticsModelDeployed` | Fired when a predictive model is deployed to production | Model ID, Model Type, Version, Creator ID, Performance Metrics, Timestamp | Notification, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) |
 | `AnalyticsDataQualityIssueDetected` | Fired when data quality problems are identified | Source System, Issue Type, Affected Metrics, Severity, Impact Assessment, Timestamp | Notification |
-| `AnalyticsInsightGenerated` | Fired when the system automatically discovers a significant insight | Insight ID, Insight Type, Description, Confidence Score, Related Metrics, Timestamp | Notification, Customer, Marketing |
-| `AnalyticsForecastUpdated` | Fired when a business forecast is recalculated | Forecast ID, Metric, Time Period, Previous Forecast, New Forecast, Change Percentage, Timestamp | Inventory, Pricing, Marketing |
-| `AnalyticsSegmentationUpdated` | Fired when customer segmentation is recalculated | Segmentation ID, Segment Descriptions, Customer Count Per Segment, Change From Previous, Timestamp | Marketing, Customer |
+| `AnalyticsInsightGenerated` | Fired when the system automatically discovers a significant insight | Insight ID, Insight Type, Description, Confidence Score, Related Metrics, Timestamp | Notification, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Marketing |
+| `AnalyticsForecastUpdated` | Fired when a business forecast is recalculated | Forecast ID, Metric, Time Period, Previous Forecast, New Forecast, Change Percentage, Timestamp | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing), Marketing |
+| `AnalyticsSegmentationUpdated` | Fired when [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) segmentation is recalculated | Segmentation ID, Segment Descriptions, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Count Per Segment, Change From Previous, Timestamp | Marketing, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) |
 | `AnalyticsDataMartRefreshed` | Fired when a data mart completes its refresh cycle | Data Mart Name, Refresh Start Time, Refresh End Time, Status, Record Count, Timestamp | Internal monitoring |
 
 ### Events Consumed by Analytics Domain
@@ -317,24 +317,24 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 
 | Event Name | Producer Context | Purpose | Processing |
 |-----------|----------------|--------|----------|
-| `OrderPlaced` | Order | Track order volume, value, and composition | Aggregate into sales metrics, customer purchase history |
-| `OrderFulfilled` | Order | Measure order fulfillment performance | Calculate fulfillment times, accuracy metrics |
-| `PaymentProcessed` | Payment | Analyze payment methods and patterns | Financial reporting, payment method effectiveness |
-| `CustomerRegistered` | Customer | Track customer acquisition | Customer demographics analysis, acquisition channel performance |
-| `CustomerSegmentAssigned` | Customer | Update customer segmentation | Target group analysis, segment performance tracking |
-| `ProductViewed` | Catalog | Analyze product interest | Product popularity metrics, view-to-purchase conversion |
-| `ProductSearchPerformed` | Catalog | Understand customer search behavior | Search effectiveness metrics, zero-results reporting |
-| `InventoryLevelChanged` | Inventory | Monitor stock levels and movement | Inventory turnover calculation, out-of-stock analysis |
-| `PriceChanged` | Pricing | Track pricing strategies | Price elasticity analysis, margin impact assessment |
+| `OrderPlaced` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Track [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) volume, value, and composition | Aggregate into sales metrics, [Customer](../ubiquitous-language/guidelines/glossary.md#customer) purchase history |
+| `OrderFulfilled` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Measure [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) fulfillment performance | Calculate fulfillment times, accuracy metrics |
+| `PaymentProcessed` | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) | Analyze [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) methods and patterns | Financial reporting, [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) method effectiveness |
+| `CustomerRegistered` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) | Track [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) acquisition | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) demographics analysis, acquisition channel performance |
+| `CustomerSegmentAssigned` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) | Update [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) segmentation | Target group analysis, segment performance tracking |
+| `ProductViewed` | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) | Analyze [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) interest | [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) popularity metrics, view-to-purchase conversion |
+| `ProductSearchPerformed` | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) | Understand [Customer](../ubiquitous-language/guidelines/glossary.md#customer) search behavior | Search effectiveness metrics, zero-results reporting |
+| `InventoryLevelChanged` | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) | Monitor stock levels and movement | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) turnover calculation, out-of-stock analysis |
+| `PriceChanged` | [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#[[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)) | Track [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) strategies | Price elasticity analysis, margin impact assessment |
 | `ShipmentDelivered` | Shipping | Analyze delivery performance | Delivery time metrics, carrier performance comparison |
 | `NotificationDelivered` | Notification | Measure communication efficacy | Notification engagement analysis, communication channel effectiveness |
-| `NotificationEngagementRecorded` | Notification | Analyze customer communication response | Marketing campaign performance, message effectiveness |
-| `ReviewSubmitted` | Review | Track product satisfaction | Product quality metrics, sentiment analysis |
-| `SubscriptionRenewed` | Subscription | Monitor subscription performance | Renewal rate calculation, subscription health metrics |
+| `NotificationEngagementRecorded` | Notification | Analyze [Customer](../ubiquitous-language/guidelines/glossary.md#customer) communication response | Marketing campaign performance, message effectiveness |
+| `ReviewSubmitted` | Review | Track [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) satisfaction | [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) quality metrics, sentiment analysis |
+| `SubscriptionRenewed` | [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)) | Monitor [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) performance | Renewal rate calculation, [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) health metrics |
 | `MarketingCampaignLaunched` | Marketing | Track marketing activities | Campaign attribution, marketing spend efficiency |
 | `WebsiteSessionStarted` | Website | Analyze traffic patterns | Traffic source effectiveness, user flow analysis |
 | `WebsitePageViewed` | Website | Track content engagement | Content effectiveness, navigation analysis |
-| `AuthenticationAttempted` | Authentication | Monitor security patterns | Security metrics, fraud pattern detection |
+| `AuthenticationAttempted` | [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) | Monitor security patterns | Security metrics, fraud pattern detection |
 
 ## Aggregates
 
@@ -528,7 +528,7 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 **Business Rules**:
 - Segments must have clearly defined inclusion criteria
 - Segment membership must be recalculated on defined schedule
-- Dynamic segments must update based on latest customer behavior
+- Dynamic segments must update based on latest [Customer](../ubiquitous-language/guidelines/glossary.md#customer) behavior
 - Segment overlap analysis must be available
 - Segment size history must be tracked over time
 
@@ -703,7 +703,7 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 - SegmentId: Unique identifier
 - Name: Descriptive name
 - Description: Segment definition and purpose
-- Type: Customer, Product, Transaction, etc.
+- Type: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product), Transaction, etc.
 - Criteria: Rules for segment membership
 - CreatedDate: When segment was defined
 - LastRefreshDate: When membership last updated
@@ -982,7 +982,7 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 - Provide audit trail of data movement and transformation
 
 **Dependencies**:
-- All source system domains (Order, Customer, Inventory, etc.)
+- All source system domains ([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), etc.)
 - Data Governance Service
 - Data Security Service
 
@@ -1129,7 +1129,7 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 - Support parameterized reporting for customization
 - Manage report versioning and history
 - Provide pixel-perfect formatting for formal reports
-- Enable report subscription management
+- Enable report [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) management
 - Support multiple output formats (PDF, Excel, HTML, etc.)
 - Track report usage and engagement metrics
 
@@ -1140,7 +1140,7 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 
 ### SegmentationService
 
-**Description**: Manages the creation, maintenance, and application of customer, product, and transactional segments for targeted analysis.
+**Description**: Manages the creation, maintenance, and application of [Customer](../ubiquitous-language/guidelines/glossary.md#customer), [Product](../ubiquitous-language/guidelines/glossary.md#product), and transactional segments for targeted analysis.
 
 **Responsibilities**:
 - Create and maintain segment definitions
@@ -1153,7 +1153,7 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 - Support ML-powered predictive segmentation
 
 **Dependencies**:
-- Customer Profile Service
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Profile Service
 - Behavioral Analytics Service
 - Campaign Management Service
 
@@ -1169,7 +1169,7 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 - Configure data ingestion pipelines and schedules
 - Manage data retention policies and archiving rules
 - Configure system-wide analytical parameters and thresholds
-- Administer data source connections and authentication
+- Administer data source connections and [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)
 - Monitor and optimize analytics system performance
 
 **Authorization**: Requires `analytics:config:manage` permission
@@ -1305,83 +1305,83 @@ The Analytics Domain consumes events from all other bounded contexts to build a 
 
 The Analytics Domain integrates with every other bounded context in the Elias Food Imports ecosystem, as it requires data from all operational systems to provide comprehensive business intelligence. These integrations follow specific patterns tailored to analytical needs.
 
-### [Order Domain](../order/README.md)
+### [[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Domain](../[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)/README.md)
 
 **Integration Type**: Event-based and API-based
 
 **Key Interactions**:
-- Consumes `OrderPlaced`, `OrderFulfilled`, `OrderCancelled`, and other order lifecycle events
-- Retrieves historical order data for trend analysis
-- Provides sales performance metrics back to Order Domain
-- Receives order forecasts for inventory planning
+- Consumes `OrderPlaced`, `OrderFulfilled`, `OrderCancelled`, and other [Order](../ubiquitous-language/guidelines/glossary.md#order) lifecycle events
+- Retrieves historical [Order](../ubiquitous-language/guidelines/glossary.md#order) data for trend analysis
+- Provides sales performance metrics back to [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Domain
+- Receives [Order](../ubiquitous-language/guidelines/glossary.md#order) forecasts for [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) planning
 
 **Data Exchanged**:
-- Order volume, value, composition, and status transitions
-- Customer purchase patterns and basket analysis
-- Order fulfillment metrics and service level analysis
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) volume, value, composition, and status transitions
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) purchase patterns and basket analysis
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) fulfillment metrics and service level analysis
 - Abandoned cart analysis and conversion metrics
 
-### [Customer Domain](../customer/README.md)
+### [[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain](../[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)/README.md)
 
 **Integration Type**: Event-based and API-based
 
 **Key Interactions**:
-- Consumes `CustomerRegistered`, `CustomerProfileUpdated`, and other customer events
-- Accesses customer profile data for segmentation
-- Provides customer segmentation models and lifetime value calculations
-- Delivers insights on customer behavior patterns
+- Consumes `CustomerRegistered`, `CustomerProfileUpdated`, and other [Customer](../ubiquitous-language/guidelines/glossary.md#customer) events
+- Accesses [Customer](../ubiquitous-language/guidelines/glossary.md#customer) profile data for segmentation
+- Provides [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segmentation models and lifetime value calculations
+- Delivers insights on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) behavior patterns
 
 **Data Exchanged**:
-- Customer demographics and firmographics
-- Customer activity history and engagement metrics
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) demographics and firmographics
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) activity history and engagement metrics
 - Segmentation assignments and propensity scores
 - Churn risk indicators and loyalty metrics
 
-### [Inventory Domain](../inventory/README.md)
+### [[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)) Domain](../[[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)/README.md)
 
 **Integration Type**: Event-based with periodic batch synchronization
 
 **Key Interactions**:
 - Consumes `InventoryLevelChanged`, `StockReplenished` events
 - Retrieves historical stock levels and movement data
-- Provides inventory forecasts and optimization recommendations
-- Identifies slow-moving and obsolete inventory
+- Provides [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) forecasts and optimization recommendations
+- Identifies slow-moving and obsolete [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)
 
 **Data Exchanged**:
 - Stock levels across locations and time periods
-- Inventory turnover and days-on-hand metrics
+- [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) turnover and days-on-hand metrics
 - Stockout frequencies and durations
-- Seasonal inventory patterns and trends
+- Seasonal [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) patterns and trends
 
-### [Catalog Domain](../catalog/README.md)
+### [[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)) Domain](../[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)/README.md)
 
 **Integration Type**: Event-based and periodic batch synchronization
 
 **Key Interactions**:
 - Consumes `ProductAdded`, `ProductUpdated`, `ProductViewed` events
-- Accesses complete product catalog and attributes
-- Provides product performance analytics
+- Accesses complete [Product](../ubiquitous-language/guidelines/glossary.md#product) [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) and attributes
+- Provides [Product](../ubiquitous-language/guidelines/glossary.md#product) performance analytics
 - Identifies cross-sell and up-sell opportunities
 
 **Data Exchanged**:
-- Product metadata and categorization
-- Product view, interaction, and conversion metrics
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) metadata and categorization
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) view, interaction, and conversion metrics
 - Search effectiveness and navigation path analysis
-- Product affinity and recommendation performance
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) affinity and recommendation performance
 
-### [Payment Domain](../payment/README.md)
+### [[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) Domain](../[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)/README.md)
 
 **Integration Type**: Event-based with strict data protection
 
 **Key Interactions**:
 - Consumes `PaymentProcessed`, `PaymentFailed`, `RefundIssued` events
-- Analyzes payment method effectiveness
-- Provides payment funnel analysis
+- Analyzes [Payment](../ubiquitous-language/guidelines/glossary.md#payment) method effectiveness
+- Provides [Payment](../ubiquitous-language/guidelines/glossary.md#payment) funnel analysis
 - Identifies fraud patterns and risk factors
 
 **Data Exchanged**:
-- Anonymized/tokenized payment method usage
-- Payment success rates and decline reasons
+- Anonymized/tokenized [Payment](../ubiquitous-language/guidelines/glossary.md#payment) method usage
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) success rates and decline reasons
 - Processing fees and cost analysis
 - Timing patterns for cash flow analysis
 
@@ -1408,46 +1408,46 @@ The Analytics Domain integrates with every other bounded context in the Elias Fo
 **Key Interactions**:
 - Consumes `CampaignLaunched`, `PromotionCreated`, `MarketingEventTriggered` events
 - Provides campaign performance analytics
-- Delivers customer segmentation for targeting
+- Delivers [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segmentation for targeting
 - Supports attribution modeling across channels
 
 **Data Exchanged**:
 - Campaign engagement and conversion metrics
 - Channel effectiveness and ROI analysis
-- Customer response rates by segment
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) response rates by segment
 - Attribution models linking marketing to sales
 
-### Pricing Domain
+### [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Domain
 
 **Integration Type**: Event-based with periodic synchronization
 
 **Key Interactions**:
 - Consumes `PriceChanged`, `DiscountApplied`, `PromotionCreated` events
 - Provides price elasticity analysis
-- Delivers competitive pricing intelligence
+- Delivers competitive [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) intelligence
 - Supports margin impact analysis
 
 **Data Exchanged**:
 - Price points and historical price changes
 - Discount utilization and effectiveness
-- Margin analysis by product, category, and customer segment
-- Price sensitivity models by customer group
+- Margin analysis by [Product](../ubiquitous-language/guidelines/glossary.md#product), category, and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment
+- Price sensitivity models by [Customer](../ubiquitous-language/guidelines/glossary.md#customer) group
 
-### Subscription Domain
+### [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Domain
 
 **Integration Type**: Event-based
 
 **Key Interactions**:
 - Consumes `SubscriptionCreated`, `SubscriptionRenewed`, `SubscriptionCancelled` events
-- Provides subscription health metrics
+- Provides [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) health metrics
 - Delivers churn prediction models
-- Analyzes lifetime value of subscription customers
+- Analyzes lifetime value of [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) customers
 
 **Data Exchanged**:
-- Subscription growth, retention, and churn metrics
+- [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) growth, retention, and churn metrics
 - Upgrade/downgrade patterns and triggers
-- Customer engagement throughout subscription lifecycle
-- Projected subscription revenue and customer lifetime value
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) engagement throughout [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) lifecycle
+- Projected [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) revenue and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) lifetime value
 
 ### Review Domain
 
@@ -1455,13 +1455,13 @@ The Analytics Domain integrates with every other bounded context in the Elias Fo
 
 **Key Interactions**:
 - Consumes `ReviewSubmitted`, `ReviewModerated` events
-- Provides sentiment analysis of customer feedback
-- Delivers product satisfaction metrics
+- Provides sentiment analysis of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) feedback
+- Delivers [Product](../ubiquitous-language/guidelines/glossary.md#product) satisfaction metrics
 - Identifies common issues from text analysis
 
 **Data Exchanged**:
 - Review volumes, ratings, and sentiment scores
-- Product and service satisfaction trends
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) and service satisfaction trends
 - Common themes from text analytics
 - Correlation between reviews and business metrics
 
@@ -1481,7 +1481,7 @@ The Analytics Domain integrates with every other bounded context in the Elias Fo
 - A/B testing results for message variants
 - Optimal timing and frequency analytics
 
-### Authentication Domain
+### [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Domain
 
 **Integration Type**: API-based with strict access controls
 
@@ -1492,7 +1492,7 @@ The Analytics Domain integrates with every other bounded context in the Elias Fo
 - Identifies anomalous access patterns
 
 **Data Exchanged**:
-- User authentication patterns and activity logs
+- User [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) patterns and activity logs
 - System access metrics and usage patterns
 - Security anomalies and risk indicators
 - Anonymized user behavior patterns
@@ -1740,7 +1740,7 @@ Implement comprehensive observability:
 #### Phase 1: Foundation (Months 1-3)
 
 - Establish core data lake/warehouse infrastructure
-- Implement initial data ingestion for critical domains (Order, Customer, Product)
+- Implement initial data ingestion for critical domains ([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product))
 - Deploy basic reporting and dashboarding capabilities
 - Establish data governance foundations
 - Define initial set of business metrics and dimensions
@@ -1800,7 +1800,7 @@ Ensure adherence to relevant standards:
 
 - **GDPR/CCPA**: For personal data processing and privacy
 - **HIPAA**: If processing health-related data
-- **PCI DSS**: For payment card analytics
+- **PCI DSS**: For [Payment](../ubiquitous-language/guidelines/glossary.md#payment) card analytics
 - **SOC 2**: For security and availability assurance
 - **Industry-specific Regulations**: For food industry compliance
 

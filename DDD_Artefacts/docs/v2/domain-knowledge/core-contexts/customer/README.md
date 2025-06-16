@@ -1,78 +1,78 @@
 ---
-title: Customer Domain
-description: Comprehensive documentation for the Customer domain in Elias Food Imports
+title: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain
+description: Comprehensive documentation for the [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) domain in Elias Food Imports
 status: draft
 owner: @chris00walker
 reviewers: @team
 last_updated: 2025-06-10
 ---
 
-# Customer Domain
+# [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain
 
 <!-- GAP_IMPLEMENTED: B2B Organization Management | Medium | High | High -->
-<!-- TODO: stub for "B2B Organization Management" gap in the customer context -->
+<!-- TODO: stub for "B2B Organization Management" gap in the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) context -->
 
-<!-- GAP_IMPLEMENTED: Customer Preference Management | High | High | Medium -->
-<!-- TODO: stub for "Customer Preference Management" gap in the customer context -->
+<!-- GAP_IMPLEMENTED: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Preference Management | High | High | Medium -->
+<!-- TODO: stub for "[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Preference Management" gap in the [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) context -->
 
 ## 1. Domain Overview
 
-The Customer Domain manages all aspects related to customers in the Elias Food Imports (EFI) system. It handles different types of customers, their contact information, preferences, relationships with the business, and segmentation strategies that drive marketing and sales efforts.
+The [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain manages all aspects related to customers in the Elias Food Imports (EFI) system. It handles different types of customers, their contact information, preferences, relationships with the business, and segmentation strategies that drive marketing and sales efforts.
 
 ## 2. Strategic Importance
 
-The Customer Domain is a core domain for Elias Food Imports as it:
+The [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain is a core domain for Elias Food Imports as it:
 
-1. **Enables Personalization**: Allows tailoring of product offerings and communications based on customer segments and preferences
-2. **Drives Sales Strategy**: Provides insights on customer behaviors and preferences to inform sales approaches
-3. **Supports Relationship Building**: Facilitates ongoing engagement with different customer segments
-4. **Enables Loyalty Programs**: Serves as the foundation for customer retention initiatives
-5. **Informs Product Development**: Customer feedback and preferences guide new product introduction
+1. **Enables Personalization**: Allows tailoring of [Product](../ubiquitous-language/guidelines/glossary.md#product) offerings and communications based on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segments and preferences
+2. **Drives Sales Strategy**: Provides insights on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) behaviors and preferences to inform sales approaches
+3. **Supports Relationship Building**: Facilitates ongoing engagement with different [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segments
+4. **Enables Loyalty Programs**: Serves as the foundation for [Customer](../ubiquitous-language/guidelines/glossary.md#customer) retention initiatives
+5. **Informs [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) Development**: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) feedback and preferences guide new [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) introduction
 
 ## 3. Core Concepts
 
-### 1. Customer Segmentation
+### 1. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Segmentation
 
 The practice of dividing customers into groups based on common characteristics, behaviors, or needs to better serve each segment with targeted products and services.
 
-### 2. Customer Profile
+### 2. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Profile
 
-A collection of attributes and preferences that define each customer, including contact information, purchase history, communication preferences, and demographic data.
+A collection of attributes and preferences that define each [Customer](../ubiquitous-language/guidelines/glossary.md#customer), including contact information, purchase history, communication preferences, and demographic data.
 
-### 3. Customer Lifecycle
+### 3. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Lifecycle
 
-The stages a customer goes through in their relationship with EFI, from acquisition to growth, retention, and potentially win-back if they churn.
+The stages a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) goes through in their relationship with EFI, from acquisition to growth, retention, and potentially win-back if they churn.
 
-### 4. Customer Journey
+### 4. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Journey
 
-The complete sequence of interactions and touchpoints a customer has with EFI across all channels and contexts.
+The complete sequence of interactions and touchpoints a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) has with EFI across all channels and contexts.
 
-### 5. Customer Relationship
+### 5. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Relationship
 
-The ongoing connection between EFI and a customer, including communication history, support interactions, and loyalty status.
+The ongoing connection between EFI and a [Customer](../ubiquitous-language/guidelines/glossary.md#customer), including communication history, support interactions, and loyalty status.
 
-### 6. Customer Value
+### 6. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Value
 
-The total worth of a customer to the business over their lifetime, considering purchase frequency, average order value, and relationship duration.
+The total worth of a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) to the business over their lifetime, considering purchase frequency, average [Order](../ubiquitous-language/guidelines/glossary.md#order) value, and relationship duration.
 
 ## 4. Business Rules
 
-### Customer Creation and Management
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Creation and Management
 
-1. Every customer must have a unique identifier, name, segment type, and at least one valid contact method
-2. Customer contact information must include a valid email address and/or phone number
-3. Customer addresses must be validated against address validation service before being stored
-4. Customer data must adhere to relevant data protection regulations (GDPR, CCPA) based on customer location
+1. Every [Customer](../ubiquitous-language/guidelines/glossary.md#customer) must have a unique identifier, name, segment type, and at least one valid contact method
+2. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) contact information must include a valid email address and/or phone number
+3. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) addresses must be validated against address validation service before being stored
+4. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) data must adhere to relevant data protection regulations (GDPR, CCPA) based on [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) location
 5. Customers may opt-out of marketing communications while maintaining their account
 
-### Customer Segmentation
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Segmentation
 
-1. Each customer must be assigned to exactly one primary segment
-2. Customer segment assignment must be recalculated when qualifying behaviors or attributes change
+1. Each [Customer](../ubiquitous-language/guidelines/glossary.md#customer) must be assigned to exactly one primary segment
+2. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) segment assignment must be recalculated when qualifying behaviors or attributes change
 3. Segment reassignment must trigger appropriate notifications to sales and marketing teams
 4. Historical segment data must be maintained for trend analysis
 
-### B2C Customer Rules
+### B2C [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Rules
 
 1. Diaspora customers must specify their cultural connection and origin region
 2. Expat customers must specify their country of origin and current residency status
@@ -81,59 +81,59 @@ The total worth of a customer to the business over their lifetime, considering p
 5. Indigenous foodie customers must specify at least one culinary interest
 6. Family size for indigenous foodie customers must be greater than zero
 
-### B2B Customer Rules
+### B2B [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Rules
 
 1. B2B customers must provide business identification numbers and tax information
 2. Food truck customers must provide license/permit information and operating locations
 3. Restaurant customers (limited/full service) must specify cuisine type and seating capacity
 4. Hotel restaurant customers must provide property star rating and number of dining venues
 5. Private chef customers must specify service area and client capacity
-6. Specialty market customers must provide retail square footage and customer volume
+6. Specialty market customers must provide retail square footage and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) volume
 
-### Customer Account Management
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Account Management
 
-1. Customer accounts inactive for over 24 months must be flagged for review
+1. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) accounts inactive for over 24 months must be flagged for review
 2. Account deletion requests must be processed within 30 days
 3. Changes to primary contact information require verification
 4. Loyalty tier assignments must be recalculated monthly based on spending patterns
 
 ## 5. Domain Events
 
-### Events Published by Customer Domain
+### Events Published by [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain
 
 | Event Name | Description | Payload | Consumers |
 |-----------|-------------|---------|------------|
-| `CustomerCreated` | Fired when a new customer account is created | `{ customerId: string, customerType: string, name: string, contactInfo: object, createdAt: Date }` | Marketing, Analytics, Notification |
-| `CustomerUpdated` | Fired when customer information is modified | `{ customerId: string, modifiedFields: string[], previousValues: object, newValues: object }` | Marketing, Analytics, Notification |
-| `CustomerSegmentChanged` | Fired when a customer is moved to a new segment | Customer ID, Previous Segment, New Segment, Reason Code | Marketing, Analytics, Sales |
-| `CustomerAddressAdded` | Fired when a customer adds a new address | Customer ID, Address Type, Address Data | Order, Shipping |
-| `CustomerAddressUpdated` | Fired when a customer modifies an existing address | Customer ID, Address ID, Previous Data, Updated Data | Order, Shipping |
-| `CustomerPreferencesUpdated` | Fired when customer preferences change | Customer ID, Preference Category, Previous Settings, New Settings | Marketing, Catalog, Notification |
-| `CustomerAccountDeactivated` | Fired when a customer account is deactivated | Customer ID, Reason Code, Deactivation Date | Marketing, Order, Subscription, Analytics |
-| `CustomerAccountReactivated` | Fired when a deactivated customer returns | Customer ID, Reactivation Date, Previous Deactivation Period | Marketing, Analytics |
-| `CustomerMerged` | Fired when duplicate customer records are combined | Primary Customer ID, Secondary Customer ID(s), Merged Data Summary | All domains with customer references |
+| `CustomerCreated` | Fired when a new [Customer](../ubiquitous-language/guidelines/glossary.md#customer) account is created | `{ customerId: string, customerType: string, name: string, contactInfo: object, createdAt: Date }` | Marketing, Analytics, Notification |
+| `CustomerUpdated` | Fired when [Customer](../ubiquitous-language/guidelines/glossary.md#customer) information is modified | `{ customerId: string, modifiedFields: string[], previousValues: object, newValues: object }` | Marketing, Analytics, Notification |
+| `CustomerSegmentChanged` | Fired when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) is moved to a new segment | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, Previous Segment, New Segment, Reason Code | Marketing, Analytics, Sales |
+| `CustomerAddressAdded` | Fired when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) adds a new address | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, Address Type, Address Data | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), Shipping |
+| `CustomerAddressUpdated` | Fired when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) modifies an existing address | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, Address ID, Previous Data, Updated Data | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), Shipping |
+| `CustomerPreferencesUpdated` | Fired when [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) preferences change | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, Preference Category, Previous Settings, New Settings | Marketing, [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), Notification |
+| `CustomerAccountDeactivated` | Fired when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) account is deactivated | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, Reason Code, Deactivation Date | Marketing, [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription), Analytics |
+| `CustomerAccountReactivated` | Fired when a deactivated [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) returns | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, Reactivation Date, Previous Deactivation Period | Marketing, Analytics |
+| `CustomerMerged` | Fired when duplicate [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) records are combined | Primary [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, Secondary [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID(s), Merged Data Summary | All domains with [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) references |
 
-### Events Consumed by Customer Domain
+### Events Consumed by [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain
 
 | Event Name | Producer Context | Purpose | Response |
 |-----------|----------------|--------|----------|
-| `OrderPlaced` | Order | Update customer order history and spending metrics | Update customer record |
-| `SubscriptionCreated` | Subscription | Link subscription to customer and update status | Update customer preferences |
-| `SubscriptionCancelled` | Subscription | Update customer subscription status | Flag for retention follow-up |
-| `PaymentMethodAdded` | Payment | Associate payment method with customer | Update customer payment options |
-| `ProductReviewed` | Review | Link review to customer and update preferences | Update customer interests |
-| `CustomerSupportTicketCreated` | Support | Track support interactions in customer record | Update customer interaction history |
-| `MarketingCampaignEngagement` | Marketing | Track customer response to marketing initiatives | Update engagement metrics |
-| `ProductAuthenticationScanned` | Catalog Authentication | Record product authentication by customer | Update authentication history |
+| `OrderPlaced` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) | Update [Customer](../ubiquitous-language/guidelines/glossary.md#customer) [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) history and spending metrics | Update [Customer](../ubiquitous-language/guidelines/glossary.md#customer) record |
+| `SubscriptionCreated` | [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)) | Link [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) and update status | Update [Customer](../ubiquitous-language/guidelines/glossary.md#customer) preferences |
+| `SubscriptionCancelled` | [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)) | Update [Customer](../ubiquitous-language/guidelines/glossary.md#customer) [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) status | Flag for retention follow-up |
+| `PaymentMethodAdded` | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#[[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)) | Associate [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) method with [Customer](../ubiquitous-language/guidelines/glossary.md#customer) | Update [Customer](../ubiquitous-language/guidelines/glossary.md#customer) [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) options |
+| `ProductReviewed` | Review | Link review to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) and update preferences | Update [Customer](../ubiquitous-language/guidelines/glossary.md#customer) interests |
+| `CustomerSupportTicketCreated` | Support | Track support interactions in [Customer](../ubiquitous-language/guidelines/glossary.md#customer) record | Update [Customer](../ubiquitous-language/guidelines/glossary.md#customer) interaction history |
+| `MarketingCampaignEngagement` | Marketing | Track [Customer](../ubiquitous-language/guidelines/glossary.md#customer) response to marketing initiatives | Update engagement metrics |
+| `ProductAuthenticationScanned` | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#[[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)) | Record [Product](../ubiquitous-language/guidelines/glossary.md#product) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) by [Customer](../ubiquitous-language/guidelines/glossary.md#customer) | Update [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) history |
 
 ## 6. Aggregates, Entities, and Value Objects
 
-### Customer Aggregate
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Aggregate
 
-**Description**: Core aggregate representing a customer in the system and their relationship with Elias Food Imports.
+**Description**: Core aggregate representing a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) in the system and their relationship with Elias Food Imports.
 
 **Entities**:
-- Customer (Root)
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) (Root)
 - CustomerAddress
 - CustomerPreference
 - LoyaltyAccount
@@ -148,17 +148,17 @@ The total worth of a customer to the business over their lifetime, considering p
 - CustomerSegment
 
 **Business Rules**:
-1. Customer names must not be empty
+1. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) names must not be empty
 2. Contact information must include at least one valid contact method
-3. A customer must have at least one verified address before placing orders
+3. A [Customer](../ubiquitous-language/guidelines/glossary.md#customer) must have at least one verified address before placing orders
 4. Loyalty tier calculations must follow defined thresholds and rules
 5. Segment changes must be validated against segment qualification rules
 
-### B2C Customer Aggregates
+### B2C [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Aggregates
 
 **DiasporaCustomer Aggregate**:
 
-**Description**: Extension of Customer aggregate for diaspora community members with cultural ties to Caribbean food.
+**Description**: Extension of [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) aggregate for diaspora community members with cultural ties to Caribbean food.
 
 **Additional Entities**:
 - CulturalPreferences
@@ -173,7 +173,7 @@ The total worth of a customer to the business over their lifetime, considering p
 
 **ExpatCustomer Aggregate**:
 
-**Description**: Extension of Customer aggregate for Caribbean nationals living abroad.
+**Description**: Extension of [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) aggregate for Caribbean nationals living abroad.
 
 **Additional Entities**:
 - ResidencyInformation
@@ -188,7 +188,7 @@ The total worth of a customer to the business over their lifetime, considering p
 2. Must specify current residency status
 3. Expats with subscriptions must provide delivery preferences
 
-### B2B Customer Aggregates
+### B2B [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Aggregates
 
 **BusinessCustomer Aggregate**:
 
@@ -207,7 +207,7 @@ The total worth of a customer to the business over their lifetime, considering p
 **Business Rules**:
 1. Must provide valid business identification numbers
 2. Must have at least one designated ordering authority
-3. Payment terms must be approved by finance
+3. [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) terms must be approved by finance
 
 **RestaurantCustomer Aggregate**:
 
@@ -228,34 +228,34 @@ The total worth of a customer to the business over their lifetime, considering p
 
 ## Entities
 
-### Customer (Abstract Base Entity)
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) (Abstract Base Entity)
 
 **Description**: The base entity for all types of customers in the Elias Food Imports system.
 
 **Attributes**:
 - `customerId`: Unique identifier (Value Object)
-- `name`: Customer name (string)
+- `name`: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) name (string)
 - `contactInfo`: Contact information (Value Object)
-- `customerType`: Type of customer segment (Value Object)
+- `customerType`: Type of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment (Value Object)
 - `status`: Current account status (Value Object)
 - `createdAt`: Date account was created (Date)
 - `updatedAt`: Date account was last updated (Date)
-- `addresses`: Collection of customer addresses (Entity)
-- `preferences`: Customer preferences (Entity)
+- `addresses`: Collection of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) addresses (Entity)
+- `preferences`: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) preferences (Entity)
 - `loyaltyAccount`: Loyalty program information (Entity)
-- `interactionHistory`: History of customer interactions (Entity)
+- `interactionHistory`: History of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) interactions (Entity)
 
 **Behaviors**:
-- `updateContactInformation(ContactInfo)`: Update customer contact details
-- `addAddress(Address)`: Add a new address for the customer
+- `updateContactInformation(ContactInfo)`: Update [Customer](../ubiquitous-language/guidelines/glossary.md#customer) contact details
+- `addAddress(Address)`: Add a new address for the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
 - `updateAddress(Address)`: Modify an existing address
-- `changeStatus(CustomerStatus)`: Change the customer's account status
-- `updatePreferences(CustomerPreference)`: Update customer preferences
-- `calculateLifetimeValue()`: Calculate the total lifetime value of the customer
+- `changeStatus(CustomerStatus)`: Change the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s account status
+- `updatePreferences(CustomerPreference)`: Update [Customer](../ubiquitous-language/guidelines/glossary.md#customer) preferences
+- `calculateLifetimeValue()`: Calculate the total lifetime value of the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
 
 ### CustomerAddress
 
-**Description**: Represents a physical address associated with a customer.
+**Description**: Represents a physical address associated with a [Customer](../ubiquitous-language/guidelines/glossary.md#customer).
 
 **Attributes**:
 - `addressId`: Unique identifier (Value Object)
@@ -272,7 +272,7 @@ The total worth of a customer to the business over their lifetime, considering p
 
 ### CustomerPreference
 
-**Description**: Captures customer preferences across various aspects of their interaction with EFI.
+**Description**: Captures [Customer](../ubiquitous-language/guidelines/glossary.md#customer) preferences across various aspects of their interaction with EFI.
 
 **Attributes**:
 - `preferenceId`: Unique identifier (Value Object)
@@ -284,21 +284,21 @@ The total worth of a customer to the business over their lifetime, considering p
 
 **Behaviors**:
 - `updateCommunicationPreferences(CommunicationPreference)`: Update how and when to contact
-- `addProductInterest(ProductCategory)`: Add a product interest
-- `removeProductInterest(ProductCategory)`: Remove a product interest
+- `addProductInterest(ProductCategory)`: Add a [Product](../ubiquitous-language/guidelines/glossary.md#product) interest
+- `removeProductInterest(ProductCategory)`: Remove a [Product](../ubiquitous-language/guidelines/glossary.md#product) interest
 - `addDietaryPreference(DietaryPreference)`: Add a dietary preference
 - `updateLanguagePreference(Language)`: Change preferred language
 
 ### LoyaltyAccount
 
-**Description**: Tracks a customer's participation in the EFI loyalty program.
+**Description**: Tracks a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s participation in the EFI loyalty program.
 
 **Attributes**:
 - `loyaltyId`: Unique identifier (Value Object)
 - `currentTier`: Current loyalty tier (Value Object)
 - `points`: Current loyalty points balance (number)
 - `tierQualifyingPoints`: Points counting toward next tier (number)
-- `enrollmentDate`: When the customer joined the program (Date)
+- `enrollmentDate`: When the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) joined the program (Date)
 - `lastActivityDate`: Date of last qualifying activity (Date)
 - `pointsHistory`: Collection of point transactions (Collection)
 
@@ -310,10 +310,10 @@ The total worth of a customer to the business over their lifetime, considering p
 
 ### InteractionHistory
 
-**Description**: Records all significant interactions between the customer and EFI.
+**Description**: Records all significant interactions between the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) and EFI.
 
 **Attributes**:
-- `interactions`: Collection of customer interactions (Collection)
+- `interactions`: Collection of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) interactions (Collection)
 
 **Behaviors**:
 - `addInteraction(InteractionType, details, date)`: Record a new interaction
@@ -325,7 +325,7 @@ The total worth of a customer to the business over their lifetime, considering p
 
 ### CustomerId
 
-**Description**: Immutable identifier for customer entities.
+**Description**: Immutable identifier for [Customer](../ubiquitous-language/guidelines/glossary.md#customer) entities.
 
 **Attributes**:
 - `id`: Unique string identifier
@@ -353,7 +353,7 @@ The total worth of a customer to the business over their lifetime, considering p
 
 ### ContactInfo
 
-**Description**: Encapsulates all contact information for a customer.
+**Description**: Encapsulates all contact information for a [Customer](../ubiquitous-language/guidelines/glossary.md#customer).
 
 **Attributes**:
 - `email`: Primary email address
@@ -389,7 +389,7 @@ The total worth of a customer to the business over their lifetime, considering p
 
 ### CustomerStatus
 
-**Description**: Represents the current state of a customer account.
+**Description**: Represents the current state of a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) account.
 
 **Values**:
 - `ACTIVE`: Account is in good standing
@@ -405,8 +405,8 @@ The total worth of a customer to the business over their lifetime, considering p
 **Attributes**:
 - `segmentType`: Primary segment classification (B2C or B2B)
 - `specificSegment`: Specific segment within the type
-- `assignmentDate`: When customer was assigned to this segment
-- `qualificationMetrics`: Metrics that qualified the customer for this segment
+- `assignmentDate`: When [Customer](../ubiquitous-language/guidelines/glossary.md#customer) was assigned to this segment
+- `qualificationMetrics`: Metrics that qualified the [Customer](../ubiquitous-language/guidelines/glossary.md#customer) for this segment
 
 ## B2B Organization Management
 
@@ -493,9 +493,9 @@ classDiagram
 
 | System | Integration Type | Purpose |
 |--------|-----------------|---------|
-| IAM | Authentication | Single Sign-On (SSO) |
+| IAM | [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) | Single Sign-On (SSO) |
 | ERP | Data Sync | Financial hierarchy |
-| Procurement | API | Purchase order approvals |
+| Procurement | API | Purchase [Order](../ubiquitous-language/guidelines/glossary.md#order) approvals |
 | CRM | Events | Account hierarchy visibility |
 | Billing | API | Consolidated billing |
 
@@ -503,16 +503,16 @@ classDiagram
 
 ### CustomerService
 
-Core service for customer-related operations.
+Core service for [Customer](../ubiquitous-language/guidelines/glossary.md#customer)-related operations.
 
 **Methods**:
-- `registerCustomer(customerData): Customer` - Creates a new customer account
-- `updateCustomer(customerId, updates): Customer` - Updates customer information
-- `deactivateCustomer(customerId, reason): void` - Deactivates a customer account
+- `registerCustomer(customerData): [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer))` - Creates a new [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) account
+- `updateCustomer(customerId, updates): [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer))` - Updates [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) information
+- `deactivateCustomer(customerId, reason): void` - Deactivates a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) account
 
 ### SegmentationService
 
-Manages customer segmentation logic.
+Manages [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segmentation logic.
 
 **Methods**:
 - `evaluateCustomerSegments(customerId): Segment[]` - Determines applicable segments
@@ -520,7 +520,7 @@ Manages customer segmentation logic.
 
 ## 8. Integration Points
 
-### Order Context
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context
 - Consumes: `OrderPlaced`, `OrderCancelled` events
 - Publishes: `CustomerOrderHistoryUpdated` event
 
@@ -528,20 +528,20 @@ Manages customer segmentation logic.
 - Consumes: `CustomerSegmentChanged` event
 - Publishes: `MarketingPreferenceUpdated` event
 
-### Authentication Context
+### [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Context
 - Consumes: `UserRegistered`, `UserAuthenticated` events
 - Publishes: `CustomerAccountLinked` event
 
 ## 9. Implementation Recommendations
 
 ### Phase 1: Foundation (Months 1-2)
-- Implement core customer management
+- Implement core [Customer](../ubiquitous-language/guidelines/glossary.md#customer) management
 - Basic segmentation capabilities
 - Essential integration points
 
 ### Phase 2: Advanced Features (Months 3-4)
 - Advanced segmentation rules
-- Customer preference management
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) preference management
 - Enhanced integration with other contexts
 
 ### Phase 3: Optimization (Months 5-6)
@@ -560,9 +560,9 @@ Manages customer segmentation logic.
 
 ## Related Documents
 
-- [Order Domain](../order/README.md)
+- [[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Domain](../[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)/README.md)
 - [Marketing Domain](../marketing/README.md)
-- [Authentication Context](../../supporting-contexts/authentication/README.md)
+- [[[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#[[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)) Context](../../supporting-contexts/[[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)/README.md)
 - [Ubiquitous Language Glossary](../../ubiquitous-language/README.md)
 
 ### B2B-Specific Value Objects
@@ -582,7 +582,7 @@ Manages customer segmentation logic.
 - `legalEntityName`: Registered legal name
 - `dbaName`: Doing Business As name (if different)
 - `creditRating`: Credit rating from external agency
-- `paymentTerms`: Standard payment terms (NET_30, NET_60, etc.)
+- `paymentTerms`: Standard [Payment](../ubiquitous-language/guidelines/glossary.md#payment) terms (NET_30, NET_60, etc.)
 
 ### B2C-Specific Value Objects
 
@@ -627,31 +627,31 @@ Manages customer segmentation logic.
 
 ### CustomerFactory
 
-**Description**: Service responsible for creating appropriate customer instances based on customer type.
+**Description**: Service responsible for creating appropriate [Customer](../ubiquitous-language/guidelines/glossary.md#customer) instances based on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) type.
 
 **Key Methods**:
-- `createCustomer(customerType, props)`: Creates a specific customer subtype based on the provided type
-- `recreateCustomer(data)`: Reconstitutes a customer instance from stored data
+- `createCustomer(customerType, props)`: Creates a specific [Customer](../ubiquitous-language/guidelines/glossary.md#customer) subtype based on the provided type
+- `recreateCustomer(data)`: Reconstitutes a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) instance from stored data
 
 **Used By**:
-- Customer registration process
-- Customer data import workflows
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) registration process
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data import workflows
 - Event sourcing reconstruction
 
 ### CustomerSegmentationService
 
-**Description**: Evaluates customer attributes and behaviors to determine the most appropriate segment.
+**Description**: Evaluates [Customer](../ubiquitous-language/guidelines/glossary.md#customer) attributes and behaviors to determine the most appropriate segment.
 
 **Key Methods**:
-- `evaluateCustomerSegment(customerId)`: Determines the appropriate segment for a customer
-- `applySegmentRules(customer)`: Applies segmentation rules to a customer
-- `calculateSegmentQualification(customer, segment)`: Checks if a customer qualifies for a specific segment
-- `getSegmentTransitionHistory(customerId)`: Retrieves segment change history for a customer
+- `evaluateCustomerSegment(customerId)`: Determines the appropriate segment for a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
+- `applySegmentRules([Customer](../ubiquitous-language/guidelines/glossary.md#customer))`: Applies segmentation rules to a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
+- `calculateSegmentQualification([Customer](../ubiquitous-language/guidelines/glossary.md#customer), segment)`: Checks if a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) qualifies for a specific segment
+- `getSegmentTransitionHistory(customerId)`: Retrieves segment change history for a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
 
 **Used By**:
 - Automated segmentation processes
 - Marketing campaigns
-- Customer onboarding
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) onboarding
 - Business intelligence reporting
 
 ### CustomerLoyaltyService
@@ -659,34 +659,34 @@ Manages customer segmentation logic.
 **Description**: Manages loyalty program enrollment, point transactions, and tier status.
 
 **Key Methods**:
-- `enrollCustomerInLoyalty(customerId)`: Creates a new loyalty account for a customer
-- `awardPoints(customerId, points, reason)`: Adds points to a customer's loyalty account
+- `enrollCustomerInLoyalty(customerId)`: Creates a new loyalty account for a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
+- `awardPoints(customerId, points, reason)`: Adds points to a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s loyalty account
 - `redeemPoints(customerId, points, redemptionType)`: Uses points for rewards
 - `evaluateTierStatus(customerId)`: Checks and updates tier based on activity and points
 - `calculatePointsExpiration(customerId)`: Determines which points are set to expire
 
 **Used By**:
-- Order processing
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) processing
 - Marketing promotions
-- Customer service representatives
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) service representatives
 - Loyalty management interface
 
 ### CustomerInsightService
 
-**Description**: Analyzes customer data to generate actionable insights and predictions.
+**Description**: Analyzes [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data to generate actionable insights and predictions.
 
 **Key Methods**:
-- `calculateCustomerLifetimeValue(customerId)`: Determines the total value of a customer relationship
-- `predictChurnRisk(customerId)`: Assesses the risk of customer churn
-- `generateProductRecommendations(customerId)`: Creates personalized product suggestions
+- `calculateCustomerLifetimeValue(customerId)`: Determines the total value of a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) relationship
+- `predictChurnRisk(customerId)`: Assesses the risk of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) churn
+- `generateProductRecommendations(customerId)`: Creates personalized [Product](../ubiquitous-language/guidelines/glossary.md#product) suggestions
 - `identifyUpsellOpportunities(customerId)`: Finds opportunities for increased sales
 - `analyzePurchasePatterns(customerId)`: Examines buying trends and habits
 
 **Used By**:
 - Marketing campaign targeting
 - Sales strategy planning
-- Product recommendation engine
-- Customer retention initiatives
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) recommendation engine
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) retention initiatives
 
 ### AddressVerificationService
 
@@ -699,30 +699,30 @@ Manages customer segmentation logic.
 - `checkDeliverability(address)`: Confirms an address can receive shipments
 
 **Used By**:
-- Customer registration
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) registration
 - Address update workflows
-- Order placement
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) placement
 - Shipping processes
 
 ### CustomerMergeService
 
-**Description**: Handles the consolidation of duplicate customer records.
+**Description**: Handles the consolidation of duplicate [Customer](../ubiquitous-language/guidelines/glossary.md#customer) records.
 
 **Key Methods**:
-- `identifyDuplicateCustomers()`: Finds potential duplicate customer records
+- `identifyDuplicateCustomers()`: Finds potential duplicate [Customer](../ubiquitous-language/guidelines/glossary.md#customer) records
 - `evaluateMergeCandidates(customerId1, customerId2)`: Assesses if two records should be merged
-- `mergeCustomers(primaryId, secondaryId)`: Combines two customer records
+- `mergeCustomers(primaryId, secondaryId)`: Combines two [Customer](../ubiquitous-language/guidelines/glossary.md#customer) records
 - `notifyRelatedContexts(customerId, mergedIds)`: Informs other contexts of the merge
 
 **Used By**:
 - Data quality processes
-- Customer service representatives
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) service representatives
 - System administrators
 - Data migration workflows
 
 ## Integration Points
 
-### Order Context
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context
 
 **Relationship**: Bidirectional
 
@@ -731,10 +731,10 @@ Manages customer segmentation logic.
 - Shared API
 
 **Key Interactions**:
-- Customer Domain **provides** customer details, addresses, and preferences for order processing
-- Customer Domain **consumes** order history to update customer lifetime value and purchase patterns
-- Customer Domain **consumes** `OrderPlaced` events to award loyalty points
-- Customer Domain **publishes** `CustomerAddressAdded` events that Order Context consumes
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **provides** [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) details, addresses, and preferences for [Order](../ubiquitous-language/guidelines/glossary.md#order) processing
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **consumes** [Order](../ubiquitous-language/guidelines/glossary.md#order) history to update [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) lifetime value and purchase patterns
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain **consumes** `OrderPlaced` events to award loyalty points
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain **publishes** `CustomerAddressAdded` events that [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context consumes
 
 ### Marketing Context
 
@@ -745,13 +745,13 @@ Manages customer segmentation logic.
 - Query API
 
 **Key Interactions**:
-- Customer Domain **provides** segmentation data for targeted campaigns
-- Customer Domain **provides** customer preference data for personalization
-- Customer Domain **consumes** campaign engagement data to update customer profiles
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain **provides** segmentation data for targeted campaigns
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **provides** [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) preference data for personalization
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **consumes** campaign engagement data to update [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) profiles
 - Marketing Domain **consumes** `CustomerSegmentChanged` events to adjust targeting
-- Customer Domain **consumes** `MarketingCampaignEngagement` events
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain **consumes** `MarketingCampaignEngagement` events
 
-### Subscription Context
+### [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Context
 
 **Relationship**: Bidirectional
 
@@ -760,13 +760,13 @@ Manages customer segmentation logic.
 - Shared API
 
 **Key Interactions**:
-- Customer Domain **provides** customer verification for subscription creation
-- Customer Domain **consumes** subscription status to update customer record
-- Customer Domain **consumes** `SubscriptionCreated` and `SubscriptionCancelled` events
-- Subscription Context **consumes** `CustomerUpdated` events for delivery information
-- Subscription Context **consumes** `CustomerAddressUpdated` events
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **provides** [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) verification for [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) creation
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **consumes** [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) status to update [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) record
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain **consumes** `SubscriptionCreated` and `SubscriptionCancelled` events
+- [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Context **consumes** `CustomerUpdated` events for delivery information
+- [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Context **consumes** `CustomerAddressUpdated` events
 
-### Payment Context
+### [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context
 
 **Relationship**: Bidirectional
 
@@ -775,22 +775,22 @@ Manages customer segmentation logic.
 - Command API
 
 **Key Interactions**:
-- Customer Domain **provides** customer identification for payment processing
-- Customer Domain **consumes** payment history to update customer financial standing
-- Payment Context **consumes** `CustomerUpdated` events for billing information changes
-- Customer Domain **consumes** `PaymentMethodAdded` events
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **provides** [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) identification for [Payment](../ubiquitous-language/guidelines/glossary.md#payment) processing
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **consumes** [Payment](../ubiquitous-language/guidelines/glossary.md#payment) history to update [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) financial standing
+- [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Context **consumes** `CustomerUpdated` events for billing information changes
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain **consumes** `PaymentMethodAdded` events
 
-### Catalog Context
+### [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context
 
-**Relationship**: Unidirectional (Catalog to Customer)
+**Relationship**: Unidirectional ([[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) to [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer))
 
 **Integration Methods**:
 - Domain Events
 - Read-only API
 
 **Key Interactions**:
-- Customer Domain **consumes** product information to map against customer preferences
-- Customer Domain **consumes** product category updates to refine customer interests
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **consumes** [Product](../ubiquitous-language/guidelines/glossary.md#product) information to map against [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) preferences
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **consumes** [Product](../ubiquitous-language/guidelines/glossary.md#product) category updates to refine [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) interests
 
 ### Analytics Context
 
@@ -801,90 +801,90 @@ Manages customer segmentation logic.
 - Data Export API
 
 **Key Interactions**:
-- Customer Domain **provides** customer data for analytical processing
-- Customer Domain **consumes** analytical insights to refine segmentation
-- Analytics Context **consumes** all customer-related domain events for data warehousing
-- Customer Domain **consumes** `AnalyticsInsightGenerated` events for customer scoring
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **provides** [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data for analytical processing
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain **consumes** analytical insights to refine segmentation
+- Analytics Context **consumes** all [Customer](../ubiquitous-language/guidelines/glossary.md#customer)-related domain events for data warehousing
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **consumes** `AnalyticsInsightGenerated` events for [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) scoring
 
-### Authentication and Identity Context
+### [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) and Identity Context
 
-**Relationship**: Unidirectional (Identity to Customer)
+**Relationship**: Unidirectional (Identity to [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer))
 
 **Integration Methods**:
 - Shared API
 - Command API
 
 **Key Interactions**:
-- Customer Domain **consumes** authentication verification to link customers to user accounts
-- Customer Domain **provides** customer validation for new account creation
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain **consumes** [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) verification to link customers to user accounts
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **provides** [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) validation for new account creation
 
-### Catalog Authentication Context
+### [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Context
 
-**Relationship**: Unidirectional (Auth to Customer)
+**Relationship**: Unidirectional (Auth to [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer))
 
 **Integration Methods**:
 - Domain Events
 
 **Key Interactions**:
-- Customer Domain **consumes** `ProductAuthenticationScanned` events to track customer engagement with authentication features
-- Customer Domain **updates** interaction history when a customer authenticates products
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **consumes** `ProductAuthenticationScanned` events to track [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) engagement with [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) features
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **updates** interaction history when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) authenticates products
 
 ### Notification Context
 
-**Relationship**: Unidirectional (Customer to Notification)
+**Relationship**: Unidirectional ([[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) to Notification)
 
 **Integration Methods**:
 - Command API
 - Domain Events
 
 **Key Interactions**:
-- Customer Domain **publishes** events that trigger customer notifications
-- Customer Domain **provides** contact preferences for communication channel selection
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain **publishes** events that trigger [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) notifications
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain **provides** contact preferences for communication channel selection
 
 ## Implementation Recommendations
 
 ### Architecture Recommendations
 
 1. **CQRS Pattern**: Implement Command Query Responsibility Segregation to separate read and write operations
-   - Commands: Customer creation, updates, segment changes
-   - Queries: Customer profiles, segment lists, analytics views
+   - Commands: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) creation, updates, segment changes
+   - Queries: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) profiles, segment lists, analytics views
    
-2. **Event Sourcing**: Consider event sourcing for customer data to maintain complete history
+2. **Event Sourcing**: Consider event sourcing for [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data to maintain complete history
    - Event store should capture all state changes
    - Snapshots at regular intervals for performance
    - Event replay capabilities for audit and recovery
 
 3. **Microservices Approach**:
-   - Core Customer Service: Customer CRUD operations
+   - Core [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Service: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) CRUD operations
    - Segmentation Service: Segment analysis and assignment
    - Loyalty Service: Points and rewards management
-   - Customer Insights Service: Analytics and recommendations
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Insights Service: Analytics and recommendations
 
 4. **Data Storage Strategy**:
-   - Primary customer data: Document database (MongoDB/CosmosDB)
-   - Customer search: Elasticsearch for complex querying
-   - Customer analytics: Data warehouse with dimensional model
+   - Primary [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data: Document database (MongoDB/CosmosDB)
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) search: Elasticsearch for complex querying
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) analytics: Data warehouse with dimensional model
    - Historical events: Append-only event store
 
 ### Technical Considerations
 
 1. **Performance Optimization**:
-   - Cache frequently accessed customer profiles
+   - Cache frequently accessed [Customer](../ubiquitous-language/guidelines/glossary.md#customer) profiles
    - Implement segmentation calculation as background process
-   - Consider read replicas for high-traffic customer lookup operations
-   - Segment bulk operations for large customer data updates
+   - Consider read replicas for high-traffic [Customer](../ubiquitous-language/guidelines/glossary.md#customer) lookup operations
+   - Segment bulk operations for large [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data updates
 
 2. **Security Requirements**:
    - Implement field-level encryption for sensitive data
-   - Role-based access control for customer data
-   - Audit logging for all customer data access
+   - Role-based access control for [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data
+   - Audit logging for all [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data access
    - Compliance with data protection regulations (GDPR, CCPA)
    - Data retention policies and purging mechanisms
 
 3. **Integration Patterns**:
    - Domain Event Publication: Kafka/RabbitMQ for event distribution
    - Synchronous APIs: REST/GraphQL for direct queries
-   - Customer Data Sync: CDC (Change Data Capture) for real-time updates
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Data Sync: CDC (Change Data Capture) for real-time updates
    - Segment Webhooks: Push notifications for segment changes
 
 4. **Resilience Patterns**:
@@ -896,24 +896,24 @@ Manages customer segmentation logic.
 ### Priority Implementations
 
 1. **Phase 1 (Immediate)**:
-   - Core Customer domain model implementation
+   - Core [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) domain model implementation
    - Basic segmentation capabilities
    - Essential domain events
-   - Critical integration points (Order, Subscription)
+   - Critical integration points ([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order), [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription))
    
 2. **Phase 2 (3-6 months)**:
    - Advanced segmentation algorithms
    - Loyalty program implementation
-   - Customer insight generation
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) insight generation
    - Extended integration points
-   - Customer Segment Extensions (segmentType enum, segment-specific VOs)
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Segment Extensions (segmentType enum, segment-specific VOs)
 
 3. **Phase 3 (6-12 months)**:
    - Predictive analytics integration
-   - Customer journey mapping
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) journey mapping
    - Machine learning recommendation engine
-   - Customer Segment Webhooks for external system integration
-   - 360-degree customer view
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Segment Webhooks for external system integration
+   - 360-degree [Customer](../ubiquitous-language/guidelines/glossary.md#customer) view
 
 ### Testing Strategy
 
@@ -930,36 +930,36 @@ Manages customer segmentation logic.
    - Cache interaction
 
 3. **Performance Testing**:
-   - Large customer base segmentation performance
-   - Customer lookup response times
+   - Large [Customer](../ubiquitous-language/guidelines/glossary.md#customer) base segmentation performance
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) lookup response times
    - Concurrent update handling
    - Event processing throughput
 
 4. **Business Acceptance Testing**:
    - Segmentation accuracy ≥ 90%
    - Churn prediction accuracy ≥ 85%
-   - Customer lifetime value calculation accuracy
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) lifetime value calculation accuracy
    - Loyalty program ROI ≥ 3:1
    - Overall churn reduction ≥ 30%
 
 ### Monitoring and Observability
 
 1. **Key Metrics**:
-   - Customer data read/write latency
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data read/write latency
    - Segmentation process duration
-   - Customer record access patterns
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) record access patterns
    - Domain event processing times
    - API response times by endpoint
 
 2. **Alerting Thresholds**:
-   - Customer service error rate > 0.1%
-   - Customer data synchronization delay > 5 minutes
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) service error rate > 0.1%
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data synchronization delay > 5 minutes
    - Segmentation process duration > 30 minutes
-   - Customer lookup latency > 200ms (p95)
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) lookup latency > 200ms (p95)
 
 3. **Dashboards**:
    - Operational health dashboard
-   - Customer data quality metrics
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data quality metrics
    - Segmentation effectiveness visualization
    - Integration health status
 
@@ -969,29 +969,29 @@ Manages customer segmentation logic.
 
 #### CustomerManagementAdminService
 
-**Responsibility**: Provides advanced customer management capabilities for administrative users
+**Responsibility**: Provides advanced [Customer](../ubiquitous-language/guidelines/glossary.md#customer) management capabilities for administrative users
 
 **Operations**:
-- Override customer verification and approval processes
-- Manage customer account status changes (activation, suspension, closure)
-- Handle customer data correction and special case management
-- Configure customer data validation rules and constraints
-- Perform customer account merges and splits when necessary
+- Override [Customer](../ubiquitous-language/guidelines/glossary.md#customer) verification and approval processes
+- Manage [Customer](../ubiquitous-language/guidelines/glossary.md#customer) account status changes (activation, suspension, closure)
+- Handle [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data correction and special case management
+- Configure [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data validation rules and constraints
+- Perform [Customer](../ubiquitous-language/guidelines/glossary.md#customer) account merges and splits when necessary
 
-**Authorization**: Requires `customer:manage` permission
+**Authorization**: Requires `[Customer](../ubiquitous-language/guidelines/glossary.md#customer):manage` permission
 
 #### SegmentationAdminService
 
-**Responsibility**: Manages customer segmentation rules and configurations
+**Responsibility**: Manages [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segmentation rules and configurations
 
 **Operations**:
-- Define and modify customer segment definitions and criteria
+- Define and modify [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment definitions and criteria
 - Configure segment transition rules and thresholds
 - Manage segment-specific business rules and policies
 - Execute manual segment assignments with proper justification
 - Generate segmentation analysis and effectiveness reports
 
-**Authorization**: Requires `customer:segmentation:manage` permission
+**Authorization**: Requires `[Customer](../ubiquitous-language/guidelines/glossary.md#customer):segmentation:manage` permission
 
 #### CustomerDataComplianceService
 
@@ -1004,19 +1004,19 @@ Manages customer segmentation logic.
 - Execute data purging and archiving operations
 - Generate compliance audit reports and documentation
 
-**Authorization**: Requires `customer:compliance:manage` permission
+**Authorization**: Requires `[Customer](../ubiquitous-language/guidelines/glossary.md#customer):compliance:manage` permission
 
 ### Admin Read Models
 
 #### CustomerAcquisitionDashboardModel
 
-**Purpose**: Monitors customer acquisition performance and trends
+**Purpose**: Monitors [Customer](../ubiquitous-language/guidelines/glossary.md#customer) acquisition performance and trends
 
 **Key Metrics**:
-- New customer registration rates by segment and channel
-- Customer acquisition cost by segment and source
+- New [Customer](../ubiquitous-language/guidelines/glossary.md#customer) registration rates by segment and channel
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) acquisition cost by segment and source
 - Verification completion rates and abandonment points
-- Geographic distribution of new customer registrations
+- Geographic distribution of new [Customer](../ubiquitous-language/guidelines/glossary.md#customer) registrations
 
 #### CustomerSegmentationDashboardModel
 
@@ -1025,15 +1025,15 @@ Manages customer segmentation logic.
 **Key Metrics**:
 - Segment distribution and population changes over time
 - Segment transition patterns and velocity
-- Segment performance comparison (revenue, order frequency)
+- Segment performance comparison (revenue, [Order](../ubiquitous-language/guidelines/glossary.md#order) frequency)
 - Segmentation accuracy and predictive power metrics
 
 #### CustomerDataQualityDashboardModel
 
-**Purpose**: Monitors customer data quality and compliance status
+**Purpose**: Monitors [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data quality and compliance status
 
 **Key Metrics**:
-- Data completeness by customer segment and field
+- Data completeness by [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment and field
 - Address verification success rates and error patterns
 - Duplicate detection rates and resolution metrics
 - Compliance status by regulatory framework (GDPR, CCPA)
