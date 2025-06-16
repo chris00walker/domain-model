@@ -7,7 +7,11 @@ status: "Final"
 
 # Ubiquitous Language Framework
 
-This document serves as the central hub for the Ubiquitous Language Consistency Framework for Elias Food Imports. It provides a comprehensive approach to maintaining terminology consistency across all aspects of the domain model.
+This document serves as the central hub for the Ubiquitous Language Consistency Framework for Elias Food Imports. 
+
+**The single authoritative source for all domain terms is [`guidelines/glossary.md`](./guidelines/glossary.md).**
+
+This framework provides a comprehensive approach to maintaining terminology consistency across all aspects of the domain model.
 
 ## Framework Components
 
@@ -15,7 +19,7 @@ This document serves as the central hub for the Ubiquitous Language Consistency 
 
 - [Ubiquitous Language Guidelines](./guidelines/ubiquitous_language_guidelines.md) - Foundational principles and standards
 - [Ubiquitous Language Evolution Process](./guidelines/ubiquitous_language_evolution.md) - How the language evolves over time
-- [Domain Glossary](./guidelines/glossary.md) - Authoritative definitions of all domain terms
+- [Domain Glossary](./guidelines/glossary.md) - Authoritative definitions of all domain terms (single source of truth)
 ### 2. Implementation Guides
 
 - [Ubiquitous Language in API Design](./implementation-guides/api_design.md) - Applying ubiquitous language to API design
