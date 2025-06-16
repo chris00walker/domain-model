@@ -8,21 +8,21 @@ last_updated: 2025-06-10
 
 # Review Domain
 
-<!-- GAP_IMPLEMENTED: Authentication Integration | Low | Medium | Medium -->
-<!-- stub for "Authentication Integration" gap in the review context -->
+<!-- GAP_IMPLEMENTED: [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Integration | Low | Medium | Medium -->
+<!-- stub for "[[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Integration" gap in the review context -->
 
 ## Domain Overview
 
-The Review Domain manages the collection, processing, and utilization of customer feedback about products in the Elias Food Imports (EFI) system. It encompasses all aspects of product reviews, ratings, and feedback mechanisms that help ensure product quality and improve customer satisfaction.
+The Review Domain manages the collection, processing, and utilization of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) feedback about products in the Elias Food Imports (EFI) system. It encompasses all aspects of [Product](../ubiquitous-language/guidelines/glossary.md#product) reviews, ratings, and feedback mechanisms that help ensure [Product](../ubiquitous-language/guidelines/glossary.md#product) quality and improve [Customer](../ubiquitous-language/guidelines/glossary.md#customer) satisfaction.
 
 ## Strategic Importance
 
 The Review Domain is strategically important to Elias Food Imports for the following reasons:
 
-1. **Product Quality Assurance**: Customer reviews provide real-world insights into product quality, helping identify issues requiring attention
-2. **Customer Trust Building**: Transparent review systems build trust with customers by showing commitment to quality and customer satisfaction
-3. **Social Proof**: Positive reviews serve as social proof for potential customers, driving new sales and customer acquisition
-4. **Data-Driven Product Development**: Review data informs product improvements and new product development
+1. **[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) Quality Assurance**: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) reviews provide real-world insights into [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) quality, helping identify issues requiring attention
+2. **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Trust Building**: Transparent review systems build trust with customers by showing commitment to quality and [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) satisfaction
+3. **Social Proof**: Positive reviews serve as social proof for potential customers, driving new sales and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) acquisition
+4. **Data-Driven [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)) Development**: Review data informs [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) improvements and new [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) development
 5. **Marketing Content Generation**: Authentic reviews provide valuable content for marketing campaigns
 6. **Counterfeit Detection**: Review patterns can help identify potentially counterfeit products in the market
 
@@ -30,11 +30,11 @@ The Review Domain is strategically important to Elias Food Imports for the follo
 
 ### 1. Review
 
-A formal assessment of a product provided by a customer after purchase or consumption, including both quantitative ratings and qualitative feedback.
+A formal assessment of a [Product](../ubiquitous-language/guidelines/glossary.md#product) provided by a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) after purchase or consumption, including both quantitative ratings and qualitative feedback.
 
 ### 2. Rating
 
-A numerical score (typically on a 1-5 scale) that quantifies a customer's satisfaction with a product.
+A numerical score (typically on a 1-5 scale) that quantifies a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s satisfaction with a [Product](../ubiquitous-language/guidelines/glossary.md#product).
 
 ### 3. Review Moderation
 
@@ -46,49 +46,49 @@ The systematic identification, extraction, and categorization of opinions expres
 
 ### 5. Verified Purchase
 
-A designation indicating that a review was submitted by a customer who purchased the product through official EFI channels, enhancing the credibility of the review.
+A designation indicating that a review was submitted by a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) who purchased the [Product](../ubiquitous-language/guidelines/glossary.md#product) through official EFI channels, enhancing the credibility of the review.
 
 ### 6. Review Response
 
-An official reply from EFI or product suppliers to customer reviews, addressing concerns or acknowledging feedback.
+An official reply from EFI or [Product](../ubiquitous-language/guidelines/glossary.md#product) suppliers to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) reviews, addressing concerns or acknowledging feedback.
 
 ### 7. Review Aggregation
 
-The process of combining multiple reviews to generate summary statistics and insights about product performance.
+The process of combining multiple reviews to generate summary statistics and insights about [Product](../ubiquitous-language/guidelines/glossary.md#product) performance.
 
 ## Business Rules
 
 ### Review Submission
 
-1. Only registered customers who have purchased a product may submit reviews for that product
-2. Customers may only submit one review per product, but may edit their review within 30 days of submission
+1. Only registered customers who have purchased a [Product](../ubiquitous-language/guidelines/glossary.md#product) may submit reviews for that [Product](../ubiquitous-language/guidelines/glossary.md#product)
+2. Customers may only submit one review per [Product](../ubiquitous-language/guidelines/glossary.md#product), but may edit their review within 30 days of submission
 3. Reviews must include both a rating (1-5 scale) and a text comment of at least 20 characters
-4. Reviews cannot be submitted until at least 7 days after product delivery to ensure adequate usage experience
+4. Reviews cannot be submitted until at least 7 days after [Product](../ubiquitous-language/guidelines/glossary.md#product) delivery to ensure adequate usage experience
 5. Customers cannot review products they themselves supply (in the case of marketplace sellers)
 
 ### Review Content
 
 1. Review content must not contain profanity, personal attacks, or promotional material
 2. Review content must not contain personally identifiable information or contact details
-3. Reviews discussing product authenticity must be flagged for investigation by the Catalog Authentication Context
-4. Images attached to reviews must be directly related to the product being reviewed
+3. Reviews discussing [Product](../ubiquitous-language/guidelines/glossary.md#product) authenticity must be flagged for investigation by the [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Context
+4. Images attached to reviews must be directly related to the [Product](../ubiquitous-language/guidelines/glossary.md#product) being reviewed
 5. All review content must comply with EFI's content guidelines and terms of service
 
 ### Review Moderation
 
 1. All reviews must pass through moderation before being publicly displayed
 2. Reviews must be moderated within 48 hours of submission
-3. Rejected reviews must include a rejection reason that is communicated to the customer
-4. Reviews containing critical product quality or safety concerns must be escalated to Quality Assurance within 24 hours
+3. Rejected reviews must include a rejection reason that is communicated to the [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
+4. Reviews containing critical [Product](../ubiquitous-language/guidelines/glossary.md#product) quality or safety concerns must be escalated to Quality Assurance within 24 hours
 5. Moderation decisions can be appealed by customers once per review
 
 ### Review Display
 
-1. Reviews are displayed in order of helpfulness ranking, with verified purchase reviews given priority
+1. Reviews are displayed in [Order](../ubiquitous-language/guidelines/glossary.md#order) of helpfulness ranking, with verified purchase reviews given priority
 2. Review summary statistics must be updated within 1 hour of a new review being approved
 3. Products with fewer than 5 reviews should display an "Early Reviews" indicator
 4. Reviews older than 12 months must be clearly labeled as such
-5. Reviews for previous versions of a product must be clearly distinguished from current version reviews
+5. Reviews for previous versions of a [Product](../ubiquitous-language/guidelines/glossary.md#product) must be clearly distinguished from current version reviews
 
 ### Review Analysis
 
@@ -96,7 +96,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 2. Products receiving three consecutive 1-star reviews must trigger a quality alert
 3. Significant deviations in average rating (>1 point within a 30-day period) must trigger an investigation
 4. Review patterns indicating potential misuse must be flagged for fraud investigation
-5. Review metrics must be included in monthly product performance reports
+5. Review metrics must be included in monthly [Product](../ubiquitous-language/guidelines/glossary.md#product) performance reports
 
 ## Domain Events
 
@@ -104,32 +104,32 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 | Event Name | Description | Payload | Consumers |
 |-----------|-------------|---------|------------|
-| `ProductReviewed` | Fired when a customer submits a new review | Product ID, Customer ID, Rating, Review Text, Review ID, Submission Date | Catalog, Customer, Analytics, Notification |
-| `ReviewModerated` | Fired when a review passes or fails moderation | Review ID, Moderation Status, Moderator ID, Moderation Date, Reason (if rejected) | Catalog, Customer, Analytics, Notification |
-| `ReviewEdited` | Fired when a customer edits an existing review | Review ID, Previous Content, New Content, Edit Date | Catalog, Analytics |
-| `ReviewHelpfulnessVoted` | Fired when a customer votes on review helpfulness | Review ID, Customer ID, Vote (helpful/not helpful), Vote Date | Catalog, Analytics |
-| `ReviewResponseAdded` | Fired when EFI or supplier responds to a review | Review ID, Response Text, Responder ID, Response Date | Catalog, Customer, Notification |
-| `ProductQualityAlertTriggered` | Fired when review patterns indicate quality issues | Product ID, Alert Type, Triggering Reviews, Threshold Breached, Alert Date | Catalog, Inventory, Analytics, Quality Assurance |
-| `ReviewReportSubmitted` | Fired when a customer reports a review as inappropriate | Review ID, Reporter ID, Report Reason, Report Date | Customer, Analytics |
-| `ReviewTrendDetected` | Fired when significant trends are detected in reviews | Product ID, Trend Type, Trend Metrics, Detection Date, Confidence Score | Catalog, Analytics, Marketing |
+| `ProductReviewed` | Fired when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) submits a new review | [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) ID, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, Rating, Review Text, Review ID, Submission Date | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)), Analytics, Notification |
+| `ReviewModerated` | Fired when a review passes or fails moderation | Review ID, Moderation Status, Moderator ID, Moderation Date, Reason (if rejected) | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Analytics, Notification |
+| `ReviewEdited` | Fired when a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) edits an existing review | Review ID, Previous Content, New Content, Edit Date | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), Analytics |
+| `ReviewHelpfulnessVoted` | Fired when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) votes on review helpfulness | Review ID, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, Vote (helpful/not helpful), Vote Date | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), Analytics |
+| `ReviewResponseAdded` | Fired when EFI or supplier responds to a review | Review ID, Response Text, Responder ID, Response Date | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Notification |
+| `ProductQualityAlertTriggered` | Fired when review patterns indicate quality issues | [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) ID, Alert Type, Triggering Reviews, Threshold Breached, Alert Date | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), Analytics, Quality Assurance |
+| `ReviewReportSubmitted` | Fired when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) reports a review as inappropriate | Review ID, Reporter ID, Report Reason, Report Date | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)), Analytics |
+| `ReviewTrendDetected` | Fired when significant trends are detected in reviews | [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) ID, Trend Type, Trend Metrics, Detection Date, Confidence Score | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), Analytics, Marketing |
 
 ### Events Consumed by Review Domain
 
 | Event Name | Producer Context | Purpose | Response |
 |-----------|----------------|--------|----------|
-| `OrderDelivered` | Order | Start the review eligibility window | Mark product as eligible for review after 7 days |
-| `ProductPurchased` | Order | Verify purchase before allowing review | Create purchase verification record |
-| `ProductUpdated` | Catalog | Maintain product information for reviews | Update product reference data |
-| `CustomerAccountDeactivated` | Customer | Handle reviews from deactivated accounts | Flag reviews from deactivated accounts |
-| `AuthenticationFailureDetected` | Catalog Authentication | Consider authentication issues in review analysis | Flag reviews of potentially counterfeit products |
-| `CustomerMerged` | Customer | Handle reviews from merged customer accounts | Consolidate review history |
-| `ProductDiscontinued` | Catalog | Update review display for discontinued products | Add discontinuation notice to review section |
+| `OrderDelivered` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | Start the review eligibility window | Mark [Product](../ubiquitous-language/guidelines/glossary.md#product) as eligible for review after 7 days |
+| `ProductPurchased` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | Verify purchase before allowing review | Create purchase verification record |
+| `ProductUpdated` | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) | Maintain [Product](../ubiquitous-language/guidelines/glossary.md#product) information for reviews | Update [Product](../ubiquitous-language/guidelines/glossary.md#product) reference data |
+| `CustomerAccountDeactivated` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) | Handle reviews from deactivated accounts | Flag reviews from deactivated accounts |
+| `AuthenticationFailureDetected` | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#[[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)) | Consider [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) issues in review analysis | Flag reviews of potentially counterfeit products |
+| `CustomerMerged` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) | Handle reviews from merged [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) accounts | Consolidate review history |
+| `ProductDiscontinued` | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) | Update review display for discontinued products | Add discontinuation notice to review section |
 
 ## Aggregates
 
 ### ProductReview Aggregate
 
-**Description**: The primary aggregate that manages the full lifecycle of a product review from submission through moderation to display and analysis.
+**Description**: The primary aggregate that manages the full lifecycle of a [Product](../ubiquitous-language/guidelines/glossary.md#product) review from submission through moderation to display and analysis.
 
 **Identifier**: `ReviewId` (Value Object)
 
@@ -150,7 +150,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 **Business Rules**:
 - Reviews must maintain an immutable history of edits
-- Reviews cannot be submitted without product purchase verification
+- Reviews cannot be submitted without [Product](../ubiquitous-language/guidelines/glossary.md#product) purchase verification
 - Moderation status controls review visibility
 - Helpfulness votes can only be cast by authenticated customers
 - Review responses must be attributed to either EFI staff or supplier representatives
@@ -191,9 +191,9 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### ProductReviewAggregate Aggregate
 
-**Description**: Aggregates and analyzes reviews at the product level to provide insights and metrics about overall product performance.
+**Description**: Aggregates and analyzes reviews at the [Product](../ubiquitous-language/guidelines/glossary.md#product) level to provide insights and metrics about overall [Product](../ubiquitous-language/guidelines/glossary.md#product) performance.
 
-**Identifier**: `ProductId` (Value Object from Catalog Context)
+**Identifier**: `ProductId` (Value Object from [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context)
 
 **Entities**:
 - ProductReviewAggregate (Root)
@@ -213,7 +213,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 - Quality alerts must be triggered based on configurable thresholds
 - Trend analysis must consider review velocity and volume
 - Review aging must be factored into aggregate calculations
-- Product variant reviews must be properly attributed
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) variant reviews must be properly attributed
 
 **Consistency Boundaries**:
 - Individual review data is referenced but not duplicated
@@ -224,20 +224,20 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### Review Entity
 
-**Description**: The core entity representing a customer's assessment of a specific product.
+**Description**: The core entity representing a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s assessment of a specific [Product](../ubiquitous-language/guidelines/glossary.md#product).
 
 **Attributes**:
 - ReviewId: Unique identifier for the review (Value Object)
-- ProductId: Reference to the product being reviewed (Value Object from Catalog Context)
-- CustomerId: Reference to the customer who wrote the review (Value Object from Customer Context)
-- Rating: Numerical score (1-5) of the product (Value Object)
+- ProductId: Reference to the [Product](../ubiquitous-language/guidelines/glossary.md#product) being reviewed (Value Object from [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context)
+- CustomerId: Reference to the [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) who wrote the review (Value Object from [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context)
+- Rating: Numerical score (1-5) of the [Product](../ubiquitous-language/guidelines/glossary.md#product) (Value Object)
 - ReviewText: Textual content of the review
 - Title: Optional headline for the review
 - SubmissionDate: Date and time when the review was submitted
 - ModificationHistory: Tracked history of review edits
 - Status: Current status of the review (draft, submitted, approved, rejected)
 - VerifiedPurchase: Flag indicating the review is from a verified purchaser
-- HelpfulnessScore: Calculated score based on customer votes
+- HelpfulnessScore: Calculated score based on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) votes
 
 **Behaviors**:
 - Submit: Submit the review for moderation
@@ -248,7 +248,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### ReviewImages Entity
 
-**Description**: Images attached to a product review by the customer.
+**Description**: Images attached to a [Product](../ubiquitous-language/guidelines/glossary.md#product) review by the [Customer](../ubiquitous-language/guidelines/glossary.md#customer).
 
 **Attributes**:
 - ImageId: Unique identifier for the review image
@@ -266,12 +266,12 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### ReviewHelpfulnessVote Entity
 
-**Description**: Records a customer's assessment of review helpfulness.
+**Description**: Records a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s assessment of review helpfulness.
 
 **Attributes**:
 - VoteId: Unique identifier for the vote
 - ReviewId: Reference to the review being voted on
-- CustomerId: Reference to the voting customer
+- CustomerId: Reference to the voting [Customer](../ubiquitous-language/guidelines/glossary.md#customer)
 - VoteType: Whether the vote is "helpful" or "not helpful"
 - VoteDate: When the vote was cast
 
@@ -282,7 +282,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### ReviewResponse Entity
 
-**Description**: Official response to a review from EFI staff or product supplier.
+**Description**: Official response to a review from EFI staff or [Product](../ubiquitous-language/guidelines/glossary.md#product) supplier.
 
 **Attributes**:
 - ResponseId: Unique identifier for the response
@@ -320,10 +320,10 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### ReviewSummary Entity
 
-**Description**: Aggregated review statistics for a specific product.
+**Description**: Aggregated review statistics for a specific [Product](../ubiquitous-language/guidelines/glossary.md#product).
 
 **Attributes**:
-- ProductId: Reference to the product
+- ProductId: Reference to the [Product](../ubiquitous-language/guidelines/glossary.md#product)
 - AverageRating: Calculated mean rating
 - RatingCount: Total number of ratings
 - RatingDistribution: Count of ratings by score (1-5)
@@ -341,7 +341,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### ReviewId
 
-**Description**: Unique identifier for a product review.
+**Description**: Unique identifier for a [Product](../ubiquitous-language/guidelines/glossary.md#product) review.
 
 **Attributes**:
 - Value: UUID format string
@@ -353,7 +353,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### Rating
 
-**Description**: A numerical representation of customer satisfaction with a product.
+**Description**: A numerical representation of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) satisfaction with a [Product](../ubiquitous-language/guidelines/glossary.md#product).
 
 **Attributes**:
 - Value: Integer between 1-5
@@ -401,7 +401,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 **Attributes**:
 - IsVerified: Boolean indicating verified status
 - PurchaseId: Optional reference to the purchase record
-- PurchaseDate: When the product was purchased
+- PurchaseDate: When the [Product](../ubiquitous-language/guidelines/glossary.md#product) was purchased
 - VerificationType: Method of verification
 
 **Validation Rules**:
@@ -415,12 +415,12 @@ The process of combining multiple reviews to generate summary statistics and ins
 **Attributes**:
 - Overall: Float between -1.0 (negative) and 1.0 (positive)
 - Confidence: Float between 0.0 and 1.0
-- AspectScores: Map of product aspects to sentiment scores
+- AspectScores: Map of [Product](../ubiquitous-language/guidelines/glossary.md#product) aspects to sentiment scores
 
 **Validation Rules**:
 - Overall score must be between -1.0 and 1.0
 - Confidence must be between 0.0 and 1.0
-- AspectScores must contain valid product aspects
+- AspectScores must contain valid [Product](../ubiquitous-language/guidelines/glossary.md#product) aspects
 
 ### ContentSeverity
 
@@ -436,7 +436,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### HelpfulnessRatio
 
-**Description**: Calculated ratio of helpfulness based on customer votes.
+**Description**: Calculated ratio of helpfulness based on [Customer](../ubiquitous-language/guidelines/glossary.md#customer) votes.
 
 **Attributes**:
 - HelpfulVotes: Count of helpful votes
@@ -463,7 +463,7 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 ### AggregateRating
 
-**Description**: Represents the computed average rating for a product based on multiple reviews.
+**Description**: Represents the computed average rating for a [Product](../ubiquitous-language/guidelines/glossary.md#product) based on multiple reviews.
 
 **Attributes**:
 - Average: Float representing the weighted average rating (1.0-5.0)
@@ -483,17 +483,17 @@ The process of combining multiple reviews to generate summary statistics and ins
 
 **Key Methods**:
 - `SubmitReview(review)`: Process a new review submission
-- `VerifyPurchaseEligibility(customerId, productId)`: Check if customer is eligible to review a product
+- `VerifyPurchaseEligibility(customerId, productId)`: Check if [Customer](../ubiquitous-language/guidelines/glossary.md#customer) is eligible to review a [Product](../ubiquitous-language/guidelines/glossary.md#product)
 - `ValidateReviewContent(review)`: Perform initial content validation
 - `SaveDraft(review)`: Store an in-progress review
 
 **Dependencies**:
-- Customer Context (customer verification)
-- Order Context (purchase verification)
-- Catalog Context (product verification)
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context ([[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) verification)
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context (purchase verification)
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context ([Product](../ubiquitous-language/guidelines/glossary.md#product) verification)
 
 **Usage Context**:
-Invoked when customers attempt to submit product reviews through the website or mobile app.
+Invoked when customers attempt to submit [Product](../ubiquitous-language/guidelines/glossary.md#product) reviews through the website or mobile app.
 
 ### ModerationService
 
@@ -504,11 +504,11 @@ Invoked when customers attempt to submit product reviews through the website or 
 - `PerformAutomatedModeration(review)`: Run automated moderation rules
 - `AssignToHumanModerator(moderationCase)`: Route case to appropriate human moderator
 - `RecordModerationDecision(moderationCase, decision)`: Process the moderation outcome
-- `HandleAppeal(reviewId, appealReason)`: Process a customer's appeal of a rejection
+- `HandleAppeal(reviewId, appealReason)`: Process a [Customer](../ubiquitous-language/guidelines/glossary.md#customer)'s appeal of a rejection
 
 **Dependencies**:
 - NLP services for content analysis
-- Customer Service for customer history
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Service for [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) history
 
 **Usage Context**:
 Triggered automatically when reviews are submitted or when moderation results are appealed.
@@ -529,40 +529,40 @@ Triggered automatically when reviews are submitted or when moderation results ar
 - Machine learning models for text analysis
 
 **Usage Context**:
-Run asynchronously after reviews are approved to generate insights for product teams and detect quality issues.
+Run asynchronously after reviews are approved to generate insights for [Product](../ubiquitous-language/guidelines/glossary.md#product) teams and detect quality issues.
 
 ### ReviewAggregationService
 
-**Description**: Calculates and maintains aggregated review statistics at the product level.
+**Description**: Calculates and maintains aggregated review statistics at the [Product](../ubiquitous-language/guidelines/glossary.md#product) level.
 
 **Key Methods**:
-- `CalculateAggregateRating(productId)`: Compute overall product rating
+- `CalculateAggregateRating(productId)`: Compute overall [Product](../ubiquitous-language/guidelines/glossary.md#product) rating
 - `UpdateProductRatingDistribution(productId)`: Recalculate rating distribution
 - `GenerateReviewSnapshot(productId, date)`: Create point-in-time summary
 - `DetectRatingTrends(productId, period)`: Analyze changes in ratings over time
-- `IdentifyQualityIssues(productId)`: Flag potential product quality problems
+- `IdentifyQualityIssues(productId)`: Flag potential [Product](../ubiquitous-language/guidelines/glossary.md#product) quality problems
 
 **Dependencies**:
-- Catalog Context for product information
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context for [Product](../ubiquitous-language/guidelines/glossary.md#product) information
 - Analytics Context for trend analysis
 
 **Usage Context**:
-Run when new reviews are added or on a scheduled basis to update product listings with current rating information.
+Run when new reviews are added or on a scheduled basis to update [Product](../ubiquitous-language/guidelines/glossary.md#product) listings with current rating information.
 
 ### ReviewNotificationService
 
 **Description**: Manages notifications related to review submission, moderation, and responses.
 
 **Key Methods**:
-- `NotifyReviewApproval(reviewId)`: Notify customer their review was approved
-- `NotifyReviewRejection(reviewId, reason)`: Notify customer of rejection with reason
-- `NotifyResponseAdded(reviewId)`: Alert customer that their review received a response
+- `NotifyReviewApproval(reviewId)`: Notify [Customer](../ubiquitous-language/guidelines/glossary.md#customer) their review was approved
+- `NotifyReviewRejection(reviewId, reason)`: Notify [Customer](../ubiquitous-language/guidelines/glossary.md#customer) of rejection with reason
+- `NotifyResponseAdded(reviewId)`: Alert [Customer](../ubiquitous-language/guidelines/glossary.md#customer) that their review received a response
 - `AlertQualityTeam(productId, reason)`: Notify quality team of review-based issues
 - `NotifySupplier(reviewId)`: Alert suppliers about reviews of their products
 
 **Dependencies**:
 - Notification Context for message delivery
-- Customer Context for contact preferences
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context for contact preferences
 
 **Usage Context**:
 Triggered by review status changes, response additions, or when quality thresholds are breached.
@@ -593,7 +593,7 @@ Invoked during review submission and moderation processes to ensure content comp
 - `CalculateReviewVelocity(productId)`: Measure review submission rate
 - `TrackModerationEfficiency()`: Measure moderation turnaround time
 - `ReportReviewCoverage()`: Calculate percentage of products with reviews
-- `MeasureHelpfulnessEngagement()`: Track customer engagement with helpfulness votes
+- `MeasureHelpfulnessEngagement()`: Track [Customer](../ubiquitous-language/guidelines/glossary.md#customer) engagement with helpfulness votes
 - `GenerateQualityReport(period)`: Create summary of quality issues identified
 
 **Dependencies**:
@@ -635,7 +635,7 @@ Used for operational monitoring, business reporting, and continuous improvement 
 
 #### ReviewResponseAdminService
 
-**Responsibility**: Manages official responses to customer reviews
+**Responsibility**: Manages official responses to [Customer](../ubiquitous-language/guidelines/glossary.md#customer) reviews
 
 **Operations**:
 - Create and publish official responses to reviews
@@ -685,24 +685,24 @@ Used for operational monitoring, business reporting, and continuous improvement 
 
 #### ProductFeedbackDashboardModel
 
-**Purpose**: Aggregates and analyzes product feedback from reviews
+**Purpose**: Aggregates and analyzes [Product](../ubiquitous-language/guidelines/glossary.md#product) feedback from reviews
 
 **Key Metrics**:
-- Common topics and themes in reviews by product category
-- Sentiment trends over time by product and category
+- Common topics and themes in reviews by [Product](../ubiquitous-language/guidelines/glossary.md#product) category
+- Sentiment trends over time by [Product](../ubiquitous-language/guidelines/glossary.md#product) and category
 - Critical quality issue identification and tracking
-- Competitive product comparison based on reviews
-- Review-driven product improvement opportunities
+- Competitive [Product](../ubiquitous-language/guidelines/glossary.md#product) comparison based on reviews
+- Review-driven [Product](../ubiquitous-language/guidelines/glossary.md#product) improvement opportunities
 
 #### ReviewEngagementDashboardModel
 
-**Purpose**: Monitors customer engagement with the review system
+**Purpose**: Monitors [Customer](../ubiquitous-language/guidelines/glossary.md#customer) engagement with the review system
 
 **Key Metrics**:
 - Review submission rates and trends
 - Review helpfulness voting activity
-- Customer response to official review responses
-- Review coverage across product catalog
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) response to official review responses
+- Review coverage across [Product](../ubiquitous-language/guidelines/glossary.md#product) [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)
 - Review influence on conversion rates
 
 ### Admin Domain Events
@@ -813,7 +813,7 @@ Used for operational monitoring, business reporting, and continuous improvement 
 
 ## Integration Points
 
-### Catalog Context
+### [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context
 
 **Relationship**: Bidirectional
 
@@ -822,13 +822,13 @@ Used for operational monitoring, business reporting, and continuous improvement 
 - Query API
 
 **Key Interactions**:
-- Review Domain **consumes** product information from Catalog Context
-- Review Domain **publishes** review statistics to enrich product information
+- Review Domain **consumes** [Product](../ubiquitous-language/guidelines/glossary.md#product) information from [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context
+- Review Domain **publishes** review statistics to enrich [Product](../ubiquitous-language/guidelines/glossary.md#product) information
 - Review Domain **provides** quality alerts based on review patterns
-- Catalog Context **consumes** `ProductReviewed` events to update product statistics
-- Catalog Context **consumes** `ProductQualityAlertTriggered` events
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context **consumes** `ProductReviewed` events to update [Product](../ubiquitous-language/guidelines/glossary.md#product) statistics
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context **consumes** `ProductQualityAlertTriggered` events
 
-### Customer Context
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context
 
 **Relationship**: Bidirectional
 
@@ -837,26 +837,26 @@ Used for operational monitoring, business reporting, and continuous improvement 
 - Shared API
 
 **Key Interactions**:
-- Review Domain **consumes** customer identity and verification data
-- Review Domain **publishes** review activity to Customer Context
-- Customer Context **consumes** `ProductReviewed` events to update customer interaction history
+- Review Domain **consumes** [Customer](../ubiquitous-language/guidelines/glossary.md#customer) identity and verification data
+- Review Domain **publishes** review activity to [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Context **consumes** `ProductReviewed` events to update [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) interaction history
 - Review Domain **consumes** `CustomerAccountDeactivated` events to handle reviews from deactivated accounts
 - Review Domain **consumes** `CustomerMerged` events to consolidate review history
 
-### Order Context
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context
 
-**Relationship**: Unidirectional (Order to Review)
+**Relationship**: Unidirectional ([[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) to Review)
 
 **Integration Methods**:
 - Domain Events
 - Query API
 
 **Key Interactions**:
-- Review Domain **consumes** order information to verify purchases
+- Review Domain **consumes** [Order](../ubiquitous-language/guidelines/glossary.md#order) information to verify purchases
 - Review Domain **consumes** `OrderDelivered` events to start review eligibility window
-- Review Domain **consumes** order history to validate review eligibility
+- Review Domain **consumes** [Order](../ubiquitous-language/guidelines/glossary.md#order) history to validate review eligibility
 
-### Catalog Authentication Context
+### [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Context
 
 **Relationship**: Bidirectional
 
@@ -867,7 +867,7 @@ Used for operational monitoring, business reporting, and continuous improvement 
 **Key Interactions**:
 - Review Domain **flags** reviews mentioning counterfeit concerns for investigation
 - Review Domain **consumes** `AuthenticationFailureDetected` events to correlate with review data
-- Catalog Authentication Context **uses** review patterns to identify potential authenticity issues
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Context **uses** review patterns to identify potential authenticity issues
 
 ### Analytics Context
 
@@ -928,7 +928,7 @@ Used for operational monitoring, business reporting, and continuous improvement 
 
 1. **CQRS Pattern**:
    - Separate command models for review submission, moderation, and management
-   - Optimize read models for different view requirements (product detail, review management, reporting)
+   - Optimize read models for different view requirements ([Product](../ubiquitous-language/guidelines/glossary.md#product) detail, review management, reporting)
    - Implement denormalized projections for review statistics and aggregates
 
 2. **Event-Driven Architecture**:
@@ -937,10 +937,10 @@ Used for operational monitoring, business reporting, and continuous improvement 
    - Leverage event streams for real-time analytics processing
 
 3. **Microservices Structure**:
-   - Review Submission Service: Handles customer review creation and editing
+   - Review Submission Service: Handles [Customer](../ubiquitous-language/guidelines/glossary.md#customer) review creation and editing
    - Moderation Service: Manages review approval workflow
    - Analytics Service: Processes review content for insights
-   - Aggregation Service: Maintains product-level review statistics
+   - Aggregation Service: Maintains [Product](../ubiquitous-language/guidelines/glossary.md#product)-level review statistics
 
 4. **Data Storage Strategy**:
    - Review Content: Document database (MongoDB/CosmosDB)
@@ -951,14 +951,14 @@ Used for operational monitoring, business reporting, and continuous improvement 
 ### Technical Considerations
 
 1. **Performance Optimization**:
-   - Cache aggregate review statistics for high-traffic product pages
+   - Cache aggregate review statistics for high-traffic [Product](../ubiquitous-language/guidelines/glossary.md#product) pages
    - Implement background processing for content analysis and sentiment extraction
    - Use materialized views for commonly accessed review lists and statistics
    - Optimize review search with proper indices and relevance algorithms
 
 2. **Security Requirements**:
    - Implement rate limiting for review submission to prevent abuse
-   - Apply strong authentication for review submission and helpfulness voting
+   - Apply strong [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) for review submission and helpfulness voting
    - Encrypt moderator notes and internal discussion
    - Maintain complete audit trail of moderation decisions
    - Filter personally identifiable information from review exports
@@ -981,7 +981,7 @@ Used for operational monitoring, business reporting, and continuous improvement 
    - Core review submission and display functionality
    - Basic moderation workflow
    - Essential domain events
-   - Integration with Order and Catalog contexts
+   - Integration with [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) and [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) contexts
 
 2. **Phase 2 (Enhancement)**:
    - Advanced content moderation with NLP
@@ -995,7 +995,7 @@ Used for operational monitoring, business reporting, and continuous improvement 
    - Predictive quality insights
    - Automated trend detection
    - Enhanced supplier review dashboard
-   - Review-based product recommendation engine
+   - Review-based [Product](../ubiquitous-language/guidelines/glossary.md#product) recommendation engine
 
 ### Testing Strategy
 
@@ -1008,7 +1008,7 @@ Used for operational monitoring, business reporting, and continuous improvement 
 2. **Integration Testing**:
    - Review submission end-to-end flow
    - Moderation process workflow
-   - Event publication and subscription
+   - Event publication and [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)
    - Cross-context data consistency
 
 3. **Performance Testing**:
@@ -1031,7 +1031,7 @@ Used for operational monitoring, business reporting, and continuous improvement 
    - Moderation queue length and processing time
    - Review approval/rejection rates
    - NLP processing performance
-   - Customer engagement with reviews (views, helpfulness votes)
+   - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) engagement with reviews (views, helpfulness votes)
 
 2. **Alerting Thresholds**:
    - Moderation queue backlog > 24 hours
@@ -1044,5 +1044,5 @@ Used for operational monitoring, business reporting, and continuous improvement 
    - Operational health dashboard
    - Review quality metrics dashboard
    - Moderation efficiency dashboard
-   - Product quality insights dashboard
+   - [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) quality insights dashboard
    - Review engagement analytics dashboard

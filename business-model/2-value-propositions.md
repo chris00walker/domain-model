@@ -20,7 +20,7 @@
 
 **B2B Promise**
 
-“EFI is the agile supply-partner for **Levantine & Mediterranean** cuisine—premium, traceable ingredients, flexible pricing, and chef-driven support that slash cost, complexity, and risk while elevating menus.”
+“EFI is the agile supply-partner for **Levantine & Mediterranean** cuisine—premium, traceable ingredients, flexible [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), and chef-driven support that slash cost, complexity, and risk while elevating menus.”
 
 ---
 
@@ -29,7 +29,7 @@
 | Segment | Critical Jobs | Critical Pains | Critical Gains | EFI Solutions (with Impact, CapEx & Build/Buy) | TBI Card |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | **Diaspora HH** | • Recreate homeland dishes• Host family meals | • Authenticity anxiety• Limited assortment | • Cultural pride• Trusted quality | • QR-verified provenance (+15 % WTP) \[CapEx \< BBD 2 500; Buy\]• Full staple range (+10 SKUs) \[Build\]• Recipe guides (+20 % usage) \[Build\] | 🔗 |
-| **Expat Residents** | • Stock comfort staples• Discover new flavours | • Time-poor shopping• Quality doubt | • Convenience• Culinary discovery | • Doorstep subscriptions (↓ 30 % order-to-door time) \[Build\]• Dual-track “Home & Explore” bundles (+20 % upsell) \[Build\]• AI pairing tips (+10 % engagement) \[CapEx \< BBD 5 000; Buy\] | 🔗 |
+| **Expat Residents** | • Stock comfort staples• Discover new flavours | • Time-poor shopping• Quality doubt | • Convenience• Culinary discovery | • Doorstep subscriptions (↓ 30 % [Order](../ubiquitous-language/guidelines/glossary.md#order)-to-door time) \[Build\]• Dual-track “Home & Explore” bundles (+20 % upsell) \[Build\]• AI pairing tips (+10 % engagement) \[CapEx \< BBD 5 000; Buy\] | 🔗 |
 | **Indigenous Foodie Families** | • Experiment safely• Cook successfully | • Recipe unfamiliarity• Fear of waste | • Confidence• Variety | • Step-by-step kits (↓ 25 % prep errors) \[Build\]• Trial-pack sizes (+15 % conversion) \[Build\]• Video tutorials (+20 % engagement) \[CapEx \< BBD 1 000; Build\] | 🔗 |
 
 ---
@@ -39,7 +39,7 @@
 | Segment | Critical Jobs | Critical Pains | Critical Gains | EFI Solutions (with Impact, CapEx & Build/Buy) | TBI Card |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | **Food-Truck Operators** | • Source small, frequent orders• Minimise prep | • Storage limits• Unstable supply | • Reliable cost• Menu agility | • Low MOQ cases \[–\]• Ready-to-use sauces \[–\]• Just-in-time delivery (↓ 50 % stock-outs) \[Build\] | 🔗 |
-| **Specialty Mini-Markets** | • Differentiated shelf• Assured provenance | • Supplier fragmentation• Story gaps | • Higher margin• Foot traffic | • Mixed-SKU cases \[–\]• QR shelf-talkers (+10 % foot traffic) \[CapEx \< BBD 500; Buy\]• Sell-through dashboards (+2 % inventory turnover) \[CapEx \< BBD 8 000; Buy\] | 🔗 |
+| **Specialty Mini-Markets** | • Differentiated shelf• Assured provenance | • Supplier fragmentation• Story gaps | • Higher margin• Foot traffic | • Mixed-SKU cases \[–\]• QR shelf-talkers (+10 % foot traffic) \[CapEx \< BBD 500; Buy\]• Sell-through dashboards (+2 % [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) turnover) \[CapEx \< BBD 8 000; Buy\] | 🔗 |
 | **Limited-Service Restaurants (pilot)** | • Fast prep• Control COGS | • Staff skill gap• Stock-outs | • Speed• Consistency | • Pre-prepped ingredients (↓ 15 % labor hrs) \[–\]• Menu-pilot kits (+20 % menu adoption) \[Build\]• 24 h replenishment (↓ 30 % stock-outs) \[Build\] | 🔗 |
 
 ---

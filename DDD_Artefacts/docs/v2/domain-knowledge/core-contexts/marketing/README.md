@@ -8,8 +8,8 @@ last_updated: 2025-06-10
 
 # Marketing Domain Knowledge
 
-<!-- GAP_IMPLEMENTED: Customer Segmentation | Medium | High | Medium -->
-<!-- stub for "Customer Segmentation" gap in the marketing context -->
+<!-- GAP_IMPLEMENTED: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Segmentation | Medium | High | Medium -->
+<!-- stub for "[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Segmentation" gap in the marketing context -->
 
 <!-- GAP_IMPLEMENTED: Campaign Management | Medium | High | Medium -->
 <!-- stub for "Campaign Management" gap in the marketing context -->
@@ -29,37 +29,37 @@ last_updated: 2025-06-10
 
 ## Related Documents
 
-- [Customer Domain Knowledge](../customer/README.md)
-- [Catalog Domain Knowledge](../catalog/README.md)
-- [Order Domain Knowledge](../order/README.md)
-- [Subscription Domain Knowledge](../subscription/README.md)
+- [[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) Domain Knowledge](../[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)/README.md)
+- [[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)) Domain Knowledge](../[[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)/README.md)
+- [[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)) Domain Knowledge](../[[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)/README.md)
+- [[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)) Domain Knowledge](../[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)/README.md)
 
 ## 1. Domain Overview
 
-The Marketing Domain manages all aspects of promotional activities, campaign management, content strategy, and customer engagement initiatives for Elias Food Imports. This domain is responsible for creating, executing, and measuring marketing campaigns to drive customer acquisition, retention, and brand awareness.
+The Marketing Domain manages all aspects of promotional activities, campaign management, content strategy, and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) engagement initiatives for Elias Food Imports. This domain is responsible for creating, executing, and measuring marketing campaigns to drive [Customer](../ubiquitous-language/guidelines/glossary.md#customer) acquisition, retention, and brand awareness.
 
 ## 2. Strategic Importance
 
 **Domain Classification**: Supporting
 
-The Marketing Domain is a supporting domain that enhances the value of core domains by increasing customer engagement, acquisition, and retention. While not directly tied to the core product offerings, effective marketing is critical for business growth and customer engagement.
+The Marketing Domain is a supporting domain that enhances the value of core domains by increasing [Customer](../ubiquitous-language/guidelines/glossary.md#customer) engagement, acquisition, and retention. While not directly tied to the core [Product](../ubiquitous-language/guidelines/glossary.md#product) offerings, effective marketing is critical for business growth and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) engagement.
 
 ## 3. Core Concepts
 
 ### Campaign
-A coordinated series of marketing activities designed to achieve specific business objectives, such as product launches, seasonal promotions, or customer acquisition initiatives. Campaigns have defined start and end dates, target audiences, budgets, and success metrics.
+A coordinated series of marketing activities designed to achieve specific business objectives, such as [Product](../ubiquitous-language/guidelines/glossary.md#product) launches, seasonal promotions, or [Customer](../ubiquitous-language/guidelines/glossary.md#customer) acquisition initiatives. Campaigns have defined start and end dates, target audiences, budgets, and success metrics.
 
 ### Content
-Marketing materials including product descriptions, cultural and regional information, recipes, pairing recommendations, and promotional offers that enhance product value and customer engagement. Content may be translated and localized for specific regional markets.
+Marketing materials including [Product](../ubiquitous-language/guidelines/glossary.md#product) descriptions, cultural and regional information, recipes, pairing recommendations, and promotional offers that enhance [Product](../ubiquitous-language/guidelines/glossary.md#product) value and [Customer](../ubiquitous-language/guidelines/glossary.md#customer) engagement. Content may be translated and localized for specific regional markets.
 
 ### Segment
-A defined group of customers sharing common characteristics such as purchase behavior, demographics, or engagement patterns. Segments are used to target specific marketing campaigns and personalize customer interactions.
+A defined group of customers sharing common characteristics such as purchase behavior, demographics, or engagement patterns. Segments are used to target specific marketing campaigns and personalize [Customer](../ubiquitous-language/guidelines/glossary.md#customer) interactions.
 
 ### Channel
 Communication medium used to deliver marketing messages to customers, including email, social media, website, mobile app notifications, SMS, and print materials. Each channel has specific requirements and best practices.
 
 ### Engagement Metrics
-Quantitative measures of customer interactions with marketing content, including open rates, click-through rates, conversion rates, and social media engagement. These metrics inform campaign effectiveness and future marketing strategies.
+Quantitative measures of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) interactions with marketing content, including open rates, click-through rates, conversion rates, and social media engagement. These metrics inform campaign effectiveness and future marketing strategies.
 
 ### A/B Test
 Controlled experiment comparing two or more variations of marketing content or strategy to determine which performs better against defined metrics. A/B tests guide optimization of marketing efforts through data-driven decision-making.
@@ -74,24 +74,24 @@ Controlled experiment comparing two or more variations of marketing content or s
 5. All campaign assets must adhere to Elias Food Imports brand guidelines and receive approval before public release.
 
 ### Content Rules
-1. All product-related content must be factually accurate and verified against the product catalog.
+1. All [Product](../ubiquitous-language/guidelines/glossary.md#product)-related content must be factually accurate and verified against the [Product](../ubiquitous-language/guidelines/glossary.md#product) [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog).
 2. Cultural and regional content must be authored or reviewed by subject matter experts from the specific region.
 3. Content must be localized for target markets, not merely translated.
 4. Content creation must follow the established editorial calendar and prioritization framework.
 5. All content must include appropriate metadata to facilitate proper indexing and searchability.
 
-### Customer Segmentation Rules
-1. Customer segments must be reviewed and updated quarterly based on the latest transaction and engagement data.
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Segmentation Rules
+1. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) segments must be reviewed and updated quarterly based on the latest transaction and engagement data.
 2. Segmentation must consider both behavioral data (purchase history, engagement) and profile data (region, preferences).
-3. All marketing activities must target at least one defined customer segment.
-4. High-value customer segments must receive personalized marketing communications.
+3. All marketing activities must target at least one defined [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment.
+4. High-value [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segments must receive personalized marketing communications.
 5. Experimental segments require A/B testing validation before full-scale implementation.
 
 ### Compliance Rules
 1. All marketing materials must comply with regional food marketing regulations in target markets.
-2. Customer data used for segmentation and targeting must comply with applicable privacy laws (GDPR, CCPA, etc.).
-3. Promotional pricing and discounts must align with the pricing domain's policies and rules.
-4. Marketing claims about product authenticity must be verifiable through the catalog authentication domain.
+2. [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) data used for segmentation and targeting must comply with applicable privacy laws (GDPR, CCPA, etc.).
+3. Promotional [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) and discounts must align with the [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) domain's policies and rules.
+4. Marketing claims about [Product](../ubiquitous-language/guidelines/glossary.md#product) authenticity must be verifiable through the [Catalog](../ubiquitous-language/guidelines/glossary.md#catalog) [Authentication](../ubiquitous-language/guidelines/glossary.md#authentication) domain.
 5. Opt-out requests must be processed within 24 hours of receipt.
 
 ## 5. Domain Events
@@ -102,26 +102,26 @@ The Marketing domain publishes and consumes the following domain events to coord
 
 | Event | Description | Payload | Consumers |
 |-------|-------------|---------|------------|
-| `CampaignCreated` | Triggered when a new marketing campaign is created | Campaign ID, name, type, start/end dates, target segments, budget | Analytics, Customer |
-| `CampaignLaunched` | Triggered when a campaign goes live | Campaign ID, launch timestamp | Analytics, Customer, Notification |
+| `CampaignCreated` | Triggered when a new marketing campaign is created | Campaign ID, name, type, start/end dates, target segments, budget | Analytics, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) |
+| `CampaignLaunched` | Triggered when a campaign goes live | Campaign ID, launch timestamp | Analytics, [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer), Notification |
 | `CampaignCompleted` | Triggered when a campaign ends | Campaign ID, completion timestamp, performance summary | Analytics |
-| `ContentPublished` | Triggered when new marketing content is published | Content ID, type, related products, publish timestamp | Catalog, Analytics |
-| `SegmentCreated` | Triggered when a new customer segment is defined | Segment ID, name, criteria, estimated size | Customer, Analytics |
-| `SegmentUpdated` | Triggered when a customer segment definition changes | Segment ID, updated criteria, changelog | Customer, Analytics |
-| `CustomerOptedOut` | Triggered when a customer opts out of marketing | Customer ID, opt-out preferences, timestamp | Customer, Notification |
+| `ContentPublished` | Triggered when new marketing content is published | Content ID, type, related products, publish timestamp | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog), Analytics |
+| `SegmentCreated` | Triggered when a new [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) segment is defined | Segment ID, name, criteria, estimated size | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)), Analytics |
+| `SegmentUpdated` | Triggered when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) segment definition changes | Segment ID, updated criteria, changelog | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)), Analytics |
+| `CustomerOptedOut` | Triggered when a [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) opts out of marketing | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)) ID, opt-out preferences, timestamp | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)), Notification |
 
 ### Consumed Events
 
 | Event | Source Context | Purpose |
 |-------|---------------|----------|
-| `CustomerCreated` | Customer | Update marketing segments and begin onboarding communications |
-| `CustomerProfileUpdated` | Customer | Update segment assignments and personalization data |
-| `OrderPlaced` | Order | Trigger post-purchase marketing workflows |
-| `ProductCreated` | Catalog | Create initial marketing content for new products |
-| `ProductUpdated` | Catalog | Update related marketing content |
-| `SubscriptionStarted` | Subscription | Begin subscription-specific marketing communication flows |
-| `SubscriptionCancelled` | Subscription | Trigger win-back campaigns and feedback collection |
-| `CustomerSegmentAssigned` | Customer | Initiate segment-specific communications |
+| `CustomerCreated` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) | Update marketing segments and begin onboarding communications |
+| `CustomerProfileUpdated` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) | Update segment assignments and personalization data |
+| `OrderPlaced` | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) | Trigger post-purchase marketing workflows |
+| `ProductCreated` | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) | Create initial marketing content for new products |
+| `ProductUpdated` | [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) | Update related marketing content |
+| `SubscriptionStarted` | [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)) | Begin [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)-specific marketing communication flows |
+| `SubscriptionCancelled` | [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) | Trigger win-back campaigns and feedback collection |
+| `CustomerSegmentAssigned` | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) | Initiate segment-specific communications |
 
 ## 6. Aggregates
 
@@ -171,14 +171,14 @@ The Marketing domain is structured around the following key aggregates that enfo
 
 **Business Rules**:
 - Published content must be approved by an authorized reviewer
-- Product-related content must link to valid product IDs
+- [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product))-related content must link to valid [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) IDs
 - Localized content requires translation verification before publication
 
 ### MarketingSegment Aggregate 
 
 **Root Entity**: MarketingSegment
 
-**Responsibility**: Defines and manages customer segments for targeted marketing activities.
+**Responsibility**: Defines and manages [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segments for targeted marketing activities.
 
 **Entities**:
 - MarketingSegment
@@ -205,7 +205,7 @@ Key entities within the Marketing domain represent identifiable objects with a u
 - `campaignId`: UUID - Unique identifier
 - `name`: String - Human-readable campaign name
 - `description`: String - Detailed description of campaign purpose and goals
-- `campaignType`: CampaignType - Type classification (Product Launch, Seasonal, etc.)
+- `campaignType`: CampaignType - Type classification ([[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) Launch, Seasonal, etc.)
 - `status`: CampaignStatus - Current state of the campaign
 - `startDate`: DateTime - When the campaign begins
 - `endDate`: DateTime - When the campaign ends
@@ -270,7 +270,7 @@ Value objects in the Marketing domain represent descriptive aspects of domain co
 - `PRODUCT_LAUNCH`: Campaigns introducing new products to the market
 - `SEASONAL`: Campaigns tied to seasonal or holiday events
 - `PROMOTIONAL`: Discount or special offer campaigns
-- `EDUCATIONAL`: Content focused on product education and usage guidance
+- `EDUCATIONAL`: Content focused on [Product](../ubiquitous-language/guidelines/glossary.md#product) education and usage guidance
 - `LOYALTY`: Campaigns targeting existing customers for retention
 - `REACTIVATION`: Campaigns targeting dormant customers
 - `BRAND_AWARENESS`: Campaigns focused on building brand recognition
@@ -290,11 +290,11 @@ Value objects in the Marketing domain represent descriptive aspects of domain co
 **Description**: Categorizes marketing content by format and purpose.
 
 **Values**:
-- `PRODUCT_DESCRIPTION`: Detailed product information
+- `PRODUCT_DESCRIPTION`: Detailed [Product](../ubiquitous-language/guidelines/glossary.md#product) information
 - `EMAIL`: Email marketing content
 - `SOCIAL_POST`: Social media content
 - `BLOG_ARTICLE`: Blog content
-- `RECIPE`: Product usage in recipes
+- `RECIPE`: [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) usage in recipes
 - `CULTURAL_INFO`: Cultural context about products
 - `PROMOTIONAL`: Sale or discount announcements
 - `VIDEO`: Video content
@@ -313,10 +313,10 @@ Value objects in the Marketing domain represent descriptive aspects of domain co
 - `EVENTS`: In-person promotional events
 
 ### SegmentCriteria
-**Description**: Defines rules for customer segment membership.
+**Description**: Defines rules for [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment membership.
 
 **Attributes**:
-- `attribute`: String - Customer attribute to evaluate
+- `attribute`: String - [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) attribute to evaluate
 - `operator`: Operator - Comparison operator (EQUALS, GREATER_THAN, etc.)
 - `value`: Any - Value to compare against
 - `weight`: Float - Importance factor for scoring-based segments
@@ -356,11 +356,11 @@ The Marketing domain implements the following domain services to encapsulate com
 - `localizeContent(Content, Locale)`: Creates localized versions of content for different regions
 
 ### SegmentationService
-**Description**: Handles the creation and management of customer segments based on behavioral and profile data.
+**Description**: Handles the creation and management of [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segments based on behavioral and profile data.
 
 **Key Functions**:
-- `defineSegment(SegmentDefinition)`: Creates a new customer segment
-- `evaluateCustomerSegmentMembership(CustomerId, SegmentId)`: Determines if a customer belongs to a segment
+- `defineSegment(SegmentDefinition)`: Creates a new [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment
+- `evaluateCustomerSegmentMembership(CustomerId, SegmentId)`: Determines if a [Customer](../ubiquitous-language/guidelines/glossary.md#customer) belongs to a segment
 - `recalculateSegment(SegmentId)`: Updates segment membership based on latest data
 - `mergeSegments(List<SegmentId>)`: Combines multiple segments into one
 - `getSegmentAnalytics(SegmentId)`: Retrieves performance metrics for a segment
@@ -372,7 +372,7 @@ The Marketing domain implements the following domain services to encapsulate com
 - `calculateCampaignROI(CampaignId)`: Computes return on investment for campaigns
 - `generatePerformanceReport(ReportCriteria)`: Creates analytical reports of marketing activities
 - `compareSegmentPerformance(List<SegmentId>)`: Compares metrics across different segments
-- `trackAttributionMetrics(OrderId, List<TouchpointData>)`: Maps customer purchases to marketing touchpoints
+- `trackAttributionMetrics(OrderId, List<TouchpointData>)`: Maps [Customer](../ubiquitous-language/guidelines/glossary.md#customer) purchases to marketing touchpoints
 - `predictCampaignOutcome(Campaign)`: Uses historical data to forecast campaign performance
 
 ## Administrative Capabilities
@@ -407,7 +407,7 @@ The Marketing domain implements the following domain services to encapsulate com
 
 #### SegmentationAdminService
 
-**Responsibility**: Administers customer segmentation rules and processing
+**Responsibility**: Administers [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segmentation rules and processing
 
 **Operations**:
 - Configure segment calculation rules and schedules
@@ -537,53 +537,53 @@ The Marketing domain implements the following domain services to encapsulate com
 
 The Marketing domain integrates with several other bounded contexts to ensure cohesive business operations.
 
-### Customer Context
+### [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Context
 
 **Integration Type**: Bidirectional
 
-**Purpose**: Exchange customer data for segmentation and targeting.
+**Purpose**: Exchange [Customer](../ubiquitous-language/guidelines/glossary.md#customer) data for segmentation and targeting.
 
 **Key Touchpoints**:
-- Marketing consumes customer profile and behavioral data for segmentation
-- Marketing publishes segment assignments for customer profiles
-- Customer context notifies Marketing of new customers and profile updates
-- Marketing sends opt-in/opt-out preferences to Customer context
+- Marketing consumes [Customer](../ubiquitous-language/guidelines/glossary.md#customer) profile and behavioral data for segmentation
+- Marketing publishes segment assignments for [Customer](../ubiquitous-language/guidelines/glossary.md#customer) profiles
+- [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) context notifies Marketing of new customers and profile updates
+- Marketing sends opt-in/opt-out preferences to [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) context
 
 **Integration Mechanism**: Domain events, shared API
 
-### Catalog Context
+### [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Context
 
 **Integration Type**: Consumer
 
-**Purpose**: Access product information for marketing content creation.
+**Purpose**: Access [Product](../ubiquitous-language/guidelines/glossary.md#product) information for marketing content creation.
 
 **Key Touchpoints**:
-- Marketing accesses product details and imagery for content creation
-- Catalog notifies Marketing of new or updated products requiring content
+- Marketing accesses [Product](../ubiquitous-language/guidelines/glossary.md#product) details and imagery for content creation
+- [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) notifies Marketing of new or updated products requiring content
 
 **Integration Mechanism**: Domain events, read-only API
 
-### Order Context
+### [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Context
 
 **Integration Type**: Consumer
 
-**Purpose**: Receive order data for campaign performance analysis and post-purchase marketing.
+**Purpose**: Receive [Order](../ubiquitous-language/guidelines/glossary.md#order) data for campaign performance analysis and post-purchase marketing.
 
 **Key Touchpoints**:
-- Order context notifies Marketing of completed purchases
-- Marketing uses order data for attribution and ROI calculations
+- [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) context notifies Marketing of completed purchases
+- Marketing uses [Order](../ubiquitous-language/guidelines/glossary.md#order) data for attribution and ROI calculations
 
 **Integration Mechanism**: Domain events
 
-### Subscription Context
+### [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Context
 
 **Integration Type**: Bidirectional
 
-**Purpose**: Coordinate subscription-related marketing activities.
+**Purpose**: Coordinate [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)-related marketing activities.
 
 **Key Touchpoints**:
-- Subscription context notifies Marketing of new subscriptions, renewals, and cancellations
-- Marketing sends subscription-specific campaign data to Subscription context
+- [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) context notifies Marketing of new subscriptions, renewals, and cancellations
+- Marketing sends [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)-specific campaign data to [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#[[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)) context
 
 **Integration Mechanism**: Domain events
 
@@ -603,7 +603,7 @@ The Marketing domain integrates with several other bounded contexts to ensure co
 
 **Integration Type**: Provider
 
-**Purpose**: Trigger customer communications through various channels.
+**Purpose**: Trigger [Customer](../ubiquitous-language/guidelines/glossary.md#customer) communications through various channels.
 
 **Key Touchpoints**:
 - Marketing requests delivery of marketing communications
@@ -621,11 +621,11 @@ The Marketing domain integrates with several other bounded contexts to ensure co
 
 3. **Event-Driven Communication**: Utilize an event-driven approach for integration with other bounded contexts, publishing domain events for key state changes and subscribing to relevant events from other domains.
 
-4. **Data Partitioning**: Consider content and campaign data partitioning strategies to handle large volumes of marketing assets across diverse product categories and regions.
+4. **Data Partitioning**: Consider content and campaign data partitioning strategies to handle large volumes of marketing assets across diverse [Product](../ubiquitous-language/guidelines/glossary.md#product) categories and regions.
 
 ### Technical Considerations
 
-1. **Segment Processing Engine**: Build a specialized processing engine for customer segment calculation that can efficiently evaluate segment criteria against large customer datasets.
+1. **Segment Processing Engine**: Build a specialized processing engine for [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment calculation that can efficiently evaluate segment criteria against large [Customer](../ubiquitous-language/guidelines/glossary.md#customer) datasets.
 
 2. **Content Repository**: Implement a dedicated content repository with versioning support, search capabilities, and media asset management.
 
@@ -635,13 +635,13 @@ The Marketing domain integrates with several other bounded contexts to ensure co
 
 ### Priority Implementations
 
-Based on the company's strategic priorities, implement the following components in order:
+Based on the company's strategic priorities, implement the following components in [Order](../ubiquitous-language/guidelines/glossary.md#order):
 
-1. **Customer Segment Webhooks** (Priority 4): Create webhook infrastructure to notify external systems of segment changes and membership updates. This aligns with the CRM/Marketing Foundation priority in the implementation plan.
+1. **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Segment Webhooks** (Priority 4): Create webhook infrastructure to notify external systems of segment changes and membership updates. This aligns with the CRM/Marketing Foundation priority in the implementation plan.
 
-2. **Segment Type Enhancements**: Extend the segmentation system to support new segmentType enumerations and segment-specific value objects for more sophisticated customer targeting.
+2. **Segment Type Enhancements**: Extend the segmentation system to support new segmentType enumerations and segment-specific value objects for more sophisticated [Customer](../ubiquitous-language/guidelines/glossary.md#customer) targeting.
 
-3. **Content Service Backend**: Implement storage and retrieval systems for cultural content to enrich product marketing with authentic regional context.
+3. **Content Service Backend**: Implement storage and retrieval systems for cultural content to enrich [Product](../ubiquitous-language/guidelines/glossary.md#product) marketing with authentic regional context.
 
 ### Testing Strategy
 
@@ -651,4 +651,4 @@ Based on the company's strategic priorities, implement the following components 
 
 3. **Content Approval Workflow Tests**: Ensure content management workflows correctly enforce approval processes and permissions.
 
-4. **Integration Testing**: Focus on testing integrations with Customer and Catalog contexts as these are the most critical for Marketing operations.
+4. **Integration Testing**: Focus on testing integrations with [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) and [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) contexts as these are the most critical for Marketing operations.
