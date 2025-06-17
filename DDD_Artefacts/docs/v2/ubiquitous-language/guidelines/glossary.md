@@ -1,48 +1,27 @@
----
-title: "Domain Glossary"
-version: "2.0"
-last_updated: "2025-06-11"
-status: "Draft"
----
-
 # Domain Glossary
 
-This glossary provides definitions and explanations for all domain terms used in the Elias Food Imports system, organized alphabetically.
-
-## A
-
-- **Authentication**: The process of verifying the authenticity of imported products.
-
-## C
-
-- **Catalog**: The complete list of products available for purchase.
-- **Customer**: An individual or organization that purchases products from Elias Food Imports.
-
-## I
-
-- **Inventory**: The quantity of products available for sale.
-
-## O
-
-- **Order**: A request from a customer to purchase specific products.
-
-## P
-
-- **Payment**: The transfer of money from a customer to Elias Food Imports for products.
-- **Pricing**: The process of determining the selling price for products.
-- **Product**: A food or beverage item imported and sold by Elias Food Imports.
-
-## S
-
-- **Subscription**: A recurring arrangement for regular delivery of products.
-
-## Usage Notes
-
-- Terms are organized alphabetically by their primary noun.
-- Related terms are cross-referenced where appropriate.
-- All terms should align with the Ubiquitous Language Guidelines.
-
-## Version History
-
-- 2.0 (2025-06-11): Consolidated from legacy glossary into Ubiquitous Language Framework
-- 1.0 (2025-06-06): Initial version
+- **Analytics**: --- title: Analytics Domain description: Comprehensive domain documentation for the Analytics Bounded Context in Elias Food Imports status: draft owner: @data-engineering-team reviewers: @business-analytics, @domain-experts last_updated: 2025-06-10 ---
+- **Catalog**: --- title: [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) Domain Documentation status: draft owner: @[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)-team reviewers: @domain-experts, @tech-leads last_updated: 2025-06-10 ---
+- **Catalog Auth**: --- title: [[[Catalog](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog)](../ubiquitous-language/guidelines/glossary.md#catalog) [[[Authentication](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication)](../ubiquitous-language/guidelines/glossary.md#authentication) Context status: active owner: @auth-team reviewers: @reviewer1, @reviewer2 last_updated: 2025-06-10 ---
+- **channels**: # **🎯 Goal:** Design and prioritise the *channels* that move each **Phase 1 Prioritise segment** from **Attraction → Awareness → Consideration → Confidence → Exchange → Post-Exchange**, while respecting the CAC and margin guardrails in the master *Value Proposition Analysis (VPA)*.
+- **cost structure**: # **🎯 Goal:** Guard EFI’s gross-margin floors and cash runway by making every dollar traceable to a Key Activity, Resource, or Partner—while keeping fixed overhead low enough that scale always widens contribution margin.
+- **Customer**: --- title: [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Domain description: Comprehensive documentation for the [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) domain in Elias Food Imports status: draft owner: @chris00walker reviewers: @team last_updated: 2025-06-10 ---
+- **customer relationships**: # **🎯 Goal:** Craft a Strategyzer-ready **[[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Relationships** block that picks up where Channels ends—at **Exchange**—and guides each priority segment through **Experience → Satisfaction → Significance**, maximising LTV while protecting the gross-margin and CAC guardrails in the master VPA.
+- **customer segments**: # **🎯 Goal:** Catalogue *every* current and future [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment and capture their **top Jobs, Pains, and Gains**, tagging each with **Phase (1‒3)** and **Priority (Prioritise / Monitor / Park)** so the team can focus experiments on the segments that matter now.
+- **Inventory**: --- title: [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) Management Domain Knowledge status: draft owner: @[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)-arch-team reviewers: @janesmith, @johndoe, @alexwong last_updated: 2025-06-10 ---
+- **key activities**: # **🎯 Goal:** Identify the **Key Activities** EFI *must excel at* to **create, deliver, and capture value**—honouring the Value Proposition, enabling [Customer](../ubiquitous-language/guidelines/glossary.md#customer) acquisition & retention, and safeguarding margin targets.
+- **key partners**: # **🎯 Goal:** Develop a partner ecosystem that makes EFI faster, safer, and unmistakably authentic—so every promise of provenance, quality, and friction-free service is kept for B2C shoppers, B2B chefs, and regional importers.
+- **key resources**: # **🎯 Goal:** Secure, manage, and steward the assets that power EFI’s Key Activities—so every promise of authenticity, provenance, and friction-free service is kept for B2C, B2B, and importer customers.
+- **Marketing**: --- title: Marketing Domain Knowledge status: draft owner: @chris00walker reviewers: @reviewer1, @reviewer2 last_updated: 2025-06-10 ---
+- **Notification**: --- title: Notification Domain description: Comprehensive documentation for the Notification Domain in Elias Food Imports status: draft owner: @elias-food-imports-team reviewers: @domain-experts, @architecture-team last_updated: 2025-06-10 ---
+- **Order**: --- title: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Domain Knowledge status: active owner: [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Management Team last_updated: 2025-06-06 ---
+- **Payment**: --- title: [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment) Domain Knowledge status: draft owner: @[Payment](../ubiquitous-language/guidelines/glossary.md#payment)-team reviewers: @reviewer1, @reviewer2 last_updated: 2025-06-10 ---
+- **Pricing**: --- title: [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Domain Knowledge status: active owner: [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) Team last_updated: 2025-06-06 ---
+- **revenue & pricing**: # **🎯 Goal:** Define EFI’s **Revenue Streams & [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)** block so every dollar of income is transparently linked to the value delivered, the costs incurred, and the experiments queued in *Testing Business Ideas*.
+- **Review**: --- title: Review Domain Knowledge status: draft owner: @review-team reviewers: @reviewer1, @reviewer2 last_updated: 2025-06-10 ---
+- **Sales Quoting**: --- title: Sales & Quoting Domain Knowledge status: draft owner: @sales-team reviewers: @reviewer1, @reviewer2 last_updated: 2025-06-10 ---
+- **Shipping**: --- title: Shipping Domain Knowledge status: draft owner: @shipping-team reviewers: @reviewer1, @reviewer2 last_updated: 2025-06-10 ---
+- **Shopping Cart**: --- title: Shopping Cart Domain Knowledge status: draft owner: @domain-architecture-team reviewers: @[Product](../ubiquitous-language/guidelines/glossary.md#product)-team, @tech-lead last_updated: 2025-06-10 ---
+- **Subscription**: --- title: [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Domain Knowledge status: active owner: [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) Team last_updated: 2025-06-10 reviewers: @domain-experts, @architecture-team ---
+- **Value Proposition Analysis**: # [Elias Food Imports (EFI) \- Value Proposition Analysis](https://www.figma.com/file/GLPem1dl33hlzAWhA7LNwW/EFI-Business-Model?type=whiteboard&node-id=0%3A1&t=rzqZYPNmgR2rqWdI-1)
+- **value propositions**: # **🎯 Goal:** Articulate EFI’s core value propositions—the pain-relievers and gain-creators that address priority segments’ critical jobs, pains, and gains—so each claim can be traced back to a *Testing Business Ideas* experiment and a block in the master VPA.
