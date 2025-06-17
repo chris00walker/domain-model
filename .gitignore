@@ -10,3 +10,7 @@ dist/
 *.swp
 coverage/
 docs/codex-tickets/
+
+# Python
+__pycache__/
+*.pyc
