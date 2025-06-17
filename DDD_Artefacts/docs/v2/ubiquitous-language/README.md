@@ -9,7 +9,7 @@ status: "Final"
 
 This document serves as the central hub for the Ubiquitous Language Consistency Framework for Elias Food Imports. 
 
-**The single authoritative source for all domain terms is [`guidelines/glossary.md`](./guidelines/glossary.md).**
+**The single authoritative source for all domain terms is [`guides/glossary.md`](./guides/glossary.md).**
 
 This framework provides a comprehensive approach to maintaining terminology consistency across all aspects of the domain model.
 
@@ -17,9 +17,9 @@ This framework provides a comprehensive approach to maintaining terminology cons
 
 ### 1. Core Guidelines
 
-- [Ubiquitous Language Guidelines](./guidelines/ubiquitous_language_guidelines.md) - Foundational principles and standards
-- [Ubiquitous Language Evolution Process](./guidelines/ubiquitous_language_evolution.md) - How the language evolves over time
-- [Domain Glossary](./guidelines/glossary.md) - Authoritative definitions of all domain terms (single source of truth)
+- [Ubiquitous Language Guidelines](./guides/ubiquitous_language_guidelines.md) - Foundational principles and standards
+- [Ubiquitous Language Evolution Process](./guides/ubiquitous_language_evolution.md) - How the language evolves over time
+- [Domain Glossary](./guides/glossary.md) - Authoritative definitions of all domain terms (single source of truth)
 ### 2. Implementation Guides
 
 - [Ubiquitous Language in API Design](./implementation-guides/api_design.md) - Applying ubiquitous language to API design
@@ -40,7 +40,7 @@ This framework provides a comprehensive approach to maintaining terminology cons
 ## Using This Framework
 ### For Developers
 1. **Starting a New Feature**:
-   - Begin with the [Ubiquitous Language Guidelines](./guidelines/ubiquitous_language_guidelines.md)
+   - Begin with the [Ubiquitous Language Guidelines](./guides/ubiquitous_language_guidelines.md)
    - Review relevant domain terms in your context
 2. **Implementing Domain Concepts**:
    - Use the implementation guides for your specific area
@@ -51,7 +51,7 @@ This framework provides a comprehensive approach to maintaining terminology cons
    - Use consistent terminology from the domain model
 ### For Domain Experts
 1. **Evolving the Language**:
-   - Follow the [Ubiquitous Language Evolution Process](./guidelines/ubiquitous_language_evolution.md)
+   - Follow the [Ubiquitous Language Evolution Process](./guides/ubiquitous_language_evolution.md)
    - Document changes and rationale
 ### For New Team Members
 1. **Onboarding**:
