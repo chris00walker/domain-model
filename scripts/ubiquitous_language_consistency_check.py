@@ -4,7 +4,7 @@ import re
 # Path to the authoritative glossary file
 GLOSSARY_PATH = os.path.join(
     os.path.dirname(os.path.dirname(__file__)),
-    "DDD_Artefacts", "docs", "v2", "ubiquitous-language", "guidelines", "glossary.md"
+    "DDD_Artefacts", "docs", "v2", "ubiquitous-language", "glossary.md"
 )
 # Directories to scan for documentation
 SCAN_DIRS = [
