@@ -202,3 +202,11 @@ When business requirements change requiring modifications to existing events:
 ## Conclusion
 Consistent domain event naming is essential for maintaining a clear and expressive ubiquitous language in the Elias Food Imports system. By following the entity-first, past-tense convention and the guidelines in this document, we can ensure that our domain events accurately represent significant occurrences in the business domain and facilitate clear communication across teams.
 *This document should be reviewed and updated as the domain model evolves. Last updated: 2025-06-06*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)

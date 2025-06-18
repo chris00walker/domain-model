@@ -135,3 +135,11 @@ The Ubiquitous Language is governed by:
    - Code and documentation updated accordingly
 6. **Communication**: Changes announced in team meeting and documented
 *This process supports the continuous refinement of our Ubiquitous Language while maintaining consistency and clarity across the domain model.*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)

@@ -92,3 +92,11 @@ See the [Domain Glossary](./glossary.md) for the authoritative list of all domai
 ## Governance
 The Ubiquitous Language is governed by the DDD Implementation Team with regular input from domain experts. Any proposed changes must follow the [Ubiquitous Language Evolution Process](../guidelines/ubiquitous_language_evolution.md).
 *These guidelines serve as the foundation for maintaining consistency across the entire domain model and ensuring clear communication between technical and business stakeholders.*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)

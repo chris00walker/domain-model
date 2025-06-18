@@ -1,61 +1,60 @@
 ---
-title: "Ubiquitous Language Consistency Framework"
-version: "2.0"
-last_updated: "2025-06-11"
-status: "Final"
+title: 'Ubiquitous Language Consistency Framework'
+version: '2.0'
+last_updated: '2025-06-11'
+status: 'Final'
 ---
 
-# Ubiquitous Language Framework
+# Ubiquitous Language Consistency Framework
 
-This document serves as the central hub for the Ubiquitous Language Consistency Framework for Elias Food Imports. 
+Welcome to the single source of truth for the Ubiquitous Language Consistency Framework for Elias Food Imports.
 
-**The single authoritative source for all domain terms is [`guides/glossary.md`](./guides/glossary.md).**
+**Authoritative Domain Glossary:**
+👉 [Domain Glossary (glossary.md)](./glossary.md)
 
-This framework provides a comprehensive approach to maintaining terminology consistency across all aspects of the domain model.
+This framework ensures consistent, precise, and evolving language across all domain-driven design artifacts.
 
-## Framework Components
+> **Using the Glossary**  
+> When adding a new domain event or concept, copy the exact term from the [Domain Glossary](./glossary.md) *(e.g.*, `OrderPlaced`)*).* It is governed and maintained by the DDD Implementation Team, with all changes to core terminology following the documented evolution process. Refer to this Table of Contents for navigation—this is the only canonical index for all framework documentation.
 
-### 1. Core Guidelines
+---
 
-- [Ubiquitous Language Guidelines](./guides/ubiquitous_language_guidelines.md) - Foundational principles and standards
-- [Ubiquitous Language Evolution Process](./guides/ubiquitous_language_evolution.md) - How the language evolves over time
-- [Domain Glossary](./guides/glossary.md) - Authoritative definitions of all domain terms (single source of truth)
-### 2. Implementation Guides
+<details>
+<summary><strong>Table of Contents</strong></summary>
 
-- [Ubiquitous Language in API Design](./implementation-guides/api_design.md) - Applying ubiquitous language to API design
-- [Ubiquitous Language in Database Design](./implementation-guides/database_design.md) - Database naming and structure conventions
-- [Ubiquitous Language in UI Design](./implementation-guides/ui_design.md) - Consistent terminology in user interfaces
-- [Ubiquitous Language in Testing](./implementation-guides/testing.md) - Writing tests that reflect the domain language
 
-### 3. Analysis Documents
+1. **Core Guidelines**  
+   *Foundational principles and standards for defining, evolving, and reviewing terminology.*
+   1. [Ubiquitous Language Guidelines](./guides/ubiquitous_language_guidelines.md)
+   2. [Ubiquitous Language Evolution Process](./guides/ubiquitous_language_evolution.md)
+   3. [Ubiquitous Language Review Checklist](./guides/ubiquitous_language_review_checklist.md)
 
-- [Domain Terms in Requirements Analysis](./analysis/domain-terms-requirements.md) - Ensuring requirements use consistent terminology
-- [Domain Event Naming Analysis](./analysis/domain_event_naming.md) - Conventions for naming domain events
-- [Terminology Alignment Guide](./analysis/terminology_alignment.md) - Aligning terms across contexts
+2. **Analysis & Alignment**  
+   *Deep-dive analyses that ensure terminology and events remain cohesive across bounded contexts.*
+   1. [Domain Terms in Requirements Analysis](./guides/domain-terms-requirements.md)
+   2. [Domain Event Naming Analysis](./guides/domain_event_naming.md)
+   4. [Domain Events Business Mapping](./guides/domain_events_business_mapping.md)
+   5. [Terminology Alignment Guide](./guides/terminology_alignment.md)
 
-### 4. Business Integration
+3. **Business Integration**  
+   *Connecting ubiquitous language to metrics, onboarding, and cross-team alignment.*
+   1. [Business Metrics Domain Mapping](./guides/business_metrics_domain_mapping.md)
+   2. [Onboarding Program](./guides/onboarding_program.md)
 
-- [Business Metrics Domain Mapping](./business-integration/business_metrics_domain_mapping.md) - Connecting business metrics to domain concepts
-- [Ubiquitous Language Onboarding](./business-integration/onboarding_program.md) - Training for new team members
-## Using This Framework
-### For Developers
-1. **Starting a New Feature**:
-   - Begin with the [Ubiquitous Language Guidelines](./guides/ubiquitous_language_guidelines.md)
-   - Review relevant domain terms in your context
-2. **Implementing Domain Concepts**:
-   - Use the implementation guides for your specific area
-   - Ensure alignment with existing terminology
-### For Product Managers
-1. **Writing Requirements**:
-   - Reference [Domain Terms in Requirements Analysis](./analysis/domain-terms-requirements.md)
-   - Use consistent terminology from the domain model
-### For Domain Experts
-1. **Evolving the Language**:
-   - Follow the [Ubiquitous Language Evolution Process](./guides/ubiquitous_language_evolution.md)
-   - Document changes and rationale
-### For New Team Members
-1. **Onboarding**:
-   - Start with [Ubiquitous Language Onboarding](./business-integration/onboarding_program.md)
-   - Review the glossary for your specific bounded context
-## Governance
-The Ubiquitous Language Framework is maintained by the DDD Implementation Team with input from domain experts and stakeholders. Any changes to core terminology must follow the evolution process and be documented appropriately.
+4. **Implementation Guides**  
+   *Practical direction for applying the Ubiquitous Language in code, interfaces, and tests.*
+   1. [API Design](./guides/api_design.md)
+   2. [Database Design](./guides/database_design.md)
+   3. [UI Design](./guides/ui_design.md)
+   4. [Testing](./guides/testing.md)
+   5. [Value Objects Ubiquitous Language Analysis](./guides/value_objects_analysis.md)
+
+5. **Contributing & Governance**
+   - [Ubiquitous Language Evolution Process](./guides/ubiquitous_language_evolution.md)
+   - [Contribution Guidelines](./CONTRIBUTING.md)
+
+</details>
+
+---
+
+> **Note:** This Table of Contents is the single authoritative index for all documentation in this framework. All additions or changes must be reflected here.

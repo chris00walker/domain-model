@@ -448,3 +448,11 @@ await this.subscriptionRepository.save(entity);
 Consistent application of ubiquitous language in database design creates a foundation for maintainable, comprehensible data systems that align with business understanding. The principles and patterns in this guide ensure that technical implementations remain true to the domain model and facilitate clearer communication between technical and domain experts.
 When implemented correctly, these practices reduce translation errors, improve documentation, simplify onboarding, and create a more cohesive system architecture where data structures reinforce rather than obscure the underlying domain concepts.
 *This guide is part of the Elias Food Imports Ubiquitous Language Consistency Framework. Refer to the [Ubiquitous Language Guidelines](../guidelines.md) for overarching principles and the [Domain Terms in Requirements Analysis](../analysis/domain-terms-requirements.md) for terminology reference.*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)
