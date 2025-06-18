@@ -295,3 +295,11 @@ The metrics system should integrate with other parts of the domain model:
 ## Conclusion
 Properly representing business metrics in the domain model is essential for ensuring that the system can effectively track and report on its performance against business goals. By implementing the recommendations in this document, we can create a comprehensive metrics system that is fully integrated with the domain model and provides valuable insights for business stakeholders.
 *This document should be reviewed and updated as business metrics evolve. Last updated: 2025-06-06*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)

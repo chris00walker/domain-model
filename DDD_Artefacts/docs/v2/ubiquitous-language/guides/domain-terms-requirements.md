@@ -197,3 +197,11 @@ Maintain an open feedback channel for terminology issues:
 ## Conclusion
 Consistent domain terminology in requirements is the foundation for successful domain-driven design implementation. This analysis provides a baseline for improving requirements language and establishes processes for maintaining terminology consistency from requirements through implementation.
 *This document is part of the Elias Food Imports Ubiquitous Language Consistency Framework. Refer to the [Ubiquitous Language Guidelines](../guidelines.md) for overarching principles.*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)

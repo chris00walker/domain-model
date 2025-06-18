@@ -164,3 +164,11 @@ When terminology conflicts arise, follow this resolution process:
 ## Conclusion
 Terminology alignment is an ongoing process that requires continuous attention and refinement. By following the strategies outlined in this guide, Elias Food Imports can maintain a consistent ubiquitous language that accurately reflects the business domain, facilitates clear communication across teams, and supports a coherent domain model. Regular review and updating of terminology alignment documents ensures that the ubiquitous language evolves appropriately as the business and domain understanding evolve.
 *This document should be reviewed and updated as the domain model evolves. Last updated: 2025-06-06*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)

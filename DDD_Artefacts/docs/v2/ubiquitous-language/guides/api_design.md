@@ -301,3 +301,11 @@ The API Review Board, working with the Domain Language Stewards, will:
 - [API Design Style Guide](../../technical/api-design-guide.md)
 - [Bounded Context Map](../../domain-knowledge/integrations/context-map.md)
 *This guide ensures that our APIs serve as a faithful representation of our domain model, using consistent terminology that bridges technical implementation and business concepts.*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)

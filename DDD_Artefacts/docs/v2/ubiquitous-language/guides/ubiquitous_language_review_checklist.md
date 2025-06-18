@@ -157,3 +157,11 @@ Consistent application of ubiquitous language is essential for:
 ## Conclusion
 Regular application of this review checklist ensures that Elias Food Imports maintains a consistent, clear, and expressive ubiquitous language throughout all aspects of the system. By systematically reviewing artifacts against these criteria, we can detect and correct terminology inconsistencies early, maintaining the integrity of our domain model.
 *This document should be reviewed and updated as the Ubiquitous Language evolves. Last updated: 2025-06-06*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)

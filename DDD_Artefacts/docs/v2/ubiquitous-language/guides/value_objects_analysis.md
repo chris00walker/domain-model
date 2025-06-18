@@ -406,3 +406,11 @@ return JSON.stringify(this.props) === JSON.stringify(vo.props);
 ## Conclusion
 Value Objects are essential building blocks in a rich domain model. By ensuring they reflect the ubiquitous language accurately, we create a model that is not only technically sound but also meaningfully communicates domain concepts. This analysis provides guidance for identifying, naming, and implementing Value Objects that align with the Elias Food Imports domain language, promoting clarity and consistency throughout the system.
 *This document should be reviewed and updated as the domain model evolves. Last updated: 2025-06-06*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)
