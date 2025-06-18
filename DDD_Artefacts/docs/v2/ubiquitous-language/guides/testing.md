@@ -129,6 +129,63 @@ Feature: Subscription Management
     And no deliveries should be scheduled
     And the Customer should be notified about the pause
 ```
+
+### Example Step Definitions (TypeScript + Jest + Cucumber)
+```typescript
+import { defineFeature, loadFeature } from 'jest-cucumber';
+import { SubscriptionService } from '../../src/subscriptions/SubscriptionService';
+import { CustomerTestFactory } from '../factories/CustomerTestFactory';
+import { ProductTestFactory } from '../factories/ProductTestFactory';
+
+const feature = loadFeature('./SubscriptionManagement.feature');
+
+defineFeature(feature, test => {
+  let subscriptionService: SubscriptionService;
+  let customer: Customer;
+  let subscriptionId: string;
+
+  beforeEach(() => {
+    subscriptionService = new SubscriptionService();
+    customer = CustomerTestFactory.createRetailCustomer();
+  });
+
+  test('Pausing an active Subscription', ({ given, and, when, then }) => {
+    given(/^a Customer has an active Subscription$/, () => {
+      const cheeseBundle = ProductTestFactory.createCheeseBundle();
+      subscriptionId = subscriptionService.createSubscription(customer.id, cheeseBundle);
+    });
+
+    and(/^the Subscription contains premium cheese products$/, () => {
+      const subscription = subscriptionService.getSubscription(subscriptionId);
+      expect(subscription.containsProductCategory('CHEESE')).toBe(true);
+    });
+
+    when(/^the Customer pauses their Subscription$/, () => {
+      subscriptionService.pauseSubscription(subscriptionId);
+    });
+
+    then(/^the Subscription status should be "paused"$/, () => {
+      const subscription = subscriptionService.getSubscription(subscriptionId);
+      expect(subscription.status).toBe('PAUSED');
+    });
+
+    and(/^no deliveries should be scheduled$/, () => {
+      const deliveries = subscriptionService.getScheduledDeliveries(subscriptionId);
+      expect(deliveries.length).toBe(0);
+    });
+
+    and(/^the Customer should be notified about the pause$/, () => {
+      const notifications = subscriptionService.getNotificationsFor(customer.id);
+      expect(notifications).toContainEqual(
+        expect.objectContaining({
+          type: 'SubscriptionPaused',
+          subscriptionId,
+        }),
+      );
+    });
+  });
+});
+```
 ## Test Documentation
 Document tests using domain terminology:
 ```typescript
@@ -222,3 +279,11 @@ This testing guide complements other Ubiquitous Language documents:
 ## Conclusion
 Aligning tests with the ubiquitous language creates a powerful feedback loop that validates both the code and the domain model. By following these guidelines, tests become living documentation that verifies business rules while reinforcing domain concepts.
 *This document should be reviewed and updated as testing practices evolve. Last updated: 2025-06-06*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)

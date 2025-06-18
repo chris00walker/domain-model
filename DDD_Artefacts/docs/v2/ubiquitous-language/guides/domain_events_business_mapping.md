@@ -450,3 +450,11 @@ return created - cancelled;
 This Domain Events Business Mapping establishes clear connections between technical implementation (domain events) and business objectives (processes and metrics). By maintaining these mappings as the system evolves, we ensure that our event-driven architecture continues to support business goals effectively and enables accurate business process monitoring.
 Domain events serve as the foundational building blocks for tracking business performance, enabling both technical teams and business stakeholders to speak a common language when discussing system behavior and business outcomes.
 *This document should be reviewed and updated as the domain model evolves. Last updated: 2025-06-06*
+
+---
+
+⚑ Related
+- [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
+
+↩ [Back to Framework TOC](../README.md)
