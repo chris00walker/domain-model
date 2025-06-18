@@ -3,6 +3,9 @@
 ## Purpose
 This document establishes the governance process for maintaining documentation consistency and preventing multiple sources of truth within the Elias Food Imports domain model documentation. For style and formatting guidelines, please refer to the [Style Guide](./STYLE_GUIDE.md).
 
+> **Note**  
+> Terminology governance, cross-link patterns, and the authoritative glossary now live in the [Ubiquitous Language Consistency Framework](./ubiquitous-language/README.md). Refer to that framework whenever adding or reviewing domain-specific docs.
+
 ## Core Principles
 
 1. **Single Source of Truth**
@@ -70,9 +73,10 @@ Example: `version: "2.1.0"` indicates a minor update to version 2.0.0
 ## Preventing Duplication
 
 ### Cross-Referencing
-- Use relative links to reference other documentation
-- When referencing concepts, link to the canonical source
-- Avoid duplicating content; link instead
+- Use relative links; avoid absolute URLs inside the repo.
+- When referencing domain terminology, link to the **single** definition in the [Domain Glossary](./ubiquitous-language/glossary.md).
+- For guides inside the UL framework, add a `⚑ Related` block plus the back-link footer `↩ [Back to Framework TOC](../ubiquitous-language/README.md)`.
+- Do **not** duplicate content—link instead.
 
 ### Documentation Types
 1. **Reference Documentation**
@@ -92,18 +96,20 @@ Example: `version: "2.1.0"` indicates a minor update to version 2.0.0
 
 ## Regular Audits
 
-### Quarterly Reviews
+### Quarterly Reviews  
+(See the detailed process in [Ubiquitous Language Evolution Process](./ubiquitous-language/guides/ubiquitous_language_evolution.md))
 - Review documentation for accuracy and relevance
 - Identify and remove or update outdated content
 - Check for broken links
 - Verify cross-references
 
 ### Documentation Health Check
-- Run automated checks for:
+- Run automated checks via `npm run lint:md` for:
   - Broken links
-  - Missing frontmatter
+  - Missing front-matter
   - Outdated version numbers
   - Unused files
+- Validate that every guide contains a `⚑ Related` block and back-link footer.
 
 ## Quality Assurance
 
@@ -120,7 +126,8 @@ Example: `version: "2.1.0"` indicates a minor update to version 2.0.0
 - Scheduled weekly runs with reporting
 - Integration with CI/CD pipeline
 
-### Manual Review Checklist
+### Manual Review Checklist  
+_For domain-language documents, also complete the [Ubiquitous Language Review Checklist](./ubiquitous-language/guides/ubiquitous_language_review_checklist.md)_
 - [ ] Content is accurate and up-to-date
 - [ ] Follows the style guide
 - [ ] All links work correctly
@@ -174,3 +181,7 @@ Track and report on:
 - [Style Guide](./STYLE_GUIDE.md)
 - [Ubiquitous Language Framework](./ubiquitous-language/README.md)
 - [Documentation Templates](./templates/README.md)
+
+---
+
+↩ [Back to Ubiquitous Language TOC](./ubiquitous-language/README.md)
