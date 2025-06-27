@@ -1,15 +1,21 @@
 import os
+import sys
 import re
 
 # Path to the authoritative glossary file
-GLOSSARY_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(__file__)),
-    "DDD_Artefacts", "docs", "v2", "ubiquitous-language", "glossary.md"
+# Determine glossary path – prefer new location, fall back to legacy path for backward-compat.
+PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
+NEW_GLOSSARY_PATH = os.path.join(
+    PROJECT_ROOT, "DDD_Artefacts", "docs", "ubiquitous-language", "glossary.md"
 )
+LEGACY_GLOSSARY_PATH = os.path.join(
+    PROJECT_ROOT, "DDD_Artefacts", "docs", "v2", "ubiquitous-language", "glossary.md"
+)
+GLOSSARY_PATH = NEW_GLOSSARY_PATH if os.path.isfile(NEW_GLOSSARY_PATH) else LEGACY_GLOSSARY_PATH
 # Directories to scan for documentation
 SCAN_DIRS = [
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), "business-model"),
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), "DDD_Artefacts", "docs", "v2", "domain-knowledge", "core-contexts"),
+    os.path.join(PROJECT_ROOT, "DDD_Artefacts", "docs", "business-model"),
+    os.path.join(PROJECT_ROOT, "DDD_Artefacts", "docs", "domain-knowledge", "bounded-contexts"),
 ]
 
 def extract_glossary_terms(path):

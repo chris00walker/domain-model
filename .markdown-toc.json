@@ -1,0 +1,12 @@
+{
+  "bullets": "-",
+  "maxdepth": 4,
+  "firsth1": false,
+  "noescape": true,
+  "notitle": true,
+  "toc": true,
+  "filter": {
+    "pattern": "^\\s*\\[\\[\\[.*?\\]\\]",
+    "replacement": ""
+  }
+}

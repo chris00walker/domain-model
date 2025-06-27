@@ -2,19 +2,24 @@
 
 skinparam componentStyle uml2
 skinparam defaultFontName Arial
+skinparam monochrome false
+skinparam shadowing false
 
-title Content Moderation Workflow
-
-participant "AdminUser" as admin
+' Define participants
+actor AdminUser as admin
 participant "ModerationTask" as task
 participant "ModerationService" as service
 participant "Content Entity" as content
 participant "Catalog Context" as catalog
 
+' Notes
 note over task: Aggregate Root
 note over service: Domain Service
 
-group Content Creation/Update
+title Content Moderation Workflow
+
+' Content Creation/Update group
+group "Content Creation/Update"
     admin -> content: Create/Update Content
     content -> service: Create Moderation Request
     service -> task: Create(contentId, contentType)
@@ -22,7 +27,8 @@ group Content Creation/Update
     note right: Initial state
 end
 
-group Content Review
+' Content Review group
+group "Content Review"
     admin -> task: AssignToSelf()
     task -> task: SetStatus(IN_REVIEW)
 

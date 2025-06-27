@@ -1,96 +1,44 @@
 @startuml EFI Context Map
-!define RECTANGLE_ORDER 1
-!define RECTANGLE_SUPPLIER 2
-!define RECTANGLE_CUSTOMER 3
-!define RECTANGLE_PARTNERSHIP 4
-!define RECTANGLE_CONFORMIST 5
-!define RECTANGLE_ANTICORRUPTION 6
-!define RECTANGLE_OPENHOST 7
-!define RECTANGLE_PUBLIC 8
-
-skinparam componentStyle rectangle
+top to bottom direction
+skinparam componentStyle uml2
 skinparam defaultFontName Arial
+skinparam roundcorner 10
+skinparam shadowing false
 
-' Core Contexts
-rectangle "Customer Management" as CustomerMgmt #ff6b6b {
-  [Customer Profile]
-  [Authentication]
-  [Preferences]
-}
+' Core Domains
+component "Customer Management" as CustomerMgmt #ff6b6b
+component "Catalog & Inventory" as Catalog #ff6b6b
+component "Order Processing" as Order #ff6b6b
 
-rectangle "Catalog & Inventory" as Catalog #ff6b6b {
-  [Product Catalog]
-  [Pricing]
-  [Stock Levels]
-}
+' Supporting Subdomains
+component "Admin" as Admin #ff9e2c
+component "Subscription Service" as Subscription #ff9e2c
+component "Compliance & Safety" as Compliance #ff9e2c
+component "Analytics & Reporting" as Analytics #ff9e2c
 
-rectangle "Order Processing" as Order #ff6b6b {
-  [Order]
-  [Checkout]
-  [Fulfillment]
-}
-
-' Supporting Contexts
-rectangle "Admin" as Admin #ff9e2c {
-  [Admin Users]
-  [Content Moderation]
-  [System Settings]
-  [Audit Logging]
-}
-
-rectangle "Subscription Service" as Subscription #ff9e2c {
-  [Subscription Plans]
-  [Billing]
-  [Renewals]
-}
-
-rectangle "Compliance & Safety" as Compliance #ff9e2c {
-  [Food Safety]
-  [Regulatory]
-  [Audit Logs]
-}
-
-rectangle "Analytics & Reporting" as Analytics #ff9e2c {
-  [Business Intelligence]
-  [KPIs]
-  [Forecasting]
-}
-
-' External Systems
-rectangle "Payment Processors" as Payment #51cf66 {
-  [Stripe]
-  [PayPal]
-  [Wise]
-}
-
-rectangle "Shipping Providers" as Shipping #51cf66 {
-  [Local Couriers]
-  [Freight Forwarders]
-}
-
-rectangle "ERP System" as ERP #51cf66 {
-  [Odoo]
-}
+' Generic Subdomains
+component "Payment Processors" as Payment #51cf66
+component "Shipping Providers" as Shipping #51cf66
+component "ERP System" as ERP #51cf66
 
 ' Relationships
-CustomerMgmt -r-> Order : "Places"
-Catalog -d-> Order : "Contains"
-Order -d-> Subscription : "Triggers"
-Order -r-> Payment : "Processes"
-Order -d-> Shipping : "Schedules"
-Compliance -d-> Catalog : "Validates"
-Analytics -l-> Order : "Analyzes"
-ERP -u-> Order : "Synchronizes"
+CustomerMgmt --> Order : Places
+Catalog --> Order : Contains
+Order --> Subscription : Triggers
+Order --> Payment : Processes
+Order --> Shipping : Schedules
+Compliance --> Catalog : Validates
+Analytics --> Order : Analyzes
+ERP --> Order : Synchronizes
 
 ' Admin Relationships
-Admin -u-> CustomerMgmt : "Manages"
-Admin -u-> Catalog : "Moderates"
-Admin <-d-> Compliance : "Coordinates"
-Admin -u-> Subscription : "Configures"
-Admin -r-> Analytics : "Monitors"
+Admin --> CustomerMgmt : Manages
+Admin --> Catalog : Moderates
+Admin --> Compliance : Coordinates
+Admin --> Subscription : Configures
+Admin --> Analytics : Monitors
 
 ' Legend
-top to bottom direction
 legend right
   <b>Context Map Legend</b>
   --
@@ -98,9 +46,9 @@ legend right
   <color:#ff9e2c>Supporting Subdomain</color>
   <color:#51cf66>Generic Subdomain</color>
   --
-  --> Upstream (U)
-  <-- Downstream (D)
-  <-> Partnership (P)
+  Upstream (U)
+  Downstream (D)
+  Partnership (P)
   --
   Conformist (CF)
   Anticorruption (ACL)
