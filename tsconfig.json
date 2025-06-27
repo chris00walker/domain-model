@@ -43,7 +43,8 @@
   },
   "include": [
     "DDD_Artefacts/src/**/*.ts",
-    "DDD_Artefacts/tests/**/*.ts"
+
+    "tests/**/*.ts"
   ],
   "exclude": [
     "node_modules",
