@@ -5,17 +5,17 @@ on:
     paths:
       - '**.md'
       - 'scripts/ubiquitous_language_consistency_check.py'
-      - 'DDD_Artefacts/docs/v2/ubiquitous-language/guidelines/glossary.md'
-      - 'business-model/**'
-      - 'DDD_Artefacts/docs/v2/domain-knowledge/core-contexts/**'
+      - 'DDD_Artefacts/docs/ubiquitous-language/glossary.md'
+      - 'DDD_Artefacts/docs/business-model/**'
+      - 'DDD_Artefacts/docs/domain-knowledge/bounded-contexts/**'
   push:
     branches: [main, master]
     paths:
       - '**.md'
       - 'scripts/ubiquitous_language_consistency_check.py'
-      - 'DDD_Artefacts/docs/v2/ubiquitous-language/guidelines/glossary.md'
-      - 'business-model/**'
-      - 'DDD_Artefacts/docs/v2/domain-knowledge/core-contexts/**'
+      - 'DDD_Artefacts/docs/ubiquitous-language/glossary.md'
+      - 'DDD_Artefacts/docs/business-model/**'
+      - 'DDD_Artefacts/docs/domain-knowledge/bounded-contexts/**'
 
 jobs:
   consistency-check:
