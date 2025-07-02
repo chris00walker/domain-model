@@ -21,7 +21,7 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["DDD_Artefacts/src/app/*"],
+
       "@domain/*": ["DDD_Artefacts/src/domain/*"],
       "@infra/*": ["DDD_Artefacts/src/infra/*"],
       "@shared/*": ["DDD_Artefacts/src/shared/*"],
