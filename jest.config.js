@@ -12,7 +12,7 @@ module.exports = {
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/DDD_Artefacts/src/$1',
-    '^@app/(.*)$': '<rootDir>/DDD_Artefacts/src/app/$1',
+
     '^@domain/(.*)$': '<rootDir>/DDD_Artefacts/src/domain/$1',
     '^@infra/(.*)$': '<rootDir>/DDD_Artefacts/src/infra/$1',
     '^@ordering/(.*)$': '<rootDir>/DDD_Artefacts/src/ordering/$1',
