@@ -1,59 +1,103 @@
 @startuml EFI Context Map
-top to bottom direction
-skinparam componentStyle uml2
+left to right direction
+skinparam componentStyle rectangle
+skinparam ranksep 40
+skinparam nodesep 30
 skinparam defaultFontName Arial
-skinparam roundcorner 10
 skinparam shadowing false
 
-' Core Domains
-component "Customer Management" as CustomerMgmt #ff6b6b
-component "Catalog & Inventory" as Catalog #ff6b6b
-component "Order Processing" as Order #ff6b6b
+' Context Groups
+package "Consumer Frontend" {
+  [Order Management] as Order #ff6b6b
+  [Shopping Cart]   as ShoppingCart #ff6b6b
+}
 
-' Supporting Subdomains
-component "Admin" as Admin #ff9e2c
-component "Subscription Service" as Subscription #ff9e2c
-component "Compliance & Safety" as Compliance #ff9e2c
-component "Analytics & Reporting" as Analytics #ff9e2c
+package "Product & Customer" {
+  [Product Catalog]      as Catalog #ff6b6b
+  [Customer Management]  as CustomerManagement #ff6b6b
+  [Payment & Billing]    as Payment #ff9e2c
+  [Sales & Quoting (B2B)] as SalesQuoting #ff9e2c
+  [Marketing]            as Marketing #ff9e2c
+  [Authentication]       as Auth #ff9e2c
+}
 
-' Generic Subdomains
-component "Payment Processors" as Payment #51cf66
-component "Shipping Providers" as Shipping #51cf66
-component "ERP System" as ERP #51cf66
+package "Warehouse & Back-Office" {
+  [Inventory & Shelf-Life] as Inventory #ff6b6b
+  [Batch Tracking]         as Batch #ff6b6b
+  [Shipping & Fulfilment]  as Shipping #ff9e2c
+  [Cold-Chain Monitoring]  as ColdChain #ff9e2c
+  [Pricing & Promotions]   as Pricing #ff6b6b
+  [Notifications & Alerts] as Notifications #51cf66
+  [Supplier Traceability]  as SupplierTraceability #ff9e2c
+  [Quality Control]        as QualityControl #ff9e2c
+  [Analytics & Reporting]  as Analytics #ff9e2c
+  [Returns Management]     as Returns #ff9e2c
+}
+
+package "External Systems" {
+  [Payment Processor]  as ExtPayment #999999
+  [Shipping Carrier]   as ExtCarrier #999999
+  [ERP System]         as ERP #999999
+}
 
 ' Relationships
-CustomerMgmt --> Order : Places
-Catalog --> Order : Contains
-Order --> Subscription : Triggers
-Order --> Payment : Processes
-Order --> Shipping : Schedules
-Compliance --> Catalog : Validates
-Analytics --> Order : Analyzes
-ERP --> Order : Synchronizes
+Order --> Inventory       : "reserve FEFO [OH, D]"
+Order --> Pricing         : "price check [OH, D]"
+Order --> Payment         : "capture funds [OH, D]"
+Order --> Shipping        : "fulfilment [OH, D]"
+Order --> Returns         : "return request [OH, D]"
+Order --> Auth            : "auth verify [PL, D]"
+Order --> Marketing       : "promo offers [PL, D]"
 
-' Admin Relationships
-Admin --> CustomerMgmt : Manages
-Admin --> Catalog : Moderates
-Admin --> Compliance : Coordinates
-Admin --> Subscription : Configures
-Admin --> Analytics : Monitors
+ShoppingCart --> Inventory          : "availability [OH, D]"
+ShoppingCart --> Pricing            : "price preview [OH, D]"
+ShoppingCart --> CustomerManagement : "customer data [PL, D]"
+
+Catalog --> Inventory : "shelf-life facts [PL, U]"
+Catalog --> Pricing   : "product facts [PL, U]"
+
+Inventory --> Batch                : "batch event [PL, U]"
+Inventory --> Shipping             : "stock report [PL, U]"
+Inventory --> Notifications        : "expiry alert [OH, U]"
+Inventory --> Pricing              : "markdown trigger [PL, U]"
+Inventory --> SupplierTraceability : "trace info [PL, U]"
+Inventory --> QualityControl       : "QC results [PL, U]"
+Inventory --> Returns              : "returns update [PL, U]"
+Inventory --> ERP                  : "stock sync [CF, U]"
+
+Shipping --> ColdChain : "temperature data [OH, D]"
+ColdChain --> Inventory : "breach alert [OH, U]"
+ColdChain --> Notifications : "alert [OH, U]"
+
+Pricing --> Notifications : "promo notif [OH, U]"
+Pricing --> SalesQuoting  : "quote data [PL, U]"
+SalesQuoting --> Inventory : "batch demand [PL, D]"
+
+SupplierTraceability --> Notifications : "recall alert [OH, U]"
+QualityControl --> Notifications       : "QC fail [OH, U]"
+Returns --> QualityControl             : "QC/Refund [PL, D]"
+Returns --> Payment                    : "refund [PL, D]"
+Returns --> Notifications              : "alert [OH, U]"
+
+Payment --> ExtPayment      : "API call [ACL, P]"
+Shipping --> ExtCarrier     : "shipment API [ACL, P]"
+Payment --> ERP             : "financials [CF, D]"
+
+Analytics --> Pricing    : "KPI ingest [PL, D]"
+Analytics --> Inventory  : "KPI ingest [PL, D]"
+Analytics --> Returns    : "KPI ingest [PL, D]"
 
 ' Legend
 legend right
-  <b>Context Map Legend</b>
-  --
-  <color:#ff6b6b>Core Domain</color>
-  <color:#ff9e2c>Supporting Subdomain</color>
-  <color:#51cf66>Generic Subdomain</color>
-  --
-  Upstream (U)
-  Downstream (D)
-  Partnership (P)
-  --
-  Conformist (CF)
-  Anticorruption (ACL)
-  Open Host (OH)
-  Published Language (PL)
-end legend
+<b>Context Categories</b>
+<color:#ff6b6b>Core Domain</color>
+<color:#ff9e2c>Supporting Subdomain</color>
+<color:#51cf66>Generic Subdomain</color>
+<color:#999999>External System</color>
+--
+<b>Relationship Codes</b>
+U = Upstream  | D = Downstream | P = Partnership
+PL = Published Language | ACL = Anti-Corruption Layer | OH = Open Host | CF = Conformist
+endlegend
 
 @enduml
