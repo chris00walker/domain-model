@@ -1,4 +1,5 @@
 @startuml EFI Context Map
+<<<<<<< HEAD
 left to right direction
 skinparam componentStyle rectangle
 skinparam ranksep 40
@@ -99,5 +100,63 @@ legend right
 U = Upstream  | D = Downstream | P = Partnership
 PL = Published Language | ACL = Anti-Corruption Layer | OH = Open Host | CF = Conformist
 endlegend
+=======
+top to bottom direction
+skinparam componentStyle uml2
+skinparam defaultFontName Arial
+skinparam roundcorner 10
+skinparam shadowing false
+
+' Core Domains
+component "Customer Management" as CustomerMgmt #ff6b6b
+component "Catalog & Inventory" as Catalog #ff6b6b
+component "Order Processing" as Order #ff6b6b
+
+' Supporting Subdomains
+component "Admin" as Admin #ff9e2c
+component "Subscription Service" as Subscription #ff9e2c
+component "Compliance & Safety" as Compliance #ff9e2c
+component "Analytics & Reporting" as Analytics #ff9e2c
+
+' Generic Subdomains
+component "Payment Processors" as Payment #51cf66
+component "Shipping Providers" as Shipping #51cf66
+component "ERP System" as ERP #51cf66
+
+' Relationships
+CustomerMgmt --> Order : Places
+Catalog --> Order : Contains
+Order --> Subscription : Triggers
+Order --> Payment : Processes
+Order --> Shipping : Schedules
+Compliance --> Catalog : Validates
+Analytics --> Order : Analyzes
+ERP --> Order : Synchronizes
+
+' Admin Relationships
+Admin --> CustomerMgmt : Manages
+Admin --> Catalog : Moderates
+Admin --> Compliance : Coordinates
+Admin --> Subscription : Configures
+Admin --> Analytics : Monitors
+
+' Legend
+legend right
+  <b>Context Map Legend</b>
+  --
+  <color:#ff6b6b>Core Domain</color>
+  <color:#ff9e2c>Supporting Subdomain</color>
+  <color:#51cf66>Generic Subdomain</color>
+  --
+  Upstream (U)
+  Downstream (D)
+  Partnership (P)
+  --
+  Conformist (CF)
+  Anticorruption (ACL)
+  Open Host (OH)
+  Published Language (PL)
+end legend
+>>>>>>> origin/main
 
 @enduml
