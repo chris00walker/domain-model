@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus, EventBus, ICommand, IEvent, EventsHandler } from '@nestjs/cqrs';
-import { Order } from '../../ordering/domain/aggregates/Order';
-import { OrderStatus } from '../../ordering/domain/value-objects/OrderStatus';
-import { OrderPaid } from '../../ordering/domain/events/OrderPaid';
-import { OrderPaymentFailed } from '../../ordering/domain/events/OrderPaymentFailed';
-import { OrderFulfilled } from '../../ordering/domain/events/OrderFulfilled';
-import { OrderCancelled } from '../../ordering/domain/events/OrderCancelled';
-import { OrderCreated } from '../../ordering/domain/events/OrderCreated';
+import { Order } from '../domain/aggregates/Order';
+import { OrderStatus } from '../domain/value-objects/OrderStatus';
+import { OrderPaid } from '../domain/events/OrderPaid';
+import { OrderPaymentFailed } from '../domain/events/OrderPaymentFailed';
+import { OrderFulfilled } from '../domain/events/OrderFulfilled';
+import { OrderCancelled } from '../domain/events/OrderCancelled';
+import { OrderCreated } from '../domain/events/OrderCreated';
 
 type SagaState = {
   orderId: string;
