@@ -11,7 +11,7 @@ deciders: Core Architecture Team, Integration Team
 Accepted
 
 ## Context
-Domain events are essential to the Elias Food Imports system, enabling loose coupling between bounded contexts while maintaining business process integrity. According to the Domain Event Catalog, there are 60+ domain events across 13 bounded contexts. As the system has evolved, several challenges emerged:
+Domain events are essential to the Elias Food Imports system, enabling loose coupling between bounded contexts while maintaining business process integrity. According to the [Domain Event Catalog](../../domain-knowledge/integrations/events.md), there are 60+ domain events across 13 bounded contexts. As the system has evolved, several challenges emerged:
 
 1. Inconsistent event handling and publishing
 2. Difficulty verifying events in tests
@@ -22,7 +22,7 @@ Domain events are essential to the Elias Food Imports system, enabling loose cou
 These issues led to difficulties in ensuring business workflows worked correctly across context boundaries and problems debugging complex event chains.
 
 ## Decision
-We will implement a comprehensive Domain Event system with the following components:
+We will implement a comprehensive Domain Event system with the following components. For the complete list of domain events and their schemas, refer to the [Domain Event Catalog](../../domain-knowledge/integrations/events.md).
 
 1. **Standardized Event Base Class**:
    ```typescript
