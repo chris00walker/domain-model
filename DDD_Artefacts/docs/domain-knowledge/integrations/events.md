@@ -14,6 +14,8 @@ last_updated: 2025-06-06
 
 This catalog documents all domain events across the Elias Food Imports domain model, following the [Ubiquitous Language](../ubiquitous-language/README.md) and [Architecture Decision Records](../adr/README.md). Events are the primary mechanism for communication between bounded contexts in our domain-driven architecture.
 
+> **Architecture Decision**: The design patterns and standards for these domain events are documented in [ADR-002: Domain Event Design Patterns](../adr/002-domain-event-design.md).
+
 ## Strategic Importance
 
 Domain events play a critical role in:
