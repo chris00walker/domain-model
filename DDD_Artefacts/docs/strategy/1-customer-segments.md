@@ -1,4 +1,4 @@
-# **🎯 Goal:** Catalogue *every* current and future [Customer](../ubiquitous-language/guidelines/glossary.md#customer) segment and capture their **top Jobs, Pains, and Gains**, tagging each with **Phase (1‒3)** and **Priority (Prioritise / Monitor / Park)** so the team can focus experiments on the segments that matter now.
+# **🎯 Goal:** Catalogue *every* current and future [Customer](../ubiquitous-language/glossary.md#customer) segment and capture their **top Jobs, Pains, and Gains**, tagging each with **Phase (1‒3)** and **Priority (Prioritise / Monitor / Park)** so the team can focus experiments on the segments that matter now.
 
 **Strategyzer Lens:** Every segment entry must
 
@@ -26,7 +26,7 @@
 | **Food-Truck Operators** | Mobile vendors with tight space & frequent restocks | • Source ready-to-use SKUs• Control COGS | • Storage limits• Inconsistent supply | • Low MOQ• Frequent delivery | 3 accounts (Small-n Experiment)[2](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fn-2) • **Prioritise** | 🔗 |
 | **Specialty Mini-Markets** | Niche grocers trading on uniqueness | • Stock authentic range• Justify premium | • Supplier fragmentation• Story gaps | • Differentiation• Higher margin | 15 accounts • **Prioritise** | 🔗 |
 | **Limited-Service Restaurants** (pilot) | Fast-casual outlets testing Levantine menu | • Speed prep• Control COGS | • Staff skill gap• Stock-outs | • Pre-prepped SKUs• Quick payback | 5 accounts (pilot) • **Prioritise** | 🔗 |
-| **Villa / Event Chefs** | High-end chefs for villas & events | • Impress clients• Source premium | • Last-minute supply• High [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) | • Hero-chef support• Authenticity | 6 accounts • **Monitor** | 🔗 |
+| **Villa / Event Chefs** | High-end chefs for villas & events | • Impress clients• Source premium | • Last-minute supply• High [Pricing](../ubiquitous-language/glossary.md#pricing) | • Hero-chef support• Authenticity | 6 accounts • **Monitor** | 🔗 |
 | **Full-Service Restaurants** | Sit-down restaurants seeking premium SKUs | • Authentic menu• Train staff | • High CAC• Prep complexity | • Provenance• Training collateral | 2 accounts • **Park** | 🔗 |
 | **Hotel Restaurants** | In-house dining for resorts & hotels | • Standardise menus• Meet guest needs | • Volume volatility• Compliance | • Mixed-temp pallets• SLAs | 3 accounts • **Park** | 🔗 |
 
@@ -36,7 +36,7 @@
 
 | Segment | Description | Top Jobs | Key Pains | Key Gains | Size & Priority | TBI Card |
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| **Partner Importers & Distributors** | Island-wide wholesalers moving mixed-SKU containers | • Add authentic depth• Manage [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) risk | • High MOQs tie up cash• Missing documentation | • Faster category launch• Improved pallet margin | — accounts • **Prioritise** from M12[3](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fn-3) | 🔗 |
+| **Partner Importers & Distributors** | Island-wide wholesalers moving mixed-SKU containers | • Add authentic depth• Manage [Inventory](../ubiquitous-language/glossary.md#inventory) risk | • High MOQs tie up cash• Missing documentation | • Faster category launch• Improved pallet margin | — accounts • **Prioritise** from M12[3](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fn-3) | 🔗 |
 | **Cruise-Line Chandlers** | Port-side provisioners restocking vessels in one lift | • Replenish hundreds of SKUs fast | • Port-delay penalties• Temperature-abuse risk | • Faster turnaround• Simplified vendor mgmt | — accounts • **Park**[3](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fn-3) | 🔗 |
 | **Regional Supermarket / DC Buyers** | Corporate supermarket groups importing direct | • Stock ethnic aisles• Support private-label | • Slotting-fee risk• Supply interruptions | • Higher category growth• Shelf-turn uplift | — accounts • **Park**[3](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fn-3) | 🔗 |
 | **Resort Group HQs** | Multi-property resort procurement teams | • Secure authentic SKUs chain-wide• Standardise quality | • Inconsistent standards• High freight cost | • Consistent guest experience• Procurement efficiency | — accounts • **Park**[3](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fn-3) | 🔗 |

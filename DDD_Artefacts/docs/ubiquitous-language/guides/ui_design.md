@@ -364,7 +364,7 @@ Use this checklist to verify UI design alignment with ubiquitous language:
 - Create feedback mechanisms for identifying language inconsistencies
 ## Conclusion
 A UI that faithfully represents the ubiquitous language creates a seamless experience that connects users to domain concepts. This alignment reduces cognitive load, improves user comprehension, strengthens brand consistency, and ultimately delivers better business outcomes by ensuring that what users see and interact with directly maps to the core domain model.
-*This guide is part of the Elias Food Imports Ubiquitous Language Consistency Framework. Refer to the [Ubiquitous Language Guidelines](../guidelines.md) for overarching principles and the [Domain Terms in Requirements Analysis](../analysis/domain-terms-requirements.md) for terminology reference.*
+*This guide is part of the Elias Food Imports Ubiquitous Language Consistency Framework. Refer to the [Ubiquitous Language Guidelines](ubiquitous_language_guidelines.md) for overarching principles and the [Domain Terms and Requirements](./domain-terms-requirements.md) for terminology reference.*
 
 ---
 

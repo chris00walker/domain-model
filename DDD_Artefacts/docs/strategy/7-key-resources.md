@@ -15,7 +15,7 @@
 | Core Asset | Supports These Key Activities | Single Best Management Action | TBI Card |
 | ----- | ----- | ----- | ----- |
 | **Dual 3PL hub network** (Florida & Barbados) | Ocean-freight intake, customs clearance, pick-&-pack fulfilment, duty-relief | Maintain two pre-approved 3PLs; embed RFID/IoT cold-chain sensors; audit temp logs monthly | 🔗 F-KR-01 |
-| **Bonded overflow warehouse** (100-pallet, temp-controlled) | 2-week [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) buffer for “never run out” subscriptions | Release space if utilization \< 60 % for 60 d; rotate aged stock weekly | 🔗 F-KR-02 |
+| **Bonded overflow warehouse** (100-pallet, temp-controlled) | 2-week [Inventory](../ubiquitous-language/glossary.md#inventory) buffer for “never run out” subscriptions | Release space if utilization \< 60 % for 60 d; rotate aged stock weekly | 🔗 F-KR-02 |
 | **Portable micro-lab & sampling kit** | Lot-based ISO 22000 safety checks; QR-provenance capture | Calibrate quarterly; log results to QA dashboard within 24 h | 🔗 F-KR-03 |
 | **Pop-up festival booth kit** | Field sampling & community events | Inspect hardware after each event; replace damaged assets within 7 d | 🔗 F-KR-04 |
 
@@ -32,8 +32,8 @@
 | **Smile.io loyalty engine** | Points & VIP tier logic (Satisfaction & Significance) | Verify liability monthly; A/B perks quarterly; **If churn \> 15 % in VIP → refine tier benefits** | 🔗 F-KR-09 |
 | **FinTech stack – Stripe & Wise** | Checkout, billing, FX payouts | Chargeback \< 0.4 %; FX markup ≤ 0.4 %; enforce 3-D Secure; **If chargeback \> 0.5 % for 2 wk → audit dispute workflow** | 🔗 F-KR-10 |
 | **Data platform – GA4, Mixpanel, Redshift \+ Looker** | KPI dashboarding & experiment analytics | Data latency \< 1 h; schema audit quarterly; **If latency \> 2 h for 1 wk → scale cluster** | 🔗 F-KR-11 |
-| **ERP & OMS – Odoo \+ ShipStation** | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory), purchasing & [Order](../ubiquitous-language/guidelines/glossary.md#order) orchestration | Sync-failure \< 0.5 %; module ROI review quarterly; **If failure \> 1 % for 2 wk → debug or upgrade connector** | 🔗 F-KR-12 |
-| **Gen-AI & Vector Store – OpenAI, Gemini, pgvector** | Chatbot CX, [Product](../ubiquitous-language/guidelines/glossary.md#product) recommendations, internal RAG search | Token spend ≤ 4 % of revenue; refresh embeddings quarterly; **If RAG accuracy \< 80 % → retrain with new data** | 🔗 F-KR-13 |
+| **ERP & OMS – Odoo \+ ShipStation** | [[[Inventory](../ubiquitous-language/glossary.md#inventory)](../ubiquitous-language/glossary.md#inventory)](../ubiquitous-language/glossary.md#inventory), purchasing & [Order](../ubiquitous-language/glossary.md#order) orchestration | Sync-failure \< 0.5 %; module ROI review quarterly; **If failure \> 1 % for 2 wk → debug or upgrade connector** | 🔗 F-KR-12 |
+| **Gen-AI & Vector Store – OpenAI, Gemini, pgvector** | Chatbot CX, [Product](../ubiquitous-language/glossary.md#product) recommendations, internal RAG search | Token spend ≤ 4 % of revenue; refresh embeddings quarterly; **If RAG accuracy \< 80 % → retrain with new data** | 🔗 F-KR-13 |
 | **Visibility APIs – Portcast & MarineTraffic** | Live container status & demurrage alerts | SLA: alert if ETA slips \> 24 h; **If \> 2 missed alerts/mo → escalate to Ops lead** | 🔗 F-KR-14 |
 
 ---
@@ -42,7 +42,7 @@
 
 | Core Asset | Supports These Key Activities | Single Best Management Action | TBI Card |
 | ----- | ----- | ----- | ----- |
-| **EFI brand & trademarks** | Story-driven acquisition; premium [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) | Register in US \+ CARICOM; quarterly infringement scan | 🔗 F-KR-15 |
+| **EFI brand & trademarks** | Story-driven acquisition; premium [Pricing](../ubiquitous-language/glossary.md#pricing) | Register in US \+ CARICOM; quarterly infringement scan | 🔗 F-KR-15 |
 | **Regulatory dossier vault** | Duty-relief workflow; compliance audits | Update after every shipment; encrypt & back up quarterly | 🔗 F-KR-16 |
 | **Supplier, recipe & velocity database** | Sourcing, merchandising, content marketing | NDAs for data; cleanse & back up monthly | 🔗 F-KR-17 |
 | **Branded media library** | Omnichannel content calendar | Annual licensing & usage audit | 🔗 F-KR-18 |
@@ -67,7 +67,7 @@
 
 | Funding Pool | Deployed Into | Stewardship Action | TBI Card |
 | ----- | ----- | ----- | ----- |
-| **BBD $200 K [SAFE](https://docs.google.com/document/d/1Vu1XdbecK_eaT9Hlq2yrg4RHVfAjPc_MA97VAyX0Iug/edit?usp=sharing)** | Tech build • [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) • Marketing • Ops • Working capital  | Maintain 18-month runway forecast; quarterly investor update | 🔗 F-KR-26 |
+| **BBD $200 K [SAFE](https://docs.google.com/document/d/1Vu1XdbecK_eaT9Hlq2yrg4RHVfAjPc_MA97VAyX0Iug/edit?usp=sharing)** | Tech build • [[[Inventory](../ubiquitous-language/glossary.md#inventory)](../ubiquitous-language/glossary.md#inventory)](../ubiquitous-language/glossary.md#inventory) • Marketing • Ops • Working capital  | Maintain 18-month runway forecast; quarterly investor update | 🔗 F-KR-26 |
 | **Operating cash & Cedar Club float** | Loyalty rewards, re-orders, FX hedging | Reinvest 30 % GP into CAC-positive growth; maintain 3-mo OPEX buffer | 🔗 F-KR-27 |
 | **Revolving import credit line** | Container purchasing & port fees | Utilisation ≤ 70 %; interest vs. cash balance review monthly | 🔗 F-KR-28 |
 

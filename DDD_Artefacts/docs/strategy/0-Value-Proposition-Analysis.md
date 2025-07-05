@@ -21,9 +21,9 @@
 **Canvas block abbreviations**
 
 4. **VP** Value Proposition  
-5. **CS** [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Segments  
+5. **CS** [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Segments  
 6. **CH** Channels  
-7. **CR** [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Relationships  
+7. **CR** [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Relationships  
 8. **RS** Revenue Streams  
 9. **C$** Cost Structure  
 10. **KR** Key Resources  
@@ -40,19 +40,19 @@
 
 * **Pains:** Difficulty sourcing authentic products, uncertainty about quality, limited variety, complexity in replicating traditional dishes.
 
-* **Pain Relievers:** Consistent availability of authentic ingredients, verified quality, diverse [Product](../ubiquitous-language/guidelines/glossary.md#product) range, educational resources (recipes, cooking tips).
+* **Pain Relievers:** Consistent availability of authentic ingredients, verified quality, diverse [Product](../ubiquitous-language/glossary.md#product) range, educational resources (recipes, cooking tips).
 
 * **Gains:** Saves time and effort, reduces anxiety about authenticity, nurtures cultural identity, enriches culinary experiences.
 
-* **Gain Creators:** Wide [Product](../ubiquitous-language/guidelines/glossary.md#product) selection sourced from trusted suppliers, curated recipe guides, convenient delivery, culturally relevant [Product](../ubiquitous-language/guidelines/glossary.md#product) storytelling.
+* **Gain Creators:** Wide [Product](../ubiquitous-language/glossary.md#product) selection sourced from trusted suppliers, curated recipe guides, convenient delivery, culturally relevant [Product](../ubiquitous-language/glossary.md#product) storytelling.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#[[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product))/Service Market Fit:** EFI’s authentic, quality-assured [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product) range—backed by QR-verified provenance and curated recipe guides—meets diaspora families’ need for genuine ingredients and cultural connection, driving repeat orders, premium [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), and high lifetime value.
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#[[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product))/Service Market Fit:** EFI’s authentic, quality-assured [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product) range—backed by QR-verified provenance and curated recipe guides—meets diaspora families’ need for genuine ingredients and cultural connection, driving repeat orders, premium [Pricing](../ubiquitous-language/glossary.md#pricing), and high lifetime value.
 
 #### Preliminary Insights:
 
 * **Orders & Spend:** 8 ±1 orders/yr → 2,100 – 2,700  
 * **Gross Profit & Margin:** 840 – 1,080 (40%)  
-* **CAC & Payback:** ≈ BBD 20 per household → payback on first [Order](../ubiquitous-language/guidelines/glossary.md#order)  
+* **CAC & Payback:** ≈ BBD 20 per household → payback on first [Order](../ubiquitous-language/glossary.md#order)  
 * **Market Size (SOM):** ≈ 43 households  
 * **Retention Assumption:** ≥ 70% repeat-purchase rate by month 4  
 * **Preliminary Recommendation:** **Prioritize**   
@@ -64,12 +64,12 @@
 | ----- | ----- | :---: | :---: | :---: | :---: |
 | **Critical** | QR provenance wins 20 % price-premium | ★★☆☆☆ | **D**🟢 | **VP** | TC-27 |
 | **Critical** | ≥ 70 % repeat ≤ 4 mo (≈ 8 reorders/yr) | ★★★☆☆ | **D**🟢 | **CR** | TC-28 |
-| **Critical** | CAC ≤ BBD 20 pays back 1st [Order](../ubiquitous-language/guidelines/glossary.md#order) | ★★★☆☆ | **V**🟡 | **RS** | TC-29 |
+| **Critical** | CAC ≤ BBD 20 pays back 1st [Order](../ubiquitous-language/glossary.md#order) | ★★★☆☆ | **V**🟡 | **RS** | TC-29 |
 | **Critical** | GM ≥ 40 % on BBD 300 basket | ★★★★☆ | **V**🟡 | **CS** | TC-30 |
 | **Important** | Recipe guides lift first basket ≥ 15 % | ★★★☆☆ | **D**🟢 | **VP** | TC-31 |
 | **Important** | 48 h island-wide delivery hits SLA | ★★★★☆ | **F**🔵 | **CH** | TC-32 |
 | **Important** | Word-of-mouth drives ≥ 30 % new HHs | ★★★☆☆ | **V**🟡 | **CH** | TC-33 |
-| **Peripheral** | Halal logo boosts first-[Order](../ubiquitous-language/guidelines/glossary.md#order) conversion | ★★☆☆☆ | **D**🟢 | **VP** | TC-34 |
+| **Peripheral** | Halal logo boosts first-[Order](../ubiquitous-language/glossary.md#order) conversion | ★★☆☆☆ | **D**🟢 | **VP** | TC-34 |
 | **Peripheral** | 1 kg vs 2 kg pack size — cadence minimal | ★☆☆☆☆ | **D**🟢 | **VP** | TC-35 |
 
 ---
@@ -86,13 +86,13 @@
 
 * **Gains:** Saves time, reduces effort, fosters confidence in trying new cuisines, adds novelty and enjoyment to their travel experience, provides an immersive cultural element on their own terms.
 
-* **Gain Creators:** Curated meal kits, easy online ordering, step-by-step preparation instructions, and reliable [Product](../ubiquitous-language/guidelines/glossary.md#product) authenticity.
+* **Gain Creators:** Curated meal kits, easy online ordering, step-by-step preparation instructions, and reliable [Product](../ubiquitous-language/glossary.md#product) authenticity.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI’s ready-to-use Levantine and Mediterranean meal kits, accessible online purchasing, and simple culinary guidance empower short-term visitors to enjoy authentic Levantine and Mediterranean meals in the comfort of their AirBnB, enhancing their travel experience with minimal hassle.
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s ready-to-use Levantine and Mediterranean meal kits, accessible online purchasing, and simple culinary guidance empower short-term visitors to enjoy authentic Levantine and Mediterranean meals in the comfort of their AirBnB, enhancing their travel experience with minimal hassle.
 
 #### Preliminary Insights:
 
-* **Orders & Spend:** 1 ±1 [Order](../ubiquitous-language/guidelines/glossary.md#order)/yr → 0 – 600  
+* **Orders & Spend:** 1 ±1 [Order](../ubiquitous-language/glossary.md#order)/yr → 0 – 600  
 * **Gross Profit & Margin:** 0 – 240 (40%)  
 * **CAC & Payback:** Shelf-talkers (BBD 15/kit) → digital CAC avoided  
 * **Market Size (SOM):** ≈ 3,600 stay-over tourists  
@@ -126,9 +126,9 @@
 
 * **Gains:** Reliable access to favorites and guided exploration, stress‑free meal planning, enriched social dining experiences.
 
-* **Gain Creators:** Balanced [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory), dual‑track “Home & Explore” bundles, transparent sourcing, AI‑driven pairing suggestions.
+* **Gain Creators:** Balanced [Inventory](../ubiquitous-language/glossary.md#inventory), dual‑track “Home & Explore” bundles, transparent sourcing, AI‑driven pairing suggestions.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI’s hybrid [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) model (staples \+ “discovery” packs), clear usage tips, and authenticity guarantees deliver both comfort and culinary adventure—reducing churn and boosting average [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) spend per expat household.
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s hybrid [Subscription](../ubiquitous-language/glossary.md#subscription) model (staples \+ “discovery” packs), clear usage tips, and authenticity guarantees deliver both comfort and culinary adventure—reducing churn and boosting average [Subscription](../ubiquitous-language/glossary.md#subscription) spend per expat household.
 
 #### Preliminary Insights:
 
@@ -136,7 +136,7 @@
 * **Gross Profit & Margin:** 600 – 840 (40%)  
 * **CAC & Payback:** CAC ≈ BBD 20/subscriber → LTV/CAC ≈ 30–42×  
 * **Market Size (SOM):** ≈ 1,000 households  
-* **Retention Assumption:** [[[Subscription](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription)](../ubiquitous-language/guidelines/glossary.md#subscription) churn ≤ 3%/month  
+* **Retention Assumption:** [[[Subscription](../ubiquitous-language/glossary.md#subscription)](../ubiquitous-language/glossary.md#subscription)](../ubiquitous-language/glossary.md#subscription) churn ≤ 3%/month  
 * **Preliminary Recommendation:** **Prioritize**   
 * **Rationale:** Strong LTV/CAC, clear digital channels offer high ROI.
 
@@ -145,7 +145,7 @@
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
 | **Critical** | Instagram look-alike CAC ≤ BBD 20 | ★★★☆☆ | **V**🟡 | CH | TC-43 |
-| **Critical** | Monthly [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) churn ≤ 3 % | ★★★★☆ | **V**🟡 | CR | TC-44 |
+| **Critical** | Monthly [Subscription](../ubiquitous-language/glossary.md#subscription) churn ≤ 3 % | ★★★★☆ | **V**🟡 | CR | TC-44 |
 | **Critical** | AOV BBD 300 sustains 40 % margin | ★★★★☆ | **V**🟡 | RS | TC-45 |
 | **Important** | Referral credits cut CAC ≥ 25 % | ★★★☆☆ | **V**🟡 | CR | TC-46 |
 | **Important** | 70 % adopt dual-track “Home & Explore” bundles | ★★★☆☆ | **D**🟢 | VP | TC-47 |
@@ -161,13 +161,13 @@
 
 * **Pains:** Limited familiarity with recipes, doubts about authenticity and quality, fear of wasted effort or money.
 
-* **Pain Relievers:** Authentic ingredient sets, recipe tutorials, verified quality, affordable [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) to encourage experimentation.
+* **Pain Relievers:** Authentic ingredient sets, recipe tutorials, verified quality, affordable [Pricing](../ubiquitous-language/glossary.md#pricing) to encourage experimentation.
 
 * **Gains:** Builds cooking confidence, adds variety to meals, encourages family bonding over new flavors, simplifies the learning process.
 
 * **Gain Creators:** Educational materials, value bundles, high-quality ingredients that ensure successful results.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** By bundling authentic ingredients with step-by-step recipe kits at approachable price points, EFI lowers the barrier to entry for Barbadian families—turning culinary curiosity into consistent purchase behavior and healthy [Order](../ubiquitous-language/guidelines/glossary.md#order) frequency.
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** By bundling authentic ingredients with step-by-step recipe kits at approachable price points, EFI lowers the barrier to entry for Barbadian families—turning culinary curiosity into consistent purchase behavior and healthy [Order](../ubiquitous-language/glossary.md#order) frequency.
 
 #### Preliminary Insights:
 
@@ -192,7 +192,7 @@
 
 #### ***All B2C segments – Delivery footnote***
 
-*Delivery cost (\~BBD 15/[Order](../ubiquitous-language/guidelines/glossary.md#order)) is **already included** in SKU‑level margin calculations. Orders \< BBD 250 incur a BBD 15 delivery fee to preserve ≥ 40 % basket margin.*
+*Delivery cost (\~BBD 15/[Order](../ubiquitous-language/glossary.md#order)) is **already included** in SKU‑level margin calculations. Orders \< BBD 250 incur a BBD 15 delivery fee to preserve ≥ 40 % basket margin.*
 
 ---
 
@@ -206,19 +206,19 @@
 
 * **Pains:** Space constraints, inconsistent supply, difficulty balancing cost and quality at smaller purchase volumes.
 
-* **Pain Relievers:** Competitive wholesale [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) even at modest [Order](../ubiquitous-language/guidelines/glossary.md#order) sizes, reliable deliveries timed to reduce storage needs, ready-to-use ingredients packaged efficiently.
+* **Pain Relievers:** Competitive wholesale [Pricing](../ubiquitous-language/glossary.md#pricing) even at modest [Order](../ubiquitous-language/glossary.md#order) sizes, reliable deliveries timed to reduce storage needs, ready-to-use ingredients packaged efficiently.
 
-* **Gains:** Increases profitability without overstocking, saves time, maintains consistent [Product](../ubiquitous-language/guidelines/glossary.md#product) quality, enables menu variety.
+* **Gains:** Increases profitability without overstocking, saves time, maintains consistent [Product](../ubiquitous-language/glossary.md#product) quality, enables menu variety.
 
 * **Gain Creators:** Stable wholesale rates not contingent on large bulk orders, frequent reliable deliveries, products designed for quick prep and minimal storage.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** By offering competitive wholesale prices at lower minimum [Order](../ubiquitous-language/guidelines/glossary.md#order) quantities, reliable sourcing, and space-efficient packaging, EFI ensures food truck operators can maintain cost efficiency and menu quality without the burden of large-volume storage.
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** By offering competitive wholesale prices at lower minimum [Order](../ubiquitous-language/glossary.md#order) quantities, reliable sourcing, and space-efficient packaging, EFI ensures food truck operators can maintain cost efficiency and menu quality without the burden of large-volume storage.
 
 #### Preliminary Insights:
 
 * **Orders & Spend:** 8 ±1 orders/yr → 4,900 – 6,300  
 * **Gross Profit & Margin:** 1,470 – 1,890 (30%)  
-* **CAC & Payback:** Field call CAC ≈ BBD 50/truck → payback in \<1 [Order](../ubiquitous-language/guidelines/glossary.md#order)  
+* **CAC & Payback:** Field call CAC ≈ BBD 50/truck → payback in \<1 [Order](../ubiquitous-language/glossary.md#order)  
 * **Market Size (SOM):** ≈ 3 trucks  
 * **Retention Assumption:** ≥ 2 of 3 trucks reorder within 14 days  
 * **Preliminary Recommendation:** **Prioritize**   
@@ -245,13 +245,13 @@
 
 * **Pains:** Inconsistent access to premium ingredients, high costs, time pressure, meeting exacting client expectations.
 
-* **Pain Relievers:** Wide selection of specialty ingredients, competitive [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) on premium goods, reliable delivery, flexible ordering options.
+* **Pain Relievers:** Wide selection of specialty ingredients, competitive [Pricing](../ubiquitous-language/glossary.md#pricing) on premium goods, reliable delivery, flexible ordering options.
 
 * **Gains:** Ensures consistency and quality, bolsters reputation, allows menu creativity, fosters client satisfaction and loyalty.
 
-* **Gain Creators:** Specialty [Product](../ubiquitous-language/guidelines/glossary.md#product) range, custom orders, assurance of authenticity, competitive [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) that supports profitable premium services.
+* **Gain Creators:** Specialty [Product](../ubiquitous-language/glossary.md#product) range, custom orders, assurance of authenticity, competitive [Pricing](../ubiquitous-language/glossary.md#pricing) that supports profitable premium services.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI’s premium ingredient selection, dependability, and competitive wholesale prices at lower minimum [Order](../ubiquitous-language/guidelines/glossary.md#order) quantities, help chefs consistently meet or exceed client expectations.
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s premium ingredient selection, dependability, and competitive wholesale prices at lower minimum [Order](../ubiquitous-language/glossary.md#order) quantities, help chefs consistently meet or exceed client expectations.
 
 #### Preliminary Insights:
 
@@ -282,15 +282,15 @@
 
 * **Jobs:** Stock authentic, diverse Levantine and Mediterranean items; attract customers looking for specialty products; build a reputation for uniqueness.
 
-* **Pains:** Difficulty sourcing genuine and varied products, concerns about consistent supply, need for narrative to justify premium [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing).
+* **Pains:** Difficulty sourcing genuine and varied products, concerns about consistent supply, need for narrative to justify premium [Pricing](../ubiquitous-language/glossary.md#pricing).
 
-* **Pain Relievers:** Reliable [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) of authentic items, broad [Product](../ubiquitous-language/guidelines/glossary.md#product) range, supplier transparency and [Product](../ubiquitous-language/guidelines/glossary.md#product) stories.
+* **Pain Relievers:** Reliable [Inventory](../ubiquitous-language/glossary.md#inventory) of authentic items, broad [Product](../ubiquitous-language/glossary.md#product) range, supplier transparency and [Product](../ubiquitous-language/glossary.md#product) stories.
 
-* **Gains:** Differentiation in the market, improved brand reputation, increased [Customer](../ubiquitous-language/guidelines/glossary.md#customer) loyalty and traffic.
+* **Gains:** Differentiation in the market, improved brand reputation, increased [Customer](../ubiquitous-language/glossary.md#customer) loyalty and traffic.
 
-* **Gain Creators:** Exclusive [Product](../ubiquitous-language/guidelines/glossary.md#product) lines, supplier authenticity guarantees, marketing support through [Product](../ubiquitous-language/guidelines/glossary.md#product) storytelling.
+* **Gain Creators:** Exclusive [Product](../ubiquitous-language/glossary.md#product) lines, supplier authenticity guarantees, marketing support through [Product](../ubiquitous-language/glossary.md#product) storytelling.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI’s competitive wholesale rates, low MOQs, and supplier-vetted storytelling equip mini-markets with truly differentiated SKUs—enabling them to command premium shelf prices, reduce out-of-stock risk, and deepen [Customer](../ubiquitous-language/guidelines/glossary.md#customer) loyalty. *Shelf‑placement fees are borne by retailers; EFI’s support is limited to QR shelf‑talkers funded via Market‑Development Funds, preserving our asset‑light model.*
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s competitive wholesale rates, low MOQs, and supplier-vetted storytelling equip mini-markets with truly differentiated SKUs—enabling them to command premium shelf prices, reduce out-of-stock risk, and deepen [Customer](../ubiquitous-language/glossary.md#customer) loyalty. *Shelf‑placement fees are borne by retailers; EFI’s support is limited to QR shelf‑talkers funded via Market‑Development Funds, preserving our asset‑light model.*
 
 #### Preliminary Insights:
 
@@ -323,19 +323,19 @@
 
 * **Pains:** Time constraints, ensuring reliable ingredient quality, limited staff training on foreign cuisines, and needing cost control without requiring massive bulk orders.
 
-* **Pain Relievers:** Ready-to-use, authentic ingredients for rapid meal prep; reliable supply to avoid stock-outs; flexible ordering options with competitive wholesale prices and volume discounts (available even at moderate [Order](../ubiquitous-language/guidelines/glossary.md#order) sizes).
+* **Pain Relievers:** Ready-to-use, authentic ingredients for rapid meal prep; reliable supply to avoid stock-outs; flexible ordering options with competitive wholesale prices and volume discounts (available even at moderate [Order](../ubiquitous-language/glossary.md#order) sizes).
 
-* **Gains:** Faster service, improved menu consistency, simplified [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) management, greater menu appeal for a wide [Customer](../ubiquitous-language/guidelines/glossary.md#customer) base, and more predictable cost structures.
+* **Gains:** Faster service, improved menu consistency, simplified [Inventory](../ubiquitous-language/glossary.md#inventory) management, greater menu appeal for a wide [Customer](../ubiquitous-language/glossary.md#customer) base, and more predictable cost structures.
 
 * **Gain Creators:** Pre-prepped ingredients, curated variety packs, stable and frequent deliveries, competitive wholesale rates, and scalable volume discounts that align with operational needs.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI’s ready-to-use ingredients, flexible wholesale [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), and moderate volume discounts empower limited-service restaurants to maintain consistent quality, adapt their menu efficiently, and control costs without requiring excessive storage space or massive bulk commitments.
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s ready-to-use ingredients, flexible wholesale [Pricing](../ubiquitous-language/glossary.md#pricing), and moderate volume discounts empower limited-service restaurants to maintain consistent quality, adapt their menu efficiently, and control costs without requiring excessive storage space or massive bulk commitments.
 
 #### Preliminary Insights: 
 
 * **Orders & Spend:** 7 ±1 orders/yr → 4,200 – 5,600  
 * **Gross Profit & Margin:** 1,260 – 1,680 (30%)  
-* **CAC & Payback:** Demo CAC ≈ BBD 150/outlet → payback in \<1 [Order](../ubiquitous-language/guidelines/glossary.md#order)  
+* **CAC & Payback:** Demo CAC ≈ BBD 150/outlet → payback in \<1 [Order](../ubiquitous-language/glossary.md#order)  
 * **Market Size (SOM):** ≈ 5 outlets  
 * **Retention Assumption:** Pilot outlets reorder ≥ 8×/yr to advance  
 * **Preliminary Recommendation:** **Prioritize (Pilot)**   
@@ -346,7 +346,7 @@
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
 | **Critical** | Pilot outlet reorders ≥ 8× / yr & ≥ BBD 8 k GMV | ★★★☆☆ | **V**🟡 | CR | TC-67 |
-| **Critical** | Demo CAC ≈ BBD 150 / outlet; payback \< 1 [Order](../ubiquitous-language/guidelines/glossary.md#order) | ★★★★☆ | **V**🟡 | RS | TC-68 |
+| **Critical** | Demo CAC ≈ BBD 150 / outlet; payback \< 1 [Order](../ubiquitous-language/glossary.md#order) | ★★★★☆ | **V**🟡 | RS | TC-68 |
 | **Critical** | Gross margin ≥ 30 % on BBD 700 cases | ★★★★☆ | **V**🟡 | CS | TC-69 |
 | **Important** | Prep-time savings ≥ 15 % drive adoption | ★★★☆☆ | **D**🟢 | VP | TC-70 |
 | **Important** | Staff training ≤ 2 h is sufficient | ★★★☆☆ | **F**🔵 | KA | TC-71 |
@@ -366,9 +366,9 @@
 
 * **Gains:** Enhanced reputation, consistent dish quality, greater guest satisfaction, menu adaptability to remain competitive, and the ability to offer unique culinary experiences.
 
-* **Gain Creators:** Premium [Product](../ubiquitous-language/guidelines/glossary.md#product) lines that elevate menu offerings, educational resources for staff, authenticity assurances, and flexible [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) options.
+* **Gain Creators:** Premium [Product](../ubiquitous-language/glossary.md#product) lines that elevate menu offerings, educational resources for staff, authenticity assurances, and flexible [Pricing](../ubiquitous-language/glossary.md#pricing) options.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI’s premium, authentic ingredients, combined with supportive resources (e.g., training materials), wholesale [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) flexibility, and potential for negotiated volume [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) deals, enable full-service restaurants to consistently deliver exceptional culinary experiences. This not only meets their quality and authenticity standards but also offers cost efficiencies and scalability as their needs evolve.
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s premium, authentic ingredients, combined with supportive resources (e.g., training materials), wholesale [Pricing](../ubiquitous-language/glossary.md#pricing) flexibility, and potential for negotiated volume [Pricing](../ubiquitous-language/glossary.md#pricing) deals, enable full-service restaurants to consistently deliver exceptional culinary experiences. This not only meets their quality and authenticity standards but also offers cost efficiencies and scalability as their needs evolve.
 
 #### Preliminary Insights:
 
@@ -397,17 +397,17 @@
 
 * **Characteristics:** In-house dining operations within hotels, serving diverse, often international guests. Hotel sizes vary from boutique operations to large chains with conference and banquet facilities.
 
-* **Jobs:** Consistently accommodate varied dietary needs, manage [Order](../ubiquitous-language/guidelines/glossary.md#order) sizes that can range from small daily requirements to large banquet volumes, maintain premium quality, and reinforce the hotel’s culinary reputation.
+* **Jobs:** Consistently accommodate varied dietary needs, manage [Order](../ubiquitous-language/glossary.md#order) sizes that can range from small daily requirements to large banquet volumes, maintain premium quality, and reinforce the hotel’s culinary reputation.
 
-* **Pains:** Balancing large or fluctuating [Order](../ubiquitous-language/guidelines/glossary.md#order) volumes with consistent quality, meeting international guest expectations, and catering to an array of dietary preferences.
+* **Pains:** Balancing large or fluctuating [Order](../ubiquitous-language/glossary.md#order) volumes with consistent quality, meeting international guest expectations, and catering to an array of dietary preferences.
 
-* **Pain Relievers:** Flexible wholesale [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) structures for both moderate and high-volume orders, premium ingredient selection, reliable supply, and [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) management support tailored to hotel needs.
+* **Pain Relievers:** Flexible wholesale [Pricing](../ubiquitous-language/glossary.md#pricing) structures for both moderate and high-volume orders, premium ingredient selection, reliable supply, and [Inventory](../ubiquitous-language/glossary.md#inventory) management support tailored to hotel needs.
 
 * **Gains:** Meets diverse guest expectations, maintains brand prestige, ensures guest satisfaction, adapts to different scales of demand (from room service to large banquets), and encourages repeat business.
 
-* **Gain Creators:** Comprehensive [Product](../ubiquitous-language/guidelines/glossary.md#product) range, efficient and scalable delivery options, quality assurance at all volume levels, and the option for negotiated volume [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) where appropriate.
+* **Gain Creators:** Comprehensive [Product](../ubiquitous-language/glossary.md#product) range, efficient and scalable delivery options, quality assurance at all volume levels, and the option for negotiated volume [Pricing](../ubiquitous-language/glossary.md#pricing) where appropriate.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI’s broad assortment of authentic products, consistent quality, and adaptable [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) strategies—including wholesale [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) flexibility and the possibility of negotiated volume deals—allow hotel restaurants of all sizes to deliver exceptional culinary experiences. Whether a boutique hotel or a large chain, EFI’s approach supports dynamic menu offerings, ensures cost-effectiveness, and maintains culinary excellence.
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s broad assortment of authentic products, consistent quality, and adaptable [Pricing](../ubiquitous-language/glossary.md#pricing) strategies—including wholesale [Pricing](../ubiquitous-language/glossary.md#pricing) flexibility and the possibility of negotiated volume deals—allow hotel restaurants of all sizes to deliver exceptional culinary experiences. Whether a boutique hotel or a large chain, EFI’s approach supports dynamic menu offerings, ensures cost-effectiveness, and maintains culinary excellence.
 
 **Preliminary Insights:**
 
@@ -426,8 +426,8 @@
 | **Critical** | CAC ≈ BBD 1 300 justified by ≥ BBD 8 000 banquet GMV/yr | ★★☆☆☆ | **V**🟡 | RS | TC-79 |
 | **Critical** | Procurement approves EFI ≤ 90 days with HACCP docs | ★★★☆☆ | **F**🔵 | KP | TC-80 |
 | **Critical** | Mixed-temp pallets meet dock specs w/o extra fees | ★★★★☆ | **F**🔵 | KA | TC-81 |
-| **Important** | Contract [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing) beats incumbent cost by ≥ 5 % | ★★★☆☆ | **V**🟡 | RS | TC-82 |
-| **Important** | Event-kit upsells push [Order](../ubiquitous-language/guidelines/glossary.md#order) frequency to 9×/yr | ★★★☆☆ | **V**🟡 | RS | TC-83 |
+| **Important** | Contract [Pricing](../ubiquitous-language/glossary.md#pricing) beats incumbent cost by ≥ 5 % | ★★★☆☆ | **V**🟡 | RS | TC-82 |
+| **Important** | Event-kit upsells push [Order](../ubiquitous-language/glossary.md#order) frequency to 9×/yr | ★★★☆☆ | **V**🟡 | RS | TC-83 |
 | **Peripheral** | On-site demo once/yr maintains relationship | ★★☆☆☆ | **D**🟢 | CR | TC-84 |
 
 ---
@@ -452,7 +452,7 @@
 
 * **Gain Creators:** 24 / 7 on-call logistics team, rapid-response inspections, real-time temperature telemetry, multi-port contract coverage.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI unifies Caribbean sourcing and just-in-time port delivery, cutting hand-offs and downtime while guaranteeing traceable authenticity—exactly what cruise galleys and chandlers value. 
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI unifies Caribbean sourcing and just-in-time port delivery, cutting hand-offs and downtime while guaranteeing traceable authenticity—exactly what cruise galleys and chandlers value. 
 
 **Preliminary Recommendation:** **Park – defer proactive effort** 
 
@@ -464,7 +464,7 @@
 
 * **Characteristics:** Privately owned food-import houses or specialty distributors that clear customs, hold food-safety licences, and resell pallets/cases to retailers, hotels, and restaurants across one or more islands (e.g., Hadco T\&T, Do-It Curaçao). **This is EFI’s default growth channel** outside Barbados; all other regional segments (11, 13-15) are optional direct lanes used case-by-case.
 
-* **Jobs:** Add authentic Levantine & Mediterranean depth to their portfolio; grow category margin; manage [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) risk; provide marketing support to downstream accounts.
+* **Jobs:** Add authentic Levantine & Mediterranean depth to their portfolio; grow category margin; manage [Inventory](../ubiquitous-language/glossary.md#inventory) risk; provide marketing support to downstream accounts.
 
 * **Pains:** Fragmented small suppliers, missing documentation, high MOQs tie up cash, weak storytelling slows velocity.
 
@@ -474,7 +474,7 @@
 
 * **Gain Creators:** Volume-based rebates, vendor-managed sell-through dashboards, marketing-development funds (MDF), consolidated freight savings.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI is a single turnkey source—provenance, paperwork, pallets, and content—so importers scale an entire Levantine set without supplier wrangling or [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) overload. 
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI is a single turnkey source—provenance, paperwork, pallets, and content—so importers scale an entire Levantine set without supplier wrangling or [Inventory](../ubiquitous-language/glossary.md#inventory) overload. 
 
 **Preliminary Recommendation:** **Prioritise activation from Month 12**
 
@@ -496,7 +496,7 @@
 
 * **Gain Creators:** Turnkey private-label development, volume-based rebates, marketing collateral, consolidated freight discounts.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI supplies shelf-ready SKUs (or private-label equivalents) with rock-solid provenance and logistics—boosting ethnic-set performance while protecting margin and brand trust. 
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI supplies shelf-ready SKUs (or private-label equivalents) with rock-solid provenance and logistics—boosting ethnic-set performance while protecting margin and brand trust. 
 
 **Preliminary Recommendation:** **Park – defer proactive effort**
 
@@ -516,9 +516,9 @@
 
 * **Gains:** Consistent guest satisfaction, marketing lift from authentic storytelling, streamlined procurement, predictable landed costs.
 
-* **Gain Creators:** Multi-property volume [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), chef-curated seasonal packs, sustainability dashboards, site visits for audits and menu trials.
+* **Gain Creators:** Multi-property volume [Pricing](../ubiquitous-language/glossary.md#pricing), chef-curated seasonal packs, sustainability dashboards, site visits for audits and menu trials.
 
-* **EFI [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)/Service Market Fit:** EFI blends central contract efficiency with boutique-level authenticity—letting resort HQs deliver wow-factor menus while meeting cost and ESG targets. 
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI blends central contract efficiency with boutique-level authenticity—letting resort HQs deliver wow-factor menus while meeting cost and ESG targets. 
 
 **Preliminary Recommendation:** **Park – defer proactive effort**
 
@@ -563,7 +563,7 @@
 | Villa & Event Chefs | PREMIUM QUALITY, REPUTATIONAL ASSURANCE | Premium Quality \+ Hero-Chef Support \+ IG Amplification | **Monitor** |
 | Mini-Markets | EASE-OF-BUSINESS, MARGIN BOOST, SCALE | Mixed-SKU Cases \+ Storytelling POS \+ Sell-Through Dashboards | **Prioritize (Phase 1\)** |
 | Full-Service Restaurants | PREMIUM QUALITY, FLEXIBILITY, consistency | Premium SKUs \+ Batch Consistency \+ Training Support | **Park** |
-| Hotel Restaurants | SCALABILITY, TRACEABILITY, menu flexibility | Mixed-Temp Pallets \+ Contract [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) \+ Menu Innovation Support | **Park** |
+| Hotel Restaurants | SCALABILITY, TRACEABILITY, menu flexibility | Mixed-Temp Pallets \+ Contract [[[Pricing](../ubiquitous-language/glossary.md#pricing)](../ubiquitous-language/glossary.md#pricing)](../ubiquitous-language/glossary.md#pricing) \+ Menu Innovation Support | **Park** |
 | Cruise Lines / Ship Chandlers | RELIABILITY, SCALABILITY, TRACEABILITY, COST EFFICIENCY | Port-Centric Consolidation \+ HACCP Chain-of-Custody \+ Volume Rebates | **Park** |
 | Partner Importers (Regional) | EASE-OF-BUSINESS, MARGIN BOOST, SCALE | Mixed-SKU Containers \+ MDF \+ Sell-Through Dashboards | **Prioritize (Phase 2\)** |
 | Regional Supermarket / DC Buyers | SHELF VELOCITY, AUTHENTICITY PROOF, PRIVATE-LABEL SUPPORT | Proven Velocity \+ QR Storytelling \+ Turnkey Private-Label Packs | **Park** |
@@ -579,7 +579,7 @@
 
 #### **B2B**
 
-“EFI is the agile supply-partner that lets you serve **Levantine & Mediterranean** cuisine with confidence and control. Whether through our trusted Partner Importers or direct FCL contracts, we deliver premium, traceable ingredients, flexible [Pricing](../ubiquitous-language/guidelines/glossary.md#pricing), and chef‑driven support—cutting cost, complexity, and risk while elevating your menu.”
+“EFI is the agile supply-partner that lets you serve **Levantine & Mediterranean** cuisine with confidence and control. Whether through our trusted Partner Importers or direct FCL contracts, we deliver premium, traceable ingredients, flexible [Pricing](../ubiquitous-language/glossary.md#pricing), and chef‑driven support—cutting cost, complexity, and risk while elevating your menu.”
 
 ### ---
 
@@ -587,11 +587,11 @@
 | ----- | ----- | ----- |
 | **ANVISA** | Agência Nacional de Vigilância Sanitária | Brazil’s health-surveillance authority; EFI provides compliant bilingual labels & dossiers. |
 | **Blended Gross Margin** | Overall weighted margin | Combined retail, commercial, and wholesale margins—target ≥ 35 % in Barbados; ≥ 28 % FOB for regional wholesale. |
-| **Cash-to-Cash Cycle** | [[[Inventory](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory)](../ubiquitous-language/guidelines/glossary.md#inventory) \+ AR – AP days | Measures working-capital efficiency; target \< 45 days Barbados, \< 20 days regional. |
+| **Cash-to-Cash Cycle** | [[[Inventory](../ubiquitous-language/glossary.md#inventory)](../ubiquitous-language/glossary.md#inventory)](../ubiquitous-language/glossary.md#inventory) \+ AR – AP days | Measures working-capital efficiency; target \< 45 days Barbados, \< 20 days regional. |
 | **Channel Conflict** | Price/territory clash | Risk when importer and EFI both sell to same buyer; mitigated by clear “direct vs. partner” rules. |
 | **DC Buyer** | Distribution-Center Buyer | Central procurement unit of a supermarket or food-service chain; purchases bulk for internal DCs, then allocates to stores or commissaries. |
 | **Digital Spine** | Unified tech stack | MERN storefront, Odoo ERP, HubSpot CRM, ShipStation OMS, analytics warehouse—runs from Florida cloud to serve all markets. |
-| **DSO** | Days Sales Outstanding | Average time to collect [Payment](../ubiquitous-language/guidelines/glossary.md#payment); goal \< 15 days Barbados, \< 10 days pre-paid regional. |
+| **DSO** | Days Sales Outstanding | Average time to collect [Payment](../ubiquitous-language/glossary.md#payment); goal \< 15 days Barbados, \< 10 days pre-paid regional. |
 | **EBIT** | Earnings Before Interest & Taxes | Profitability gate for each new geography (≥ 0 within 12 months). |
 | **EDI** | Electronic Data Interchange | File format for purchase orders/invoices; used with supermarket DCs and some importers for seamless reordering. |
 | **EFI-Florida LLC** | U.S. LLC eCommerce backbone | U.S. entity providing banking rails and future direct-sales hub to Florida buyers. |
@@ -602,13 +602,13 @@
 | **HACCP** | Hazard Analysis & Critical Control Points | Food-safety protocol; EFI provides full documentation for import clearance and cruise-line audits. |
 | **MDF** | Market Development Funds | Coop budget EFI offers importers for in-store demos, social ads, and trade promos. |
 | **Mixed-Temp Pallet** | Dry \+ Chilled \+ Frozen Layers | Engineered pallet used for cruise chandlers; ensures multi temperature SKUs move in one lift. |
-| **MOQ** | Minimum [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Quantity | Smallest lot size EFI will ship—½-pallet per SKU for importers; case packs for Barbados wholesale. |
+| **MOQ** | Minimum [[[Order](../ubiquitous-language/glossary.md#order)](../ubiquitous-language/glossary.md#order)](../ubiquitous-language/glossary.md#order) Quantity | Smallest lot size EFI will ship—½-pallet per SKU for importers; case packs for Barbados wholesale. |
 | **NPS** | Net Promoter Score | Loyalty metric; beachhead target ≥ 60\. |
-| **Partner Importers & Distributors** | “Channel Multipliers” | Regional wholesale partners that clear customs, hold [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory), and resell EFI SKUs island-wide. Primary path for scaling beyond Barbados. |
+| **Partner Importers & Distributors** | “Channel Multipliers” | Regional wholesale partners that clear customs, hold [Inventory](../ubiquitous-language/glossary.md#inventory), and resell EFI SKUs island-wide. Primary path for scaling beyond Barbados. |
 | **Port-centric Consolidation** | Hub logistics model | EFI receives freight in Kingston/Caucedo, builds mixed-SKU containers for island spokes, cutting demurrage and paperwork. |
 | **Private-Label Program** | Supermarket own brand | EFI develops retailer-branded Levantine SKUs; handled via direct FCL or through partner importer, per channel policy. |
 | **QR**  | Quick-Response Code Storytelling | On-pack code that links to supply-chain videos, farm photos, and recipe content, boosting trust and velocity. |
 | **RAG** | Retrieval-Augmented Generation | AI pattern powering EFI’s recipe chatbot and FAQ assistant. |
 | **Sell-through Dashboard** | Velocity analytics | Weekly importer sales data fed to EFI; triggers auto-replenishment and rebate tiers. |
-| **SKU** | Stock-Keeping Unit | Individual [Product](../ubiquitous-language/guidelines/glossary.md#product) reference; mixed-SKU containers enable variety for importers. |
+| **SKU** | Stock-Keeping Unit | Individual [Product](../ubiquitous-language/glossary.md#product) reference; mixed-SKU containers enable variety for importers. |
 

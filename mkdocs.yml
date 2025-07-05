@@ -1,0 +1,39 @@
+site_name: "Elias Food Imports Docs"
+site_url: "https://docs.efi.local"
+docs_dir: "DDD_Artefacts/docs"
+nav:
+  - Product Requirements:
+      - Overview: "prd/README.md"
+      - Functional Requirements:
+          - Search & Navigation: "prd/functional/search_navigation.md"
+          - Fulfillment: "prd/functional/fulfillment.md"
+          - Inventory & Shelf-Life: "prd/functional/inventory.md"
+          - Pricing & Promotions: "prd/functional/pricing_promotions.md"
+          - Analytics & Reporting: "prd/functional/analytics_reporting.md"
+          - Notifications: "prd/functional/notifications.md"
+          - Reviews & Ratings: "prd/functional/reviews_ratings.md"
+          - Subscriptions: "prd/functional/subscriptions.md"
+          - Authentication & Authorization: "prd/functional/auth.md"
+          - Fraud Prevention: "prd/functional/fraud.md"
+          - Administration & Moderation: "prd/functional/administration.md"
+          - Sales & Quoting: "prd/functional/sales_quoting.md"
+          - Returns Management: "prd/functional/returns.md"
+          - Batch Tracking: "prd/functional/batch_tracking.md"
+          - Cold-Chain Monitoring: "prd/functional/cold_chain.md"
+          - Supplier Traceability: "prd/functional/supplier_traceability.md"
+          - Quality Control: "prd/functional/quality_control.md"
+          - Marketing: "prd/functional/marketing.md"
+          - Integration Layer: "prd/functional/integration.md"
+      - Non-Functional Requirements:
+          - Performance: "prd/non-functional/performance.md"
+          - Security: "prd/non-functional/security.md"
+          - Scalability: "prd/non-functional/scalability.md"
+          - Usability: "prd/non-functional/usability.md"
+          - Maintainability: "prd/non-functional/maintainability.md"
+          - Compliance & Accessibility: "prd/non-functional/compliance_accessibility.md"
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - codehilite

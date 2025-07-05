@@ -1,4 +1,4 @@
-# **🎯 Goal:** Identify the **Key Activities** EFI *must excel at* to **create, deliver, and capture value**—honouring the Value Proposition, enabling [Customer](../ubiquitous-language/guidelines/glossary.md#customer) acquisition & retention, and safeguarding margin targets.
+# **🎯 Goal:** Identify the **Key Activities** EFI *must excel at* to **create, deliver, and capture value**—honouring the Value Proposition, enabling [Customer](../ubiquitous-language/glossary.md#customer) acquisition & retention, and safeguarding margin targets.
 
 **Strategyzer Lens:** Every activity must
 
@@ -12,7 +12,7 @@
 
 ## **1 │ Operations, Supply Chain & Compliance**
 
-*(“Deliver the right [Product](../ubiquitous-language/guidelines/glossary.md#product), on spec, on time”)*
+*(“Deliver the right [Product](../ubiquitous-language/glossary.md#product), on spec, on time”)*
 
 | Activity | KPI / Gate | VPA Link | TBI Card |
 | ----- | ----- | ----- | ----- |
@@ -20,7 +20,7 @@
 | **No-roll guarantee** for \< 2 TEU bookings | Containers rolled \= 0 | Reliability pain-reliever | 🔗 F-KA-02 |
 | Duty-relief workflow (EPA EUR.1 register) | 100 % of EU-origin shipments duty-free | Margin protection | 🔗 F-KA-03 |
 | ISO 22000 \+ social-impact audits (35 core suppliers) | Audit pass ≥ 95 % | Quality/security of supply | 🔗 F-KA-04 |
-| 2-week bonded [Inventory](../ubiquitous-language/guidelines/glossary.md#inventory) buffer | Stock-out days \= 0 | “Never run out” [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) | 🔗 F-KA-05 |
+| 2-week bonded [Inventory](../ubiquitous-language/glossary.md#inventory) buffer | Stock-out days \= 0 | “Never run out” [Subscription](../ubiquitous-language/glossary.md#subscription) | 🔗 F-KA-05 |
 | 3-month NDF hedge on TRY & LBP | FX variance ≤ 1 % GMV | GM floor guard | 🔗 F-KA-06 |
 
 ---
@@ -36,7 +36,7 @@
 | **Cloudinary media pipeline** (optimize, CDN, UGC moderation) | CLS \< 0.1; UGC reject rate tracked | Story-driven velocity | 🔗 F-KA-09 |
 | Live freight visibility (Portcast \+ MarineTraffic) | Demurrage alert \< 1 h | Transparency pain-reliever | 🔗 F-KA-10 |
 | CI/CD weekly releases & IaC (Terraform) | Rollback \< 5 min | Continuous improvement | 🔗 F-KA-11 |
-| **WCAG 2.2 & bilingual (EN/AR) compliance across all [Customer](../ubiquitous-language/guidelines/glossary.md#customer)-facing web, email, chat & PDF** | Audit pass 100 % | Expat & Diaspora accessibility | 🔗 F-KA-12 |
+| **WCAG 2.2 & bilingual (EN/AR) compliance across all [Customer](../ubiquitous-language/glossary.md#customer)-facing web, email, chat & PDF** | Audit pass 100 % | Expat & Diaspora accessibility | 🔗 F-KA-12 |
 
 ---
 
@@ -48,15 +48,15 @@
 | Field sampling & festival pop-ups | Leads → buyers ≥ 15 % | Consideration → Confidence | 🔗 F-KA-14 |
 | Multi-touch attribution tuning | ROAS ≥ 4×; marketing spend ≤ 8 % GMV | Budget governance at Exchange | 🔗 F-KA-15 |
 
-*These activities cease at the moment of Exchange; advocacy mechanics move to [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Relationships.*
+*These activities cease at the moment of Exchange; advocacy mechanics move to [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Relationships.*
 
 ---
 
-## **4 │ [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Relationship Management *(Exchange → Significance)***
+## **4 │ [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Relationship Management *(Exchange → Significance)***
 
 | Activity | KPI | Relationship Link | TBI Card |
 | ----- | ----- | ----- | ----- |
-| Unified OMS (retail \+ bulk) | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)-status API uptime ≥ 99.9 % | Seamless Exchange | 🔗 F-KA-16 |
+| Unified OMS (retail \+ bulk) | [[[Order](../ubiquitous-language/glossary.md#order)](../ubiquitous-language/glossary.md#order)](../ubiquitous-language/glossary.md#order)-status API uptime ≥ 99.9 % | Seamless Exchange | 🔗 F-KA-16 |
 | 24-h SLA omni-support (chat/voice/email) | First response \< 2 h | Confidence stage | 🔗 F-KA-17 |
 | **Cedar Club** loyalty engine (Smile.io) | Active members ≥ 60 % of buyers | Satisfaction & Significance | 🔗 F-KA-18 |
 | Behaviour-triggered AI email & WhatsApp flows | Repeat-purchase rate ≥ 35 % | Upsell (CR-B2C-02) | 🔗 F-KA-19 |
@@ -105,7 +105,7 @@
 
 ---
 
-*Key Activities brief realigned with Segments, Value Props, Channels & Relationships—each table now includes a Feasibility (F) Card column, and accessibility compliance spans all [Customer](../ubiquitous-language/guidelines/glossary.md#customer)-facing comms.*
+*Key Activities brief realigned with Segments, Value Props, Channels & Relationships—each table now includes a Feasibility (F) Card column, and accessibility compliance spans all [Customer](../ubiquitous-language/glossary.md#customer)-facing comms.*
 
 ---
 
@@ -123,11 +123,11 @@
 | **MERN** | Web stack: MongoDB, Express.js, React, Node.js. |
 | **CI/CD** | Continuous Integration / Continuous Deployment (automated release pipeline). |
 | **WCAG 2.2** | Web Content Accessibility Guidelines, version 2.2. |
-| **CRM** | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Relationship Management system. |
-| **OMS** | [[[Order](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order)](../ubiquitous-language/guidelines/glossary.md#order) Management System. |
-| **CSAT** | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Satisfaction Score. |
+| **CRM** | [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Relationship Management system. |
+| **OMS** | [[[Order](../ubiquitous-language/glossary.md#order)](../ubiquitous-language/glossary.md#order)](../ubiquitous-language/glossary.md#order) Management System. |
+| **CSAT** | [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Satisfaction Score. |
 | **OKR** | Objective and Key Results (goal‑setting framework). |
-| **CAC/LTV** | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Acquisition Cost / Lifetime Value. |
+| **CAC/LTV** | [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Acquisition Cost / Lifetime Value. |
 | **NPS** | Net Promoter Score (loyalty metric). |
 
 #### 
