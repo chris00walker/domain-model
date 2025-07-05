@@ -11,21 +11,21 @@ Generated on: Fri Jun  6 20:08:27 ADT 2025
 
 ## Link Issues
 
--   BROKEN LINK: ../glossary/authentication-types.md in file ../ubiquitous-language/implementation-guides/api_design.md
--   BROKEN LINK: ../glossary/README.md in file ../ubiquitous-language/guidelines/ubiquitous_language_guidelines.md
+-   BROKEN LINK: ../glossary/authentication-types.md in file ../ubiquitous-language/guides/api_design.md
+-   BROKEN LINK: ../glossary/README.md in file ../ubiquitous-language/guides/ubiquitous_language_guidelines.md
 -   BROKEN LINK: ../glossary/CHANGELOG.md in file ../ubiquitous-language/guidelines/ubiquitous_language_evolution.md
 
 ## Style Issues
 
--   STYLE ISSUE: ../ubiquitous-language/implementation-guides/testing.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
--   STYLE ISSUE: ../ubiquitous-language/implementation-guides/testing.md uses indented code blocks instead of fenced code blocks (```)
--   STYLE ISSUE: ../ubiquitous-language/implementation-guides/api_design.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
--   STYLE ISSUE: ../ubiquitous-language/implementation-guides/api_design.md uses indented code blocks instead of fenced code blocks (```)
--   STYLE ISSUE: ../ubiquitous-language/implementation-guides/api_design.md uses underscore (_) for emphasis instead of asterisk (*)
--   STYLE ISSUE: ../ubiquitous-language/implementation-guides/ui_design.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
--   STYLE ISSUE: ../ubiquitous-language/implementation-guides/ui_design.md uses indented code blocks instead of fenced code blocks (```)
--   STYLE ISSUE: ../ubiquitous-language/implementation-guides/database_design.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
--   STYLE ISSUE: ../ubiquitous-language/implementation-guides/database_design.md uses indented code blocks instead of fenced code blocks (```)
+-   STYLE ISSUE: ../ubiquitous-language/guides/testing.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
+-   STYLE ISSUE: ../ubiquitous-language/guides/testing.md uses indented code blocks instead of fenced code blocks (```)
+-   STYLE ISSUE: ../ubiquitous-language/guides/api_design.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
+-   STYLE ISSUE: ../ubiquitous-language/guides/api_design.md uses indented code blocks instead of fenced code blocks (```)
+-   STYLE ISSUE: ../ubiquitous-language/guides/api_design.md uses underscore (_) for emphasis instead of asterisk (*)
+-   STYLE ISSUE: ../ubiquitous-language/guides/ui_design.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
+-   STYLE ISSUE: ../ubiquitous-language/guides/ui_design.md uses indented code blocks instead of fenced code blocks (```)
+-   STYLE ISSUE: ../ubiquitous-language/guides/database_design.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
+-   STYLE ISSUE: ../ubiquitous-language/guides/database_design.md uses indented code blocks instead of fenced code blocks (```)
 -   STYLE ISSUE: ../ubiquitous-language/business-integration/business_metrics_domain_mapping.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
 -   STYLE ISSUE: ../ubiquitous-language/business-integration/business_metrics_domain_mapping.md uses indented code blocks instead of fenced code blocks (```)
 -   STYLE ISSUE: ../ubiquitous-language/business-integration/onboarding_program.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
@@ -37,8 +37,8 @@ Generated on: Fri Jun  6 20:08:27 ADT 2025
 -   STYLE ISSUE: ../ubiquitous-language/analysis/value_objects_analysis.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
 -   STYLE ISSUE: ../ubiquitous-language/analysis/value_objects_analysis.md uses indented code blocks instead of fenced code blocks (```)
 -   STYLE ISSUE: ../ubiquitous-language/analysis/terminology_alignment.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
--   STYLE ISSUE: ../ubiquitous-language/guidelines/ubiquitous_language_guidelines.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
--   STYLE ISSUE: ../ubiquitous-language/guidelines/ubiquitous_language_guidelines.md uses underscore (_) for emphasis instead of asterisk (*)
+-   STYLE ISSUE: ../ubiquitous-language/guides/ubiquitous_language_guidelines.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
+-   STYLE ISSUE: ../ubiquitous-language/guides/ubiquitous_language_guidelines.md uses underscore (_) for emphasis instead of asterisk (*)
 -   STYLE ISSUE: ../ubiquitous-language/guidelines/ubiquitous_language_review_checklist.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
 -   STYLE ISSUE: ../ubiquitous-language/guidelines/ubiquitous_language_evolution.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
 -   STYLE ISSUE: ../ubiquitous-language/guidelines.md uses Setext style headings (=== or ---) instead of ATX style (# or ##)
@@ -46,8 +46,8 @@ Generated on: Fri Jun  6 20:08:27 ADT 2025
 
 ## Terminology Issues
 
--   TERMINOLOGY ISSUE: ../ubiquitous-language/implementation-guides/api_design.md has inconsistent capitalization of core term 'Authentication'
--   TERMINOLOGY ISSUE: ../ubiquitous-language/implementation-guides/api_design.md has inconsistent capitalization of core term 'Catalog'
+-   TERMINOLOGY ISSUE: ../ubiquitous-language/guides/api_design.md has inconsistent capitalization of core term 'Authentication'
+-   TERMINOLOGY ISSUE: ../ubiquitous-language/guides/api_design.md has inconsistent capitalization of core term 'Catalog'
 -   TERMINOLOGY ISSUE: ../ubiquitous-language/analysis/domain_events_business_mapping.md may have events not using past tense naming convention
 -   TERMINOLOGY ISSUE: ../ubiquitous-language/analysis/domain_event_naming.md may have events not using past tense naming convention
 

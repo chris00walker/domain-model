@@ -17,8 +17,8 @@
 | **Attraction** | • Story ads on Facebook/Instagram• Micro-influencer reels• Festival activations | • LinkedIn thought-lead posts• Trade-rag advertorials• Chef referrals | 🔗 |
 | **Awareness** | • SEO blog & recipe snippets• YouTube shorts• Influencer live-cook streams | • Targeted LinkedIn ads• White-paper downloads• Email nurture seeding | 🔗 |
 | **Consideration** | • Landing pages w/ QR-provenance demo• Retargeting carousel ads• WhatsApp chat-bot | • Case-study emails (PDF)• On-site tastings & demos• Instant quote bot | 🔗 |
-| **Confidence** | • Money-back freshness badge• User reviews wall• First-[Order](../ubiquitous-language/guidelines/glossary.md#order) voucher pop-up | • Pilot-[Order](../ubiquitous-language/guidelines/glossary.md#order) discount• Quality certificates• Reference calls | 🔗 |
-| **Exchange** | • MERN Storefront (Stripe)• Voucher plug-in (10 % off first [Order](../ubiquitous-language/guidelines/glossary.md#order)) | • B2B Portal (M7 launch)• Field-rep [Order](../ubiquitous-language/guidelines/glossary.md#order) form (Food-Trucks) | 🔗 |
+| **Confidence** | • Money-back freshness badge• User reviews wall• First-[Order](../ubiquitous-language/glossary.md#order) voucher pop-up | • Pilot-[Order](../ubiquitous-language/glossary.md#order) discount• Quality certificates• Reference calls | 🔗 |
+| **Exchange** | • MERN Storefront (Stripe)• Voucher plug-in (10 % off first [Order](../ubiquitous-language/glossary.md#order)) | • B2B Portal (M7 launch)• Field-rep [Order](../ubiquitous-language/glossary.md#order) form (Food-Trucks) | 🔗 |
 | **Post-Exchange** | • WhatsApp drip: recipe tips, reorder reminders, cross-sell nudges | • WhatsApp/Email drip: restock alerts, training tips, upsell offers | 🔗 |
 
 ---
@@ -29,7 +29,7 @@
 | ----- | ----- | ----- | ----- | ----- |
 | **Phase 0***Digital & Banking Spine* | • MERN storefront (soft-launch)• Facebook & Instagram ad pilots | CTR ≥ 1 %CAC ≤ BBD 20 | CTR \< 0.6 % or CAC \> BBD 30 after 2 weeks | 🔗 |
 | **Phase 1A***B2C Barbados (Mo 0–6)* | • Recipe SEO blog• Micro-influencer reels (≤ BBD 400/mo)• WhatsApp support bot | 40 orders/mo by M4NPS ≥ 60 | Orders \< 25/mo by M4 | 🔗 |
-| **Phase 1B***B2B Pilot (Mo 7–11)* | • Field calls → Food-Trucks & LSR (CAC ≤ BBD 50)• B2B Portal MVP | ≥ 2 trucks & 2 LSRs re-[Order](../ubiquitous-language/guidelines/glossary.md#order) within 14 d | Portal not live by M7 **or** \> 3 critical defects → switch to manual [Order](../ubiquitous-language/guidelines/glossary.md#order) form until remediated | 🔗 |
+| **Phase 1B***B2B Pilot (Mo 7–11)* | • Field calls → Food-Trucks & LSR (CAC ≤ BBD 50)• B2B Portal MVP | ≥ 2 trucks & 2 LSRs re-[Order](../ubiquitous-language/glossary.md#order) within 14 d | Portal not live by M7 **or** \> 3 critical defects → switch to manual [Order](../ubiquitous-language/glossary.md#order) form until remediated | 🔗 |
 | **Phase 2***Regional Importers* | • LinkedIn & trade-rag lead gen• Virtual tasting webinar• FOB quote bot | First container booked ≤ 60 d from first contact | No container by 90 d | 🔗 |
 
 ---
@@ -42,7 +42,7 @@
 
 3. **Cost Harmony:** CAC ≤ BBD 20 (B2C) and ≤ BBD 50 (B2B) align with VPA margin targets; footnoted formula ensures transparency.
 
-4. **Fail-Safe:** If the B2B portal slips past M7 or has \> 3 defects, the manual [Order](../ubiquitous-language/guidelines/glossary.md#order) form keeps revenue flowing.
+4. **Fail-Safe:** If the B2B portal slips past M7 or has \> 3 defects, the manual [Order](../ubiquitous-language/glossary.md#order) form keeps revenue flowing.
 
 5. **Post-Exchange Nurture:** WhatsApp drips deliver tips and cross-sells, driving repeat orders and higher LTV.
 
@@ -52,9 +52,9 @@
 
 ## **4 │ KPI Dashboard (Channel Layer)**
 
-* **B2C:** CAC, AOV, sessions→purchase, [Subscription](../ubiquitous-language/guidelines/glossary.md#subscription) churn, NPS
+* **B2C:** CAC, AOV, sessions→purchase, [Subscription](../ubiquitous-language/glossary.md#subscription) churn, NPS
 
-* **B2B:** Lead-to-quote ratio, quote-to-[Order](../ubiquitous-language/guidelines/glossary.md#order), CAC payback orders, reorder cycle
+* **B2B:** Lead-to-quote ratio, quote-to-[Order](../ubiquitous-language/glossary.md#order), CAC payback orders, reorder cycle
 
 * **Cross-channel:** Marketing spend as % of GMV ≤ 8 % (Phase 1 target)
 
@@ -66,7 +66,7 @@
 
 2. Sync with Finance to bake the CAC formula (**CAC \= (Ad \+ Creative \+ Sales labour) / New Accounts**) into your dashboards.
 
-3. Implement the manual [Order](../ubiquitous-language/guidelines/glossary.md#order)-form fail-safe for Phase 1B.
+3. Implement the manual [Order](../ubiquitous-language/glossary.md#order)-form fail-safe for Phase 1B.
 
 4. Build and schedule the Post-Exchange WhatsApp drip workflow.
 

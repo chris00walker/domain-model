@@ -99,7 +99,7 @@ The Ubiquitous Language follows semantic versioning principles:
 - **Minor Version**: Additions and clarifications that maintain backward compatibility
 - **Patch Version**: Minor corrections and refinements
 ## Language Change Log
-The Language Change Log is maintained in the [Domain Glossary](./glossary.md) and records:
+The Language Change Log is maintained in the [Domain Glossary](../glossary.md) and records:
 - Version
 - Date
 - Changes (additions, modifications, deprecations)
@@ -140,6 +140,7 @@ The Ubiquitous Language is governed by:
 
 ⚑ Related
 - [Domain Glossary](../glossary.md)
+- [Ubiquitous Language Guidelines](./ubiquitous_language_guidelines.md)
 - [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
 
 ↩ [Back to Framework TOC](../README.md)

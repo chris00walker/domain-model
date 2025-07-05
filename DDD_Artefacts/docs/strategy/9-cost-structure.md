@@ -34,7 +34,7 @@
 | **Commercial (B2B)** | ≥ 30 % | (COGS \+ Fulfilment) / 0.70 | Pocket GM % | 🔗 V-CS-02 |
 | **Wholesale (B2B)** | ≥ 25 % | (COGS \+ Fulfilment) / 0.75 | Volume-discount leakage % | 🔗 V-CS-03 |
 
-*Violation of any guardrail for 2 rolling months triggers a [[[Pricing](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing)](../ubiquitous-language/guidelines/glossary.md#pricing) or Cost sprint on the Testing Business Ideas board.*
+*Violation of any guardrail for 2 rolling months triggers a [[[Pricing](../ubiquitous-language/glossary.md#pricing)](../ubiquitous-language/glossary.md#pricing)](../ubiquitous-language/glossary.md#pricing) or Cost sprint on the Testing Business Ideas board.*
 
 ---
 
@@ -42,12 +42,12 @@
 
 | \# | Cost Block | F / V Mix | Linked KA/KR/KP | Steward | Scale Lever | Primary KPI | TBI Card |
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| 1 | **COGS – Landed [[[Product](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)](../ubiquitous-language/guidelines/glossary.md#product)** | 5 % F / 95 % V | KA-1.0 Sourcing · KP-Ingredient Suppliers | COO | Larger lots \+ EPA duty waiver | Landed $/kg • % duty-free EU volume | 🔗 V-CS-04 |
-| 2 | **Logistics & Fulfilment** | 10 % F / 90 % V | KA-1.1 Freight · KP-3PL & Carriers | Ops Dir. | FCL break-even ≥ 0.5 TEU/mo | Fulfilment $/[Order](../ubiquitous-language/guidelines/glossary.md#order) • % containers rolled | 🔗 V-CS-05 |
+| 1 | **COGS – Landed [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)** | 5 % F / 95 % V | KA-1.0 Sourcing · KP-Ingredient Suppliers | COO | Larger lots \+ EPA duty waiver | Landed $/kg • % duty-free EU volume | 🔗 V-CS-04 |
+| 2 | **Logistics & Fulfilment** | 10 % F / 90 % V | KA-1.1 Freight · KP-3PL & Carriers | Ops Dir. | FCL break-even ≥ 0.5 TEU/mo | Fulfilment $/[Order](../ubiquitous-language/glossary.md#order) • % containers rolled | 🔗 V-CS-05 |
 | 3 | **Technology & Infrastructure** | 70 % F / 30 % V | KA-2.x Platform · KR-Tech-Core | CTO | Flat-rate Rumble plan \+ CDN cache-hit | Tech spend % GMV ≤ 8 % • Cache-hit ≥ 80 % | 🔗 V-CS-06 |
 | 4 | **Growth & CX Spend** | 0 % F / 100 % V | KA-3.x Marketing · KP-Ads & Ambassadors | CMO | ROAS optimisation & loyalty ROI | CAC : LTV ≤ 1 : 4 • ROAS ≥ 4× | 🔗 V-CS-07 |
 | 5 | **Talent & Specialists** | 15 % F / 85 % V | KA-2.5 Dev Sprints · KA-4.x CX | CTO/COO | Re-hire top 50 % freelancers | Cost/story-point • On-time % | 🔗 V-CS-08 |
-| 6 | **General & Admin** | 70 % F / 30 % V | KR-Fin-SAFE · KP-Legal & Banking | CFO | [[[Payment](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)](../ubiquitous-language/guidelines/glossary.md#payment)-fee tier drops as GMV grows | G\&A % Revenue ≤ 12 % | 🔗 V-CS-09 |
+| 6 | **General & Admin** | 70 % F / 30 % V | KR-Fin-SAFE · KP-Legal & Banking | CFO | [[[Payment](../ubiquitous-language/glossary.md#payment)](../ubiquitous-language/glossary.md#payment)](../ubiquitous-language/glossary.md#payment)-fee tier drops as GMV grows | G\&A % Revenue ≤ 12 % | 🔗 V-CS-09 |
 | 7 | **FX Volatility Reserve** | 0 % F / 100 % V | KA-1.3 NDF Hedge | CFO | NDF hedge activity | Reserve \= 0.5 % GMV | 🔗 V-CS-10 |
 
 ---
@@ -74,7 +74,7 @@
 
 * **FX Resilience:** 0.5 % GMV reserve ensures volatility buffer backed by NDF hedge.
 
-*“Put your outdoor work in [Order](../ubiquitous-language/guidelines/glossary.md#order) and get your fields ready; after that, build your house.”* — Proverbs 24:27
+*“Put your outdoor work in [Order](../ubiquitous-language/glossary.md#order) and get your fields ready; after that, build your house.”* — Proverbs 24:27
 
 ---
 
@@ -85,7 +85,7 @@
 | **F / V** | Fixed vs Variable cost mix |
 | **GMV** | Gross Merchandise Value |
 | **Pocket GM** | Gross margin after direct costs & discounts |
-| **CAC / LTV** | [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer) Acquisition Cost / Lifetime Value |
+| **CAC / LTV** | [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Acquisition Cost / Lifetime Value |
 | **ROAS** | Return on Ad Spend |
 | **Cache-hit** | % of requests served from CDN cache |
 | **NDF** | Non-Deliverable Forward (FX hedge) |

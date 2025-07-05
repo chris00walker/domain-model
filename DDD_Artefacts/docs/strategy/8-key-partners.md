@@ -37,13 +37,13 @@
 
 ---
 
-## **3 │ Growth & [[[Customer](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)](../ubiquitous-language/guidelines/glossary.md#customer)-Experience (Phase 1\)**
+## **3 │ Growth & [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)-Experience (Phase 1\)**
 
 | Partner (Motive) | Supports KA-ID | Steward | Critical SLA / KPI | Management Action | TBI Card |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | **Meta · Google · LinkedIn · TikTok Ads**(Acquisition) | KA-3.x Attraction/Awareness | CMO | • ROAS ≥ 4×• Incidents \= 0 | Auto-pause if ROAS \< 2× (7 d); whitelist review | 🔗 F-KP-14 |
 | **Chef & Influencer Ambassadors**(Trust building) | KA-3.2 Field Sampling | CMO | • ≥ 1 content piece/mo• Eng ≥ 4 % | 12-mo MoUs; refresh roster annually | 🔗 F-KP-15 |
-| **Event Organisers – Miami MedFest, Bridgetown Food Expo**(Optimisation) | KA-3.2 Field Sampling | Growth Lead | • CPL ≤ US$4• Lead→[Order](../ubiquitous-language/guidelines/glossary.md#order) ≥ 15 % | Debrief 14 d; exit event if CPL \> US$6 | 🔗 F-KP-16 |
+| **Event Organisers – Miami MedFest, Bridgetown Food Expo**(Optimisation) | KA-3.2 Field Sampling | Growth Lead | • CPL ≤ US$4• Lead→[Order](../ubiquitous-language/glossary.md#order) ≥ 15 % | Debrief 14 d; exit event if CPL \> US$6 | 🔗 F-KP-16 |
 
 ---
 

@@ -9,6 +9,53 @@ This style guide ensures consistency across all documentation for the Elias Food
 3. **Provide Examples**: Include practical examples, especially for complex concepts.
 4. **Maintain Structure**: Follow the established document structure for each type of document.
 
+## Naming Conventions
+
+### File and Directory Naming
+
+#### Files
+- Use `kebab-case` for all file names
+  - Example: `user-service.ts`, `order-controller.ts`, `payment-processor.js`
+- For React/Vue components, use `PascalCase` to match component naming
+  - Example: `UserProfile.tsx`, `ProductCard.vue`
+- Use consistent file extensions (.js, .ts, .jsx, .tsx, etc.)
+
+#### Directories
+- Use `kebab-case` for all directory names to maintain consistency with file naming
+  - Example: `user-management/`, `order-processing/`, `api-clients/`
+- For feature directories, use singular form when it represents a single concept
+  - Example: `user/` (not `users/`) for user-related features
+- For utility/helper directories, use plural form
+  - Example: `utils/`, `helpers/`, `services/`
+
+### Code Elements
+
+#### TypeScript/JavaScript
+- `PascalCase` for:
+  - Class names: `class UserService { ... }`
+  - Interface names: `interface UserProfile { ... }`
+  - Type aliases: `type UserRole = 'admin' | 'user'`
+  - React components: `function UserProfile() { ... }`
+  - Enum names: `enum OrderStatus { ... }`
+
+- `camelCase` for:
+  - Variables: `const userService = new UserService()`
+  - Functions: `function calculateTotal() { ... }`
+  - Methods: `user.getName()`
+  - Object properties: `{ firstName: 'John', lastName: 'Doe' }`
+  - Parameters: `function createUser(userData) { ... }`
+
+- `UPPER_SNAKE_CASE` for:
+  - Constants: `const MAX_RETRY_COUNT = 3`
+  - Environment variables: `API_BASE_URL`
+  - Global configuration values
+
+#### Other Conventions
+- Prefix interfaces with `I` when needed for clarity: `IUserRepository`
+- Use descriptive names that indicate purpose or type
+- Avoid abbreviations unless they are widely understood
+- Be consistent within each context
+
 ## Formatting Guidelines
 
 ### Markdown Formatting
@@ -178,6 +225,10 @@ function calculateTotal(items: OrderItem[]): Money {
 - Use Mermaid for diagrams when possible
 - Include descriptive captions
 - Keep diagrams simple and focused
+
+## Related Documents
+
+- [Coding Standards](../.windsurf/rules/technical/coding-standards.md) - Detailed technical coding conventions and best practices
 
 ## Review Process
 

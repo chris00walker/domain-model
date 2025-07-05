@@ -1,4 +1,4 @@
----
+          ---
 title: "Ubiquitous Language in API Design"
 version: "2.0"
 last_updated: "2025-06-06"
@@ -181,13 +181,13 @@ Example documentation snippet:
 ## Product Authentication API
 This API enables verification of Product authenticity using our established
 Authentication mechanisms. The Authentication process aligns with our
-[Product Authentication Domain](../../domain-knowledge/core-contexts/catalog-auth/README.md)
+[Product Authentication Domain](../../domain-knowledge/bounded-contexts/product-catalog/README.md)
 and follows the rules specified for our Authentication process.
 ### Authentication Methods
 - **Blockchain Authentication**: Verification using distributed ledger records
 - **NFC Tag Authentication**: Physical tag verification using NFC technology
 - **Certificate Verification**: Manual certificate lookup and verification
-See the [Authentication Types](../guidelines/glossary.md#authentication) section in the Domain Glossary for detailed descriptions.
+See the [Authentication Types](../glossary.md#authentication) section in the Domain Glossary for detailed descriptions.
 ```
 ## Implementation Examples
 ### Example 1: Order API Reflecting Order Domain Concepts
@@ -297,8 +297,8 @@ The API Review Board, working with the Domain Language Stewards, will:
 4. Ensure APIs evolve in sync with the domain model
 ## References
 - [Domain Event Catalog](../../domain-knowledge/integrations/events.md)
-- [Ubiquitous Language Guidelines](../guidelines/ubiquitous_language_guidelines.md)
-- [API Design Style Guide](../../technical/api-design-guide.md)
+- [Ubiquitous Language Guidelines](../guides/ubiquitous_language_guidelines.md)
+- [API Design Guidelines](../../guidelines/api-design-guidelines.md)
 - [Bounded Context Map](../../domain-knowledge/integrations/context-map.md)
 *This guide ensures that our APIs serve as a faithful representation of our domain model, using consistent terminology that bridges technical implementation and business concepts.*
 
