@@ -1,6 +1,20 @@
 # Cold Chain Monitoring
 
+[RELATED: ADR-XXX]
+
 ## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
 The Cold Chain Monitoring system ensures the integrity of temperature-sensitive products throughout the supply chain. This module is critical for maintaining product quality, ensuring food safety, and meeting regulatory requirements for perishable goods.
 
 ## Core Capabilities

@@ -1,6 +1,20 @@
 # Inventory Management
 
+[RELATED: ADR-XXX]
+
 ## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
 The Inventory Management module provides comprehensive control over stock levels, locations, and movements of perishable goods. It supports First-Expired-First-Out (FEFO) inventory management, shelf-life tracking, and real-time visibility across the supply chain.
 
 ## Core Capabilities

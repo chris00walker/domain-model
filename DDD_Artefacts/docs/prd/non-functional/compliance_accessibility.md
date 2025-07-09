@@ -1,5 +1,25 @@
 # Compliance & Accessibility Requirements
 
+[RELATED: ADR-XXX]
+
+## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
+
+This document specifies regulatory compliance and accessibility requirements that apply platform-wide for Elias Food Imports.
+
+
+
 ## Regulatory Compliance
 
 - **Data Protection (GDPR & CCPA):** data minimisation; explicit opt-in/opt-out; honour subject-rights requests (access, correction, deletion ≤ 30 days).

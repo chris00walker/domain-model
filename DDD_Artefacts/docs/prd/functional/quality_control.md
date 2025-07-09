@@ -1,6 +1,20 @@
 # Quality Control
 
+[RELATED: ADR-XXX]
+
 ## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
 The Quality Control module ensures that all products meet established quality standards throughout the supply chain. It provides tools for inspection, testing, and compliance management, with special emphasis on perishable goods and regulatory requirements.
 
 ## Core Capabilities

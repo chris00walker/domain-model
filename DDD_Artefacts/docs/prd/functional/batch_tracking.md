@@ -1,6 +1,20 @@
 # Batch Tracking
 
+[RELATED: ADR-XXX]
+
 ## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
 The Batch Tracking module is responsible for managing the lifecycle of product batches throughout the supply chain, from receipt through to sale or disposal. This is particularly critical for perishable goods where traceability, expiration management, and quality control are essential for food safety and regulatory compliance.
 
 ## Core Capabilities

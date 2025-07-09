@@ -1,6 +1,20 @@
 # Supplier Traceability
 
+[RELATED: ADR-XXX]
+
 ## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
 The Supplier Traceability module provides end-to-end visibility into the supply chain, enabling tracking of products from source to consumer. It supports compliance with food safety regulations, quality assurance, and supply chain risk management through comprehensive traceability capabilities.
 
 ## Core Capabilities

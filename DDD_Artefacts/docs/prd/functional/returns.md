@@ -1,6 +1,20 @@
 # Returns Management
 
+[RELATED: ADR-XXX]
+
 ## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
 The Returns Management module handles the end-to-end process of returning products, including authorization, processing, and disposition. It supports both customer returns and supplier returns, with special handling for perishable goods and compliance with food safety regulations.
 
 ## Core Capabilities

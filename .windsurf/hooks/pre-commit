@@ -1,0 +1,122 @@
+#!/bin/sh
+# Windsurf Pre-Commit Hook
+# Validates documentation changes against existing ADRs and decisions
+
+# Configuration
+DOCS_DIR="$PWD/DDD_Artefacts/docs"
+RULES_DIR="$PWD/.windsurf/rules"
+
+# Get list of changed files
+CHANGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+# Check if any documentation files are being modified
+DOC_CHANGES=$(echo "$CHANGED_FILES" | grep -E '\.(md|mdx|adoc|rst)$')
+
+if [ -z "$DOC_CHANGES" ]; then
+    exit 0  # No documentation changes, exit successfully
+fi
+
+echo "🔍 Validating documentation changes..."
+
+# Check for duplicate content and ADR references
+for file in $DOC_CHANGES; do
+    file_abs=$(realpath "$file")
+    echo "\nValidating $file"
+
+    # Skip deleted files
+    if [ ! -f "$file" ]; then
+        continue
+    fi
+
+    # Check for ADR references in modified files
+    if grep -q 'ADR-' "$file"; then
+        echo "  ✓ Contains ADR references"
+
+        # Verify ADR references exist
+        grep 'ADR-' "$file" | while read -r line; do
+            adr_ref=$(echo "$line" | grep -o 'ADR-[0-9]\+' | head -n 1)
+            if [ -n "$adr_ref" ]; then
+                adr_num=$(echo "$adr_ref" | cut -d'-' -f2)
+                # Look for any ADR file that contains the numeric id (e.g. 013-*.md or ADR_013.*)
+                if ! ls "$DOCS_DIR/adr/"*"${adr_num}"* 1>/dev/null 2>&1; then
+                    echo "  ❌ Invalid ADR reference: $adr_ref"
+                    echo "  Please ensure the ADR exists and is correctly referenced."
+                    exit 1
+                fi
+            fi
+        done
+
+        # Check if the grep subshell failed
+        if [ $? -ne 0 ]; then
+            exit 1
+        fi
+    else
+        echo "  ⚠️ No ADR references found"
+        echo "  Consider adding relevant ADR references using format: [RELATED: ADR-XXX]"
+    fi
+
+    # Check for potential duplicates using content fingerprinting
+    if [ -s "$file" ]; then
+        echo "  Checking for similar content..."
+
+        # Create a content fingerprint (first 100 chars of content, lowercased, no spaces)
+        fingerprint=$(head -c 1000 "$file" | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]' | tr -d '[:punct:]' | head -c 50)
+
+        if [ -n "$fingerprint" ]; then
+            # Search for similar content in other files
+            find "$DOCS_DIR" -type f \( -name '*.md' -o -name '*.mdx' \) -not -path "*/node_modules/*" | while read -r other_file; do
+                other_abs="$other_file"
+                if [ "$other_abs" != "$file_abs" ] && [ -s "$other_abs" ]; then
+                    other_fingerprint=$(head -c 1000 "$other_file" | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]' | tr -d '[:punct:]' | head -c 50)
+
+                    # Simple similarity check (adjust threshold as needed)
+                    if [ -n "$other_fingerprint" ] && [ "$fingerprint" = "$other_fingerprint" ]; then
+                        echo "  ❌ Potential duplicate content found in:"
+                        echo "     $other_file"
+                        echo "  Please consolidate documentation or ensure content is sufficiently different."
+                        echo "  If this is intentional, add a comment explaining the difference at the top of the file."
+                        exit 1
+                    fi
+                fi
+            done
+
+            # Check if the find subshell failed
+            if [ $? -ne 0 ]; then
+                exit 1
+            fi
+        fi
+    fi
+
+    # Check for similar titles as a secondary check
+    if grep -q '^# ' "$file"; then
+        title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
+        if [ "${#title}" -gt 10 ]; then  # Only check titles longer than 10 chars
+            echo "  Checking for similar titles..."
+            similar_files=$(grep -rlF "$title" --include="*.md" --include="*.mdx" "$DOCS_DIR" 2>/dev/null | grep -v "$file")
+
+            if [ -n "$similar_files" ]; then
+                echo "  ⚠️ Similar title found in:"
+                echo "$similar_files" | sed 's/^/     /'
+                echo "  Please ensure this is not a duplicate. If it's not, add a comment explaining the difference at the top of the file."
+                # Uncomment to make this a hard failure
+                # exit 1
+            fi
+        fi
+    fi
+done
+
+echo "\n✅ Documentation validation complete"
+
+#!/bin/bash
+# Enhanced pre-commit hook
+
+# Validate Workflow-Rule-Memory Links
+./.windsurf/scripts/validate-integration.sh || exit 1
+
+# Check eCommerce Domain Coverage
+if ! grep -qr "ecommerce" .windsurf/workflows; then
+  echo "⚠️ Missing eCommerce tags in workflows"
+  exit 1
+fi
+
+exit 0

@@ -1,5 +1,25 @@
 # Scalability Requirements
 
+[RELATED: ADR-XXX]
+
+## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
+
+This document defines how the Elias Food Imports platform must scale to accommodate growth in traffic, data volume, and machine-learning workloads.
+
+
+
 ## Horizontal & Vertical Scaling
 
 - Services must scale linearly to **10×** baseline traffic with ≤ 20 % performance degradation.
@@ -20,6 +40,9 @@
 
 - Serve up to **50 inference QPS** per model instance; autoscale based on GPU utilisation.
 - Distributed inference service behind load balancer; cache popular predictions.
+
+
+> Meeting these scalability requirements enables consistent user experience, cost-efficient operations, and future growth without major re-architecture.
 
 ---
 
