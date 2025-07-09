@@ -9,19 +9,19 @@ include: ../rules/acceptance-criteria.md
 > • Requires GitHub CLI (`gh`) authenticated.
 > • Adjust the test command in Step 5 for your stack (npm, pytest, gradle, etc.).
 
-1. Display git status so you see what will be included
+1. Quick status (optional)
 
    ```bash
    git status
    ```
 
-2. Stage **all** tracked file changes (add new files, update deletions)
+2. Stage changes
 
    ```bash
    git add -A
    ```
 
-3. Commit with an auto-generated message summarising changed files
+3. Commit (auto-message summarises files)
 
    ```bash
    git commit -m "chore(sync): $(git diff --cached --name-only | head -n 20 | paste -sd ',' -)"
@@ -33,29 +33,36 @@ include: ../rules/acceptance-criteria.md
    if [ $(git diff --cached --name-only | wc -l) -gt 20 ]; then git commit --amend -m "chore(sync): update $(git diff --cached --name-only | wc -l) files"; fi
    ```
 
-4. Fetch latest main and rebase current branch
+4. Rebase onto latest main
 
    ```bash
    git fetch origin
-   git rebase origin/main
+   git rebase origin/main   # stop & resolve if conflict
    ```
 
-5. Run the project test suite to ensure the rebase is clean
+5. Run tests
 
    ```bash
-   npm test   # <-- change if necessary
+   npm test   # adjust for your stack
    ```
 
-6. Push the rebased branch (force-with-lease protects remote changes)
+6. Push (force-with-lease) & open/refresh PR
 
    ```bash
    git push --force-with-lease
    ```
 
-7. Open (or update) a pull request automatically
+   The `gh` command below creates or updates the PR automatically.
 
    ```bash
    gh pr create --fill --web || gh pr edit --head $(git rev-parse --abbrev-ref HEAD) --title "$(git log -1 --pretty=%s)" --body "Automated sync via /git-sync workflow"
    ```
 
-8. Finished! Your branch is now up-to-date and the PR is ready.
+---
+
+This streamlined version avoids giant rebases; run it **daily** while your branch is small to keep conflicts trivial.
+
+   ```bash
+   gh pr create --fill --web || gh pr edit --head $(git rev-parse --abbrev-ref HEAD) --title "$(git log -1 --pretty=%s)" --body "Automated sync via /git-sync workflow"
+   ```
+

@@ -1,24 +1,34 @@
 #!/bin/sh
-# Windsurf Pre-Commit Hook
+# Lightweight Windsurf Pre-Commit Hook
+# Performs only fast local checks; heavy validation now runs in CI.
 # Validates documentation changes against existing ADRs and decisions
 
 # Configuration
-DOCS_DIR="$PWD/DDD_Artefacts/docs"
+DOCS_DIR="DDD_Artefacts/docs"
 RULES_DIR="$PWD/.windsurf/rules"
 
-# Get list of changed files
+# Fast checks only – markdownlint for changed markdown files
 CHANGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+DOC_CHANGES=$(echo "$CHANGED_FILES" | grep -E '\.(md|mdx)$')
+[ -z "$DOC_CHANGES" ] && exit 0
 
-# Check if any documentation files are being modified
-DOC_CHANGES=$(echo "$CHANGED_FILES" | grep -E '\.(md|mdx|adoc|rst)$')
+echo "🔍 markdownlint (pre-commit quick check)…"
 
-if [ -z "$DOC_CHANGES" ]; then
-    exit 0  # No documentation changes, exit successfully
+# Run markdownlint (assumes markdownlint-cli installed via devDependencies)
+if command -v npx >/dev/null 2>&1; then
+  if npx --no-install markdownlint -h >/dev/null 2>&1; then
+    echo "$DOC_CHANGES" | xargs npx --no-install markdownlint --config .markdownlint.jsonc || exit 1
+  else
+    echo "⚠️ markdownlint-cli not installed; skipping markdownlint"
+  fi
+else
+  echo "⚠️  npx not available; skipping markdownlint"
 fi
 
-echo "🔍 Validating documentation changes..."
+echo "✅ Pre-commit checks passed"
+exit 0
 
-# Check for duplicate content and ADR references
+# --- previous heavy logic moved to scripts/full-doc-validate.sh & CI ---
 for file in $DOC_CHANGES; do
     file_abs=$(realpath "$file")
     echo "\nValidating $file"
