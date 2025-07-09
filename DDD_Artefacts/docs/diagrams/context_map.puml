@@ -1,6 +1,6 @@
 @startuml efi_context_map
 
-' Simplified diagram using basic components
+' Enhanced diagram with complete integration points
 skinparam component {
     BackgroundColor #dbeafe
     BackgroundColor<<Core>> #fee2e2
@@ -16,11 +16,12 @@ title Elias Food Imports - Bounded Context Map
 
 legend top left
   | Color | Type | Description |
-  |#fee2e2| Core | Critical |
-  |#fef3c7| Strategic | Competitive |
-  |#dbeafe| Supporting | Operational |
-  |#e0f2fe| Integration | Cross-cutting |
-  |#f0fdf4| External | Third-party |
+  |<#fee2e2>|<#fee2e2> Core |<#fee2e2> Critical |
+  |<#fef3c7>|<#fef3c7> Strategic |<#fef3c7> Competitive |
+  |<#dbeafe>|<#dbeafe> Supporting |<#dbeafe> Operational |
+  |<#e0f2fe>|<#e0f2fe> Integration |<#e0f2fe> Cross-cutting |
+  |<#f0fdf4>|<#f0fdf4> External |<#f0fdf4> Third-party |
+  |<#ffffff>|<#ffffff> ACL |<#ffffff> Anti-Corruption Layer |
 endlegend
 
 ' Define components
@@ -37,6 +38,11 @@ rectangle "🛒 CUSTOMER INTERFACE LAYER" {
     • Order processing
     • FEFO reservation
     • Payment capture
+    Events:
+    • OrderPlaced → /checkout-orchestration
+    • PaymentProcessed
+    Workflows: 
+    • /tax-orchestration
   end note
 }
 
@@ -308,36 +314,54 @@ rectangle "🌐 EXTERNAL SYSTEMS" as ExternalSystems {
     • Import/export
     • Certifications
   end note
-}
+  
+  [Payment Gateway] as Payment <<External>>
+  [Warehouse System] as Warehouse <<External>>
+  
+  ' Integration points between bounded contexts
+  ShoppingCart --> OrderMgmt : checkout
+  OrderMgmt --> PaymentBilling : process payment
+  OrderMgmt --> InventoryShelfLife : reserve stock
+  OrderMgmt --> ShippingFulfillment : fulfill order
+  PaymentBilling --> AnalyticsReporting : financial data
+  InventoryShelfLife --> ShippingFulfillment : pick lists
+  ShippingFulfillment --> CustomerMgmt : shipping updates
+  CustomerMgmt --> Marketing : customer segments
+  Marketing --> ProductCatalog : featured products
+  ProductCatalog --> InventoryShelfLife : availability
+  
+  ' Event flows
+  OrderMgmt --> EventBus : publishes OrderPlaced
+  EventBus --> PaymentBilling : processes payment
+  EventBus --> InventoryShelfLife : reserves stock
+  EventBus --> ShippingFulfillment : initiates shipping
+  
+  ' External system integrations
+  PaymentBilling --> Payment : processes payment
+  OrderMgmt --> Warehouse : reserves inventory
+  InventoryShelfLife --> Warehouse : updates stock levels
+  ShippingFulfillment --> ShippingCarriers : schedules shipments
+  CustomerMgmt --> HubSpot : syncs customer data
+  Marketing --> HubSpot : manages campaigns
+  AnalyticsReporting --> Tableau : visualizes data
+  
+  ' Cross-cutting concerns
+  AdminBFF --> OrderMgmt : admin operations
+  AdminBFF --> CustomerMgmt : user management
+  AdminBFF --> ProductCatalog : catalog management
+  
+  ' Enhanced Integration Points with ACLs
+  OrderMgmt --> Payment : [ACL]\nProcess Payment
+  OrderMgmt --> Warehouse : [OHS]\nReserve Inventory
+  
+  ' Core business flows
+  PricingPromotions --> InventoryShelfLife : feedback loop
 
-' Within Customer Interface Layer
-ShoppingCart --> OrderMgmt : add to cart
-
-' Within Product & Customer Management
-ProductCatalog --> CustomerMgmt
-CustomerMgmt --> PaymentBilling
-PaymentBilling --> SalesQuoting
-SalesQuoting --> ReturnsMgmt
-CustomerMgmt --> Subscriptions : manages
-CustomerMgmt --> Reviews : provides
-CustomerMgmt --> Marketing : segments
-ProductCatalog --> Reviews : receives
-ProductCatalog --> Marketing : features
-Subscriptions --> PaymentBilling : recurring payments
-Marketing --> ProductCatalog : promotes
-Marketing --> CustomerMgmt : targets
-
-' Within Core Operations
-InventoryShelfLife --> BatchTracking
-BatchTracking --> ColdChainMonitor
-ColdChainMonitor --> PricingPromotions
-PricingPromotions --> InventoryShelfLife : feedback loop
-
-' Within Fulfillment & Quality
-ShippingFulfillment --> SupplierTrace
-SupplierTrace --> QualityControl
-QualityControl --> AnalyticsReporting
-AnalyticsReporting --> ShippingFulfillment : feedback loop
+  ' Within Fulfillment & Quality
+  ShippingFulfillment --> SupplierTrace
+  SupplierTrace --> QualityControl
+  QualityControl --> AnalyticsReporting
+  AnalyticsReporting --> ShippingFulfillment : feedback loop
 
 ' Cross-layer connections
 ShoppingCart --> ProductCatalog : availability
@@ -411,5 +435,9 @@ AnalyticsReporting --> Tableau : visualizes data
 QualityControl --> ComplianceServices : verifies compliance
 AdminBFF --> Odoo : manages operations
 AdminBFF --> HubSpot : manages CRM
+
+' Enhanced Integration Points
+OrderMgmt --> Payment : [ACL]\nProcess Payment
+OrderMgmt --> Warehouse : [OHS]\nReserve Inventory
 
 @enduml
