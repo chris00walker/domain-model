@@ -16,7 +16,11 @@ echo "🔍 markdownlint (pre-commit quick check)…"
 
 # Run markdownlint (assumes markdownlint-cli installed via devDependencies)
 if command -v npx >/dev/null 2>&1; then
-  echo "$DOC_CHANGES" | xargs npx markdownlint --config .markdownlint.jsonc || exit 1
+  if npx --no-install markdownlint -h >/dev/null 2>&1; then
+    echo "$DOC_CHANGES" | xargs npx --no-install markdownlint --config .markdownlint.jsonc || exit 1
+  else
+    echo "⚠️ markdownlint-cli not installed; skipping markdownlint"
+  fi
 else
   echo "⚠️  npx not available; skipping markdownlint"
 fi
