@@ -1,5 +1,25 @@
 # Maintainability Requirements
 
+[RELATED: ADR-XXX]
+
+## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
+
+This document specifies maintainability quality attributes—codebase health, documentation, testing, and operational processes—for the Elias Food Imports platform.
+
+
+
 ## Code Maintainability
 
 - **Modular Architecture:** code organised by bounded context with clear interfaces.
@@ -22,6 +42,9 @@
 - Test suites run on every commit; merges blocked on failures.
 - Load tests (k6, Gatling) monthly in staging; regression suite nightly.
 - Test reports generated; Slack/email alerts on critical failures.
+
+
+> High maintainability reduces total cost of ownership, accelerates delivery cycles, and facilitates onboarding for new team members.
 
 ---
 

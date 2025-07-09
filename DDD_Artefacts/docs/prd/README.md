@@ -1,6 +1,20 @@
 # EFI eCommerce Platform - Product Requirements
 
+
+
 ## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
 
 Welcome to the **Elias Food Imports** (EFI) Product Requirements Document (PRD). This document serves as the entry point for understanding the functional and non-functional requirements of the EFI eCommerce platform.
 
@@ -45,8 +59,8 @@ These cross-cutting quality attributes apply across all functional areas:
 
 ## Version Information
 
-- **Version:** 1.0
-- **Last Updated:** 2025-07-04
+- **Version:** 1.1
+- **Last Updated:** 2025-07-08
 - **Status:** Active
 - **Owners:** Product Architecture Team
 
@@ -68,5 +82,8 @@ This documentation defines the comprehensive requirements for the Elias Food Imp
 ## Related Documents
 
 - [Architecture Decision Records (ADRs)](../adr/)
-- [Domain Model Documentation](../domain_model/)
-- [API Documentation](../api/)
+- [Domain Knowledge Documentation](../domain-knowledge/)
+- [API Design Guidelines](../guidelines/api-design-guidelines.md)
+- [Context Map Diagram](../diagrams/context_map.puml)
+
+

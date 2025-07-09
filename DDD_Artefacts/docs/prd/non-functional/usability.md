@@ -1,5 +1,25 @@
 # Usability Requirements
 
+[RELATED: ADR-XXX]
+
+## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
+
+This document captures usability and user experience quality attributes for the Elias Food Imports platform.
+
+
+
 ## User Interface Requirements
 
 - Responsive design for ≥ 320 px screens; meet **WCAG 2.1 AA**.
@@ -31,6 +51,9 @@
 
 - Tooltip explaining price changes; price history chart (30-day) available.
 - Allow opt-in/out for personalised pricing; audits ensure fairness.
+
+
+> Ensuring high usability leads to increased conversions, customer satisfaction, and accessibility for all users.
 
 ---
 

@@ -1,5 +1,25 @@
 # Security Requirements
 
+[RELATED: ADR-XXX]
+
+## Overview
+
+> **Status:** Draft — auto-normalised. Update with meaningful content.
+
+## Functional Requirements
+
+> _TBD – add detailed requirements here._
+
+## Benefits
+
+> Establishes consistent documentation and enables lint compliance.
+
+
+
+This document captures security-related quality attributes and controls for the Elias Food Imports platform.
+
+
+
 ## Data Encryption
 
 - Encrypt data at rest with **AES-256** and in transit with **TLS 1.2+**.
@@ -14,6 +34,9 @@
 
 - GDPR and PCI-DSS scope; maintain RoPA and DPA artefacts.
 - PII fields encrypted and masked in logs (see `pii_encryption_required: true`).
+
+
+> Implementing these security controls mitigates risk, ensures compliance, and protects customer trust and corporate reputation.
 
 ---
 
