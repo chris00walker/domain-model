@@ -1,6 +1,6 @@
 @startuml efi_context_map
 
-' Simplified diagram using basic components
+' Enhanced diagram with complete integration points
 skinparam component {
     BackgroundColor #dbeafe
     BackgroundColor<<Core>> #fee2e2
@@ -16,11 +16,12 @@ title Elias Food Imports - Bounded Context Map
 
 legend top left
   | Color | Type | Description |
-  |#fee2e2| Core | Critical |
-  |#fef3c7| Strategic | Competitive |
-  |#dbeafe| Supporting | Operational |
-  |#e0f2fe| Integration | Cross-cutting |
-  |#f0fdf4| External | Third-party |
+  |<#fee2e2>|<#fee2e2> Core |<#fee2e2> Critical |
+  |<#fef3c7>|<#fef3c7> Strategic |<#fef3c7> Competitive |
+  |<#dbeafe>|<#dbeafe> Supporting |<#dbeafe> Operational |
+  |<#e0f2fe>|<#e0f2fe> Integration |<#e0f2fe> Cross-cutting |
+  |<#f0fdf4>|<#f0fdf4> External |<#f0fdf4> Third-party |
+  |<#ffffff>|<#ffffff> ACL |<#ffffff> Anti-Corruption Layer |
 endlegend
 
 ' Define components
@@ -37,6 +38,11 @@ rectangle "🛒 CUSTOMER INTERFACE LAYER" {
     • Order processing
     • FEFO reservation
     • Payment capture
+    Events:
+    • OrderPlaced → /checkout-orchestration
+    • PaymentProcessed
+    Workflows: 
+    • /tax-orchestration
   end note
 }
 
@@ -308,108 +314,114 @@ rectangle "🌐 EXTERNAL SYSTEMS" as ExternalSystems {
     • Import/export
     • Certifications
   end note
-}
+  
+  [Payment Gateway] as Payment <<External>>
+  [Warehouse System] as Warehouse <<External>>
+  
+  ' Within Customer Interface Layer
+  ShoppingCart --> OrderMgmt : add to cart
 
-' Within Customer Interface Layer
-ShoppingCart --> OrderMgmt : add to cart
+  ' Within Product & Customer Management
+  ProductCatalog --> CustomerMgmt
+  CustomerMgmt --> PaymentBilling
+  PaymentBilling --> SalesQuoting
+  SalesQuoting --> ReturnsMgmt
+  CustomerMgmt --> Subscriptions : manages
+  CustomerMgmt --> Reviews : provides
+  CustomerMgmt --> Marketing : segments
+  ProductCatalog --> Reviews : receives
+  ProductCatalog --> Marketing : features
+  Subscriptions --> PaymentBilling : recurring payments
+  Marketing --> ProductCatalog : promotes
+  Marketing --> CustomerMgmt : targets
 
-' Within Product & Customer Management
-ProductCatalog --> CustomerMgmt
-CustomerMgmt --> PaymentBilling
-PaymentBilling --> SalesQuoting
-SalesQuoting --> ReturnsMgmt
-CustomerMgmt --> Subscriptions : manages
-CustomerMgmt --> Reviews : provides
-CustomerMgmt --> Marketing : segments
-ProductCatalog --> Reviews : receives
-ProductCatalog --> Marketing : features
-Subscriptions --> PaymentBilling : recurring payments
-Marketing --> ProductCatalog : promotes
-Marketing --> CustomerMgmt : targets
+  ' Within Core Operations
+  InventoryShelfLife --> BatchTracking
+  BatchTracking --> ColdChainMonitor
+  ColdChainMonitor --> PricingPromotions
+  PricingPromotions --> InventoryShelfLife : feedback loop
 
-' Within Core Operations
-InventoryShelfLife --> BatchTracking
-BatchTracking --> ColdChainMonitor
-ColdChainMonitor --> PricingPromotions
-PricingPromotions --> InventoryShelfLife : feedback loop
+  ' Within Fulfillment & Quality
+  ShippingFulfillment --> SupplierTrace
+  SupplierTrace --> QualityControl
+  QualityControl --> AnalyticsReporting
+  AnalyticsReporting --> ShippingFulfillment : feedback loop
 
-' Within Fulfillment & Quality
-ShippingFulfillment --> SupplierTrace
-SupplierTrace --> QualityControl
-QualityControl --> AnalyticsReporting
-AnalyticsReporting --> ShippingFulfillment : feedback loop
+  ' Cross-layer connections
+  ShoppingCart --> ProductCatalog : availability
+  ShoppingCart --> CustomerMgmt : customer data
+  ShoppingCart --> Subscriptions : subscription options
+  ShoppingCart --> Reviews : product ratings
+  OrderMgmt --> PaymentBilling : payment
+  ShoppingCart --> InventoryShelfLife : stock check
+  ShoppingCart --> PricingPromotions : pricing
+  OrderMgmt --> InventoryShelfLife : reserve FEFO
+  OrderMgmt --> PricingPromotions : pricing
+  OrderMgmt --> ShippingFulfillment : fulfill
 
-' Cross-layer connections
-ShoppingCart --> ProductCatalog : availability
-ShoppingCart --> CustomerMgmt : customer data
-ShoppingCart --> Subscriptions : subscription options
-ShoppingCart --> Reviews : product ratings
-OrderMgmt --> PaymentBilling : payment
-ShoppingCart --> InventoryShelfLife : stock check
-ShoppingCart --> PricingPromotions : pricing
-OrderMgmt --> InventoryShelfLife : reserve FEFO
-OrderMgmt --> PricingPromotions : pricing
-OrderMgmt --> ShippingFulfillment : fulfill
+  ProductCatalog --> InventoryShelfLife : shelf life
+  ProductCatalog --> PricingPromotions : product data
+  SalesQuoting --> PricingPromotions : bulk pricing
+  SalesQuoting --> InventoryShelfLife : volume check
+  ReturnsMgmt --> InventoryShelfLife : return stock
+  ReturnsMgmt --> QualityControl : quality check
+  PaymentBilling --> AnalyticsReporting : financial data
 
-ProductCatalog --> InventoryShelfLife : shelf life
-ProductCatalog --> PricingPromotions : product data
-SalesQuoting --> PricingPromotions : bulk pricing
-SalesQuoting --> InventoryShelfLife : volume check
-ReturnsMgmt --> InventoryShelfLife : return stock
-ReturnsMgmt --> QualityControl : quality check
-PaymentBilling --> AnalyticsReporting : financial data
+  InventoryShelfLife --> ShippingFulfillment : pick lists
+  InventoryShelfLife --> SupplierTrace : traceability
+  InventoryShelfLife --> QualityControl : QC trigger
+  InventoryShelfLife --> AnalyticsReporting : inventory KPIs
+  BatchTracking --> SupplierTrace : batch info
+  ColdChainMonitor --> ShippingFulfillment : cold chain
+  PricingPromotions --> AnalyticsReporting : pricing KPIs
 
-InventoryShelfLife --> ShippingFulfillment : pick lists
-InventoryShelfLife --> SupplierTrace : traceability
-InventoryShelfLife --> QualityControl : QC trigger
-InventoryShelfLife --> AnalyticsReporting : inventory KPIs
-BatchTracking --> SupplierTrace : batch info
-ColdChainMonitor --> ShippingFulfillment : cold chain
-PricingPromotions --> AnalyticsReporting : pricing KPIs
+  ' To Notifications
+  InventoryShelfLife --> NotificationsAlerts : expiry alerts
+  ColdChainMonitor --> NotificationsAlerts : breach alerts
+  PricingPromotions --> NotificationsAlerts : promotion alerts
+  QualityControl --> NotificationsAlerts : quality alerts
+  AnalyticsReporting --> NotificationsAlerts : system alerts
+  ReturnsMgmt --> NotificationsAlerts : return alerts
+  Subscriptions --> NotificationsAlerts : renewal alerts
+  Marketing --> NotificationsAlerts : campaign alerts
 
-' To Notifications
-InventoryShelfLife --> NotificationsAlerts : expiry alerts
-ColdChainMonitor --> NotificationsAlerts : breach alerts
-PricingPromotions --> NotificationsAlerts : promotion alerts
-QualityControl --> NotificationsAlerts : quality alerts
-AnalyticsReporting --> NotificationsAlerts : system alerts
-ReturnsMgmt --> NotificationsAlerts : return alerts
-Subscriptions --> NotificationsAlerts : renewal alerts
-Marketing --> NotificationsAlerts : campaign alerts
+  ' From Notifications
+  NotificationsAlerts --> CustomerMgmt : customer alerts
+  NotificationsAlerts --> OrderMgmt : system alerts
 
-' From Notifications
-NotificationsAlerts --> CustomerMgmt : customer alerts
-NotificationsAlerts --> OrderMgmt : system alerts
+  ' Integration Layer connections
+  AdminBFF --> OrderMgmt : admin operations
+  AdminBFF --> CustomerMgmt : admin operations
+  AdminBFF --> ProductCatalog : admin operations
 
-' Integration Layer connections
-AdminBFF --> OrderMgmt : admin operations
-AdminBFF --> CustomerMgmt : admin operations
-AdminBFF --> ProductCatalog : admin operations
+  ' Event Bus connections
+  OrderMgmt --> EventBus : publishes Order*
+  EventBus --> PaymentBilling : subscribes to Order*
+  EventBus --> ShippingFulfillment : subscribes to Order*
+  EventBus --> InventoryShelfLife : subscribes to Order*
 
-' Event Bus connections
-OrderMgmt --> EventBus : publishes Order*
-EventBus --> PaymentBilling : subscribes to Order*
-EventBus --> ShippingFulfillment : subscribes to Order*
-EventBus --> InventoryShelfLife : subscribes to Order*
+  ' API Gateway connections
+  APIGateway --> ShoppingCart : serves UI
+  APIGateway --> OrderMgmt : processes orders
+  APIGateway --> CustomerMgmt : manages customers
 
-' API Gateway connections
-APIGateway --> ShoppingCart : serves UI
-APIGateway --> OrderMgmt : processes orders
-APIGateway --> CustomerMgmt : manages customers
-
-' External system connections
-PaymentBilling --> Stripe : processes payments
-Subscriptions --> Stripe : manages subscriptions
-OrderMgmt --> Odoo : syncs orders
-InventoryShelfLife --> Odoo : updates stock
-CustomerMgmt --> HubSpot : syncs customer data
-Marketing --> HubSpot : manages campaigns
-ShippingFulfillment --> ShippingCarriers : schedules shipments
-SupplierTrace --> SupplierEDI : exchanges EDI docs
-AnalyticsReporting --> GoogleAnalytics : tracks usage
-AnalyticsReporting --> Tableau : visualizes data
-QualityControl --> ComplianceServices : verifies compliance
-AdminBFF --> Odoo : manages operations
-AdminBFF --> HubSpot : manages CRM
+  ' External system connections
+  PaymentBilling --> Stripe : processes payments
+  Subscriptions --> Stripe : manages subscriptions
+  OrderMgmt --> Odoo : syncs orders
+  InventoryShelfLife --> Odoo : updates stock
+  CustomerMgmt --> HubSpot : syncs customer data
+  Marketing --> HubSpot : manages campaigns
+  ShippingFulfillment --> ShippingCarriers : schedules shipments
+  SupplierTrace --> SupplierEDI : exchanges EDI docs
+  AnalyticsReporting --> GoogleAnalytics : tracks usage
+  AnalyticsReporting --> Tableau : visualizes data
+  QualityControl --> ComplianceServices : verifies compliance
+  AdminBFF --> Odoo : manages operations
+  AdminBFF --> HubSpot : manages CRM
+  
+  ' Enhanced Integration Points
+  OrderMgmt --> Payment : [ACL]\nProcess Payment
+  OrderMgmt --> Warehouse : [OHS]\nReserve Inventory
 
 @enduml
