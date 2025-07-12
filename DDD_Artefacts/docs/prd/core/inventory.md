@@ -1,189 +1,255 @@
 # Inventory Management
 
-[RELATED: ADR-XXX]
+[RELATED: ADR-007, ADR-008, ADR-004]
+[CONTEXT: Core]
+[STATUS: Draft]
+[VERSION: 1.0.0]
+[OWNER: @inventory-team]
 
-## Overview
+## 1. Business Context
+- **Purpose**: Provide comprehensive control over stock levels, locations, and movements of perishable goods, ensuring optimal inventory levels, minimizing waste, and maximizing service levels through FEFO (First-Expired-First-Out) inventory management and real-time visibility across the supply chain.
+- **Business Capabilities**:
+  - Real-time inventory tracking and visibility
+  - FEFO and batch/lot management
+  - Demand forecasting and automated replenishment
+  - Inventory optimization and analytics
+  - Compliance and traceability management
+- **Success Metrics**:
+  - Inventory accuracy > 99.5%
+  - Reduction in expired/waste inventory by 30%
+  - Improvement in inventory turnover ratio
+  - Reduction in stockouts and overstock situations
+  - Compliance with regulatory requirements
+- **Domain Experts**:
+  - Inventory Manager
+  - Supply Chain Planner
+  - Warehouse Operations
+  - Quality Assurance
+  - Finance/Controlling
 
-> **Status:** Draft — auto-normalised. Update with meaningful content.
+## 2. Domain Model
+- **Key Entities**:
+  - InventoryItem
+  - StorageLocation
+  - Lot/Batch
+  - InventoryTransaction
+  - ReplenishmentOrder
+  - InventoryCount
+- **Aggregates**:
+  - InventoryItem (root aggregate)
+  - StorageLocation (root aggregate)
+  - ReplenishmentOrder (root aggregate)
+- **Value Objects**:
+  - Quantity
+  - StorageRequirements
+  - ShelfLife
+  - InventoryStatus
+  - ReorderPoint
+- **Domain Services**:
+  - InventoryManagementService
+  - ReplenishmentService
+  - CountManagementService
+  - AllocationService
+- **Domain Events**:
+  - `InventoryReceived`
+  - `InventoryAdjusted`
+  - `InventoryExpired`
+  - `InventoryReserved`
+  - `InventoryPicked`
+  - `InventoryCounted`
+  - `SafetyStockBreached`
 
-## Functional Requirements
+## 3. Functional Requirements
+### 3.1 Inventory Control
+- **FR-1**: As an inventory manager, I want to track inventory by lot/batch with expiration dates so that I can ensure FEFO compliance
+  - **Acceptance Criteria**:
+    - [ ] System enforces FEFO picking rules during order allocation
+    - [ ] Alerts generated for items approaching expiration
+    - [ ] Comprehensive lot/batch history and traceability
+    - [ ] Support for shelf-life extensions with approval workflow
+  - **Dependencies**: [Batch Tracking PRD], [Quality Control PRD]
 
-> _TBD – add detailed requirements here._
+- **FR-2**: As a warehouse operator, I want to perform cycle counts efficiently so that I can maintain high inventory accuracy
+  - **Acceptance Criteria**:
+    - [ ] Mobile-optimized counting interface
+    - [ ] Support for ABC counting strategies
+    - [ ] Discrepancy resolution workflow
+    - [ ] Real-time count updates
+  - **Dependencies**: [Warehouse Management PRD], [Mobile App PRD]
 
-## Benefits
+### 3.2 Demand Planning & Replenishment
+- **FR-3**: As a supply chain planner, I want automated replenishment recommendations so that I can maintain optimal stock levels
+  - **Acceptance Criteria**:
+    - [ ] ML-based demand forecasting
+    - [ ] Dynamic reorder point calculations
+    - [ ] Automated PO generation with approval workflow
+    - [ ] Supplier performance tracking
+  - **Dependencies**: [Procurement PRD], [Supplier Management PRD]
 
-> Establishes consistent documentation and enables lint compliance.
+- **FR-4**: As a purchasing manager, I want visibility into multi-echelon inventory so that I can optimize stock across locations
+  - **Acceptance Criteria**:
+    - [ ] Network-wide inventory visibility
+    - [ ] Transfer order recommendations
+    - [ ] Lead time optimization
+    - [ ] Service level monitoring
+  - **Dependencies**: [Logistics PRD], [Network Planning PRD]
 
+### 3.3 Inventory Optimization
+- **FR-5**: As a financial analyst, I want inventory valuation and cost analysis so that I can optimize working capital
+  - **Acceptance Criteria**:
+    - [ ] Multiple costing methods (FIFO, LIFO, Average)
+    - [ ] Carrying cost calculations
+    - [ ] Dead stock identification
+    - [ ] ROI analysis
+  - **Dependencies**: [Financials PRD], [Reporting PRD]
 
-The Inventory Management module provides comprehensive control over stock levels, locations, and movements of perishable goods. It supports First-Expired-First-Out (FEFO) inventory management, shelf-life tracking, and real-time visibility across the supply chain.
+### 3.4 Business Rules
 
-## Core Capabilities
+#### 3.4.1 Inventory Tracking and Management
+- All inventory items must be associated with a storage location and product SKU.
+- Inventory levels must be updated in real time for all stock movements.
+- Negative inventory quantities are disallowed; operations causing them must be rejected.
+- Each inventory transaction must include timestamp, user, quantity, reason code, and reference.
+- Weekly reconciliation for high-value items and monthly for standard items.
+- Inventory accuracy ≥ 99.9%.
+- Inventory adjustments exceeding $500 require managerial approval and documentation.
+- Real-time inventory visibility provided to sales, purchasing, and fulfillment teams.
 
-### 1. Inventory Control
-- **Stock Level Management**
-  - Track current stock levels across multiple locations in real-time
-  - Set minimum, maximum, and safety stock thresholds with automated alerts
-  - Display inventory status ("In Stock", "Low Stock", "Out of Stock") on product pages
-  - Implement stock reservations at order placement with automatic release on cancellation
-  - Generate inventory valuation and turnover rate reports
+#### 3.4.2 Expiration Management
+_Detailed batch lifecycle, hold, and release processes are governed by the [Batch Tracking PRD]._
+- Perishable products tracked at batch level with production and expiration dates.
+- FEFO allocation enforced for perishable items.
+- Alerts issued 30, 14, and 7 days before expiration.
+- Products at 75 % of shelf life flagged for promotional pricing.
+- Expired products flagged in Inventory; detailed quarantine workflow is governed by the [Batch Tracking PRD].
 
-- **Lot/Serial Tracking**
-  - Track inventory by lot/batch numbers with full traceability
-  - Monitor expiration dates for perishable items
-  - Support first-expired-first-out (FEFO) picking
-  - Enable product recalls and quality issue tracking
-  - Maintain comprehensive audit trails for all inventory movements
+#### 3.4.3 Temperature-Controlled Inventory
+- Storage locations must meet product-specific temperature ranges.
+- Continuous monitoring with alerts for out-of-range conditions.
+- Temperature excursions logged with duration and magnitude.
+- Cold-chain compliance documented across receiving, storage, and shipping.
+- Exposed products evaluated by quality control before sale.
+- Temperature logs retained for at least 3 years.
+- Ambient, refrigerated, and frozen zones clearly segregated.
+- Temperature-sensitive products labeled with handling instructions.
 
-- **Shelf-Life Management**
-  - Track expiration dates at batch/lot level
-  - Enforce FEFO (First-Expired-First-Out) picking rules
-  - Generate alerts for approaching expiration dates
-  - Support shelf-life extensions with approval workflow
+#### 3.4.4 Inventory Reservations
+- Cart additions create 30-minute reservations, auto-extended during active sessions.
+- Expired reservations automatically released back to available inventory.
+- Reservations convert to allocations upon order placement.
+- Conflicts resolved prioritizing completed orders over cart reservations.
+- Reservation status visible to customer service and sales teams.
+- Bulk reservations for B2B customers may have extended durations per agreement.
+- Reservation capacity must not exceed 25 % of available inventory per SKU.
 
-### 2. Inventory Operations
-- **Receiving**
-  - Process inbound shipments with barcode/RFID scanning
-  - Verify against purchase orders with discrepancy handling
-  - Record lot/batch information with quality control checkpoints
-  - Update inventory levels in real-time
-  - Generate receiving reports and update supplier performance metrics
+#### 3.4.5 Forecasting & Planning
+- Weekly forecasts generated for a 12-week horizon.
+- Forecast accuracy maintained at ≥ 85 % for A-category items.
+- Seasonal patterns incorporated into forecast algorithms.
+- Safety stock dynamically calculated based on demand variability, lead time, and service-level targets.
+- Reorder points trigger automatic purchase recommendations.
+- Slow-moving inventory (no movement in 60 days) flagged for review.
 
-- **Picking & Fulfillment**
-  - Wave and batch picking with intelligent order grouping
-  - Optimize pick paths for warehouse efficiency
-  - Support for partial shipments and backorder management
-  - Real-time inventory updates during picking process
-  - Integration with material handling equipment
+## 4. Integration Points
+### 4.1 Published Events
+- `InventoryLevelChanged`
+  - Payload: {itemId, locationId, quantity, lotNumber, timestamp, userId}
+  - Consumers: Order Management, Procurement, Analytics
 
-- **Cycle Counting & Auditing**
-  - Schedule and perform regular cycle counts with mobile support
-  - Reconcile physical vs. system counts with discrepancy workflows
-  - Maintain detailed audit trails with timestamps and user attribution
-  - Generate accuracy metrics and compliance reports
-  - Support for ABC analysis and location-based counting
-  - Compliance with SOX, ISO 9001, and other relevant standards
+- `ReplenishmentOrderCreated`
+  - Payload: {orderId, items[], expectedDelivery, priority, source}
+  - Consumers: Procurement, Warehouse, Finance
 
-### 3. Demand Planning & Replenishment
-- **Demand Forecasting**
-  - ML-based demand prediction using historical sales data
-  - Seasonal analysis incorporating holidays and promotions
-  - New product introduction planning with phase-in/phase-out support
-  - Real-time forecast adjustments based on market trends
-  - Forecast accuracy monitoring and model retraining
+- `InventoryCountDiscrepancy`
+  - Payload: {countId, itemId, locationId, expectedQty, countedQty, variance, timestamp}
+  - Consumers: Quality, Finance, Operations
 
-- **Automated Replenishment**
-  - Dynamic reorder point calculations with ML optimization
-  - Supplier lead time analysis and performance tracking
-  - Economic order quantity (EOQ) modeling with cost optimization
-  - Automated purchase order generation with approval workflows
-  - Multi-echelon inventory optimization across locations
-  - Supplier integration for real-time inventory visibility
+### 4.2 Consumed Events
+- `SalesOrderCreated`
+  - Source: Order Management
+  - Action: Reserve inventory and update available quantities
 
-### 4. Inventory Optimization
-- **Dynamic Pricing**
-  - Automated price adjustments based on stock levels and demand
-  - Rules-based pricing strategies (e.g., increase price when stock is low)
-  - Competitive price monitoring integration
-  - Price change impact analysis and reporting
-  - Customer communication for price adjustments
+- `PurchaseOrderReceived`
+  - Source: Procurement
+  - Action: Update inventory levels and trigger put-away process
 
-- **Inventory Analytics**
-  - Real-time inventory dashboards with KPIs
-  - Turnover rate analysis and optimization
-  - Dead stock identification and reduction strategies
-  - Carrying cost analysis and optimization
-  - Inventory health scoring
+- `ProductExpired`
+  - Source: Quality Control
+  - Action: Quarantine inventory and trigger disposition workflow
 
-## Domain Events
+- `BatchStatusChanged`
+  - Source: Batch Tracking
+  - Action: Update inventory availability and block allocation when batches are on hold or quarantined
 
-### Inventory Events
-- `InventoryReceived`: New stock received into inventory
-- `InventoryAdjusted`: Manual adjustment to inventory levels
-- `InventoryExpired`: Stock has reached its expiration date
-- `InventoryReserved`: Stock reserved for orders
-- `InventoryPicked`: Stock picked for fulfillment
-- `InventoryShipped`: Stock shipped to customers
-- `InventoryCounted`: Physical count completed
-- `InventoryBelowSafetyStock`: Stock levels below minimum threshold
+- `BatchExpiringSoon`
+  - Source: Batch Tracking
+  - Action: Adjust demand planning and trigger promotional pricing rules
 
-## Integration Points
+### 4.3 APIs/Services
+- **REST/GraphQL**:
+  - `GET /api/inventory/items/{id}/availability` - Check real-time availability
+  - `POST /api/inventory/transfers` - Create inventory transfers
+  - `GET /api/inventory/items/{id}/history` - Get transaction history
+  - `POST /api/inventory/counts` - Submit cycle count results
 
-### Internal Integrations
-- **Order Management**: Reserve and allocate inventory
-- **Procurement**: Trigger purchase orders based on inventory levels
-- **Quality Control**: Hold and release inventory based on quality checks
-- **Batch Tracking**: Maintain inventory by batch/lot
-- **Cold Chain**: Monitor inventory requiring temperature control
+- **gRPC**:
+  - `InventoryService` - Core inventory operations
+  - `ReplenishmentService` - Automated stock replenishment
+  - `AllocationService` - Order promising and allocation
 
-### External Integrations
-- **Supplier Portals**: Share inventory data with suppliers
-- **ERP Systems**: Sync inventory levels and transactions
-- **3PL Systems**: Exchange inventory data with third-party logistics providers
-- **Marketplace Platforms**: Update available quantities across sales channels
+- **External Services**:
+  - Warehouse Management Systems (WMS)
+  - Supplier portals for VMI (Vendor Managed Inventory)
+  - ERP systems for financial integration
+  - 3PL systems for distributed inventory
 
-## User Roles & Permissions
+## 5. Non-Functional Requirements
+- **Performance**:
+  - Support 2,000+ transactions per second during peak
+  - Sub-100ms response time for availability checks
+  - Real-time inventory updates across all locations
+  - 99.99% uptime for critical inventory operations
 
-| Role | Permissions |
-|------|-------------|
-| Warehouse Operator | Receive stock, Pick orders, Perform counts |
-| Inventory Manager | Adjust inventory, Manage locations, Run reports |
-| Supply Chain Planner | Set inventory parameters, Manage replenishment |
-| Customer Service | Check stock availability, View inventory history |
+- **Scalability**:
+  - Handle 10M+ SKUs across global locations
+  - Support 50,000+ concurrent users
+  - Linear scalability for inventory operations
+  - Multi-region deployment capability
 
-## Data Requirements
+- **Security**:
+  - Role-based access control (RBAC)
+  - Audit logging of all inventory transactions
+  - Data encryption at rest and in transit
+  - SOX and GDPR compliance
+  - Segregation of duties enforcement
 
-### Inventory Master Data
-- Product ID and description
-- Storage requirements (temperature, humidity, etc.)
-- Unit of measure conversions
-- Shelf life parameters
-- ABC classification
+- **Reliability**:
+  - 99.99% system availability
+  - Automatic failover and recovery
+  - Data consistency across distributed systems
+  - Disaster recovery with RPO < 5 minutes
 
-### Transaction Data
-- Movement history (date, from, to, quantity, reference)
-- Adjustment records (reason, approver, timestamp)
-- Count results and variances
-- Reservation and allocation details
+- **Usability**:
+  - Intuitive web and mobile interfaces
+  - Configurable dashboards and reports
+  - Bulk operation support
+  - Offline capability for mobile users
+  - Multi-language and multi-currency support
 
-## Business Rules
+## 6. Open Questions
+- How should we handle inventory ownership in a consignment model?
+- What are the specific regulatory requirements for different product categories?
+- How should we optimize inventory for omnichannel fulfillment?
 
-1. **Inventory Control**
-   - Prevent negative inventory balances
-   - Enforce lot/batch traceability for all movements
-   - Require reason codes for all adjustments
-   - Maintain audit trail of all inventory transactions
+## 7. Out of Scope
+- Product lifecycle management (handled by PLM)
+- Supplier relationship management (handled by SRM)
+- Transportation management (handled by TMS)
+- Financial accounting (handled by ERP)
 
-2. **FEFO Management**
-   - Default to picking oldest inventory first
-   - Allow override with authorization
-   - Block picking of expired inventory
-   - Generate alerts for soon-to-expire inventory
-
-3. **Allocation Rules**
-   - Allocate based on customer priority when inventory is constrained
-   - Support partial shipments with backordering
-   - Prevent overallocation through reservation management
-   - Allow manual allocation overrides with approval
-
-## Non-Functional Requirements
-
-1. **Performance**
-   - Support 1,000+ inventory transactions per minute
-   - Provide sub-second response time for inventory availability checks
-   - Handle 10,000+ concurrent users during peak periods
-
-2. **Scalability**
-   - Support 1M+ SKUs across multiple locations
-   - Scale horizontally to handle inventory growth
-   - Support 99.99% uptime during business hours
-
-3. **Data Integrity**
-   - Ensure ACID compliance for all inventory transactions
-   - Maintain data consistency across all locations
-   - Support point-in-time inventory snapshots
-
-## Related Documents
-- [Batch Tracking](./batch_tracking.md)
-- [Cold Chain Monitoring](./cold_chain.md)
-- [Quality Control](./quality_control.md)
-- [Supplier Traceability](./supplier_traceability.md)
+## 8. References
+- [APICS CPIM Body of Knowledge](https://www.ascm.org/learning-development/certifications-credentials/cpim/)
+- [GS1 Global Traceability Standard](https://www.gs1.org/standards/gs1-global-traceability-standard)
+- [ISO 22005:2007 - Traceability in the feed and food chain](https://www.iso.org/standard/36297.html)
+- [FDA Food Safety Modernization Act (FSMA)](https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/food-safety-modernization-act-fsma)
+- [EU Falsified Medicines Directive (FMD)](https://ec.europa.eu/health/human-use/falsified_medicines_en)

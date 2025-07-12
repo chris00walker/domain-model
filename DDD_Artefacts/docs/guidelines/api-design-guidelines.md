@@ -193,6 +193,12 @@ GET /products?category=produce&price[gte]=10&price[lte]=50&sort=-price,name
 ## Changelog
 - 2025-07-04: Initial version
 
+## Future Enhancements (Notes)
+- Optionally version the guideline with SemVer in its front-matter (`version: 1.0.0`) and manage updates via pull requests reviewed by the Architecture Guild.
+- Best-practice extras (optional):
+  - Introduce a Spectral lint rule in CI that validates OpenAPI specs against these guidelines.
+  - Maintain an expanded change-log section so teams can track revisions without treating each update as a new ADR.
+
 ---
 
 *This document is part of the Elias Food Imports API Governance Framework.*

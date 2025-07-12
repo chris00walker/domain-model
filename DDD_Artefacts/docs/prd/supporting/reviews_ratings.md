@@ -1,100 +1,147 @@
-# Reviews ratings
-
-[RELATED: ADR-XXX]
-
-## Overview
-
-> **Status:** Draft — auto-normalised. Update with meaningful content.
-
-## Functional Requirements
-
-> _TBD – add detailed requirements here._
-
-## Benefits
-
-> Establishes consistent documentation and enables lint compliance.
-
-
-
-> **Status:** Draft — scaffolded automatically. Replace with context-specific summary.
-
-
-> _TBD – flesh out detailed requirements here._
-
-
-> Clear documentation enables alignment, compliance, and future traceability.
-
 # Reviews & Ratings
 
-## Customer reviews
+[RELATED: ADR-002, ADR-008, ADR-009, ADR-012]
+[CONTEXT: Supporting]
+[STATUS: Draft]
+[VERSION: 1.0.0]
+[OWNER: @customer-insights]
 
-**Definition:** Allow customers to leave ratings and reviews to inform others and guide improvements.
+## 1. Business Context
+- **Purpose**: Capture authentic customer feedback and quantitative satisfaction signals to build trust, inform product improvements, and power personalised recommendations.
+- **Business Capabilities**:
+  - Verified-purchase review submissions with 1–5 star ratings
+  - Moderation workflows ensuring compliance & brand safety
+  - Real-time aggregate rating computation for product pages & search
+  - Sentiment analytics feeding Product Catalog and Marketing insights
+  - Regulatory & data-privacy compliant storage and display
+- **Success Metrics**:
+  - Review submission rate ≥ 5 % of completed orders
+  - Average moderation turnaround time ≤ 12 h
+  - Policy-violation publish rate < 0.1 % of reviews
+  - Sentiment change detection latency ≤ 1 h
+- **Domain Experts**: CX Manager, Brand Reputation Lead, Data Scientist, Legal Counsel
 
-**Key Elements:**
+## 2. Domain Model
+- **Key Entities**: `Review`, `Rating`, `ReviewModerationTicket`, `ProductSentimentSnapshot`
+- **Aggregates**:
+  - `Review` (root) → owns rating, content, status
+- **Value Objects**: `RatingScore`, `SentimentScore`, `LanguageCode`, `ModerationStatus`
+- **Domain Services**: `ModerationService`, `SentimentAnalysisService`, `RatingAggregationService`
+- **Domain Events**: `ReviewSubmitted`, `ReviewApproved`, `ReviewRejected`, `RatingUpdated`, `SentimentSnapshotGenerated`
 
-- **Review submission:** Text reviews (min/max length) with 1–5 star rating. One review per verified purchase.
-- **Verified purchase tag:** Mark reviews from confirmed buyers.
-- **Review display:** Show on product pages; sort/filter by rating or date.
-- **Editing & deletion:** Allow edits/deletions within 24 hours of submission.
-- **Moderation queue:** Auto-flag prohibited language; queue for manual approval.
-- **Anonymous reviews:** Permit anonymous submissions, still validate purchase.
+## 3. Functional Requirements
+### 3.1 Review Submission
+- **FR-1**: Verified customers can submit one review per purchased SKU within 60 days of delivery.
+  - **Acceptance Criteria**:
+    - [ ] Must include 1–5 star rating and text 20–1 000 chars
+    - [ ] `ReviewSubmitted` event emitted with `moderation_status = pending`
 
-**Benefits:**
-- Builds trust via authentic feedback.
-- Drives product improvements based on customer input.
+### 3.2 Moderation Workflow
+- **FR-2**: System automatically screens for prohibited content then routes to manual moderation if flagged.
+  - **Acceptance Criteria**:
+    - [ ] NLP filters (hate speech, PII, spam) run in <500 ms
+    - [ ] Moderators can approve/reject/edit with audit log
+    - [ ] `ReviewApproved` or `ReviewRejected` event emitted
 
----
+### 3.3 Display & Aggregation
+- **FR-3**: Approved reviews appear on product pages; aggregate rating updates in real time.
+  - **Acceptance Criteria**:
+    - [ ] Aggregate stored in Redis & search index
+    - [ ] Cache invalidated within 30 s of new approval
 
-## Review moderation
+### 3.4 Sentiment Insights
+- **FR-4**: Hourly job generates sentiment snapshot per product.
+  - **Acceptance Criteria**:
+    - [ ] Sentiment delta triggers alert if >10 % drop QoQ
 
-**Definition:** Ensure all published reviews meet quality and compliance standards.
+### 3.5 GDPR & Deletion Requests
+- **FR-5**: Customers may delete their review and associated PII under GDPR.
+  - **Acceptance Criteria**:
+    - [ ] Soft-delete with anonymised placeholder
+    - [ ] Deletion propagated to caches & search
 
-**Key Elements:**
+### 3.6 Business Rules
+- Verified purchasers may submit exactly one review per product; edits allowed within 30 days of submission.
+- Reviews must include a 1–5 star rating and text (≥ 20 characters); submissions open 7 days post-delivery.
+- Review content must be free of profanity, PII, and promotional material; attached images must relate to the product.
+- All reviews pass moderation within 48 h; rejected reviews include a reason; critical product-safety concerns escalate to QA within 24 h.
+- Display order prioritises helpful reviews and verified-purchase status; aggregate stats refresh ≤ 1 h after approval.
+- Products with fewer than 5 reviews show an "Early Reviews" indicator; reviews older than 12 months are flagged accordingly.
+- Three consecutive 1-star reviews or ≥ 1-point rating drop within 30 days triggers `ProductQualityAlertTriggered`.
+- Moderation decisions are appealable once; immutable edit history is retained for audit.
 
-- **Automated screening:** NLP checks for offensive language, spam, prohibited content.
-- **Manual moderation:** Admin UI for moderators to approve, reject, or edit flagged reviews.
-- **Moderation workflow:** Route flagged items to reviewers; track status (“Pending,” “Approved,” “Rejected”).
-- **Flagging mechanism:** Users can report inappropriate reviews for re-evaluation.
-- **Compliance enforcement:** Check for defamation, hate speech, policy violations.
-- **User feedback:** Notify users when review is approved or rejected with rationale.
+## 4. Integration Points
+### 4.1 Published Events
+- `ReviewSubmitted` → Consumers: ProductCatalog, AnalyticsReporting, NotificationsAlerts
+- `ReviewApproved` / `ReviewRejected` → Consumers: ProductCatalog, CustomerManagement, AnalyticsReporting
+- `ReviewEdited` → Consumers: ProductCatalog, AnalyticsReporting
+- `ReviewHelpfulnessVoted` → Consumers: AnalyticsReporting, MarketingManagement
+- `ReviewResponseAdded` → Consumers: CustomerManagement, NotificationsAlerts
+- `ProductQualityAlertTriggered` → Consumers: InventoryWarehouse, QualityAssurance, AnalyticsReporting
+- `SentimentSnapshotGenerated` → Consumers: ProductCatalog, PricingPromotions, MarketingManagement
 
-**Benefits:**
-- Maintains content quality and brand reputation.
-- Meets regulatory and community standards.
+### 4.2 Consumed Events
+- `OrderDelivered` (OrderManagement) → start 7-day review eligibility window
+- `ProductPurchased` (OrderManagement) → verify purchase before review submission
+- `ProductUpdated` (ProductCatalog) → maintain product reference data
+- `ProductDiscontinued` (ProductCatalog) → update review display notices
+- `CustomerAccountDeactivated` (CustomerManagement) → flag associated reviews
+- `PricingRuleUpdated` (PricingPromotions) → adjust sentiment weighting rules
+- `ProductDiscontinued` (ProductCatalog) → archive associated reviews
 
----
+### 4.3 APIs/Services
+- **REST/GraphQL**: `/products/{id}/reviews`, `/reviews/{id}`
+- **Moderation API**: Internal gRPC `ModerationService.Approve/Reject`
+- **External Services**: Perspective API for toxicity scoring
 
-## Rating systems
+## 5. Non-Functional Requirements
+- **Performance**: Review submission API ≤ 300 ms P95; product page rating load ≤ 100 ms
+- **Scalability**: 100 k reviews/day; 10 M read req/day
+- **Security**: XSS sanitisation; PII minimisation per ADR-009
+- **Reliability**: 99.9 % uptime; circuit breaker around external NLP
+- **Maintainability**: Moderation rules versioned; 90 % unit test coverage
 
-**Definition:** Quantify customer satisfaction to support search ranking and analytics.
+## 6. Implementation Roadmap
 
-**Key Elements:**
+### Phase 1 – Foundation (Weeks 1-2)
+1. Implement `Review` aggregate persistence with purchase verification.
+2. Expose `/reviews` REST and GraphQL endpoints.
+3. Emit `ReviewSubmitted` and moderation events.
 
-- **Standardized scale:** 1–5 star rating across all products.
-- **Aggregate ratings:** Calculate/display average rating and total review count.
-- **Filter by rating:** Allow customers to filter reviews by star level (e.g., 4+ stars).
-- **Real-time updates:** Recompute averages/distributions immediately when new reviews approved.
-- **Impact on search & recommendations:** Feed rating data into ranking algorithms and personalization models.
+### Phase 2 – Moderation & Display (Weeks 3-5)
+1. Integrate Perspective API toxicity scoring and manual moderation UI.
+2. Implement real-time rating aggregation cached in Redis.
+3. Achieve review submission latency ≤ 300 ms P95.
 
-**Benefits:**
-- Enables data-driven product ranking.
-- Influences purchase decisions based on social proof.
+### Phase 3 – Analytics & Alerts (Weeks 6-8)
+1. Launch sentiment analysis pipeline and `SentimentSnapshotGenerated` events.
+2. Implement quality alert detection (`ProductQualityAlertTriggered`).
+3. Provide supplier dashboards and engagement analytics.
 
----
+### Phase 4 – Advanced Features (Weeks 9-11)
+1. Introduce ML-based fraud detection for fake reviews.
+2. Enable multimedia reviews (images/video) with automated moderation.
+3. Experiment with review-driven recommendation tuning.
 
-## Sentiment analysis & automated moderation
+## 7. Testing & Validation Strategy
+- **Unit Tests**: Review aggregate invariants, rating score validation, moderation status transitions.
+- **Integration Tests**: End-to-end submission → moderation → display flow; event publication & consumption.
+- **Performance Tests**: Submission P95 ≤ 300 ms; product page rating load ≤ 100 ms at 1 000 RPS.
+- **Security Tests**: XSS sanitisation, PII redaction, rate-limiting abuse scenarios.
+- **User Acceptance Tests**: Moderator workflows, supplier response flow, GDPR deletion.
+- **CI/CD Gates**: 90 % unit test coverage, SAST/DAST, dependency scanning per ADR-012.
 
-**Definition:** Employ AI to gauge review sentiment and streamline moderation.
+## 8. Open Questions
+- [ ] Adopt user-generated image/video reviews in Phase-2?
+- [ ] Public response feature for suppliers to reply to reviews?
 
-**Key Elements:**
+## 9. Out of Scope
+- Incentive programs for reviews (handled by Marketing)
+- Seller feedback (future marketplace context)
 
-- **Sentiment analysis:** ML models classify reviews as positive, negative, or neutral.
-- **Automated moderation rules:** Auto-approve strongly positive reviews; flag negative ones for manual review.
-- **Feedback loop:** Retrain sentiment models using moderator decisions and feedback.
-- **Reporting & insights:** Dashboards showing overall product sentiment and trends over time.
-- **Integration with moderation tools:** Display sentiment scores in moderation UI to aid decisions.
-
-**Benefits:**
-- Reduces moderation workload.
-- Provides actionable insights into customer sentiment.
-
+## 10. References
+- ADR-009: Data Protection Strategy
+- ADR-002: Domain Event Design Patterns
+- FDA Product Review Guidelines (Food Advertising)
+- EU Consumer Protection Directive (EU 2019/2161)
+- Context Map (context_map.puml)

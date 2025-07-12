@@ -1,22 +1,47 @@
 # EFI eCommerce Platform - Product Requirements
 
-
-
 ## Overview
 
-> **Status:** Draft — auto-normalised. Update with meaningful content.
+This directory contains Product Requirements Documents (PRDs) organized by bounded context, following Domain-Driven Design (DDD) principles. Each PRD documents the requirements for a specific bounded context in the EFI eCommerce platform.
 
-## Functional Requirements
+## Directory Structure
 
-> _TBD – add detailed requirements here._
+- `core/`: Critical business functions that provide competitive advantage
+  - Example: Order Management, Inventory Management
+  
+- `strategic/`: Areas of strategic importance for the business
+  - Example: Subscriptions, Marketing, Customer Loyalty
+  
+- `supporting/`: Operational capabilities that support core functions
+  - Example: Shopping Cart, Product Catalog
+  
+- `integration/`: Cross-cutting concerns and system integrations
+  - Example: Payment Processing, Shipping Integration
+  
+- `external/`: Third-party systems and services
+  - Example: Stripe, HubSpot, ERP systems
 
-## Benefits
+## PRD Template
 
-> Establishes consistent documentation and enables lint compliance.
+All PRDs should follow the structure in [template.md](./template.md), which includes:
+- Business Context
+- Domain Model
+- Functional Requirements
+- Integration Points
+- Non-Functional Requirements
+- Open Questions
 
+## Relationship to Context Map
 
+PRDs map to the bounded contexts defined in the [Context Map](../diagrams/context_map.puml). Each PRD should reference the corresponding context in the map and list its integration points with other contexts.
 
-Welcome to the **Elias Food Imports** (EFI) Product Requirements Document (PRD). This document serves as the entry point for understanding the functional and non-functional requirements of the EFI eCommerce platform.
+## Creating a New PRD
+
+1. Copy `template.md` to the appropriate context directory
+2. Update the metadata at the top (context, status, version, owner)
+3. Fill in the sections with relevant details
+4. Link to related ADRs and other artifacts
+5. Add integration points to other contexts
 
 ## Documentation Structure
 

@@ -1,166 +1,254 @@
 # Quality Control
 
 [RELATED: ADR-XXX]
+[CONTEXT: Core]
+[STATUS: Draft]
+[VERSION: 1.0.0]
+[OWNER: @quality-team]
 
-## Overview
+## 1. Business Context
+- **Purpose**: Ensure all products meet established quality standards throughout the supply chain by providing comprehensive tools for inspection, testing, compliance management, and continuous improvement, with special emphasis on perishable goods and regulatory requirements.
+- **Business Capabilities**:
+  - Quality planning and standards management
+  - Inspection and testing workflows
+  - Non-conformance and CAPA management
+  - Regulatory compliance and reporting
+  - Supplier quality management
+  - Quality analytics and continuous improvement
+- **Success Metrics**:
+  - First-pass yield > 98%
+  - CAPA completion rate > 95%
+  - Reduction in quality incidents by 30% YoY
+  - Regulatory inspection readiness score > 95%
+  - Supplier quality performance > 98% on-time delivery with zero defects
+- **Domain Experts**:
+  - Quality Assurance Managers
+  - Quality Control Technicians
+  - Regulatory Compliance Specialists
+  - Production Supervisors
+  - Supplier Quality Engineers
 
-> **Status:** Draft — auto-normalised. Update with meaningful content.
+## 2. Domain Model
+- **Key Entities**:
+  - QualitySpecification (root aggregate)
+  - InspectionPlan
+  - QualityTest
+  - NonConformanceReport
+  - CorrectiveAction
+  - QualityDocument
+- **Aggregates**:
+  - QualitySpecification (root aggregate)
+  - NonConformance (root aggregate)
+  - QualityDocument (root aggregate)
+- **Value Objects**:
+  - QualityParameter
+  - TestResult
+  - InspectionCriteria
+  - Disposition
+  - ComplianceStatus
+- **Domain Services**:
+  - InspectionService
+  - CAPAManagementService
+  - ComplianceService
+  - DocumentControlService
+  - SupplierQualityService
+- **Domain Events**:
+  - `QualityInspectionScheduled`
+  - `QualityTestPerformed`
+  - `NonConformanceReported`
+  - `QualityHoldPlaced`
+  - `QualityHoldReleased`
+  - `CAPAInitiated`
+  - `CAPACompleted`
+  - `RegulatoryInspectionScheduled`
+  - `RegulatoryFindingReported`
+  - `ProductAuthenticated`
+  - `AuthenticationFailed`
+  - `ProductQuarantined`
+  - `ProvenanceVerified`
+  - `CounterfeitDetected`
 
-## Functional Requirements
+## 3. Functional Requirements
+### 3.1 Quality Planning & Standards
+- **FR-1**: As a quality manager, I want to define and maintain quality specifications so that all products meet required standards
+  - **Acceptance Criteria**:
+    - [ ] Support hierarchical quality parameters by product category
+    - [ ] Define acceptable tolerance levels with measurement units
+    - [ ] Configure sampling plans using AQL standards
+    - [ ] Version control for all quality specifications
+  - **Dependencies**: [Product Catalog PRD], [Regulatory Compliance PRD]
 
-> _TBD – add detailed requirements here._
+- **FR-2**: As a quality engineer, I want to create inspection plans so that we ensure consistent quality checks
+  - **Acceptance Criteria**:
+    - [ ] Define inspection points in the production process
+    - [ ] Configure required tests and acceptance criteria
+    - [ ] Assign inspection frequencies and sample sizes
+    - [ ] Integrate with production scheduling
+  - **Dependencies**: [Production Planning PRD], [Work Instructions PRD]
 
-## Benefits
+### 3.2 Inspection & Testing
+- **FR-3**: As a quality technician, I want to perform inspections so that I can verify product quality
+  - **Acceptance Criteria**:
+    - [ ] Mobile-friendly inspection interface
+    - [ ] Support for various test methods (visual, measurement, etc.)
+    - [ ] Immediate notification of out-of-spec results
+    - [ ] Digital signature for inspection approval
+  - **Dependencies**: [Mobile App PRD], [Device Integration PRD]
 
-> Establishes consistent documentation and enables lint compliance.
+- **FR-4**: As a quality manager, I want to monitor quality metrics so that I can identify trends and issues
+  - **Acceptance Criteria**:
+    - [ ] Real-time quality dashboards
+    - [ ] Statistical process control (SPC) charts
+    - [ ] Customizable quality reports
+    - [ ] Automated alerts for quality trends
+  - **Dependencies**: [Analytics PRD], [Reporting PRD]
+
+### 3.3 Non-Conformance Management
+- **FR-5**: As a quality engineer, I want to manage non-conformances so that I can drive continuous improvement
+  - **Acceptance Criteria**:
+    - [ ] Categorize non-conformances by type and severity
+    - [ ] Track root cause analysis (RCA) process
+    - [ ] Manage corrective and preventive actions (CAPA)
+    - [ ] Monitor effectiveness of corrective actions
+  - **Dependencies**: [Incident Management PRD], [Supplier Management PRD]
 
 
-The Quality Control module ensures that all products meet established quality standards throughout the supply chain. It provides tools for inspection, testing, and compliance management, with special emphasis on perishable goods and regulatory requirements.
+### 3.4 Product Authentication & Provenance Verification
+This sub-function verifies product authenticity and provenance, ensuring imported goods are genuine and compliant.
 
-## Core Capabilities
+#### Business Rules
+- Every imported product includes at least one verifiable authentication marker (QR, NFC, hologram).
+- All authentication scans are logged with timestamp, location, operator, and result.
+- Authentication failure immediately places the associated batch in **Quarantine** with investigation workflow.
+- Verified products must maintain an immutable provenance record linking all supply-chain hops.
+- System must sustain ≥ 99.5 % authentication success rate.
+- Counterfeit detection algorithms must achieve ≥ 98 % detection accuracy.
+- Products in *Quarantine* status are blocked from sale or allocation.
 
-### 1. Quality Planning
-- **Quality Standards**
-  - Define quality parameters by product category
-  - Set acceptable tolerance levels for various attributes
-  - Configure sampling plans and AQL (Acceptable Quality Levels)
-  - Document quality control procedures and work instructions
+#### Success Metrics (Authentication)
+| Metric | Target |
+|--------|--------|
+| Authentication Scan Success Rate | ≥ 99.5 % |
+| Counterfeit Detection Accuracy | ≥ 98 % |
+| Avg. Authentication Processing Time | < 2 s |
+| Provenance Record Completeness | ≥ 99.8 % |
+| Verified Counterfeits Reaching Customers | 0 |
 
-- **Specification Management**
-  - Maintain product specifications and quality requirements
-  - Manage specification versions and effective dating
-  - Link specifications to regulatory requirements
-  - Define critical control points (CCPs) for HACCP compliance
+---
 
-### 2. Inspection & Testing
-- **Incoming Inspection**
-  - Schedule and perform quality checks on received goods
-  - Document inspection results and non-conformances
-  - Apply quality holds and release decisions
-  - Generate certificates of analysis (CoA)
+## 4. Integration Points
+### 4.1 Published Events
+- `QualityTestCompleted`
+  - Payload: {testId, productId, batchNumber, testType, result, status, timestamp}
+  - Consumers: Inventory, Production, Supplier Management
 
-- **In-Process Inspection**
-  - Monitor quality at critical production stages
-  - Perform line checks and process validations
-  - Track process capability indices (CpK, PpK)
-  - Implement statistical process control (SPC)
+- `NonConformanceReported`
+  - Payload: {ncId, type, severity, productId, batchNumber, description, reporter, timestamp}
+  - Consumers: Production, Supplier Management, Customer Service
 
-- **Finished Goods Testing**
-  - Conduct final quality verification before shipment
-  - Perform shelf-life testing and stability studies
-  - Manage retention samples
-  - Document test results and release decisions
+- `CAPAInitiated`
+  - Payload: {capaId, ncId, description, owner, dueDate, priority, timestamp}
+  - Consumers: Operations, Engineering, Supplier Management
 
-### 3. Non-Conformance Management
-- **Deviation Handling**
-  - Record and classify quality deviations
-  - Initiate and track corrective and preventive actions (CAPA)
-  - Manage customer complaints and quality incidents
-  - Document root cause analysis (RCA) findings
+- `ProductAuthenticated`
+  - Payload: {productId, batchNumber, markerId, method, timestamp}
+  - Consumers: Catalog, Inventory
 
-- **Disposition Management**
-  - Process quality holds and material review boards (MRB)
-  - Manage rework and reprocessing operations
-  - Document product dispositions (use as-is, rework, reject, return)
-  - Track quality-related costs and waste
+- `AuthenticationFailed`
+  - Payload: {productId, batchNumber, markerId, failureReason, timestamp}
+  - Consumers: Inventory, Notifications, Compliance
 
-## Domain Events
+- `ProductQuarantined`
+  - Payload: {productId, batchNumber, reason, timestamp}
+  - Consumers: Inventory, Reporting
 
-### Quality Events
-- `QualityInspectionScheduled`: Quality check has been scheduled
-- `QualityTestPerformed`: Test results have been recorded
-- `NonConformanceReported`: Quality issue has been identified
-- `QualityHoldPlaced`: Material placed on quality hold
-- `QualityHoldReleased`: Material released from quality hold
-- `CAPAInitiated`: Corrective action process started
-- `CAPACompleted`: Corrective action process completed
-- `QualityAlertRaised`: Critical quality issue detected
-- `RegulatoryInspectionScheduled`: Regulatory audit or inspection scheduled
-- `RegulatoryFindingReported`: Regulatory non-compliance identified
+- `ProvenanceVerified`
+  - Payload: {productId, provenanceId, verificationMethod, timestamp}
+  - Consumers: Catalog, Marketing
 
-## Integration Points
+- `CounterfeitDetected`
+  - Payload: {productId, detectionScore, algorithmVersion, timestamp}
+  - Consumers: Notifications, Compliance, Reporting
 
-### Internal Integrations
-- **Inventory Management**: Place and release quality holds
-- **Batch Tracking**: Associate quality data with specific batches
-- **Supplier Management**: Track supplier quality performance
-- **Production Planning**: Schedule quality checks in production
-- **Cold Chain Monitoring**: Validate temperature compliance
+### 4.2 Consumed Events
+- `BatchProduced`
+  - Source: Production
+  - Action: Trigger required quality inspections
 
-### External Integrations
-- **Regulatory Systems**: Report quality data to authorities
-- **Laboratory Information Systems (LIMS)**: Exchange test results
-- **Supplier Portals**: Share quality requirements and findings
-- **Customer Portals**: Provide quality documentation
+- `GoodsReceived`
+  - Source: Inventory
+  - Action: Schedule incoming inspection & trigger authentication scan
 
-## User Roles & Permissions
+- `CustomerComplaintReceived`
+  - Source: Customer Service
+  - Action: Initiate quality investigation
 
-| Role | Permissions |
-|------|-------------|
-| Quality Technician | Perform inspections, Record test results, Initiate deviations |
-| Quality Engineer | Approve test results, Authorize dispositions, Manage CAPA |
-| Quality Manager | Define quality standards, Review quality metrics, Approve exceptions |
-| Production Staff | View quality requirements, Report issues, Perform rework |
-| Supplier Quality | Manage supplier quality, Conduct audits, Approve suppliers |
+### 4.3 APIs/Services
+- **REST/GraphQL**:
+  - `POST /api/quality/inspections` - Record inspection results
+  - `GET /api/quality/nonconformances` - Retrieve non-conformance reports
+  - `POST /api/quality/capa` - Create or update CAPA
+  - `GET /api/quality/metrics` - Retrieve quality metrics
 
-## Data Requirements
+- **gRPC**:
+  - `QualityInspectionService` - Manage inspection workflows
+  - `NonConformanceService` - Handle quality issues
+  - `DocumentControlService` - Manage quality documents
 
-### Quality Master Data
-- Product specifications and quality parameters
-- Testing methods and procedures
-- Quality standards and regulatory requirements
-- Supplier quality agreements
-- Customer quality requirements
+- **External Services**:
+  - Laboratory Information Management Systems (LIMS)
+  - Regulatory compliance databases
+  - Supplier quality portals
+  - Document management systems
 
-### Quality Transaction Data
-- Inspection and test results
-- Non-conformance reports
-- CAPA records
-- Audit findings and observations
-- Quality metrics and KPIs
+## 5. Non-Functional Requirements
+- **Compliance**:
+  - 21 CFR Part 11, ISO 9001, FSMA, GMP compliance
+  - Electronic signatures with audit trail
+  - Data integrity controls (ALCOA+)
+  - Regulatory reporting capabilities
+  - Document retention policies
 
-## Business Rules
+- **Performance**:
+  - Support 500+ concurrent users
+  - Sub-200ms response time for critical operations
+  - Batch processing of quality data
+  - Handle large file attachments (test reports, images)
 
-1. **Inspection Rules**
-   - Mandatory inspection for first article and process changes
-   - Automatic hold for out-of-specification (OOS) results
-   - Escalation for repeated quality issues
-   - Approval requirements for quality exceptions
+- **Security**:
+  - Role-based access control (RBAC)
+  - Data encryption at rest and in transit
+  - Comprehensive audit logging
+  - Secure document storage
+  - Multi-factor authentication for critical operations
 
-2. **Document Control**
-   - Version control for all quality documents
-   - Electronic signatures for approvals
-   - Retention according to regulatory requirements
-   - Controlled access to quality records
+- **Reliability**:
+  - 99.99% system availability
+  - Automated backups and disaster recovery
+  - Data consistency across distributed systems
+  - Graceful degradation under load
 
-3. **Supplier Quality**
-   - Scorecard-based supplier evaluation
-   - Minimum quality requirements for supplier approval
-   - Escalation for supplier quality issues
-   - Supplier corrective action requests (SCAR)
+- **Usability**:
+  - Intuitive user interface
+  - Mobile-responsive design
+  - Configurable dashboards and reports
+  - Context-sensitive help and guidance
+  - Multi-language support
 
-## Non-Functional Requirements
+## 6. Open Questions
+- How should we integrate with third-party laboratory testing services?
+- What are the specific regulatory requirements for different export markets?
+- How can we leverage AI/ML for predictive quality analytics?
 
-1. **Compliance**
-   - Support for 21 CFR Part 11, ISO 9001, FSMA, GMP
-   - Electronic signature with audit trail
-   - Data integrity controls (ALCOA+ principles)
-   - Regulatory reporting capabilities
+## 7. Out of Scope
+- Product design and development (handled by R&D)
+- Supplier certification and onboarding (handled by Supplier Management)
+- Employee training and certification (handled by HR/LMS)
+- Customer complaint management (handled by Customer Service)
 
-2. **Performance**
-   - Support 500+ concurrent quality transactions
-   - Sub-second response time for quality record retrieval
-   - Batch processing of quality data
-   - Support for large file attachments (e.g., test reports, images)
-
-3. **Security**
-   - Role-based access control
-   - Data encryption at rest and in transit
-   - Audit logging of all quality transactions
-   - Secure storage of sensitive quality data
-
-## Related Documents
-- [Batch Tracking](./batch_tracking.md)
-- [Cold Chain Monitoring](./cold_chain.md)
-- [Inventory Management](./inventory.md)
-- [Supplier Traceability](./supplier_traceability.md)
+## 8. References
+- [ISO 9001:2015 Quality Management Systems](https://www.iso.org/standard/62085.html)
+- [21 CFR Part 11 - Electronic Records; Electronic Signatures](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?CFRPart=11)
+- [FSMA Final Rule on Preventive Controls for Human Food](https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-preventive-controls-human-food)
+- [Good Manufacturing Practice (GMP) Guidelines](https://www.fda.gov/drugs/pharmaceutical-quality-resources/good-manufacturing-practices-cgmp-regulations)
+- [ALCOA+ Principles for Data Integrity](https://www.fda.gov/files/drugs/published/Data-Integrity-and-Compliance-With-Drug-CGMP--Questions-and-Answers-Guidance-for-Industry.pdf)
