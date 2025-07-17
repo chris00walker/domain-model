@@ -83,7 +83,7 @@ export class NegotiatedPricingStrategy extends PricingStrategy {
         if (priceResult.isFailure()) {
           return failure(`Failed to create money object for negotiated price: ${priceResult.error}`);
         }
-        unitPrice = priceResult.value;
+        unitPrice = priceResult.getValue();
       } 
       // Otherwise use negotiated markup if available
       else if (negotiatedConfig.negotiatedMarkupPercentage !== undefined) {
@@ -92,7 +92,7 @@ export class NegotiatedPricingStrategy extends PricingStrategy {
           return failure(`Invalid negotiated markup: ${markupResult.error}`);
         }
         
-        const markup = markupResult.value;
+        const markup = markupResult.getValue();
         const calculatedPrice = markup.applyToAmount(baseCost.amount);
         
         const priceResult = Money.create(calculatedPrice, baseCost.currency);
@@ -100,7 +100,7 @@ export class NegotiatedPricingStrategy extends PricingStrategy {
           return failure(`Failed to create money object for calculated price: ${priceResult.error}`);
         }
         
-        unitPrice = priceResult.value;
+        unitPrice = priceResult.getValue();
       } 
       // If neither direct price nor markup is specified, fall back to tier's default markup
       else {
@@ -115,7 +115,7 @@ export class NegotiatedPricingStrategy extends PricingStrategy {
         return failure(`Invalid markup from pricing tier: ${markupResult.error}`);
       }
       
-      const markup = markupResult.value;
+      const markup = markupResult.getValue();
       const calculatedPrice = markup.applyToAmount(baseCost.amount);
       
       const priceResult = Money.create(calculatedPrice, baseCost.currency);
@@ -123,7 +123,7 @@ export class NegotiatedPricingStrategy extends PricingStrategy {
         return failure(`Failed to create money object for calculated price: ${priceResult.error}`);
       }
       
-      unitPrice = priceResult.value;
+      unitPrice = priceResult.getValue();
     }
 
     // Calculate total price for the quantity
@@ -131,10 +131,10 @@ export class NegotiatedPricingStrategy extends PricingStrategy {
     if (totalPriceResult.isFailure()) {
       return failure(`Failed to calculate total price: ${totalPriceResult.error}`);
     }
-    const totalPrice = totalPriceResult.value;
+    const totalPrice = totalPriceResult.getValue();
 
     // Verify the calculated price meets margin floor requirements
-    const totalBaseCost = baseCost.multiply(quantity).value;
+    const totalBaseCost = baseCost.multiply(quantity).getValue();
     if (!this.verifyMarginFloor(totalPrice, totalBaseCost, pricingTier)) {
       return failure(`Calculated price violates margin floor requirements for tier ${pricingTier.toString()}`);
     }

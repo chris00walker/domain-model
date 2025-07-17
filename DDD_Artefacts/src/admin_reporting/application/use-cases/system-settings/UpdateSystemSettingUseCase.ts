@@ -42,7 +42,7 @@ export class UpdateSystemSettingUseCase implements UseCase<UpdateSystemSettingRe
       
       // Determine if this is a security setting that should be encrypted
       const keyOrError = SystemSettingKey.create(keyString);
-      if (keyOrError.isFailure) {
+      if (keyOrError.isFailure()) {
         return failure(new Error(`Invalid system setting key: ${request.key}`));
       }
       const key = keyOrError.getValue();
@@ -57,15 +57,15 @@ export class UpdateSystemSettingUseCase implements UseCase<UpdateSystemSettingRe
         request.updatedById
       );
       
-      if (settingResult.isFailure) {
-        return failure(new Error(settingResult.error));
+      if (settingResult.isFailure()) {
+        return failure(settingResult.getErrorValue());
       }
       
       const setting = settingResult.getValue();
       
       return success({
         key: setting.key.value,
-        valueType: setting.key.valueType(),
+        valueType: setting.key.getValueType(),
         isEncrypted: setting.isEncrypted,
         isFeatureFlag: setting.key.isFeatureFlag(),
         isSecuritySetting: setting.key.isSecuritySetting()

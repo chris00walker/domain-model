@@ -1,5 +1,5 @@
-import { ValueObject } from '../../../../shared/domain/ValueObject';
-import { Result, success, failure } from '../../../../shared/core/Result';
+import { ValueObject } from '../../../shared/domain/ValueObject';
+import { Result, success, failure } from '../../../shared/core/Result';
 
 /**
  * Permission categories represented as a hierarchical structure
@@ -80,9 +80,9 @@ export class Permission extends ValueObject<PermissionProps> {
     super(props);
   }
   
-  public static create(permission: PermissionValue): Result<Permission> {
+  public static create(permission: PermissionValue): Result<Permission, Error> {
     if (!Object.values(PermissionValue).includes(permission)) {
-      return failure('Invalid permission value');
+      return failure(new Error('Invalid permission value'));
     }
     
     return success(new Permission({ value: permission }));

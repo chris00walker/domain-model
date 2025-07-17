@@ -1,6 +1,6 @@
-import { ValueObject } from '../../../shared/domain/base/ValueObject';
-import { Guard } from '../../../shared/domain/base/Guard';
-import { Result } from '../../../shared/domain/base/Result';
+import { ValueObject } from '../../../shared/domain/ValueObject';
+import { Guard } from '../../../shared/core/Guard';
+import { Result, success, failure } from '../../../shared/core/Result';
 import { CustomerSegmentType } from './CustomerSegmentType';
 
 /**
@@ -103,23 +103,23 @@ export class SubscriptionTier extends ValueObject<SubscriptionTierProps> {
     ]);
 
     if (!guardResult.succeeded) {
-      return Result.fail<SubscriptionTier>(guardResult.message);
+      return failure(new Error(guardResult.message));
     }
 
     if (props.name.trim().length === 0) {
-      return Result.fail<SubscriptionTier>('Subscription tier name cannot be empty');
+      return failure(new Error('Subscription tier name cannot be empty'));
     }
 
     if (props.level < 0) {
-      return Result.fail<SubscriptionTier>('Subscription tier level cannot be negative');
+      return failure(new Error('Subscription tier level cannot be negative'));
     }
 
     if (props.monthlyPrice < 0) {
-      return Result.fail<SubscriptionTier>('Monthly price cannot be negative');
+      return failure(new Error('Monthly price cannot be negative'));
     }
 
     if (props.compatibleSegments.length === 0) {
-      return Result.fail<SubscriptionTier>('At least one compatible customer segment must be specified');
+      return failure(new Error('At least one compatible customer segment must be specified'));
     }
 
     // Validate tier benefits
@@ -132,30 +132,30 @@ export class SubscriptionTier extends ValueObject<SubscriptionTierProps> {
     ]);
 
     if (!benefitsGuardResult.succeeded) {
-      return Result.fail<SubscriptionTier>(benefitsGuardResult.message);
+      return failure(new Error(benefitsGuardResult.message));
     }
 
     if (props.benefits.discountPercentage < 0 || props.benefits.discountPercentage > 100) {
-      return Result.fail<SubscriptionTier>('Discount percentage must be between 0 and 100');
+      return failure(new Error('Discount percentage must be between 0 and 100'));
     }
 
     if (props.minSubscriptionMonths !== undefined && props.minSubscriptionMonths <= 0) {
-      return Result.fail<SubscriptionTier>('Minimum subscription months must be greater than zero');
+      return failure(new Error('Minimum subscription months must be greater than zero'));
     }
 
     if (props.benefits.loyaltyPointsMultiplier !== undefined && props.benefits.loyaltyPointsMultiplier < 1) {
-      return Result.fail<SubscriptionTier>('Loyalty points multiplier must be at least 1');
+      return failure(new Error('Loyalty points multiplier must be at least 1'));
     }
 
     if (props.benefits.maxMonthlyBoxes !== undefined && props.benefits.maxMonthlyBoxes <= 0) {
-      return Result.fail<SubscriptionTier>('Maximum monthly boxes must be greater than zero');
+      return failure(new Error('Maximum monthly boxes must be greater than zero'));
     }
     
     if (props.benefits.extraProductsPerBox !== undefined && props.benefits.extraProductsPerBox < 0) {
-      return Result.fail<SubscriptionTier>('Extra products per box cannot be negative');
+      return failure(new Error('Extra products per box cannot be negative'));
     }
 
-    return Result.ok<SubscriptionTier>(new SubscriptionTier(props));
+    return success(new SubscriptionTier(props));
   }
 
   /**

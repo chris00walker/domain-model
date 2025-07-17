@@ -39,28 +39,21 @@ export class UpdateAdminUserRolesUseCase {
         return failure(new Error('Updater ID is required'));
       }
       
-      // Convert string IDs to UniqueEntityID objects
-      const adminUserId = new UniqueEntityID(request.adminUserId);
-      const roleIds = request.roleIds.map(id => new UniqueEntityID(id));
-      const updatedById = new UniqueEntityID(request.updatedById);
-      
       // Update user roles via domain service
       const result = await this.adminUserService.updateUserRoles(
-        adminUserId, 
-        roleIds,
-        updatedById
+        request.adminUserId, 
+        request.roleIds,
+        request.updatedById
       );
       
-      if (result.isFailure) {
-        return failure(new Error(result.error));
+      if (result.isFailure()) {
+        return failure(result.getErrorValue());
       }
       
-      const adminUser = result.getValue();
-      
-      // Return updated user with roles
+      // Return success response
       return success({
-        adminUserId: adminUser.id.toString(),
-        roleIds: adminUser.roles.map(role => role.id.toString())
+        adminUserId: request.adminUserId,
+        roleIds: request.roleIds
       });
       
     } catch (error: any) {

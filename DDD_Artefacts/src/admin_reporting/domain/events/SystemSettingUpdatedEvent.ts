@@ -14,7 +14,9 @@ export class SystemSettingUpdatedEvent extends DomainEvent {
 
   constructor(systemSetting: SystemSetting, previousValue: string) {
     super({
-      aggregateId: systemSetting.id.toString()
+      aggregateId: systemSetting.id.toString(),
+      eventId: new UniqueEntityID().toString(),
+      occurredOn: new Date()
     });
     this.dateTimeOccurred = new Date();
     this.systemSetting = systemSetting;
@@ -32,6 +34,6 @@ export class SystemSettingUpdatedEvent extends DomainEvent {
   }
 
   getAggregateId(): UniqueEntityID {
-    return this.systemSetting.id;
+    return new UniqueEntityID(this.systemSetting.id);
   }
 }

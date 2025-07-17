@@ -8,7 +8,7 @@ interface ProductIdProps {
 
 export class ProductId extends ValueObject<ProductIdProps> {
   get value(): string {
-    return this.props.value;
+    return (this as any).props.value;
   }
 
   private constructor(props: ProductIdProps) {

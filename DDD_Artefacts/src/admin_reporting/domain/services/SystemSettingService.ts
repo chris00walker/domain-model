@@ -70,7 +70,7 @@ export class SystemSettingService {
       await this.auditLogService.logAction({
         actionType: 'SYSTEM_SETTING_UPDATED',
         performedBy: new UniqueEntityID(adminId),
-        targetId: existingSetting.id,
+        targetId: new UniqueEntityID(existingSetting.id),
         details: {
           key: key.value,
           encrypted: isEncrypted ? 'Yes' : 'No'
@@ -108,7 +108,7 @@ export class SystemSettingService {
       await this.auditLogService.logAction({
         actionType: 'SYSTEM_SETTING_CREATED',
         performedBy: new UniqueEntityID(adminId),
-        targetId: setting.id,
+        targetId: new UniqueEntityID(setting.id),
         details: {
           key: key.value,
           encrypted: isEncrypted ? 'Yes' : 'No'

@@ -1,13 +1,14 @@
-import { AggregateRoot } from '../../../shared/domain/base/AggregateRoot';
-import { UniqueEntityID } from '../../../shared/domain/base/UniqueEntityID';
+import { AggregateRoot } from '../../../shared/domain/AggregateRoot';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
 import { Result, success, failure } from '../../../shared/core/Result';
 import { Guard } from '../../../shared/core/Guard';
+import { DomainEvent } from '../../../shared/domain/events/DomainEvent';
 import { OrderCreated } from '../events/OrderCreated';
 import { OrderPaid } from '../events/OrderPaid';
 import { OrderFulfilled } from '../events/OrderFulfilled';
 import { OrderStatus } from '../value-objects/OrderStatus';
 import { OrderItem } from '../value-objects/OrderItem';
-import { CustomerId } from '../../../customers/domain/value-objects/CustomerId';
+import { CustomerId } from '../../../customer_management/domain/value-objects/CustomerId';
 import { Money } from '../../../shared/domain/value-objects/Money';
 import { Clock, SystemClock } from '../../../shared/domain/Clock';
 
@@ -37,6 +38,18 @@ export interface OrderProps {
 export class Order extends AggregateRoot<OrderProps> {
   private constructor(props: OrderProps, id?: UniqueEntityID) {
     super(props, id);
+  }
+
+  // Access props directly from parent class - no need for getter
+
+  // Public getter for id
+  public get id(): string {
+    return super.id;
+  }
+
+  // Add domain event method
+  public addDomainEvent(event: DomainEvent): void {
+    super.addDomainEvent(event);
   }
 
   public static create(props: OrderProps, id?: UniqueEntityID, clock: Clock = new SystemClock()): Result<Order, string> {
@@ -70,7 +83,7 @@ export class Order extends AggregateRoot<OrderProps> {
   }
 
   public addItem(item: OrderItem, clock: Clock = new SystemClock()): Result<void, string> {
-    const itemExists = this.props.items.some(i => i.productId.equals(item.productId));
+    const itemExists = this.props.items.some(i => i.productId === item.productId);
     
     if (itemExists) {
       return failure('Item already exists in order');
@@ -97,25 +110,25 @@ export class Order extends AggregateRoot<OrderProps> {
 
   public calculateTotal(): Result<Money, string> {
     // Start with zero money
-    const zeroMoney = Money.create(0, 'BBD');
-    if (zeroMoney.isFailure()) {
-      return failure(zeroMoney.error);
-    }
+    let runningTotal = Money.zero('BBD');
     
     // Calculate total by summing up all items
-    return this.props.items.reduce<Result<Money, string>>(
-      (result, item) => {
-        if (result.isFailure()) return result;
-        
-        // Get item total (price × quantity)
-        const itemTotal = item.calculateTotal();
-        if (itemTotal.isFailure()) return itemTotal;
-        
-        // Add to running total
-        return result.value.add(itemTotal.value);
-      },
-      zeroMoney
-    );
+    for (const item of this.props.items) {
+      // Get item total (price × quantity)
+      const itemTotal = item.calculateTotal();
+      if (itemTotal.isFailure()) {
+        return failure(`Error calculating item total: ${itemTotal.getErrorValue()}`);
+      }
+      
+      // Add to running total
+      const addResult = runningTotal.add(itemTotal.getValue());
+      if (addResult.isFailure()) {
+        return failure(`Error calculating total: ${addResult.getErrorValue()}`);
+      }
+      runningTotal = addResult.getValue();
+    }
+    
+    return success(runningTotal);
   }
 
   public confirmPayment(clock: Clock = new SystemClock()): Result<void, string> {
@@ -129,7 +142,7 @@ export class Order extends AggregateRoot<OrderProps> {
     // Add domain event for payment confirmation
     // Create OrderPaid event with the required parameters
     const orderTotalResult = this.calculateTotal();
-    const amount = orderTotalResult.isSuccess() ? orderTotalResult.value.amount : 0;
+    const amount = orderTotalResult.isSuccess() ? orderTotalResult.getValue().amount : 0;
     
     this.addDomainEvent(new OrderPaid(
       this.id.toString(), 

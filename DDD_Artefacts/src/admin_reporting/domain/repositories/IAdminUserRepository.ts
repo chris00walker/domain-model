@@ -1,6 +1,6 @@
 import { AdminUser } from '../aggregates/AdminUser';
 import { AdminUserEmail } from '../value-objects/AdminUserEmail';
-import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
 
 /**
  * IAdminUserRepository

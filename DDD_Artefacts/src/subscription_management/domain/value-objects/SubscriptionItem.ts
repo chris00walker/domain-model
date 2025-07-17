@@ -1,7 +1,8 @@
 import { ValueObject } from '../../../shared/domain/base/ValueObject';
 import { Result, success, failure } from '../../../shared/core/Result';
 import { Guard } from '../../../shared/core/Guard';
-import { ProductId } from '../../../catalog/domain/value-objects/ProductId';
+// Temporary string type until catalog context is available
+type ProductId = string;
 import { Money } from '../../../shared/domain/value-objects/Money';
 
 interface SubscriptionItemProps {
@@ -90,7 +91,7 @@ export class SubscriptionItem extends ValueObject<SubscriptionItemProps> {
       return false;
     }
     
-    return this.productId.equals(vo.productId);
+    return this.productId === vo.productId;
   }
 
   public static create(props: SubscriptionItemProps): Result<SubscriptionItem, string> {

@@ -32,7 +32,7 @@ export class CustomerSegmentChanged extends DomainEvent {
   private readonly _reason?: string;
 
   private constructor(props: DomainEventProps, eventProps: CustomerSegmentChangedEventProps) {
-    super(props.aggregateId, props.occurredOn);
+    super(props);
     this._customerId = eventProps.customerId;
     this._previousSegmentType = eventProps.previousSegmentType;
     this._newSegmentType = eventProps.newSegmentType;

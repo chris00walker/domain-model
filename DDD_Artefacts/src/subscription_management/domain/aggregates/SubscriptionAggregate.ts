@@ -7,13 +7,7 @@ import { SubscriptionRenewed } from '../events/SubscriptionRenewed';
 import { SubscriptionCancelled } from '../events/SubscriptionCancelled';
 import { SubscriptionPaused } from '../events/SubscriptionPaused';
 import { SubscriptionResumed } from '../events/SubscriptionResumed';
-
-export enum SubscriptionStatus {
-  ACTIVE = 'ACTIVE',
-  PAUSED = 'PAUSED',
-  CANCELLED = 'CANCELLED',
-  EXPIRED = 'EXPIRED'
-}
+import { SubscriptionStatus, SubscriptionStatusType } from '../value-objects/SubscriptionStatus';
 
 export enum SubscriptionFrequency {
   WEEKLY = 'WEEKLY',
@@ -146,7 +140,7 @@ export class SubscriptionAggregate extends AggregateRoot<SubscriptionProps> {
    * Check if subscription is active
    */
   public isActive(): boolean {
-    return this.props.status === SubscriptionStatus.ACTIVE;
+    return this.props.status.value === SubscriptionStatusType.ACTIVE;
   }
 
   /**
@@ -154,7 +148,7 @@ export class SubscriptionAggregate extends AggregateRoot<SubscriptionProps> {
    */
   public canBeRenewed(): boolean {
     return (
-      (this.props.status === SubscriptionStatus.ACTIVE || this.props.status === SubscriptionStatus.PAUSED) &&
+      (this.props.status.value === SubscriptionStatusType.ACTIVE || this.props.status.value === SubscriptionStatusType.PAUSED) &&
       this.props.autoRenew
     );
   }
@@ -217,8 +211,12 @@ export class SubscriptionAggregate extends AggregateRoot<SubscriptionProps> {
     this.props.lastInteractionDate = now;
     
     // If subscription was paused, resume it
-    if (this.props.status === SubscriptionStatus.PAUSED) {
-      this.props.status = SubscriptionStatus.ACTIVE;
+    if (this.props.status.value === SubscriptionStatusType.PAUSED) {
+      const activeStatusResult = SubscriptionStatus.create(SubscriptionStatusType.ACTIVE);
+      if (activeStatusResult.isFailure()) {
+        return failure(activeStatusResult.getErrorValue());
+      }
+      this.props.status = activeStatusResult.getValue();
       
       // Update pause history
       if (this.props.pauseHistory && this.props.pauseHistory.length > 0) {
@@ -239,18 +237,21 @@ export class SubscriptionAggregate extends AggregateRoot<SubscriptionProps> {
    * Cancel the subscription
    */
   public cancel(reason: string, clock: Clock = new SystemClock()): Result<void, string> {
-    if (this.props.status === SubscriptionStatus.CANCELLED) {
-      return failure(`Subscription is already cancelled`);
+    if (this.props.status.value === SubscriptionStatusType.CANCELLED) {
+      return failure('Subscription is already cancelled');
     }
 
     const now = clock.now();
-    
-    this.props.status = SubscriptionStatus.CANCELLED;
+    const cancelledStatusResult = SubscriptionStatus.create(SubscriptionStatusType.CANCELLED);
+    if (cancelledStatusResult.isFailure()) {
+      return failure(cancelledStatusResult.getErrorValue());
+    }
+    this.props.status = cancelledStatusResult.getValue();
     this.props.updatedAt = now;
     this.props.lastInteractionDate = now;
     
     // Add domain event
-    this.addDomainEvent(new SubscriptionCancelled(this as any, reason));
+    this.addDomainEvent(new SubscriptionCancelled(this as any));
 
     return success(undefined);
   }
@@ -259,13 +260,16 @@ export class SubscriptionAggregate extends AggregateRoot<SubscriptionProps> {
    * Pause the subscription
    */
   public pause(reason?: string, clock: Clock = new SystemClock()): Result<void, string> {
-    if (this.props.status !== SubscriptionStatus.ACTIVE) {
-      return failure(`Only active subscriptions can be paused`);
+    if (this.props.status.value !== SubscriptionStatusType.ACTIVE) {
+      return failure('Only active subscriptions can be paused');
     }
 
     const now = clock.now();
-    
-    this.props.status = SubscriptionStatus.PAUSED;
+    const pausedStatusResult = SubscriptionStatus.create(SubscriptionStatusType.PAUSED);
+    if (pausedStatusResult.isFailure()) {
+      return failure(pausedStatusResult.getErrorValue());
+    }
+    this.props.status = pausedStatusResult.getValue();
     this.props.updatedAt = now;
     this.props.lastInteractionDate = now;
     
@@ -280,7 +284,7 @@ export class SubscriptionAggregate extends AggregateRoot<SubscriptionProps> {
     });
     
     // Add domain event
-    this.addDomainEvent(new SubscriptionPaused(this as any, reason));
+    this.addDomainEvent(new SubscriptionPaused(this as any));
 
     return success(undefined);
   }
@@ -289,13 +293,16 @@ export class SubscriptionAggregate extends AggregateRoot<SubscriptionProps> {
    * Resume the subscription
    */
   public resume(clock: Clock = new SystemClock()): Result<void, string> {
-    if (this.props.status !== SubscriptionStatus.PAUSED) {
-      return failure(`Only paused subscriptions can be resumed`);
+    if (this.props.status.value !== SubscriptionStatusType.PAUSED) {
+      return failure('Only paused subscriptions can be resumed');
     }
 
     const now = clock.now();
-    
-    this.props.status = SubscriptionStatus.ACTIVE;
+    const activeStatusResult = SubscriptionStatus.create(SubscriptionStatusType.ACTIVE);
+    if (activeStatusResult.isFailure()) {
+      return failure(activeStatusResult.getErrorValue());
+    }
+    this.props.status = activeStatusResult.getValue();
     this.props.updatedAt = now;
     this.props.lastInteractionDate = now;
     
@@ -317,7 +324,7 @@ export class SubscriptionAggregate extends AggregateRoot<SubscriptionProps> {
    * Change subscription plan
    */
   public changePlan(newPlanId: string, newPrice: number, clock: Clock = new SystemClock()): Result<void, string> {
-    if (this.props.status === SubscriptionStatus.CANCELLED) {
+    if (this.props.status.value === SubscriptionStatusType.CANCELLED) {
       return failure(`Cannot change plan for cancelled subscription`);
     }
 
@@ -335,7 +342,7 @@ export class SubscriptionAggregate extends AggregateRoot<SubscriptionProps> {
    * Toggle auto-renewal
    */
   public setAutoRenew(autoRenew: boolean, clock: Clock = new SystemClock()): Result<void, string> {
-    if (this.props.status === SubscriptionStatus.CANCELLED) {
+    if (this.props.status.value === SubscriptionStatusType.CANCELLED) {
       return failure(`Cannot change auto-renewal for cancelled subscription`);
     }
 

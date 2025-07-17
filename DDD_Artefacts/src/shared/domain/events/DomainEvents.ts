@@ -23,7 +23,7 @@ export class DomainEvents {
    * Once an aggregate is marked, its events will be dispatched when dispatchEventsForAggregate is called
    */
   public static markAggregateForDispatch(aggregate: AggregateRoot<any>): void {
-    const aggregateFound = !!this.findMarkedAggregateByID(aggregate.id);
+    const aggregateFound = !!this.findMarkedAggregateByID(aggregate.getId());
 
     if (!aggregateFound) {
       this.markedAggregates.push(aggregate);

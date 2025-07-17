@@ -23,6 +23,10 @@ interface SystemSettingProps {
  */
 export class SystemSetting extends AggregateRoot<SystemSettingProps> {
   
+  constructor(props: SystemSettingProps, id?: UniqueEntityID) {
+    super(props, id);
+  }
+  
   get key(): SystemSettingKey {
     return this.props.key;
   }
@@ -70,14 +74,14 @@ export class SystemSetting extends AggregateRoot<SystemSettingProps> {
    * Updates the value of a system setting
    */
   public updateValue(value: string, modifiedBy: UniqueEntityID): Result<void> {
-    const settingValueOrError = SystemSettingValue.create(this.props.key, value);
+    const valueResult = SystemSettingValue.create(this.props.key, value);
     
-    if (settingValueOrError.isFailure) {
-      return failure(settingValueOrError.error);
+    if (valueResult.isFailure()) {
+      return failure(valueResult.getErrorValue());
     }
     
     const previousValue = this.props.value.rawValue;
-    this.props.value = settingValueOrError.getValue();
+    this.props.value = valueResult.getValue();
     this.props.lastModifiedBy = modifiedBy;
     this.props.updatedAt = new Date();
     

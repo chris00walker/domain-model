@@ -66,8 +66,8 @@ export class QueryAuditLogsUseCase {
         offset
       });
       
-      if (logsResult.isFailure) {
-        return failure(new Error(logsResult.error));
+      if (logsResult.isFailure()) {
+        return failure(logsResult.getErrorValue());
       }
       
       const { entries, totalCount } = logsResult.getValue();

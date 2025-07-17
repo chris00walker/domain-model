@@ -17,7 +17,7 @@ export class SubscriptionEdited extends DomainEvent {
       customerId: this.subscription.customerId,
       editedAt: new Date().toISOString(),
       items: this.subscription.items.map(item => ({
-        productId: item.productId.value,
+        productId: item.productId,
         quantity: item.quantity
       }))
     };

@@ -1,5 +1,5 @@
 import { DomainEvent } from '../../../shared/domain/events/DomainEvent';
-import { UniqueEntityID } from '../../../shared/domain/base/UniqueEntityID';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
 import { Order } from '../aggregates/Order';
 
 export class OrderCreated extends DomainEvent {
@@ -26,7 +26,7 @@ export class OrderCreated extends DomainEvent {
     return {
       orderId: this.aggregateId,
       customerId: this.order.customerId.toString(),
-      total: total.amount,
+      amount: total.amount,
       currency: total.currency,
       itemCount: this.order.items.length,
       occurredOn: this.occurredOn.toISOString()

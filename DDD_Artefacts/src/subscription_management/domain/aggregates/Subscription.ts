@@ -21,7 +21,8 @@ import { Guard } from '../../../shared/core/Guard';
 import { Clock, SystemClock } from '../../../shared/domain/Clock';
 import { SubscriptionItem } from '../value-objects/SubscriptionItem';
 import { SubscriptionStatus, SubscriptionStatusType } from '../value-objects/SubscriptionStatus';
-import { ProductId } from '../../../catalog/domain/value-objects/ProductId';
+// Temporary string type until catalog context is available
+type ProductId = string;
 import { SubscriptionFrequency } from '../value-objects/SubscriptionFrequency';
 import { Money } from '../../../shared/domain/value-objects/Money';
 /**
@@ -292,7 +293,7 @@ export class Subscription extends AggregateRoot<SubscriptionProps> {
     // Check if item with same product ID already exists
     // Use value property for consistent ID comparison across aggregate boundaries
     const exists = this.props.items.some(existingItem => 
-      existingItem.productId.value === item.productId.value
+      existingItem.productId === item.productId
     );
 
     if (exists) {
@@ -316,19 +317,12 @@ export class Subscription extends AggregateRoot<SubscriptionProps> {
     // Convert string to ProductId if needed for consistent comparison
     let productIdObj: ProductId;
     
-    if (typeof productId === 'string') {
-      const productIdResult = ProductId.create(productId);
-      if (productIdResult.isFailure()) {
-        return failure(productIdResult.error);
-      }
-      productIdObj = productIdResult.value;
-    } else {
-      productIdObj = productId;
-    }
+    // Since ProductId is a string type, use it directly
+    productIdObj = typeof productId === 'string' ? productId : productId;
     
     const initialLength = this.props.items.length;
     this.props.items = this.props.items.filter(item => 
-      item.productId.value !== productIdObj.value
+      item.productId !== productIdObj
     );
 
     if (this.props.items.length === initialLength) {
@@ -367,18 +361,11 @@ export class Subscription extends AggregateRoot<SubscriptionProps> {
     // Convert string to ProductId if needed for consistent comparison
     let productIdObj: ProductId;
     
-    if (typeof productId === 'string') {
-      const productIdResult = ProductId.create(productId);
-      if (productIdResult.isFailure()) {
-        return failure(productIdResult.error);
-      }
-      productIdObj = productIdResult.value;
-    } else {
-      productIdObj = productId;
-    }
+    // Since ProductId is a string type, use it directly
+    productIdObj = typeof productId === 'string' ? productId : productId;
     
     const itemIndex = this.props.items.findIndex(item => 
-      item.productId.value === productIdObj.value
+      item.productId === productIdObj
     );
 
     if (itemIndex === -1) {

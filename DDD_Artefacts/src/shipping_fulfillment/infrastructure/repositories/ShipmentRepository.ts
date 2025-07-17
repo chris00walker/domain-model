@@ -22,13 +22,16 @@ export class InMemoryShipmentRepository implements IShipmentRepository {
    * @param id The shipment ID
    * @returns The shipment if found
    */
-  public async findById(id: UniqueEntityID): Promise<Result<ShipmentAggregate | null, string>> {
+  public async findById(id: string): Promise<Result<ShipmentAggregate, string>> {
     try {
-      const shipment = this.shipments.get(id.toString());
-      return success(shipment || null);
+      const shipment = this.shipments.get(id);
+      if (!shipment) {
+        return failure(`Shipment with ID ${id} not found`);
+      }
+      return success(shipment);
     } catch (error) {
-      this.logger.error(`Error finding shipment by ID: ${error.message}`, error);
-      return failure(`Error finding shipment by ID: ${error.message}`);
+      this.logger.error(`Error finding shipment by ID: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipment by ID: ${(error as Error).message}`);
     }
   }
   
@@ -37,32 +40,38 @@ export class InMemoryShipmentRepository implements IShipmentRepository {
    * @param orderId The order ID
    * @returns The shipments for the order
    */
-  public async findByOrderId(orderId: UniqueEntityID): Promise<Result<ShipmentAggregate[], string>> {
+  public async findByOrderId(orderId: string): Promise<Result<ShipmentAggregate[], string>> {
     try {
       const orderShipments = Array.from(this.shipments.values())
-        .filter(shipment => shipment.orderId.equals(orderId));
+        .filter(shipment => shipment.orderId.toString() === orderId);
       
       return success(orderShipments);
     } catch (error) {
-      this.logger.error(`Error finding shipments by order ID: ${error.message}`, error);
-      return failure(`Error finding shipments by order ID: ${error.message}`);
+      this.logger.error(`Error finding shipments by order ID: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipments by order ID: ${(error as Error).message}`);
     }
   }
   
   /**
    * Find shipments by tracking number
    * @param trackingNumber The tracking number
-   * @returns The shipment if found
+   * @param carrier Optional carrier name
+   * @returns The shipments with matching tracking number
    */
-  public async findByTrackingNumber(trackingNumber: string): Promise<Result<ShipmentAggregate | null, string>> {
+  public async findByTrackingNumber(trackingNumber: string, carrier?: string): Promise<Result<ShipmentAggregate[], string>> {
     try {
-      const shipment = Array.from(this.shipments.values())
-        .find(shipment => shipment.trackingNumber === trackingNumber);
+      const shipments = Array.from(this.shipments.values())
+        .filter(shipment => {
+          if (!shipment.trackingNumber) return false;
+          const matchesTrackingNumber = shipment.trackingNumber.value === trackingNumber;
+          const matchesCarrier = !carrier || shipment.trackingNumber.carrier === carrier;
+          return matchesTrackingNumber && matchesCarrier;
+        });
       
-      return success(shipment || null);
+      return success(shipments);
     } catch (error) {
-      this.logger.error(`Error finding shipment by tracking number: ${error.message}`, error);
-      return failure(`Error finding shipment by tracking number: ${error.message}`);
+      this.logger.error(`Error finding shipment by tracking number: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipment by tracking number: ${(error as Error).message}`);
     }
   }
   
@@ -74,29 +83,39 @@ export class InMemoryShipmentRepository implements IShipmentRepository {
   public async findByStatus(status: ShipmentStatus): Promise<Result<ShipmentAggregate[], string>> {
     try {
       const statusShipments = Array.from(this.shipments.values())
-        .filter(shipment => shipment.status.equals(status));
+        .filter(shipment => shipment.status === status);
       
       return success(statusShipments);
     } catch (error) {
-      this.logger.error(`Error finding shipments by status: ${error.message}`, error);
-      return failure(`Error finding shipments by status: ${error.message}`);
+      this.logger.error(`Error finding shipments by status: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipments by status: ${(error as Error).message}`);
     }
   }
   
   /**
    * Find shipments by customer ID
    * @param customerId The customer ID
+   * @param limit Optional limit for pagination
+   * @param offset Optional offset for pagination
    * @returns The shipments for the customer
    */
-  public async findByCustomerId(customerId: UniqueEntityID): Promise<Result<ShipmentAggregate[], string>> {
+  public async findByCustomerId(customerId: string, limit?: number, offset?: number): Promise<Result<ShipmentAggregate[], string>> {
     try {
-      const customerShipments = Array.from(this.shipments.values())
-        .filter(shipment => shipment.customerId.equals(customerId));
+      let customerShipments = Array.from(this.shipments.values())
+        .filter(shipment => shipment.customerId.toString() === customerId);
+      
+      // Apply pagination if specified
+      if (offset !== undefined) {
+        customerShipments = customerShipments.slice(offset);
+      }
+      if (limit !== undefined) {
+        customerShipments = customerShipments.slice(0, limit);
+      }
       
       return success(customerShipments);
     } catch (error) {
-      this.logger.error(`Error finding shipments by customer ID: ${error.message}`, error);
-      return failure(`Error finding shipments by customer ID: ${error.message}`);
+      this.logger.error(`Error finding shipments by customer ID: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipments by customer ID: ${(error as Error).message}`);
     }
   }
   
@@ -113,8 +132,8 @@ export class InMemoryShipmentRepository implements IShipmentRepository {
       
       return success(undefined);
     } catch (error) {
-      this.logger.error(`Error saving shipment: ${error.message}`, error);
-      return failure(`Error saving shipment: ${error.message}`);
+      this.logger.error(`Error saving shipment: ${(error as Error).message}`, error as Error);
+      return failure(`Error saving shipment: ${(error as Error).message}`);
     }
   }
   
@@ -137,8 +156,8 @@ export class InMemoryShipmentRepository implements IShipmentRepository {
       
       return success(undefined);
     } catch (error) {
-      this.logger.error(`Error deleting shipment: ${error.message}`, error);
-      return failure(`Error deleting shipment: ${error.message}`);
+      this.logger.error(`Error deleting shipment: ${(error as Error).message}`, error as Error);
+      return failure(`Error deleting shipment: ${(error as Error).message}`);
     }
   }
 }
@@ -158,13 +177,13 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
    * @param id The shipment ID
    * @returns The shipment if found
    */
-  public async findById(id: UniqueEntityID): Promise<Result<ShipmentAggregate | null, string>> {
+  public async findById(id: string): Promise<Result<ShipmentAggregate, string>> {
     const startTime = Date.now();
     
     try {
       // In a real implementation, this would query the database
       // For now, we'll just simulate a database query
-      this.logger.debug(`Finding shipment by ID: ${id.toString()}`);
+      this.logger.debug(`Finding shipment by ID: ${id}`);
       
       // Simulate database query
       await new Promise(resolve => setTimeout(resolve, 10));
@@ -177,7 +196,7 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
         operation: 'findById'
       });
       
-      return success(null);
+      return failure(`Shipment with ID ${id} not found`);
     } catch (error) {
       const duration = Date.now() - startTime;
       this.monitoringService.recordHistogram('shipment_repository_operation_duration_ms', duration, {
@@ -185,8 +204,8 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
         error: 'true'
       });
       
-      this.logger.error(`Error finding shipment by ID: ${error.message}`, error);
-      return failure(`Error finding shipment by ID: ${error.message}`);
+      this.logger.error(`Error finding shipment by ID: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipment by ID: ${(error as Error).message}`);
     }
   }
   
@@ -195,13 +214,13 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
    * @param orderId The order ID
    * @returns The shipments for the order
    */
-  public async findByOrderId(orderId: UniqueEntityID): Promise<Result<ShipmentAggregate[], string>> {
+  public async findByOrderId(orderId: string): Promise<Result<ShipmentAggregate[], string>> {
     const startTime = Date.now();
     
     try {
       // In a real implementation, this would query the database
       // For now, we'll just simulate a database query
-      this.logger.debug(`Finding shipments by order ID: ${orderId.toString()}`);
+      this.logger.debug(`Finding shipments by order ID: ${orderId}`);
       
       // Simulate database query
       await new Promise(resolve => setTimeout(resolve, 10));
@@ -222,36 +241,37 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
         error: 'true'
       });
       
-      this.logger.error(`Error finding shipments by order ID: ${error.message}`, error);
-      return failure(`Error finding shipments by order ID: ${error.message}`);
+      this.logger.error(`Error finding shipments by order ID: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipments by order ID: ${(error as Error).message}`);
     }
   }
   
   /**
    * Find shipments by tracking number
    * @param trackingNumber The tracking number
-   * @returns The shipment if found
+   * @param carrier Optional carrier filter
+   * @returns The shipments matching the tracking number
    */
-  public async findByTrackingNumber(trackingNumber: string): Promise<Result<ShipmentAggregate | null, string>> {
+  public async findByTrackingNumber(trackingNumber: string, carrier?: string): Promise<Result<ShipmentAggregate[], string>> {
     const startTime = Date.now();
     
     try {
       // In a real implementation, this would query the database
       // For now, we'll just simulate a database query
-      this.logger.debug(`Finding shipment by tracking number: ${trackingNumber}`);
+      this.logger.debug(`Finding shipments by tracking number: ${trackingNumber}${carrier ? ` and carrier: ${carrier}` : ''}`);
       
       // Simulate database query
       await new Promise(resolve => setTimeout(resolve, 10));
       
-      // Simulate not finding the shipment
-      // In a real implementation, this would return the shipment from the database
+      // Simulate empty result
+      // In a real implementation, this would return shipments from the database
       
       const duration = Date.now() - startTime;
       this.monitoringService.recordHistogram('shipment_repository_operation_duration_ms', duration, {
         operation: 'findByTrackingNumber'
       });
       
-      return success(null);
+      return success([]);
     } catch (error) {
       const duration = Date.now() - startTime;
       this.monitoringService.recordHistogram('shipment_repository_operation_duration_ms', duration, {
@@ -259,8 +279,8 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
         error: 'true'
       });
       
-      this.logger.error(`Error finding shipment by tracking number: ${error.message}`, error);
-      return failure(`Error finding shipment by tracking number: ${error.message}`);
+      this.logger.error(`Error finding shipments by tracking number: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipments by tracking number: ${(error as Error).message}`);
     }
   }
   
@@ -275,7 +295,7 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
     try {
       // In a real implementation, this would query the database
       // For now, we'll just simulate a database query
-      this.logger.debug(`Finding shipments by status: ${status.value}`);
+      this.logger.debug(`Finding shipments by status: ${status}`);
       
       // Simulate database query
       await new Promise(resolve => setTimeout(resolve, 10));
@@ -296,23 +316,25 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
         error: 'true'
       });
       
-      this.logger.error(`Error finding shipments by status: ${error.message}`, error);
-      return failure(`Error finding shipments by status: ${error.message}`);
+      this.logger.error(`Error finding shipments by status: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipments by status: ${(error as Error).message}`);
     }
   }
   
   /**
    * Find shipments by customer ID
    * @param customerId The customer ID
+   * @param limit Optional limit for pagination
+   * @param offset Optional offset for pagination
    * @returns The shipments for the customer
    */
-  public async findByCustomerId(customerId: UniqueEntityID): Promise<Result<ShipmentAggregate[], string>> {
+  public async findByCustomerId(customerId: string, limit?: number, offset?: number): Promise<Result<ShipmentAggregate[], string>> {
     const startTime = Date.now();
     
     try {
       // In a real implementation, this would query the database
       // For now, we'll just simulate a database query
-      this.logger.debug(`Finding shipments by customer ID: ${customerId.toString()}`);
+      this.logger.debug(`Finding shipments by customer ID: ${customerId}${limit ? ` (limit: ${limit})` : ''}${offset ? ` (offset: ${offset})` : ''}`);
       
       // Simulate database query
       await new Promise(resolve => setTimeout(resolve, 10));
@@ -333,8 +355,8 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
         error: 'true'
       });
       
-      this.logger.error(`Error finding shipments by customer ID: ${error.message}`, error);
-      return failure(`Error finding shipments by customer ID: ${error.message}`);
+      this.logger.error(`Error finding shipments by customer ID: ${(error as Error).message}`, error as Error);
+      return failure(`Error finding shipments by customer ID: ${(error as Error).message}`);
     }
   }
   
@@ -367,8 +389,8 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
         error: 'true'
       });
       
-      this.logger.error(`Error saving shipment: ${error.message}`, error);
-      return failure(`Error saving shipment: ${error.message}`);
+      this.logger.error(`Error saving shipment: ${(error as Error).message}`, error as Error);
+      return failure(`Error saving shipment: ${(error as Error).message}`);
     }
   }
   
@@ -401,8 +423,8 @@ export class DatabaseShipmentRepository implements IShipmentRepository {
         error: 'true'
       });
       
-      this.logger.error(`Error deleting shipment: ${error.message}`, error);
-      return failure(`Error deleting shipment: ${error.message}`);
+      this.logger.error(`Error deleting shipment: ${(error as Error).message}`, error as Error);
+      return failure(`Error deleting shipment: ${(error as Error).message}`);
     }
   }
 }

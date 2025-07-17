@@ -1,4 +1,4 @@
-import { Result } from '../../../shared/domain/base/Result';
+import { Result } from '../../../shared/core/Result';
 import { Order } from '../aggregates/Order';
 
 /**

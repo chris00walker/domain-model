@@ -45,8 +45,8 @@ export class ModeratePendingTaskUseCase {
         request.notes
       );
       
-      if (taskResult.isFailure) {
-        return failure(new Error(taskResult.error));
+      if (taskResult.isFailure()) {
+        return failure(taskResult.getErrorValue());
       }
       
       const task = taskResult.getValue();

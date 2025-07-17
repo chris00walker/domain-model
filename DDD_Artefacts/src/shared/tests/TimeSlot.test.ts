@@ -33,7 +33,7 @@ describe('TimeSlot', () => {
       const result = TimeSlot.create(startTime, endTime, true, testClock);
       
       expect(result.isFailure()).toBe(true);
-      expect(result.error).toBe('Start time cannot be in the past');
+      expect(result.getErrorValue()).toBe('Start time cannot be in the past');
     });
 
     it('should accept time slots with past start time when validation is disabled', () => {
@@ -52,7 +52,7 @@ describe('TimeSlot', () => {
       const result = TimeSlot.create(startTime, endTime, true, testClock);
       
       expect(result.isFailure()).toBe(true);
-      expect(result.error).toBe('Start time must be before end time');
+      expect(result.getErrorValue()).toBe('Start time must be before end time');
     });
   });
 

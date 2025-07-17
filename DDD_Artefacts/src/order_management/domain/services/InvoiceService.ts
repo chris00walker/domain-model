@@ -64,7 +64,7 @@ export class InvoiceService {
   private calculateSubtotal(order: Order): number {
     return order.items.reduce((sum, item) => {
       const totalResult = item.calculateTotal();
-      return sum + (totalResult.isSuccess() ? totalResult.value.amount : 0);
+      return sum + (totalResult.isSuccess() ? totalResult.getValue().amount : 0);
     }, 0);
   }
   
@@ -238,11 +238,19 @@ export class InvoiceService {
         return failure(`Order ${orderId} is not eligible for refund under the provided policy`);
       }
       
-      // Calculate refund amount
-      const refundAmount = refundPolicy.calculateRefundAmount(order.totalAmount);
+      // Calculate order total first
+      const orderTotalResult = order.calculateTotal();
+      if (orderTotalResult.isFailure()) {
+        return failure(`Failed to calculate order total: ${orderTotalResult.getErrorValue()}`);
+      }
       
-      // Create money value object
-      const moneyResult = Money.create(refundAmount, order.currency);
+      const orderTotal = orderTotalResult.getValue();
+      
+      // Calculate refund amount
+      const refundAmount = refundPolicy.calculateRefundAmount(orderTotal.amount);
+      
+      // Create money value object using the same currency as the order total
+      const moneyResult = Money.create(refundAmount, orderTotal.currency);
       
       if (moneyResult.isFailure()) {
         return failure(`Failed to create money object: ${moneyResult.error}`);

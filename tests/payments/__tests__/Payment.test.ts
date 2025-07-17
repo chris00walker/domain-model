@@ -1,6 +1,7 @@
-import { Payment } from '@payments/domain/aggregates';
-import { PaymentMethod, PaymentStatus } from '@payments/domain/value-objects';
-import { IPaymentRepository } from '@payments/domain/repositories';
+import { Payment } from '../../../DDD_Artefacts/src/payment_billing/domain/aggregates/Payment';
+import { PaymentMethod } from '../../../DDD_Artefacts/src/payment_billing/domain/value-objects/PaymentMethod';
+import { PaymentStatus } from '../../../DDD_Artefacts/src/payment_billing/domain/value-objects/PaymentStatus';
+import { IPaymentRepository } from '../../../DDD_Artefacts/src/payment_billing/domain/repositories/IPaymentRepository';
 import { Money } from '@shared/domain/value-objects/Money';
 import { Result, success, failure } from '@shared/core/Result';
 
@@ -9,12 +10,12 @@ class InMemoryPaymentRepository implements IPaymentRepository {
 
   async findById(id: string): Promise<Result<any>> {
     const payment = this.store.get(id);
-    return payment ? success(payment) : failure('not found');
+    return payment ? success(payment) : failure(new Error('not found'));
   }
 
   async save(payment: any): Promise<Result<void>> {
     if (this.store.has(payment.id)) {
-      return failure('duplicate');
+      return failure(new Error('duplicate'));
     }
     this.store.set(payment.id, payment);
     return success(undefined);
@@ -43,8 +44,12 @@ describe('Payment aggregate', () => {
   test('repository rejects duplicate id', async () => {
     // Arrange
     const repo = new InMemoryPaymentRepository();
-    const amount = Money.create(5, 'BBD').value;
-    const payment = Payment.initiate('order-2', amount, PaymentMethod.PayPal).value;
+    const amountResult = Money.create(5, 'BBD');
+    if (amountResult.isFailure()) throw new Error('Failed to create amount');
+    const amount = amountResult.getValue();
+    const paymentResult = Payment.initiate('order-2', amount, PaymentMethod.PayPal);
+    if (paymentResult.isFailure()) throw new Error('Failed to create payment');
+    const payment = paymentResult.getValue();
 
     // Act
     const first = await repo.save(payment);
@@ -54,16 +59,22 @@ describe('Payment aggregate', () => {
     expect(first.isSuccess()).toBe(true);
     expect(duplicate.isFailure()).toBe(true);
     if (duplicate.isFailure()) {
-      expect(duplicate.error).toBe('duplicate');
+      expect(duplicate.getErrorValue().message).toBe('duplicate');
     }
   });
 
   test('refund after capture results in REFUNDED status', () => {
     // Arrange
-    const amount = Money.create(20, 'BBD').value;
-    const payment = Payment.initiate('order-3', amount, PaymentMethod.Card).value;
+    const amountResult = Money.create(20, 'BBD');
+    if (amountResult.isFailure()) throw new Error('Failed to create amount');
+    const amount = amountResult.getValue();
+    const paymentResult = Payment.initiate('order-3', amount, PaymentMethod.Card);
+    if (paymentResult.isFailure()) throw new Error('Failed to create payment');
+    const payment = paymentResult.getValue();
     payment.capture('tx-1');
-    const refundAmount = Money.create(20, 'BBD').value;
+    const refundAmountResult = Money.create(20, 'BBD');
+    if (refundAmountResult.isFailure()) throw new Error('Failed to create refund amount');
+    const refundAmount = refundAmountResult.getValue();
 
     // Act
     const refundResult = payment.initiateRefund('refund-1', refundAmount);
@@ -75,8 +86,12 @@ describe('Payment aggregate', () => {
 
   test('cannot capture twice', () => {
     // Arrange
-    const amount = Money.create(30, 'BBD').value;
-    const payment = Payment.initiate('order-4', amount, PaymentMethod.Card).value;
+    const amountResult = Money.create(30, 'BBD');
+    if (amountResult.isFailure()) throw new Error('Failed to create amount');
+    const amount = amountResult.getValue();
+    const paymentResult = Payment.initiate('order-4', amount, PaymentMethod.Card);
+    if (paymentResult.isFailure()) throw new Error('Failed to create payment');
+    const payment = paymentResult.getValue();
     payment.capture('tx-1');
 
     // Act
@@ -88,8 +103,12 @@ describe('Payment aggregate', () => {
 
   test('cannot fail after capture', () => {
     // Arrange
-    const amount = Money.create(40, 'BBD').value;
-    const payment = Payment.initiate('order-5', amount, PaymentMethod.Card).value;
+    const amountResult = Money.create(40, 'BBD');
+    if (amountResult.isFailure()) throw new Error('Failed to create amount');
+    const amount = amountResult.getValue();
+    const paymentResult = Payment.initiate('order-5', amount, PaymentMethod.Card);
+    if (paymentResult.isFailure()) throw new Error('Failed to create payment');
+    const payment = paymentResult.getValue();
     payment.capture('tx-1');
 
     // Act
@@ -101,7 +120,9 @@ describe('Payment aggregate', () => {
 
   test('initiate fails with missing orderId', () => {
     // Arrange
-    const amount = Money.create(10, 'BBD').value;
+    const amountResult = Money.create(10, 'BBD');
+    if (amountResult.isFailure()) throw new Error('Failed to create amount');
+    const amount = amountResult.getValue();
 
     // Act
     const result = Payment.initiate(undefined as any, amount, PaymentMethod.Card);
@@ -112,8 +133,12 @@ describe('Payment aggregate', () => {
 
   test('payment can fail while initiated', () => {
     // Arrange
-    const amount = Money.create(12, 'BBD').value;
-    const payment = Payment.initiate('order-f1', amount, PaymentMethod.Card).value;
+    const amountResult = Money.create(12, 'BBD');
+    if (amountResult.isFailure()) throw new Error('Failed to create amount');
+    const amount = amountResult.getValue();
+    const paymentResult = Payment.initiate('order-f1', amount, PaymentMethod.Card);
+    if (paymentResult.isFailure()) throw new Error('Failed to create payment');
+    const payment = paymentResult.getValue();
 
     // Act
     const res = payment.fail('declined');
@@ -125,8 +150,12 @@ describe('Payment aggregate', () => {
 
   test('refund requires captured status', () => {
     // Arrange
-    const amount = Money.create(15, 'BBD').value;
-    const payment = Payment.initiate('order-r1', amount, PaymentMethod.Card).value;
+    const amountResult = Money.create(15, 'BBD');
+    if (amountResult.isFailure()) throw new Error('Failed to create amount');
+    const amount = amountResult.getValue();
+    const paymentResult = Payment.initiate('order-r1', amount, PaymentMethod.Card);
+    if (paymentResult.isFailure()) throw new Error('Failed to create payment');
+    const payment = paymentResult.getValue();
 
     // Act
     const res = payment.initiateRefund('r1', amount);
@@ -137,10 +166,16 @@ describe('Payment aggregate', () => {
 
   test('receive chargeback after capture', () => {
     // Arrange
-    const amount = Money.create(5, 'BBD').value;
-    const payment = Payment.initiate('order-c1', amount, PaymentMethod.PayPal).value;
+    const amountResult = Money.create(5, 'BBD');
+    if (amountResult.isFailure()) throw new Error('Failed to create amount');
+    const amount = amountResult.getValue();
+    const paymentResult = Payment.initiate('order-c1', amount, PaymentMethod.PayPal);
+    if (paymentResult.isFailure()) throw new Error('Failed to create payment');
+    const payment = paymentResult.getValue();
     payment.capture('tx-c1');
-    const cbAmount = Money.create(5, 'BBD').value;
+    const cbAmountResult = Money.create(5, 'BBD');
+    if (cbAmountResult.isFailure()) throw new Error('Failed to create chargeback amount');
+    const cbAmount = cbAmountResult.getValue();
 
     // Act
     const res = payment.receiveChargeback('cb1', cbAmount, 'fraud');
@@ -152,9 +187,15 @@ describe('Payment aggregate', () => {
 
   test('cannot receive chargeback before capture', () => {
     // Arrange
-    const amount = Money.create(8, 'BBD').value;
-    const payment = Payment.initiate('order-c2', amount, PaymentMethod.PayPal).value;
-    const cbAmount = Money.create(8, 'BBD').value;
+    const amountResult = Money.create(8, 'BBD');
+    if (amountResult.isFailure()) throw new Error('Failed to create amount');
+    const amount = amountResult.getValue();
+    const paymentResult = Payment.initiate('order-c2', amount, PaymentMethod.PayPal);
+    if (paymentResult.isFailure()) throw new Error('Failed to create payment');
+    const payment = paymentResult.getValue();
+    const cbAmountResult = Money.create(8, 'BBD');
+    if (cbAmountResult.isFailure()) throw new Error('Failed to create chargeback amount');
+    const cbAmount = cbAmountResult.getValue();
 
     // Act
     const res = payment.receiveChargeback('cb2', cbAmount, 'fraud');

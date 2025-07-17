@@ -3,7 +3,8 @@ import { UniqueEntityID } from '../../../shared/domain/base/UniqueEntityID';
 import { Result, success, failure } from '../../../shared/core/Result';
 import { Guard } from '../../../shared/core/Guard';
 import { Money } from '../../../shared/domain/value-objects/Money';
-import { CustomerType } from '../../../customers/domain/value-objects/CustomerType';
+// Temporary string type until customers context is available
+type CustomerType = string;
 
 interface SubscriptionBundleProps {
   name: string;

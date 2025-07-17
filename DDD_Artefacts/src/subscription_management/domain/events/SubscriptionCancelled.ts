@@ -1,4 +1,5 @@
 import { DomainEvent, DomainEventProps } from '../../../shared/domain/events/DomainEvent';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
 import { Subscription } from '../aggregates/Subscription';
 
 export class SubscriptionCancelled extends DomainEvent {
@@ -6,14 +7,16 @@ export class SubscriptionCancelled extends DomainEvent {
 
   constructor(subscription: Subscription) {
     super({
-      aggregateId: subscription.subscriptionId
+      aggregateId: subscription.id.toString(),
+      eventId: new UniqueEntityID().toString(),
+      occurredOn: new Date()
     });
     this.subscription = subscription;
   }
 
   public toPrimitives(): any {
     return {
-      subscriptionId: this.subscription.subscriptionId,
+      subscriptionId: this.subscription.id.toString(),
       customerId: this.subscription.customerId,
       cancelledAt: new Date().toISOString()
     };

@@ -40,7 +40,7 @@ export class Payment extends AggregateRoot<PaymentProps> {
       { argument: method, argumentName: 'method' }
     ]);
     if (!guardResult.succeeded) {
-      return failure(guardResult.message!);
+      return failure(new Error(guardResult.message!));
     }
 
     const payment = new Payment(
@@ -167,7 +167,11 @@ export class Payment extends AggregateRoot<PaymentProps> {
   }
 
   get paymentId(): PaymentId {
-    return PaymentId.create(this.id.toString()).value;
+    const paymentIdResult = PaymentId.create(this.id.toString());
+    if (paymentIdResult.isFailure()) {
+      throw new Error(`Failed to create PaymentId: ${paymentIdResult.getErrorValue()}`);
+    }
+    return paymentIdResult.getValue();
   }
 
   get orderId(): string {

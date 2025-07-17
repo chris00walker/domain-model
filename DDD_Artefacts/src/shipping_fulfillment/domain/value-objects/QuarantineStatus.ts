@@ -1,6 +1,6 @@
 import { ValueObject } from '../../../shared/domain/base/ValueObject';
-import { Result, success, failure } from '../../../shared/domain/base/Result';
-import { Guard } from '../../../shared/domain/base/Guard';
+import { Result, success, failure } from '../../../shared/core/Result';
+import { Guard } from '../../../shared/core/Guard';
 
 interface QuarantineStatusProps {
   isQuarantined: boolean;

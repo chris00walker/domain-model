@@ -1,5 +1,5 @@
-import { ValueObject } from '../../../../shared/domain/ValueObject';
-import { Result, success, failure } from '../../../../shared/core/Result';
+import { ValueObject } from '../../../shared/domain/ValueObject';
+import { Result, success, failure } from '../../../shared/core/Result';
 import { SystemSettingKey, SystemSettingKeyValue } from './SystemSettingKey';
 
 /**
@@ -63,9 +63,9 @@ export class SystemSettingValue extends ValueObject<SystemSettingValueProps> {
   /**
    * Creates a new setting value with appropriate validation based on the setting key
    */
-  public static create(key: SystemSettingKey, value: string): Result<SystemSettingValue> {
+  public static create(key: SystemSettingKey, value: string): Result<SystemSettingValue, Error> {
     if (value === undefined || value === null) {
-      return failure('Setting value cannot be null or undefined');
+      return failure(new Error('Setting value cannot be null or undefined'));
     }
     
     // Determine the expected type based on the key
@@ -75,25 +75,25 @@ export class SystemSettingValue extends ValueObject<SystemSettingValueProps> {
     switch (type) {
       case SystemSettingValueType.BOOLEAN:
         if (value.toLowerCase() !== 'true' && value.toLowerCase() !== 'false') {
-          return failure('Boolean setting must be "true" or "false"');
+          return failure(new Error('Boolean setting must be "true" or "false"'));
         }
         break;
         
       case SystemSettingValueType.NUMBER:
         if (isNaN(Number(value))) {
-          return failure('Numeric setting must be a valid number');
+          return failure(new Error('Numeric setting must be a valid number'));
         }
         
         // Additional validation for specific numeric settings
         if (key.value === SystemSettingKeyValue.PASSWORD_EXPIRATION_DAYS) {
           const days = Number(value);
           if (days < 0 || days > 365) {
-            return failure('Password expiration days must be between 0 and 365');
+            return failure(new Error('Password expiration days must be between 0 and 365'));
           }
         } else if (key.value === SystemSettingKeyValue.AUTO_APPROVAL_THRESHOLD) {
           const threshold = Number(value);
           if (threshold < 0 || threshold > 1) {
-            return failure('Approval threshold must be between 0 and 1');
+            return failure(new Error('Approval threshold must be between 0 and 1'));
           }
         }
         break;
@@ -103,7 +103,7 @@ export class SystemSettingValue extends ValueObject<SystemSettingValueProps> {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         for (const email of emails) {
           if (!emailRegex.test(email)) {
-            return failure(`Invalid email format: ${email}`);
+            return failure(new Error(`Invalid email format: ${email}`));
           }
         }
         break;
@@ -112,7 +112,7 @@ export class SystemSettingValue extends ValueObject<SystemSettingValueProps> {
         try {
           JSON.parse(value);
         } catch (e) {
-          return failure('Invalid JSON format');
+          return failure(new Error('Invalid JSON format'));
         }
         break;
     }

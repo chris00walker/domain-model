@@ -40,8 +40,8 @@ export class GetPendingModerationTasksUseCase {
       // Get pending tasks from domain service
       const tasksResult = await this.moderationService.getPendingTasks(limit, offset);
       
-      if (tasksResult.isFailure) {
-        return failure(new Error(tasksResult.error));
+      if (tasksResult.isFailure()) {
+        return failure(tasksResult.getErrorValue());
       }
       
       const tasks = tasksResult.getValue();
@@ -49,14 +49,14 @@ export class GetPendingModerationTasksUseCase {
       // Get total count for pagination
       const countResult = await this.moderationService.countPendingTasks();
       
-      if (countResult.isFailure) {
-        return failure(new Error(countResult.error));
+      if (countResult.isFailure()) {
+        return failure(countResult.getErrorValue());
       }
       
       const totalCount = countResult.getValue();
       
       // Map to DTOs
-      const taskDTOs = tasks.map(task => ({
+      const taskDTOs = tasks.map((task: any) => ({
         id: task.id.toString(),
         contentId: task.contentId.toString(),
         contentType: task.contentType,

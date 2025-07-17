@@ -1,5 +1,5 @@
-import { ValueObject } from '../../../../shared/domain/ValueObject';
-import { Result, success, failure } from '../../../../shared/core/Result';
+import { ValueObject } from '../../../shared/domain/ValueObject';
+import { Result, success, failure } from '../../../shared/core/Result';
 
 /**
  * Possible states of an admin user account
@@ -30,9 +30,9 @@ export class AdminUserStatus extends ValueObject<AdminUserStatusProps> {
     super(props);
   }
   
-  public static create(status: AdminUserStatusValue): Result<AdminUserStatus> {
+  public static create(status: AdminUserStatusValue): Result<AdminUserStatus, Error> {
     if (!Object.values(AdminUserStatusValue).includes(status)) {
-      return failure('Invalid admin user status');
+      return failure(new Error('Invalid admin user status'));
     }
     
     return success(new AdminUserStatus({ value: status }));
@@ -60,11 +60,8 @@ export class AdminUserStatus extends ValueObject<AdminUserStatusProps> {
   /**
    * Equality check with another AdminUserStatus
    */
-  public equals(status: AdminUserStatus | AdminUserStatusValue): boolean {
-    if (status instanceof AdminUserStatus) {
-      return this.props.value === status.props.value;
-    }
-    return this.props.value === status;
+  public equals(vo?: ValueObject<AdminUserStatusProps>): boolean {
+    return super.equals(vo);
   }
   
   toString(): string {

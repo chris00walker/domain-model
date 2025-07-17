@@ -1,12 +1,12 @@
-import { AggregateRoot } from '../../../../shared/domain/base/AggregateRoot';
-import { UniqueEntityID } from '../../../../shared/domain/base/UniqueEntityID';
-import { Result, success, failure } from '../../../../shared/core/Result';
-import { Guard } from '../../../../shared/core/Guard';
+import { AggregateRoot } from '../../../shared/domain/AggregateRoot';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
+import { Result, success, failure } from '../../../shared/core/Result';
+import { Guard } from '../../../shared/core/Guard';
 import { ShipmentStatus } from '../value-objects/ShipmentStatus';
 import { TrackingNumber } from '../value-objects/TrackingNumber';
 import { ShipmentCreated } from '../events/ShipmentCreated';
 import { ShipmentStatusChanged } from '../events/ShipmentStatusChanged';
-import { Clock, SystemClock } from '../../../../shared/domain/Clock';
+import { Clock, SystemClock } from '../../../shared/domain/Clock';
 
 export interface ShipmentItem {
   productId: string;
@@ -87,8 +87,7 @@ export class ShipmentAggregate extends AggregateRoot<ShipmentProps> {
         props.customerId,
         props.shippingAddress,
         props.items.map(item => ({ productId: item.productId, quantity: item.quantity })),
-        props.serviceLevel,
-        now
+        props.serviceLevel
       ));
     }
 
@@ -115,8 +114,7 @@ export class ShipmentAggregate extends AggregateRoot<ShipmentProps> {
       this.props.status,
       undefined,
       undefined,
-      `Shipment scheduled for delivery by ${estimatedDeliveryDate.toISOString().split('T')[0]}`,
-      clock.now()
+      `Shipment scheduled for delivery by ${estimatedDeliveryDate.toISOString().split('T')[0]}`
     ));
 
     return success(undefined);
@@ -153,8 +151,7 @@ export class ShipmentAggregate extends AggregateRoot<ShipmentProps> {
       this.props.status,
       trackingNumber,
       carrier,
-      `Shipping label generated with ${carrier} tracking number ${trackingNumber}`,
-      clock.now()
+      `Shipping label generated with ${carrier} tracking number ${trackingNumber}`
     ));
 
     return success(undefined);
@@ -183,8 +180,7 @@ export class ShipmentAggregate extends AggregateRoot<ShipmentProps> {
       this.props.status,
       this.props.trackingNumber.value,
       this.props.trackingNumber.carrier,
-      `Shipment picked up by ${this.props.trackingNumber.carrier}`,
-      clock.now()
+      `Shipment picked up by ${this.props.trackingNumber.carrier}`
     ));
 
     return success(undefined);
@@ -213,8 +209,7 @@ export class ShipmentAggregate extends AggregateRoot<ShipmentProps> {
       this.props.status,
       this.props.trackingNumber.value,
       this.props.trackingNumber.carrier,
-      `Shipment in transit. Last location: ${lastLocation}`,
-      clock.now()
+      `Shipment in transit. Last location: ${lastLocation}`
     ));
 
     return success(undefined);
@@ -244,8 +239,7 @@ export class ShipmentAggregate extends AggregateRoot<ShipmentProps> {
       this.props.status,
       this.props.trackingNumber.value,
       this.props.trackingNumber.carrier,
-      `Shipment delivered to ${recipientName}`,
-      clock.now()
+      `Shipment delivered to ${recipientName}`
     ));
 
     return success(undefined);
@@ -271,8 +265,7 @@ export class ShipmentAggregate extends AggregateRoot<ShipmentProps> {
       this.props.status,
       this.props.trackingNumber.value,
       this.props.trackingNumber.carrier,
-      `Delivery exception: ${exceptionType} - ${details}`,
-      clock.now()
+      `Delivery exception: ${exceptionType} - ${details}`
     ));
 
     return success(undefined);
@@ -299,8 +292,7 @@ export class ShipmentAggregate extends AggregateRoot<ShipmentProps> {
       this.props.status,
       this.props.trackingNumber?.value,
       this.props.trackingNumber?.carrier,
-      `Shipment cancelled: ${reason}`,
-      clock.now()
+      `Shipment cancelled: ${reason}`
     ));
 
     return success(undefined);

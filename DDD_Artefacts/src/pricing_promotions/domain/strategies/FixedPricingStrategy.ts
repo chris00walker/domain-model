@@ -48,7 +48,7 @@ export class FixedPricingStrategy extends PricingStrategy {
     }
     
     // Calculate unit price with markup
-    const markup = markupResult.value;
+    const markup = markupResult.getValue();
     const unitPriceWithMarkup = markup.applyToAmount(baseCost.amount);
     
     // Create Money object for the unit price
@@ -58,13 +58,13 @@ export class FixedPricingStrategy extends PricingStrategy {
     }
     
     // Calculate total price for the quantity
-    let totalPrice = unitPriceResult.value;
+    let totalPrice = unitPriceResult.getValue();
     if (quantity > 1) {
       const quantityMultiplyResult = totalPrice.multiply(quantity);
       if (quantityMultiplyResult.isFailure()) {
         return failure(`Failed to multiply by quantity: ${quantityMultiplyResult.error}`);
       }
-      totalPrice = quantityMultiplyResult.value;
+      totalPrice = quantityMultiplyResult.getValue();
     }
 
     // Apply price modifiers if any
@@ -79,7 +79,7 @@ export class FixedPricingStrategy extends PricingStrategy {
         if (modifiedPriceResult.isFailure()) {
           return failure(`Failed to apply price modifier (${modifier.name}): ${modifiedPriceResult.error}`);
         }
-        currentPrice = modifiedPriceResult.value;
+        currentPrice = modifiedPriceResult.getValue();
       }
       
       totalPrice = currentPrice;
@@ -87,7 +87,7 @@ export class FixedPricingStrategy extends PricingStrategy {
 
     // Verify the calculated price meets margin floor requirements
     const unitBaseCost = quantity > 1 ? 
-      baseCost.multiply(quantity).value : 
+      baseCost.multiply(quantity).getValue() : 
       baseCost;
       
     if (!this.verifyMarginFloor(totalPrice, unitBaseCost, pricingTier)) {

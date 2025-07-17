@@ -1,6 +1,6 @@
-import { AggregateRoot } from '../../../../shared/domain/AggregateRoot';
-import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
-import { Result, success, failure } from '../../../../shared/core/Result';
+import { AggregateRoot } from '../../../shared/domain/AggregateRoot';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
+import { Result, success, failure } from '../../../shared/core/Result';
 import { Role } from '../entities/Role';
 import { AdminUserStatus } from '../value-objects/AdminUserStatus';
 import { AdminUserEmail } from '../value-objects/AdminUserEmail';
@@ -26,6 +26,10 @@ interface AdminUserProps {
  * Manages the lifecycle of admin accounts including creation, role assignment, and deactivation.
  */
 export class AdminUser extends AggregateRoot<AdminUserProps> {
+  
+  constructor(props: AdminUserProps, id?: UniqueEntityID) {
+    super(props, id);
+  }
   
   get email(): AdminUserEmail {
     return this.props.email;
@@ -60,7 +64,7 @@ export class AdminUser extends AggregateRoot<AdminUserProps> {
   }
   
   get isActive(): boolean {
-    return this.status.equals(AdminUserStatus.ACTIVE);
+    return this.status.equals(AdminUserStatus.ACTIVE());
   }
 
   /**
@@ -68,21 +72,21 @@ export class AdminUser extends AggregateRoot<AdminUserProps> {
    */
   public static create(props: Omit<AdminUserProps, 'createdAt' | 'updatedAt' | 'status'>, id?: UniqueEntityID): Result<AdminUser> {
     if (!props.email) {
-      return failure('Admin user must have an email');
+      return failure(new Error('Admin user must have an email'));
     }
     
     if (!props.name || props.name.trim().length === 0) {
-      return failure('Admin user must have a name');
+      return failure(new Error('Admin user must have a name'));
     }
     
     if (!props.roles || props.roles.length === 0) {
-      return failure('Admin user must have at least one role');
+      return failure(new Error('Admin user must have at least one role'));
     }
     
     const now = new Date();
     const adminUser = new AdminUser({
       ...props,
-      status: AdminUserStatus.PENDING_MFA,
+      status: AdminUserStatus.PENDING_MFA(),
       createdAt: now,
       updatedAt: now
     }, id);
@@ -98,7 +102,7 @@ export class AdminUser extends AggregateRoot<AdminUserProps> {
    */
   public assignRoles(roles: Role[]): Result<void> {
     if (!roles || roles.length === 0) {
-      return failure('At least one role must be provided');
+      return failure(new Error('At least one role must be provided'));
     }
     
     // Update roles
@@ -131,7 +135,7 @@ export class AdminUser extends AggregateRoot<AdminUserProps> {
    */
   public removeRole(roleId: UniqueEntityID): Result<void> {
     if (this.props.roles.length <= 1) {
-      return failure('Admin user must have at least one role');
+      return failure(new Error('Admin user must have at least one role'));
     }
     
     const initialLength = this.props.roles.length;
@@ -152,10 +156,10 @@ export class AdminUser extends AggregateRoot<AdminUserProps> {
    */
   public deactivate(): Result<void> {
     if (!this.isActive) {
-      return failure('Admin user is already inactive');
+      return failure(new Error('Admin user is already inactive'));
     }
     
-    this.props.status = AdminUserStatus.INACTIVE;
+    this.props.status = AdminUserStatus.INACTIVE();
     this.props.updatedAt = new Date();
     
     // Add domain event
@@ -169,14 +173,14 @@ export class AdminUser extends AggregateRoot<AdminUserProps> {
    */
   public activate(): Result<void> {
     if (this.isActive) {
-      return failure('Admin user is already active');
+      return failure(new Error('Admin user is already active'));
     }
     
     if (!this.props.mfaEnabled) {
-      return failure('MFA must be enabled before activating an admin user');
+      return failure(new Error('MFA must be enabled before activating an admin user'));
     }
     
-    this.props.status = AdminUserStatus.ACTIVE;
+    this.props.status = AdminUserStatus.ACTIVE();
     this.props.updatedAt = new Date();
     
     return success(undefined);
@@ -195,7 +199,7 @@ export class AdminUser extends AggregateRoot<AdminUserProps> {
    */
   public enableMfa(): Result<void> {
     if (this.props.mfaEnabled) {
-      return failure('MFA is already enabled');
+      return failure(new Error('MFA is already enabled'));
     }
     
     this.props.mfaEnabled = true;

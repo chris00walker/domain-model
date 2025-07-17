@@ -2,7 +2,7 @@ import { Result, success, failure } from '../../../../shared/core/Result';
 import { ModerationService } from '../../../domain/services/ModerationService';
 import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
 import { UseCase } from '../../../../shared/application/UseCase';
-import { ContentType } from '../../../domain/value-objects/ContentType';
+import { ContentType } from '../../../domain/aggregates/ModerationTask';
 
 interface SubmitContentForModerationRequest {
   contentId: string;
@@ -32,12 +32,10 @@ export class SubmitContentForModerationUseCase implements UseCase<SubmitContentF
   async execute(request: SubmitContentForModerationRequest): Promise<SubmitContentForModerationResponse> {
     try {
       // Validate content type
-      const contentTypeOrError = ContentType.create(request.contentType);
-      if (contentTypeOrError.isFailure) {
+      const contentType = request.contentType as ContentType;
+      if (!Object.values(ContentType).includes(contentType)) {
         return failure(new Error(`Invalid content type: ${request.contentType}`));
       }
-      
-      const contentType = contentTypeOrError.getValue();
       
       // Submit content for moderation
       const taskResult = await this.moderationService.createModerationTask(
@@ -46,8 +44,8 @@ export class SubmitContentForModerationUseCase implements UseCase<SubmitContentF
         request.contentData
       );
       
-      if (taskResult.isFailure) {
-        return failure(new Error(taskResult.error));
+      if (taskResult.isFailure()) {
+        return failure(taskResult.getErrorValue());
       }
       
       const moderationTask = taskResult.getValue();

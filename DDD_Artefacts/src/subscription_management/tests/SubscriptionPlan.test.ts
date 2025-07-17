@@ -235,7 +235,7 @@ describe('SubscriptionPlan Aggregate with Clock', () => {
     testClock.setCurrentTime(updateTime);
     
     // Act
-    plan.removeBenefit(benefitToRemove.id, testClock);
+    plan.removeBenefit(benefitToRemove, testClock);
     
     // Assert
     expect(plan.updatedAt.getTime()).toBe(updateTime.getTime());

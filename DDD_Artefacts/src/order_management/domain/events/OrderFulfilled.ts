@@ -1,4 +1,5 @@
 import { DomainEvent } from '../../../shared/domain/events/DomainEvent';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
 
 export class OrderFulfilled extends DomainEvent {
   public static readonly EVENT_NAME = 'order.fulfilled';
@@ -11,7 +12,7 @@ export class OrderFulfilled extends DomainEvent {
   ) {
     super({
       aggregateId: orderId,
-      eventId: undefined,
+      eventId: new UniqueEntityID().toString(),
       occurredOn
     });
   }
