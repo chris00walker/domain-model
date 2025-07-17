@@ -52,14 +52,14 @@ export class GetSystemSettingsUseCase {
         offset
       );
       
-      if (settingsResult.isFailure) {
-        return failure(new Error(settingsResult.error));
+      if (settingsResult.isFailure()) {
+        return failure(settingsResult.getErrorValue());
       }
       
       const { settings, totalCount } = settingsResult.getValue();
       
       // Map domain entities to DTOs
-      const settingDTOs = settings.map(setting => ({
+      const settingDTOs = settings.map((setting: any) => ({
         id: setting.id.toString(),
         key: setting.key,
         value: setting.value,

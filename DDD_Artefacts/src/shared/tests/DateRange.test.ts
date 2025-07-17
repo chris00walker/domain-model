@@ -57,7 +57,7 @@ describe('DateRange', () => {
       const result = DateRange.create(start, end, testClock);
       
       expect(result.isFailure()).toBe(true);
-      expect(result.error).toBe('Start date must be before or equal to end date');
+      expect(result.getErrorValue()).toBe('Start date must be before or equal to end date');
     });
   });
 
@@ -288,7 +288,7 @@ describe('DateRange', () => {
         
         const intersectionResult = dateRange1.intersection(dateRange2);
         expect(intersectionResult.isFailure()).toBe(true);
-        expect(intersectionResult.error).toBe('Date ranges do not overlap');
+        expect(intersectionResult.getErrorValue()).toBe('Date ranges do not overlap');
       }
     });
   });

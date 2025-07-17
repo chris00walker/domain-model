@@ -1,5 +1,5 @@
-import { ValueObject } from '../../../../shared/domain/ValueObject';
-import { Result, success, failure } from '../../../../shared/core/Result';
+import { ValueObject } from '../../../shared/domain/ValueObject';
+import { Result, success, failure } from '../../../shared/core/Result';
 
 interface AdminUserEmailProps {
   value: string;
@@ -23,16 +23,15 @@ export class AdminUserEmail extends ValueObject<AdminUserEmailProps> {
   /**
    * Validates and creates an AdminUserEmail value object
    */
-  public static create(email: string): Result<AdminUserEmail> {
+  public static create(email: string): Result<AdminUserEmail, Error> {
     if (!email || email.trim().length === 0) {
-      return failure('Email is required');
+      return failure(new Error('Email is required'));
     }
     
-    // RFC 5322 compliant email regex
-    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return failure('Invalid email format');
+      return failure(new Error('Invalid email format'));
     }
     
     return success(new AdminUserEmail({ value: email.toLowerCase() }));

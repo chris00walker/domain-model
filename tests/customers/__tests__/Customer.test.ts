@@ -1,26 +1,26 @@
-import { ExpatCustomer } from '@customers/domain/aggregates/ExpatCustomer';
-import { FoodTruckCustomer } from '@customers/domain/aggregates/FoodTruckCustomer';
-import { CustomerSegment } from '@customers/domain/value-objects/CustomerSegment';
-import { CustomerSegmentType } from '@customers/domain/value-objects/CustomerSegmentType';
-import { CustomerType } from '@customers/domain/value-objects/CustomerType';
-import { B2CCustomerSegment } from '@customers/domain/value-objects/B2CCustomerSegment';
-import { B2BCustomerSegment } from '@customers/domain/value-objects/B2BCustomerSegment';
-import { ContactInfo } from '@customers/domain/value-objects/ContactInfo';
-import { Address } from '@shared/domain/value-objects/Address';
-import { success, failure, Result } from '@shared/core/Result';
-import { CustomerSegmentChanged } from '@customers/domain/events/CustomerSegmentChanged';
+import { ExpatCustomer } from '../../../DDD_Artefacts/src/customer_management/domain/aggregates/ExpatCustomer';
+import { FoodTruckCustomer } from '../../../DDD_Artefacts/src/customer_management/domain/aggregates/FoodTruckCustomer';
+import { CustomerSegment } from '../../../DDD_Artefacts/src/customer_management/domain/value-objects/CustomerSegment';
+import { CustomerSegmentType } from '../../../DDD_Artefacts/src/customer_management/domain/value-objects/CustomerSegmentType';
+import { CustomerType } from '../../../DDD_Artefacts/src/customer_management/domain/value-objects/CustomerType';
+import { B2CCustomerSegment } from '../../../DDD_Artefacts/src/customer_management/domain/value-objects/B2CCustomerSegment';
+import { B2BCustomerSegment } from '../../../DDD_Artefacts/src/customer_management/domain/value-objects/B2BCustomerSegment';
+import { ContactInfo } from '../../../DDD_Artefacts/src/customer_management/domain/value-objects/ContactInfo';
+import { Address } from '../../../DDD_Artefacts/src/shared/domain/value-objects/Address';
+import { success, failure, Result } from '../../../DDD_Artefacts/src/shared/core/Result';
+import { CustomerSegmentChanged } from '../../../DDD_Artefacts/src/customer_management/domain/events/CustomerSegmentChanged';
 
 class InMemoryCustomerRepository {
   private store = new Map<string, any>();
 
   async findById(id: string): Promise<Result<any>> {
     const customer = this.store.get(id);
-    return customer ? success(customer) : failure('not found');
+    return customer ? success(customer) : failure(new Error('not found'));
   }
 
   async save(customer: any): Promise<Result<void>> {
     if (this.store.has(customer.id)) {
-      return failure('duplicate');
+      return failure(new Error('duplicate'));
     }
     this.store.set(customer.id, customer);
     return success(undefined);
@@ -134,7 +134,7 @@ describe('Customer aggregate', () => {
     expect(first.isSuccess()).toBe(true);
     expect(second.isFailure()).toBe(true);
     if (second.isFailure()) {
-      expect(second.error).toBe('duplicate');
+      expect(second.getErrorValue().message).toBe('duplicate');
     }
   });
 

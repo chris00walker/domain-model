@@ -1,5 +1,5 @@
 import { SubscriptionAggregate } from '../aggregates/SubscriptionAggregate';
-import { Result } from '../../../../shared/core/Result';
+import { Result } from '../../../shared/core/Result';
 
 export interface ISubscriptionRepository {
   /**

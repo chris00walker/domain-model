@@ -1,5 +1,5 @@
 import { Role } from '../entities/Role';
-import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
 
 /**
  * IRoleRepository

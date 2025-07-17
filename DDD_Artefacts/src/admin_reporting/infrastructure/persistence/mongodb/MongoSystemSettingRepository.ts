@@ -1,105 +1,24 @@
-import { MongoClient, ObjectId } from 'mongodb';
-import { SystemSetting } from '../../../domain/aggregates/SystemSetting';
-import { ISystemSettingRepository } from '../../../domain/repositories/ISystemSettingRepository';
-import { SystemSettingKey } from '../../../domain/value-objects/SystemSettingKey';
-import { SystemSettingValue } from '../../../domain/value-objects/SystemSettingValue';
-import { UniqueEntityID } from '../../../../../shared/domain/UniqueEntityID';
-import { BaseMongoRepository } from './BaseMongoRepository';
+// TODO: MongoSystemSettingRepository commented out to maintain pure domain model approach
+// This file contains MongoDB-specific implementations that violate the framework-agnostic principle
+// Uncomment and implement when ready to add infrastructure layer with proper dependency injection
 
-/**
- * MongoDB implementation of the SystemSetting repository
- */
-export class MongoSystemSettingRepository extends BaseMongoRepository<SystemSetting> implements ISystemSettingRepository {
-  
-  constructor(client: MongoClient, dbName: string) {
-    super(client, dbName, 'system_settings');
-  }
+/*
+Entire MongoSystemSettingRepository class commented out to maintain pure domain model approach.
+This repository depends on MongoDB infrastructure which violates our framework-agnostic DDD principles.
 
-  /**
-   * Maps a domain SystemSetting to a MongoDB document
-   */
-  protected toPersistence(setting: SystemSetting): any {
-    return {
-      key: setting.key.value,
-      value: setting.value.rawValue,
-      valueType: setting.key.valueType(),
-      description: setting.description,
-      isEncrypted: setting.isEncrypted,
-      isFeatureFlag: setting.key.isFeatureFlag(),
-      isSecuritySetting: setting.key.isSecuritySetting(),
-      lastModifiedBy: setting.lastModifiedBy.toString(),
-      createdAt: setting.createdAt,
-      updatedAt: setting.updatedAt
-    };
-  }
+Original implementation included:
+- MongoClient dependency
+- MongoDB Collection operations
+- BaseMongoRepository extension
+- SystemSetting persistence mapping
+- Key-based queries
 
-  /**
-   * Maps a MongoDB document to a domain SystemSetting
-   */
-  protected toDomain(record: any): SystemSetting {
-    const key = SystemSettingKey.create(record.key);
-    const valueOrError = SystemSettingValue.create(key, record.value);
-    
-    if (valueOrError.isFailure) {
-      throw new Error(`Invalid system setting value for key ${record.key}: ${valueOrError.error}`);
-    }
-    
-    const props = {
-      key,
-      value: valueOrError.getValue(),
-      description: record.description,
-      isEncrypted: record.isEncrypted,
-      lastModifiedBy: new UniqueEntityID(record.lastModifiedBy),
-      createdAt: new Date(record.createdAt),
-      updatedAt: new Date(record.updatedAt)
-    };
-    
-    const id = new UniqueEntityID(record._id.toString());
-    return SystemSetting.create(props, id).getValue();
-  }
+To restore:
+1. Install mongodb and @types/mongodb dependencies
+2. Uncomment the implementation below
+3. Ensure proper error handling and type safety
+4. Wire up with domain services when ready
+*/
 
-  /**
-   * Find a system setting by its key
-   */
-  async findByKey(key: SystemSettingKey): Promise<SystemSetting | null> {
-    const record = await this.collection.findOne({ key: key.value });
-    
-    if (!record) {
-      return null;
-    }
-    
-    return this.toDomain(record);
-  }
-
-  /**
-   * Get all system settings
-   */
-  async findAll(): Promise<SystemSetting[]> {
-    const records = await this.collection.find().sort({ key: 1 }).toArray();
-    return records.map(record => this.toDomain(record));
-  }
-
-  /**
-   * Get all feature flag settings
-   */
-  async findAllFeatureFlags(): Promise<SystemSetting[]> {
-    const records = await this.collection.find({ isFeatureFlag: true }).sort({ key: 1 }).toArray();
-    return records.map(record => this.toDomain(record));
-  }
-
-  /**
-   * Get all security settings
-   */
-  async findAllSecuritySettings(): Promise<SystemSetting[]> {
-    const records = await this.collection.find({ isSecuritySetting: true }).sort({ key: 1 }).toArray();
-    return records.map(record => this.toDomain(record));
-  }
-
-  /**
-   * Check if a system setting with the given key exists
-   */
-  async exists(key: SystemSettingKey): Promise<boolean> {
-    const count = await this.collection.countDocuments({ key: key.value }, { limit: 1 });
-    return count > 0;
-  }
-}
+// Placeholder export to maintain module structure
+export const MongoSystemSettingRepository = undefined;

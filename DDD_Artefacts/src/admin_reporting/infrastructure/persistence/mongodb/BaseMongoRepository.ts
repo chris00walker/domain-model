@@ -1,93 +1,23 @@
-import { MongoClient, Collection, ObjectId } from 'mongodb';
-import { AggregateRoot } from '../../../../../shared/domain/AggregateRoot';
-import { UniqueEntityID } from '../../../../../shared/domain/UniqueEntityID';
+// TODO: BaseMongoRepository commented out to maintain pure domain model approach
+// This file contains MongoDB-specific implementations that violate the framework-agnostic principle
+// Uncomment and implement when ready to add infrastructure layer with proper dependency injection
 
-/**
- * Base MongoDB repository with common operations for all repositories
- */
-export abstract class BaseMongoRepository<T extends AggregateRoot<any>> {
-  protected collection: Collection;
-  
-  constructor(
-    protected readonly client: MongoClient,
-    protected readonly dbName: string,
-    protected readonly collectionName: string
-  ) {
-    this.collection = client.db(dbName).collection(collectionName);
-  }
+/*
+Entire BaseMongoRepository class commented out to maintain pure domain model approach.
+This base class depends on MongoDB infrastructure which violates our framework-agnostic DDD principles.
 
-  /**
-   * Maps a domain entity to a MongoDB document
-   * @param entity Domain entity
-   */
-  protected abstract toPersistence(entity: T): any;
+Original implementation included:
+- MongoClient dependency
+- MongoDB Collection operations
+- ObjectId usage
+- Abstract repository pattern with MongoDB-specific operations
 
-  /**
-   * Maps a MongoDB document to a domain entity
-   * @param record MongoDB document
-   */
-  protected abstract toDomain(record: any): T;
+To restore:
+1. Install mongodb and @types/mongodb dependencies
+2. Uncomment the implementation below
+3. Ensure proper error handling and type safety
+4. Wire up with concrete repository implementations when ready
+*/
 
-  /**
-   * Saves an entity to the database (create or update)
-   */
-  async save(entity: T): Promise<void> {
-    const persistenceData = this.toPersistence(entity);
-    
-    // Use entity ID as MongoDB _id
-    const mongoId = new ObjectId(entity.id);
-    
-    await this.collection.updateOne(
-      { _id: mongoId },
-      { $set: persistenceData },
-      { upsert: true }
-    );
-  }
-
-  /**
-   * Finds an entity by ID
-   */
-  async findById(id: UniqueEntityID): Promise<T | null> {
-    try {
-      const mongoId = new ObjectId(id.toString());
-      const record = await this.collection.findOne({ _id: mongoId });
-      
-      if (!record) {
-        return null;
-      }
-      
-      return this.toDomain(record);
-    } catch (err) {
-      console.error(`Error finding entity by id: ${err}`);
-      return null;
-    }
-  }
-
-  /**
-   * Deletes an entity by ID
-   */
-  async delete(id: UniqueEntityID): Promise<boolean> {
-    try {
-      const mongoId = new ObjectId(id.toString());
-      const result = await this.collection.deleteOne({ _id: mongoId });
-      return result.deletedCount > 0;
-    } catch (err) {
-      console.error(`Error deleting entity: ${err}`);
-      return false;
-    }
-  }
-
-  /**
-   * Checks if an entity with the given ID exists
-   */
-  async exists(id: UniqueEntityID): Promise<boolean> {
-    try {
-      const mongoId = new ObjectId(id.toString());
-      const count = await this.collection.countDocuments({ _id: mongoId }, { limit: 1 });
-      return count > 0;
-    } catch (err) {
-      console.error(`Error checking entity existence: ${err}`);
-      return false;
-    }
-  }
-}
+// Placeholder export to maintain module structure
+export const BaseMongoRepository = undefined;

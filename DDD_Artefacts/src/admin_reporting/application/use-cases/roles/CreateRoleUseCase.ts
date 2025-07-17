@@ -65,7 +65,7 @@ export class CreateRoleUseCase implements UseCase<CreateRoleRequest, CreateRoleR
         }
         
         const permissionOrError = Permission.create(permValue);
-        if (permissionOrError.isFailure) {
+        if (permissionOrError.isFailure()) {
           return failure(new Error(`Invalid permission: ${permString}`));
         }
         permissions.push(permissionOrError.getValue());
@@ -79,8 +79,8 @@ export class CreateRoleUseCase implements UseCase<CreateRoleRequest, CreateRoleR
         isSystemRole: false // Custom roles created through this use case are never system roles
       });
       
-      if (roleOrError.isFailure) {
-        return failure(new Error(roleOrError.error));
+      if (roleOrError.isFailure()) {
+        return failure(roleOrError.getErrorValue());
       }
       
       const role = roleOrError.getValue();

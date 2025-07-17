@@ -1,6 +1,6 @@
 import { SystemSetting } from '../aggregates/SystemSetting';
 import { SystemSettingKey } from '../value-objects/SystemSettingKey';
-import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
 
 export interface SystemSettingFilters {
   category?: string;

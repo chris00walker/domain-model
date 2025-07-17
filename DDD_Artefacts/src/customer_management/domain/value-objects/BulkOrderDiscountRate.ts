@@ -1,6 +1,6 @@
 import { ValueObject } from '../../../shared/domain/base/ValueObject';
-import { Guard } from '../../../shared/domain/base/Guard';
-import { Result } from '../../../shared/domain/base/Result';
+import { Guard } from '../../../shared/core/Guard';
+import { Result, success, failure } from '../../../shared/core/Result';
 
 export interface BulkOrderDiscountRateProps {
   minimumQuantity: number;
@@ -83,38 +83,38 @@ export class BulkOrderDiscountRate extends ValueObject<BulkOrderDiscountRateProp
     ]);
 
     if (!guardResult.succeeded) {
-      return Result.fail<BulkOrderDiscountRate>(guardResult.message);
+      return failure<BulkOrderDiscountRate>(new Error(guardResult.message || 'Validation failed'));
     }
 
     if (props.minimumQuantity <= 0) {
-      return Result.fail<BulkOrderDiscountRate>('Minimum quantity must be greater than zero');
+      return failure<BulkOrderDiscountRate>(new Error('Minimum quantity must be greater than zero'));
     }
 
     if (props.discountPercentage < 0) {
-      return Result.fail<BulkOrderDiscountRate>('Discount percentage cannot be negative');
+      return failure<BulkOrderDiscountRate>(new Error('Discount percentage cannot be negative'));
     }
 
     if (props.discountPercentage > 100) {
-      return Result.fail<BulkOrderDiscountRate>('Discount percentage cannot be greater than 100');
+      return failure<BulkOrderDiscountRate>(new Error('Discount percentage cannot be greater than 100'));
     }
 
     if (props.minimumOrderValue !== undefined && props.minimumOrderValue < 0) {
-      return Result.fail<BulkOrderDiscountRate>('Minimum order value cannot be negative');
+      return failure<BulkOrderDiscountRate>(new Error('Minimum order value cannot be negative'));
     }
 
     if (props.maxDiscountAmount !== undefined && props.maxDiscountAmount < 0) {
-      return Result.fail<BulkOrderDiscountRate>('Maximum discount amount cannot be negative');
+      return failure<BulkOrderDiscountRate>(new Error('Maximum discount amount cannot be negative'));
     }
 
     if (props.startDate && props.endDate && props.startDate > props.endDate) {
-      return Result.fail<BulkOrderDiscountRate>('Start date cannot be after end date');
+      return failure<BulkOrderDiscountRate>(new Error('Start date cannot be after end date'));
     }
 
     if (props.customerSegmentId !== undefined && props.customerSegmentId.trim() === '') {
-      return Result.fail<BulkOrderDiscountRate>('Customer segment ID cannot be empty');
+      return failure<BulkOrderDiscountRate>(new Error('Customer segment ID cannot be empty'));
     }
 
-    return Result.ok<BulkOrderDiscountRate>(new BulkOrderDiscountRate(props));
+    return success<BulkOrderDiscountRate>(new BulkOrderDiscountRate(props));
   }
 
   /**

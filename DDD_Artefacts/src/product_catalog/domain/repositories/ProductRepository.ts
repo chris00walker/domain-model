@@ -1,6 +1,6 @@
 import { Product } from '../aggregates/Product';
 import { ProductId } from '../value-objects/ProductId';
-import { Money } from '@shared/domain/value-objects/Money';
+import { Money } from '../../../shared/domain/value-objects/Money';
 
 /**
  * Repository interface for the Product aggregate

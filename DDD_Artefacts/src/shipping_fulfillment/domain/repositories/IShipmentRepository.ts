@@ -1,5 +1,5 @@
 import { ShipmentAggregate } from '../aggregates/ShipmentAggregate';
-import { Result } from '../../../../shared/core/Result';
+import { Result } from '../../../shared/core/Result';
 
 export interface IShipmentRepository {
   /**

@@ -1,6 +1,6 @@
-import { Entity } from '../../../../shared/domain/Entity';
-import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
-import { Result, success, failure } from '../../../../shared/core/Result';
+import { Entity } from '../../../shared/domain/Entity';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
+import { Result, success, failure } from '../../../shared/core/Result';
 import { Permission } from '../value-objects/Permission';
 
 interface RoleProps {
@@ -19,6 +19,10 @@ interface RoleProps {
  * Roles define the capabilities and access levels of administrative users.
  */
 export class Role extends Entity<RoleProps> {
+  
+  constructor(props: RoleProps, id?: UniqueEntityID) {
+    super(props, id);
+  }
   
   get name(): string {
     return this.props.name;
@@ -49,11 +53,11 @@ export class Role extends Entity<RoleProps> {
    */
   public static create(props: Omit<RoleProps, 'createdAt' | 'updatedAt'>, id?: UniqueEntityID): Result<Role> {
     if (!props.name || props.name.trim().length === 0) {
-      return failure('Role must have a name');
+      return failure(new Error('Role must have a name'));
     }
     
     if (!props.permissions || props.permissions.length === 0) {
-      return failure('Role must have at least one permission');
+      return failure(new Error('Role must have at least one permission'));
     }
     
     const now = new Date();
@@ -71,7 +75,7 @@ export class Role extends Entity<RoleProps> {
    */
   public addPermission(permission: Permission): Result<void> {
     if (this.isSystemRole) {
-      return failure('Cannot modify permissions of a system role');
+      return failure(new Error('Cannot modify permissions of a system role'));
     }
     
     if (!this.hasPermission(permission)) {
@@ -87,11 +91,11 @@ export class Role extends Entity<RoleProps> {
    */
   public removePermission(permission: Permission): Result<void> {
     if (this.isSystemRole) {
-      return failure('Cannot modify permissions of a system role');
+      return failure(new Error('Cannot modify permissions of a system role'));
     }
     
     const initialLength = this.props.permissions.length;
-    this.props.permissions = this.props.permissions.filter(p => !p.equals(permission));
+    this.props.permissions = this.props.permissions.filter(p => p !== permission);
     
     if (this.props.permissions.length < initialLength) {
       this.props.updatedAt = new Date();
@@ -104,7 +108,7 @@ export class Role extends Entity<RoleProps> {
    * Checks if the role has a specific permission
    */
   public hasPermission(permission: Permission): boolean {
-    return this.props.permissions.some(p => p.equals(permission));
+    return this.props.permissions.some(p => p === permission);
   }
   
   /**
@@ -112,11 +116,11 @@ export class Role extends Entity<RoleProps> {
    */
   public update(name: string, description: string): Result<void> {
     if (this.isSystemRole) {
-      return failure('Cannot modify a system role');
+      return failure(new Error('Cannot modify a system role'));
     }
     
     if (!name || name.trim().length === 0) {
-      return failure('Role must have a name');
+      return failure(new Error('Role must have a name'));
     }
     
     this.props.name = name;

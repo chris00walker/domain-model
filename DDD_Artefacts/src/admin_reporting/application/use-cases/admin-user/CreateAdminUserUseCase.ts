@@ -1,6 +1,6 @@
 import { Result, success, failure } from '../../../../shared/core/Result';
 import { AdminUserService } from '../../../domain/services/AdminUserService';
-import { RoleRepository } from '../../../domain/repositories/IRoleRepository';
+import { IRoleRepository } from '../../../domain/repositories/IRoleRepository';
 import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
 import { UseCase } from '../../../../shared/application/UseCase';
 
@@ -16,7 +16,7 @@ interface CreateAdminUserRequest {
 type CreateAdminUserResponse = Result<{
   adminUserId: string;
   email: string;
-}>;
+}, Error>;
 
 /**
  * CreateAdminUserUseCase
@@ -27,19 +27,19 @@ export class CreateAdminUserUseCase implements UseCase<CreateAdminUserRequest, C
   
   constructor(
     private readonly adminUserService: AdminUserService,
-    private readonly roleRepository: RoleRepository
+    private readonly roleRepository: IRoleRepository
   ) {}
   
   async execute(request: CreateAdminUserRequest): Promise<CreateAdminUserResponse> {
     try {
       // Validate roles exist
       for (const roleId of request.roleIds) {
-        const roleExists = await this.roleRepository.exists(
+        const role = await this.roleRepository.findById(
           new UniqueEntityID(roleId)
         );
         
-        if (!roleExists) {
-          return failure(`Role with ID ${roleId} does not exist`);
+        if (!role) {
+          return failure(new Error(`Role with ID ${roleId} does not exist`));
         }
       }
       
@@ -49,17 +49,15 @@ export class CreateAdminUserUseCase implements UseCase<CreateAdminUserRequest, C
       );
       
       // Create admin user via domain service
-      const adminUserResult = await this.adminUserService.createAdminUser({
-        email: request.email,
-        password: request.password,
-        firstName: request.firstName,
-        lastName: request.lastName,
-        roleIds: roleUniqueIds,
-        createdById: new UniqueEntityID(request.createdById)
-      });
+      const adminUserResult = await this.adminUserService.createAdminUser(
+        request.email,
+        `${request.firstName} ${request.lastName}`,
+        request.roleIds,
+        request.createdById
+      );
       
-      if (adminUserResult.isFailure) {
-        return failure(adminUserResult.error);
+      if (adminUserResult.isFailure()) {
+        return failure(adminUserResult.getErrorValue());
       }
       
       const adminUser = adminUserResult.getValue();
@@ -70,7 +68,7 @@ export class CreateAdminUserUseCase implements UseCase<CreateAdminUserRequest, C
       });
       
     } catch (error) {
-      return failure(`Failed to create admin user: ${error.message}`);
+      return failure(new Error(`Failed to create admin user: ${(error as Error).message}`));
     }
   }
 }

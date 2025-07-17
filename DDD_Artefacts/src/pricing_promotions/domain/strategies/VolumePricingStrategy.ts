@@ -92,7 +92,7 @@ export class VolumePricingStrategy extends PricingStrategy {
     }
     
     // Apply markup to get base unit price
-    const markup = markupResult.value;
+    const markup = markupResult.getValue();
     const unitPriceWithMarkup = markup.applyToAmount(baseCost.amount);
     
     // Create Money object for the unit price
@@ -101,7 +101,7 @@ export class VolumePricingStrategy extends PricingStrategy {
       return failure(`Failed to create unit price: ${unitPriceResult.error}`);
     }
     
-    let unitPrice = unitPriceResult.value;
+    let unitPrice = unitPriceResult.getValue();
 
     // Apply volume discount to unit price if applicable
     if (applicableTier.discountPercentage > 0) {
@@ -115,7 +115,7 @@ export class VolumePricingStrategy extends PricingStrategy {
         return failure(`Failed to create discount: ${discountResult.error}`);
       }
       
-      const discount = discountResult.value;
+      const discount = discountResult.getValue();
       const discountedPriceAmount = discount.applyToAmount(unitPrice.amount);
       const discountedPriceResult = Money.create(discountedPriceAmount, unitPrice.currency);
       
@@ -123,7 +123,7 @@ export class VolumePricingStrategy extends PricingStrategy {
         return failure(`Failed to apply volume discount: ${discountedPriceResult.error}`);
       }
       
-      unitPrice = discountedPriceResult.value;
+      unitPrice = discountedPriceResult.getValue();
     }
 
     // Calculate total price for the quantity
@@ -131,10 +131,10 @@ export class VolumePricingStrategy extends PricingStrategy {
     if (totalPriceResult.isFailure()) {
       return failure(`Failed to calculate total price: ${totalPriceResult.error}`);
     }
-    const totalPrice = totalPriceResult.value;
+    const totalPrice = totalPriceResult.getValue();
 
     // Verify the calculated price meets margin floor requirements
-    const totalBaseCost = baseCost.multiply(quantity).value;
+    const totalBaseCost = baseCost.multiply(quantity).getValue();
     if (!this.verifyMarginFloor(totalPrice, totalBaseCost, pricingTier)) {
       return failure(`Calculated price violates margin floor requirements for tier ${pricingTier.toString()}`);
     }

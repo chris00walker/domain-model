@@ -1,4 +1,4 @@
-import { Result, success, failure } from '../../../../shared/core/Result';
+import { Result, success, failure } from '../../../shared/core/Result';
 
 /**
  * Represents valid content types that can be moderated
@@ -37,11 +37,9 @@ export class ContentType {
   /**
    * Creates a new ContentType value object
    */
-  public static create(type: string): Result<ContentType> {
+  public static create(type: string): Result<ContentType, Error> {
     if (!ContentType.isValidType(type)) {
-      return failure<ContentType>(
-        `"${type}" is not a valid content type. Valid types are: ${ContentType.VALID_TYPES.join(', ')}`
-      );
+      return failure(new Error(`"${type}" is not a valid content type. Valid types are: ${ContentType.VALID_TYPES.join(', ')}`));
     }
     
     return success<ContentType>(new ContentType(type as ContentTypeValue));

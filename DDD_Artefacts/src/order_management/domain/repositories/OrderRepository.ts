@@ -1,5 +1,5 @@
 import { Order } from '../aggregates/Order';
-import { CustomerId } from '@customers/domain/value-objects/CustomerId';
+import { CustomerId } from '../../../customer_management/domain/value-objects/CustomerId';
 import { OrderStatus } from '../value-objects/OrderStatus';
 
 /**

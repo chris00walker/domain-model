@@ -1,7 +1,7 @@
 import { DomainEvent } from '@shared/domain/events/DomainEvent';
 import { UniqueEntityID } from '@shared/domain/base/UniqueEntityID';
 
-export class PriceChanged implements DomainEvent {
+export class PriceChanged extends DomainEvent {
   public dateTimeOccurred: Date;
   public productId: string;
   public oldPrice: number;
@@ -18,6 +18,10 @@ export class PriceChanged implements DomainEvent {
     reason: string,
     triggeredBy: string
   ) {
+    super({
+      aggregateId: productId,
+      occurredOn: new Date()
+    });
     this.dateTimeOccurred = new Date();
     this.productId = productId;
     this.oldPrice = oldPrice;
@@ -29,5 +33,17 @@ export class PriceChanged implements DomainEvent {
 
   getAggregateId(): UniqueEntityID {
     return new UniqueEntityID(this.productId);
+  }
+
+  toPrimitives(): any {
+    return {
+      productId: this.productId,
+      oldPrice: this.oldPrice,
+      newPrice: this.newPrice,
+      currency: this.currency,
+      reason: this.reason,
+      triggeredBy: this.triggeredBy,
+      dateTimeOccurred: this.dateTimeOccurred.toISOString()
+    };
   }
 }

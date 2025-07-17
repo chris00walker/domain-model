@@ -1,6 +1,6 @@
 import { ValueObject } from '../base/ValueObject';
-import { Result, success, failure } from '../../../shared/core/Result';
-import { Guard } from '../../../shared/core/Guard';
+import { Result, success, failure } from '../../core/Result';
+import { Guard } from '../../core/Guard';
 
 export interface MoneyProps {
   amount: number;

@@ -1,6 +1,6 @@
-import { ValueObject } from '@shared/domain/base/ValueObject';
-import { Result, success, failure } from '@shared/core/Result';
-import { Guard } from '@shared/core/Guard';
+import { ValueObject } from '../../../shared/domain/ValueObject';
+import { Result, success, failure } from '../../../shared/core/Result';
+import { Guard } from '../../../shared/core/Guard';
 
 interface ContactInfoProps {
   email: string;

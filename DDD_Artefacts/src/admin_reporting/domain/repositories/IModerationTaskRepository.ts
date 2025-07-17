@@ -1,6 +1,6 @@
 import { ModerationTask, ContentType } from '../aggregates/ModerationTask';
 import { ModerationStatusValue } from '../value-objects/ModerationStatus';
-import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
 
 /**
  * IModerationTaskRepository

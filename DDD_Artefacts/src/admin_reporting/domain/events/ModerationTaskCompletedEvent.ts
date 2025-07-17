@@ -12,7 +12,9 @@ export class ModerationTaskCompletedEvent extends DomainEvent {
 
   constructor(moderationTask: ModerationTask) {
     super({
-      aggregateId: moderationTask.id.toString()
+      aggregateId: moderationTask.id.toString(),
+      eventId: new UniqueEntityID().toString(),
+      occurredOn: new Date()
     });
     this.moderationTask = moderationTask;
   }

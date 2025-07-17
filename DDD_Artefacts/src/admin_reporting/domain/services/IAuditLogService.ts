@@ -1,5 +1,5 @@
-import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
-import { Result } from '../../../../shared/core/Result';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
+import { Result } from '../../../shared/core/Result';
 import { AuditLogEntry } from '../entities/AuditLogEntry';
 
 /**

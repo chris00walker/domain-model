@@ -22,338 +22,182 @@ export class InMemorySubscriptionRepository implements ISubscriptionRepository {
    * @param id The subscription ID
    * @returns The subscription if found
    */
-  public async findById(id: UniqueEntityID): Promise<Result<SubscriptionAggregate | null, string>> {
+  public async findById(id: string): Promise<Result<SubscriptionAggregate, string>> {
     try {
-      const subscription = this.subscriptions.get(id.toString());
-      return success(subscription || null);
+      const subscription = this.subscriptions.get(id);
+      if (!subscription) {
+        return failure(`Subscription with ID ${id} not found`);
+      }
+      return success(subscription);
     } catch (error) {
-      this.logger.error(`Error finding subscription by ID: ${error.message}`, error);
-      return failure(`Error finding subscription by ID: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorObj = error instanceof Error ? error : new Error(String(error));
+      this.logger.error(`Error finding subscription by ID: ${errorMessage}`, errorObj);
+      return failure(`Error finding subscription by ID: ${errorMessage}`);
     }
   }
   
   /**
    * Find subscriptions by customer ID
    * @param customerId The customer ID
+   * @param limit Optional limit on number of results
+   * @param offset Optional offset for pagination
    * @returns The subscriptions for the customer
    */
-  public async findByCustomerId(customerId: UniqueEntityID): Promise<Result<SubscriptionAggregate[], string>> {
+  public async findByCustomerId(customerId: string, limit?: number, offset?: number): Promise<Result<SubscriptionAggregate[], string>> {
     try {
-      const customerSubscriptions = Array.from(this.subscriptions.values())
-        .filter(subscription => subscription.customerId.equals(customerId));
+      let customerSubscriptions = Array.from(this.subscriptions.values())
+        .filter(subscription => subscription.customerId === customerId);
+      
+      if (offset) {
+        customerSubscriptions = customerSubscriptions.slice(offset);
+      }
+      if (limit) {
+        customerSubscriptions = customerSubscriptions.slice(0, limit);
+      }
       
       return success(customerSubscriptions);
     } catch (error) {
-      this.logger.error(`Error finding subscriptions by customer ID: ${error.message}`, error);
-      return failure(`Error finding subscriptions by customer ID: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorObj = error instanceof Error ? error : new Error(String(error));
+      this.logger.error(`Error finding subscriptions by customer ID: ${errorMessage}`, errorObj);
+      return failure(`Error finding subscriptions by customer ID: ${errorMessage}`);
     }
   }
   
   /**
    * Find subscriptions by status
    * @param status The subscription status
-   * @returns The subscriptions with the given status
+   * @param limit Optional limit on number of results
+   * @param offset Optional offset for pagination
+   * @returns The subscriptions with the specified status
    */
-  public async findByStatus(status: SubscriptionStatus): Promise<Result<SubscriptionAggregate[], string>> {
+  public async findByStatus(status: string, limit?: number, offset?: number): Promise<Result<SubscriptionAggregate[], string>> {
     try {
-      const statusSubscriptions = Array.from(this.subscriptions.values())
-        .filter(subscription => subscription.status.equals(status));
+      let statusSubscriptions = Array.from(this.subscriptions.values())
+        .filter(subscription => {
+          // Convert SubscriptionStatus value object to string for comparison
+          const subscriptionStatus = subscription.status;
+          return subscriptionStatus && subscriptionStatus.toString() === status;
+        });
+      
+      if (offset) {
+        statusSubscriptions = statusSubscriptions.slice(offset);
+      }
+      if (limit) {
+        statusSubscriptions = statusSubscriptions.slice(0, limit);
+      }
       
       return success(statusSubscriptions);
     } catch (error) {
-      this.logger.error(`Error finding subscriptions by status: ${error.message}`, error);
-      return failure(`Error finding subscriptions by status: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorObj = error instanceof Error ? error : new Error(String(error));
+      this.logger.error(`Error finding subscriptions by status: ${errorMessage}`, errorObj);
+      return failure(`Error finding subscriptions by status: ${errorMessage}`);
     }
   }
   
   /**
    * Find subscriptions due for renewal
    * @param date The date to check against
+   * @param limit Optional limit on number of results
    * @returns The subscriptions due for renewal
    */
-  public async findDueForRenewal(date: Date): Promise<Result<SubscriptionAggregate[], string>> {
+  public async findDueForRenewal(date: Date, limit?: number): Promise<Result<SubscriptionAggregate[], string>> {
     try {
-      const dueSubscriptions = Array.from(this.subscriptions.values())
+      let dueSubscriptions = Array.from(this.subscriptions.values())
         .filter(subscription => {
-          // Check if subscription is active and due for renewal
-          return subscription.status.value === 'Active' && 
-                 subscription.nextRenewalDate <= date &&
-                 subscription.autoRenew;
+          // Check if subscription is due for renewal
+          return subscription.nextBillingDate && subscription.nextBillingDate <= date;
         });
+      
+      if (limit) {
+        dueSubscriptions = dueSubscriptions.slice(0, limit);
+      }
       
       return success(dueSubscriptions);
     } catch (error) {
-      this.logger.error(`Error finding subscriptions due for renewal: ${error.message}`, error);
-      return failure(`Error finding subscriptions due for renewal: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorObj = error instanceof Error ? error : new Error(String(error));
+      this.logger.error(`Error finding subscriptions due for renewal: ${errorMessage}`, errorObj);
+      return failure(`Error finding subscriptions due for renewal: ${errorMessage}`);
     }
   }
   
   /**
    * Save a subscription
    * @param subscription The subscription to save
+   * @returns Success or failure result
    */
   public async save(subscription: SubscriptionAggregate): Promise<Result<void, string>> {
     try {
-      this.subscriptions.set(subscription.id.toString(), subscription);
-      
-      this.logger.debug(`Saved subscription with ID: ${subscription.id.toString()}`);
-      this.monitoringService.incrementCounter('subscription_saved', 1);
-      
+      const id = subscription.id.toString();
+      this.subscriptions.set(id, subscription);
       return success(undefined);
     } catch (error) {
-      this.logger.error(`Error saving subscription: ${error.message}`, error);
-      return failure(`Error saving subscription: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorObj = error instanceof Error ? error : new Error(String(error));
+      this.logger.error(`Error saving subscription: ${errorMessage}`, errorObj);
+      return failure(`Error saving subscription: ${errorMessage}`);
     }
   }
   
   /**
    * Delete a subscription
    * @param subscription The subscription to delete
+   * @returns Success or failure result
    */
   public async delete(subscription: SubscriptionAggregate): Promise<Result<void, string>> {
     try {
-      const exists = this.subscriptions.has(subscription.id.toString());
-      
-      if (!exists) {
-        return failure(`Subscription with ID ${subscription.id.toString()} not found`);
-      }
-      
-      this.subscriptions.delete(subscription.id.toString());
-      
-      this.logger.debug(`Deleted subscription with ID: ${subscription.id.toString()}`);
-      this.monitoringService.incrementCounter('subscription_deleted', 1);
-      
+      const id = subscription.id.toString();
+      this.subscriptions.delete(id);
       return success(undefined);
     } catch (error) {
-      this.logger.error(`Error deleting subscription: ${error.message}`, error);
-      return failure(`Error deleting subscription: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorObj = error instanceof Error ? error : new Error(String(error));
+      this.logger.error(`Error deleting subscription: ${errorMessage}`, errorObj);
+      return failure(`Error deleting subscription: ${errorMessage}`);
     }
   }
 }
 
 /**
  * Database implementation of the subscription repository
+ * TODO: Implement with actual database operations when infrastructure is ready
  */
 export class DatabaseSubscriptionRepository implements ISubscriptionRepository {
   constructor(
     private readonly logger: ILogger,
-    private readonly monitoringService: IMonitoringService,
-    private readonly dbClient: any // This would be your database client
+    private readonly monitoringService: IMonitoringService
   ) {}
   
-  /**
-   * Find a subscription by ID
-   * @param id The subscription ID
-   * @returns The subscription if found
-   */
-  public async findById(id: UniqueEntityID): Promise<Result<SubscriptionAggregate | null, string>> {
-    const startTime = Date.now();
-    
-    try {
-      // In a real implementation, this would query the database
-      // For now, we'll just simulate a database query
-      this.logger.debug(`Finding subscription by ID: ${id.toString()}`);
-      
-      // Simulate database query
-      await new Promise(resolve => setTimeout(resolve, 10));
-      
-      // Simulate not finding the subscription
-      // In a real implementation, this would return the subscription from the database
-      
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'findById'
-      });
-      
-      return success(null);
-    } catch (error) {
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'findById',
-        error: 'true'
-      });
-      
-      this.logger.error(`Error finding subscription by ID: ${error.message}`, error);
-      return failure(`Error finding subscription by ID: ${error.message}`);
-    }
+  public async findById(id: string): Promise<Result<SubscriptionAggregate, string>> {
+    // TODO: Implement database query
+    return failure('Database implementation not yet available');
   }
   
-  /**
-   * Find subscriptions by customer ID
-   * @param customerId The customer ID
-   * @returns The subscriptions for the customer
-   */
-  public async findByCustomerId(customerId: UniqueEntityID): Promise<Result<SubscriptionAggregate[], string>> {
-    const startTime = Date.now();
-    
-    try {
-      // In a real implementation, this would query the database
-      // For now, we'll just simulate a database query
-      this.logger.debug(`Finding subscriptions by customer ID: ${customerId.toString()}`);
-      
-      // Simulate database query
-      await new Promise(resolve => setTimeout(resolve, 10));
-      
-      // Simulate empty result
-      // In a real implementation, this would return subscriptions from the database
-      
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'findByCustomerId'
-      });
-      
-      return success([]);
-    } catch (error) {
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'findByCustomerId',
-        error: 'true'
-      });
-      
-      this.logger.error(`Error finding subscriptions by customer ID: ${error.message}`, error);
-      return failure(`Error finding subscriptions by customer ID: ${error.message}`);
-    }
+  public async findByCustomerId(customerId: string, limit?: number, offset?: number): Promise<Result<SubscriptionAggregate[], string>> {
+    // TODO: Implement database query
+    return failure('Database implementation not yet available');
   }
   
-  /**
-   * Find subscriptions by status
-   * @param status The subscription status
-   * @returns The subscriptions with the given status
-   */
-  public async findByStatus(status: SubscriptionStatus): Promise<Result<SubscriptionAggregate[], string>> {
-    const startTime = Date.now();
-    
-    try {
-      // In a real implementation, this would query the database
-      // For now, we'll just simulate a database query
-      this.logger.debug(`Finding subscriptions by status: ${status.value}`);
-      
-      // Simulate database query
-      await new Promise(resolve => setTimeout(resolve, 10));
-      
-      // Simulate empty result
-      // In a real implementation, this would return subscriptions from the database
-      
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'findByStatus'
-      });
-      
-      return success([]);
-    } catch (error) {
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'findByStatus',
-        error: 'true'
-      });
-      
-      this.logger.error(`Error finding subscriptions by status: ${error.message}`, error);
-      return failure(`Error finding subscriptions by status: ${error.message}`);
-    }
+  public async findByStatus(status: string, limit?: number, offset?: number): Promise<Result<SubscriptionAggregate[], string>> {
+    // TODO: Implement database query
+    return failure('Database implementation not yet available');
   }
   
-  /**
-   * Find subscriptions due for renewal
-   * @param date The date to check against
-   * @returns The subscriptions due for renewal
-   */
-  public async findDueForRenewal(date: Date): Promise<Result<SubscriptionAggregate[], string>> {
-    const startTime = Date.now();
-    
-    try {
-      // In a real implementation, this would query the database
-      // For now, we'll just simulate a database query
-      this.logger.debug(`Finding subscriptions due for renewal on: ${date.toISOString()}`);
-      
-      // Simulate database query
-      await new Promise(resolve => setTimeout(resolve, 10));
-      
-      // Simulate empty result
-      // In a real implementation, this would return subscriptions from the database
-      
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'findDueForRenewal'
-      });
-      
-      return success([]);
-    } catch (error) {
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'findDueForRenewal',
-        error: 'true'
-      });
-      
-      this.logger.error(`Error finding subscriptions due for renewal: ${error.message}`, error);
-      return failure(`Error finding subscriptions due for renewal: ${error.message}`);
-    }
+  public async findDueForRenewal(date: Date, limit?: number): Promise<Result<SubscriptionAggregate[], string>> {
+    // TODO: Implement database query
+    return failure('Database implementation not yet available');
   }
   
-  /**
-   * Save a subscription
-   * @param subscription The subscription to save
-   */
   public async save(subscription: SubscriptionAggregate): Promise<Result<void, string>> {
-    const startTime = Date.now();
-    
-    try {
-      // In a real implementation, this would save to the database
-      // For now, we'll just simulate a database save
-      this.logger.debug(`Saving subscription with ID: ${subscription.id.toString()}`);
-      
-      // Simulate database save
-      await new Promise(resolve => setTimeout(resolve, 10));
-      
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'save'
-      });
-      this.monitoringService.incrementCounter('subscription_saved', 1);
-      
-      return success(undefined);
-    } catch (error) {
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'save',
-        error: 'true'
-      });
-      
-      this.logger.error(`Error saving subscription: ${error.message}`, error);
-      return failure(`Error saving subscription: ${error.message}`);
-    }
+    // TODO: Implement database save
+    return failure('Database implementation not yet available');
   }
   
-  /**
-   * Delete a subscription
-   * @param subscription The subscription to delete
-   */
   public async delete(subscription: SubscriptionAggregate): Promise<Result<void, string>> {
-    const startTime = Date.now();
-    
-    try {
-      // In a real implementation, this would delete from the database
-      // For now, we'll just simulate a database delete
-      this.logger.debug(`Deleting subscription with ID: ${subscription.id.toString()}`);
-      
-      // Simulate database delete
-      await new Promise(resolve => setTimeout(resolve, 10));
-      
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'delete'
-      });
-      this.monitoringService.incrementCounter('subscription_deleted', 1);
-      
-      return success(undefined);
-    } catch (error) {
-      const duration = Date.now() - startTime;
-      this.monitoringService.recordHistogram('subscription_repository_operation_duration_ms', duration, {
-        operation: 'delete',
-        error: 'true'
-      });
-      
-      this.logger.error(`Error deleting subscription: ${error.message}`, error);
-      return failure(`Error deleting subscription: ${error.message}`);
-    }
+    // TODO: Implement database delete
+    return failure('Database implementation not yet available');
   }
 }

@@ -172,7 +172,7 @@ export class SubscriptionService {
       
       if (subscriptions.length === 0) {
         // Return zero value if no subscriptions
-        return success(Money.create(0, 'BBD').value);
+        return success(Money.create(0, 'BBD').getValue());
       }
       
       // Calculate total value across all subscriptions

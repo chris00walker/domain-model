@@ -1,5 +1,5 @@
-import { DomainEvent } from '@shared/domain/events/DomainEvent';
-import { Money } from '@shared/domain/value-objects/Money';
+import { DomainEvent } from '../../../shared/domain/events/DomainEvent';
+import { Money } from '../../../shared/domain/value-objects/Money';
 
 // Using an interface to break circular dependency
 interface ProductPrice {

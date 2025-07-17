@@ -38,6 +38,10 @@ interface ModerationTaskProps {
  */
 export class ModerationTask extends AggregateRoot<ModerationTaskProps> {
   
+  constructor(props: ModerationTaskProps, id?: UniqueEntityID) {
+    super(props, id);
+  }
+  
   get contentType(): ContentType {
     return this.props.contentType;
   }

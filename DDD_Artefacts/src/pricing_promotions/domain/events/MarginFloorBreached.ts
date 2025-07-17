@@ -1,7 +1,7 @@
 import { DomainEvent } from '@shared/domain/events/DomainEvent';
 import { UniqueEntityID } from '@shared/domain/base/UniqueEntityID';
 
-export class MarginFloorBreached implements DomainEvent {
+export class MarginFloorBreached extends DomainEvent {
   public dateTimeOccurred: Date;
   public productId: string;
   public price: number;
@@ -24,6 +24,10 @@ export class MarginFloorBreached implements DomainEvent {
     calculationId: string,
     orderId?: string
   ) {
+    super({
+      aggregateId: calculationId,
+      occurredOn: new Date()
+    });
     this.dateTimeOccurred = new Date();
     this.productId = productId;
     this.price = price;
@@ -38,5 +42,20 @@ export class MarginFloorBreached implements DomainEvent {
 
   getAggregateId(): UniqueEntityID {
     return new UniqueEntityID(this.calculationId);
+  }
+
+  toPrimitives(): any {
+    return {
+      productId: this.productId,
+      price: this.price,
+      cost: this.cost,
+      currency: this.currency,
+      calculatedMargin: this.calculatedMargin,
+      floorMargin: this.floorMargin,
+      pricingTierType: this.pricingTierType,
+      calculationId: this.calculationId,
+      orderId: this.orderId,
+      dateTimeOccurred: this.dateTimeOccurred.toISOString()
+    };
   }
 }

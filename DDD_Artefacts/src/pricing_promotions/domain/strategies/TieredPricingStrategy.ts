@@ -112,7 +112,7 @@ export class TieredPricingStrategy extends PricingStrategy {
       if (monthlyFeeResult.isFailure()) {
         return failure(`Failed to create money object for monthly fee: ${monthlyFeeResult.error}`);
       }
-      resultPrice = monthlyFeeResult.value;
+      resultPrice = monthlyFeeResult.getValue();
     } else {
       // This is for a product purchase by a subscriber
       // Start with the base cost
@@ -125,7 +125,7 @@ export class TieredPricingStrategy extends PricingStrategy {
           return failure(`Failed to create discount percentage: ${discountResult.error}`);
         }
 
-        const discount = discountResult.value;
+        const discount = discountResult.getValue();
         const discountedPriceAmount = discount.applyToAmount(currentPrice.amount);
         const discountedPriceResult = Money.create(discountedPriceAmount, currentPrice.currency);
         
@@ -133,7 +133,7 @@ export class TieredPricingStrategy extends PricingStrategy {
           return failure(`Failed to apply store-wide discount: ${discountedPriceResult.error}`);
         }
         
-        currentPrice = discountedPriceResult.value;
+        currentPrice = discountedPriceResult.getValue();
       }
 
       // Apply quantity if needed
@@ -142,7 +142,7 @@ export class TieredPricingStrategy extends PricingStrategy {
         if (totalPriceResult.isFailure()) {
           return failure(`Failed to multiply by quantity: ${totalPriceResult.error}`);
         }
-        currentPrice = totalPriceResult.value;
+        currentPrice = totalPriceResult.getValue();
       }
 
       resultPrice = currentPrice;
@@ -151,7 +151,7 @@ export class TieredPricingStrategy extends PricingStrategy {
     // For non-fee purchases, verify margin floor
     if (!isRecurringFee) {
       const totalBaseCost = quantity > 1 ? 
-        baseCost.multiply(quantity).value : 
+        baseCost.multiply(quantity).getValue() : 
         baseCost;
         
       // Verify the target gross margin is achievable
@@ -160,7 +160,7 @@ export class TieredPricingStrategy extends PricingStrategy {
         return failure(`Failed to calculate margin: ${marginResult.error}`);
       }
       
-      const calculatedMargin = marginResult.value;
+      const calculatedMargin = marginResult.getValue();
       if (calculatedMargin < tierConfig.targetGrossMarginPercentage) {
         return failure(`Calculated margin (${calculatedMargin.toFixed(2)}%) is below target margin (${tierConfig.targetGrossMarginPercentage}%) for tier ${subscriptionTier}`);
       }

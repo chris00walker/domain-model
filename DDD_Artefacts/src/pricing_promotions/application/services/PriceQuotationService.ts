@@ -61,8 +61,11 @@ export class PriceQuotationService {
       promotionCode,
       isSubscription,
       subscriptionTier,
-      daysRemainingBeforeExpiry
+      daysRemainingBeforeExpiry: daysRemainingParam
     } = dto;
+    
+    // Create mutable copy for potential reassignment
+    let daysRemainingBeforeExpiry = daysRemainingParam;
 
     // Create Money object for base cost
     const baseCostResult = Money.create(baseCost, currency);

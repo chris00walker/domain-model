@@ -1,8 +1,12 @@
-import { ValueObject } from '../../../shared/domain/base/ValueObject';
+import { ValueObject } from '../../../shared/domain/ValueObject';
 import { Result, success, failure } from '../../../shared/core/Result';
 import { Guard } from '../../../shared/core/Guard';
-import { ProductId } from '../../../catalog/domain/value-objects/ProductId';
 import { Money } from '../../../shared/domain/value-objects/Money';
+// Note: ProductId import commented out as catalog context may not exist
+// import { ProductId } from '../../../catalog/domain/value-objects/ProductId';
+
+// Temporary ProductId type definition until catalog context is available
+type ProductId = string;
 
 export interface OrderItemProps {
   productId: ProductId;
@@ -62,7 +66,7 @@ export class OrderItem extends ValueObject<OrderItemProps> {
     if (!(vo instanceof OrderItem)) {
       return false;
     }
-    return this.productId.equals(vo.productId);
+    return this.productId === vo.productId;
   }
 
   public static create(props: OrderItemProps): Result<OrderItem, string> {

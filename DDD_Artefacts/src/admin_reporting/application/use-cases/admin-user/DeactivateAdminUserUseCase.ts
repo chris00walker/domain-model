@@ -42,8 +42,8 @@ export class DeactivateAdminUserUseCase {
         request.deactivatorId
       );
       
-      if (result.isFailure) {
-        return failure(new Error(result.error));
+      if (result.isFailure()) {
+        return failure(result.getErrorValue());
       }
       
       return success(undefined);

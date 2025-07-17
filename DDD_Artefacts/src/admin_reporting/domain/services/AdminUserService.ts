@@ -1,10 +1,10 @@
-import { Result, success, failure } from '../../../../shared/core/Result';
+import { Result, success, failure } from '../../../shared/core/Result';
 import { AdminUser } from '../aggregates/AdminUser';
 import { Role } from '../entities/Role';
 import { IAdminUserRepository } from '../repositories/IAdminUserRepository';
 import { IRoleRepository } from '../repositories/IRoleRepository';
 import { AdminUserEmail } from '../value-objects/AdminUserEmail';
-import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
+import { UniqueEntityID } from '../../../shared/domain/UniqueEntityID';
 import { IAuditLogService } from './IAuditLogService';
 
 /**
@@ -36,17 +36,17 @@ export class AdminUserService {
     roleIds: string[],
     creatorId: string
   ): Promise<Result<AdminUser>> {
-    // Validate email
-    const emailOrError = AdminUserEmail.create(email);
-    if (emailOrError.isFailure) {
-      return failure(emailOrError.error);
+    // Validate email format
+    const emailResult = AdminUserEmail.create(email);
+    if (emailResult.isFailure()) {
+      return failure(emailResult.getErrorValue());
     }
-    const adminUserEmail = emailOrError.getValue();
+    const adminUserEmail = emailResult.getValue();
     
     // Check if admin user already exists
     const exists = await this.adminUserRepository.exists(adminUserEmail);
     if (exists) {
-      return failure('Admin user with this email already exists');
+      return failure(new Error('Admin user with this email already exists'));
     }
     
     // Retrieve roles
@@ -54,13 +54,13 @@ export class AdminUserService {
     for (const roleId of roleIds) {
       const role = await this.roleRepository.findById(new UniqueEntityID(roleId));
       if (!role) {
-        return failure(`Role with ID ${roleId} not found`);
+        return failure(new Error(`Role with ID ${roleId} not found`));
       }
       roles.push(role);
     }
     
     if (roles.length === 0) {
-      return failure('At least one role must be assigned');
+      return failure(new Error('At least one role must be assigned'));
     }
     
     // Create admin user
@@ -71,8 +71,8 @@ export class AdminUserService {
       mfaEnabled: false
     });
     
-    if (adminUserOrError.isFailure) {
-      return failure(adminUserOrError.error);
+    if (adminUserOrError.isFailure()) {
+      return failure(adminUserOrError.getErrorValue());
     }
     
     const adminUser = adminUserOrError.getValue();
@@ -84,7 +84,7 @@ export class AdminUserService {
     await this.auditLogService.logAction({
       actionType: 'ADMIN_USER_CREATED',
       performedBy: new UniqueEntityID(creatorId),
-      targetId: adminUser.id,
+      targetId: new UniqueEntityID(adminUser.id),
       details: {
         email: adminUser.email.value,
         name: adminUser.name,
@@ -106,7 +106,7 @@ export class AdminUserService {
     // Get admin user
     const adminUser = await this.adminUserRepository.findById(new UniqueEntityID(adminUserId));
     if (!adminUser) {
-      return failure('Admin user not found');
+      return failure(new Error('Admin user not found'));
     }
     
     // Retrieve roles
@@ -114,19 +114,19 @@ export class AdminUserService {
     for (const roleId of roleIds) {
       const role = await this.roleRepository.findById(new UniqueEntityID(roleId));
       if (!role) {
-        return failure(`Role with ID ${roleId} not found`);
+        return failure(new Error(`Role with ID ${roleId} not found`));
       }
       roles.push(role);
     }
     
     if (roles.length === 0) {
-      return failure('At least one role must be assigned');
+      return failure(new Error('At least one role must be assigned'));
     }
     
     // Update roles
     const result = adminUser.assignRoles(roles);
-    if (result.isFailure) {
-      return failure(result.error);
+    if (result.isFailure()) {
+      return failure(result.getErrorValue());
     }
     
     // Save admin user
@@ -136,7 +136,7 @@ export class AdminUserService {
     await this.auditLogService.logAction({
       actionType: 'ADMIN_USER_ROLES_UPDATED',
       performedBy: new UniqueEntityID(updaterId),
-      targetId: adminUser.id,
+      targetId: new UniqueEntityID(adminUser.id),
       details: {
         roleIds: roles.map(r => r.id.toString())
       }
@@ -155,18 +155,18 @@ export class AdminUserService {
     // Get admin user
     const adminUser = await this.adminUserRepository.findById(new UniqueEntityID(adminUserId));
     if (!adminUser) {
-      return failure('Admin user not found');
+      return failure(new Error('Admin user not found'));
     }
     
     // Check if trying to deactivate oneself
     if (adminUserId === deactivatorId) {
-      return failure('An admin user cannot deactivate their own account');
+      return failure(new Error('An admin user cannot deactivate their own account'));
     }
     
     // Deactivate user
     const result = adminUser.deactivate();
-    if (result.isFailure) {
-      return failure(result.error);
+    if (result.isFailure()) {
+      return failure(result.getErrorValue());
     }
     
     // Save admin user
@@ -176,7 +176,7 @@ export class AdminUserService {
     await this.auditLogService.logAction({
       actionType: 'ADMIN_USER_DEACTIVATED',
       performedBy: new UniqueEntityID(deactivatorId),
-      targetId: adminUser.id,
+      targetId: new UniqueEntityID(adminUser.id),
       details: {
         email: adminUser.email.value
       }
@@ -194,20 +194,20 @@ export class AdminUserService {
     // Get admin user
     const adminUser = await this.adminUserRepository.findById(new UniqueEntityID(adminUserId));
     if (!adminUser) {
-      return failure('Admin user not found');
+      return failure(new Error('Admin user not found'));
     }
     
     // Enable MFA
     const mfaResult = adminUser.enableMfa();
-    if (mfaResult.isFailure) {
-      return failure(mfaResult.error);
+    if (mfaResult.isFailure()) {
+      return failure(mfaResult.getErrorValue());
     }
     
     // Activate account if it was pending MFA
     if (adminUser.status.value === 'PENDING_MFA') {
       const activateResult = adminUser.activate();
-      if (activateResult.isFailure) {
-        return failure(activateResult.error);
+      if (activateResult.isFailure()) {
+        return failure(activateResult.getErrorValue());
       }
     }
     
@@ -217,8 +217,8 @@ export class AdminUserService {
     // Log action (self-performed)
     await this.auditLogService.logAction({
       actionType: 'ADMIN_USER_MFA_ENABLED',
-      performedBy: adminUser.id,
-      targetId: adminUser.id,
+      performedBy: new UniqueEntityID(adminUser.id),
+      targetId: new UniqueEntityID(adminUser.id),
       details: {}
     });
     

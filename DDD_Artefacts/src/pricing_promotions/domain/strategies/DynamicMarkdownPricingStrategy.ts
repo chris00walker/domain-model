@@ -35,7 +35,7 @@ export class DynamicMarkdownPricingStrategy extends PricingStrategy {
       throw new Error(`Failed to initialize default formula: ${formulaResult.error}`);
     }
     
-    this.defaultFormula = formulaResult.value;
+    this.defaultFormula = formulaResult.getValue();
   }
 
   /**
@@ -69,7 +69,7 @@ export class DynamicMarkdownPricingStrategy extends PricingStrategy {
     }
 
     // Get the calculated discount percentage
-    let discountPercentage = discountResult.value;
+    let discountPercentage = discountResult.getValue();
 
     // Ensure discount doesn't exceed maximum for the pricing tier
     const maxDiscount = pricingTier.getMaxDiscountPercentage();
@@ -85,14 +85,14 @@ export class DynamicMarkdownPricingStrategy extends PricingStrategy {
     }
     
     // Apply markup to base cost
-    const baseMarkupPrice = markupResult.value.applyToAmount(baseCost.amount);
+    const baseMarkupPrice = markupResult.getValue().applyToAmount(baseCost.amount);
     const baseUnitPriceResult = Money.create(baseMarkupPrice, baseCost.currency);
     
     if (baseUnitPriceResult.isFailure()) {
       return failure(`Failed to create base unit price: ${baseUnitPriceResult.error}`);
     }
     
-    let unitPrice = baseUnitPriceResult.value;
+    let unitPrice = baseUnitPriceResult.getValue();
 
     // Apply calculated discount
     if (discountPercentage > 0) {
@@ -101,7 +101,7 @@ export class DynamicMarkdownPricingStrategy extends PricingStrategy {
         return failure(`Failed to create discount: ${discountResult.error}`);
       }
       
-      const discount = discountResult.value;
+      const discount = discountResult.getValue();
       const discountedPrice = discount.applyToAmount(unitPrice.amount);
       const discountedPriceResult = Money.create(discountedPrice, unitPrice.currency);
       
@@ -109,7 +109,7 @@ export class DynamicMarkdownPricingStrategy extends PricingStrategy {
         return failure(`Failed to apply discount: ${discountedPriceResult.error}`);
       }
       
-      unitPrice = discountedPriceResult.value;
+      unitPrice = discountedPriceResult.getValue();
     }
 
     // Calculate total price for the quantity
@@ -117,10 +117,10 @@ export class DynamicMarkdownPricingStrategy extends PricingStrategy {
     if (totalPriceResult.isFailure()) {
       return failure(`Failed to calculate total price: ${totalPriceResult.error}`);
     }
-    const totalPrice = totalPriceResult.value;
+    const totalPrice = totalPriceResult.getValue();
 
     // Verify the calculated price meets margin floor requirements
-    const totalBaseCost = baseCost.multiply(quantity).value;
+    const totalBaseCost = baseCost.multiply(quantity).getValue();
     if (!this.verifyMarginFloor(totalPrice, totalBaseCost, pricingTier)) {
       // If margin floor is violated, recalculate price at the floor margin
       const floorMargin = pricingTier.getFloorGrossMarginPercentage() / 100;
@@ -131,7 +131,7 @@ export class DynamicMarkdownPricingStrategy extends PricingStrategy {
         return failure(`Failed to create floor price: ${floorPriceResult.error}`);
       }
       
-      return success(floorPriceResult.value);
+      return success(floorPriceResult.getValue());
     }
 
     return success(totalPrice);
@@ -149,7 +149,7 @@ export class DynamicMarkdownPricingStrategy extends PricingStrategy {
       return failure(`Failed to create formula: ${formulaResult.error}`);
     }
     
-    this.defaultFormula = formulaResult.value;
+    this.defaultFormula = formulaResult.getValue();
     return success(undefined);
   }
 
@@ -177,7 +177,7 @@ export class DynamicMarkdownPricingStrategy extends PricingStrategy {
       return failure(`Failed to calculate discount: ${discountResult.error}`);
     }
 
-    let discount = discountResult.value;
+    let discount = discountResult.getValue();
     
     if (maxDiscount !== undefined && discount > maxDiscount) {
       discount = maxDiscount;
