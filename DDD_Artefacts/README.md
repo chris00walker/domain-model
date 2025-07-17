@@ -6,19 +6,19 @@ This repository contains the Domain-Driven Design (DDD) artifacts for the Elias 
 
 ```
 DDD_Artefacts/
-├── src/                      # Source code (organized by bounded contexts)
-│   ├── admin/                # Administrative functions and dashboards
-│   ├── catalog/              # Product catalog management
-│   ├── customers/            # Customer management and profiles
-│   ├── domain/               # Shared domain layer components
-│   ├── infra/                # Infrastructure layer implementations
-│   ├── invoicing/            # Invoicing and billing functionality
-│   ├── ordering/             # Order processing and management
-│   ├── payments/             # Payment processing integration
-│   ├── pricing/              # Pricing strategies and promotions
-│   ├── shared/               # Shared utilities and cross-cutting concerns
-│   ├── shipping/             # Shipping and fulfillment logic
-│   └── subscriptions/        # Subscription management
+├── src/                              # Source code (organized by bounded contexts)
+│   ├── admin_reporting/              # Administrative functions and reporting
+│   ├── billing_invoicing/            # Billing and invoicing management
+│   ├── customer_management/          # Customer profiles and account management
+│   ├── domain/                       # Shared domain layer components
+│   ├── infra/                        # Infrastructure layer implementations
+│   ├── order_management/             # Order processing and fulfillment
+│   ├── payment_billing/              # Payment processing and transactions
+│   ├── pricing_promotions/           # Pricing strategies and promotional offers
+│   ├── product_catalog/              # Product information and catalog management
+│   ├── shipping_fulfillment/         # Shipping and order fulfillment
+│   ├── subscription_management/      # Subscription services and management
+│   └── shared/                       # Shared utilities and cross-cutting concerns
 │
 ├── docs/                     # Documentation and specifications
 │   ├── adr/                  # Architecture Decision Records
@@ -37,17 +37,52 @@ DDD_Artefacts/
 
 ## Bounded Contexts
 
-The project implements the following key bounded contexts:
+The project implements the following key bounded contexts, each with its own domain model and ubiquitous language:
 
-1. **Admin**: Administrative functions and system management
-2. **Catalog**: Product catalog and inventory management
-3. **Customers**: Customer profiles and account management
-4. **Invoicing**: Billing and financial documentation
-5. **Ordering**: Order processing and fulfillment workflow
-6. **Payments**: Payment processing and transaction management
-7. **Pricing**: Price calculations, promotions, and discounts
-8. **Shipping**: Order fulfillment and logistics
-9. **Subscriptions**: Recurring orders and subscription services
+1. **Admin & Reporting** (`admin_reporting/`)
+   - System administration and reporting functions
+   - User management and access control
+   - System health monitoring and dashboards
+
+2. **Billing & Invoicing** (`billing_invoicing/`)
+   - Invoice generation and management
+   - Billing cycles and statements
+   - Financial documentation and reporting
+
+3. **Customer Management** (`customer_management/`)
+   - Customer profiles and account management
+   - Authentication and authorization
+   - Customer preferences and history
+
+4. **Order Management** (`order_management/`)
+   - Order processing workflow
+   - Order lifecycle management
+   - Fulfillment coordination
+
+5. **Payment & Billing** (`payment_billing/`)
+   - Payment processing
+   - Transaction management
+   - Payment gateway integration
+
+6. **Pricing & Promotions** (`pricing_promotions/`)
+   - Dynamic pricing strategies
+   - Promotional offers and discounts
+   - Price calculation rules
+
+7. **Product Catalog** (`product_catalog/`)
+   - Product information management
+   - Catalog organization and navigation
+   - Inventory status and tracking
+
+8. **Shipping & Fulfillment** (`shipping_fulfillment/`)
+   - Order fulfillment process
+   - Shipping coordination
+   - Logistics management
+
+9. **Subscription Management** (`subscription_management/`)
+   - Subscription lifecycle
+   - Recurring billing
+   - Subscription plans and options
 
 ## Documentation
 
