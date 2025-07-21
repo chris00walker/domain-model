@@ -1,4 +1,4 @@
-n# Sales & Quoting
+# Sales & Quoting
 
 [RELATED: ADR-002, ADR-004, ADR-005, ADR-008, ADR-012]
 [CONTEXT: Core]
@@ -7,6 +7,7 @@ n# Sales & Quoting
 [OWNER: @sales-team]
 
 ## 1. Business Context
+
 - **Purpose**: The Sales & Quoting context manages the creation, negotiation, and management of commercial sales quotes and contracts, ensuring alignment with pricing strategies and margin targets.
 
 - **Business Capabilities**:
@@ -43,6 +44,7 @@ n# Sales & Quoting
   - Pricing Analysts
 
 ## 2. Domain Model
+
 - **Key Entities**:
   - `Quote`: Commercial proposal with line items, terms, and pricing
   - `Contract`: Binding agreement with specific terms and conditions
@@ -74,7 +76,9 @@ n# Sales & Quoting
   - `PricingExceptionRequested`: When a quote falls below margin thresholds
 
 ## 3. Functional Requirements
+
 ### 3.1 Quote Management
+
 - **FR-1**: As a Sales Representative, I want to generate commercial quotes with volume-based pricing
   - **Acceptance Criteria**:
     - [ ] Support tiered pricing based on order volume
@@ -84,6 +88,7 @@ n# Sales & Quoting
   - **Dependencies**: [Pricing & Promotions, Customer Management]
 
 ### 3.2 Contract Negotiation
+
 - **FR-2**: As an Account Manager, I want to manage contract negotiations
   - **Acceptance Criteria**:
     - [ ] Track changes during negotiation
@@ -93,6 +98,7 @@ n# Sales & Quoting
   - **Dependencies**: [Legal, Customer Management]
 
 ### 3.3 Approval Workflows
+
 - **FR-3**: As a Sales Manager, I want to configure approval workflows
   - **Acceptance Criteria**:
     - [ ] Define multi-level approval chains
@@ -102,6 +108,7 @@ n# Sales & Quoting
   - **Dependencies**: [Identity & Access Management]
 
 ### 3.4 Business Rules
+
 - **Quote Management**
   - Quotes must include all relevant product details, pricing, terms, and expiration dates.
   - Quote validity periods are enforced; default validity is 30 days.
@@ -124,7 +131,9 @@ n# Sales & Quoting
   - Promotional pricing must have defined start and end dates.
 
 ## 4. Integration Points
+
 ### 4.1 Published Events
+
 - `QuoteCreated`: When a new quote is generated
   - Payload: { quoteId, customerId, totalAmount, expirationDate, terms }
   - Consumers: [CRM, Billing, Analytics]
@@ -145,6 +154,7 @@ n# Sales & Quoting
   - Consumers: [Billing, Support, Analytics]
 
 ### 4.2 Consumed Events
+
 - `CustomerTierUpdated`: From Customer Management
   - Source: Customer Management Context
   - Action: Update customer's pricing tier and applicable discounts
@@ -166,6 +176,7 @@ n# Sales & Quoting
   - Action: Update contract fulfillment status
 
 ### 4.3 APIs/Services
+
 - **REST/GraphQL**: Sales & Quoting API
   - `/quotes`: CRUD operations for quotes
   - `/contracts`: Contract management
@@ -178,6 +189,7 @@ n# Sales & Quoting
   - CRM integration (HubSpot, Salesforce)
 
 ## 5. Non-Functional Requirements
+
 - **Performance**:
   - Generate quotes in < 5 seconds
   - Support 100+ concurrent users
@@ -200,31 +212,37 @@ n# Sales & Quoting
   - Document all approval workflows
 
 ## 6. Implementation Roadmap
+
 ### Phase 1 – Core Quote Management (Weeks 1-4)
+
 1. Implement basic quote creation and management.
 2. Establish quote approval workflow.
 3. Set up essential notifications.
 4. Enable quote-to-order conversion.
 
 ### Phase 2 – Contract Management (Weeks 5-8)
+
 1. Implement contract creation from accepted quotes.
 2. Add digital signature support.
 3. Enable contract versioning.
 4. Implement renewal process with reminders.
 
 ### Phase 3 – Advanced Features (Weeks 9-12)
+
 1. Enhance pricing rules and volume-based calculations.
 2. Implement bulk operations and reporting dashboards.
 3. Integrate with CRM/ERP systems.
 4. Introduce AI/ML quote recommendations.
 
 ### Phase 4 – Optimization (Weeks 13-16)
+
 1. Optimize performance and scalability.
 2. Add advanced analytics and KPIs.
 3. Provide self-service customer portal.
 4. Refine approval rules based on data insights.
 
 ## 7. Testing & Validation Strategy
+
 - **Unit Tests**: Validate quote calculations, margin checks, and approval workflows.
 - **Integration Tests**: Verify interactions with Pricing, Customer Management, Billing, and Inventory contexts.
 - **Performance Tests**: Ensure quote generation < 5 seconds at P95 and concurrency targets.
@@ -233,17 +251,20 @@ n# Sales & Quoting
 - **CI/CD Quality Gates**: 80 % code coverage, static analysis, and security scanning per ADR-012.
 
 ## 8. Open Questions
+
 - [ ] How should we handle international contracts with different tax regulations?
 - [ ] What's the process for handling pricing disputes with high-value customers?
 - [ ] How frequently should we review and update standard contract templates?
 
 ## 9. Out of Scope
+
 - Direct payment processing (handled by Payment context)
 - Tax calculation (handled by Order Management context)
 - Product catalog management (handled by Product Catalog context)
 - Customer identity verification (handled by Customer Management context)
 
 ## 10. References
+
 - ADR-005: Distributed Transaction Strategy
 - ADR-008: Event-Driven Communication
 - EFI Revenue & Pricing Strategy (5-revenue-&-pricing.md)

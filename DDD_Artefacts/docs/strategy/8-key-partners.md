@@ -1,4 +1,4 @@
-# **🎯 Goal:** Develop a partner ecosystem that makes EFI faster, safer, and unmistakably authentic—so every promise of provenance, quality, and friction-free service is kept for B2C shoppers, B2B chefs, and regional importers.
+# **🎯 Goal:** Develop a partner ecosystem that makes EFI faster, safer, and unmistakably authentic—so every promise of provenance, quality, and friction-free service is kept for B2C shoppers, B2B chefs, and regional importers
 
 **Strategyzer Lens:** Every partnership must
 
@@ -105,4 +105,3 @@
 | **MoU** | Memorandum of Understanding |
 | **SOW** | Statement of Work |
 | **WCAG 2.2** | Web Content Accessibility Guidelines, version 2.2 |
-

@@ -7,6 +7,7 @@
 [OWNER: @quality-team]
 
 ## 1. Business Context
+
 - **Purpose**: Ensure all products meet established quality standards throughout the supply chain by providing comprehensive tools for inspection, testing, compliance management, and continuous improvement, with special emphasis on perishable goods and regulatory requirements.
 - **Business Capabilities**:
   - Quality planning and standards management
@@ -29,6 +30,7 @@
   - Supplier Quality Engineers
 
 ## 2. Domain Model
+
 - **Key Entities**:
   - QualitySpecification (root aggregate)
   - InspectionPlan
@@ -69,7 +71,9 @@
   - `CounterfeitDetected`
 
 ## 3. Functional Requirements
+
 ### 3.1 Quality Planning & Standards
+
 - **FR-1**: As a quality manager, I want to define and maintain quality specifications so that all products meet required standards
   - **Acceptance Criteria**:
     - [ ] Support hierarchical quality parameters by product category
@@ -87,6 +91,7 @@
   - **Dependencies**: [Production Planning PRD], [Work Instructions PRD]
 
 ### 3.2 Inspection & Testing
+
 - **FR-3**: As a quality technician, I want to perform inspections so that I can verify product quality
   - **Acceptance Criteria**:
     - [ ] Mobile-friendly inspection interface
@@ -104,6 +109,7 @@
   - **Dependencies**: [Analytics PRD], [Reporting PRD]
 
 ### 3.3 Non-Conformance Management
+
 - **FR-5**: As a quality engineer, I want to manage non-conformances so that I can drive continuous improvement
   - **Acceptance Criteria**:
     - [ ] Categorize non-conformances by type and severity
@@ -112,11 +118,12 @@
     - [ ] Monitor effectiveness of corrective actions
   - **Dependencies**: [Incident Management PRD], [Supplier Management PRD]
 
-
 ### 3.4 Product Authentication & Provenance Verification
+
 This sub-function verifies product authenticity and provenance, ensuring imported goods are genuine and compliant.
 
 #### Business Rules
+
 - Every imported product includes at least one verifiable authentication marker (QR, NFC, hologram).
 - All authentication scans are logged with timestamp, location, operator, and result.
 - Authentication failure immediately places the associated batch in **Quarantine** with investigation workflow.
@@ -126,6 +133,7 @@ This sub-function verifies product authenticity and provenance, ensuring importe
 - Products in *Quarantine* status are blocked from sale or allocation.
 
 #### Success Metrics (Authentication)
+
 | Metric | Target |
 |--------|--------|
 | Authentication Scan Success Rate | ≥ 99.5 % |
@@ -137,7 +145,9 @@ This sub-function verifies product authenticity and provenance, ensuring importe
 ---
 
 ## 4. Integration Points
+
 ### 4.1 Published Events
+
 - `QualityTestCompleted`
   - Payload: {testId, productId, batchNumber, testType, result, status, timestamp}
   - Consumers: Inventory, Production, Supplier Management
@@ -171,6 +181,7 @@ This sub-function verifies product authenticity and provenance, ensuring importe
   - Consumers: Notifications, Compliance, Reporting
 
 ### 4.2 Consumed Events
+
 - `BatchProduced`
   - Source: Production
   - Action: Trigger required quality inspections
@@ -184,6 +195,7 @@ This sub-function verifies product authenticity and provenance, ensuring importe
   - Action: Initiate quality investigation
 
 ### 4.3 APIs/Services
+
 - **REST/GraphQL**:
   - `POST /api/quality/inspections` - Record inspection results
   - `GET /api/quality/nonconformances` - Retrieve non-conformance reports
@@ -202,6 +214,7 @@ This sub-function verifies product authenticity and provenance, ensuring importe
   - Document management systems
 
 ## 5. Non-Functional Requirements
+
 - **Compliance**:
   - 21 CFR Part 11, ISO 9001, FSMA, GMP compliance
   - Electronic signatures with audit trail
@@ -236,17 +249,20 @@ This sub-function verifies product authenticity and provenance, ensuring importe
   - Multi-language support
 
 ## 6. Open Questions
+
 - How should we integrate with third-party laboratory testing services?
 - What are the specific regulatory requirements for different export markets?
 - How can we leverage AI/ML for predictive quality analytics?
 
 ## 7. Out of Scope
+
 - Product design and development (handled by R&D)
 - Supplier certification and onboarding (handled by Supplier Management)
 - Employee training and certification (handled by HR/LMS)
 - Customer complaint management (handled by Customer Service)
 
 ## 8. References
+
 - [ISO 9001:2015 Quality Management Systems](https://www.iso.org/standard/62085.html)
 - [21 CFR Part 11 - Electronic Records; Electronic Signatures](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?CFRPart=11)
 - [FSMA Final Rule on Preventive Controls for Human Food](https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-preventive-controls-human-food)

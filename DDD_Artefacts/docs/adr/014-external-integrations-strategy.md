@@ -1,12 +1,15 @@
 # ADR-014: External Integrations Strategy
 
 ## Status
+
 Proposed (2025-07-11)
 
 ## Context
+
 Elias Food Imports (EFI) depends on third-party SaaS platforms (Stripe, HubSpot, Tableau, Odoo ERP, Google APIs, carrier systems, etc.) to deliver business value. Previous documentation attempted to describe these systems as PRDs, but they are not bounded contexts we own. We need a clear, uniform strategy that governs why and how we integrate, contract management, SLAs, exit criteria, and compliance obligations.
 
 ## Decision
+
 Adopt a consolidated **External Integrations Strategy** with the following pillars:
 
 1. **Integration Catalogue**
@@ -32,17 +35,20 @@ Adopt a consolidated **External Integrations Strategy** with the following pilla
    • Each integration entry must define an exit path (alternate vendor, build-in-house) and data repatriation steps.
 
 ## Consequences
+
 + Reduces duplication and ad-hoc integration decisions.
 + Provides clear impact analysis when vendors change terms or pricing.
 + Improves audit readiness (PCI DSS, GDPR).
 − Requires governance effort to keep catalogue up to date.
 
 ## Alternatives Considered
+
 • Continue documenting integrations piecemeal in PRDs – rejected for lack of clarity.
 • Build all capabilities in-house – impractical.
 
 ## Related
-- ADR-007: Hexagonal Modular Monolith Architecture
-- ADR-009: Data Protection Strategy
-- ADR-010: Observability & Monitoring Strategy
-- integrations/catalog.yml (to be created)
+
++ ADR-007: Hexagonal Modular Monolith Architecture
++ ADR-009: Data Protection Strategy
++ ADR-010: Observability & Monitoring Strategy
++ integrations/catalog.yml (to be created)

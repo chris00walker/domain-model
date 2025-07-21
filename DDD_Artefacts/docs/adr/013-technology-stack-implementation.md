@@ -1,11 +1,12 @@
 ---
+title: "ADR-013: Technology Stack Implementation"
 version: '1.0.0'
 status: 'accepted'
 last_updated: '2025-07-04'
 owner: 'Core Architecture Team'
 ---
 
-# ADR-013: Technology Stack Implementation
+## ADR-013: Technology Stack Implementation
 
 ## Status
 
@@ -199,7 +200,8 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
   - Enables code sharing between frontend and backend
 - **Implementation**:
   - Structure:
-    ```
+
+    ```text
     /
     ├── apps/
     │   ├── admin/         # Admin dashboard (Next.js)
@@ -211,6 +213,7 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
     │   └── ui/            # Shared UI components
     └── services/          # Backend services (NestJS)
     ```
+
   - Workspace configuration for package management
   - Clear documentation for adding new packages
   - Shared ESLint, Prettier, and TypeScript configs
@@ -218,6 +221,7 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
 ## 5. Messaging & Event Bus
 
 ### 5.1 Message Broker
+
 - **RabbitMQ 3.11.x** (clustered)
   - **Use Cases**:
     - Order events (`order.created`, `order.paid`, `order.shipped`)
@@ -227,6 +231,7 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
   - **Security**: TLS mutual authentication, credential rotation
 
 ### 5.2 Search & Analytics
+
 - **Elasticsearch 8.x**
   - Full-text product search
   - Faceted filtering
@@ -236,12 +241,14 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
 ## 6. Security Infrastructure
 
 ### 6.1 Authentication & Authorization
+
 - **JWT (RS256)** with 1-hour expiry
 - **OAuth 2.0** via Auth0 for social login/SSO
 - **Refresh tokens** with rotation
 - **Role-based access control**
 
 ### 6.2 Data Protection
+
 - **Encryption**:
   - TLS 1.3 enforced
   - AES-256 for data at rest
@@ -253,6 +260,7 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
 ## 7. Observability Stack
 
 ### 7.1 Logging & Metrics
+
 - **ELK Stack** (Elasticsearch, Logstash, Kibana)
   - Centralized logging
   - 30-day hot storage, 1-year warm storage
@@ -262,6 +270,7 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
   - Alerting via PagerDuty
 
 ### 7.2 Application Performance
+
 - **New Relic APM**
   - End-to-end tracing
   - Performance monitoring
@@ -270,6 +279,7 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
 ## 8. Testing Framework
 
 ### 8.1 Testing Strategy
+
 - **Unit Testing**: Jest (90%+ coverage)
 - **Integration**: Postman/Newman
 - **E2E**: Cypress
@@ -277,6 +287,7 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
 - **Security**: OWASP ZAP
 
 ### 8.2 Test Automation
+
 - CI/CD integration
 - Automated regression testing
 - Performance benchmarking
@@ -285,18 +296,21 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
 ## 9. Infrastructure & Deployment
 
 ### 9.1 CI/CD Pipeline
+
 - **GitHub Actions**
   - Multi-stage pipeline
   - Automated testing and deployment
   - Manual approval for production
 
 ### 9.2 Container Orchestration
+
 - **Kubernetes**
   - Self-healing deployments
   - Horizontal pod autoscaling
   - Namespace isolation
 
 ### 9.3 Caching Strategy
+
 - **Redis 7.x**
   - Session storage
   - API response caching
@@ -308,6 +322,7 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
 ## 10. Implementation Impact
 
 ### Benefits
+
 - **Comprehensive Solution**: End-to-end technology coverage
 - **Enterprise-Grade Security**: Multiple layers of protection
 - **High Performance**: Optimized at every layer
@@ -316,6 +331,7 @@ As we begin implementation of the Elias Food Imports platform, we need to make c
 - **Observability**: Full-stack monitoring
 
 ### Trade-offs
+
 - **Operational Complexity**: More components to manage
 - **Learning Curve**: Broad technology surface area
 - **Resource Requirements**: Higher infrastructure needs

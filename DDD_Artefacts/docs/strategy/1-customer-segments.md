@@ -1,4 +1,4 @@
-# **🎯 Goal:** Catalogue *every* current and future [Customer](../ubiquitous-language/glossary.md#customer) segment and capture their **top Jobs, Pains, and Gains**, tagging each with **Phase (1‒3)** and **Priority (Prioritise / Monitor / Park)** so the team can focus experiments on the segments that matter now.
+# **🎯 Goal:** Catalogue *every* current and future [Customer](../ubiquitous-language/glossary.md#customer) segment and capture their **top Jobs, Pains, and Gains**, tagging each with **Phase (1‒3)** and **Priority (Prioritise / Monitor / Park)** so the team can focus experiments on the segments that matter now
 
 **Strategyzer Lens:** Every segment entry must
 
@@ -57,5 +57,4 @@
 
 2. Micro-segment flagged as a **Small-n Experiment**.
 
-3. The exact account counts **TBD**. 
-
+3. The exact account counts **TBD**.

@@ -7,8 +7,9 @@
 [OWNER: @marketing-team]
 
 ## 1. Business Context
+
 - **Purpose**: Drive growth and customer engagement for Elias Food Imports by promoting authentic Levantine & Mediterranean food products through targeted campaigns and personalized experiences.
-- **Business Capabilities**: 
+- **Business Capabilities**:
   - Multi-channel campaign management (email, social, content)
   - Customer segmentation for B2C and B2B audiences
   - Promotional strategy for both retail and wholesale channels
@@ -21,13 +22,14 @@
   - Campaign conversion rates ≥ 3.5%
   - B2B lead response time < 2 hours
   - Social media engagement growth ≥ 15% MoM
-- **Domain Experts**: 
+- **Domain Experts**:
   - Head of Marketing (Primary Owner)
   - Digital Marketing Manager
   - B2B Sales Manager
   - Customer Insights Analyst
 
 ## 2. Domain Model
+
 - **Key Entities**:
   - `Campaign`: Multi-channel marketing initiatives (email, social, content)
   - `Promotion`: Time-bound offers and discounts
@@ -62,7 +64,9 @@
   - `CampaignPerformanceAlert`: When KPIs deviate from targets
 
 ## 3. Functional Requirements
+
 ### 3.1 Multi-Channel Campaign Management
+
 - **FR-1**: As a Marketing Manager, I want to create omni-channel campaigns so that I can engage customers across multiple touchpoints
   - **Acceptance Criteria**:
     - [ ] Campaigns can target specific customer segments (Diaspora, Foodies, Expats, B2B)
@@ -72,6 +76,7 @@
   - **Dependencies**: [Customer Management, Product Catalog, Compliance]
 
 ### 3.2 B2B Lead Management
+
 - **FR-2**: As a B2B Sales Manager, I want to track and nurture leads so that I can convert them into wholesale customers
   - **Acceptance Criteria**:
     - [ ] Lead scoring based on company size, order potential, and engagement
@@ -81,6 +86,7 @@
   - **Dependencies**: [Customer Management, Order Management, HubSpot Integration]
 
 ### 3.3 Promotional Strategy
+
 - **FR-3**: As a Marketing Specialist, I want to create targeted promotions so that I can drive sales of specific product categories
   - **Acceptance Criteria**:
     - [ ] Support for product category-specific promotions
@@ -90,7 +96,9 @@
   - **Dependencies**: [Order Management, Inventory Management, Product Catalog]
 
 ### 3.4 Business Rules
+
 #### Campaign Rules
+
 - All campaigns must have a defined target audience, budget, timeline, and success metrics before launch.
 - Campaign performance must be reviewed at pre-defined milestones and adjusted as necessary based on performance data.
 - Campaigns targeting specific cultural or regional segments must undergo cultural appropriateness review by regional experts.
@@ -98,6 +106,7 @@
 - All campaign assets must adhere to Elias Food Imports brand guidelines and receive approval before public release.
 
 #### Content Rules
+
 - All product-related content must be factually accurate and verified against the Product Catalog.
 - Cultural and regional content must be authored or reviewed by subject-matter experts from the specific region.
 - Content must be localized for target markets, not merely translated.
@@ -105,6 +114,7 @@
 - All content must include appropriate metadata to facilitate proper indexing and searchability.
 
 #### Customer Segmentation Rules
+
 - Customer segments must be reviewed and updated quarterly based on the latest transaction and engagement data.
 - Segmentation must consider both behavioral data (purchase history, engagement) and profile data (region, preferences).
 - All marketing activities must target at least one defined customer segment.
@@ -112,6 +122,7 @@
 - Experimental segments require A/B testing validation before full-scale implementation.
 
 #### Compliance Rules
+
 - All marketing materials must comply with regional food marketing regulations in target markets.
 - Customer data used for segmentation and targeting must comply with applicable privacy laws (GDPR, CCPA, etc.).
 - Promotional pricing and discounts must align with the Pricing domain's policies and rules.
@@ -119,7 +130,9 @@
 - Opt-out requests must be processed within 24 hours of receipt.
 
 ## 4. Integration Points
+
 ### 4.1 Published Events
+
 - `CampaignLaunched`: When a new marketing campaign is activated
   - Payload: { campaignId, name, channels: [email|social|content], targetSegments: [B2C|B2B], budget, currency, startDate, endDate }
   - Consumers: [Customer Management, Analytics, Notifications]
@@ -149,6 +162,7 @@
   - Consumers: [Customer Management, Notifications]
 
 ### 4.2 Consumed Events
+
 - `OrderPlaced`: From Order Management
   - Source: Order Management Context
   - Action: Track campaign attribution, update customer lifetime value, trigger post-purchase flows
@@ -175,6 +189,7 @@
   - Action: Deliver segment-specific communications
 
 ### 4.3 APIs/Services
+
 - **REST/GraphQL**: Marketing Campaign API
   - Endpoints for campaign management, lead tracking, and analytics
   - Webhook subscriptions for real-time updates
@@ -188,7 +203,8 @@
   - Predictive analytics for customer behavior
 
 ## 5. Non-Functional Requirements
-- **Performance**: 
+
+- **Performance**:
   - Support 500+ concurrent users in the marketing dashboard
   - Sub-second response times for campaign management actions
   - Near real-time updates for campaign analytics (≤ 5 min delay)
@@ -211,25 +227,30 @@
   - Accessibility standards (WCAG 2.1 AA) for all customer-facing content
 
 ## 6. Implementation Roadmap
+
 ### Phase 1 – Foundation (Q1)
+
 - Establish event-driven infrastructure (in-process event bus) per ADR-008.
 - Implement core Campaign, Content, and Segment CRUD with approval workflows.
 - Integrate email & social channels; enable `CampaignCreated` and `CampaignLaunched` events.
 - **Exit Criteria**: Marketing team can create & launch campaigns across two channels; events visible in domain event catalog.
 
 ### Phase 2 – Automation & Personalization (Q2)
+
 - Introduce automated segment recalculation and real-time personalization.
 - Deploy A/B testing framework and dynamic content rendering.
 - Add ROI dashboards and basic attribution reports.
 - **Exit Criteria**: Automated segment updates, A/B test results captured, dashboards live.
 
 ### Phase 3 – Advanced Optimization (Q3)
+
 - Predictive analytics for campaign outcome forecasting (leveraging Analytics context).
 - Machine-learning driven budget optimization.
 - Multi-armed bandit experimentation engine for channel mix.
 - **Exit Criteria**: Predictive models achieving ≥5% lift in conversion compared to control.
 
 ## 7. Testing & Validation Strategy
+
 - **Unit Tests**: Validate business rule enforcement for campaigns, content, and segments.
 - **Integration Tests**: Verify event contracts with Customer, Order, Catalog, and Subscription contexts (see /contract-test workflow).
 - **Performance Tests**: Ensure segment recalculation handles 100k segments and 10M customers within SLA (≤10 min).

@@ -5,12 +5,14 @@ last_updated: "2025-06-06"
 status: "Accepted"
 ---
 
-# ADR-012: CI/CD Pipeline Strategy
+## ADR-012: CI/CD Pipeline Strategy
 
 ## Status
+
 Accepted
 
 ## Context
+
 Elias Food Imports requires a robust software delivery process that enables:
 
 - High development velocity with quality assurance
@@ -25,6 +27,7 @@ Elias Food Imports requires a robust software delivery process that enables:
 The team has been experiencing challenges with manual deployment processes, inconsistent environments, and lengthy testing cycles that delay delivery of business value and increase risk of errors.
 
 ## Decision
+
 We will implement a **CI/CD Pipeline Strategy** with the following components:
 
 1. **Pipeline Stages and Gates**:
@@ -70,6 +73,7 @@ We will implement a **CI/CD Pipeline Strategy** with the following components:
 ## Consequences
 
 ### Positive
+
 - **Faster Delivery**: Automation reduces manual steps and waiting time
 - **Higher Quality**: Consistent testing reduces defects reaching production
 - **Reduced Risk**: Small, incremental changes are easier to troubleshoot
@@ -79,6 +83,7 @@ We will implement a **CI/CD Pipeline Strategy** with the following components:
 - **Developer Experience**: Streamlined workflow with fast feedback loops
 
 ### Negative
+
 - **Initial Setup Cost**: Building comprehensive pipelines requires upfront investment
 - **Maintenance Overhead**: Pipeline definitions require ongoing maintenance
 - **Potential Bottlenecks**: Tests and scans can slow down delivery if not optimized
@@ -86,6 +91,7 @@ We will implement a **CI/CD Pipeline Strategy** with the following components:
 - **Learning Curve**: Team needs to understand pipeline principles and tools
 
 ### Mitigations
+
 - Start with core pipeline, then incrementally add stages and gates
 - Monitor pipeline execution times and optimize slow steps
 - Document pipeline patterns and practices for the team
@@ -94,7 +100,8 @@ We will implement a **CI/CD Pipeline Strategy** with the following components:
 - Invest in developer training on CI/CD principles
 
 ## References
+
 1. **Continuous Delivery**: Jez Humble and David Farley, *Continuous Delivery* (2010)
-2. **GitHub Actions Documentation**: https://docs.github.com/en/actions
+2. **GitHub Actions Documentation**: <https://docs.github.com/en/actions>
 3. **DevSecOps Practices**: OWASP DevSecOps Guideline
 4. **Elias Food Imports Software Architecture**: Section 8, CI/CD Pipelines

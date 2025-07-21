@@ -5,7 +5,7 @@ date: 2025-06-06
 deciders: DDD Implementation Team, Architecture Team
 ---
 
-# ADR-006: Shared Kernel Design
+## ADR-006: Shared Kernel Design
 
 ## Context
 
@@ -27,6 +27,7 @@ We will implement a Shared Kernel that provides essential building blocks for al
 #### Base Classes
 
 1. **AggregateRoot**: Base class for all aggregate roots
+
    ```typescript
    abstract class AggregateRoot<T> {
      protected readonly _id: UniqueEntityID;
@@ -61,6 +62,7 @@ We will implement a Shared Kernel that provides essential building blocks for al
    ```
 
 2. **ValueObject**: Base class for immutable value objects
+
    ```typescript
    abstract class ValueObject<T> {
      protected readonly props: T;
@@ -80,6 +82,7 @@ We will implement a Shared Kernel that provides essential building blocks for al
    ```
 
 3. **Entity**: Base class for entities that are not aggregate roots
+
    ```typescript
    abstract class Entity<T> {
      protected readonly _id: UniqueEntityID;
@@ -105,6 +108,7 @@ We will implement a Shared Kernel that provides essential building blocks for al
 #### Core Utilities
 
 1. **Result**: For explicit error handling
+
    ```typescript
    class Result<T, E = string> {
      private readonly _value?: T;

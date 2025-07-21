@@ -5,12 +5,14 @@ last_updated: "2025-06-06"
 status: "Accepted"
 ---
 
-# ADR-011: Multi-Layered Caching Strategy
+## ADR-011: Multi-Layered Caching Strategy
 
 ## Status
+
 Accepted
 
 ## Context
+
 Elias Food Imports' platform faces performance and scalability challenges that impact user experience, database load, and overall system efficiency:
 
 - Product catalog with thousands of SKUs requires fast search and browsing
@@ -23,6 +25,7 @@ Elias Food Imports' platform faces performance and scalability challenges that i
 The system requires a comprehensive caching strategy that addresses these challenges while maintaining data consistency and acceptable freshness.
 
 ## Decision
+
 We will implement a **Multi-Layered Caching Strategy** with the following components:
 
 1. **Browser/Client-Side Caching**:
@@ -64,6 +67,7 @@ We will implement a **Multi-Layered Caching Strategy** with the following compon
 ## Consequences
 
 ### Positive
+
 - **Improved Response Times**: Significant latency reduction for end users
 - **Reduced Database Load**: Lower pressure on database systems
 - **Higher Scalability**: Better handling of traffic spikes
@@ -72,6 +76,7 @@ We will implement a **Multi-Layered Caching Strategy** with the following compon
 - **Global Performance**: Consistent experience regardless of user location
 
 ### Negative
+
 - **Implementation Complexity**: Multiple caching layers require careful coordination
 - **Data Consistency Challenges**: Risk of stale data if invalidation fails
 - **Cache Invalidation Overhead**: Additional processing for change detection
@@ -79,6 +84,7 @@ We will implement a **Multi-Layered Caching Strategy** with the following compon
 - **Debugging Complexity**: Harder to track issues when data flows through multiple caches
 
 ### Mitigations
+
 - Comprehensive cache monitoring and analytics
 - Automatic cache TTL enforcement as a fallback for missed invalidations
 - Clear cache management documentation and developer guidelines
@@ -87,7 +93,8 @@ We will implement a **Multi-Layered Caching Strategy** with the following compon
 - Regular cache efficiency reviews
 
 ## References
-1. **Caching Best Practices**: https://aws.amazon.com/caching/best-practices/
-2. **Redis Documentation**: https://redis.io/documentation
-3. **CDN Caching Strategies**: https://www.cloudflare.com/learning/cdn/what-is-caching/
+
+1. **Caching Best Practices**: <https://aws.amazon.com/caching/best-practices/>
+2. **Redis Documentation**: <https://redis.io/documentation>
+3. **CDN Caching Strategies**: <https://www.cloudflare.com/learning/cdn/what-is-caching/>
 4. **EFI Architecture Document**: Section 14.2, Performance Optimization

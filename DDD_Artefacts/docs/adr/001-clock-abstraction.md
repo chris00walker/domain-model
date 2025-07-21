@@ -5,13 +5,16 @@ date: 2025-05-10
 deciders: Core Architecture Team
 ---
 
-# ADR-001: Clock Abstraction for Temporal Logic
+## ADR-001: Clock Abstraction for Temporal Logic
 
 ## Status
+
 Accepted
 
 ## Context
+
 The domain model contains numerous time-dependent operations, including:
+
 - Subscription renewal calculations
 - Order deadline processing
 - Time-limited promotions and discounts
@@ -19,6 +22,7 @@ The domain model contains numerous time-dependent operations, including:
 - Inventory reservation expiration
 
 In the initial implementation, these operations used direct system time calls (`new Date()`, `Date.now()`, etc.), which created several problems:
+
 1. Non-deterministic behavior in tests
 2. Inability to properly test time-dependent logic
 3. Difficult to simulate time-based scenarios
@@ -27,9 +31,11 @@ In the initial implementation, these operations used direct system time calls (`
 These issues were specifically mentioned in the initial DDD audit as a critical area for improvement.
 
 ## Decision
+
 We will implement a Clock abstraction with the following components:
 
 1. A `Clock` interface:
+
    ```typescript
    interface Clock {
      now(): Date;
@@ -41,6 +47,7 @@ We will implement a Clock abstraction with the following components:
    ```
 
 2. A production implementation (`SystemClock`):
+
    ```typescript
    class SystemClock implements Clock {
      now(): Date {
@@ -52,6 +59,7 @@ We will implement a Clock abstraction with the following components:
    ```
 
 3. A test implementation (`TestClock`):
+
    ```typescript
    class TestClock implements Clock {
      private currentTime: Date;
@@ -81,6 +89,7 @@ We will implement a Clock abstraction with the following components:
 ## Consequences
 
 ### Positive
+
 - Tests are now deterministic and repeatable
 - Time-dependent logic can be thoroughly tested by advancing time in controlled increments
 - Complex temporal scenarios (like subscription renewals) can be simulated and verified
@@ -88,6 +97,7 @@ We will implement a Clock abstraction with the following components:
 - Domain code is more explicit about its dependencies on time
 
 ### Negative
+
 - Adds an additional abstraction layer that developers must understand
 - Requires dependency injection infrastructure to provide the appropriate Clock implementation
 - Slight performance overhead (minimal)
@@ -96,6 +106,7 @@ We will implement a Clock abstraction with the following components:
 ## Implementation Examples
 
 ### Domain Entity Using Clock
+
 ```typescript
 class Subscription {
   private readonly clock: Clock;
@@ -120,6 +131,7 @@ class Subscription {
 ```
 
 ### Test Using TestClock
+
 ```typescript
 describe('Subscription renewal', () => {
   it('should identify when subscription is due for renewal', () => {
@@ -147,5 +159,6 @@ describe('Subscription renewal', () => {
 ```
 
 ## References
+
 - [Object-Oriented Software Construction by Bertrand Meyer](https://www.amazon.com/Object-Oriented-Software-Construction-Book-CD-ROM/dp/0136291554)
 - [Working Effectively with Legacy Code by Michael Feathers](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052)

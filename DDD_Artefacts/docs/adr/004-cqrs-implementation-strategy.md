@@ -5,7 +5,7 @@ date: 2025-06-06
 deciders: DDD Implementation Team, Architecture Team
 ---
 
-# ADR-004: CQRS Implementation Strategy
+## ADR-004: CQRS Implementation Strategy
 
 ## Context
 
@@ -459,7 +459,7 @@ describe('ChangeBillingFrequencyCommandHandler', () => {
 
 - Evans, Eric. "Domain-Driven Design: Tackling Complexity in the Heart of Software"
 - Young, Greg. "CQRS Documents"
-- Fowler, Martin. "CQRS" https://martinfowler.com/bliki/CQRS.html
+- Fowler, Martin. "CQRS" <https://martinfowler.com/bliki/CQRS.html>
 - Vernon, Vaughn. "Implementing Domain-Driven Design"
 - [Domain Event Catalog](../domain-knowledge/integrations/events.md)
 

@@ -24,6 +24,7 @@ This directory contains Product Requirements Documents (PRDs) organized by bound
 ## PRD Template
 
 All PRDs should follow the structure in [template.md](./template.md), which includes:
+
 - Business Context
 - Domain Model
 - Functional Requirements
@@ -110,5 +111,3 @@ This documentation defines the comprehensive requirements for the Elias Food Imp
 - [Domain Knowledge Documentation](../domain-knowledge/)
 - [API Design Guidelines](../guidelines/api-design-guidelines.md)
 - [Context Map Diagram](../diagrams/context_map.puml)
-
-

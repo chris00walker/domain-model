@@ -5,8 +5,6 @@ last_updated: "2025-06-18"
 status: "Draft"
 ---
 
-# Contribution Guidelines
-
 Thank you for improving the Ubiquitous Language Consistency Framework!  Follow the steps below to ensure a smooth contribution process.
 
 ## 1. Before You Start
@@ -19,12 +17,14 @@ Thank you for improving the Ubiquitous Language Consistency Framework!  Follow t
 
 1. Open an issue titled `UL-Proposal: <Your Term>`.
 2. Use the template:
-   ```
+
+   ```markdown
    **Definition**: <concise definition>
    **Bounded Context**: <where it belongs>
    **Rationale**: <why it matters>
    **References**: <links to specs, requirements, etc.>
    ```
+
 3. Tag at least one domain expert and the DDD Implementation Team.
 4. The team will assign the proposal to a review meeting.
 

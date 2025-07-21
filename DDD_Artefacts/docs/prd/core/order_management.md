@@ -7,6 +7,7 @@
 [OWNER: @order-team]
 
 ## 1. Business Context
+
 - **Purpose**: Orchestrate the complete order lifecycle—from creation through fulfillment—ensuring data consistency, inventory reservation, and customer transparency while maintaining a seamless shopping experience.
 - **Business Capabilities**:
   - Order creation and validation
@@ -29,6 +30,7 @@
   - Business Analysts
 
 ## 2. Domain Model
+
 - **Key Entities**:
   - Order (root aggregate)
   - OrderLineItem
@@ -62,7 +64,9 @@
   - `ReturnRequested`
 
 ## 3. Functional Requirements
+
 ### 3.1 Order Creation & Management
+
 - **FR-1**: As a customer, I want to place an order so that I can purchase products
   - **Acceptance Criteria**:
     - [ ] System validates cart contents, pricing, and inventory
@@ -81,6 +85,7 @@
   - **Dependencies**: [Inventory PRD], [Pricing PRD]
 
 ### 3.2 Order Processing
+
 - **FR-3**: As a system, I want to process orders through the fulfillment workflow
   - **Acceptance Criteria**:
     - [ ] State transitions: Created → Confirmed → Processing → Fulfilled → Shipped → Delivered
@@ -98,6 +103,7 @@
   - **Dependencies**: [Payment PRD], [Inventory PRD]
 
 ### 3.3 Returns & Refunds
+
 - **FR-5**: As a customer, I want to return items so that I can get a refund or exchange
   - **Acceptance Criteria**:
     - [ ] Initiates return request with reason codes
@@ -107,7 +113,9 @@
   - **Dependencies**: [Returns PRD], [Payment PRD]
 
 ### 3.4 Business Rules
+
 #### 3.4.1 Order Creation & Validation
+
 - Order must contain at least one order line.
 - Each order line references a valid, in-stock product.
 - Quantity per order ≤ 50 units.
@@ -117,6 +125,7 @@
 - Age-restricted products trigger age-verification workflow.
 
 #### 3.4.2 Payment Processing
+
 - Payment authorisation required before fulfilment.
 - Orders > €500 require full capture before shipping.
 - Payment method country must match billing address country.
@@ -124,6 +133,7 @@
 - Partial payments allowed only for split shipments.
 
 #### 3.4.3 Fulfilment & Shipping
+
 - Orders must clear fraud check before fulfilment.
 - Cold-chain items require validated packaging and expedited carrier.
 - International orders must include customs documentation.
@@ -132,13 +142,16 @@
 - Tracking number assigned before goods leave warehouse.
 
 #### 3.4.4 Returns & Refunds
+
 - 30-day return window from delivery date.
 - Return eligibility validated against product type & condition.
 - Refund processed within 5 business days of return receipt.
 - Restocking fees may apply to non-defective returns.
 
 ## 4. Integration Points
+
 ### 4.1 Published Events
+
 - `OrderCreated`
   - Payload: {orderId, customerId, items[], totalAmount, timestamp}
   - Consumers: Inventory, Payment, Analytics
@@ -176,6 +189,7 @@
   - Consumers: Customer Service, Analytics, Compliance
 
 ### 4.2 Consumed Events
+
 - `PaymentProcessed`
   - Source: Payment
   - Action: Update order status to Paid
@@ -197,6 +211,7 @@
   - Action: Update order status to Delivered and trigger post-delivery feedback workflow
 
 ### 4.3 APIs/Services
+
 - **REST/GraphQL**:
   - `POST /api/orders` - Create new order
   - `GET /api/orders/{id}` - Retrieve order details
@@ -216,6 +231,7 @@
   - Fraud detection services
 
 ## 5. Non-Functional Requirements
+
 - **Performance**:
   - Process 5,000+ orders per hour
   - Sub-200ms response time for order status checks
@@ -251,6 +267,7 @@
 ### 5.1 Success Metrics
 
 #### Business Metrics
+
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
 | Order Accuracy | ≥ 99.9% | (Accurate orders / Total orders) × 100 |
@@ -262,6 +279,7 @@
 | Fraud Detection Accuracy | ≥ 98% | (Correctly identified fraud cases / Total fraud cases) × 100 |
 
 #### Technical Metrics
+
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
 | Order API Response Time | ≤ 200 ms (p95) | 95th percentile of API latency |
@@ -273,28 +291,33 @@
 | Failed Order Rate | ≤ 0.1% | (Failed orders / Total orders) × 100 |
 
 #### Monitoring & Alerting
+
 1. Real-time dashboards: order volume, throughput, processing times, error rates, integration health.
 2. Alert thresholds: failure rate > 0.5% over 5 min; processing time > 10 s; integration latency > 1 s; API error rate > 1%.
 3. Synthetic orders, integration health checks, DB performance, event backlog monitoring.
 
 ## 6. Open Questions
+
 - How should we handle partial shipments for multi-vendor orders?
 - What are the specific requirements for international order processing?
 - How should we handle price changes between order and fulfillment?
 
 ## 7. Out of Scope
+
 - Product catalog management (handled by Catalog)
 - Customer account management (handled by Customer)
 - Warehouse management (handled by Fulfillment)
 - Payment processing (handled by Payment)
 
 ## 8. Implementation Roadmap
+
 - **Phase 1 – Core Order Processing**: Order aggregate, basic lifecycle, integration with Catalog & Customer contexts.
 - **Phase 2 – Payment & Fulfillment**: Integrate Payment context, implement fulfillment workflows, shipment tracking.
 - **Phase 3 – Advanced Features**: Returns and refunds processing, gift orders, multi-currency support.
 - **Phase 4 – Optimization & Scaling**: Performance optimizations, CQRS adoption, advanced analytics and reporting.
 
 ## 9. References
+
 - [MACH Architecture Principles](https://machcompatibility.com/)
 - [Domain-Driven Design Reference](https://domainlanguage.com/ddd/reference/)
 - [REST API Design Best Practices](https://restfulapi.net/)

@@ -7,6 +7,7 @@
 [OWNER: @commerce-platform]
 
 ## 1. Business Context
+
 - **Purpose**: Provide customers with a persistent, real-time cart that bridges browsing and order creation, ensuring seamless checkout and accurate inventory reservation.
 - **Business Capabilities**:
   - Temporary product holding & quantity management
@@ -22,6 +23,7 @@
 - **Domain Experts**: VP eCommerce, Head of CX, Inventory Manager, Pricing Analyst
 
 ## 2. Domain Model
+
 - **Key Entities**: `ShoppingCart`, `CartItem`, `CartSession`, `InventoryReservation`, `SavedItem`, `PromotionSnapshot`
 - **Aggregates**:
   - `ShoppingCart` (root) → owns `CartItem` & `InventoryReservation`
@@ -30,7 +32,9 @@
 - **Domain Events**: `CartCreated`, `ItemAddedToCart`, `CartUpdated`, `CartAbandoned`, `CartConvertedToOrder`
 
 ## 3. Functional Requirements
+
 ### 3.1 Cart Creation & Management
+
 - **FR-1**: As a shopper, I want a cart created automatically when I add the first item so that I can review my selections.
   - **Acceptance Criteria**:
     - [ ] Cart created with unique ID & session association
@@ -42,6 +46,7 @@
     - [ ] Inventory reservations updated atomically
 
 ### 3.2 Inventory Reservation
+
 - **FR-3**: The system must reserve inventory for 30 min when an item is added.
   - **Acceptance Criteria**:
     - [ ] Reservation extended with each cart update
@@ -49,6 +54,7 @@
   - **Dependencies**: Inventory & Shelf-Life context
 
 ### 3.3 Pricing & Promotions
+
 - **FR-4**: Cart must display current price, promotions, tax, and estimated shipping.
   - **Acceptance Criteria**:
     - [ ] Price snapshot captured at add-to-cart time
@@ -56,18 +62,21 @@
     - [ ] Apply best combination of eligible promotions (Pricing & Promotions context)
 
 ### 3.4 Cart Checkout Bridge
+
 - **FR-5**: On checkout, cart converts into an Order within 2 s.
   - **Acceptance Criteria**:
     - [ ] `CartConvertedToOrder` event published with orderId
     - [ ] All reservations confirmed as InventoryReserved
 
 ### 3.5 Abandoned Cart Recovery
+
 - **FR-6**: If a cart is inactive for 4 h, mark as abandoned and emit event.
   - **Acceptance Criteria**:
     - [ ] Scheduler flags abandoned carts
     - [ ] `CartAbandoned` event published for Notifications & Marketing
 
 ### 3.6 Business Rules
+
 - Cart auto-creates on first item add; each user maintains exactly one active cart.
 - Guest cart merges with existing user cart on login.
 - Maximum 50 unique products per cart; quantity updates validate against stock.
@@ -81,7 +90,9 @@
 - Cart totals must equal sum of item totals ‑ discounts + taxes + shipping.
 
 ## 4. Integration Points
+
 ### 4.1 Published Events
+
 - `CartCreated` → **Consumers**: AnalyticsReporting
 - `ItemAddedToCart` → **Consumers**: InventoryShelfLife, AnalyticsReporting
 - `CartItemRemoved` → **Consumers**: InventoryShelfLife, AnalyticsReporting
@@ -93,6 +104,7 @@
 - `CartReservationExpired` → **Consumers**: InventoryWarehouse, InventoryShelfLife
 
 ### 4.2 Consumed Events
+
 - `ProductPriceChanged` (PricingPromotions) → Re-price affected cart items
 - `PromotionUpdated` (PricingPromotions) → Re-evaluate promotions for active carts
 - `InventoryReserved` (InventoryShelfLife) → Confirm reservation status before checkout
@@ -101,11 +113,13 @@
 - `OrderCancelled` (OrderManagement) → Optionally restore items to cart
 
 ### 4.3 APIs/Services
+
 - **REST/GraphQL**: `/cart`, `/cart/items`, `/cart/merge`, `/cart/checkout`
 - **gRPC**: `ReservationService` for high-volume reservation checks
 - **External Services**: Stripe Checkout session for payment intent pre-auth
 
 ## 5. Non-Functional Requirements
+
 - **Performance**: Add/remove item call P95 ≤ 200 ms
 - **Scalability**: Support 20 k concurrent carts; 5 M active carts persisted
 - **Security**: Guest carts use signed, encrypted cookies; user carts tied to userId; TLS 1.2+
@@ -115,30 +129,36 @@
 ## 6. Implementation Roadmap
 
 ### Phase 1 – Core Cart (Weeks 1-2)
+
 1. Implement `ShoppingCart` aggregate with reservation events.
 2. REST/GraphQL endpoints for cart CRUD.
 3. Emit `CartCreated`, `ItemAddedToCart`, `CartUpdated` events.
 
 ### Phase 2 – Pricing & Promotions (Weeks 3-4)
+
 1. Integrate pricing service and promotion engine.
 2. Support currency conversion and volume discounts.
 3. Add `CartUpdated` with price deltas.
 
 ### Phase 3 – Checkout Integration (Weeks 5-6)
+
 1. Lock cart during checkout; emit `CartCheckoutStarted`.
 2. Create `Order` via Order Management; confirm reservations.
 3. Emit `CartCheckoutCompleted`.
 
 ### Phase 4 – Recovery & Analytics (Weeks 7-8)
+
 1. Scheduler for abandonment detection; send recovery events.
 2. Implement recovery email pipeline and success tracking.
 
 ### Phase 5 – Optimisation & Scaling (Weeks 9+)
+
 1. Performance tuning and CQRS read models per ADR-004.
 2. Add Redis caching and horizontal scaling tests.
 3. Introduce A/B testing of promo strategies.
 
 ## 7. Testing & Validation Strategy
+
 - **Unit Tests**: Cart invariants, reservation logic, promotion calculations.
 - **Integration Tests**: Cross-context flows with Inventory, Pricing, Order.
 - **Performance Tests**: P95 add/remove ≤ 200 ms at 5 k RPS.
@@ -147,14 +167,17 @@
 - **CI/CD Gates**: 80 % coverage, SAST/DAST, dependency scanning per ADR-012.
 
 ## 8. Open Questions
+
 - [ ] Should we support multi-cart per user for B2B bulk orders?
 - [ ] Is 30-min reservation duration optimal during peak season?
 
 ## 9. Out of Scope
+
 - Payment authorization flow (covered in Payment & Billing)
 - B2B quote generation (Sales & Quoting context)
 
 ## 10. References
+
 - ADR-007: Hexagonal Modular Monolith
 - ADR-004: CQRS Implementation Strategy
 - Shopping Cart Domain Rules

@@ -5,12 +5,14 @@ last_updated: "2025-06-06"
 status: "Accepted"
 ---
 
-# ADR-008: Event-Driven Communication Between Bounded Contexts
+## ADR-008: Event-Driven Communication Between Bounded Contexts
 
 ## Status
+
 Accepted
 
 ## Context
+
 As Elias Food Imports adopts a Hexagonal Modular Monolith architecture with distinct bounded contexts, we need to address how these contexts should communicate with each other while:
 
 - Maintaining loose coupling between bounded contexts
@@ -23,6 +25,7 @@ As Elias Food Imports adopts a Hexagonal Modular Monolith architecture with dist
 Traditional approaches like direct method calls or shared repositories risk creating tight coupling between contexts and eroding their boundaries.
 
 ## Decision
+
 We will implement an **Event-Driven Communication Approach** for interactions between bounded contexts with the following characteristics:
 
 1. **Domain Events as Primary Integration Mechanism**:
@@ -53,6 +56,7 @@ We will implement an **Event-Driven Communication Approach** for interactions be
 ## Consequences
 
 ### Positive
+
 - **Loose Coupling**: Bounded contexts are isolated from implementation details of other contexts
 - **Independent Evolution**: Contexts can evolve independently with minimal coordination
 - **Extensibility**: New behaviors can be added by subscribing to existing events
@@ -61,6 +65,7 @@ We will implement an **Event-Driven Communication Approach** for interactions be
 - **Resilience**: Asynchronous processing enables graceful degradation during partial outages
 
 ### Negative
+
 - **Eventual Consistency**: Some use cases may require adjusting to eventual consistency
 - **Complexity**: Event-driven systems can be harder to debug and reason about
 - **Event Versioning**: Requires careful management of event schemas and versions
@@ -68,6 +73,7 @@ We will implement an **Event-Driven Communication Approach** for interactions be
 - **Ordering Challenges**: May need to address event ordering requirements
 
 ### Mitigations
+
 - Comprehensive documentation in the Domain Event Catalog
 - Clear ownership of events to manage schema evolution
 - Monitoring and tools to trace event flows through the system
@@ -75,6 +81,7 @@ We will implement an **Event-Driven Communication Approach** for interactions be
 - Training for teams on event-driven architecture patterns
 
 ## References
+
 1. **Domain-Driven Design**: Eric Evans, *Domain-Driven Design* (2003)
 2. **Domain Events**: Vaughn Vernon, *Implementing Domain-Driven Design* (2013)
 3. **Transactional Outbox Pattern**: Chris Richardson, *Microservice Patterns* (2018)

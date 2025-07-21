@@ -112,7 +112,7 @@ Representative (non-exhaustive) event feed powering Analytics:
 
 ## 6. Implementation Roadmap
 
-_Phased delivery aligned with CI/CD pipeline (see ADR-012)._ 
+_Phased delivery aligned with CI/CD pipeline (see ADR-012)._
 
 | Phase | Scope | Milestones | Exit Criteria |
 |-------|-------|------------|---------------|

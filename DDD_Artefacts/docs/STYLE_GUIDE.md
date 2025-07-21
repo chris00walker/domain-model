@@ -14,6 +14,7 @@ This style guide ensures consistency across all documentation for the Elias Food
 ### File and Directory Naming
 
 #### Files
+
 - Use `kebab-case` for all file names
   - Example: `user-service.ts`, `order-controller.ts`, `payment-processor.js`
 - For React/Vue components, use `PascalCase` to match component naming
@@ -21,6 +22,7 @@ This style guide ensures consistency across all documentation for the Elias Food
 - Use consistent file extensions (.js, .ts, .jsx, .tsx, etc.)
 
 #### Directories
+
 - Use `kebab-case` for all directory names to maintain consistency with file naming
   - Example: `user-management/`, `order-processing/`, `api-clients/`
 - For feature directories, use singular form when it represents a single concept
@@ -31,6 +33,7 @@ This style guide ensures consistency across all documentation for the Elias Food
 ### Code Elements
 
 #### TypeScript/JavaScript
+
 - `PascalCase` for:
   - Class names: `class UserService { ... }`
   - Interface names: `interface UserProfile { ... }`
@@ -51,6 +54,7 @@ This style guide ensures consistency across all documentation for the Elias Food
   - Global configuration values
 
 #### Other Conventions
+
 - Prefix interfaces with `I` when needed for clarity: `IUserRepository`
 - Use descriptive names that indicate purpose or type
 - Avoid abbreviations unless they are widely understood
@@ -61,17 +65,20 @@ This style guide ensures consistency across all documentation for the Elias Food
 ### Markdown Formatting
 
 #### Headings
+
 - Use ATX-style headings with `#` for title, `##` for main sections, `###` for subsections, etc.
 - Include exactly one space between `#` and the heading text
 - Use sentence case for headings (capitalize only the first word and proper nouns)
 
 #### Text Formatting
+
 - Use **bold** for UI elements, buttons, and important concepts on first mention
 - Use *italics* for emphasis or to introduce new terms
 - Use `backticks` for code, commands, file names, and technical terms
 - Use ~~strikethrough~~ for deprecated or removed features
 
 #### Lists
+
 - Use hyphens (`-`) for unordered lists
 - Use numbers with periods (`1.`) for ordered lists
 - Indent nested lists with 2 spaces
@@ -101,6 +108,7 @@ Use tables for tabular data with aligned columns:
 | `email` | string | No | Contact email |
 
 #### Links
+
 - Use descriptive link text that makes sense out of context
 - Place the link reference at the end of the document if using reference-style links
 - Use relative paths for internal links
@@ -199,16 +207,6 @@ When filling in stubs, remove only the TODO comment; retain the GAP_IMPLEMENTED 
 ```
 
 That way, any automated checks or formatters know to leave your markers and stubs intact.
-
-## Conventions
-
-### Links
-
-- Use relative links within the documentation
-- Use descriptive link text (not "click here")
-- Link to other relevant documents when referencing them
-
-### Code Examples
 
 ```typescript
 // Good: Include type annotations

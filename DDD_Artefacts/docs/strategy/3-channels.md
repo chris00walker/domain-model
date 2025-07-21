@@ -1,4 +1,4 @@
-# **🎯 Goal:** Design and prioritise the *channels* that move each **Phase 1 Prioritise segment** from **Attraction → Awareness → Consideration → Confidence → Exchange → Post-Exchange**, while respecting the CAC and margin guardrails in the master *Value Proposition Analysis (VPA)*.
+# **🎯 Goal:** Design and prioritise the *channels* that move each **Phase 1 Prioritise segment** from **Attraction → Awareness → Consideration → Confidence → Exchange → Post-Exchange**, while respecting the CAC and margin guardrails in the master *Value Proposition Analysis (VPA)*
 
 **Strategyzer Lens:** Every channel must
 
@@ -73,4 +73,3 @@
 5. Review and adjust CAC thresholds after the first Channel experiment.
 
 ---
-

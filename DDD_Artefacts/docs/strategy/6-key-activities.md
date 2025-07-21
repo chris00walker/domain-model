@@ -1,4 +1,4 @@
-# **🎯 Goal:** Identify the **Key Activities** EFI *must excel at* to **create, deliver, and capture value**—honouring the Value Proposition, enabling [Customer](../ubiquitous-language/glossary.md#customer) acquisition & retention, and safeguarding margin targets.
+# **🎯 Goal:** Identify the **Key Activities** EFI *must excel at* to **create, deliver, and capture value**—honouring the Value Proposition, enabling [Customer](../ubiquitous-language/glossary.md#customer) acquisition & retention, and safeguarding margin targets
 
 **Strategyzer Lens:** Every activity must
 
@@ -130,5 +130,4 @@
 | **CAC/LTV** | [[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Acquisition Cost / Lifetime Value. |
 | **NPS** | Net Promoter Score (loyalty metric). |
 
-#### 
-
+####

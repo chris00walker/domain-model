@@ -1,4 +1,4 @@
-# **🎯 Goal:** Craft a Strategyzer-ready **[[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Relationships** block that picks up where Channels ends—at **Exchange**—and guides each priority segment through **Experience → Satisfaction → Significance**, maximising LTV while protecting the gross-margin and CAC guardrails in the master VPA.
+# **🎯 Goal:** Craft a Strategyzer-ready **[[[Customer](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer)](../ubiquitous-language/glossary.md#customer) Relationships** block that picks up where Channels ends—at **Exchange**—and guides each priority segment through **Experience → Satisfaction → Significance**, maximising LTV while protecting the gross-margin and CAC guardrails in the master VPA
 
 **Strategyzer Lens:** Every relationship mechanic must
 
@@ -74,4 +74,3 @@
 1. **Perk spend ≤ 10 % of incremental VIP GM**
 
 2. **CLV \= Σ (GM per [Order](../ubiquitous-language/glossary.md#order) × avg orders × retention rate) − CAC**
-
