@@ -5,7 +5,7 @@ date: 2025-06-06
 deciders: DDD Implementation Team, Architecture Team
 ---
 
-# ADR-005: Distributed Transaction Strategy
+## ADR-005: Distributed Transaction Strategy
 
 ## Context
 
@@ -16,6 +16,7 @@ In a domain-driven design architecture with multiple bounded contexts, ensuring 
 3. Long-running transactions decrease system availability
 
 For example, processing an order involves multiple bounded contexts:
+
 - **Ordering**: Creates and manages the order
 - **Catalog**: Updates inventory
 - **Payments**: Processes payment
@@ -40,6 +41,7 @@ We will specifically implement **Choreography-based Sagas** using domain events:
 #### 1. Domain Event Infrastructure
 
 Enhance the existing `DomainEvents` class to include:
+
 - Event publishing across bounded contexts
 - Retry mechanisms for failed event handling
 - Monitoring and observability
@@ -82,6 +84,7 @@ class DomainEventBus {
 #### 2. Saga Coordinator (Optional)
 
 For complex sagas, implement a coordinator service that:
+
 - Tracks saga state
 - Implements timeouts
 - Handles compensating actions
@@ -89,6 +92,7 @@ For complex sagas, implement a coordinator service that:
 #### 3. Event Persistence
 
 Store domain events in an event store to:
+
 - Provide an audit trail
 - Support replay capabilities
 - Enable event sourcing if needed
@@ -217,6 +221,7 @@ export class OrderEventHandler {
 ## Testing Strategy
 
 1. **Unit Tests**: Test each step in isolation
+
    ```typescript
    it('should reserve inventory when processing OrderCreatedEvent', async () => {
      // Arrange
@@ -241,6 +246,7 @@ export class OrderEventHandler {
 ## Monitoring and Observability
 
 Implement the following to monitor saga execution:
+
 - Distributed tracing with correlation IDs
 - Event completion metrics
 - Failed transaction alerts

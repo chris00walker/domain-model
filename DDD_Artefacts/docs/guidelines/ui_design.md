@@ -5,20 +5,28 @@ last_updated: "2025-06-06"
 status: "Final"
 ---
 ##
+
 title: "Ubiquitous Language in UI Design"
 version: "1.0"
 last_updated: "2025-06-06"
+
 ## status: "Draft"
+
 status: "Draft"
 title: Ubiquitous Language in UI Design
 version: "1.0"
 status: active
 owner: UI/UX Team, Domain Experts
 last_updated: 2025-06-06
+
 # Ubiquitous Language in UI Design
+
 ## Overview
+
 This guide establishes principles and practices for ensuring that user interfaces consistently reflect the ubiquitous language of Elias Food Imports' domain model. A UI that accurately mirrors domain concepts strengthens the connection between business understanding and user experience, reducing translation errors and improving overall Product cohesion.
+
 ## Core Principles
+
 1. **Domain-Driven Labeling**: UI elements should use terms directly from the ubiquitous language rather than technical or UI-specific jargon.
 2. **Context-Aware Terminology**: UI language should respect bounded context boundaries and adapt terminology to the specific user journey context.
 3. **Consistency Across Touchpoints**: The same domain concepts should be consistently represented across different interfaces and interaction points.
@@ -26,35 +34,49 @@ This guide establishes principles and practices for ensuring that user interface
 5. **Domain Event Visibility**: UI should surface important domain events in ways that reflect their significance in the domain model.
 6. **Process Alignment**: Workflows and multi-step processes should map to domain processes and business rules.
 7. **Validation Messaging**: Error and validation messages should communicate business rules using domain terminology.
+
 ## Implementation Guidelines
+
 ### Navigation and Information Architecture
+
 - **Menu Structure**: Organize primary navigation around core bounded contexts and subdomains
 - **Section Naming**: Use domain terms for section headings and page titles
 - **Breadcrumbs**: Include domain context hierarchies in breadcrumb paths
 - **Search Components**: Implement domain-specific search with filters mapped to domain attributes
+
 ### Form Design
+
 - **Field Labels**: Use entity and attribute names from the domain model
 - **Input Validation**: Implement value object validation rules with domain-aligned error messages
 - **Field Grouping**: Group inputs according to entity boundaries and aggregate structures
 - **Action Buttons**: Label buttons with domain commands (e.g., "Authenticate Product" not "Submit")
+
 ### Data Presentation
+
 - **Table Headers**: Use entity attribute names from the domain model
 - **Data Visualization**: Label charts and graphs with domain metrics and KPIs
 - **State Indicators**: Use domain status values (e.g., Subscription statuses)
 - **Empty States**: Provide domain context in empty state messages
+
 ### Domain Storytelling in UI
+
 - **Onboarding Flows**: Introduce domain concepts during user onboarding
 - **Contextual Help**: Provide domain knowledge in tooltips and help sections
 - **Feature Announcements**: Frame new features in terms of domain capabilities
 - **Notification Content**: Use domain event language in system notifications
+
 ## Example UI Patterns
+
 ### Product Authentication UI
+
 **Domain-Aligned Example:**
+
 ```html
 <section class="Authentication-container">
   <h1>Product Authentication</h1>
   <div class="Authentication-method-selector">
 ```
+
 <h2>Select Authentication Method</h2>
 <ul>
 ```
@@ -291,7 +313,7 @@ Icons and visual elements should reinforce domain concepts:
 - Develop visual cues for domain relationships
 Example:
 ```css
-/* Status indicators with domain-aligned naming */
+/*Status indicators with domain-aligned naming*/
 .Subscription-status {
   display: inline-block;
   padding: 4px 8px;
@@ -369,6 +391,7 @@ A UI that faithfully represents the ubiquitous language creates a seamless exper
 ---
 
 ⚑ Related
+
 - [Domain Glossary](../glossary.md)
 - [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
 

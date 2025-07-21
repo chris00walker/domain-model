@@ -5,7 +5,7 @@ date: 2025-06-06
 deciders: DDD Implementation Team
 ---
 
-# ADR-003: Value Object Validation Pattern
+## ADR-003: Value Object Validation Pattern
 
 ## Context
 

@@ -1,4 +1,4 @@
-# **🎯 Goal:** Define EFI’s **Revenue Streams & [[[Pricing](../ubiquitous-language/glossary.md#pricing)](../ubiquitous-language/glossary.md#pricing)](../ubiquitous-language/glossary.md#pricing)** block so every dollar of income is transparently linked to the value delivered, the costs incurred, and the experiments queued in *Testing Business Ideas*.
+# **🎯 Goal:** Define EFI’s **Revenue Streams & [[[Pricing](../ubiquitous-language/glossary.md#pricing)](../ubiquitous-language/glossary.md#pricing)](../ubiquitous-language/glossary.md#pricing)** block so every dollar of income is transparently linked to the value delivered, the costs incurred, and the experiments queued in *Testing Business Ideas*
 
 **Strategyzer Lens:** Every revenue stream must
 
@@ -112,4 +112,3 @@
 ## **Footnotes**
 
 1. **One-promo-per-[Order](../ubiquitous-language/glossary.md#order) rule:** Only one discount code or promotion may apply per [Order](../ubiquitous-language/glossary.md#order). [↩](https://chatgpt.com/c/68306eee-e300-8006-9054-d2e32e1e1625#user-content-fnref-1)
-

@@ -1,4 +1,4 @@
-# **🎯 Goal:** Guard EFI’s gross-margin floors and cash runway by making every dollar traceable to a Key Activity, Resource, or Partner—while keeping fixed overhead low enough that scale always widens contribution margin.
+# **🎯 Goal:** Guard EFI’s gross-margin floors and cash runway by making every dollar traceable to a Key Activity, Resource, or Partner—while keeping fixed overhead low enough that scale always widens contribution margin
 
 **Strategyzer lens:** A cost structure is the “flip side” of the Value Proposition. Each cost block must
 
@@ -103,4 +103,3 @@
 3. **Configure FX reserve** in finance model: 0.5 % GMV buffer tied to NDF hedge triggers.
 
 *Cost Structure brief now fully aligned with Strategyzer blocks—each table includes a Viability-card column and the new umbrella and FX guardrails.*
-

@@ -3,50 +3,56 @@ title: "Ubiquitous Language in Database Design"
 version: "2.0"
 last_updated: "2025-06-06"
 status: "Final"
----
-##
-title: "Ubiquitous Language in Database Design"
-version: "1.0"
-last_updated: "2025-06-06"
-## status: "Draft"
-status: "Draft"
-title: Ubiquitous Language in Database Design
-version: "1.0"
-status: active
 owner: Architecture Team, Database Team
-last_updated: 2025-06-06
-# Ubiquitous Language in Database Design
+---
+
 ## Overview
+
 This guide establishes principles and practices for ensuring that database schemas and operations consistently reflect the ubiquitous language of Elias Food Imports' domain model. Proper alignment between database design and domain language is critical for maintaining conceptual integrity across the technical implementation and business understanding.
+
 ## Core Principles
-1. **Domain-First Naming**: Database objects should derive their names from the ubiquitous language rather than technical conventions.
-2. **Explicit Relationships**: Database relationships should mirror domain relationships and use terminology consistent with the business domain.
-3. **Bounded Context Alignment**: Database schemas should respect bounded context boundaries and avoid cross-context terminology confusion.
-4. **Value Object Preservation**: Value objects from the domain model should maintain their integrity and validation rules in database representations.
-5. **Aggregate Consistency**: Database design should support aggregate boundaries and invariants defined in the domain model.
-6. **Language Evolution Support**: Database design should accommodate evolution of the ubiquitous language with minimal disruption.
-7. **Context Mapping in Data**: Integration databases or views should explicitly translate between bounded contexts using proper context mapping patterns.
+
+- **Domain-First Naming**: Database objects should derive their names from the ubiquitous language rather than technical conventions.
+- **Explicit Relationships**: Database relationships should mirror domain relationships and use terminology consistent with the business domain.
+- **Bounded Context Alignment**: Database schemas should respect bounded context boundaries and avoid cross-context terminology confusion.
+- **Value Object Preservation**: Value objects from the domain model should maintain their integrity and validation rules in database representations.
+- **Aggregate Consistency**: Database design should support aggregate boundaries and invariants defined in the domain model.
+- **Language Evolution Support**: Database design should accommodate evolution of the ubiquitous language with minimal disruption.
+- **Context Mapping in Data**: Integration databases or views should explicitly translate between bounded contexts using proper context mapping patterns.
+
 ## Naming Conventions
+
 ### Tables
+
 - **Singular Form**: Use singular nouns for entities (e.g., `Subscription` not `subscriptions`)
 - **Full Domain Terms**: Avoid abbreviations (e.g., `Product*Authentication` not `prod*auth`)
 - **Context Prefixing**: For shared databases, prefix with bounded context name (e.g., `catalog_product`)
 - **Junction Tables**: Use relationship name from domain model (e.g., `Subscription*item` not `Subscription*Product`)
+
 ### Columns
+
 - **Domain Attribute Alignment**: Column names should match entity/value object attribute names
 - **Primary Keys**: Use `id` consistently, qualified by entity name for joins (e.g., `subscription_id`)
 - **Foreign Keys**: Use the full entity name with `*id` suffix (e.g., `Customer*id`)
 - **Value Objects**: Use structured naming pattern `{entity}*{value*object}*{attribute}` (e.g., `Subscription*billing*frequency*type`)
 - **Boolean Fields**: Use positive domain terminology (e.g., `is*authenticated` not `not*fake`)
+
 ### Constraints and Indexes
+
 - **Semantic Naming**: Name constraints after the business rule they enforce (e.g., `ck*minimum*order_amount`)
 - **Value Object Validation**: Constraints should enforce value object validation rules
+
 ### Stored Procedures and Functions
+
 - **Command/Query Pattern**: Name commands as verbs and queries as questions or nouns
 - **Domain Operation Alignment**: Names should match domain service methods where appropriate
+
 ## Schema Design Patterns
+
 ### Aggregates as Schema Units
+
 Database schemas should be organized around aggregates rather than individual tables:
+
 ```sql
 -- Example: Subscription Aggregate Schema
 CREATE SCHEMA subscription_management;
@@ -87,8 +93,11 @@ CREATE TABLE Subscription*management.Subscription*item (
   CONSTRAINT fk*Product FOREIGN KEY (Product*id) REFERENCES Catalog.Product(id)
 );
 ```
+
 ### Value Objects as Embedded Structures
+
 Value objects should be represented as structured columns or embedded tables with appropriate constraints:
+
 ```sql
 -- Example: Money Value Object as Column Group
 CREATE TABLE Payment.transaction (
@@ -105,17 +114,18 @@ CREATE TABLE customer_management.Customer (
   email VARCHAR(255) NOT NULL,
   address JSONB NOT NULL,
   CONSTRAINT ck*valid*address CHECK (
-```
-address ? 'street1' AND
-address ? 'city' AND
-address ? 'postalCode' AND
-address ? 'country'
-```
+    address ? 'street1' AND
+    address ? 'city' AND
+    address ? 'postalCode' AND
+    address ? 'country'
   )
 );
 ```
+
 ### Domain Events in Database
+
 Store domain events using terminology consistent with the domain event Catalog:
+
 ```sql
 -- Example: Domain Event Store
 CREATE TABLE event*store.Subscription*events (
@@ -126,21 +136,22 @@ CREATE TABLE event*store.Subscription*events (
   event_data JSONB NOT NULL,
   occurred_at TIMESTAMP NOT NULL,
   CONSTRAINT ck*event*type CHECK (event_type IN (
-```
-'SubscriptionCreated',
-'SubscriptionModified',
-'SubscriptionPaused',
-'SubscriptionCancelled',
-'SubscriptionRenewed',
-'DeliveryScheduled',
-'CurationCompleted'
-```
+    'SubscriptionCreated',
+    'SubscriptionModified',
+    'SubscriptionPaused',
+    'SubscriptionCancelled',
+    'SubscriptionRenewed',
+    'DeliveryScheduled',
+    'CurationCompleted'
   )),
   CONSTRAINT uq*stream*version UNIQUE (stream_id, version)
 );
 ```
+
 ### Read Models
+
 Read models should use domain terminology while optimizing for query patterns:
+
 ```sql
 -- Example: Subscription Dashboard View
 CREATE VIEW Subscription*management.Subscription*dashboard AS
@@ -168,9 +179,13 @@ GROUP BY
   s.id, c.name, p.name, s.status, s.next*billing*date, s.billing*frequency*type,
   s.total*value*amount, s.total*value*currency;
 ```
+
 ## Cross-Context Persistence Patterns
+
 ### Anti-Corruption Layer in Database
+
 When integrating with external systems or legacy databases, use anti-corruption layers to translate between contexts:
+
 ```sql
 -- Example: Anti-corruption view for legacy Inventory system
 CREATE VIEW Catalog.legacy*Inventory*translation AS
@@ -180,19 +195,20 @@ SELECT
   i.quantity*on*hand as qty_available,  -- Translate to legacy terminology
   i.reorder*threshold as reorder*point,  -- Translate to legacy terminology
   CASE
-```
-WHEN i.status = 'IN_STOCK' THEN 'A'  -- Active
-WHEN i.status = 'LOW_STOCK' THEN 'L'  -- Low
-WHEN i.status = 'OUT*OF*STOCK' THEN 'O'  -- Out
-ELSE 'U'  -- Unknown
-```
+    WHEN i.status = 'IN_STOCK' THEN 'A'  -- Active
+    WHEN i.status = 'LOW_STOCK' THEN 'L'  -- Low
+    WHEN i.status = 'OUT*OF*STOCK' THEN 'O'  -- Out
+    ELSE 'U'  -- Unknown
   END as status_code  -- Translate to legacy codes
 FROM
   Catalog.Product p
   JOIN Inventory.Inventory*item i ON p.id = i.Product*id;
 ```
+
 ### Shared Kernel Tables
+
 For concepts shared between bounded contexts, create tables with carefully synchronized definitions:
+
 ```sql
 -- Example: Country reference data as shared kernel
 CREATE TABLE shared_kernel.country (
@@ -212,8 +228,11 @@ CREATE TABLE Customer*management.shipping*address (
   CONSTRAINT fk*country FOREIGN KEY (country*code) REFERENCES shared_kernel.country(code)
 );
 ```
+
 ### Context Mapping Tables
+
 When multiple contexts need to reference the same conceptual entity but with different meanings, use mapping tables:
+
 ```sql
 -- Example: Product context mapping between Catalog and Subscription contexts
 CREATE TABLE integration.Catalog*Subscription*product_mapping (
@@ -227,9 +246,13 @@ CREATE TABLE integration.Catalog*Subscription*product_mapping (
   CONSTRAINT fk*Subscription*Product FOREIGN KEY (Subscription*Product*id) REFERENCES subscription_management.Product(id)
 );
 ```
+
 ## ORM and Repository Implementation
+
 ### Entity Mapping Alignment
+
 ORM entity definitions should match database schemas and domain model terminology:
+
 ```typescript
 // Example: TypeScript entity with ORM decorators (TypeORM)
 @Entity({ schema: 'subscription_management', name: 'Subscription' })
@@ -241,11 +264,9 @@ export class Subscription {
   @Column('uuid')
   planId: string;
   @Column({
-```
-type: 'varchar',
-length: 20,
-enum: SubscriptionStatus
-```
+    type: 'varchar',
+    length: 20,
+    enum: SubscriptionStatus
   })
   status: SubscriptionStatus;
   @Column('timestamp')
@@ -263,21 +284,15 @@ enum: SubscriptionStatus
   totalValue: Money;
   // Relationships
   @OneToMany(() => SubscriptionItem, item => item.Subscription, {
-```
-cascade: true
-```
+    cascade: true
   })
   items: SubscriptionItem[];
   // Domain methods
   public pause(startDate: Date, endDate: Date): void {
-```
-// Implementation
-```
+    // Implementation
   }
   public calculateTotalValue(): Money {
-```
-// Implementation
-```
+    // Implementation
   }
 }
 // Value object example
@@ -288,8 +303,11 @@ export class Money {
   currency: string;
 }
 ```
+
 ### Repository Method Naming
+
 Repository method names should align with ubiquitous language query concepts:
+
 ```typescript
 // Example: Repository with domain-aligned method names
 export interface SubscriptionRepository {
@@ -303,34 +321,47 @@ export interface SubscriptionRepository {
   remove(Subscription: Subscription): Promise<void>;
 }
 ```
+
 ## Review Checklist
+
 Use this checklist to verify database design alignment with ubiquitous language:
+
 ### Naming and Terminology
+
 - [ ] Table names match entity names from the domain model
 - [ ] Column names match attribute names from entities and value objects
 - [ ] Relationship tables use meaningful domain relationship names
 - [ ] Constraints are named after the business rules they enforce
 - [ ] No technical abbreviations in user-facing database objects
 - [ ] No multi-context terminology mixing in a single schema
+
 ### Structural Alignment
+
 - [ ] Database schemas align with bounded context boundaries
 - [ ] Table relationships reflect domain model relationships
 - [ ] Value objects are represented with appropriate structure and constraints
 - [ ] Aggregates are properly clustered in schema design
 - [ ] Domain events use consistent naming with the event Catalog
+
 ### Business Rule Enforcement
+
 - [ ] Check constraints enforce value object validation rules
 - [ ] Foreign keys enforce entity references within aggregates
 - [ ] Unique constraints enforce identity and uniqueness rules
 - [ ] Domain-specific constraints enforce complex business rules
 - [ ] Appropriate transaction isolation levels for aggregate consistency
+
 ### Context Integration
+
 - [ ] Clear separation between bounded contexts in database design
 - [ ] Context mapping tables or views where appropriate
 - [ ] Anti-corruption layers for legacy or external integrations
 - [ ] Read models respect bounded context terminology
+
 ## Governance and Evolution
+
 ### Change Management Process
+
 1. **Terminology Changes**: When domain terminology evolves, database changes must be coordinated with domain model updates
 2. **Schema Migration Principles**:
    - Use non-destructive migrations with temporary translation views
@@ -340,13 +371,18 @@ Use this checklist to verify database design alignment with ubiquitous language:
    - Database design reviews must include domain experts
    - ORM mapping reviews must verify alignment with domain model
    - Schema changes require ubiquitous language verification
+
 ### Documentation Standards
+
 - Database objects must be documented with domain concepts they represent
 - Complex constraints should reference business rules by name
 - Context mappings must document terminology differences
 - Value object representations must document validation rules
+
 ## Implementation Examples
+
 ### Pricing Domain Example
+
 ```sql
 -- Pricing bounded context example
 CREATE SCHEMA Pricing;
@@ -381,70 +417,60 @@ CREATE TABLE Pricing.price_point (
   CONSTRAINT ck*minimum*quantity CHECK (minimum_quantity > 0)
 );
 ```
+
 ### Subscription Domain Example
+
 ```typescript
 // ORM Repository Implementation Example
 @Injectable()
 export class PostgresSubscriptionRepository implements SubscriptionRepository {
   constructor(
-```
-@InjectRepository(SubscriptionEntity)
-private subscriptionRepository: Repository<SubscriptionEntity>,
-@InjectRepository(SubscriptionItemEntity)
-private itemRepository: Repository<SubscriptionItemEntity>
-```
+    @InjectRepository(SubscriptionEntity)
+    private subscriptionRepository: Repository<SubscriptionEntity>,
+    @InjectRepository(SubscriptionItemEntity)
+    private itemRepository: Repository<SubscriptionItemEntity>
   ) {}
   async findById(id: string): Promise<Subscription> {
-```
-const subscriptionEntity = await this.subscriptionRepository.findOne({
-```
+    const subscriptionEntity = await this.subscriptionRepository.findOne({
       where: { id },
       relations: ['items']
-```
-});
-if (!subscriptionEntity) {
-```
+    });
+    if (!subscriptionEntity) {
       throw new SubscriptionNotFoundException(id);
-```
-}
-return this.mapToDomain(subscriptionEntity);
-```
+    }
+    return this.mapToDomain(subscriptionEntity);
   }
+
   async findSubscriptionsEligibleForRenewal(date: Date): Promise<Subscription[]> {
-```
-const entities = await this.subscriptionRepository
-```
+    const entities = await this.subscriptionRepository
       .createQueryBuilder('Subscription')
       .leftJoinAndSelect('Subscription.items', 'item')
       .where('Subscription.status = :status', { status: SubscriptionStatus.ACTIVE })
       .andWhere('Subscription.nextBillingDate <= :date', { date })
       .getMany();
-```
-return entities.map(entity => this.mapToDomain(entity));
-```
+    return entities.map(entity => this.mapToDomain(entity));
   }
+
   async save(Subscription: Subscription): Promise<void> {
-```
-const entity = this.mapToEntity(Subscription);
-await this.subscriptionRepository.save(entity);
-```
+    const entity = this.mapToEntity(Subscription);
+    await this.subscriptionRepository.save(entity);
   }
+
   // Private mapping methods between domain and persistence models
   private mapToDomain(entity: SubscriptionEntity): Subscription {
-```
-// Transform database entity to domain model
-// Preserving all domain concepts and terminology
-```
+    // Transform database entity to domain model
+    // Preserving all domain concepts and terminology
   }
+
   private mapToEntity(domain: Subscription): SubscriptionEntity {
-```
-// Transform domain model to database entity
-// Preserving all business rules and invariants
-```
+    // Transform domain model to database entity
+    // Preserving all business rules and invariants
   }
 }
 ```
+
 ## Conclusion
+
 Consistent application of ubiquitous language in database design creates a foundation for maintainable, comprehensible data systems that align with business understanding. The principles and patterns in this guide ensure that technical implementations remain true to the domain model and facilitate clearer communication between technical and domain experts.
 When implemented correctly, these practices reduce translation errors, improve documentation, simplify onboarding, and create a more cohesive system architecture where data structures reinforce rather than obscure the underlying domain concepts.
 *This guide is part of the Elias Food Imports Ubiquitous Language Consistency Framework. Refer to the [Ubiquitous Language Guidelines](../guidelines.md) for overarching principles and the [Domain Terms in Requirements Analysis](../analysis/domain-terms-requirements.md) for terminology reference.*
@@ -452,6 +478,7 @@ When implemented correctly, these practices reduce translation errors, improve d
 ---
 
 ⚑ Related
+
 - [Domain Glossary](../glossary.md)
 - [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
 

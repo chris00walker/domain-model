@@ -1,16 +1,10 @@
-\---
-
+---
 title: eCommerce Reference Model
-
 status: draft
-
 owner: @github-username
-
 reviewers: @reviewer1, @reviewer2
-
-last\_updated: 2025-06-09
-
-\---
+last_updated: 2025-06-09
+---
 
 ## **Domain Overview**
 
@@ -228,4 +222,3 @@ Finally, keep the *Ubiquitous Language* consistent within each context and commu
 }
 
 *Example of a published domain event in JSON (Order context \-\> others). Such an event, when consumed by the Inventory context, would trigger stock reservation for the items. The Payment context would attempt to charge the customer. Each context would interpret the event according to its Published Language schema and handle it idempotently.*
-

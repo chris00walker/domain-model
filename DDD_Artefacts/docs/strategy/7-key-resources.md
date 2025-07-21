@@ -1,4 +1,4 @@
-# **🎯 Goal:** Secure, manage, and steward the assets that power EFI’s Key Activities—so every promise of authenticity, provenance, and friction-free service is kept for B2C, B2B, and importer customers.
+# **🎯 Goal:** Secure, manage, and steward the assets that power EFI’s Key Activities—so every promise of authenticity, provenance, and friction-free service is kept for B2C, B2B, and importer customers
 
 **Strategyzer Lens:** Every asset must
 
@@ -111,4 +111,3 @@
 | **CDN** | Content Delivery Network |
 | **FCP / TTFB** | First Contentful Paint / Time To First Byte |
 | **OPEX** | Operating Expenses |
-

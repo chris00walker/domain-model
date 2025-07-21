@@ -7,6 +7,7 @@
 [OWNER: @pricing-team]
 
 ## 1. Business Context
+
 - **Purpose**: The Pricing & Promotions context implements EFI's revenue optimization strategy through dynamic pricing, promotional campaigns, and margin protection across all customer segments and sales channels.
 
 - **Business Capabilities**:
@@ -39,6 +40,7 @@
   - Marketing Team
 
 ## 2. Domain Model
+
 - **Key Entities**:
   - `PricingRule`: Business rules for price calculations by segment and product category
   - `Promotion`: Time-bound offers and discounts with eligibility criteria
@@ -75,7 +77,9 @@
   - `MarginViolationDetected`: When pricing would violate margin rules
 
 ## 3. Functional Requirements
+
 ### 3.1 Dynamic Pricing & Markdowns
+
 - **FR-1**: As a Pricing Manager, I want to implement dynamic markdowns for aging inventory
   - **Acceptance Criteria**:
     - [ ] Apply D(t,d,p) formula with β=0.4, γ=0.5, T=45 days
@@ -85,6 +89,7 @@
   - **Dependencies**: [Inventory Management, Product Catalog]
 
 ### 3.2 Promotional Campaigns
+
 - **FR-2**: As a Marketing Manager, I want to create targeted promotions
   - **Acceptance Criteria**:
     - [ ] Enforce one-promo-per-order rule
@@ -94,6 +99,7 @@
   - **Dependencies**: [Order Management, Customer Management]
 
 ### 3.3 Subscription Management
+
 - **FR-3**: As a Product Manager, I want to manage subscription tiers
   - **Acceptance Criteria**:
     - [ ] Support Basic (BBD 60), Premium (BBD 90), VIP (BBD 180) tiers
@@ -103,6 +109,7 @@
   - **Dependencies**: [Billing, Customer Management]
 
 ### 3.4 Business Rules
+
 - All prices must maintain the minimum margin requirements specified for their product category.
 - Import cost changes must trigger automatic price recalculation.
 - Currency exchange rates must be updated at least daily for accurate pricing.
@@ -115,7 +122,9 @@
 - Historical pricing data must be maintained for trend analysis and reporting.
 
 ## 4. Integration Points
+
 ### 4.1 Published Events
+
 - `PriceChanged`: When a product's price is updated
   - Payload: { productId, oldPrice, newPrice, effectiveDate, changeReason, userId, marginImpact }
   - Consumers: [Product Catalog, Order Management, Analytics]
@@ -136,6 +145,7 @@
   - Consumers: [Pricing (internal), Reporting]
 
 ### 4.2 Consumed Events
+
 - `InventoryLevelChanged`: From Inventory Management
   - Source: Inventory Context
   - Action: Trigger markdown pricing for aging inventory
@@ -147,6 +157,7 @@
   - Action: Apply appropriate tier pricing and benefits
 
 ### 4.3 APIs/Services
+
 - **REST/GraphQL**: Pricing & Promotions API
   - `/pricing/calculate`: Real-time price calculation
   - `/promotions/validate`: Check promotion eligibility
@@ -158,6 +169,7 @@
   - Market data feeds (for demand signals)
 
 ## 5. Non-Functional Requirements
+
 - **Performance**:
   - Price calculations complete in < 100ms (P99)
   - Support 1000+ price updates per minute
@@ -180,21 +192,23 @@
   - Document all pricing algorithms and rules
 
 ## 6. Open Questions
+
 - [ ] How should we handle price adjustments during system outages?
 - [ ] What's the process for emergency price overrides during supply chain disruptions?
 - [ ] How frequently should we review and update the D(t,d,p) parameters?
 
 ## 7. Out of Scope
+
 - Direct integration with payment processors (handled by Payment context)
 - Tax calculation (handled by Order Management context)
 - Customer loyalty program mechanics (handled by Customer Management context)
 - Physical price tag generation (handled by Store Operations context)
 
 ## 8. References
+
 - ADR-002: Domain Event Design Patterns
 - ADR-004: CQRS Implementation Strategy
 - ADR-008: Event-Driven Communication Between Bounded Contexts
 - ADR-011: Multi-Layered Caching Strategy
 - EFI Revenue & Pricing Strategy Document (5-revenue-&-pricing.md)
 - Context Map (context_map.puml)
-

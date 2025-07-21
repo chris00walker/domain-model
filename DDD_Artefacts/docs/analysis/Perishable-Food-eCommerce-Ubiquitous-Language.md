@@ -47,7 +47,7 @@ ShippingService or QualityControlService, to react promptly to critical changes 
 
 The following table provides a foundational set of common eCommerce terms within a DDD context, which can serve as a starting point for EFI's more specialized glossary.
 
-**Table 1: Common eCommerce DDD Ubiquitous Language Terms & Concepts**
+### Table 1: Common eCommerce DDD Ubiquitous Language Terms & Concepts
 
 | Term | Definition | DDD Concept | General eCommerce Example |
 | :---- | :---- | :---- | :---- |
@@ -84,7 +84,7 @@ The physical properties of perishable goods, such as their water content, respir
 
 Value Objects to represent these conditions immutably and consistently, ensuring that the software's operational behavior is directly and dynamically driven by the physical realities of the perishable goods it manages.
 
-**Table 2: Key Perishable Food Characteristics and Their Impact**
+### Table 2: Key Perishable Food Characteristics and Their Impact
 
 | Characteristic | Description | Impact on eCommerce/Supply Chain | Relevant Temperature/Humidity |
 | :---- | :---- | :---- | :---- |
@@ -255,7 +255,7 @@ Batch/Lot entity will need attributes to store its GS1-128 encoded data, includi
 
 Repository implementations will need to handle the mapping between their internal domain objects and external GS1-compliant data formats, making interoperability a first-class concern in their DDD implementation.
 
-**Table 3: Essential GS1 Identifiers for Perishable Food Traceability**
+### Table 3: Essential GS1 Identifiers for Perishable Food Traceability
 
 | Identifier | Description | Purpose in Perishable Food Supply Chain | Example |
 | :---- | :---- | :---- | :---- |
@@ -304,7 +304,7 @@ The journey for EFI, therefore, is not about finding a pre-made solution but abo
 
 By systematically applying these DDD principles and focusing on the unique demands of perishable food imports, Elias Food Imports can develop an eCommerce platform that is not only technically sound but also deeply aligned with its business realities, ensuring product quality, safety, and operational efficiency.
 
-#### **Works cited**
+### Works Cited
 
 1. What is Domain-Driven Design (DDD)? Concepts, Models ..., accessed June 18, 2025, [https://em360tech.com/tech-articles/what-domain-driven-design-ddd-concepts-models-examples](https://em360tech.com/tech-articles/what-domain-driven-design-ddd-concepts-models-examples)  
 2. Domain-Driven Design (DDD) \- GeeksforGeeks, accessed June 18, 2025, [https://www.geeksforgeeks.org/system-design/domain-driven-design-ddd/](https://www.geeksforgeeks.org/system-design/domain-driven-design-ddd/)  

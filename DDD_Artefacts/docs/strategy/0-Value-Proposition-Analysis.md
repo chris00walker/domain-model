@@ -32,7 +32,7 @@
 
 ---
 
-1. ### Members of the Local Levantine & Mediterranean Diaspora Community:
+1. ### Members of the Local Levantine & Mediterranean Diaspora Community
 
 * **Characteristics:** Individuals and families with cultural ties to Lebanon, the Levant, and the wider Mediterranean, seeking authentic flavors and familiar ingredients.
 
@@ -48,17 +48,17 @@
 
 * **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#[[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product))/Service Market Fit:** EFI’s authentic, quality-assured [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product) range—backed by QR-verified provenance and curated recipe guides—meets diaspora families’ need for genuine ingredients and cultural connection, driving repeat orders, premium [Pricing](../ubiquitous-language/glossary.md#pricing), and high lifetime value.
 
-#### Preliminary Insights:
+#### Preliminary Insights
 
 * **Orders & Spend:** 8 ±1 orders/yr → 2,100 – 2,700  
 * **Gross Profit & Margin:** 840 – 1,080 (40%)  
 * **CAC & Payback:** ≈ BBD 20 per household → payback on first [Order](../ubiquitous-language/glossary.md#order)  
 * **Market Size (SOM):** ≈ 43 households  
 * **Retention Assumption:** ≥ 70% repeat-purchase rate by month 4  
-* **Preliminary Recommendation:** **Prioritize**   
+* **Preliminary Recommendation:** **Prioritize**
 * **Rationale:** High repeat volume, strong margins, and community word-of-mouth drive profitable scale.
 
-##### Assumptions Map: Diaspora Households (HH) 
+##### Assumptions Map: Diaspora Households (HH)
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -74,7 +74,7 @@
 
 ---
 
-2. ### Tourist Renting AirBnBs:
+2. ### Tourist Renting AirBnBs
 
 * **Characteristics:** Short-term visitors with diverse culinary interests who may seek to prepare and enjoy Levantine and Mediterranean dishes during their stay.
 
@@ -90,17 +90,17 @@
 
 * **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s ready-to-use Levantine and Mediterranean meal kits, accessible online purchasing, and simple culinary guidance empower short-term visitors to enjoy authentic Levantine and Mediterranean meals in the comfort of their AirBnB, enhancing their travel experience with minimal hassle.
 
-#### Preliminary Insights:
+#### Preliminary Insights
 
 * **Orders & Spend:** 1 ±1 [Order](../ubiquitous-language/glossary.md#order)/yr → 0 – 600  
 * **Gross Profit & Margin:** 0 – 240 (40%)  
 * **CAC & Payback:** Shelf-talkers (BBD 15/kit) → digital CAC avoided  
 * **Market Size (SOM):** ≈ 3,600 stay-over tourists  
 * **Retention Assumption:** 0 % within 30 days; \~2 % further afield  
-* **Preliminary Recommendation:** **Monitor**    
+* **Preliminary Recommendation:** **Monitor**
 * **Rationale:** Impulse economics hold, but this truly is a single-purchase, low-touch segment. Focus scarce marketing dollars on high-LTV cohorts; continue POS tests to capture that one sale.
 
-#### Assumptions Map: Tourist Renting AirBnBs:
+#### Assumptions Map: Tourist Renting AirBnBs
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -114,7 +114,7 @@
 
 ---
 
-3. ### Expats (Foreign Residents):
+3. ### Expats (Foreign Residents)
 
 * **Characteristics:** Long‑stay international residents who mix comfort foods with an appetite for local, regional, and global culinary discovery.
 
@@ -130,17 +130,17 @@
 
 * **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s hybrid [Subscription](../ubiquitous-language/glossary.md#subscription) model (staples \+ “discovery” packs), clear usage tips, and authenticity guarantees deliver both comfort and culinary adventure—reducing churn and boosting average [Subscription](../ubiquitous-language/glossary.md#subscription) spend per expat household.
 
-#### Preliminary Insights:
+#### Preliminary Insights
 
 * **Orders & Spend:** 6 ±1 orders/yr → 1,500 – 2,100  
 * **Gross Profit & Margin:** 600 – 840 (40%)  
 * **CAC & Payback:** CAC ≈ BBD 20/subscriber → LTV/CAC ≈ 30–42×  
 * **Market Size (SOM):** ≈ 1,000 households  
 * **Retention Assumption:** [[[Subscription](../ubiquitous-language/glossary.md#subscription)](../ubiquitous-language/glossary.md#subscription)](../ubiquitous-language/glossary.md#subscription) churn ≤ 3%/month  
-* **Preliminary Recommendation:** **Prioritize**   
+* **Preliminary Recommendation:** **Prioritize**
 * **Rationale:** Strong LTV/CAC, clear digital channels offer high ROI.
 
-#### Assumptions Map: Expats (Foreign Residents) 
+#### Assumptions Map: Expats (Foreign Residents)
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -153,7 +153,7 @@
 
 #### ---
 
-4. ### Indigenous “Foodie” Families:
+4. ### Indigenous “Foodie” Families
 
 * **Characteristics:** Local families interested in exploring new cuisines and integrating Levantine & Mediterranean dishes into their meals.
 
@@ -169,17 +169,17 @@
 
 * **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** By bundling authentic ingredients with step-by-step recipe kits at approachable price points, EFI lowers the barrier to entry for Barbadian families—turning culinary curiosity into consistent purchase behavior and healthy [Order](../ubiquitous-language/glossary.md#order) frequency.
 
-#### Preliminary Insights:
+#### Preliminary Insights
 
 * **Orders & Spend:** 5 ±1 orders/yr → 1,000 – 1,500  
 * **Gross Profit & Margin:** 400 – 600 (40%)  
 * **CAC & Payback:** Online CAC ≈ BBD 33/sampler → target ≥ 10% convert in 60 days  
 * **Market Size (SOM):** ≈ 960 households  
 * **Retention Assumption:** ≥ 50% of samplers reorder within 3 months  
-* **Preliminary Recommendation:** **Prioritize**   
+* **Preliminary Recommendation:** **Prioritize**
 * **Rationale:** Sampling-driven trial can scale into repeat customers.
 
-#### Assumptions Map: Indigenous “Foodie” Families:
+#### Assumptions Map: Indigenous “Foodie” Families
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -196,9 +196,9 @@
 
 ---
 
-## Phase 1 Barbados Business-to-Business (B2B) Beachhead Segment  (months 7 \- 11):
+## Phase 1 Barbados Business-to-Business (B2B) Beachhead Segment  (months 7 \- 11)
 
-5. ### Food Truck Operators:
+5. ### Food Truck Operators
 
 * **Characteristics:** Mobile vendors requiring cost-effective, quickly prepared ingredients suited to very limited kitchen storage.
 
@@ -214,17 +214,17 @@
 
 * **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** By offering competitive wholesale prices at lower minimum [Order](../ubiquitous-language/glossary.md#order) quantities, reliable sourcing, and space-efficient packaging, EFI ensures food truck operators can maintain cost efficiency and menu quality without the burden of large-volume storage.
 
-#### Preliminary Insights:
+#### Preliminary Insights
 
 * **Orders & Spend:** 8 ±1 orders/yr → 4,900 – 6,300  
 * **Gross Profit & Margin:** 1,470 – 1,890 (30%)  
 * **CAC & Payback:** Field call CAC ≈ BBD 50/truck → payback in \<1 [Order](../ubiquitous-language/glossary.md#order)  
 * **Market Size (SOM):** ≈ 3 trucks  
 * **Retention Assumption:** ≥ 2 of 3 trucks reorder within 14 days  
-* **Preliminary Recommendation:** **Prioritize**   
+* **Preliminary Recommendation:** **Prioritize**
 * **Rationale:** Excellent LTV/CAC and word-of-mouth exposure.
 
-#### Assumptions Map: Food Truck Operators: 
+#### Assumptions Map: Food Truck Operators
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -237,7 +237,7 @@
 
 ---
 
-6. ### Chefs Catering to Private Villas and Special Events:
+6. ### Chefs Catering to Private Villas and Special Events
 
 * **Characteristics:** High-end, independent or contracted chefs serving discerning clients demanding premium and authentic culinary experiences.
 
@@ -253,17 +253,17 @@
 
 * **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s premium ingredient selection, dependability, and competitive wholesale prices at lower minimum [Order](../ubiquitous-language/glossary.md#order) quantities, help chefs consistently meet or exceed client expectations.
 
-#### Preliminary Insights:
+#### Preliminary Insights
 
 * **Orders & Spend:** 7 ±1 orders/yr → 4,200 – 5,600  
 * **Gross Profit & Margin:** 1,260 – 1,680 (30%)  
 * **CAC & Payback:** White-glove CAC ≈ BBD 200/chef → payback in \<1 season via referrals  
 * **Market Size (SOM):** ≈ 6 chefs  
 * **Retention Assumption:** Hero chefs reorder ≥ 6×/yr after program  
-* **Preliminary Recommendation:** **Monitor**   
+* **Preliminary Recommendation:** **Monitor**
 * **Rationale:** Selective engagement for prestige lift; not core focus.
 
-#### Assumptions Map: Chefs Catering to Private Villas and Special Events 
+#### Assumptions Map: Chefs Catering to Private Villas and Special Events
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -276,7 +276,7 @@
 
 ---
 
-7. ### Specialty Food Mini Markets:
+7. ### Specialty Food Mini Markets
 
 * **Characteristics:** Niche retailers focusing on curated, high-quality, and often hard-to-find international products.
 
@@ -292,17 +292,17 @@
 
 * **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s competitive wholesale rates, low MOQs, and supplier-vetted storytelling equip mini-markets with truly differentiated SKUs—enabling them to command premium shelf prices, reduce out-of-stock risk, and deepen [Customer](../ubiquitous-language/glossary.md#customer) loyalty. *Shelf‑placement fees are borne by retailers; EFI’s support is limited to QR shelf‑talkers funded via Market‑Development Funds, preserving our asset‑light model.*
 
-#### Preliminary Insights:
+#### Preliminary Insights
 
 * **Orders & Spend:** 7 ±1 orders/yr → 4,200 – 5,600  
 * **Gross Profit & Margin:** 840 – 1,120 (20%)  
 * **CAC & Payback:** CAC ≈ BBD 64/store → payback in 1–2 orders  
 * **Market Size (SOM):** ≈ 15 stores  
 * **Retention Assumption:** ≥ 90% contract renewal annually  
-* **Preliminary Recommendation:** **Prioritize**   
+* **Preliminary Recommendation:** **Prioritize**
 * **Rationale:** Strong margins, scalable channel, fast payback.
 
-#### Assumptions Map: Specialty Food Mini Markets 
+#### Assumptions Map: Specialty Food Mini Markets
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -315,7 +315,7 @@
 
 ---
 
-8. ### Limited-Service Restaurants:
+8. ### Limited-Service Restaurants
 
 * **Characteristics:** Fast-casual dining establishments balancing speed, cost control, and menu variety.
 
@@ -331,17 +331,17 @@
 
 * **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s ready-to-use ingredients, flexible wholesale [Pricing](../ubiquitous-language/glossary.md#pricing), and moderate volume discounts empower limited-service restaurants to maintain consistent quality, adapt their menu efficiently, and control costs without requiring excessive storage space or massive bulk commitments.
 
-#### Preliminary Insights: 
+#### Preliminary Insights
 
 * **Orders & Spend:** 7 ±1 orders/yr → 4,200 – 5,600  
 * **Gross Profit & Margin:** 1,260 – 1,680 (30%)  
 * **CAC & Payback:** Demo CAC ≈ BBD 150/outlet → payback in \<1 [Order](../ubiquitous-language/glossary.md#order)  
 * **Market Size (SOM):** ≈ 5 outlets  
 * **Retention Assumption:** Pilot outlets reorder ≥ 8×/yr to advance  
-* **Preliminary Recommendation:** **Prioritize (Pilot)**   
+* **Preliminary Recommendation:** **Prioritize (Pilot)**
 * **Rationale:** Low CAC and quick payback justify scoped pilot.
 
-#### Assumptions Map: Limited-Service Restaurants 
+#### Assumptions Map: Limited-Service Restaurants
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -354,7 +354,7 @@
 
 ---
 
-9. ### Full-Service Restaurants:
+9. ### Full-Service Restaurants
 
 * **Characteristics:** Sit-down establishments focused on delivering a complete and authentic culinary experience, with attentive service and a reputation for quality.
 
@@ -370,17 +370,17 @@
 
 * **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI’s premium, authentic ingredients, combined with supportive resources (e.g., training materials), wholesale [Pricing](../ubiquitous-language/glossary.md#pricing) flexibility, and potential for negotiated volume [Pricing](../ubiquitous-language/glossary.md#pricing) deals, enable full-service restaurants to consistently deliver exceptional culinary experiences. This not only meets their quality and authenticity standards but also offers cost efficiencies and scalability as their needs evolve.
 
-#### Preliminary Insights:
+#### Preliminary Insights
 
 * **Orders & Spend:** 7 ±1 orders/yr → 4,200 – 5,600  
 * **Gross Profit & Margin:** 840 – 1,120 (20%)  
 * **CAC & Payback:** CAC ≈ BBD 775/restaurant → payback \>24 months  
 * **Market Size (SOM):** ≈ 2 restaurants  
 * **Retention Assumption:** ≥ 6 reorders/yr to sustain relationship  
-* **Preliminary Recommendation:** **Park**   
+* **Preliminary Recommendation:** **Park**
 * **Rationale:** Defer until core channels mature; high CAC and slow cycle.
 
-#### Assumptions Map: Full-Service Restaurants 
+#### Assumptions Map: Full-Service Restaurants
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -393,7 +393,7 @@
 
 ---
 
-10. ### Hotel Restaurants:
+10. ### Hotel Restaurants
 
 * **Characteristics:** In-house dining operations within hotels, serving diverse, often international guests. Hotel sizes vary from boutique operations to large chains with conference and banquet facilities.
 
@@ -416,10 +416,10 @@
 * **CAC & Payback:** CAC ≈ BBD 1,300/hotel → justified only if banquet demand ≥ 8,000 GMV/yr  
 * **Market Size (SOM):** ≈ 3 hotels  
 * **Retention Assumption:** ≥ 50% reorder at least twice annually  
-* **Preliminary Recommendation:** **Park**   
+* **Preliminary Recommendation:** **Park**
 * **Rationale:** Slow cycle and high-touch; revisit after core traction.
 
-#### Assumptions Map: Hotel Restaurants 
+#### Assumptions Map: Hotel Restaurants
 
 | Importance | Assumption | Evidence | Risk | Canvas Block | Test Card |
 | ----- | ----- | :---: | :---: | :---: | :---: |
@@ -432,13 +432,11 @@
 
 ---
 
- 
+## Phase 2 Regional Scale—Channel Multipliers (months 12–36 )
 
-## Phase 2 Regional Scale—Channel Multipliers (months 12–36 ) 
+### Regional Business-to-Business (B2B) Segment
 
-### Regional Business-to-Business (B2B) Segment:
-
-11. ### Cruise-Line Provisioning & Ship Chandlers:
+11. ### Cruise-Line Provisioning & Ship Chandlers
 
 * **Characteristics:** Global cruise brands and their contracted chandlers that restock an entire vessel in a single lift; demand HACCP traceability, mixed-temperature pallets, and tight turnaround at Miami, Port Everglades, San Juan, or Bridgetown.
 
@@ -452,15 +450,15 @@
 
 * **Gain Creators:** 24 / 7 on-call logistics team, rapid-response inspections, real-time temperature telemetry, multi-port contract coverage.
 
-* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI unifies Caribbean sourcing and just-in-time port delivery, cutting hand-offs and downtime while guaranteeing traceable authenticity—exactly what cruise galleys and chandlers value. 
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI unifies Caribbean sourcing and just-in-time port delivery, cutting hand-offs and downtime while guaranteeing traceable authenticity—exactly what cruise galleys and chandlers value.
 
-**Preliminary Recommendation:** **Park – defer proactive effort** 
+**Preliminary Recommendation:** **Park – defer proactive effort**
 
 **Rationale:** This segment demands 24/7 port-side logistics, mixed-temperature pallet engineering, and working-capital head-room to absorb quay-time penalties. Until EFI has a proven regional consolidation hub and surplus capital, the risk-adjusted return is inferior to the importer channel. Monitor inbound inquiries, but invest no proactive sales resources until Phase 3\.
 
 ---
 
-12. ### Partner Importers & Distributors (Regional “Channel Multipliers” — Expansion Channel – Prioritise from Month 12.):
+12. ### Partner Importers & Distributors (Regional “Channel Multipliers” — Expansion Channel – Prioritise from Month 12.)
 
 * **Characteristics:** Privately owned food-import houses or specialty distributors that clear customs, hold food-safety licences, and resell pallets/cases to retailers, hotels, and restaurants across one or more islands (e.g., Hadco T\&T, Do-It Curaçao). **This is EFI’s default growth channel** outside Barbados; all other regional segments (11, 13-15) are optional direct lanes used case-by-case.
 
@@ -474,7 +472,7 @@
 
 * **Gain Creators:** Volume-based rebates, vendor-managed sell-through dashboards, marketing-development funds (MDF), consolidated freight savings.
 
-* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI is a single turnkey source—provenance, paperwork, pallets, and content—so importers scale an entire Levantine set without supplier wrangling or [Inventory](../ubiquitous-language/glossary.md#inventory) overload. 
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI is a single turnkey source—provenance, paperwork, pallets, and content—so importers scale an entire Levantine set without supplier wrangling or [Inventory](../ubiquitous-language/glossary.md#inventory) overload.
 
 **Preliminary Recommendation:** **Prioritise activation from Month 12**
 
@@ -482,7 +480,7 @@
 
 ---
 
-13. ### Caribbean Regional Supermarket Chains & Large Retail/DC Buyers:
+13. ### Caribbean Regional Supermarket Chains & Large Retail/DC Buyers
 
 * **Characteristics:** Corporate supermarket groups and food-service distribution centres (Massy Stores, GraceKennedy, Sysco Bahamas, Florida ethnic chains such as Sedano’s and Presidente) that import directly for their own stores or commissaries but **do not resell onward**. May purchase direct for private-label volumes; otherwise are serviced via Partner Importers to avoid channel conflict.
 
@@ -496,7 +494,7 @@
 
 * **Gain Creators:** Turnkey private-label development, volume-based rebates, marketing collateral, consolidated freight discounts.
 
-* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI supplies shelf-ready SKUs (or private-label equivalents) with rock-solid provenance and logistics—boosting ethnic-set performance while protecting margin and brand trust. 
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI supplies shelf-ready SKUs (or private-label equivalents) with rock-solid provenance and logistics—boosting ethnic-set performance while protecting margin and brand trust.
 
 **Preliminary Recommendation:** **Park – defer proactive effort**
 
@@ -504,7 +502,7 @@
 
 ---
 
-14. ### Caribbean Resort & All-Inclusive Group HQs (Direct FCL, Internal Consumption):
+14. ### Caribbean Resort & All-Inclusive Group HQs (Direct FCL, Internal Consumption)
 
 * **Characteristics:** Corporate F\&B procurement teams for multi-property resort brands (Sandals, AMResorts, Marriott C\&LA) balancing premium guest experiences with centralised purchasing efficiency.
 
@@ -518,7 +516,7 @@
 
 * **Gain Creators:** Multi-property volume [Pricing](../ubiquitous-language/glossary.md#pricing), chef-curated seasonal packs, sustainability dashboards, site visits for audits and menu trials.
 
-* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI blends central contract efficiency with boutique-level authenticity—letting resort HQs deliver wow-factor menus while meeting cost and ESG targets. 
+* **EFI [[[Product](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)](../ubiquitous-language/glossary.md#product)/Service Market Fit:** EFI blends central contract efficiency with boutique-level authenticity—letting resort HQs deliver wow-factor menus while meeting cost and ESG targets.
 
 **Preliminary Recommendation:** **Park – defer proactive effort**
 
@@ -526,11 +524,11 @@
 
 ---
 
-## Phase 3 International Trading—USA \+ Brazil (months 36 \+) 
+## Phase 3 International Trading—USA \+ Brazil (months 36 \+)
 
-### International Business-to-Business (B2B) Segment:
+### International Business-to-Business (B2B) Segment
 
-15. ### Florida & Brazil Ethnic & Specialty Retail Chains:
+15. ### Florida & Brazil Ethnic & Specialty Retail Chains
 
 * **Characteristics:** Multi-store chains in Florida—Publix (ethnic set), Sedano’s, Presidente—and Brazil—Pão de Açúcar Gourmet, Zona Sul, Super Nosso, Mundo Verde—serving diaspora shoppers and adventurous foodies; all demand slotting support and high shelf-turns.
 
@@ -542,7 +540,7 @@
 
 * **Gains:** Faster category growth, higher foot traffic, clear differentiation from mainstream sets, lower spoilage, compliance peace-of-mind.
 
-* **Gain Creators:** QR-based storytelling, influencer demo kits shipped for launch events, Portuguese & English social content packs, sales-velocity analytics to optimise assortments. 
+* **Gain Creators:** QR-based storytelling, influencer demo kits shipped for launch events, Portuguese & English social content packs, sales-velocity analytics to optimise assortments.
 
 **Preliminary Recommendation:** **Park – defer proactive effort** (reassess in Phase 3\)
 
@@ -611,4 +609,3 @@
 | **RAG** | Retrieval-Augmented Generation | AI pattern powering EFI’s recipe chatbot and FAQ assistant. |
 | **Sell-through Dashboard** | Velocity analytics | Weekly importer sales data fed to EFI; triggers auto-replenishment and rebate tiers. |
 | **SKU** | Stock-Keeping Unit | Individual [Product](../ubiquitous-language/glossary.md#product) reference; mixed-SKU containers enable variety for importers. |
-

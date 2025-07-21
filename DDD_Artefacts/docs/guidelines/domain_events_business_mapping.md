@@ -7,31 +7,46 @@ status: "Final"
 <!-- MANUAL REVIEW NEEDED: Ensure all domain events follow entity-first, past-tense naming convention -->
 <!-- NOTE: This file needs manual review to ensure all domain events follow entity-first, past-tense naming convention -->
 ##
+
 title: "Domain Events Business Mapping"
 version: "1.0"
 last_updated: "2025-06-06"
+
 ## status: "Draft"
+
 status: "Draft"
 title: "Domain Events Business Mapping"
 version: "1.0"
 last_updated: "2025-06-06"
 status: "Approved"
 contributors:
-  - "Domain Team"
+
+- "Domain Team"
+
 # Domain Events Business Mapping
+
 ## Overview
+
 This document maps domain events to business processes, metrics, and value streams within the Elias Food Imports system. It illustrates how domain events serve as key integration points between bounded contexts and how they support critical business functions. By establishing this mapping, we ensure that our technical implementation through domain events properly supports business objectives and enables monitoring of key processes.
+
 ## Strategic Importance
+
 Mapping domain events to business processes provides several critical benefits:
+
 1. **Business Alignment**: Ensures technical events reflect meaningful business occurrences
 2. **Process Visibility**: Enables monitoring and measurement of business processes
 3. **Cross-Domain Integration**: Clarifies how different bounded contexts collaborate
 4. **Impact Analysis**: Facilitates understanding of technical changes on business processes
 5. **Metrics Foundation**: Provides the foundation for calculating key business metrics
+
 ## Business Process to Event Mappings
+
 ### Order Fulfillment Process
+
 The Order fulfillment process encompasses activities from Order placement to delivery.
+
 #### Key Business Steps and Corresponding Events
+
 1. **Order Placement**
    - Business Step: Customer submits Order
    - Domain Event: `OrderPlaced`
@@ -67,10 +82,13 @@ The Order fulfillment process encompasses activities from Order placement to del
    - Domain Event: `OrderDelivered`
    - Business Impact: Order cycle completion
    - Metrics Affected: On-time delivery rate, fulfillment cycle time
+
 #### Process Visualization
+
 ```mermaid
 sequenceDiagram
 ```
+
 participant Customer
 participant Order
 participant Payment
@@ -92,11 +110,16 @@ Shipping->>Order: Shipment Confirmed
 Note over Order: OrderShipped
 Shipping->>Customer: Deliver Package
 Note over Shipping: OrderDelivered
+
 ```
 ```
+
 ### Product Authentication Process
+
 The Product Authentication process ensures the authenticity of imported food products.
+
 #### Key Business Steps and Corresponding Events
+
 1. **Authentication Request**
    - Business Step: Authentication initiated for Product
    - Domain Event: `ProductAuthenticationRequested`
@@ -122,10 +145,13 @@ The Product Authentication process ensures the authenticity of imported food pro
    - Domain Event: `AuthenticationResolved`
    - Business Impact: Supply chain integrity
    - Metrics Affected: Resolution time, Authentication accuracy
+
 #### Process Visualization
+
 ```mermaid
 sequenceDiagram
 ```
+
 participant User
 participant CatalogAuth
 participant Inventory
@@ -134,11 +160,14 @@ User->>CatalogAuth: Scan Product
 Note over CatalogAuth: ProductAuthenticationRequested
 CatalogAuth->>CatalogAuth: Verify Product
 alt Authentication Successful
+
 ```
         Note over CatalogAuth: ProductAuthenticated
         CatalogAuth->>User: Confirm Authentic
 ```
+
 else Authentication Failed
+
 ```
         Note over CatalogAuth: ProductAuthenticationFailed
         CatalogAuth->>Inventory: Quarantine Product
@@ -146,14 +175,20 @@ else Authentication Failed
         CatalogAuth->>Notification: Alert Quality Control
         Note over CatalogAuth: CounterfeitDetected
 ```
+
 end
 CatalogAuth->>CatalogAuth: Record Resolution
 Note over CatalogAuth: AuthenticationResolved
+
 ```
 ```
+
 ### Subscription Management Process
+
 The Subscription management process handles recurring orders and Customer Subscription lifecycles.
+
 #### Key Business Steps and Corresponding Events
+
 1. **Subscription Creation**
    - Business Step: Customer initiates Subscription
    - Domain Event: `SubscriptionCreated`
@@ -184,10 +219,13 @@ The Subscription management process handles recurring orders and Customer Subscr
    - Domain Event: `SubscriptionCancelled`
    - Business Impact: Revenue loss
    - Metrics Affected: Cancellation rate, churn rate
+
 #### Process Visualization
+
 ```mermaid
 sequenceDiagram
 ```
+
 participant Customer
 participant Subscription
 participant Payment
@@ -197,15 +235,20 @@ Customer->>Subscription: Create Subscription
 Note over Subscription: SubscriptionCreated
 Subscription->>Payment: Process Initial Payment
 alt Payment Success
+
 ```
         Note over Subscription: SubscriptionActivated
 ```
+
 else Payment Failure
+
 ```
         Note over Subscription: SubscriptionPaymentFailed
 ```
+
 end
 loop Every Subscription Period
+
 ```
         Subscription->>Subscription: Check Renewal Due
         Note over Subscription: SubscriptionRenewalScheduled
@@ -221,14 +264,20 @@ loop Every Subscription Period
             Subscription->>Customer: Notify Payment Issue
         end
 ```
+
 end
 Customer->>Subscription: Cancel Subscription
 Note over Subscription: SubscriptionCancelled
+
 ```
 ```
+
 ### Inventory Management Process
+
 The Inventory management process ensures Product availability and optimal stock levels.
+
 #### Key Business Steps and Corresponding Events
+
 1. **Inventory Receipt**
    - Business Step: New Inventory arrives at warehouse
    - Domain Event: `InventoryReceived`
@@ -259,10 +308,13 @@ The Inventory management process ensures Product availability and optimal stock 
    - Domain Event: `LowStockDetected`
    - Business Impact: Replenishment trigger
    - Metrics Affected: Stockout rate, replenishment efficiency
+
 #### Process Visualization
+
 ```mermaid
 sequenceDiagram
 ```
+
 participant Supplier
 participant Receiving
 participant QualityControl
@@ -274,6 +326,7 @@ Note over Inventory: InventoryReceived
 Inventory->>QualityControl: Request Inspection
 QualityControl->>QualityControl: Inspect Items
 alt Quality Acceptable
+
 ```
         Note over QualityControl: InventoryInspected
         QualityControl->>Inventory: Approve for Stock
@@ -287,52 +340,70 @@ alt Quality Acceptable
             end
         end
 ```
+
 else Quality Issues
+
 ```
         Note over QualityControl: QualityIssueDetected
         QualityControl->>Inventory: Reject Items
 ```
+
 end
 Order->>Inventory: Request Products
 Inventory->>Inventory: Reserve Stock
 Note over Inventory: InventoryAllocated
 Inventory->>Inventory: Update Count
 Note over Inventory: InventoryAdjusted
+
 ```
 ```
+
 ## Domain Events to Business Metrics Mapping
+
 This section maps key domain events to business metrics they directly support or influence, illustrating how our event-driven architecture enables business performance monitoring.
+
 ### Catalog Authentication Metrics
+
 | Business Metric | Definition | Related Domain Events | Calculation |
 |------------------|------------|------------------------|-------------|
 | Authentication Scan Success Rate | Percentage of scans that successfully verify Product authenticity | `ProductAuthenticationRequested`, `ProductAuthenticated`, `ProductAuthenticationFailed` | (`ProductAuthenticated` count / `ProductAuthenticationRequested` count) × 100% |
 | Counterfeit Detection Rate | Percentage of scans that identify counterfeit products | `ProductAuthenticationRequested`, `CounterfeitDetected` | (`CounterfeitDetected` count / `ProductAuthenticationRequested` count) × 100% |
 | Authentication Resolution Time | Average time from Authentication request to resolution | `ProductAuthenticationRequested`, `AuthenticationResolved` | Average time difference between paired events |
 | Authentication Scan Volume | Total number of Authentication scans | `ProductAuthenticationRequested` | Count of events in time period |
+
 ### Order Fulfillment Metrics
+
 | Business Metric | Definition | Related Domain Events | Calculation |
 |------------------|------------|------------------------|-------------|
 | Order Accuracy | Percentage of orders fulfilled correctly | `OrderPlaced`, `OrderRejected`, `OrderModified` | ((`OrderPlaced` - `OrderRejected` - `OrderModified`) / `OrderPlaced`) × 100% |
 | On-Time Delivery Rate | Percentage of orders delivered within promised timeframe | `OrderShipped`, `OrderDelivered` | Count of `OrderDelivered` within promised time / Count of `OrderShipped` |
 | Order Processing Time | Average time from Order placement to fulfillment | `OrderPlaced`, `OrderFulfilled` | Average time difference between paired events |
 | Fill Rate | Percentage of items fulfilled from available Inventory | `InventoryAllocated`, `BackorderCreated` | (`InventoryAllocated` items / (`InventoryAllocated` items + `BackorderCreated` items)) × 100% |
+
 ### Subscription Metrics
+
 | Business Metric | Definition | Related Domain Events | Calculation |
 |------------------|------------|------------------------|-------------|
 | Churn Rate | Percentage of subscribers who cancel in a period | `SubscriptionCancelled`, total active subscriptions | (`SubscriptionCancelled` count / total active subscriptions) × 100% |
 | Monthly Recurring Revenue (MRR) | Predictable monthly revenue from subscriptions | `SubscriptionCreated`, `SubscriptionUpgraded`, `SubscriptionDowngraded`, `SubscriptionCancelled` | Sum of all Subscription values from relevant events |
 | Renewal Rate | Percentage of subscriptions successfully renewed | `SubscriptionRenewalScheduled`, `SubscriptionRenewed` | (`SubscriptionRenewed` count / `SubscriptionRenewalScheduled` count) × 100% |
 | Customer Lifetime Value | Predicted revenue from a subscriber over their lifetime | `SubscriptionCreated`, `SubscriptionRenewed`, `SubscriptionUpgraded`, `SubscriptionDowngraded` | Complex calculation based on Subscription value and duration |
+
 ### Inventory Metrics
+
 | Business Metric | Definition | Related Domain Events | Calculation |
 |------------------|------------|------------------------|-------------|
 | Inventory Accuracy | Percentage match between system and physical counts | `InventoryReceived`, `InventoryAdjusted`, `InventoryReconciled` | (1 - (sum of adjustment quantities / total Inventory)) × 100% |
 | Cold Chain Compliance Rate | Percentage of temperature-sensitive items with maintained cold chain | `ColdChainVerified`, `ColdChainViolationDetected` | (`ColdChainVerified` count / (`ColdChainVerified` + `ColdChainViolationDetected`)) × 100% |
 | Stockout Rate | Percentage of items unavailable when ordered | `LowStockDetected`, `StockoutDetected` | `StockoutDetected` count / total SKUs × 100% |
 | Inventory Turnover | Rate at which Inventory is sold and replaced | `InventoryReceived`, `InventoryAllocated` | Cost of goods sold / average Inventory value |
+
 ## Implementation Recommendations
+
 ### Event Stream Processing for Business Metrics
+
 To effectively use domain events for business metrics calculation, we recommend implementing:
+
 1. **Event Stream Processing Platform**: Utilize a stream processing solution (e.g., Kafka Streams, Apache Flink) to:
    - Calculate real-time metrics from domain events
    - Generate aggregated views of business performance
@@ -345,8 +416,11 @@ To effectively use domain events for business metrics calculation, we recommend 
    - Visualize metrics derived from domain events
    - Support drill-down from high-level metrics to underlying events
    - Enable comparison against business goals and historical performance
+
 ### Business Process Monitoring
+
 To leverage domain events for business process monitoring:
+
 1. **Process Correlation IDs**: Include correlation IDs in related events to:
    - Track complete business processes across bounded contexts
    - Calculate end-to-end process metrics
@@ -359,17 +433,22 @@ To leverage domain events for business process monitoring:
    - Set up alerts for process deviations and SLA violations
    - Track key performance indicators derived from event streams
    - Monitor process health across bounded contexts
+
 ### Implementation Strategy for Common Business Scenarios
+
 #### Monitoring Order Fulfillment Efficiency
+
 ```typescript
 // Example Event Handler for Order Processing Time Calculation
 class OrderProcessingTimeCalculator {
   calculateProcessingTime(events: DomainEvent[]): Map<string, number> {
 ```
+
 const orderPlacedEvents = events.filter(e => e.type === 'OrderPlaced');
 const orderFulfilledEvents = events.filter(e => e.type === 'OrderFulfilled');
 const processingTimes = new Map<string, number>();
 orderPlacedEvents.forEach(placedEvent => {
+
 ```
       const orderId = placedEvent.payload.orderId;
       const fulfilledEvent = orderFulfilledEvents.find(e =>
@@ -380,64 +459,84 @@ orderPlacedEvents.forEach(placedEvent => {
         processingTimes.set(orderId, processingTime / (1000 * 60)); // Convert to minutes
       }
 ```
+
 });
 return processingTimes;
+
 ```
   }
   calculateAverageProcessingTime(processingTimes: Map<string, number>): number {
 ```
+
 if (processingTimes.size === 0) return 0;
 const sum = Array.from(processingTimes.values())
+
 ```
       .reduce((total, time) => total + time, 0);
 ```
+
 return sum / processingTimes.size;
+
 ```
   }
 }
 ```
+
 #### Tracking Subscription Health
+
 ```typescript
 // Example Event Handler for Churn Rate Calculation
 class SubscriptionHealthMonitor {
   calculateChurnRate(events: DomainEvent[], timeframe: TimeFrame): number {
 ```
+
 const startDate = timeframe.startDate;
 const endDate = timeframe.endDate;
 // Count active subscriptions at start
 const activeAtStart = this.countActiveSubscriptions(events, startDate);
 // Count cancellations during period
 const cancellations = events
+
 ```
       .filter(e => e.type === 'SubscriptionCancelled')
       .filter(e => e.timestamp >= startDate && e.timestamp <= endDate)
       .length;
 ```
+
 return activeAtStart > 0 ? (cancellations / activeAtStart) * 100 : 0;
+
 ```
   }
   private countActiveSubscriptions(events: DomainEvent[], date: Date): number {
 ```
+
 // Count created before date
 const created = events
+
 ```
       .filter(e => e.type === 'SubscriptionCreated')
       .filter(e => e.timestamp <= date)
       .length;
 ```
+
 // Count cancelled before date
 const cancelled = events
+
 ```
       .filter(e => e.type === 'SubscriptionCancelled')
       .filter(e => e.timestamp <= date)
       .length;
 ```
+
 return created - cancelled;
+
 ```
   }
 }
 ```
+
 ## Relationship to Other Artifacts
+
 | Related Artifact | Relationship |
 |-----------------|---------------|
 | Domain Event Naming Analysis | Provides naming conventions for the events mapped in this document |
@@ -446,7 +545,9 @@ return created - cancelled;
 | Value Objects Analysis | Many events contain value objects that represent important business concepts |
 | API Design Guidelines | APIs often trigger or respond to the domain events described here |
 | Bounded Context Map | Shows relationships between contexts that exchange the mapped events |
+
 ## Conclusion
+
 This Domain Events Business Mapping establishes clear connections between technical implementation (domain events) and business objectives (processes and metrics). By maintaining these mappings as the system evolves, we ensure that our event-driven architecture continues to support business goals effectively and enables accurate business process monitoring.
 Domain events serve as the foundational building blocks for tracking business performance, enabling both technical teams and business stakeholders to speak a common language when discussing system behavior and business outcomes.
 *This document should be reviewed and updated as the domain model evolves. Last updated: 2025-06-06*
@@ -454,6 +555,7 @@ Domain events serve as the foundational building blocks for tracking business pe
 ---
 
 ⚑ Related
+
 - [Domain Glossary](../glossary.md)
 - [Ubiquitous Language Evolution Process](./ubiquitous_language_evolution.md)
 

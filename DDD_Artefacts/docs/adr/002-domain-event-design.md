@@ -5,12 +5,14 @@ date: 2025-05-15
 deciders: Core Architecture Team, Integration Team
 ---
 
-# ADR-002: Domain Event Design Patterns
+## ADR-002: Domain Event Design Patterns
 
 ## Status
+
 Accepted
 
 ## Context
+
 Domain events are essential to the Elias Food Imports system, enabling loose coupling between bounded contexts while maintaining business process integrity. According to the [Domain Event Catalog](../../domain-knowledge/integrations/events.md), there are 60+ domain events across 13 bounded contexts. As the system has evolved, several challenges emerged:
 
 1. Inconsistent event handling and publishing
@@ -22,9 +24,11 @@ Domain events are essential to the Elias Food Imports system, enabling loose cou
 These issues led to difficulties in ensuring business workflows worked correctly across context boundaries and problems debugging complex event chains.
 
 ## Decision
+
 We will implement a comprehensive Domain Event system with the following components. For the complete list of domain events and their schemas, refer to the [Domain Event Catalog](../../domain-knowledge/integrations/events.md).
 
 1. **Standardized Event Base Class**:
+
    ```typescript
    abstract class DomainEvent {
      public readonly eventId: string;
@@ -46,6 +50,7 @@ We will implement a comprehensive Domain Event system with the following compone
    ```
 
 2. **Domain Event Publisher Interface**:
+
    ```typescript
    interface DomainEventPublisher {
      publish(event: DomainEvent): Promise<void>;
@@ -54,6 +59,7 @@ We will implement a comprehensive Domain Event system with the following compone
    ```
 
 3. **Event Spy for Testing**:
+
    ```typescript
    class EventSpy implements DomainEventPublisher {
      private events: DomainEvent[] = [];
@@ -79,6 +85,7 @@ We will implement a comprehensive Domain Event system with the following compone
    ```
 
 4. **Event-based Tests**:
+
    ```typescript
    it('should publish OrderConfirmed when payment is processed', async () => {
      // Arrange
@@ -107,6 +114,7 @@ We will implement a comprehensive Domain Event system with the following compone
 ## Consequences
 
 ### Positive
+
 - Consistent event structure across all bounded contexts
 - Easy testing of event publication and handling
 - Clear audit trail and event flow visibility
@@ -114,6 +122,7 @@ We will implement a comprehensive Domain Event system with the following compone
 - Centralized event handling infrastructure
 
 ### Negative
+
 - Additional overhead for serialization/deserialization
 - Need for versioning strategy as events evolve
 - Potential performance impact for high-volume events
@@ -122,6 +131,7 @@ We will implement a comprehensive Domain Event system with the following compone
 ## Implementation Examples
 
 ### Event Implementation
+
 ```typescript
 class OrderPlaced extends DomainEvent {
   constructor(
@@ -158,6 +168,7 @@ class OrderPlaced extends DomainEvent {
 ```
 
 ### Event Publishing in an Aggregate
+
 ```typescript
 class Order extends Aggregate {
   private events: DomainEvent[] = [];
@@ -191,6 +202,7 @@ class Order extends Aggregate {
 ```
 
 ### Event Flow Testing
+
 ```typescript
 it('should complete the order payment flow', async () => {
   // Arrange
@@ -220,6 +232,7 @@ it('should complete the order payment flow', async () => {
 ```
 
 ## References
+
 - [Domain-Driven Design by Eric Evans](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215)
 - [Implementing Domain-Driven Design by Vaughn Vernon](https://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577)
 - [Domain Event Catalog](../domain-knowledge/integrations/events.md)

@@ -7,6 +7,7 @@
 [OWNER: @supply-chain-team]
 
 ## 1. Business Context
+
 - **Purpose**: Provide end-to-end visibility into the supply chain, enabling tracking of products from source to consumer while ensuring compliance with food safety regulations, quality assurance, and supply chain risk management.
 - **Business Capabilities**:
   - Supplier lifecycle management and qualification
@@ -29,6 +30,7 @@
   - Food Safety Managers
 
 ## 2. Domain Model
+
 - **Key Entities**:
   - Supplier (root aggregate)
   - ProductLot
@@ -62,7 +64,9 @@
   - `RecallInitiated`
 
 ## 3. Functional Requirements
+
 ### 3.1 Supplier Management
+
 - **FR-1**: As a supply chain manager, I want to onboard and qualify suppliers so that we ensure only approved suppliers are used
   - **Acceptance Criteria**:
     - [ ] Capture all required supplier information (contact, facilities, certifications)
@@ -80,6 +84,7 @@
   - **Dependencies**: [Risk Management PRD], [Market Intelligence PRD]
 
 ### 3.2 Product Traceability
+
 - **FR-3**: As a quality assurance manager, I want to track product lots through the supply chain so that I can ensure product integrity
   - **Acceptance Criteria**:
     - [ ] Capture lot-level attributes (batch, expiry, origin)
@@ -97,7 +102,9 @@
   - **Dependencies**: [Document Management PRD], [Regulatory Compliance PRD]
 
 ## 4. Integration Points
+
 ### 4.1 Published Events
+
 - `SupplierStatusChanged`
   - Payload: {supplierId, oldStatus, newStatus, effectiveDate, reason, userId}
   - Consumers: Procurement, Quality Control, Risk Management
@@ -111,6 +118,7 @@
   - Consumers: Quality Control, Risk Management, Compliance
 
 ### 4.2 Consumed Events
+
 - `ProductReceived`
   - Source: Inventory
   - Action: Update product lot location and custody
@@ -124,6 +132,7 @@
   - Action: Reassess supplier compliance
 
 ### 4.3 APIs/Services
+
 - **REST/GraphQL**:
   - `POST /api/suppliers` - Create/update supplier
   - `GET /api/traceability/product/{productId}` - Get product traceability
@@ -142,6 +151,7 @@
   - Regulatory compliance databases
 
 ## 5. Non-Functional Requirements
+
 - **Compliance**:
   - Support for GS1 standards
   - FDA Food Safety Modernization Act (FSMA) compliance
@@ -176,17 +186,20 @@
   - Multi-language support
 
 ## 6. Open Questions
+
 - How should we handle multi-tier supplier relationships?
 - What are the specific data retention requirements for different regions?
 - How can we leverage blockchain for enhanced traceability?
 
 ## 7. Out of Scope
+
 - Direct integration with supplier ERP systems (handled by ETL/Integration layer)
 - Product quality testing (handled by Quality Control)
 - Supplier payment processing (handled by Finance)
 - Transportation management (handled by Logistics)
 
 ## 8. References
+
 - [GS1 Global Traceability Standard](https://www.gs1.org/standards/gs1-global-traceability-standard/1)
 - [FDA Food Traceability Final Rule (21 CFR Part 1, Subpart S)](https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-requirements-additional-traceability-records-certain-foods)
 - [EU General Food Law (Regulation (EC) No 178/2002)](https://eur-lex.europa.eu/eli/reg/2002/178/oj)

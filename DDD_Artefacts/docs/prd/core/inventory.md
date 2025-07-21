@@ -7,6 +7,7 @@
 [OWNER: @inventory-team]
 
 ## 1. Business Context
+
 - **Purpose**: Provide comprehensive control over stock levels, locations, and movements of perishable goods, ensuring optimal inventory levels, minimizing waste, and maximizing service levels through FEFO (First-Expired-First-Out) inventory management and real-time visibility across the supply chain.
 - **Business Capabilities**:
   - Real-time inventory tracking and visibility
@@ -28,6 +29,7 @@
   - Finance/Controlling
 
 ## 2. Domain Model
+
 - **Key Entities**:
   - InventoryItem
   - StorageLocation
@@ -60,7 +62,9 @@
   - `SafetyStockBreached`
 
 ## 3. Functional Requirements
+
 ### 3.1 Inventory Control
+
 - **FR-1**: As an inventory manager, I want to track inventory by lot/batch with expiration dates so that I can ensure FEFO compliance
   - **Acceptance Criteria**:
     - [ ] System enforces FEFO picking rules during order allocation
@@ -78,6 +82,7 @@
   - **Dependencies**: [Warehouse Management PRD], [Mobile App PRD]
 
 ### 3.2 Demand Planning & Replenishment
+
 - **FR-3**: As a supply chain planner, I want automated replenishment recommendations so that I can maintain optimal stock levels
   - **Acceptance Criteria**:
     - [ ] ML-based demand forecasting
@@ -95,6 +100,7 @@
   - **Dependencies**: [Logistics PRD], [Network Planning PRD]
 
 ### 3.3 Inventory Optimization
+
 - **FR-5**: As a financial analyst, I want inventory valuation and cost analysis so that I can optimize working capital
   - **Acceptance Criteria**:
     - [ ] Multiple costing methods (FIFO, LIFO, Average)
@@ -106,6 +112,7 @@
 ### 3.4 Business Rules
 
 #### 3.4.1 Inventory Tracking and Management
+
 - All inventory items must be associated with a storage location and product SKU.
 - Inventory levels must be updated in real time for all stock movements.
 - Negative inventory quantities are disallowed; operations causing them must be rejected.
@@ -116,7 +123,9 @@
 - Real-time inventory visibility provided to sales, purchasing, and fulfillment teams.
 
 #### 3.4.2 Expiration Management
+
 _Detailed batch lifecycle, hold, and release processes are governed by the [Batch Tracking PRD]._
+
 - Perishable products tracked at batch level with production and expiration dates.
 - FEFO allocation enforced for perishable items.
 - Alerts issued 30, 14, and 7 days before expiration.
@@ -124,6 +133,7 @@ _Detailed batch lifecycle, hold, and release processes are governed by the [Batc
 - Expired products flagged in Inventory; detailed quarantine workflow is governed by the [Batch Tracking PRD].
 
 #### 3.4.3 Temperature-Controlled Inventory
+
 - Storage locations must meet product-specific temperature ranges.
 - Continuous monitoring with alerts for out-of-range conditions.
 - Temperature excursions logged with duration and magnitude.
@@ -134,6 +144,7 @@ _Detailed batch lifecycle, hold, and release processes are governed by the [Batc
 - Temperature-sensitive products labeled with handling instructions.
 
 #### 3.4.4 Inventory Reservations
+
 - Cart additions create 30-minute reservations, auto-extended during active sessions.
 - Expired reservations automatically released back to available inventory.
 - Reservations convert to allocations upon order placement.
@@ -143,6 +154,7 @@ _Detailed batch lifecycle, hold, and release processes are governed by the [Batc
 - Reservation capacity must not exceed 25 % of available inventory per SKU.
 
 #### 3.4.5 Forecasting & Planning
+
 - Weekly forecasts generated for a 12-week horizon.
 - Forecast accuracy maintained at ≥ 85 % for A-category items.
 - Seasonal patterns incorporated into forecast algorithms.
@@ -151,7 +163,9 @@ _Detailed batch lifecycle, hold, and release processes are governed by the [Batc
 - Slow-moving inventory (no movement in 60 days) flagged for review.
 
 ## 4. Integration Points
+
 ### 4.1 Published Events
+
 - `InventoryLevelChanged`
   - Payload: {itemId, locationId, quantity, lotNumber, timestamp, userId}
   - Consumers: Order Management, Procurement, Analytics
@@ -165,6 +179,7 @@ _Detailed batch lifecycle, hold, and release processes are governed by the [Batc
   - Consumers: Quality, Finance, Operations
 
 ### 4.2 Consumed Events
+
 - `SalesOrderCreated`
   - Source: Order Management
   - Action: Reserve inventory and update available quantities
@@ -186,6 +201,7 @@ _Detailed batch lifecycle, hold, and release processes are governed by the [Batc
   - Action: Adjust demand planning and trigger promotional pricing rules
 
 ### 4.3 APIs/Services
+
 - **REST/GraphQL**:
   - `GET /api/inventory/items/{id}/availability` - Check real-time availability
   - `POST /api/inventory/transfers` - Create inventory transfers
@@ -204,6 +220,7 @@ _Detailed batch lifecycle, hold, and release processes are governed by the [Batc
   - 3PL systems for distributed inventory
 
 ## 5. Non-Functional Requirements
+
 - **Performance**:
   - Support 2,000+ transactions per second during peak
   - Sub-100ms response time for availability checks
@@ -237,17 +254,20 @@ _Detailed batch lifecycle, hold, and release processes are governed by the [Batc
   - Multi-language and multi-currency support
 
 ## 6. Open Questions
+
 - How should we handle inventory ownership in a consignment model?
 - What are the specific regulatory requirements for different product categories?
 - How should we optimize inventory for omnichannel fulfillment?
 
 ## 7. Out of Scope
+
 - Product lifecycle management (handled by PLM)
 - Supplier relationship management (handled by SRM)
 - Transportation management (handled by TMS)
 - Financial accounting (handled by ERP)
 
 ## 8. References
+
 - [APICS CPIM Body of Knowledge](https://www.ascm.org/learning-development/certifications-credentials/cpim/)
 - [GS1 Global Traceability Standard](https://www.gs1.org/standards/gs1-global-traceability-standard)
 - [ISO 22005:2007 - Traceability in the feed and food chain](https://www.iso.org/standard/36297.html)

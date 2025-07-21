@@ -68,8 +68,7 @@ For a general retail e-commerce platform, the Product Catalog and Order Manageme
 
 A Context Map is a vital strategic DDD pattern that visually represents the identified Bounded Contexts and their explicit relationships, clarifying communication patterns and dependencies.1 This map serves as a living document that guides architectural decisions, facilitates communication between technical and business teams, and ensures that all integration points are deliberate and managed, preventing the emergence of a "Big Ball of Mud" anti-pattern.1 For perishable goods, the context map highlights the critical dependencies and real-time event flows between contexts like Inventory, Order, and Shipping, ensuring cold chain and expiration logic are consistently applied across the entire value chain.
 
-Code snippet
-
+```mermaid
 C4Context  
     title System Context for Perishable Food & Beverage E-commerce
 
@@ -151,6 +150,9 @@ C4Context
 
 The context map for perishable goods illustrates a higher density of critical, real-time event flows and tighter dependencies between the Inventory & Warehouse, Order Management, and Shipping & Fulfillment contexts than a generic e-commerce platform. This architectural characteristic arises directly from the time-sensitive nature of perishable products and the potential for rapid degradation or failure (e.g., a cold chain breach). This heightened interconnectedness implies that the chosen integration patterns, particularly event-driven messaging and the use of Anti-Corruption Layers for external systems, must be exceptionally robust and meticulously designed. Such design ensures that critical events, like InventoryLotExpiringSoon or ColdChainBroken, are handled with high fidelity and low latency, preventing cascading failures and enabling the system to react effectively to unforeseen circumstances. This proactive approach to managing critical dependencies is paramount for maintaining product quality and minimizing business risk in the perishable domain.
 
+
+
+
 ### **3.3 Detailed Analysis of Key Bounded Contexts with Perishable Adaptations**
 
 This subsection provides a detailed breakdown of each bounded context, outlining its core purpose, key aggregates, common domain events, and integration patterns, with specific emphasis on how perishable goods considerations modify or extend its functionality.
@@ -211,76 +213,6 @@ This subsection provides a detailed breakdown of each bounded context, outlining
   * **Perishable Adaptation:** For B2B bulk perishable orders, the Sales & Quoting context requires enhanced capabilities to account for batch availability and expiration dates from the Inventory & Warehouse context when preparing quotes. Sales representatives might need to offer discounts on soon-to-expire lots or guarantee delivery from specific fresh batches based on available inventory. This adds a layer of complexity to the QuoteLine and Quote aggregate, ensuring that negotiated terms are realistic and fulfillable given the perishable nature of the goods, thereby preventing future fulfillment issues and maintaining customer trust.  
 * **Analytics & Reporting Context**  
   * **Core Purpose:** Responsible for aggregating data from various parts of the system to provide insights, track KPIs (Key Performance Indicators), and generate reports.1  
-  * **Aggregates & Entities:** This context is less about strict domain entities and more about derived data. Conceptual aggregates might include SalesSummary, InventoryStats, and CustomerLifetimeValue.1 For perishables, SpoilageMetrics (e.g., waste by product, reason, or location) and ColdChainComplianceReports (e.g., incidents, duration) would be critical derived aggregates.  
-  * **Domain Events:** This context primarily *consumes* events from all other contexts (e.g., OrderPlaced, InventoryLotExpired, ColdChainBroken) to build its analytical models.1 It may emit technical events like ReportGenerated or AnomalyDetected (e.g., flagging unusually high spoilage rates) or domain-significant events like RestockSuggested (informing procurement based on demand forecasts).1  
-  * **Integration:** It typically operates in a Conformist relationship, adapting to the Published Language of event streams from other contexts.1 It may also pull data via APIs for reconciliation or comprehensive reporting.  
-  * **Perishable Adaptation:** For perishable goods, the Analytics & Reporting context transforms into a "business intelligence hub for waste and quality." It moves beyond general sales reporting to provide critical insights into spoilage rates (derived from InventoryLotExpired and ReturnedItemDisposed events), cold chain breaches (from ColdChainBroken events), and the effectiveness of FEFO adherence.1 This enables data-driven decisions for procurement optimization, dynamic pricing adjustments 13, and operational improvements, directly impacting profitability by minimizing waste and maximizing product freshness. The ability to develop sophisticated demand forecasting models specifically for perishables, by combining sales data, expiration data, and external factors (e.g., weather), is a high-value application of this context, directly informing procurement and pricing strategies to further reduce waste and ensure product freshness.
-
-## **4\. Tactical Design: Modeling Expiration and Quality Events**
-
-This section delves into the specific tactical DDD patterns used to model expiration and quality events within the perishable domain. It provides detailed markdown tables for key aggregates and domain events, illustrating their structure and purpose.
-
-### **4.1 Aggregate Definitions for Perishable Inventory**
-
-The InventoryItem aggregate is central to managing perishable stock. It is designed to ensure consistency around quantities, batches, and expiration dates, embodying the FEFO principle. The aggregate root (InventoryItem) is responsible for enforcing all invariants related to its internal state, including the collection of associated Batch Value Objects.
-
-This table provides a concrete blueprint for the core perishable inventory aggregate, detailing its internal structure and the critical invariants it must maintain. It directly addresses the modeling of expiration within the system, providing a clear and actionable guide for development.
-
-| Field Name | Type | Description | Invariants & Business Rules |
-| :---- | :---- | :---- | :---- |
-| id (Root) | UUID | Unique identifier for the InventoryItem aggregate. | Must be unique. |
-| productId | String | Identifier of the product this inventory item represents. | Must reference a valid product in Product Catalog. |
-| locationId | String | Identifier for the warehouse or storage location. | Optional, if multi-warehouse is supported. |
-| quantityOnHand | Integer | Total physical quantity of the product currently in stock across all batches. | Must be non-negative. Derived from sum of batches.quantity. |
-| quantityReserved | Integer | Quantity reserved for open orders. | Must be non-negative and less than or equal to quantityOnHand. |
-| batches | List\<Batch\> | Collection of Batch Value Objects associated with this InventoryItem. | Must be sorted by expirationDate (FEFO principle). Cannot contain duplicate batchIds. |
-| lastUpdated | DateTime | Timestamp of the last update to the aggregate. | Automatically updated on any state change. |
-
-**Table: Batch Value Object (within InventoryItem Aggregate)**
-
-| Field Name | Type | Description | Invariants & Business Rules |
-| :---- | :---- | :---- | :---- |
-| batchId | String | Unique identifier for this specific production batch or lot. | Unique within the InventoryItem aggregate. |
-| expirationDate | Date | The date on which the product batch expires. | Must be a future date upon NewBatchReceived. Cannot be null. |
-| quantity | Integer | Quantity of product units in this specific batch. | Must be non-negative. |
-| receivedDate | Date | Date when this batch was received into inventory. | Used for FIFO if FEFO is not applicable or as a secondary sort. |
-| qualityStatus | Enum | Current quality status (e.g., Good, Compromised, Recalled). | Default to Good. Can be updated by LotRecalled event. |
-
-### **4.2 Domain Event Definitions for Perishable Lifecycle**
-
-Domain events are crucial for signaling significant occurrences related to perishable goods, enabling decoupled communication and triggering reactive workflows across various bounded contexts. These events capture the "what happened" in the domain, allowing other contexts to react autonomously.
-
-This table explicitly defines the structure and purpose of key domain events related to the perishable lifecycle. It directly addresses the "modeling quality events" aspect of the query, providing a clear understanding of the event-driven communication backbone.
-
-| Event Name | Triggering Context | Payload Fields (Key) | Description | Primary Consumers |
-| :---- | :---- | :---- | :---- | :---- |
-| InventoryLotExpiringSoon | Inventory & Warehouse | productId, batchId, expirationDate, quantity | Emitted when a batch's expiration date falls within a predefined "expiring soon" window (e.g., 7 days). | Pricing & Promotions (for discounts), Analytics & Reporting (for waste prediction), Warehouse Staff (for physical removal/donation). |
-| InventoryLotExpired | Inventory & Warehouse | productId, batchId, expirationDate, quantity | Emitted when a batch's expiration date is reached or passed, and the batch is removed from available stock. | Analytics & Reporting (for spoilage tracking), Warehouse Staff (for disposal/donation workflow), Order Management (if any pending orders were assigned this lot). |
-| ColdChainBroken | Shipping & Fulfillment | shipmentId, orderId, productId, temperatureReading, timestamp, location, reason | Emitted when a shipment's temperature deviates from the required TemperatureRange for perishable goods. | Order Management (for replacement/refund), Customer Management (for proactive notification), Analytics & Reporting (for incident analysis), Customer Service. |
-| LotRecalled | Inventory & Warehouse | productId, batchId, reason, recallDate | Emitted when a specific batch/lot of a product is identified for recall due to quality or safety issues. | Order Management (to halt unshipped orders), Customer Management (to notify affected customers), Analytics & Reporting (for traceability), Customer Service. |
-| OrderShipped | Shipping & Fulfillment | orderId, shipmentId, trackingNumber, carrier, shippedAt | Emitted when an order (or part of it) is dispatched with a tracking number. | Customer Management (for notification), Payment & Billing (for capture), Analytics & Reporting (for delivery tracking). |
-
-### **4.3 Implementing FEFO Logic within the Inventory Context**
-
-The First-Expired, First-Out (FEFO) logic is a critical business rule for perishable inventory management, ensuring that products with the earliest expiration dates are sold and shipped first.1 This minimizes waste and ensures product freshness for the consumer. Within the Inventory & Warehouse context, the InventoryItem aggregate root is responsible for enforcing this invariant.
-
-When a request to reserveStock or deductStock for a given productId is received, the InventoryItem aggregate's internal logic would:
-
-1. Retrieve all Batch Value Objects associated with that productId.  
-2. Filter out any Batch VOs that are already expired or marked as Compromised/Recalled.  
-3. Sort the remaining Batch VOs by their expirationDate in ascending order (earliest first).6  
-4. Allocate the requested quantity from the batches, starting with the earliest expiring one, until the full quantity is met or available stock is exhausted.  
-5. Update the quantity for each affected Batch VO and the overall quantityOnHand for the InventoryItem aggregate.  
-6. If sufficient stock with acceptable shelf-life cannot be allocated, an InventoryAllocationFailed event is emitted.1
-
-This logic must be encapsulated within the InventoryItem aggregate's methods (e.g., allocateStock(quantity)), ensuring that the FEFO rule is consistently applied and that the aggregate's internal state remains valid after any operation. This approach leverages the transactional consistency boundary of the aggregate to maintain data integrity for time-sensitive inventory.
-
-## **5\. MERN-Stack Architectural Blueprint Sketch**
-
-Implementing the DDD-aligned perishable e-commerce system with a MERN (MongoDB, Express.js, React, Node.js) stack involves structuring the application as a set of independent Node.js microservices, each corresponding to a Bounded Context. MongoDB's flexible document model is well-suited for representing aggregates, and Node.js's asynchronous nature facilitates event-driven communication.
-
-### **5.1 Service Architecture and Data Ownership (MongoDB per Bounded Context)**
-
 Each Bounded Context will be implemented as a distinct Node.js/Express.js microservice. This adheres to the DDD principle of independent model boundaries and data ownership.1 Each service will have its own MongoDB database or dedicated collections, preventing direct data access from other contexts and enforcing clear separation of concerns. For example, the Order Management service would manage its orders collection, while the Inventory & Warehouse service manages its stock collection, which includes embedded batches.1 This modularity allows for independent scaling, deployment, and technology choices for each service.
 
 ### **5.2 Integration Patterns: Open Host Services, Published Language, Anti-Corruption Layers**
@@ -510,7 +442,7 @@ This architectural framework provides a solid foundation for a resilient, adapta
 6. GlobeNewswire. "Major Players Driving the Food Cold Chain Logistics Market 2025 Report." GlobeNewswire News Release, June 10, 2025\.  
    This market report discusses the significant growth in the food cold chain logistics market, driven by increasing demand for perishable food and the rise of online grocery platforms.2 It emphasizes the role of technological innovations such as IoT-based temperature monitoring and blockchain for traceability, providing critical context for the Shipping & Fulfillment context's integration needs.2
 
-#### **Works cited**
+### Works Cited
 
 1. eCommerce-Reference-Model  
 2. Major Players Driving the Food Cold Chain Logistics Market: \- GlobeNewswire, accessed June 11, 2025, [https://www.globenewswire.com/news-release/2025/06/10/3096837/0/en/Major-Players-Driving-the-Food-Cold-Chain-Logistics-Market-2025-Report-Features-Profiles-of-Americold-Logistics-Burris-Logistics-Lineage-Logistics-Nordic-Logistics-Preferred-Freeze.html](https://www.globenewswire.com/news-release/2025/06/10/3096837/0/en/Major-Players-Driving-the-Food-Cold-Chain-Logistics-Market-2025-Report-Features-Profiles-of-Americold-Logistics-Burris-Logistics-Lineage-Logistics-Nordic-Logistics-Preferred-Freeze.html)  

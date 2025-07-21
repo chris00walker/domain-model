@@ -5,6 +5,7 @@ This directory contains Architecture Decision Records (ADRs) for the Elias Food 
 ## What is an ADR?
 
 An Architecture Decision Record is a document that captures an important architectural decision, including:
+
 - The context (why we needed to make a decision)
 - The decision itself (what we decided)
 - The consequences (what happens as a result)
