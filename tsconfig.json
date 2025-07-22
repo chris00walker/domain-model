@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "commonjs",
+    "target": "ES2020",
+    "module": "ES2020",
     "lib": ["es2020"],
     "declaration": true,
     "strict": true,
@@ -38,12 +38,12 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "isolatedModules": true
   },
   "include": [
     "DDD_Artefacts/src/**/*.ts",
-
+    "scripts/**/*.ts",
     "tests/**/*.ts"
   ],
   "exclude": [

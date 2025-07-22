@@ -1,0 +1,18 @@
+meta:
+  brief_template: automation/template.md
+  bullets_max_len: 25
+# list truncated for brevity—include all 19 contexts’ agents
+roster:
+  Core:
+    - Inventory Manager
+    - Supply Chain Planner
+    # … (add all required agents)
+  Supporting:
+    - Merchandising Lead
+    # …
+  Strategic:
+    - Head of Marketing
+    # …
+  Integration:
+    - Chief Architect
+    # …
