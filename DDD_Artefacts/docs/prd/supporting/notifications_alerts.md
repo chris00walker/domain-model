@@ -20,7 +20,13 @@
   - Critical alert acknowledgement within 5 min (P95)
   - Bounce rate < 1 % for transactional email
   - Opt-out compliance 100 % within 24 h
-- **Domain Experts**: CX Lead, SRE Manager, Compliance Officer, Marketing Automation Specialist
+- **Domain Experts**:
+<!--- agents:
+  - role: CX Lead
+  - role: SRE Manager
+  - role: Compliance Officer
+  - role: Marketing Automation Specialist
+-->
 
 ## 2. Domain Model
 
@@ -161,3 +167,37 @@
 - ADR-011: Multi-Layered Caching Strategy
 - Notifications & Alerts Domain Rules (notifications-alerts-rules.md)
 - Context Map (context_map.puml)
+
+
+## Event Storm Updates
+
+### 2025-07-24
+
+**New Events**
+- AlertSuppressed
+
+**New Commands**
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- ColdChainViolationDetected
+- ColdChainBreachReported
+- ColdChainAlertTriggered
+- ColdChainMonitoringCompleted
+- ColdChainViolationResolved
+- ColdChainTemperatureAnomalyDetected
+- ColdChainAlertAcknowledged
+- ColdChainAlertEscalated
+
+**New Commands**
+- MonitorColdChain
+- ReportColdChainBreach
+- TriggerColdChainAlert
+- CompleteColdChainMonitoring
+- ResolveColdChainViolation
+- DetectColdChainTemperatureAnomaly
+- AcknowledgeColdChainAlert
+- EscalateColdChainAlert

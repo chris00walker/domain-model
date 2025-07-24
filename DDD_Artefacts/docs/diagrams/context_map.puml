@@ -161,7 +161,7 @@ rectangle "🏭 CORE OPERATIONS & INVENTORY" as CoreOperations {
         • IoT integration
     end note
 
-    [Pricing & Promotions] as PricingPromotions <<Core>>
+    [Pricing & Promotions] as PricingPromotions <<Strategic>>
     note right of PricingPromotions
         • Dynamic pricing
         • Markdown logic
@@ -184,7 +184,7 @@ rectangle "📦 FULFILLMENT & QUALITY ASSURANCE" as FulfillmentQuality {
         • Warehouse mgmt
     end note
 
-    [Supplier & Traceability] as SupplierTrace <<Strategic>>
+    [Supplier & Traceability] as SupplierTrace <<Core>>
     note right of SupplierTrace
         • Supplier records
         • Origin tracking
@@ -194,7 +194,7 @@ rectangle "📦 FULFILLMENT & QUALITY ASSURANCE" as FulfillmentQuality {
         • Audit trails
     end note
 
-    [Quality Control] as QualityControl <<Strategic>>
+    [Quality Control] as QualityControl <<Core>>
     note right of QualityControl
         • Incoming inspection
         • Quality standards
@@ -204,7 +204,7 @@ rectangle "📦 FULFILLMENT & QUALITY ASSURANCE" as FulfillmentQuality {
         • Lab integration
     end note
 
-    [Analytics & Reporting] as AnalyticsReporting <<Strategic>>
+    [Analytics & Reporting] as AnalyticsReporting <<Supporting>>
     note right of AnalyticsReporting
         • Performance KPIs
         • Trend analysis

@@ -1,30 +1,49 @@
 #!/usr/bin/env tsx
 import { Command } from "commander";
-import { scanGaps } from "./scanGaps.js";
-import { generateBrief } from "./generateBrief.js";
-import { buildMatrix } from "./buildMatrix.js";
-import { enrichPrds } from "./enrichPrds.js";
-import { plantumlStickies } from "./plantumlStickies.js";
+import { scanGaps } from './scanGaps';
+import { generateBrief } from './generateBrief';
+import { buildMatrix } from './buildMatrix';
+import { prepareSession } from './prepareSession';
+import { planImplementation } from './planImplementation';
+import { orchestrateDomain } from './orchestrateDomain';
 
 const program = new Command("efi-ddd");
-program.command("gaps").action(scanGaps);
+
+// Core analysis commands
+program.command("gaps").description("Scan for documented but unimplemented contexts").action(scanGaps);
 program
   .command("brief")
-  .option("--contexts <list>")
+  .description("Generate AI agent validation briefs")
+  .option("--contexts <list>", "Filter contexts (comma-separated)")
   .action((o) => generateBrief(o.contexts));
-program.command("matrix").action(buildMatrix);
-program.command("plantuml").action(plantumlStickies);
-program.command("enrich").argument("<file>").action(enrichPrds);
+program.command("matrix").description("Build context dependency matrix").action(buildMatrix);
 
+// Event Storming and Implementation Planning
+program
+  .command("session")
+  .description("Prepare Event Storming session materials")
+  .option("--context <name>", "Focus on specific context")
+  .action((o) => prepareSession(o.context));
+program.command("plan").description("Generate implementation plan with effort estimates").action(planImplementation);
+
+// Complete Domain Orchestration
+program
+  .command("orchestrate")
+  .description("Generate complete Eric Evans-style domain modeling workflow for all contexts")
+  .action(orchestrateDomain);
+
+// Complete workflow
 program
   .command("all")
-  .description("Run gaps → brief → plantuml → matrix in one sweep")
-  .option("--contexts <list>", "comma-sep list for brief/plantuml")
+  .description("Run complete Eric Evans-style domain workflow: gaps → brief → matrix → orchestration")
+  .option("--contexts <list>", "Filter contexts for brief generation")
   .action(async (opts) => {
     await scanGaps();
     await generateBrief(opts.contexts);
-    await plantumlStickies();
     await buildMatrix();
-    console.log("🏁 Full automation finished");
+    await orchestrateDomain();
+    console.log("🏁 Complete domain modeling workflow ready");
+    console.log("📋 Review DDD_Artefacts/domain-orchestration-plan.md for comprehensive session planning");
   });
+
 program.parse();

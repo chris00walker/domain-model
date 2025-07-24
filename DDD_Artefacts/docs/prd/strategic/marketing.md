@@ -23,10 +23,12 @@
   - B2B lead response time < 2 hours
   - Social media engagement growth ≥ 15% MoM
 - **Domain Experts**:
-  - Head of Marketing (Primary Owner)
-  - Digital Marketing Manager
-  - B2B Sales Manager
-  - Customer Insights Analyst
+<!--- agents:
+  - role: Head of Marketing (Primary Owner)
+  - role: Digital Marketing Manager
+  - role: B2B Sales Manager
+  - role: Customer Insights Analyst
+-->
 
 ## 2. Domain Model
 
@@ -257,3 +259,15 @@
 - **Security Tests**: GDPR/CCPA compliance checks; ensure opt-out processing ≤24 h.
 - **User Acceptance Tests**: Marketing personas validate campaign creation, launch, and reporting flows.
 - **CI/CD Gates**: Enforce ≥80% coverage, static analysis, security scanning, and TruffleHog secrets scan per ADR-012.
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- CampaignLaunched
+- CampaignPerformanceReviewed
+
+**New Commands**
+- LaunchCampaign
+- ReviewCampaignPerformance

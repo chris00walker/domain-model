@@ -23,11 +23,13 @@
   - Customer satisfaction score > 4.5/5.0
   - Order modification rate < 5%
 - **Domain Experts**:
-  - Order Management Team
-  - Customer Service
-  - Fulfillment Operations
-  - Payment Processing
-  - Business Analysts
+<!--- agents:
+  - role: Order Management Team
+  - role: Customer Service
+  - role: Fulfillment Operations
+  - role: Payment Processing
+  - role: Business Analysts
+-->
 
 ## 2. Domain Model
 
@@ -323,3 +325,27 @@
 - [REST API Design Best Practices](https://restfulapi.net/)
 - [Event Sourcing Pattern](https://martinfowler.com/eaaDev/EventSourcing.html)
 - [Saga Pattern](https://microservices.io/patterns/data/saga.html)
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- ColdChainComplianceChecked
+- ColdChainBreachDetected
+- ColdChainAlertIssued
+- ColdChainTemperatureLogged
+- ColdChainIntegrityVerified
+- ColdChainTemperatureThresholdExceeded
+- ColdChainAnomalyDetected
+- ColdChainStatusUpdated
+
+**New Commands**
+- CheckColdChainCompliance
+- DetectColdChainBreach
+- IssueColdChainAlert
+- LogColdChainTemperature
+- VerifyColdChainIntegrity
+- MonitorColdChainTemperature
+- DetectColdChainAnomaly
+- UpdateColdChainStatus

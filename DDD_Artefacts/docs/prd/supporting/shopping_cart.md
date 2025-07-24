@@ -20,7 +20,13 @@
   - Abandoned-cart recovery uplift ≥ 5 % of lost revenue
   - Cart update latency ≤ 200 ms (P95)
   - Zero oversell incidents due to cart reservations
-- **Domain Experts**: VP eCommerce, Head of CX, Inventory Manager, Pricing Analyst
+- **Domain Experts**:
+<!--- agents:
+  - role: VP eCommerce
+  - role: Head of CX
+  - role: Inventory Manager
+  - role: Pricing Analyst
+-->
 
 ## 2. Domain Model
 
@@ -182,3 +188,158 @@
 - ADR-004: CQRS Implementation Strategy
 - Shopping Cart Domain Rules
 - Context Map (context_map.puml)
+
+
+
+
+
+
+
+## Event Storm Updates
+
+### 2025-07-24
+
+**New Events**
+- CartUpdated
+- CartAbandoned
+- CartReviewed
+- CartCheckedOut
+- CartItemRemoved
+- CartSavedForLater
+- CartFeedbackSubmitted
+- CartSecurityAlert
+
+**New Commands**
+- UpdateCart
+- SubmitCartReview
+- CheckoutCart
+- RemoveItemFromCart
+- SaveCartForLater
+- SubmitCartFeedback
+- TriggerCartSecurityAlert
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- CartUpdated
+- CartReviewed
+- CartAbandoned
+- CartCheckedOut
+- CartItemQuantityUpdated
+- CartReviewSubmitted
+- CartCleared
+- CartFraudDetected
+
+**New Commands**
+- UpdateCart
+- SubmitCartReview
+- MarkCartAsAbandoned
+- CheckoutCart
+- UpdateCartItemQuantity
+- ClearCart
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- CartAbandoned
+- CartReviewed
+- CartCleared
+- CartFinalized
+- CartUpdated
+- CartReviewedWithSentimentAnalysis
+- CartShared
+- CartDiscountApplied
+
+**New Commands**
+- MarkCartAsAbandoned
+- SubmitCartReview
+- ClearCart
+- FinalizeCart
+- UpdateCart
+- SubmitCartReviewWithSentiment
+- ShareCart
+- ApplyCartDiscount
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- CartAbandoned
+- CartRecoveryInitiated
+- CartRecovered
+- CartShared
+- CartRecoveryFailed
+- CartDiscountApplied
+- CartReturned
+- CartSubscriptionCreated
+
+**New Commands**
+- InitiateCartRecovery
+- CompleteCartRecovery
+- ShareCart
+- AttemptCartRecovery
+- ApplyCartDiscount
+- ProcessCartReturn
+- CreateCartSubscription
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- CartAbandoned
+- CartConverted
+- CartReviewed
+- CartShared
+- CartUpdated
+- CartSavedForLater
+- CartRated
+- CartReminderSent
+
+**New Commands**
+- TrackAbandonedCart
+- SubmitCartReview
+- ShareCart
+- UpdateCart
+- SaveCartForLater
+- RateCart
+- SendCartReminder
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- CartAbandoned
+
+**New Commands**
+- NotifyCartAbandonment
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- ColdChainComplianceVerified
+- ColdChainViolationReported
+- ColdChainTemperatureAlert
+- ColdChainComplianceAlertTriggered
+- ColdChainIntegrityBreachDetected
+- ColdChainMonitoringInitiated
+- ColdChainAuditCompleted
+- ColdChainTemperatureStabilityConfirmed
+
+**New Commands**
+- VerifyColdChainCompliance
+- ReportColdChainViolation
+- SendColdChainTemperatureAlert
+- TriggerColdChainComplianceAlert
+- DetectColdChainIntegrityBreach
+- InitiateColdChainMonitoring
+- CompleteColdChainAudit
+- ConfirmColdChainTemperatureStability

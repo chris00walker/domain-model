@@ -1,0 +1,39 @@
+@startuml
+title Virtual Storm – ratings
+skinparam class {
+    BackgroundColor #dbeafe
+    BorderColor #4b5563
+  }
+class Ratings <<Context>> {
+  .. Events ..
+  + SubscriptionActivated
+  + SubscriptionCancelled
+  + SubscriptionRenewed
+  + SubscriptionPaused
+  + SubscriptionUpgraded
+  + SubscriptionDowngraded
+  + SubscriptionResumed
+  + SubscriptionSuspended
+  .. Commands ..
+  + ActivateSubscription()
+  + CancelSubscription()
+  + RenewSubscription()
+  + PauseSubscription()
+  + UpgradeSubscription()
+  + DowngradeSubscription()
+  + ResumeSubscription()
+  + SuspendSubscription()
+}
+class UserFeedback <<External>>
+Ratings --> UserFeedback
+class UserProfile <<External>>
+Ratings --> UserProfile
+class RatingManagement <<External>>
+Ratings --> RatingManagement
+class UserEngagement <<External>>
+Ratings --> UserEngagement
+legend left
+<color:#dbeafe>Context</color> Current bounded context
+<color:#ffffff>External</color> Integration point
+endlegend
+@enduml

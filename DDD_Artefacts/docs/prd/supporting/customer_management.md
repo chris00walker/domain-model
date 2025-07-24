@@ -20,7 +20,12 @@
   - Profile completeness ≥ 90 % of required fields
   - < 0.1 % authentication-related incidents/month
   - GDPR data subject request SLA ≤ 30 days (100 % compliance)
-- **Domain Experts**: Head of CX, Data Privacy Officer, Marketing Automation Lead
+- **Domain Experts**:
+<!--- agents:
+  - role: Head of CX
+  - role: Data Privacy Officer
+  - role: Marketing Automation Lead
+-->
 
 ## 2. Domain Model
 

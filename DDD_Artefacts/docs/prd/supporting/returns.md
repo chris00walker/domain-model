@@ -20,7 +20,13 @@
   - Average refund issuance time ≤ 5 business days
   - Return disposition cycle time (donation or destruction) ≤ 48 h
   - Fraudulent return rate < 0.5 % of returns
-- **Domain Experts**: Returns Manager, Warehouse Lead, Finance Analyst, QA Specialist
+- **Domain Experts**:
+<!--- agents:
+  - role: Returns Manager
+  - role: Warehouse Lead
+  - role: Finance Analyst
+  - role: QA Specialist
+-->
 
 ## 2. Domain Model
 
@@ -117,3 +123,15 @@
 - FDA Food Code 2022 (U.S. FDA)
 - EU Regulation 178/2002 (General Food Law)
 - Context Map (context_map.puml)
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- ReturnInitiated
+- ReturnProcessed
+
+**New Commands**
+- InitiateReturn
+- ProcessReturn

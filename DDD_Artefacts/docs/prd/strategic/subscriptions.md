@@ -33,10 +33,12 @@
     - Failed-payment recovery ≥ 70 % within 7 days
 
 - **Domain Experts**:
-  - Head of Growth (P&L owner)
-  - Subscription Product Manager
-  - Finance Ops (billing & compliance)
-  - Customer Success Lead
+<!--- agents:
+  - role: Head of Growth (P&L owner)
+  - role: Subscription Product Manager
+  - role: Finance Ops (billing & compliance)
+  - role: Customer Success Lead
+-->
 
 ## 2. Domain Model
 

@@ -22,11 +22,13 @@
   - Reduction in stockouts and overstock situations
   - Compliance with regulatory requirements
 - **Domain Experts**:
-  - Inventory Manager
-  - Supply Chain Planner
-  - Warehouse Operations
-  - Quality Assurance
-  - Finance/Controlling
+<!--- agents:
+  - role: Inventory Manager
+  - role: Supply Chain Planner
+  - role: Warehouse Operations
+  - role: Quality Assurance
+  - role: Finance/Controlling
+-->
 
 ## 2. Domain Model
 

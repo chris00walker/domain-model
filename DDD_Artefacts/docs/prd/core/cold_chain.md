@@ -20,11 +20,13 @@
   - Compliance with food safety regulations
   - Reduction in manual temperature monitoring efforts
 - **Domain Experts**:
-  - Cold Chain Manager
-  - Quality Assurance Team
-  - Warehouse Operations
-  - Regulatory Compliance Officer
-  - Logistics Coordinator
+<!--- agents:
+  - role: Cold Chain Manager
+  - role: Quality Assurance Team
+  - role: Warehouse Operations
+  - role: Regulatory Compliance Officer
+  - role: Logistics Coordinator
+-->
 
 ## 2. Domain Model
 
@@ -176,3 +178,50 @@
 - [EU Guidelines on Good Distribution Practice of Medicinal Products for Human Use](https://ec.europa.eu/health/sites/default/files/files/eudralex/vol-1/2015_c85_01/2015_c85_01_en.pdf)
 - [WHO Technical Report Series, No. 961, 2011 - Annex 9: Model guidance for the storage and transport of time- and temperature–sensitive pharmaceutical products](https://www.who.int/medicines/areas/quality_safety/quality_assurance/ModelGuidanceForStorageTransportTRS961Annex9.pdf)
 - [Global Cold Chain Alliance: Food Safety Guidelines](https://www.gcca.org/our-work/food-safety/)
+
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- ColdChainMonitoringTriggered
+- ColdChainAlertTriggered
+- ColdChainTemperatureExceeded
+- ColdChainComplianceChecked
+- ColdChainMonitoringCompleted
+- ColdChainStatusReviewed
+- ColdChainMonitoringFailed
+
+**New Commands**
+- TriggerColdChainMonitoring
+- SendColdChainAlert
+- MonitorColdChainTemperature
+- CheckColdChainCompliance
+- CompleteColdChainMonitoring
+- ReviewColdChainStatus
+- TriggerColdChainMonitoringFailureAlert
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- TemperatureThresholdExceeded
+- ColdChainBreachDetected
+- ColdChainTemperatureAlert
+- ColdChainMonitoringStopped
+- ColdChainIntegrityVerified
+- ColdChainTemperatureRestored
+- ColdChainTemperatureAnomalyDetected
+- ColdChainTemperatureWarningIssued
+
+**New Commands**
+- MonitorColdChain
+- InitiateColdChainBreachResponse
+- SendColdChainTemperatureAlert
+- StopColdChainMonitoring
+- VerifyColdChainIntegrity
+- RestoreColdChainTemperature
+- AlertColdChainTemperatureAnomaly
+- IssueColdChainTemperatureWarning

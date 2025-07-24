@@ -1,0 +1,39 @@
+@startuml
+title Virtual Storm – cart
+skinparam class {
+    BackgroundColor #dbeafe
+    BorderColor #4b5563
+  }
+class Cart <<Context>> {
+  .. Events ..
+  + ReturnInitiated
+  + ReturnCompleted
+  + ReturnRequested
+  + ReturnApproved
+  + ReturnRejected
+  + ReturnItemReceived
+  + ReturnItemInspected
+  + ReturnItemDisputed
+  .. Commands ..
+  + InitiateReturn()
+  + CompleteReturn()
+  + RequestReturn()
+  + ApproveReturn()
+  + RejectReturn()
+  + ReceiveReturnedItem()
+  + InspectReturnedItem()
+  + DisputeReturnItem()
+}
+class InventoryManagement <<External>>
+Cart --> InventoryManagement
+class PaymentProcessing <<External>>
+Cart --> PaymentProcessing
+class OrderManagement <<External>>
+Cart --> OrderManagement
+class CustomerAccountManagement <<External>>
+Cart --> CustomerAccountManagement
+legend left
+<color:#dbeafe>Context</color> Current bounded context
+<color:#ffffff>External</color> Integration point
+endlegend
+@enduml

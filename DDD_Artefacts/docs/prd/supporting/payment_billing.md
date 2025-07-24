@@ -20,7 +20,12 @@
   - Chargeback ratio < 0.4 % of monthly transactions
   - Reconciliation accuracy 100 % daily; discrepancies resolved < €100 within 24 h
   - Average payment API latency ≤ 300 ms (P95)
-- **Domain Experts**: Finance Controller, Risk Analyst, Payment Gateway Lead
+- **Domain Experts**:
+<!--- agents:
+  - role: Finance Controller
+  - role: Risk Analyst
+  - role: Payment Gateway Lead
+-->
 
 ## 2. Domain Model
 

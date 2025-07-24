@@ -20,10 +20,12 @@
   - Compliance with food safety regulations
   - Reduction in quality incidents
 - **Domain Experts**:
-  - Supply Chain Manager
-  - Quality Assurance Team
-  - Warehouse Operations
-  - Regulatory Compliance Officer
+<!--- agents:
+  - role: Supply Chain Manager
+  - role: Quality Assurance Team
+  - role: Warehouse Operations
+  - role: Regulatory Compliance Officer
+-->
 
 ## 2. Domain Model
 
@@ -297,3 +299,27 @@
 - [Inventory Management](./inventory.md)
 - [Quality Control](./quality_control.md)
 - [Supplier Traceability](./supplier_traceability.md)
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- ColdChainComplianceChecked
+- ColdChainBreachDetected
+- ColdChainMonitoringAlert
+- TemperatureThresholdExceeded
+- ColdChainInspectionCompleted
+- ColdChainTemperatureStabilized
+- ColdChainTemperatureAlertIssued
+- ColdChainTemperatureAnomalyDetected
+
+**New Commands**
+- CheckColdChainCompliance
+- ReportColdChainBreach
+- TriggerColdChainMonitoringAlert
+- MonitorTemperatureThreshold
+- CompleteColdChainInspection
+- StabilizeColdChainTemperature
+- IssueColdChainTemperatureAlert
+- DetectColdChainTemperatureAnomaly

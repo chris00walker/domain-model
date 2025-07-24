@@ -1,0 +1,39 @@
+@startuml
+title Virtual Storm – control
+skinparam class {
+    BackgroundColor #dbeafe
+    BorderColor #4b5563
+  }
+class Control <<Context>> {
+  .. Events ..
+  + NotificationSent
+  + ReportGenerated
+  + SubscriptionRenewed
+  + CartAbandoned
+  + UserSubscribed
+  + DataQualityAlert
+  + CartCheckedOut
+  + CartSavedForLater
+  .. Commands ..
+  + SendNotification()
+  + GenerateReport()
+  + RenewSubscription()
+  + SendAbandonedCartReminder()
+  + SubscribeUser()
+  + CheckDataQuality()
+  + CheckoutCart()
+  + SaveCartForLater()
+}
+class UserManagement <<External>>
+Control --> UserManagement
+class AuthenticationManagement <<External>>
+Control --> AuthenticationManagement
+class AuthorizationManagement <<External>>
+Control --> AuthorizationManagement
+class ControlManagement <<External>>
+Control --> ControlManagement
+legend left
+<color:#dbeafe>Context</color> Current bounded context
+<color:#ffffff>External</color> Integration point
+endlegend
+@enduml
