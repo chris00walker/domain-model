@@ -1,0 +1,39 @@
+@startuml
+title Virtual Storm – traceability
+skinparam class {
+    BackgroundColor #dbeafe
+    BorderColor #4b5563
+  }
+class Traceability <<Context>> {
+  .. Events ..
+  + NotificationSent
+  + ShoppingCartAbandoned
+  + CartReactivated
+  + UserEngagedWithNotification
+  + NotificationClicked
+  + CartCheckedOut
+  + CartDiscountApplied
+  + UserOptedOutOfNotifications
+  .. Commands ..
+  + SendNotification()
+  + TrackAbandonedCart()
+  + ReactivateCart()
+  + TrackUserEngagement()
+  + TrackNotificationClick()
+  + InitiateCheckout()
+  + ApplyCartDiscount()
+  + OptOutOfNotifications()
+}
+class ProductLifecycleManagement <<External>>
+Traceability --> ProductLifecycleManagement
+class QualityAssurance <<External>>
+Traceability --> QualityAssurance
+class SupplyChainManagement <<External>>
+Traceability --> SupplyChainManagement
+class RegulatoryCompliance <<External>>
+Traceability --> RegulatoryCompliance
+legend left
+<color:#dbeafe>Context</color> Current bounded context
+<color:#ffffff>External</color> Integration point
+endlegend
+@enduml

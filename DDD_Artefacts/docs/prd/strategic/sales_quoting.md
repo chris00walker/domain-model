@@ -38,10 +38,12 @@
     - Real-time margin check available in 100 % of quote interactions
 
 - **Domain Experts**:
-  - Sales Director (Ultimate Approver)
-  - Sales Operations Manager
-  - Account Managers
-  - Pricing Analysts
+<!--- agents:
+  - role: Sales Director (Ultimate Approver)
+  - role: Sales Operations Manager
+  - role: Account Managers
+  - role: Pricing Analysts
+-->
 
 ## 2. Domain Model
 
@@ -269,3 +271,27 @@
 - ADR-008: Event-Driven Communication
 - EFI Revenue & Pricing Strategy (5-revenue-&-pricing.md)
 - Context Map (context_map.puml)
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- TemperatureAlertTriggered
+- ColdChainViolationDetected
+- ColdChainComplianceConfirmed
+- ColdChainAlertAcknowledged
+- ColdChainExceptionReported
+- TemperatureExceptionRecorded
+- ColdChainAuditCompleted
+- ColdChainAlertEscalated
+
+**New Commands**
+- MonitorColdChain
+- InvestigateColdChainViolation
+- ConfirmColdChainCompliance
+- AcknowledgeColdChainAlert
+- ReportColdChainException
+- RecordTemperatureException
+- CompleteColdChainAudit
+- EscalateColdChainAlert

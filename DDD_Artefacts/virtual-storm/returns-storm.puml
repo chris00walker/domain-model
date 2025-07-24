@@ -1,0 +1,37 @@
+@startuml
+title Virtual Storm – returns
+skinparam class {
+    BackgroundColor #dbeafe
+    BorderColor #4b5563
+  }
+class Returns <<Context>> {
+  .. Events ..
+  + ReturnInitiated
+  + ReturnProcessed
+  + ReturnCompleted
+  + ReturnRejected
+  + ReturnApproved
+  + ReturnEscalated
+  .. Commands ..
+  + InitiateReturn()
+  + ProcessReturn()
+  + CompleteReturn()
+  + RejectReturn()
+  + ApproveReturn()
+  + EscalateReturn()
+}
+class Inventoryshelflife <<External>>
+Returns --> Inventoryshelflife
+class Qualitycontrol <<External>>
+Returns --> Qualitycontrol
+class Notificationsalerts <<External>>
+Returns --> Notificationsalerts
+class ReturnsProcessing <<External>>
+Returns --> ReturnsProcessing
+class CustomerFeedback <<External>>
+Returns --> CustomerFeedback
+legend left
+<color:#dbeafe>Context</color> Current bounded context
+<color:#ffffff>External</color> Integration point
+endlegend
+@enduml

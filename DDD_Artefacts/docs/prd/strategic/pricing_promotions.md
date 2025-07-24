@@ -33,11 +33,13 @@
     - Maintain price competitiveness within top 3 competitors
 
 - **Domain Experts**:
-  - CFO (Ultimate Approver)
-  - Pricing Manager (Primary Owner)
-  - Category Managers
-  - Financial Analysts
-  - Marketing Team
+<!--- agents:
+  - role: CFO (Ultimate Approver)
+  - role: Pricing Manager (Primary Owner)
+  - role: Category Managers
+  - role: Financial Analysts
+  - role: Marketing Team
+-->
 
 ## 2. Domain Model
 

@@ -23,11 +23,13 @@
   - 30% reduction in supplier onboarding time
   - 99.9% data accuracy in traceability records
 - **Domain Experts**:
-  - Supply Chain Managers
-  - Quality Assurance Specialists
-  - Regulatory Compliance Officers
-  - Procurement Specialists
-  - Food Safety Managers
+<!--- agents:
+  - role: Supply Chain Managers
+  - role: Quality Assurance Specialists
+  - role: Regulatory Compliance Officers
+  - role: Procurement Specialists
+  - role: Food Safety Managers
+-->
 
 ## 2. Domain Model
 
@@ -205,3 +207,38 @@
 - [EU General Food Law (Regulation (EC) No 178/2002)](https://eur-lex.europa.eu/eli/reg/2002/178/oj)
 - [IFS Food Standard](https://www.ifs-certification.com/index.php/en/ifs-standards/ifs-food)
 - [BRC Global Standard for Food Safety](https://www.brcgs.com/standards/food-safety/)
+
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- BatchTraceabilityUpdated
+
+**New Commands**
+- UpdateBatchTraceability
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- ColdChainComplianceVerified
+- BatchTrackingUpdated
+- TraceabilityReportGenerated
+- SubscriptionRenewed
+- ColdChainTemperatureAlert
+- ColdChainBreachDetected
+- ColdChainAuditCompleted
+- SubscriptionCancelled
+
+**New Commands**
+- VerifyColdChainCompliance
+- UpdateBatchTracking
+- GenerateTraceabilityReport
+- RenewSubscription
+- SendColdChainTemperatureAlert
+- DetectColdChainBreach
+- CompleteColdChainAudit
+- CancelSubscription

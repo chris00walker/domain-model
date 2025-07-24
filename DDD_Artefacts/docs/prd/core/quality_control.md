@@ -23,11 +23,13 @@
   - Regulatory inspection readiness score > 95%
   - Supplier quality performance > 98% on-time delivery with zero defects
 - **Domain Experts**:
-  - Quality Assurance Managers
-  - Quality Control Technicians
-  - Regulatory Compliance Specialists
-  - Production Supervisors
-  - Supplier Quality Engineers
+<!--- agents:
+  - role: Quality Assurance Managers
+  - role: Quality Control Technicians
+  - role: Regulatory Compliance Specialists
+  - role: Production Supervisors
+  - role: Supplier Quality Engineers
+-->
 
 ## 2. Domain Model
 
@@ -268,3 +270,27 @@ This sub-function verifies product authenticity and provenance, ensuring importe
 - [FSMA Final Rule on Preventive Controls for Human Food](https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-preventive-controls-human-food)
 - [Good Manufacturing Practice (GMP) Guidelines](https://www.fda.gov/drugs/pharmaceutical-quality-resources/good-manufacturing-practices-cgmp-regulations)
 - [ALCOA+ Principles for Data Integrity](https://www.fda.gov/files/drugs/published/Data-Integrity-and-Compliance-With-Drug-CGMP--Questions-and-Answers-Guidance-for-Industry.pdf)
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- TemperatureViolationReported
+- TemperatureViolationResolved
+- TemperatureViolationEscalated
+- TemperatureViolationAcknowledged
+- TemperatureViolationInvestigated
+- TemperatureViolationLogged
+- TemperatureViolationAlertSent
+- TemperatureViolationNotificationSent
+
+**New Commands**
+- ReportTemperatureViolation
+- ResolveTemperatureViolation
+- EscalateTemperatureViolation
+- AcknowledgeTemperatureViolation
+- InvestigateTemperatureViolation
+- LogTemperatureViolation
+- SendTemperatureViolationAlert
+- SendTemperatureViolationNotification

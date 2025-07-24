@@ -20,7 +20,13 @@
   - Average moderation turnaround time ≤ 12 h
   - Policy-violation publish rate < 0.1 % of reviews
   - Sentiment change detection latency ≤ 1 h
-- **Domain Experts**: CX Manager, Brand Reputation Lead, Data Scientist, Legal Counsel
+- **Domain Experts**:
+<!--- agents:
+  - role: CX Manager
+  - role: Brand Reputation Lead
+  - role: Data Scientist
+  - role: Legal Counsel
+-->
 
 ## 2. Domain Model
 
@@ -167,3 +173,78 @@
 - FDA Product Review Guidelines (Food Advertising)
 - EU Consumer Protection Directive (EU 2019/2161)
 - Context Map (context_map.puml)
+
+
+
+
+
+
+## Event Storm Updates
+
+### 2025-07-24
+
+**New Events**
+- RatingSubmitted
+
+**New Commands**
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- RatingSubmitted
+
+**New Commands**
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- RatingSubmitted
+
+**New Commands**
+- AggregateRatings
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- RatingSubmitted
+
+**New Commands**
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- ProductRatingSubmitted
+
+**New Commands**
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- TemperatureViolationReported
+- BatchTemperatureViolationDetected
+- TemperatureAlertIssued
+- SubscriptionRenewed
+- ColdChainBreachDetected
+- BatchQualityAssuranceFailed
+- CustomerFeedbackReceived
+- SubscriptionCancelled
+
+**New Commands**
+- ReportTemperatureViolation
+- DetectBatchTemperatureViolation
+- IssueTemperatureAlert
+- RenewSubscription
+- DetectColdChainBreach
+- PerformBatchQualityCheck
+- CollectCustomerFeedback
+- CancelSubscription

@@ -26,11 +26,13 @@
   - Cold chain compliance percentage
   - Shipping exception mean resolution time
 - **Domain Experts**:
-  - Fulfillment Manager
-  - Logistics Coordinator
-  - Warehouse Operations
-  - Customer Service
-  - Supply Chain Analyst
+<!--- agents:
+  - role: Fulfillment Manager
+  - role: Logistics Coordinator
+  - role: Warehouse Operations
+  - role: Customer Service
+  - role: Supply Chain Analyst
+-->
 
 ## 2. Domain Model
 

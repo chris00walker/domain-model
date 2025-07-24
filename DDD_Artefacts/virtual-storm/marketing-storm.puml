@@ -1,0 +1,37 @@
+@startuml
+title Virtual Storm – marketing
+skinparam class {
+    BackgroundColor #dbeafe
+    BorderColor #4b5563
+  }
+class Marketing <<Context>> {
+  .. Events ..
+  + CampaignLaunched
+  + CampaignPerformanceAnalyzed
+  + CampaignBudgetAllocated
+  + TargetAudienceDefined
+  + TargetAudienceSegmented
+  + CampaignCreativeApproved
+  .. Commands ..
+  + LaunchCampaign()
+  + AnalyzeCampaignPerformance()
+  + AllocateCampaignBudget()
+  + DefineTargetAudience()
+  + SegmentTargetAudience()
+  + ApproveCampaignCreative()
+}
+class Customermgmt <<External>>
+Marketing --> Customermgmt
+class Productcatalog <<External>>
+Marketing --> Productcatalog
+class Hubspot <<External>>
+Marketing --> Hubspot
+class Notificationsalerts <<External>>
+Marketing --> Notificationsalerts
+class CustomerEngagement <<External>>
+Marketing --> CustomerEngagement
+legend left
+<color:#dbeafe>Context</color> Current bounded context
+<color:#ffffff>External</color> Integration point
+endlegend
+@enduml

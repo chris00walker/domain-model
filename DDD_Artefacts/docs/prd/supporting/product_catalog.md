@@ -20,7 +20,13 @@
   - Time-to-publish new SKU ≤ 2 h
   - Zero critical data quality defects per month (nutritional/allergen fields)
   - Searchable SKU latency ≤ 1 min after publish
-- **Domain Experts**: Merchandising Lead, Regulatory Specialist, Product Photographer, Data Engineer
+- **Domain Experts**:
+<!--- agents:
+  - role: Merchandising Lead
+  - role: Regulatory Specialist
+  - role: Product Photographer
+  - role: Data Engineer
+-->
 
 ## 2. Domain Model
 

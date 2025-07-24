@@ -7,14 +7,16 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "cli": "tsx scripts/cli.ts",
+    "cli": "tsx DDD_Artefacts/scripts/cli.ts",
     "gaps": "npm run cli -- gaps",
     "brief": "npm run cli -- brief",
     "matrix": "npm run cli -- matrix",
-    "plantuml": "npm run cli -- plantuml",
-    "enrich": "npm run cli -- enrich ./session-export.json",
+    "session": "npm run cli -- session",
+    "plan": "npm run cli -- plan",
+    "orchestrate": "npm run cli -- orchestrate",
+    "storm": "tsx DDD_Artefacts/scripts/orchestrateVirtualStorm.ts",
     "precommit": "npm run lint && npm run test",
-    "ddd": "efi-ddd all",
+    "ddd": "npm run cli -- all",
     "ci": "npm run ddd && npm test"
   },
   "devDependencies": {
@@ -37,23 +39,24 @@
     "typescript-monads": "^9.4.0"
   },
   "dependencies": {
-    "uuid": "^11.1.0",
     "chalk": "^5.3.0",
     "commander": "^11.1.0",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
     "node-fetch": "^3.3.2",
+    "openai": "^4.25.0",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
     "simple-git": "^3.22.1",
     "slugify": "^1.6.6",
     "tsx": "^4.7.0",
-    "unified": "^11.0.4"
+    "unified": "^11.0.4",
+    "uuid": "^11.1.0"
   },
   "main": ".eslintrc.js",
   "bin": {
-    "efi-ddd": "./scripts/cli.ts"
+    "efi-ddd": "./DDD_Artefacts/scripts/cli.ts"
   },
   "repository": {
     "type": "git",

@@ -1,18 +1,206 @@
 meta:
   brief_template: automation/template.md
   bullets_max_len: 25
-# list truncated for brevity—include all 19 contexts’ agents
-roster:
-  Core:
-    - Inventory Manager
-    - Supply Chain Planner
-    # … (add all required agents)
-  Supporting:
-    - Merchandising Lead
-    # …
-  Strategic:
-    - Head of Marketing
-    # …
-  Integration:
-    - Chief Architect
-    # …
+
+# Master roster of domain experts. Add the remaining agents so the list totals 67+.
+# Each agent defines their default category, areas of expertise keywords, and the
+# specific bounded contexts they should be invited to.
+
+agents:
+  - name: "Maria Gomez"
+    category: "Core"
+    expertise: ["cold_chain", "regulatory", "logistics"]
+    contexts: ["cold_chain", "quality_control"]
+  - name: "Liam Patel"
+    category: "Core"
+    expertise: ["batch_tracking", "traceability", "supply_chain"]
+    contexts: ["batch_tracking", "inventory_management", "supplier_traceability"]
+  - name: "Olivia Wang"
+    category: "Strategic"
+    expertise: ["marketing", "campaigns", "analytics_reporting"]
+    contexts: ["marketing", "analytics_reporting", "notifications_alerts"]
+  - name: "Noah Smith"
+    category: "Supporting"
+    expertise: ["shopping_cart", "ux", "subscriptions"]
+    contexts: ["shopping_cart", "subscriptions"]
+  - name: "Ava Johnson"
+    category: "Integration"
+    expertise: ["event_bus", "integration_patterns", "api_gateway"]
+    contexts: ["notifications_alerts", "analytics_reporting", "order_management"]
+  - name: "Ethan Brown"
+    category: "Core"
+    expertise: ["inventory_management", "warehouse_ops", "stock_reconciliation"]
+    contexts: ["inventory_management", "shipping_fulfillment"]
+  - name: "Sophia Davis"
+    category: "Core"
+    expertise: ["quality_control", "food_safety", "inspection"]
+    contexts: ["quality_control", "cold_chain"]
+  - name: "William Martinez"
+    category: "Core"
+    expertise: ["batch_tracking", "traceability", "compliance"]
+    contexts: ["batch_tracking", "supplier_traceability"]
+  - name: "Isabella Hernandez"
+    category: "Core"
+    expertise: ["cold_chain", "temperature_monitoring", "logistics"]
+    contexts: ["cold_chain", "shipping_fulfillment"]
+  - name: "James Wilson"
+    category: "Core"
+    expertise: ["order_management", "fulfillment", "workflow_automation"]
+    contexts: ["order_management", "returns"]
+  - name: "Amelia Clark"
+    category: "Core"
+    expertise: ["payment_billing", "invoice_processing", "reconciliation"]
+    contexts: ["payment_billing", "subscription_management"]
+  - name: "Benjamin Lewis"
+    category: "Core"
+    expertise: ["customer_management", "crm", "loyalty_programs"]
+    contexts: ["customer_management", "marketing"]
+  - name: "Charlotte Hill"
+    category: "Core"
+    expertise: ["product_catalog", "taxonomy", "data_governance"]
+    contexts: ["product_catalog", "admin_reporting"]
+  - name: "Elijah Walker"
+    category: "Core"
+    expertise: ["supplier_traceability", "vendor_portal", "procurement"]
+    contexts: ["supplier_traceability", "batch_tracking"]
+  - name: "Abigail Hall"
+    category: "Core"
+    expertise: ["returns", "reverse_logistics", "customer_service"]
+    contexts: ["returns", "order_management"]
+  - name: "Michael Young"
+    category: "Strategic"
+    expertise: ["pricing_promotions", "discount_engine", "campaign_management"]
+    contexts: ["pricing_promotions", "marketing"]
+  - name: "Emily King"
+    category: "Strategic"
+    expertise: ["marketing", "seo", "growth_hacking"]
+    contexts: ["marketing", "analytics_reporting"]
+  - name: "Alexander Scott"
+    category: "Strategic"
+    expertise: ["sales_quoting", "b2b_sales", "contract_management"]
+    contexts: ["sales_quoting", "pricing_promotions"]
+  - name: "Mia Green"
+    category: "Strategic"
+    expertise: ["subscription_management", "recurring_billing", "customer_retention"]
+    contexts: ["subscription_management", "payment_billing"]
+  - name: "Daniel Adams"
+    category: "Strategic"
+    expertise: ["analytics_reporting", "business_intelligence", "data_visualization"]
+    contexts: ["analytics_reporting", "admin_reporting"]
+  - name: "Harper Baker"
+    category: "Strategic"
+    expertise: ["pricing_promotions", "price_elasticity", "competitive_analysis"]
+    contexts: ["pricing_promotions"]
+  - name: "Logan Gonzalez"
+    category: "Strategic"
+    expertise: ["sales_quoting", "quote_to_cash", "deal_desk"]
+    contexts: ["sales_quoting"]
+  - name: "Evelyn Nelson"
+    category: "Strategic"
+    expertise: ["marketing_automation", "lead_scoring", "campaigns"]
+    contexts: ["marketing", "notifications_alerts"]
+  - name: "Jack Carter"
+    category: "Strategic"
+    expertise: ["product_strategy", "roadmapping", "portfolio_management"]
+    contexts: ["product_catalog", "pricing_promotions"]
+  - name: "Avery Mitchell"
+    category: "Strategic"
+    expertise: ["market_research", "customer_insights", "analytics_reporting"]
+    contexts: ["analytics_reporting"]
+  - name: "Sebastian Perez"
+    category: "Supporting"
+    expertise: ["shopping_cart", "checkout_flow", "conversion_rate"]
+    contexts: ["shopping_cart", "notifications_alerts"]
+  - name: "Ella Roberts"
+    category: "Supporting"
+    expertise: ["reviews_ratings", "ugc_moderation", "customer_feedback"]
+    contexts: ["reviews_ratings", "customer_management"]
+  - name: "Henry Turner"
+    category: "Supporting"
+    expertise: ["notifications_alerts", "email_service", "sms_gateway"]
+    contexts: ["notifications_alerts"]
+  - name: "Aria Phillips"
+    category: "Supporting"
+    expertise: ["admin_reporting", "kpi_dashboards", "data_quality"]
+    contexts: ["admin_reporting", "analytics_reporting"]
+  - name: "Matthew Campbell"
+    category: "Supporting"
+    expertise: ["returns", "refund_processing", "rma"]
+    contexts: ["returns"]
+  - name: "Grace Parker"
+    category: "Supporting"
+    expertise: ["shopping_cart", "user_experience", "a11y"]
+    contexts: ["shopping_cart"]
+  - name: "Samuel Evans"
+    category: "Supporting"
+    expertise: ["notifications_alerts", "push_notifications", "webhooks"]
+    contexts: ["notifications_alerts", "marketing"]
+  - name: "Victoria Edwards"
+    category: "Supporting"
+    expertise: ["admin_reporting", "data_governance", "audit"]
+    contexts: ["admin_reporting"]
+  - name: "Joseph Collins"
+    category: "Supporting"
+    expertise: ["reviews_ratings", "sentiment_analysis", "content_moderation"]
+    contexts: ["reviews_ratings", "analytics_reporting"]
+  - name: "Luna Stewart"
+    category: "Supporting"
+    expertise: ["shopping_cart", "checkout_security", "fraud_detection"]
+    contexts: ["shopping_cart", "payment_billing"]
+  - name: "David Sanchez"
+    category: "Integration"
+    expertise: ["event_driven_architecture", "kafka", "schema_registry"]
+    contexts: ["order_management", "analytics_reporting"]
+  - name: "Zoe Morris"
+    category: "Integration"
+    expertise: ["async_messaging", "sqs", "integration_patterns"]
+    contexts: ["notifications_alerts", "shipping_fulfillment"]
+  - name: "Luke Rogers"
+    category: "Integration"
+    expertise: ["api_gateway", "rest_apis", "oauth"]
+    contexts: ["supplier_traceability", "product_catalog"]
+  - name: "Paisley Reed"
+    category: "Integration"
+    expertise: ["etl_pipelines", "data_sync", "snowflake"]
+    contexts: ["analytics_reporting", "admin_reporting"]
+  - name: "Connor Cook"
+    category: "Integration"
+    expertise: ["ci_cd", "devops", "k8s"]
+    contexts: ["shipping_fulfillment", "cold_chain"]
+  - name: "Stella Morgan"
+    category: "Integration"
+    expertise: ["service_mesh", "istio", "observability"]
+    contexts: ["notifications_alerts", "analytics_reporting"]
+  - name: "Owen Bell"
+    category: "Integration"
+    expertise: ["data_mapping", "edi", "erp_integration"]
+    contexts: ["supplier_traceability", "inventory_management"]
+  - name: "Hannah Murphy"
+    category: "Integration"
+    expertise: ["bpm", "workflow_engine", "camunda"]
+    contexts: ["order_management", "returns"]
+  - name: "Wyatt Bailey"
+    category: "Integration"
+    expertise: ["graphql", "api_design", "schema_stitching"]
+    contexts: ["product_catalog", "shopping_cart"]
+  - name: "Natalie Rivera"
+    category: "Integration"
+    expertise: ["microservices", "saga_pattern", "transaction_management"]
+    contexts: ["payment_billing", "subscription_management"]
+  - name: "Leo Cooper"
+    category: "Integration"
+    expertise: ["event_sourcing", "cqrs", "domain_events"]
+    contexts: ["batch_tracking", "order_management"]
+  - name: "Addison Richardson"
+    category: "Integration"
+    expertise: ["test_automation", "contract_testing", "pact"]
+    contexts: ["shipping_fulfillment", "notifications_alerts"]
+  - name: "Gabriel Cox"
+    category: "Integration"
+    expertise: ["observability", "logging", "prometheus"]
+    contexts: ["admin_reporting", "analytics_reporting"]
+  - name: "Aurora Howard"
+    category: "Integration"
+    expertise: ["security", "iam", "zero_trust"]
+    contexts: ["payment_billing", "shopping_cart"]
+  # -----------------------------------------------------

@@ -19,7 +19,13 @@
   - 95 % stakeholder adoption of standard dashboards
   - < 1 s average dashboard load time (P95)
   - 99 % accuracy of KPIs vs. authoritative sources
-- **Domain Experts**: Head of Data, CFO, VP Operations, Engineering Observability Lead
+- **Domain Experts**:
+<!--- agents:
+  - role: Head of Data
+  - role: CFO
+  - role: VP Operations
+  - role: Engineering Observability Lead
+-->
 
 ## 2. Domain Model
 
@@ -146,3 +152,27 @@ _Phased delivery aligned with CI/CD pipeline (see ADR-012)._
 - ADR-008: Event-Driven Communication
 - Context Map (context_map.puml)
 - Data Classification (ADR-009)
+
+## Event Storm Updates
+
+### 2025-07-23
+
+**New Events**
+- TemperatureMonitoringAlert
+- BatchTemperatureExceeded
+- TemperatureAdjustmentMade
+- TemperatureAdjustmentRequested
+- TemperatureStabilityConfirmed
+- TemperatureDeviationDetected
+- TemperatureAlertResolved
+- TemperatureAlertEscalated
+
+**New Commands**
+- MonitorTemperature
+- SetTemperatureThreshold
+- AdjustTemperature
+- RequestTemperatureAdjustment
+- ConfirmTemperatureStability
+- DetectTemperatureDeviation
+- ResolveTemperatureAlert
+- EscalateTemperatureAlert

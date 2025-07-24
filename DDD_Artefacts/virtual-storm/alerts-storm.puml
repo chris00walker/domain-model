@@ -1,0 +1,39 @@
+@startuml
+title Virtual Storm – alerts
+skinparam class {
+    BackgroundColor #dbeafe
+    BorderColor #4b5563
+  }
+class Alerts <<Context>> {
+  .. Events ..
+  + ReturnInitiated
+  + ReturnCompleted
+  + ReturnRequested
+  + ReturnDenied
+  + ReturnProcessed
+  + ReturnCancelled
+  + ReturnReopened
+  + ReturnEscalated
+  .. Commands ..
+  + InitiateReturn()
+  + CompleteReturn()
+  + RequestReturn()
+  + DenyReturn()
+  + ProcessReturn()
+  + CancelReturn()
+  + ReopenReturn()
+  + EscalateReturn()
+}
+class NotificationManagement <<External>>
+Alerts --> NotificationManagement
+class IncidentManagement <<External>>
+Alerts --> IncidentManagement
+class AlertManagement <<External>>
+Alerts --> AlertManagement
+class UserManagement <<External>>
+Alerts --> UserManagement
+legend left
+<color:#dbeafe>Context</color> Current bounded context
+<color:#ffffff>External</color> Integration point
+endlegend
+@enduml
