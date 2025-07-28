@@ -179,6 +179,16 @@
 
 
 
+
+## Event Storm Updates
+
+### 2025-07-24
+
+**New Events**
+- RatingSubmitted
+
+**New Commands**
+
 ## Event Storm Updates
 
 ### 2025-07-24

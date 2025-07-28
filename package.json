@@ -14,9 +14,10 @@
     "session": "npm run cli -- session",
     "plan": "npm run cli -- plan",
     "orchestrate": "npm run cli -- orchestrate",
-    "storm": "tsx DDD_Artefacts/scripts/orchestrateVirtualStorm.ts",
+    "storm": "tsx DDD_Artefacts/scripts/phase2/cli/virtualStorm.ts",
+    "storm:openai": "npm run storm -- --agent openai",
     "precommit": "npm run lint && npm run test",
-    "ddd": "npm run cli -- all",
+    "ddd": "npm run cli -- all && npm run storm",
     "ci": "npm run ddd && npm test"
   },
   "devDependencies": {
@@ -39,6 +40,7 @@
     "typescript-monads": "^9.4.0"
   },
   "dependencies": {
+    "@openai/agents": "^0.0.13",
     "chalk": "^5.3.0",
     "commander": "^11.1.0",
     "glob": "^10.3.10",
@@ -52,7 +54,8 @@
     "slugify": "^1.6.6",
     "tsx": "^4.7.0",
     "unified": "^11.0.4",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "zod": "3.25.67"
   },
   "main": ".eslintrc.js",
   "bin": {

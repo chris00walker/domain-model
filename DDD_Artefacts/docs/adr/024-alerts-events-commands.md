@@ -17,25 +17,23 @@ A collaborative Event Storming session for **alerts** surfaced behavioural gaps 
 Adopt the following additions to the alerts bounded context.
 
 #### New Domain Events
-- ReturnInitiated
-- ReturnCompleted
-- ReturnRequested
-- ReturnDenied
-- ReturnProcessed
-- ReturnCancelled
-- ReturnReopened
-- ReturnEscalated
-
+- CartAbandoned
+- CartReactivated
+- CartPurchased
+- CustomerFeedbackSubmitted
+- CartFraudDetected
+- CartConverted
+- CustomerReviewSubmitted
+- CustomerFeedbackReviewed
 #### New Application Commands
-- InitiateReturn
-- CompleteReturn
-- RequestReturn
-- DenyReturn
-- ProcessReturn
-- CancelReturn
-- ReopenReturn
-- EscalateReturn
-
+- SendAbandonmentAlert
+- ReactivateCart
+- CompletePurchase
+- SubmitCustomerFeedback
+- InitiateFraudInvestigation
+- ConvertCartToOrder
+- SubmitCustomerReview
+- ReviewCustomerFeedback
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

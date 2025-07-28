@@ -17,25 +17,23 @@ A collaborative Event Storming session for **chain** surfaced behavioural gaps b
 Adopt the following additions to the chain bounded context.
 
 #### New Domain Events
+- NotificationSent
+- CartAbandoned
 - ReturnInitiated
+- CartConverted
+- UserRegistered
+- CheckoutFailed
 - ReturnCompleted
-- ReturnNotificationSent
-- ReturnProcessed
-- ReturnRejected
-- ReturnApproved
-- ReturnEscalated
-- ReturnReviewCompleted
-
+- CartExpired
 #### New Application Commands
+- SendNotification
+- TriggerAbandonmentNotification
 - InitiateReturn
+- CompleteCheckout
+- RegisterUser
+- AttemptCheckout
 - CompleteReturn
-- SendReturnNotification
-- ProcessReturn
-- RejectReturn
-- ApproveReturn
-- EscalateReturn
-- ReviewReturn
-
+- ExpireCart
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

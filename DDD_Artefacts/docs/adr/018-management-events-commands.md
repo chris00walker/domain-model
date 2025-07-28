@@ -17,25 +17,23 @@ A collaborative Event Storming session for **management** surfaced behavioural g
 Adopt the following additions to the management bounded context.
 
 #### New Domain Events
-- SubscriptionActivated
-- SubscriptionRenewed
-- SubscriptionCancelled
-- SubscriptionPaused
-- SubscriptionUpgraded
-- SubscriptionDowngraded
-- SubscriptionPausedDueToInactivity
-- SubscriptionReactivated
-
+- ReviewSubmitted
+- ReviewApproved
+- ReviewRejected
+- ReviewUpdated
+- ReviewFlaggedForModeration
+- ReviewModerationCompleted
+- ReviewArchived
+- ReviewReported
 #### New Application Commands
-- ActivateSubscription
-- RenewSubscription
-- CancelSubscription
-- PauseSubscription
-- UpgradeSubscription
-- DowngradeSubscription
-- PauseSubscriptionDueToInactivity
-- ReactivateSubscription
-
+- SubmitReview
+- ApproveReview
+- RejectReview
+- UpdateReview
+- FlagReviewForModeration
+- CompleteReviewModeration
+- ArchiveReview
+- ReportReview
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

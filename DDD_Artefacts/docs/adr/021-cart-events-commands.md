@@ -17,25 +17,23 @@ A collaborative Event Storming session for **cart** surfaced behavioural gaps be
 Adopt the following additions to the cart bounded context.
 
 #### New Domain Events
-- ReturnInitiated
-- ReturnCompleted
-- ReturnRequested
-- ReturnApproved
-- ReturnRejected
-- ReturnItemReceived
-- ReturnItemInspected
-- ReturnItemDisputed
-
+- CartAbandoned
+- CartSavedForLater
+- CartReactivated
+- CartConvertedToOrder
+- CartSharedWithFriend
+- CartUpdated
+- CartItemRemoved
+- CartCleared
 #### New Application Commands
-- InitiateReturn
-- CompleteReturn
-- RequestReturn
-- ApproveReturn
-- RejectReturn
-- ReceiveReturnedItem
-- InspectReturnedItem
-- DisputeReturnItem
-
+- SendAbandonedCartNotification
+- SaveCartForLater
+- ReactivateCart
+- ConvertCartToOrder
+- ShareCartWithFriend
+- UpdateCart
+- RemoveItemFromCart
+- ClearCart
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

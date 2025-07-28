@@ -17,25 +17,23 @@ A collaborative Event Storming session for **control** surfaced behavioural gaps
 Adopt the following additions to the control bounded context.
 
 #### New Domain Events
-- NotificationSent
-- ReportGenerated
-- SubscriptionRenewed
-- CartAbandoned
-- UserSubscribed
-- DataQualityAlert
-- CartCheckedOut
-- CartSavedForLater
-
+- ShoppingCartUpdated
+- CustomerFeedbackSubmitted
+- ShoppingCartAbandoned
+- ShoppingCartConverted
+- ShoppingCartSavedForLater
+- CustomerReviewSubmitted
+- ShoppingCartNotificationSent
+- ShoppingCartDiscountApplied
 #### New Application Commands
-- SendNotification
-- GenerateReport
-- RenewSubscription
-- SendAbandonedCartReminder
-- SubscribeUser
-- CheckDataQuality
-- CheckoutCart
-- SaveCartForLater
-
+- UpdateShoppingCart
+- SubmitCustomerFeedback
+- AbandonShoppingCart
+- ConvertShoppingCart
+- SaveShoppingCartForLater
+- SubmitCustomerReview
+- SendShoppingCartNotification
+- ApplyDiscountToShoppingCart
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

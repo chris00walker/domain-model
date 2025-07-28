@@ -1,0 +1,4 @@
+Inventorymanagement --> OrderManagement
+Inventorymanagement --> SalesManagement
+Inventorymanagement --> InventoryManagementIntegration
+Inventorymanagement --> SupplierManagement

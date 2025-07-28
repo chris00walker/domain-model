@@ -17,25 +17,23 @@ A collaborative Event Storming session for **ratings** surfaced behavioural gaps
 Adopt the following additions to the ratings bounded context.
 
 #### New Domain Events
-- SubscriptionActivated
-- SubscriptionCancelled
-- SubscriptionRenewed
-- SubscriptionPaused
-- SubscriptionUpgraded
-- SubscriptionDowngraded
-- SubscriptionResumed
-- SubscriptionSuspended
-
+- RatingSubmitted
+- RatingApproved
+- RatingRejected
+- RatingUpdated
+- RatingRevoked
+- RatingFlagged
+- RatingModerated
+- RatingIncentivized
 #### New Application Commands
-- ActivateSubscription
-- CancelSubscription
-- RenewSubscription
-- PauseSubscription
-- UpgradeSubscription
-- DowngradeSubscription
-- ResumeSubscription
-- SuspendSubscription
-
+- SubmitRating
+- ApproveRating
+- RejectRating
+- UpdateRating
+- RevokeRating
+- FlagRating
+- ModerateRating
+- IncentivizeRating
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

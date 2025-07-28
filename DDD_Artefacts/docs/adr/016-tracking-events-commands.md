@@ -17,25 +17,22 @@ A collaborative Event Storming session for **tracking** surfaced behavioural gap
 Adopt the following additions to the tracking bounded context.
 
 #### New Domain Events
-- ShoppingCartUpdated
-- ShoppingCartAbandoned
-- CustomerReviewSubmitted
-- ShoppingCartCleared
-- ShoppingCartItemRemoved
-- ShoppingCartNotificationSent
-- CustomerReviewModerated
-- ShoppingCartCheckoutCompleted
-
+- CartCheckedOut
+- CartAbandoned
+- UserNotifiedAboutAbandonedCart
+- AbandonedCartReminderSent
+- CartRestored
+- CartUpdated
+- UserOptedInForNotifications
+- CartAbandonedReminderSent
 #### New Application Commands
-- UpdateShoppingCart
-- SendAbandonmentNotification
-- SubmitCustomerReview
-- ClearShoppingCart
-- RemoveItemFromShoppingCart
-- SendShoppingCartNotification
-- ModerateCustomerReview
-- CompleteShoppingCartCheckout
-
+- CheckoutCart
+- NotifyUserAboutAbandonedCart
+- SendAbandonedCartNotification
+- SendAbandonedCartReminder
+- RestoreCart
+- UpdateCart
+- OptInForNotifications
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

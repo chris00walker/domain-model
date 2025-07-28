@@ -3,8 +3,8 @@ module.exports = {
   testEnvironment: 'node',
 
   // ✅ ignore the legacy artefact tests for now
-  testPathIgnorePatterns: ['/node_modules/'],
-  roots: ['<rootDir>/tests', '<rootDir>/DDD_Artefacts/src'],
+  testPathIgnorePatterns: ['/node_modules/', '/DDD_Artefacts/tests/'],
+  roots: ['<rootDir>/DDD_Artefacts/src'],
   testMatch: ['**/__tests__/**/*.test.ts'],
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
   transform: {

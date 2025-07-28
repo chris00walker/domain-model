@@ -1,0 +1,4 @@
+Salesquoting --> CustomerManagement
+Salesquoting --> OrderManagement
+Salesquoting --> ProductCatalog
+Salesquoting --> PricingManagement

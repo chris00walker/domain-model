@@ -17,25 +17,22 @@ A collaborative Event Storming session for **reporting** surfaced behavioural ga
 Adopt the following additions to the reporting bounded context.
 
 #### New Domain Events
-- CustomerReviewSubmitted
-- CustomerReviewApproved
-- CustomerReviewFlagged
-- CustomerReviewUpdated
-- CustomerReviewRejected
-- CustomerReviewMarkedAsHelpful
-- CustomerReviewResponded
-- CustomerReviewDeleted
-
+- NotificationSent
+- ReportGenerated
+- ReportDelivered
+- RefundProcessed
+- ReportViewed
+- ReportUpdated
+- ReportFailedToGenerate
+- RmaInitiated
 #### New Application Commands
-- SubmitCustomerReview
-- ApproveCustomerReview
-- FlagCustomerReview
-- UpdateCustomerReview
-- RejectCustomerReview
-- MarkCustomerReviewAsHelpful
-- RespondToCustomerReview
-- DeleteCustomerReview
-
+- SendNotification
+- GenerateReport
+- DeliverReport
+- ProcessRefund
+- ViewReport
+- UpdateReport
+- InitiateRma
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).
