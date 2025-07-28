@@ -17,25 +17,23 @@ A collaborative Event Storming session for **traceability** surfaced behavioural
 Adopt the following additions to the traceability bounded context.
 
 #### New Domain Events
-- NotificationSent
-- ShoppingCartAbandoned
-- CartReactivated
-- UserEngagedWithNotification
-- NotificationClicked
-- CartCheckedOut
-- CartDiscountApplied
-- UserOptedOutOfNotifications
-
+- ReviewSubmitted
+- ReviewApproved
+- ReviewRejected
+- ReviewUpdated
+- ReviewFlaggedForModeration
+- ReviewModerationCompleted
+- ReviewLiked
+- ReviewResponded
 #### New Application Commands
-- SendNotification
-- TrackAbandonedCart
-- ReactivateCart
-- TrackUserEngagement
-- TrackNotificationClick
-- InitiateCheckout
-- ApplyCartDiscount
-- OptOutOfNotifications
-
+- SubmitReview
+- ApproveReview
+- RejectReview
+- UpdateReview
+- FlagReviewForModeration
+- CompleteReviewModeration
+- LikeReview
+- RespondToReview
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

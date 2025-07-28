@@ -17,21 +17,19 @@ A collaborative Event Storming session for **marketing** surfaced behavioural ga
 Adopt the following additions to the marketing bounded context.
 
 #### New Domain Events
-- CampaignLaunched
-- CampaignPerformanceAnalyzed
-- CampaignBudgetAllocated
-- TargetAudienceDefined
-- TargetAudienceSegmented
-- CampaignCreativeApproved
-
+- CustomerLoyaltyPointsUpdated
+- CustomerFeedbackSubmitted
+- CustomerProfileUpdated
+- CustomerLoyaltyTierUpdated
+- CustomerReferralSubmitted
+- CustomerEngagementScoreUpdated
 #### New Application Commands
-- LaunchCampaign
-- AnalyzeCampaignPerformance
-- AllocateCampaignBudget
-- DefineTargetAudience
-- SegmentTargetAudience
-- ApproveCampaignCreative
-
+- UpdateCustomerLoyaltyPoints
+- SubmitCustomerFeedback
+- UpdateCustomerProfile
+- UpdateCustomerLoyaltyTier
+- SubmitCustomerReferral
+- UpdateCustomerEngagementScore
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

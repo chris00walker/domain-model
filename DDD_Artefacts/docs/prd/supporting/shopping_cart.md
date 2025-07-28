@@ -195,6 +195,117 @@
 
 
 
+
+
+
+
+
+## Event Storm Updates
+
+### 2025-07-24
+
+**New Events**
+- CartAbandoned
+- CartSavedForLater
+- CartReactivated
+- CartConvertedToOrder
+- CartSharedWithFriend
+- CartUpdated
+- CartItemRemoved
+- CartCleared
+
+**New Commands**
+- SendAbandonedCartNotification
+- SaveCartForLater
+- ReactivateCart
+- ConvertCartToOrder
+- ShareCartWithFriend
+- UpdateCart
+- RemoveItemFromCart
+- ClearCart
+
+## Event Storm Updates
+
+### 2025-07-24
+
+**New Events**
+- CartAbandoned
+- CartReviewed
+- CartReturned
+- CartCheckoutInitiated
+- CartSavedForLater
+- CartReviewedWithSentimentAnalysis
+- CartRefundProcessed
+- CartPromoted
+
+**New Commands**
+- SubmitCartReview
+- SaveCartForLater
+- AnalyzeCartReviewSentiment
+- PromoteCart
+
+## Event Storm Updates
+
+### 2025-07-24
+
+**New Events**
+- CartUpdated
+- CartAbandoned
+- CartCheckedOut
+- CartShared
+- CartReactivated
+
+**New Commands**
+- UpdateCart
+- CheckoutCart
+- ShareCart
+- ReactivateCart
+
+## Event Storm Updates
+
+### 2025-07-24
+
+**New Events**
+- CartUpdated
+- CartAbandoned
+- CartReviewed
+- CartShared
+- CartSavedForLater
+- CartConverted
+- CartFeedbackSubmitted
+- CartNotificationSent
+
+**New Commands**
+- UpdateCart
+- TrackAbandonedCart
+- SubmitCartReview
+- ShareCart
+- SaveCartForLater
+- ConvertCartToOrder
+- SubmitCartFeedback
+- SendCartNotification
+
+## Event Storm Updates
+
+### 2025-07-24
+
+**New Events**
+- ShoppingCartAbandoned
+- CartReturned
+- CartCheckoutCompleted
+- ShoppingCartSavedForLater
+- ShoppingCartDiscountApplied
+- ShoppingCartItemAdded
+- ShoppingCartItemRemoved
+
+**New Commands**
+- AbandonShoppingCart
+- CompleteCartCheckout
+- SaveCartForLater
+- ApplyDiscountToCart
+- AddItemToCart
+- RemoveItemFromCart
+
 ## Event Storm Updates
 
 ### 2025-07-24

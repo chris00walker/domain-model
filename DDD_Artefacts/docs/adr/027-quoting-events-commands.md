@@ -17,25 +17,23 @@ A collaborative Event Storming session for **quoting** surfaced behavioural gaps
 Adopt the following additions to the quoting bounded context.
 
 #### New Domain Events
-- QuoteRequested
-- QuoteGenerated
-- QuoteReviewed
-- QuoteExpired
-- QuoteApproved
-- QuoteFeedbackReceived
-- QuoteFeedbackModerated
-- QuoteModified
-
+- SubscriptionActivated
+- SubscriptionDeactivated
+- ReviewSubmitted
+- SubscriptionRenewed
+- SubscriptionPaused
+- SubscriptionUpdated
+- ReviewModerated
+- SubscriptionExpired
 #### New Application Commands
-- RequestQuote
-- GenerateQuote
-- ReviewQuote
-- ExpireQuote
-- ApproveQuote
-- SendQuoteFeedback
-- ModerateQuoteFeedback
-- ModifyQuote
-
+- ActivateSubscription
+- DeactivateSubscription
+- SubmitReview
+- RenewSubscription
+- PauseSubscription
+- UpdateSubscription
+- ModerateReview
+- ExpireSubscription
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).

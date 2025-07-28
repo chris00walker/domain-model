@@ -20,18 +20,16 @@ Adopt the following additions to the returns bounded context.
 - ReturnInitiated
 - ReturnProcessed
 - ReturnCompleted
-- ReturnRejected
 - ReturnApproved
+- ReturnRejected
 - ReturnEscalated
-
 #### New Application Commands
 - InitiateReturn
 - ProcessReturn
 - CompleteReturn
-- RejectReturn
 - ApproveReturn
+- RejectReturn
 - EscalateReturn
-
 ### Rationale
 1. **Expressive Domain Behaviour** – Each event captures a significant state change, enabling ubiquitous language alignment (Evans) and explicit bounded-context contracts (Vernon).
 2. **Decoupled Integrations** – Downstream contexts subscribe to these events rather than private state, supporting Hexagonal architecture and Event-Driven communication (see ADR-008).
