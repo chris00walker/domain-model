@@ -25,11 +25,11 @@ const ROOT = process.cwd();
 import { runVirtualStormSession } from "../core/stormSession";
 import { NodeFileSystem } from "../infra/nodeFileSystem";
 import { ChalkConsoleLogger } from "../infra/chalkConsoleLogger";
-import { OpenAiLLM } from "../infra/openAiLLM";
 
 
 
-runVirtualStormSession(ROOT, { fs: NodeFileSystem, logger: ChalkConsoleLogger, llm: OpenAiLLM }, process.env.STORM_CONTEXT_FILTER).catch((err) => {
+
+runVirtualStormSession(ROOT, { fs: NodeFileSystem, logger: ChalkConsoleLogger }, process.env.STORM_CONTEXT_FILTER).catch((err) => {
   console.error(err);
   process.exit(1);
 });

@@ -1,5 +1,13 @@
 import { Agent, run } from "@openai/agents";
+import { z } from "zod";
 import tools from "./tools/index.js";
+
+const outputSchema = z.object({
+  events: z.array(z.string()),
+  commands: z.array(z.string()),
+  integrationPoints: z.array(z.string()),
+  notes: z.array(z.string()),
+}).strict();
 import { buildObjective } from "./prompts/objective.js";
 
 // Temporary lightweight typings – we re-use Phase-2 types but keep them loose here
@@ -32,6 +40,7 @@ export async function brainstormAgents(
   opts: BrainstormAgentOptions = {},
 ): Promise<BrainstormOutput> {
   const agent = new Agent({
+  outputType: outputSchema,
     name: "EventStormer",
     instructions: "You are an expert domain facilitator conducting an Event Storming session. Use the available tools to propose domain events, commands, integrations and notes until the brainstorming context quotas are satisfied, then call persistStorm to save results.",
     model: "gpt-4o-mini",

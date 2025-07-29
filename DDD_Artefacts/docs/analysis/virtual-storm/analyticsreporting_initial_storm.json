@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "ReportGenerated",
+      "description": "Triggered when a new report is successfully created."
+    },
+    {
+      "name": "ReportSent",
+      "description": "Occurs when a report is dispatched to stakeholders."
+    },
+    {
+      "name": "AnalyticsDataUpdated",
+      "description": "Occurs when the underlying data for analytics is refreshed."
+    },
+    {
+      "name": "UserAccessedReport",
+      "description": "Tracks when a user views or accesses a report."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateReport",
+      "description": "Triggered when a new report is successfully created."
+    },
+    {
+      "name": "SendReport",
+      "description": "Occurs when a report is dispatched to stakeholders."
+    },
+    {
+      "name": "UpdateAnalyticsData",
+      "description": "Occurs when the underlying data for analytics is refreshed."
+    },
+    {
+      "name": "AccessReport",
+      "description": "Tracks when a user views or accesses a report."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "UserManagement",
+      "description": "Integrate with user management to track report access."
+    },
+    {
+      "name": "DataWarehouse",
+      "description": "Connect to the data warehouse for real-time analytics updates."
+    },
+    {
+      "name": "EmailService",
+      "description": "Integration to send reports via email."
+    },
+    {
+      "name": "DashboardService",
+      "description": "Integrate to update dashboards with new analytics data."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:54:00.390Z"
+}

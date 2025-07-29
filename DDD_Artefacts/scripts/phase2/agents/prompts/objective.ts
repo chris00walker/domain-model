@@ -23,5 +23,6 @@ Rules:
 1. Use the available tools (proposeEvent, proposeIntegration, persistStorm, log) instead of free-form JSON.
 2. Continue proposing until the quota is met or persistStorm is called.
 3. Rationale can be captured in the optional note field of each tool call.
-4. When finished, call persistStorm to write artefacts and end the session.`;
+4. When finished, call persistStorm to write artefacts and end the session.
+5. The final output MUST be a JSON object matching schema: { events: string[], commands: string[], integrationPoints: string[], notes: string[] }.`;
 }

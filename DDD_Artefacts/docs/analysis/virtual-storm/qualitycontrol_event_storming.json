@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "QualityInspectionPerformed",
+      "description": "Captures the event when a quality inspection is completed on a batch of products."
+    },
+    {
+      "name": "DefectiveItemsIdentified",
+      "description": "Records when defective items are found during a quality inspection."
+    },
+    {
+      "name": "NonComplianceReported",
+      "description": "Logs the event when non-compliance with quality standards is reported."
+    },
+    {
+      "name": "QualityReportGenerated",
+      "description": "Indicates that a quality report has been generated based on inspections."
+    },
+    {
+      "name": "InspectionScheduleUpdated",
+      "description": "Shows when the schedule for upcoming inspections is updated."
+    }
+  ],
+  "commands": [
+    {
+      "name": "PerformQualityInspection",
+      "description": "Captures the event when a quality inspection is completed on a batch of products."
+    },
+    {
+      "name": "IdentifyDefectiveItems",
+      "description": "Records when defective items are found during a quality inspection."
+    },
+    {
+      "name": "ReportNonCompliance",
+      "description": "Logs the event when non-compliance with quality standards is reported."
+    },
+    {
+      "name": "GenerateQualityReport",
+      "description": "Indicates that a quality report has been generated based on inspections."
+    },
+    {
+      "name": "UpdateInspectionSchedule",
+      "description": "Shows when the schedule for upcoming inspections is updated."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integration is needed to check inventory levels affected by quality inspections."
+    },
+    {
+      "name": "SupplierManagement",
+      "description": "Integration required to communicate defects back to suppliers."
+    },
+    {
+      "name": "ReportingSystem",
+      "description": "Integration to pass quality reports to external reporting systems."
+    },
+    {
+      "name": "FeedbackLoop",
+      "description": "Integration to enable feedback based on quality reports for continuous improvement."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:46:00.837Z"
+}

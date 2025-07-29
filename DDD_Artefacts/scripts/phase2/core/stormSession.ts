@@ -1,5 +1,5 @@
 import path from "path";
-import { FileSystemPort, LoggerPort, LLMPort } from "./ports";
+import { FileSystemPort, LoggerPort } from "./ports";
 import yaml from "js-yaml";
 import { brainstormContext } from "./stormEngine";
 import { buildVersionedContextMap } from "./contextMapBuilder";
@@ -43,11 +43,10 @@ function getPanelAgents(roster: RawAgent[], context: string, desired: number): R
 export interface SessionPorts {
   fs: FileSystemPort;
   logger: LoggerPort;
-  llm: LLMPort;
 }
 
 export async function runVirtualStormSession(rootDir: string, ports: SessionPorts, contextFilter?: string) {
-  const { fs: fsPort, logger, llm } = ports;
+  const { fs: fsPort, logger } = ports;
 
   const ROOT = rootDir;
   const PREP_PATH = path.join(ROOT, "DDD_Artefacts", "docs", "analysis", "phase1", "event-storming-session-prep.md");
@@ -128,7 +127,7 @@ const summary: string[] = [];
     };
     logger.debug(`stormSession prepMap for '${ctx}': ${JSON.stringify(prepMap[ctx], null, 2)}`);
 logger.debug(`stormSession input for '${ctx}': ${JSON.stringify(input, null, 2)}`);
-const out = await brainstormContext(input, { llm, logger });
+const out = await brainstormContext(input, { logger });
 logger.debug(`stormSession output for '${ctx}': ${JSON.stringify(out, null, 2)}`);
     // Persist artefacts ------------------------------------------------------
     fsPort.writeUtf8(path.join(OUT_DIR, `${ctx}-storm.json`), JSON.stringify(out, null, 2));

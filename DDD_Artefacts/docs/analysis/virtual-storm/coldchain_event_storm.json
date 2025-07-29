@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "ColdChainTemperatureAdjusted",
+      "description": "Necessary for maintaining optimal product conditions during transit."
+    },
+    {
+      "name": "ColdChainMonitoringAlertIssued",
+      "description": "Alerts necessary stakeholders in case of discrepancies in monitoring."
+    },
+    {
+      "name": "ColdChainRouteOptimized",
+      "description": "Adjusts routes based on real-time traffic and temperature conditions."
+    },
+    {
+      "name": "ColdChainDeliveryCompleted",
+      "description": "Marks the delivery of temperature-sensitive products as completed."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AdjustTemperature",
+      "description": "Necessary for maintaining optimal product conditions during transit."
+    },
+    {
+      "name": "IssueMonitoringAlert",
+      "description": "Alerts necessary stakeholders in case of discrepancies in monitoring."
+    },
+    {
+      "name": "OptimizeRoute",
+      "description": "Adjusts routes based on real-time traffic and temperature conditions."
+    },
+    {
+      "name": "CompleteDelivery",
+      "description": "Marks the delivery of temperature-sensitive products as completed."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "MonitoringSystem",
+      "description": "Integration with existing temperature monitoring systems to fetch real-time data."
+    },
+    {
+      "name": "InventoryManagementSystem",
+      "description": "Sync temperature-controlled products with inventory to manage stock levels accurately."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:44:07.473Z"
+}

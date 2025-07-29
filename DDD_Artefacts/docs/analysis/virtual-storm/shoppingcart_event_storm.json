@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "CartItemsSorted",
+      "description": "Allows customers to organize items in the cart for easier browsing."
+    },
+    {
+      "name": "CartDiscountApplied",
+      "description": "Facilitates promotional discounts applied to items in the cart."
+    },
+    {
+      "name": "CartAbandoned",
+      "description": "Tracks when a cart is left without completing the purchase."
+    },
+    {
+      "name": "CartSavedForLater",
+      "description": "Allows customers to save items for future purchase."
+    }
+  ],
+  "commands": [
+    {
+      "name": "Sort",
+      "description": "Allows customers to organize items in the cart for easier browsing."
+    },
+    {
+      "name": "ApplyDiscount",
+      "description": "Facilitates promotional discounts applied to items in the cart."
+    },
+    {
+      "name": "Abandon",
+      "description": "Tracks when a cart is left without completing the purchase."
+    },
+    {
+      "name": "SaveForLater",
+      "description": "Allows customers to save items for future purchase."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integrates with inventory to check item availability before finalizing the cart."
+    },
+    {
+      "name": "PaymentGateway",
+      "description": "Ensures seamless payment processing for the items in the cart."
+    },
+    {
+      "name": "UserProfile",
+      "description": "Links the shopping cart data with user account for personalized experiences."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:49:42.025Z"
+}

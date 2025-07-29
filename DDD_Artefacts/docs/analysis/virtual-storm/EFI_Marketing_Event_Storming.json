@@ -1,0 +1,73 @@
+{
+  "events": [
+    {
+      "name": "CampaignCreated",
+      "description": "Signals the initiation of a new marketing campaign."
+    },
+    {
+      "name": "CampaignLaunched",
+      "description": "Represents the official launch of a marketing campaign."
+    },
+    {
+      "name": "CampaignEnded",
+      "description": "Indicates the conclusion of a marketing campaign."
+    },
+    {
+      "name": "AdCreated",
+      "description": "Denotes the creation of a new advertisement for campaigns."
+    },
+    {
+      "name": "AdPublished",
+      "description": "Marks the publication of an advertisement."
+    },
+    {
+      "name": "LeadGenerated",
+      "description": "Represents the generation of a potential customer lead."
+    },
+    {
+      "name": "MarketAnalysisCompleted",
+      "description": "Indicates the completion of a market analysis for strategic decisions."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreateCampaign",
+      "description": "Signals the initiation of a new marketing campaign."
+    },
+    {
+      "name": "LaunchCampaign",
+      "description": "Represents the official launch of a marketing campaign."
+    },
+    {
+      "name": "EndCampaign",
+      "description": "Indicates the conclusion of a marketing campaign."
+    },
+    {
+      "name": "CreateAd",
+      "description": "Denotes the creation of a new advertisement for campaigns."
+    },
+    {
+      "name": "PublishAd",
+      "description": "Marks the publication of an advertisement."
+    },
+    {
+      "name": "GenerateLead",
+      "description": "Represents the generation of a potential customer lead."
+    },
+    {
+      "name": "CompleteMarketAnalysis",
+      "description": "Indicates the completion of a market analysis for strategic decisions."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "Sales",
+      "description": "Integration with sales to track leads generated from campaigns."
+    },
+    {
+      "name": "CustomerSupport",
+      "description": "Integration with customer support to assist leads that converted."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:49:52.899Z"
+}

@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "PostCreated",
+      "description": "Triggered when a new post is created in the system."
+    },
+    {
+      "name": "PostUpdated",
+      "description": "Occurs when a post is modified."
+    },
+    {
+      "name": "PostDeleted",
+      "description": "Indicates that a post is removed from the system."
+    },
+    {
+      "name": "PostPublished",
+      "description": "Occurs when a post is published and made public."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreatePost",
+      "description": "Triggered when a new post is created in the system."
+    },
+    {
+      "name": "UpdatePost",
+      "description": "Occurs when a post is modified."
+    },
+    {
+      "name": "DeletePost",
+      "description": "Indicates that a post is removed from the system."
+    },
+    {
+      "name": "PublishPost",
+      "description": "Occurs when a post is published and made public."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "UserManagement",
+      "description": "Integration for user authentication and permissions related to posts."
+    },
+    {
+      "name": "ContentDeliveryNetwork",
+      "description": "Integration to serve images and media associated with posts."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:58:54.913Z"
+}

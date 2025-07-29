@@ -1,43 +1,10 @@
 {
   "events": [
-    "ColdChainInspectionCompleted",
-    "ColdChainViolationReported",
-    "ColdChainMonitoringAlert",
-    "ColdChainTemperatureAdjusted",
-    "ColdChainInspectionFailed",
-    "ColdChainMonitoringDataAnalyzed",
-    "ColdChainInspectionScheduled",
-    "ColdChainInspectionFollowUpRequired",
-    "ColdChainInspectionRescheduled"
+    "ColdChainInspectionCompleted"
   ],
   "commands": [
-    "Complete",
-    "ReportColdChainViolation",
-    "TriggerColdChainMonitoringAlert",
-    "AdjustColdChainTemperature",
-    "FailColdChainInspection",
-    "AnalyzeColdChainMonitoringData",
-    "ScheduleColdChainInspection",
-    "RequestColdChainInspectionFollowUp",
-    "RescheduleColdChainInspection"
+    "Complete"
   ],
-  "integrationPoints": [
-    "OrderManagement",
-    "ShippingManagement",
-    "InventoryManagement"
-  ],
-  "notes": [
-    "This event and command pair allows the system to capture and handle instances where a cold chain violation occurs, ensuring that corrective actions can be taken promptly to maintain food safety standards.",
-    "This event would be triggered when a predetermined threshold for temperature fluctuations is exceeded, signaling a potential risk to the integrity of the cold chain. The corresponding command allows users to proactively monitor and respond to potential issues before they result in a violation.",
-    "This event captures the scenario where a temperature adjustment is made in the cold chain process due to detected anomalies. The corresponding command allows for proactive management of temperature settings to ensure compliance and product safety.",
-    "This event indicates that a cold chain inspection has failed, which is critical for ensuring product quality and safety. The corresponding command allows users to formally report the failure and initiate necessary corrective actions.",
-    "This event signifies that the data collected from cold chain monitoring devices has been thoroughly analyzed to identify trends or anomalies. The corresponding command allows for the initiation of this analysis process, ensuring that any potential issues can be addressed proactively.",
-    "This event represents the scheduling of a cold chain inspection, which is a crucial step in maintaining compliance and ensuring the integrity of the cold chain. The corresponding command allows users to initiate the scheduling process, ensuring that inspections are timely and systematic.",
-    "This event signifies that a follow-up inspection is necessary due to previous inspection results or reported violations, ensuring continuous compliance and monitoring in the cold chain process.",
-    "This event and command pair addresses situations where an inspection needs to be rescheduled due to unforeseen circumstances, ensuring that compliance and monitoring processes remain up to date.",
-    "Integrating OrderManagement with BatchTracking allows for real-time visibility of order fulfillment processes, enhancing transparency and operational efficiency by tracking batches associated with specific customer orders.",
-    "Integrating ShippingManagement with BatchTracking allows for real-time tracking of orders as they are shipped and delivered, enhancing visibility and operational efficiency in both domains.",
-    "Integrating InventoryManagement with batchtracking ensures real-time visibility of stock levels and batch statuses, which is crucial for managing inventory effectively and optimizing order fulfillment processes.",
-    "Integrating OrderManagement with BatchTracking ensures that all orders are linked to their respective batch shipments, enhancing traceability and improving fulfillment accuracy."
-  ]
+  "integrationPoints": [],
+  "notes": []
 }

@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "name": "SupplierInformationUpdated",
+      "description": "To reflect any changes in supplier contact or compliance details."
+    },
+    {
+      "name": "BatchQualityChecked",
+      "description": "Indicates that all quality checks on a batch have been performed."
+    },
+    {
+      "name": "ColdChainViolationReported",
+      "description": "When there's a report of a temperature breach in the cold chain."
+    }
+  ],
+  "commands": [
+    {
+      "name": "Update",
+      "description": "To reflect any changes in supplier contact or compliance details."
+    },
+    {
+      "name": "Complete",
+      "description": "Indicates that all quality checks on a batch have been performed."
+    },
+    {
+      "name": "Cancel",
+      "description": "When there's a report of a temperature breach in the cold chain."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integration needed to fetch and synchronize supplier data."
+    },
+    {
+      "name": "QualityAssurance",
+      "description": "Integration required for quality check reporting."
+    },
+    {
+      "name": "ColdChainMonitoring",
+      "description": "Integration for real-time cold chain status updates."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:51:41.254Z"
+}

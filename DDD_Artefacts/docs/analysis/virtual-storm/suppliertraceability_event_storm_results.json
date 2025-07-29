@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "name": "BatchSupplierDetailsUpdated",
+      "description": "Reflects changes in supplier details related to a batch."
+    },
+    {
+      "name": "BatchShippingStatusUpdated",
+      "description": "Tracks the shipping status for each batch, important for traceability."
+    },
+    {
+      "name": "ColdChainExceptionReported",
+      "description": "Captures incidents where cold chain conditions are compromised."
+    },
+    {
+      "name": "BatchTraceabilityConfirmed",
+      "description": "Final confirmation of the traceability status of a batch."
+    }
+  ],
+  "commands": [
+    {
+      "name": "Update",
+      "description": "Reflects changes in supplier details related to a batch."
+    },
+    {
+      "name": "Complete",
+      "description": "Captures incidents where cold chain conditions are compromised."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integration with supplier management system for real-time updates."
+    },
+    {
+      "name": "ShippingManagement",
+      "description": "Integration with shipping management for status tracking."
+    },
+    {
+      "name": "ColdChainMonitoring",
+      "description": "Integration with cold chain monitoring systems to report exceptions."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:51:25.043Z"
+}

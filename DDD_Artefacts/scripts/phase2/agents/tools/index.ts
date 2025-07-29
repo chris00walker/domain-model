@@ -3,6 +3,8 @@ import proposeIntegration from "./proposeIntegration.js";
 import persistStorm from "./persistStorm.js";
 import log from "./log.js";
 import summarizeStorm from "./summarizeStorm.js";
+import readFile from "./readFile.js";
+import writeFile from "./writeFile.js";
 
 export default [
   proposeEvent,
@@ -10,4 +12,6 @@ export default [
   persistStorm,
   summarizeStorm,
   log,
+  readFile,
+  writeFile,
 ] as const;

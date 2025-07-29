@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "ReturnInitiated",
+      "description": "Capture the beginning of the return process."
+    },
+    {
+      "name": "ReturnApproved",
+      "description": "Mark the return as approved for processing."
+    },
+    {
+      "name": "ReturnRejected",
+      "description": "Handle situations where a return cannot be processed."
+    },
+    {
+      "name": "ReturnRefunded",
+      "description": "Complete the return with a refund to the customer."
+    }
+  ],
+  "commands": [
+    {
+      "name": "InitiateReturn",
+      "description": "Capture the beginning of the return process."
+    },
+    {
+      "name": "ApproveReturn",
+      "description": "Mark the return as approved for processing."
+    },
+    {
+      "name": "RejectReturn",
+      "description": "Handle situations where a return cannot be processed."
+    },
+    {
+      "name": "ProcessRefund",
+      "description": "Complete the return with a refund to the customer."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "CustomerService",
+      "description": "Integration with customer service system for tracking and inquiries."
+    },
+    {
+      "name": "InventoryManagement",
+      "description": "Updating inventory levels upon return handling."
+    },
+    {
+      "name": "FinanceSystem",
+      "description": "Integration for processing refunds in the financial system."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:47:49.138Z"
+}

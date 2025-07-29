@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "InventoryItemAdded",
+      "description": "Captures when a new item is added to inventory."
+    },
+    {
+      "name": "InventoryItemRemoved",
+      "description": "Records the removal of an item from inventory."
+    },
+    {
+      "name": "InventoryItemUpdated",
+      "description": "Tracks updates to existing inventory items."
+    },
+    {
+      "name": "InventoryItemStocked",
+      "description": "Handles reporting when stock levels are replenished."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddInventoryItem",
+      "description": "Captures when a new item is added to inventory."
+    },
+    {
+      "name": "RemoveInventoryItem",
+      "description": "Records the removal of an item from inventory."
+    },
+    {
+      "name": "UpdateInventoryItem",
+      "description": "Tracks updates to existing inventory items."
+    },
+    {
+      "name": "StockInventoryItem",
+      "description": "Handles reporting when stock levels are replenished."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplyChainManagement",
+      "description": "Integrate with Supply Chain Management for real-time inventory updates."
+    },
+    {
+      "name": "SalesOrderManagement",
+      "description": "Integration with Sales Order Management to adjust inventory based on sales."
+    },
+    {
+      "name": "WarehouseManagementSystem",
+      "description": "Integration with Warehouse Management to streamline inventory handling."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:44:54.961Z"
+}

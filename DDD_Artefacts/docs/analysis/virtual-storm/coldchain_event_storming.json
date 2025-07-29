@@ -1,0 +1,41 @@
+{
+  "events": [
+    {
+      "name": "ColdChainAlertTriggered",
+      "description": "To notify stakeholders of temperature deviations."
+    },
+    {
+      "name": "ColdChainMonitoringDataReceived",
+      "description": "To process incoming monitoring data from sensors."
+    },
+    {
+      "name": "ColdChainMaintenanceScheduled",
+      "description": "To address maintenance issues proactively."
+    }
+  ],
+  "commands": [
+    {
+      "name": "TriggerAlert",
+      "description": "To notify stakeholders of temperature deviations."
+    },
+    {
+      "name": "ReceiveData",
+      "description": "To process incoming monitoring data from sensors."
+    },
+    {
+      "name": "ScheduleMaintenance",
+      "description": "To address maintenance issues proactively."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integrate with inventory management for proper stock handling."
+    },
+    {
+      "name": "ShippingManagement",
+      "description": "Integration needed to inform shipping decisions based on cold chain status."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:44:17.662Z"
+}

@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "ImportOrderCreated",
+      "description": "Triggered when a new import order is initiated."
+    },
+    {
+      "name": "ImportOrderApproved",
+      "description": "Occurs once the import order is reviewed and approved."
+    },
+    {
+      "name": "ImportOrderShipped",
+      "description": "Happens when the order is shipped from the supplier."
+    },
+    {
+      "name": "ImportOrderDelivered",
+      "description": "Triggered when the order is received at EFI."
+    },
+    {
+      "name": "ImportOrderCancelled",
+      "description": "Occurs if an import order needs to be cancelled."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreateImportOrder",
+      "description": "Triggered when a new import order is initiated."
+    },
+    {
+      "name": "ApproveImportOrder",
+      "description": "Occurs once the import order is reviewed and approved."
+    },
+    {
+      "name": "ShipImportOrder",
+      "description": "Happens when the order is shipped from the supplier."
+    },
+    {
+      "name": "DeliverImportOrder",
+      "description": "Triggered when the order is received at EFI."
+    },
+    {
+      "name": "CancelImportOrder",
+      "description": "Occurs if an import order needs to be cancelled."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "PricingService",
+      "description": "Integrates for fetching real-time pricing when import orders are created."
+    },
+    {
+      "name": "InventoryService",
+      "description": "Integrates for checking stock availability after orders are received."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:41:26.669Z"
+}

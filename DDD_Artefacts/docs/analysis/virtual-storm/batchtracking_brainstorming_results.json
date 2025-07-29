@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "BatchTemperatureMonitoring",
+      "description": "To ensure that temperature within the batch is consistently monitored during transport."
+    },
+    {
+      "name": "BatchPackageDispatched",
+      "description": "To signify that a batch has been sent out for delivery."
+    },
+    {
+      "name": "BatchArrivalAtDestination",
+      "description": "To confirm the arrival of a batch at its intended location."
+    },
+    {
+      "name": "BatchQualityCheckPassed",
+      "description": "To confirm that the batch has passed quality checks upon arrival."
+    },
+    {
+      "name": "BatchTemperatureAlert",
+      "description": "To alert stakeholders if the temperature rises beyond acceptable limits."
+    }
+  ],
+  "commands": [
+    {
+      "name": "TrackTemperature",
+      "description": "To ensure that temperature within the batch is consistently monitored during transport."
+    },
+    {
+      "name": "DispatchBatch",
+      "description": "To signify that a batch has been sent out for delivery."
+    },
+    {
+      "name": "ConfirmArrival",
+      "description": "To confirm the arrival of a batch at its intended location."
+    },
+    {
+      "name": "QualityCheck",
+      "description": "To confirm that the batch has passed quality checks upon arrival."
+    },
+    {
+      "name": "RaiseTemperatureAlert",
+      "description": "To alert stakeholders if the temperature rises beyond acceptable limits."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "TemperatureMonitoringService",
+      "description": "Integration with a dedicated service to monitor and manage temperature throughout the logistics."
+    },
+    {
+      "name": "DispatchService",
+      "description": "Integration with the dispatch system to track and manage batch shipments."
+    },
+    {
+      "name": "QualityAssuranceService",
+      "description": "Integration with a quality assurance service to automatically verify batch quality."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:42:31.271Z"
+}

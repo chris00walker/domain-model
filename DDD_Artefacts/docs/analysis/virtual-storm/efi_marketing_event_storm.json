@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "CampaignCreated",
+      "description": "Initiates a new marketing campaign."
+    },
+    {
+      "name": "CampaignLaunched",
+      "description": "Triggers the launch of a marketing campaign."
+    },
+    {
+      "name": "MarketResearchConducted",
+      "description": "Conducts research to identify target market needs."
+    },
+    {
+      "name": "AdMaterialCreated",
+      "description": "Creates advertising material for campaigns."
+    },
+    {
+      "name": "CampaignPerformanceEvaluated",
+      "description": "Evaluates the success of a marketing campaign."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreateCampaign",
+      "description": "Initiates a new marketing campaign."
+    },
+    {
+      "name": "LaunchCampaign",
+      "description": "Triggers the launch of a marketing campaign."
+    },
+    {
+      "name": "ConductMarketResearch",
+      "description": "Conducts research to identify target market needs."
+    },
+    {
+      "name": "CreateAdMaterial",
+      "description": "Creates advertising material for campaigns."
+    },
+    {
+      "name": "EvaluateCampaignPerformance",
+      "description": "Evaluates the success of a marketing campaign."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "Sales",
+      "description": "Integrate with Sales to track the impact of campaigns on sales performance."
+    },
+    {
+      "name": "CustomerSupport",
+      "description": "Integrate with Customer Support for lead feedback."
+    },
+    {
+      "name": "Analytics",
+      "description": "Integrate with Analytics for performance metrics of campaigns."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:50:25.373Z"
+}

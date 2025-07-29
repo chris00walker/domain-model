@@ -6,48 +6,15 @@
     "CartItemQuantityUpdated",
     "CartRecoveryFailed",
     "CartSubscriptionCreated",
-    "ColdChainAuditCompleted",
-    "CartItemRemoved",
-    "CartDiscountApplied",
-    "CartItemQuantityAdjusted",
-    "CartAbandoned",
-    "CartItemWishlistAdded",
-    "CartItemPriceUpdated",
-    "CartItemAdded",
-    "CartItemRestored"
+    "ColdChainAuditCompleted"
   ],
   "commands": [
     "Update",
     "Submit",
     "Complete",
     "Process",
-    "Create",
-    "RemoveItem",
-    "ApplyDiscount",
-    "AdjustItemQuantity",
-    "MarkCartAsAbandoned",
-    "AddItemToWishlist",
-    "UpdateItemPrice",
-    "AddItem",
-    "RestoreItem"
+    "Create"
   ],
-  "integrationPoints": [
-    "UserProfile",
-    "UserProfileManagement",
-    "OrderProcessing"
-  ],
-  "notes": [
-    "This event and command would handle the scenario where a user decides to remove an item from their shopping cart. This is a crucial aspect of cart management, ensuring that the cart reflects the user's current intentions.",
-    "This event captures the application of a discount to the shopping cart, allowing for tracking of promotional activities and their impact on customer behavior.",
-    "This event captures the scenario where the quantity of an item in the shopping cart is adjusted, either increasing or decreasing it. The corresponding command allows the application to process user requests to modify the quantity of specific items, ensuring proper inventory management and user experience.",
-    "This event occurs when a user leaves the shopping cart inactive for a specified duration, indicating potential abandonment. The corresponding command allows the system to officially mark the cart as abandoned, which can trigger follow-up actions such as sending reminders or promotions to encourage the user to return and complete their purchase.",
-    "This event captures the scenario where a user adds an item from their shopping cart to a wishlist. The corresponding command allows the user to initiate this action, promoting user engagement and potentially increasing future sales.",
-    "This new event and command allow for the tracking and management of price changes for items in the shopping cart, which is essential for accurate pricing during checkout and for customer notifications about price changes.",
-    "This event signifies that an item has been successfully added to the shopping cart, which is a fundamental operation in the shopping cart lifecycle. The corresponding command 'AddItem' triggers the process of adding an item to the cart, reflecting changes in inventory and customer behavior.",
-    "This event and command pair would handle scenarios where a previously removed item from the shopping cart is restored back to the cart, allowing for improved user experience and cart management.",
-    "Integrating the UserProfile bounded context with the shopping cart allows for personalized user experiences, such as remembering previous purchases, managing wish lists, and offering tailored recommendations based on user preferences and purchase history.",
-    "Integrating UserProfileManagement with ShoppingCart allows for personalized shopping experiences, where user preferences and profiles can influence product recommendations and shopping behavior.",
-    "Integrating the OrderProcessing bounded context with the shopping cart allows for seamless transition from cart to order, ensuring that user selections are efficiently converted into purchase orders, enhancing the overall shopping experience.",
-    "Integrating UserProfileManagement with the shopping cart allows for a seamless experience where user preferences, saved items, and order history can be directly accessed and managed, enhancing personalization and user satisfaction during the shopping process."
-  ]
+  "integrationPoints": [],
+  "notes": []
 }

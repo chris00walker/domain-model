@@ -175,6 +175,45 @@ npm run test:coverage
 npm run dev
 ```
 
+### Virtual Event Storming
+
+Run a virtual Event Storming session using the Phase 2 agent:
+
+```bash
+# Default session (all contexts, OpenAI agent)
+npx tsx DDD_Artefacts/scripts/phase2/cli/virtualStorm.ts --agent openai
+
+# Filter by bounded context
+npx tsx DDD_Artefacts/scripts/phase2/cli/virtualStorm.ts --agent openai --context order_management
+
+# Customize turn limits via environment variables
+export STORM_MAX_TURNS=10
+export STORM_STALE_ROUNDS=1
+```
+
+### Agent Tools
+
+The Phase 2 agent registers these SDK tools:
+
+- **proposeEvent**: Suggests a new domain event.
+- **proposeIntegration**: Proposes a bounded-context integration point.
+- **persistStorm**: Saves the brainstorming context as a JSON file.
+- **summarizeStorm**: Generates a Markdown summary report.
+- **readFile**: Reads UTF-8 content from a file.
+- **writeFile**: Writes UTF-8 content to a file, creating directories as needed.
+- **log**: Logs messages during agent execution.
+
+All tools use Zod schemas for input validation. The agent enforces JSON-mode output matching:
+
+```json
+{
+  "events": ["..."],
+  "commands": ["..."],
+  "integrationPoints": ["..."],
+  "notes": ["..."]
+}
+```
+
 ### Development Workflow
 
 1. **Follow DDD Patterns** - Use established aggregates, value objects, and domain events

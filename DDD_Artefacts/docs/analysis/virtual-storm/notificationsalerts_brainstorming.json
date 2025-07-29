@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "TemperatureAlertGenerated",
+      "description": "A new event for when a temperature alert is triggered in the cold chain."
+    },
+    {
+      "name": "HumidityAlertGenerated",
+      "description": "Track changes in humidity levels that may affect food storage."
+    },
+    {
+      "name": "ColdChainViolationDetected",
+      "description": "Event to indicate any cold chain violations like temperature or humidity breaches."
+    },
+    {
+      "name": "NotificationSent",
+      "description": "Event for when a notification regarding alerts has been successfully sent."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateTemperatureAlert",
+      "description": "A new event for when a temperature alert is triggered in the cold chain."
+    },
+    {
+      "name": "GenerateHumidityAlert",
+      "description": "Track changes in humidity levels that may affect food storage."
+    },
+    {
+      "name": "ReportColdChainViolation",
+      "description": "Event to indicate any cold chain violations like temperature or humidity breaches."
+    },
+    {
+      "name": "SendNotification",
+      "description": "Event for when a notification regarding alerts has been successfully sent."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "AlertManagementSystem",
+      "description": "Integrate with an external system for managing alerts more effectively."
+    },
+    {
+      "name": "UserNotificationService",
+      "description": "Integration for sending user notifications through multiple channels."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:52:51.356Z"
+}

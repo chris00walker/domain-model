@@ -1,43 +1,10 @@
 {
   "events": [
-    "BatchQualityAssuranceFailed",
-    "BatchQualityAssurancePassed",
-    "BatchQualityAssuranceReassessed",
-    "BatchQualityAssuranceEscalated",
-    "BatchQualityAssuranceReviewRequested",
-    "BatchQualityAssuranceReviewed",
-    "BatchQualityAssuranceReevaluationRequested",
-    "BatchQualityAssuranceAuditCompleted",
-    "BatchQualityAssuranceReevaluationCompleted"
+    "BatchQualityAssuranceFailed"
   ],
   "commands": [
-    "Cancel",
-    "ApproveBatchQualityAssurance",
-    "ReassessBatchQualityAssurance",
-    "EscalateBatchQualityAssurance",
-    "RequestBatchQualityAssuranceReview",
-    "ReviewBatchQualityAssurance",
-    "RequestBatchQualityAssuranceReevaluation",
-    "InitiateBatchQualityAssuranceAudit",
-    "CompleteBatchQualityAssuranceReevaluation"
+    "Cancel"
   ],
-  "integrationPoints": [
-    "UserProfileManagement",
-    "UserFeedbackManagement",
-    "ProductCatalogManagement"
-  ],
-  "notes": [
-    "The 'BatchQualityAssurancePassed' event signifies that a batch has successfully passed the quality assurance checks, which is crucial for ensuring product standards. The corresponding command 'ApproveBatchQualityAssurance' would be issued by an authorized personnel to confirm that the batch meets all quality criteria, allowing it to proceed to distribution.",
-    "This event signifies that the quality assurance of a batch has been re-evaluated, possibly due to new information or changes in standards. The corresponding command allows for initiating the reassessment process, ensuring that batches can be re-evaluated and either approved or rejected based on updated criteria.",
-    "This event indicates that a batch's quality assurance status has been escalated for further review due to unresolved issues. The corresponding command is designed to trigger this escalation process, allowing for higher authority intervention when standard quality assurance processes fail to resolve discrepancies.",
-    "This event and command would facilitate a proactive approach to quality assurance by allowing stakeholders to formally request a review of a batch, ensuring that any concerns can be addressed before they escalate into failures.",
-    "The new event 'BatchQualityAssuranceReviewed' represents the completion of a quality assurance review process, indicating that the batch has been thoroughly assessed and the findings documented. The corresponding command 'ReviewBatchQualityAssurance' is initiated by a quality assurance specialist to formally initiate the review process, ensuring that all necessary evaluations are conducted before any further actions can be taken.",
-    "This event and command cater to scenarios where a batch's quality assurance status is under dispute, prompting a formal request for reevaluation. This addition enhances the workflow by allowing stakeholders to initiate a review process based on new information or concerns, ensuring a thorough assessment of batch quality.",
-    "This new event represents the completion of an audit process for batch quality assurance, which can result from an application command that initiates the audit. This adds a layer of accountability and transparency in the quality assurance process, allowing stakeholders to take further actions based on the audit results.",
-    "This new event signifies the successful completion of a reevaluation process for a batch's quality assurance. The corresponding command is used to initiate the process of marking the reevaluation as complete, which may involve confirming new findings or adjustments to previous assessments.",
-    "Integrating with UserProfileManagement allows for a more personalized review and rating experience, enabling the system to leverage user data for better recommendations and targeted feedback.",
-    "Integrating UserFeedbackManagement with reviewsratings allows for seamless collection and analysis of user feedback on products or services, enhancing the overall user experience and enabling targeted improvements based on user reviews.",
-    "Integrating with ProductCatalogManagement allows for comprehensive management of product reviews and ratings, enhancing the user experience by providing detailed product insights based on user feedback.",
-    "Integrating UserFeedbackManagement with ReviewsRatings allows for a cohesive approach to handling user-generated content, enabling businesses to effectively gather, analyze, and respond to product reviews and ratings."
-  ]
+  "integrationPoints": [],
+  "notes": []
 }

@@ -1,0 +1,81 @@
+{
+  "events": [
+    {
+      "name": "CampaignCreated",
+      "description": "The event when a new marketing campaign is initiated."
+    },
+    {
+      "name": "CampaignLaunched",
+      "description": "Triggered when a marketing campaign is officially launched."
+    },
+    {
+      "name": "CampaignEnded",
+      "description": "Indicates the conclusion of a marketing campaign."
+    },
+    {
+      "name": "LeadGenerated",
+      "description": "Occurs when a new lead is acquired through marketing efforts."
+    },
+    {
+      "name": "LeadNurtured",
+      "description": "Triggered when a lead is actively engaged and nurtured through marketing activities."
+    },
+    {
+      "name": "MarketingMaterialReviewed",
+      "description": "When marketing materials are reviewed for campaigns."
+    },
+    {
+      "name": "MarketingBudgetAllocated",
+      "description": "Indicates the event where marketing budgets are allocated to campaigns."
+    },
+    {
+      "name": "MarketResearchConducted",
+      "description": "Triggered when market research is conducted to inform marketing strategies."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreateCampaign",
+      "description": "The event when a new marketing campaign is initiated."
+    },
+    {
+      "name": "LaunchCampaign",
+      "description": "Triggered when a marketing campaign is officially launched."
+    },
+    {
+      "name": "EndCampaign",
+      "description": "Indicates the conclusion of a marketing campaign."
+    },
+    {
+      "name": "GenerateLead",
+      "description": "Occurs when a new lead is acquired through marketing efforts."
+    },
+    {
+      "name": "NurtureLead",
+      "description": "Triggered when a lead is actively engaged and nurtured through marketing activities."
+    },
+    {
+      "name": "ReviewMarketingMaterial",
+      "description": "When marketing materials are reviewed for campaigns."
+    },
+    {
+      "name": "AllocateBudget",
+      "description": "Indicates the event where marketing budgets are allocated to campaigns."
+    },
+    {
+      "name": "ConductMarketResearch",
+      "description": "Triggered when market research is conducted to inform marketing strategies."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "Sales",
+      "description": "Integration with sales to track conversion of leads generated from campaigns."
+    },
+    {
+      "name": "Analytics",
+      "description": "Integration with analytics for tracking campaign performance metrics."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:50:56.618Z"
+}

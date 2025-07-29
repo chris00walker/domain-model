@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "ReportGenerated",
+      "description": "Triggered when a new analytics report is created."
+    },
+    {
+      "name": "DataAnalyzed",
+      "description": "Occurs after data has been processed for report generation."
+    },
+    {
+      "name": "ReportUpdated",
+      "description": "When existing reports are updated with new data."
+    },
+    {
+      "name": "ReportArchived",
+      "description": "Triggered when a report is no longer active."
+    },
+    {
+      "name": "ReportShared",
+      "description": "When a report is shared with stakeholders."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateReport",
+      "description": "Triggered when a new analytics report is created."
+    },
+    {
+      "name": "AnalyzeData",
+      "description": "Occurs after data has been processed for report generation."
+    },
+    {
+      "name": "UpdateReport",
+      "description": "When existing reports are updated with new data."
+    },
+    {
+      "name": "ArchiveReport",
+      "description": "Triggered when a report is no longer active."
+    },
+    {
+      "name": "ShareReport",
+      "description": "When a report is shared with stakeholders."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "DataWarehouse",
+      "description": "Integration with data warehouse for accessing historical data."
+    },
+    {
+      "name": "NotificationService",
+      "description": "Integration to notify users upon report generation or update."
+    },
+    {
+      "name": "UserManagement",
+      "description": "Integration for managing user permissions for report access."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:54:55.524Z"
+}

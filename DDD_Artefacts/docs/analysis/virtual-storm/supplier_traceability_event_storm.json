@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "SupplierAudited",
+      "description": "To track when a supplier's audit is completed."
+    },
+    {
+      "name": "BatchDispatched",
+      "description": "To indicate a batch has been dispatched to a customer."
+    },
+    {
+      "name": "SupplierRated",
+      "description": "To capture feedback and performance rating of suppliers."
+    },
+    {
+      "name": "OrganicCertificationUpdated",
+      "description": "To monitor changes in organic certification status of suppliers."
+    }
+  ],
+  "commands": [
+    {
+      "name": "Audit",
+      "description": "To track when a supplier's audit is completed."
+    },
+    {
+      "name": "DispatchBatch",
+      "description": "To indicate a batch has been dispatched to a customer."
+    },
+    {
+      "name": "RateSupplier",
+      "description": "To capture feedback and performance rating of suppliers."
+    },
+    {
+      "name": "UpdateCertification",
+      "description": "To monitor changes in organic certification status of suppliers."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integrate with supplier management system for real-time updates."
+    },
+    {
+      "name": "LogisticsTracking",
+      "description": "To connect with logistics tracking systems for batch movement updates."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:51:32.954Z"
+}

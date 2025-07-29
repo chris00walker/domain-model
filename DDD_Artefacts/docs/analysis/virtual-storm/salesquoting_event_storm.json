@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "QuoteRequested",
+      "description": "Initiates the quote request process for a customer."
+    },
+    {
+      "name": "QuoteGenerated",
+      "description": "Indicates that a quote has been successfully created."
+    },
+    {
+      "name": "QuoteApproved",
+      "description": "Signifies that the customer has approved the generated quote."
+    },
+    {
+      "name": "QuoteRejected",
+      "description": "Captures the event of a customer rejecting a quote."
+    },
+    {
+      "name": "QuoteExpired",
+      "description": "Indicates that a quote has reached its expiration date without acceptance."
+    }
+  ],
+  "commands": [
+    {
+      "name": "RequestQuote",
+      "description": "Initiates the quote request process for a customer."
+    },
+    {
+      "name": "GenerateQuote",
+      "description": "Indicates that a quote has been successfully created."
+    },
+    {
+      "name": "ApproveQuote",
+      "description": "Signifies that the customer has approved the generated quote."
+    },
+    {
+      "name": "RejectQuote",
+      "description": "Captures the event of a customer rejecting a quote."
+    },
+    {
+      "name": "ExpireQuote",
+      "description": "Indicates that a quote has reached its expiration date without acceptance."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "CustomerRelationshipManagement",
+      "description": "Integration with the CRM system for customer data."
+    },
+    {
+      "name": "InventoryManagement",
+      "description": "Integration to check product availability during quote generation."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:57:31.683Z"
+}

@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "ReportGenerated",
+      "description": "Triggered when a new report is successfully created."
+    },
+    {
+      "name": "ReportUpdated",
+      "description": "Occurs when an existing report is modified."
+    },
+    {
+      "name": "ReportDeleted",
+      "description": "Fires when a report is removed from the system."
+    },
+    {
+      "name": "ReportFetched",
+      "description": "Triggered when a report is accessed or retrieved."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateReport",
+      "description": "Triggered when a new report is successfully created."
+    },
+    {
+      "name": "UpdateReport",
+      "description": "Occurs when an existing report is modified."
+    },
+    {
+      "name": "DeleteReport",
+      "description": "Fires when a report is removed from the system."
+    },
+    {
+      "name": "FetchReport",
+      "description": "Triggered when a report is accessed or retrieved."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "DataWarehouseIntegration",
+      "description": "Integration with Data Warehouse for pulling in analytics data."
+    },
+    {
+      "name": "SalesSystemIntegration",
+      "description": "Integration with Sales System to gather sales data for reports."
+    },
+    {
+      "name": "UserManagementIntegration",
+      "description": "Integration for user authentication and authorization."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:54:20.398Z"
+}

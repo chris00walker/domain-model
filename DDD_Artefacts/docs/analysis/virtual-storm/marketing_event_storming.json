@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "CampaignCreated",
+      "description": "Triggered when a new marketing campaign is initiated."
+    },
+    {
+      "name": "CampaignLaunched",
+      "description": "Indicates that a marketing campaign has officially started."
+    },
+    {
+      "name": "CampaignEnded",
+      "description": "Represents the completion of a marketing campaign."
+    },
+    {
+      "name": "AudienceEngaged",
+      "description": "When a targeted audience interacts with campaign content."
+    },
+    {
+      "name": "AdPerformanceMeasured",
+      "description": "To analyze the effectiveness of advertising campaigns."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreateCampaign",
+      "description": "Triggered when a new marketing campaign is initiated."
+    },
+    {
+      "name": "LaunchCampaign",
+      "description": "Indicates that a marketing campaign has officially started."
+    },
+    {
+      "name": "EndCampaign",
+      "description": "Represents the completion of a marketing campaign."
+    },
+    {
+      "name": "EngageAudience",
+      "description": "When a targeted audience interacts with campaign content."
+    },
+    {
+      "name": "MeasureAdPerformance",
+      "description": "To analyze the effectiveness of advertising campaigns."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "Analytics",
+      "description": "To integrate with an analytics system for tracking campaign performance."
+    },
+    {
+      "name": "CRM",
+      "description": "To sync audience engagement data with the customer relationship management system."
+    },
+    {
+      "name": "ECommerce",
+      "description": "To connect marketing campaigns with the eCommerce platform for better product targeting."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:51:09.743Z"
+}

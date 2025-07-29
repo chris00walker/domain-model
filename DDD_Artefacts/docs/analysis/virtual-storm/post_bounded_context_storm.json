@@ -1,0 +1,73 @@
+{
+  "events": [
+    {
+      "name": "PostCreated",
+      "description": "Represents the creation of a new post for item listings."
+    },
+    {
+      "name": "PostUpdated",
+      "description": "Used to modify existing post details."
+    },
+    {
+      "name": "PostDeleted",
+      "description": "Indicates a post has been removed from listings."
+    },
+    {
+      "name": "PostViewed",
+      "description": "Tracks when a post is viewed by a customer."
+    },
+    {
+      "name": "PostFlagged",
+      "description": "Allows users to flag posts for review."
+    },
+    {
+      "name": "PostShared",
+      "description": "Indicates a post has been shared on social media."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreatePost",
+      "description": "Represents the creation of a new post for item listings."
+    },
+    {
+      "name": "UpdatePost",
+      "description": "Used to modify existing post details."
+    },
+    {
+      "name": "DeletePost",
+      "description": "Indicates a post has been removed from listings."
+    },
+    {
+      "name": "ViewPost",
+      "description": "Tracks when a post is viewed by a customer."
+    },
+    {
+      "name": "FlagPost",
+      "description": "Allows users to flag posts for review."
+    },
+    {
+      "name": "SharePost",
+      "description": "Indicates a post has been shared on social media."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryContext",
+      "description": "Integrate with inventory for real-time updates on item availability related to posts."
+    },
+    {
+      "name": "UserManagementContext",
+      "description": "Integration with user management for tracking post authors."
+    },
+    {
+      "name": "NotificationContext",
+      "description": "Send notifications to users when posts are created or updated."
+    },
+    {
+      "name": "AnalyticsContext",
+      "description": "Integrate with analytics to track post engagement metrics."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:58:04.128Z"
+}

@@ -2,46 +2,13 @@
   "events": [
     "BatchTraceabilityUpdated",
     "BatchTrackingUpdated",
-    "ColdChainAuditCompleted",
-    "BatchTraceabilityVerified",
-    "BatchTraceabilityInvalidated",
-    "BatchTraceabilityRevised",
-    "BatchTraceabilityEnhanced",
-    "BatchTraceabilityAudited",
-    "BatchTraceabilityRestored",
-    "BatchTraceabilityEnhancedWithMetadata",
-    "BatchTraceabilityUpdatedWithComments"
+    "ColdChainAuditCompleted"
   ],
   "commands": [
     "Update",
     "Complete",
-    "Cancel",
-    "VerifyBatchTraceability",
-    "InvalidateBatchTraceability",
-    "ReviseBatchTraceability",
-    "EnhanceBatchTraceability",
-    "AuditBatchTraceability",
-    "RestoreBatchTraceability",
-    "EnhanceBatchTraceabilityWithMetadata",
-    "UpdateBatchTraceabilityWithComments"
+    "Cancel"
   ],
-  "integrationPoints": [
-    "InventoryManagement",
-    "OrderManagement",
-    "SupplierManagement"
-  ],
-  "notes": [
-    "This event indicates that the traceability of a batch has been confirmed after a thorough review of the supply chain data. The corresponding command is necessary to initiate the verification process, ensuring that all relevant information is accurate and complies with traceability standards.",
-    "This event represents the situation where a batch's traceability is deemed invalid due to discrepancies found during audits or data inconsistencies. The corresponding command is intended to initiate the process of marking the batch as invalid, which may trigger further investigation or corrective actions.",
-    "This event captures the scenario where a batch's traceability information is updated to correct inaccuracies or to provide more detailed data, ensuring that all stakeholders have access to the most current information. The corresponding command allows for an explicit request to revise the traceability data.",
-    "This event signifies that new data has been added to enhance the traceability of a batch, such as additional supplier information or updated compliance documentation. The corresponding command allows users to initiate this enhancement process, ensuring that traceability records are accurate and comprehensive.",
-    "This event is triggered when a batch undergoes an audit process to ensure compliance with traceability standards. The corresponding command allows users to initiate the audit, which may involve gathering documentation and verifying the traceability of the batch.",
-    "This event and command pair is proposed to handle scenarios where previously invalidated batch traceability is reinstated after corrective actions have been taken. It enhances the process of maintaining accurate and reliable traceability records.",
-    "This event captures the enhancement of batch traceability by adding critical metadata, such as supplier information or quality checks, that improves visibility and compliance. The corresponding command allows the application to process the addition of this metadata to existing batch traceability records.",
-    "This event and command allow users to add contextual comments to batch traceability records, enhancing the understanding of the batch's history and current status, which is critical for audits and compliance.",
-    "Integrating with InventoryManagement allows for real-time tracking of supplier products, enhancing traceability and ensuring accurate stock levels based on supplier deliveries.",
-    "Integrating OrderManagement with SupplierTraceability ensures that all orders can be tracked back to their suppliers, enhancing accountability and enabling better inventory control.",
-    "Integrating SupplierManagement with SupplierTraceability allows for enhanced tracking of product origins and ensures that suppliers meet compliance and quality standards throughout the supply chain.",
-    "Integrating SupplierManagement with SupplierTraceability is essential to ensure that all supplier information and product origins are accurately tracked and managed, enhancing accountability and compliance in the supply chain."
-  ]
+  "integrationPoints": [],
+  "notes": []
 }

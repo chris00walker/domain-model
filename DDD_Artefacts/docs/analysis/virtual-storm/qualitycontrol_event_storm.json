@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "QualityCheckInitiated",
+      "description": "Represents the start of the quality check process for a batch of food imports."
+    },
+    {
+      "name": "QualityCheckPassed",
+      "description": "Indicates that a batch has successfully passed the quality check."
+    },
+    {
+      "name": "QualityCheckFailed",
+      "description": "Indicates that a batch has failed the quality check and must be rejected."
+    },
+    {
+      "name": "QualityReportGenerated",
+      "description": "Represents the creation of a report detailing the results of the quality check."
+    },
+    {
+      "name": "QualityControlEscalation",
+      "description": "Represents an issue during quality control that needs further attention from higher authority."
+    }
+  ],
+  "commands": [
+    {
+      "name": "InitiateQualityCheck",
+      "description": "Represents the start of the quality check process for a batch of food imports."
+    },
+    {
+      "name": "ApproveBatch",
+      "description": "Indicates that a batch has successfully passed the quality check."
+    },
+    {
+      "name": "RejectBatch",
+      "description": "Indicates that a batch has failed the quality check and must be rejected."
+    },
+    {
+      "name": "GenerateQualityReport",
+      "description": "Represents the creation of a report detailing the results of the quality check."
+    },
+    {
+      "name": "EscalateQualityIssue",
+      "description": "Represents an issue during quality control that needs further attention from higher authority."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "Inventory",
+      "description": "Integration with Inventory context to update stock levels based on quality check results."
+    },
+    {
+      "name": "OrderManagement",
+      "description": "Integration with Order Management context to flag batches that are rejections."
+    },
+    {
+      "name": "Reporting",
+      "description": "Integration with Reporting context to deliver quality check reports."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:47:00.134Z"
+}

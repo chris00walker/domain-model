@@ -1,42 +1,6 @@
 {
-  "events": [
-    "PromotionLaunched",
-    "PromotionUpdated",
-    "PromotionCancelled",
-    "PromotionActivated",
-    "PromotionExpired",
-    "PromotionPaused",
-    "PromotionReactivated",
-    "PromotionRescheduled"
-  ],
-  "commands": [
-    "CreatePromotion",
-    "UpdatePromotion",
-    "CancelPromotion",
-    "ActivatePromotion",
-    "ExpirePromotion",
-    "PausePromotion",
-    "ReactivatePromotion",
-    "ReschedulePromotion"
-  ],
-  "integrationPoints": [
-    "CustomerRelationshipManagement",
-    "SalesManagement",
-    "LeadManagement",
-    "CampaignManagement"
-  ],
-  "notes": [
-    "The 'CreatePromotion' command initiates a new promotional campaign for marketing purposes, which when executed successfully, generates a 'PromotionLaunched' event indicating that the promotion is now live and can influence pricing and discounts.",
-    "This event would be triggered when an existing promotion is modified, such as changing the discount percentage or duration. Updating promotions is crucial for optimizing marketing efforts and ensuring that the promotions stay relevant and effective in driving customer engagement and sales.",
-    "This event and command would allow for the cancellation of an active promotion, enabling the marketing team to respond to changes in strategy or market conditions. It adds flexibility in managing campaigns.",
-    "The PromotionActivated event captures the moment a promotion goes live and becomes active for customers. The corresponding ActivatePromotion command would be used to initiate this transition, ensuring that notifications and alerts are sent to customers about the new promotion.",
-    "This event represents the end of a promotion's validity period, which may be necessary to trigger updates in pricing and availability. The corresponding command allows users to manually expire a promotion if needed, ensuring that promotions are accurately represented in the system and that any related campaigns are adjusted accordingly.",
-    "The new event 'PromotionPaused' allows for a promotion to be temporarily halted, which can be useful in situations where the marketing strategy needs to adapt due to unforeseen circumstances or market changes. The corresponding command 'PausePromotion' would be used to initiate this action.",
-    "This event and command would be useful for situations where a previously paused or cancelled promotion needs to be reintroduced due to changes in market conditions or strategic decisions, allowing for flexibility in marketing campaigns.",
-    "This event and command would allow marketers to adjust the timing of a promotion, ensuring that it aligns with changing market conditions or strategic goals.",
-    "Integrating the CustomerRelationshipManagement context with marketing allows for better alignment of customer data, enabling targeted campaigns and personalized communication, ultimately enhancing customer engagement and satisfaction.",
-    "Integrating SalesManagement with marketing allows for a seamless flow of customer data and insights, enabling targeted campaigns and improved lead conversion rates.",
-    "Integrating LeadManagement with Marketing allows for effective tracking and nurturing of leads, enhancing the alignment between marketing campaigns and sales efforts.",
-    "Integrating CampaignManagement with marketing will streamline the execution of marketing campaigns, enhance tracking of campaign performance, and ensure alignment between sales and marketing efforts."
-  ]
+  "events": [],
+  "commands": [],
+  "integrationPoints": [],
+  "notes": []
 }
