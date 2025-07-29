@@ -1,65 +1,53 @@
 {
   "events": [
     {
-      "name": "SupplierAdded",
-      "description": "Captures the event of adding a new supplier to the traceability system."
-    },
-    {
-      "name": "SupplierUpdated",
-      "description": "Tracks changes made to an existing supplier's details."
+      "name": "SupplierConfirmed",
+      "description": "Captures the event of a supplier confirming the delivery of a batch."
     },
     {
       "name": "BatchQualityChecked",
-      "description": "Records the quality check event of a batch in the system."
+      "description": "Records the quality check of a batch, triggering a report generation."
     },
     {
-      "name": "ProductRecalled",
-      "description": "Handles the recall of a product due to safety concerns."
+      "name": "TemperatureAnomalyDetected",
+      "description": "Captures an event where a temperature anomaly during transport is detected."
     },
     {
-      "name": "TraceabilityReportGenerated",
-      "description": "Initiates the generation of traceability reports for batches."
+      "name": "SupplierAuditCompleted",
+      "description": "Records completion of an audit for a supplier."
     }
   ],
   "commands": [
     {
-      "name": "AddSupplier",
-      "description": "Captures the event of adding a new supplier to the traceability system."
+      "name": "ConfirmDelivery",
+      "description": "Captures the event of a supplier confirming the delivery of a batch."
     },
     {
-      "name": "UpdateSupplier",
-      "description": "Tracks changes made to an existing supplier's details."
+      "name": "GenerateQualityReport",
+      "description": "Records the quality check of a batch, triggering a report generation."
     },
     {
-      "name": "CheckBatchQuality",
-      "description": "Records the quality check event of a batch in the system."
+      "name": "AlertTemperatureIssue",
+      "description": "Captures an event where a temperature anomaly during transport is detected."
     },
     {
-      "name": "RecallProduct",
-      "description": "Handles the recall of a product due to safety concerns."
-    },
-    {
-      "name": "GenerateReport",
-      "description": "Initiates the generation of traceability reports for batches."
+      "name": "FinalizeAudit",
+      "description": "Records completion of an audit for a supplier."
     }
   ],
   "integrationPoints": [
     {
-      "name": "SupplierManagement",
-      "description": "Integrate with an external supplier management system to align supplier data."
+      "name": "SupplierManagementContext",
+      "description": "Integration with Supplier Management context for supplier confirmations."
     },
     {
-      "name": "QualityAssurance",
-      "description": "Integrate with a quality assurance system for seamless quality checks."
+      "name": "QualityControlContext",
+      "description": "Integration with Quality Control context for batch quality checks."
     },
     {
-      "name": "RecallManagement",
-      "description": "Integration for managing product recalls."
-    },
-    {
-      "name": "ReportingSystem",
-      "description": "Connect to a reporting system for automated report generation."
+      "name": "TemperatureMonitoringContext",
+      "description": "Integration with Temperature Monitoring context for anomaly alerts."
     }
   ],
-  "generatedAt": "2025-07-28T20:52:04.285Z"
+  "generatedAt": "2025-07-29T18:56:51.169Z"
 }

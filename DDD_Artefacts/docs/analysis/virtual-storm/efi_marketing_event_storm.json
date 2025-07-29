@@ -2,60 +2,68 @@
   "events": [
     {
       "name": "CampaignCreated",
-      "description": "Initiates a new marketing campaign."
+      "description": "To track the creation of marketing campaigns."
     },
     {
       "name": "CampaignLaunched",
-      "description": "Triggers the launch of a marketing campaign."
+      "description": "To trigger when a campaign goes live."
     },
     {
-      "name": "MarketResearchConducted",
-      "description": "Conducts research to identify target market needs."
+      "name": "CampaignMetricsAnalyzed",
+      "description": "To analyze performance metrics post-campaign."
     },
     {
-      "name": "AdMaterialCreated",
-      "description": "Creates advertising material for campaigns."
+      "name": "CustomerSegmentationUpdated",
+      "description": "To reflect changes in customer profiles for targeting."
     },
     {
-      "name": "CampaignPerformanceEvaluated",
-      "description": "Evaluates the success of a marketing campaign."
+      "name": "LeadGenerated",
+      "description": "To track new leads generated from marketing efforts."
+    },
+    {
+      "name": "ContentPublished",
+      "description": "To log instances of content being published."
     }
   ],
   "commands": [
     {
       "name": "CreateCampaign",
-      "description": "Initiates a new marketing campaign."
+      "description": "To track the creation of marketing campaigns."
     },
     {
       "name": "LaunchCampaign",
-      "description": "Triggers the launch of a marketing campaign."
+      "description": "To trigger when a campaign goes live."
     },
     {
-      "name": "ConductMarketResearch",
-      "description": "Conducts research to identify target market needs."
+      "name": "AnalyzeCampaignMetrics",
+      "description": "To analyze performance metrics post-campaign."
     },
     {
-      "name": "CreateAdMaterial",
-      "description": "Creates advertising material for campaigns."
+      "name": "UpdateCustomerSegmentation",
+      "description": "To reflect changes in customer profiles for targeting."
     },
     {
-      "name": "EvaluateCampaignPerformance",
-      "description": "Evaluates the success of a marketing campaign."
+      "name": "GenerateLead",
+      "description": "To track new leads generated from marketing efforts."
+    },
+    {
+      "name": "PublishContent",
+      "description": "To log instances of content being published."
     }
   ],
   "integrationPoints": [
     {
       "name": "Sales",
-      "description": "Integrate with Sales to track the impact of campaigns on sales performance."
+      "description": "To integrate marketing efforts with sales data for better insights."
     },
     {
-      "name": "CustomerSupport",
-      "description": "Integrate with Customer Support for lead feedback."
+      "name": "CRM",
+      "description": "To connect marketing with customer relationship management."
     },
     {
       "name": "Analytics",
-      "description": "Integrate with Analytics for performance metrics of campaigns."
+      "description": "To pull data from analytics for measuring campaign performance."
     }
   ],
-  "generatedAt": "2025-07-28T20:50:25.373Z"
+  "generatedAt": "2025-07-29T18:55:06.101Z"
 }

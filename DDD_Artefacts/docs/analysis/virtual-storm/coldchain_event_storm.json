@@ -1,49 +1,45 @@
 {
   "events": [
     {
-      "name": "ColdChainTemperatureAdjusted",
-      "description": "Necessary for maintaining optimal product conditions during transit."
+      "name": "ColdChainTemperatureOutOfRange",
+      "description": "This event captures instances where temperature readings exceed acceptable thresholds."
     },
     {
-      "name": "ColdChainMonitoringAlertIssued",
-      "description": "Alerts necessary stakeholders in case of discrepancies in monitoring."
-    },
-    {
-      "name": "ColdChainRouteOptimized",
-      "description": "Adjusts routes based on real-time traffic and temperature conditions."
+      "name": "ColdChainDeliveryScheduled",
+      "description": "This event signifies the scheduling of a delivery in the cold chain."
     },
     {
       "name": "ColdChainDeliveryCompleted",
-      "description": "Marks the delivery of temperature-sensitive products as completed."
+      "description": "Captures the event of a delivery being completed successfully."
     }
   ],
   "commands": [
     {
-      "name": "AdjustTemperature",
-      "description": "Necessary for maintaining optimal product conditions during transit."
+      "name": "AlertTemperatureIssue",
+      "description": "This event captures instances where temperature readings exceed acceptable thresholds."
     },
     {
-      "name": "IssueMonitoringAlert",
-      "description": "Alerts necessary stakeholders in case of discrepancies in monitoring."
-    },
-    {
-      "name": "OptimizeRoute",
-      "description": "Adjusts routes based on real-time traffic and temperature conditions."
+      "name": "ScheduleDelivery",
+      "description": "This event signifies the scheduling of a delivery in the cold chain."
     },
     {
       "name": "CompleteDelivery",
-      "description": "Marks the delivery of temperature-sensitive products as completed."
+      "description": "Captures the event of a delivery being completed successfully."
     }
   ],
   "integrationPoints": [
     {
-      "name": "MonitoringSystem",
-      "description": "Integration with existing temperature monitoring systems to fetch real-time data."
+      "name": "TemperatureMonitoringSystem",
+      "description": "Integrate with existing temperature monitoring systems for real-time data."
+    },
+    {
+      "name": "LogisticsManagementSystem",
+      "description": "Integration with logistics systems to track delivery schedules."
     },
     {
       "name": "InventoryManagementSystem",
-      "description": "Sync temperature-controlled products with inventory to manage stock levels accurately."
+      "description": "To ensure stock levels are updated based on deliveries."
     }
   ],
-  "generatedAt": "2025-07-28T20:44:07.473Z"
+  "generatedAt": "2025-07-29T18:48:39.305Z"
 }

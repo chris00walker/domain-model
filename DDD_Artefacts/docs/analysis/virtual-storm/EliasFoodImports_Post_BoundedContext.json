@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "PostCreated",
+      "description": "Triggered when a new post is created for products."
+    },
+    {
+      "name": "PostUpdated",
+      "description": "Triggered when an existing post is modified."
+    },
+    {
+      "name": "PostDeleted",
+      "description": "Triggered when a post is removed from the system."
+    },
+    {
+      "name": "PostPublished",
+      "description": "Triggered when a post is made live for viewing."
+    },
+    {
+      "name": "PostDrafted",
+      "description": "Triggered when a post is initially created as a draft."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreatePost",
+      "description": "Triggered when a new post is created for products."
+    },
+    {
+      "name": "UpdatePost",
+      "description": "Triggered when an existing post is modified."
+    },
+    {
+      "name": "DeletePost",
+      "description": "Triggered when a post is removed from the system."
+    },
+    {
+      "name": "PublishPost",
+      "description": "Triggered when a post is made live for viewing."
+    },
+    {
+      "name": "DraftPost",
+      "description": "Triggered when a post is initially created as a draft."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "UserManagement",
+      "description": "Integrates with user management for authoring posts."
+    },
+    {
+      "name": "InventoryManagement",
+      "description": "Integrates with inventory to tag products in posts."
+    },
+    {
+      "name": "NotificationService",
+      "description": "Integrates with notifications to alert users about new posts."
+    },
+    {
+      "name": "AnalyticsService",
+      "description": "Integrates with analytics to track post interactions."
+    }
+  ],
+  "generatedAt": "2025-07-29T19:04:36.385Z"
+}

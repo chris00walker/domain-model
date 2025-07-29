@@ -1,0 +1,73 @@
+{
+  "events": [
+    {
+      "name": "ReportGenerated",
+      "description": "This event captures the process of generating a report for analytics purposes."
+    },
+    {
+      "name": "ReportDelivered",
+      "description": "This event indicates that a generated report has been successfully delivered to the user."
+    },
+    {
+      "name": "ReportReviewed",
+      "description": "This event signifies that a report has been reviewed for insights."
+    },
+    {
+      "name": "DataAnalyzed",
+      "description": "This event reflects the analysis of data inputs leading to insights."
+    },
+    {
+      "name": "ReportCanceled",
+      "description": "This event signifies a request to cancel a previously generated report."
+    },
+    {
+      "name": "ReportScheduled",
+      "description": "This event indicates that a report has been scheduled for future generation."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateReport",
+      "description": "This event captures the process of generating a report for analytics purposes."
+    },
+    {
+      "name": "DeliverReport",
+      "description": "This event indicates that a generated report has been successfully delivered to the user."
+    },
+    {
+      "name": "ReviewReport",
+      "description": "This event signifies that a report has been reviewed for insights."
+    },
+    {
+      "name": "AnalyzeData",
+      "description": "This event reflects the analysis of data inputs leading to insights."
+    },
+    {
+      "name": "CancelReport",
+      "description": "This event signifies a request to cancel a previously generated report."
+    },
+    {
+      "name": "ScheduleReport",
+      "description": "This event indicates that a report has been scheduled for future generation."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "DataWarehousing",
+      "description": "Integration with Data Warehousing for deeper analysis capabilities."
+    },
+    {
+      "name": "ReportingDashboard",
+      "description": "Integration with a Reporting Dashboard for real-time report visualization."
+    },
+    {
+      "name": "NotificationSystem",
+      "description": "Integration with a Notification System to inform users about report status."
+    },
+    {
+      "name": "UserManagement",
+      "description": "Integration with User Management to ensure secure access to reports."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:58:58.932Z"
+}

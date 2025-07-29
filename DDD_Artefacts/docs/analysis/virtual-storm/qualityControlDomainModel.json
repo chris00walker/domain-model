@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "QualityControlInitiated",
+      "description": "Represents the start of the quality control process for shipments."
+    },
+    {
+      "name": "QualityControlCompleted",
+      "description": "Indicates that the quality control process has been finished."
+    },
+    {
+      "name": "QualityIssueDetected",
+      "description": "Represents the detection of a quality issue during inspection."
+    },
+    {
+      "name": "QualityIssueResolved",
+      "description": "Indicates that a previously reported quality issue has been resolved."
+    }
+  ],
+  "commands": [
+    {
+      "name": "InitiateQualityControl",
+      "description": "Represents the start of the quality control process for shipments."
+    },
+    {
+      "name": "CompleteQualityControl",
+      "description": "Indicates that the quality control process has been finished."
+    },
+    {
+      "name": "ReportQualityIssue",
+      "description": "Represents the detection of a quality issue during inspection."
+    },
+    {
+      "name": "ResolveQualityIssue",
+      "description": "Indicates that a previously reported quality issue has been resolved."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integration with Inventory Management to update stock levels based on quality control results."
+    },
+    {
+      "name": "ShippingDepartment",
+      "description": "Communication with the Shipping Department to halt shipments if quality issues arise."
+    },
+    {
+      "name": "SupplierManagement",
+      "description": "Integrate with Supplier Management to report quality issues back to suppliers for corrective measures."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:50:39.715Z"
+}

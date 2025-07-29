@@ -2,56 +2,68 @@
   "events": [
     {
       "name": "PostCreated",
-      "description": "This event signifies the creation of a new post for products."
+      "description": "Represents the creation of a new post, initiating the process."
     },
     {
       "name": "PostUpdated",
-      "description": "This event denotes an update made to an existing post."
+      "description": "Represents the update of an existing post to reflect changes."
     },
     {
       "name": "PostDeleted",
-      "description": "This event indicates that a post has been deleted."
+      "description": "Represents the deletion of a post from the system."
     },
     {
-      "name": "PostPromoted",
-      "description": "This event mentions that a post has been promoted for better visibility."
+      "name": "PostPublished",
+      "description": "Indicates a post has been published and is available to users."
+    },
+    {
+      "name": "CommentAdded",
+      "description": "Represents a comment being added to a post."
+    },
+    {
+      "name": "CommentDeleted",
+      "description": "Indicates a comment has been removed from a post."
     }
   ],
   "commands": [
     {
       "name": "CreatePost",
-      "description": "This event signifies the creation of a new post for products."
+      "description": "Represents the creation of a new post, initiating the process."
     },
     {
       "name": "UpdatePost",
-      "description": "This event denotes an update made to an existing post."
+      "description": "Represents the update of an existing post to reflect changes."
     },
     {
       "name": "DeletePost",
-      "description": "This event indicates that a post has been deleted."
+      "description": "Represents the deletion of a post from the system."
     },
     {
-      "name": "PromotePost",
-      "description": "This event mentions that a post has been promoted for better visibility."
+      "name": "PublishPost",
+      "description": "Indicates a post has been published and is available to users."
+    },
+    {
+      "name": "AddComment",
+      "description": "Represents a comment being added to a post."
+    },
+    {
+      "name": "DeleteComment",
+      "description": "Indicates a comment has been removed from a post."
     }
   ],
   "integrationPoints": [
     {
-      "name": "ProductService",
-      "description": "Integration with the Product Service to fetch product details for posts."
-    },
-    {
-      "name": "UserService",
-      "description": "Integration with the User Service for user details related to posts."
-    },
-    {
-      "name": "AnalyticsService",
-      "description": "Integration with the Analytics Service to track post engagement."
+      "name": "UserManagement",
+      "description": "Integration with the User Management context to handle post authorship."
     },
     {
       "name": "NotificationService",
-      "description": "Integration for notifications related to post activities."
+      "description": "Integration with a notification service for alerts on post activities."
+    },
+    {
+      "name": "AnalyticsService",
+      "description": "To track post engagement and user interaction."
     }
   ],
-  "generatedAt": "2025-07-28T20:58:46.434Z"
+  "generatedAt": "2025-07-29T19:04:19.835Z"
 }

@@ -1,57 +1,65 @@
 {
   "events": [
     {
-      "name": "QuoteRequested",
-      "description": "Initiates the quote request process for a customer."
+      "name": "PriceQuoteGenerated",
+      "description": "Captures when a new price quote is generated for a sales opportunity."
     },
     {
-      "name": "QuoteGenerated",
-      "description": "Indicates that a quote has been successfully created."
+      "name": "PriceQuoteExpired",
+      "description": "Tracks the expiration of price quotes after a defined period."
     },
     {
-      "name": "QuoteApproved",
-      "description": "Signifies that the customer has approved the generated quote."
+      "name": "PriceQuoteAccepted",
+      "description": "Records when a client accepts a price quote."
     },
     {
-      "name": "QuoteRejected",
-      "description": "Captures the event of a customer rejecting a quote."
+      "name": "PriceQuoteRejected",
+      "description": "Records when a client rejects a price quote."
     },
     {
-      "name": "QuoteExpired",
-      "description": "Indicates that a quote has reached its expiration date without acceptance."
+      "name": "CustomerInquiryReceived",
+      "description": "Tracks when a potential customer makes an inquiry regarding pricing."
+    },
+    {
+      "name": "AdjustmentRequested",
+      "description": "Captures requests for adjustments on existing quotes."
     }
   ],
   "commands": [
     {
-      "name": "RequestQuote",
-      "description": "Initiates the quote request process for a customer."
+      "name": "GeneratePriceQuote",
+      "description": "Captures when a new price quote is generated for a sales opportunity."
     },
     {
-      "name": "GenerateQuote",
-      "description": "Indicates that a quote has been successfully created."
+      "name": "ExpirePriceQuote",
+      "description": "Tracks the expiration of price quotes after a defined period."
     },
     {
-      "name": "ApproveQuote",
-      "description": "Signifies that the customer has approved the generated quote."
+      "name": "AcceptPriceQuote",
+      "description": "Records when a client accepts a price quote."
     },
     {
-      "name": "RejectQuote",
-      "description": "Captures the event of a customer rejecting a quote."
+      "name": "RejectPriceQuote",
+      "description": "Records when a client rejects a price quote."
     },
     {
-      "name": "ExpireQuote",
-      "description": "Indicates that a quote has reached its expiration date without acceptance."
+      "name": "ReceiveCustomerInquiry",
+      "description": "Tracks when a potential customer makes an inquiry regarding pricing."
+    },
+    {
+      "name": "RequestAdjustment",
+      "description": "Captures requests for adjustments on existing quotes."
     }
   ],
   "integrationPoints": [
     {
-      "name": "CustomerRelationshipManagement",
-      "description": "Integration with the CRM system for customer data."
+      "name": "PricingService",
+      "description": "Integrates with an external pricing service for real-time price updates."
     },
     {
-      "name": "InventoryManagement",
-      "description": "Integration to check product availability during quote generation."
+      "name": "CustomerManagementSystem",
+      "description": "Integrates with a system managing customer details and interactions."
     }
   ],
-  "generatedAt": "2025-07-28T20:57:31.683Z"
+  "generatedAt": "2025-07-29T19:02:38.050Z"
 }

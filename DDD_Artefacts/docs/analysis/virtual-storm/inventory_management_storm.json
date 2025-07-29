@@ -1,57 +1,57 @@
 {
   "events": [
     {
-      "name": "InventoryAdded",
-      "description": "To track the addition of new items in the inventory."
+      "name": "InventoryItemAdded",
+      "description": "Capture when a new item is added to inventory."
     },
     {
-      "name": "InventoryRemoved",
-      "description": "To track the removal of items from inventory."
+      "name": "InventoryItemRemoved",
+      "description": "Capture when an item is removed from inventory."
     },
     {
-      "name": "InventoryCountUpdated",
-      "description": "To update the stock counts of existing items."
+      "name": "InventoryItemUpdated",
+      "description": "Capture when item details are updated in inventory."
     },
     {
-      "name": "InventoryChecked",
-      "description": "To check the current status of inventory."
+      "name": "InventoryStockChecked",
+      "description": "Capture when inventory stock levels are checked."
     }
   ],
   "commands": [
     {
       "name": "AddInventoryItem",
-      "description": "To track the addition of new items in the inventory."
+      "description": "Capture when a new item is added to inventory."
     },
     {
       "name": "RemoveInventoryItem",
-      "description": "To track the removal of items from inventory."
+      "description": "Capture when an item is removed from inventory."
     },
     {
-      "name": "UpdateInventoryCount",
-      "description": "To update the stock counts of existing items."
+      "name": "UpdateInventoryItem",
+      "description": "Capture when item details are updated in inventory."
     },
     {
-      "name": "CheckInventoryStatus",
-      "description": "To check the current status of inventory."
+      "name": "CheckInventoryStock",
+      "description": "Capture when inventory stock levels are checked."
     }
   ],
   "integrationPoints": [
     {
-      "name": "OrderManagementIntegration",
-      "description": "Integration with order management to synchronize inventory status."
+      "name": "SupplierManagement",
+      "description": "Integration with supplier management system for real-time inventory updates."
     },
     {
-      "name": "SupplierManagementIntegration",
-      "description": "Integration with suppliers to automate inventory restocking."
+      "name": "SalesManagement",
+      "description": "Integration with sales system to synchronize inventory levels after sales."
     },
     {
-      "name": "ShippingManagementIntegration",
-      "description": "Integration with shipping to update inventory post shipment."
+      "name": "OrderManagement",
+      "description": "Integration with order management system to manage order-related inventory adjustments."
     },
     {
-      "name": "AccountingIntegration",
-      "description": "Integration to reflect inventory changes in financial systems."
+      "name": "ReportingService",
+      "description": "Integration with reporting service for inventory analytics."
     }
   ],
-  "generatedAt": "2025-07-28T20:45:04.103Z"
+  "generatedAt": "2025-07-29T18:48:53.656Z"
 }

@@ -1,49 +1,69 @@
 {
   "events": [
     {
-      "name": "ReviewSubmitted",
-      "description": "Captures the event of a review being submitted by a customer."
+      "name": "BatchQualityAssurancePassed",
+      "description": "Indicates successful quality assurance and triggers notifications."
     },
     {
-      "name": "ReviewModerated",
-      "description": "Reflects the process of reviewing and moderating user-generated content."
+      "name": "ReviewSubmitted",
+      "description": "Captures the customer review submission event."
+    },
+    {
+      "name": "ReviewApproved",
+      "description": "Indicates a review has been approved for publication."
+    },
+    {
+      "name": "ReviewRejected",
+      "description": "Indicates a review has been rejected, triggering a notification."
     },
     {
       "name": "RatingUpdated",
-      "description": "Indicates a change in the rating given by a customer for a product."
+      "description": "Tracks updates to product ratings."
     },
     {
-      "name": "ReviewFlagged",
-      "description": "Represents the action of flagging a review for inappropriate content."
+      "name": "QualityAlertIssued",
+      "description": "Indicates a quality-related alert that requires investigation."
     }
   ],
   "commands": [
     {
-      "name": "SubmitReview",
-      "description": "Captures the event of a review being submitted by a customer."
+      "name": "NotifyQualityAssurance",
+      "description": "Indicates successful quality assurance and triggers notifications."
     },
     {
-      "name": "ModerateReview",
-      "description": "Reflects the process of reviewing and moderating user-generated content."
+      "name": "ProcessReview",
+      "description": "Captures the customer review submission event."
     },
     {
-      "name": "UpdateRating",
-      "description": "Indicates a change in the rating given by a customer for a product."
+      "name": "NotifyCustomer",
+      "description": "Indicates a review has been approved for publication."
     },
     {
-      "name": "FlagReview",
-      "description": "Represents the action of flagging a review for inappropriate content."
+      "name": "LogRatingChange",
+      "description": "Tracks updates to product ratings."
+    },
+    {
+      "name": "InvestigateQualityIssue",
+      "description": "Indicates a quality-related alert that requires investigation."
     }
   ],
   "integrationPoints": [
     {
-      "name": "CustomerFeedbackService",
-      "description": "Integration with an external service to manage customer feedback and analysis."
+      "name": "CustomerFeedbackSystem",
+      "description": "Integration with external system for managing customer feedback."
     },
     {
-      "name": "AnalyticsService",
-      "description": "Integration with an analytics service to gather insights on reviews and ratings."
+      "name": "ProductInformationSystem",
+      "description": "Integration for ensuring product details are up to date."
+    },
+    {
+      "name": "NotificationService",
+      "description": "Integration needed for notifying customers about reviews."
+    },
+    {
+      "name": "ReportingService",
+      "description": "Integration for generating reports on reviews and ratings."
     }
   ],
-  "generatedAt": "2025-07-28T20:56:06.927Z"
+  "generatedAt": "2025-07-29T19:00:47.294Z"
 }

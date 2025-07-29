@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "BatchAccepted",
+      "description": "A new batch is accepted into the inventory for tracking."
+    },
+    {
+      "name": "BatchShipped",
+      "description": "Indicates that a batch has been shipped to the customer."
+    },
+    {
+      "name": "BatchDelivered",
+      "description": "Indicates that a batch has been successfully delivered."
+    },
+    {
+      "name": "ColdChainBreachDetected",
+      "description": "A breach in cold chain conditions triggers an alert."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AcceptBatch",
+      "description": "A new batch is accepted into the inventory for tracking."
+    },
+    {
+      "name": "ShipBatch",
+      "description": "Indicates that a batch has been shipped to the customer."
+    },
+    {
+      "name": "DeliverBatch",
+      "description": "Indicates that a batch has been successfully delivered."
+    },
+    {
+      "name": "ReportBreach",
+      "description": "A breach in cold chain conditions triggers an alert."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integrate with inventory management for batch tracking updates."
+    },
+    {
+      "name": "ShippingService",
+      "description": "Integrate with shipping service for real-time tracking."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:46:11.665Z"
+}

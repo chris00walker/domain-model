@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "ReceiveImportOrder",
+      "description": "Captures the event of receiving a new import order."
+    },
+    {
+      "name": "ProcessImportOrder",
+      "description": "Tracks the processing of received import orders."
+    },
+    {
+      "name": "ImportOrderCompleted",
+      "description": "Indicates that an import order has been successfully completed."
+    }
+  ],
+  "commands": [
+    {
+      "name": "PlaceImportOrder",
+      "description": "Captures the event of receiving a new import order."
+    },
+    {
+      "name": "FinalizeImportOrder",
+      "description": "Tracks the processing of received import orders."
+    },
+    {
+      "name": "CompleteImportOrder",
+      "description": "Indicates that an import order has been successfully completed."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integration with inventory system to update stock after import."
+    },
+    {
+      "name": "SupplierManagement",
+      "description": "Integrates with supplier management for tracking orders."
+    },
+    {
+      "name": "ShippingManagement",
+      "description": "Integration with shipping system for handling outbound deliveries."
+    },
+    {
+      "name": "AccountingSystem",
+      "description": "Integration to process financial transactions related to imports."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:45:04.971Z"
+}

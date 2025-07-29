@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "InventoryItemAdded",
+      "description": "Captures the event of a new item being added to the inventory."
+    },
+    {
+      "name": "InventoryItemRemoved",
+      "description": "Handles the removal of an item from the inventory."
+    },
+    {
+      "name": "InventoryItemUpdated",
+      "description": "Records changes to an existing item in the inventory."
+    },
+    {
+      "name": "InventoryChecked",
+      "description": "Triggers an inventory check or audit."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddInventoryItem",
+      "description": "Captures the event of a new item being added to the inventory."
+    },
+    {
+      "name": "RemoveInventoryItem",
+      "description": "Handles the removal of an item from the inventory."
+    },
+    {
+      "name": "UpdateInventoryItem",
+      "description": "Records changes to an existing item in the inventory."
+    },
+    {
+      "name": "CheckInventory",
+      "description": "Triggers an inventory check or audit."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryIntegration",
+      "description": "Integration with external systems to sync inventory data."
+    },
+    {
+      "name": "SupplierIntegration",
+      "description": "Links to supplier systems for order management."
+    },
+    {
+      "name": "SalesIntegration",
+      "description": "Integrates with sales systems to reflect sold-out items."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:49:12.713Z"
+}

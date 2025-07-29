@@ -1,49 +1,53 @@
 {
   "events": [
     {
-      "name": "BatchShipped",
-      "description": "Tracks the event of a batch being shipped to customers."
+      "name": "BatchDispatched",
+      "description": "Track the moment a batch is dispatched from the warehouse."
     },
     {
       "name": "BatchReceived",
-      "description": "Records the acceptance of a batch upon arrival at the destination."
+      "description": "Capture the event when a batch arrives at a destination."
     },
     {
-      "name": "ColdChainAlertTriggered",
-      "description": "Notifies relevant parties if the cold chain temperature deviates from the acceptable range."
+      "name": "ColdChainBreachDetected",
+      "description": "Identify and report when the cold chain is compromised."
     },
     {
-      "name": "BatchInspectionFailed",
-      "description": "Logs instances where a batch fails inspection, requiring further action."
+      "name": "BatchQualityAssessed",
+      "description": "Evaluate the quality of the batch after inspection."
     }
   ],
   "commands": [
     {
-      "name": "ShipBatch",
-      "description": "Tracks the event of a batch being shipped to customers."
+      "name": "DispatchBatch",
+      "description": "Track the moment a batch is dispatched from the warehouse."
     },
     {
       "name": "ReceiveBatch",
-      "description": "Records the acceptance of a batch upon arrival at the destination."
+      "description": "Capture the event when a batch arrives at a destination."
     },
     {
-      "name": "TriggerColdChainAlert",
-      "description": "Notifies relevant parties if the cold chain temperature deviates from the acceptable range."
+      "name": "ReportBreach",
+      "description": "Identify and report when the cold chain is compromised."
     },
     {
-      "name": "FailBatchInspection",
-      "description": "Logs instances where a batch fails inspection, requiring further action."
+      "name": "AssessBatchQuality",
+      "description": "Evaluate the quality of the batch after inspection."
     }
   ],
   "integrationPoints": [
     {
-      "name": "Logistics",
-      "description": "Integration with the logistics system to handle shipping and receiving of batches."
+      "name": "InventoryManagement",
+      "description": "Integrate with Inventory Management for real-time updates on batch statuses."
+    },
+    {
+      "name": "ShippingLogistics",
+      "description": "Link with Shipping Logistics for tracking batches during transportation."
     },
     {
       "name": "QualityControl",
-      "description": "Integration with the quality control system for inspections and alerts."
+      "description": "Integration with Quality Control to assess batch quality post-inspection."
     }
   ],
-  "generatedAt": "2025-07-28T20:42:58.478Z"
+  "generatedAt": "2025-07-29T18:47:08.451Z"
 }

@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "ReturnInitiated",
+      "description": "Captures the beginning of the return process."
+    },
+    {
+      "name": "ReturnConfirmed",
+      "description": "Indicates the customer's return request has been confirmed."
+    },
+    {
+      "name": "ReturnShipped",
+      "description": "Triggers once the return item has been shipped back."
+    },
+    {
+      "name": "ReturnReceived",
+      "description": "Indicates the return item has been received by the warehouse."
+    },
+    {
+      "name": "ReturnProcessed",
+      "description": "Enhances existing event for further processing needs."
+    }
+  ],
+  "commands": [
+    {
+      "name": "InitiateReturn",
+      "description": "Captures the beginning of the return process."
+    },
+    {
+      "name": "ConfirmReturn",
+      "description": "Indicates the customer's return request has been confirmed."
+    },
+    {
+      "name": "ShipReturn",
+      "description": "Triggers once the return item has been shipped back."
+    },
+    {
+      "name": "ReceiveReturn",
+      "description": "Indicates the return item has been received by the warehouse."
+    },
+    {
+      "name": "ProcessReturn",
+      "description": "Enhances existing event for further processing needs."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "PaymentProcessing",
+      "description": "Integrates with Payment context to handle refunds upon return."
+    },
+    {
+      "name": "InventoryManagement",
+      "description": "Integrates with Inventory context to update stock levels upon return receipt."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:51:40.412Z"
+}

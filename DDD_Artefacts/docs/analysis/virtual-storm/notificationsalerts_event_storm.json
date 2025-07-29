@@ -1,49 +1,57 @@
 {
   "events": [
     {
-      "name": "TemperatureThresholdExceeded",
-      "description": "To alert about temperature deviations beyond acceptable levels."
+      "name": "TemperatureAlertGenerated",
+      "description": "To notify stakeholders when temperature thresholds are breached."
     },
     {
-      "name": "TemperatureRecoveryAchieved",
-      "description": "To inform when the temperature returns to safe levels."
+      "name": "HumidityAlertGenerated",
+      "description": "To alert concerning humidity levels exceeding safe limits."
     },
     {
-      "name": "SensorMalfunctionDetected",
-      "description": "To log any detected errors in sensor functionality."
+      "name": "ColdChainIntegrityChecked",
+      "description": "To verify the overall integrity of the cold chain process."
     },
     {
-      "name": "ShipmentDelayed",
-      "description": "To dispatch notifications regarding shipment delays."
+      "name": "UnitTemperatureLogCreated",
+      "description": "To create logs of temperature readings from various units."
+    },
+    {
+      "name": "TemperatureAdjustmentRequested",
+      "description": "To request adjustments to temperature settings in response to alerts."
     }
   ],
   "commands": [
     {
-      "name": "NotifyTemperatureAlert",
-      "description": "To alert about temperature deviations beyond acceptable levels."
+      "name": "GenerateAlert",
+      "description": "To notify stakeholders when temperature thresholds are breached."
     },
     {
-      "name": "InformTemperatureRecovery",
-      "description": "To inform when the temperature returns to safe levels."
+      "name": "CheckIntegrity",
+      "description": "To verify the overall integrity of the cold chain process."
     },
     {
-      "name": "LogSensorError",
-      "description": "To log any detected errors in sensor functionality."
+      "name": "LogTemperature",
+      "description": "To create logs of temperature readings from various units."
     },
     {
-      "name": "NotifyShipmentDelay",
-      "description": "To dispatch notifications regarding shipment delays."
+      "name": "RequestTemperatureAdjustment",
+      "description": "To request adjustments to temperature settings in response to alerts."
     }
   ],
   "integrationPoints": [
     {
-      "name": "NotificationService",
-      "description": "To send alerts and notifications based on events like temperature alerts and shipment delays."
+      "name": "ExternalMonitoringSystem",
+      "description": "Integrating with a third-party monitoring system for real-time alerts."
     },
     {
-      "name": "LoggingSystem",
-      "description": "To log sensor data and errors for monitoring and auditing purposes."
+      "name": "AnalyticsDashboard",
+      "description": "Integration for displaying alerts and monitoring metrics."
+    },
+    {
+      "name": "WarehouseManagementSystem",
+      "description": "To ensure that temperature alerts trigger actions in the warehouse where goods are stored."
     }
   ],
-  "generatedAt": "2025-07-28T20:53:36.671Z"
+  "generatedAt": "2025-07-29T18:58:00.434Z"
 }

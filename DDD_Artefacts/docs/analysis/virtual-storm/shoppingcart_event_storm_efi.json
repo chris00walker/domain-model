@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "CartItemAdded",
+      "description": "This event triggers when an item is added to the cart."
+    },
+    {
+      "name": "CartItemRemoved",
+      "description": "This event is raised when an item is removed from the cart."
+    },
+    {
+      "name": "CartItemPriceUpdated",
+      "description": "This captures the event when the price of an item in the cart changes."
+    },
+    {
+      "name": "CartDiscountApplied",
+      "description": "Indicates when a discount is applied to the cart."
+    },
+    {
+      "name": "CartPromotionApplied",
+      "description": "Tracks when a promotional offer is applied to the cart."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddItem",
+      "description": "This event triggers when an item is added to the cart."
+    },
+    {
+      "name": "RemoveItem",
+      "description": "This event is raised when an item is removed from the cart."
+    },
+    {
+      "name": "UpdateItemPrice",
+      "description": "This captures the event when the price of an item in the cart changes."
+    },
+    {
+      "name": "ApplyDiscount",
+      "description": "Indicates when a discount is applied to the cart."
+    },
+    {
+      "name": "ApplyPromotion",
+      "description": "Tracks when a promotional offer is applied to the cart."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integrate with inventory management to check stock levels when items are added."
+    },
+    {
+      "name": "PaymentProcessing",
+      "description": "Integration with the payment processing system for checkout."
+    },
+    {
+      "name": "CustomerNotification",
+      "description": "Notify customers about cart updates via email or SMS."
+    },
+    {
+      "name": "OrderManagementSystem",
+      "description": "After checkout, integrate with the order management for order fulfillment."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:53:48.379Z"
+}

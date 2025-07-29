@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "ShipmentReceived",
+      "description": "To capture when a shipment is received and acknowledged."
+    },
+    {
+      "name": "TemperatureDeviationDetected",
+      "description": "To indicate a deviation in cold chain temperatures that needs attention."
+    },
+    {
+      "name": "SupplierQualityReportGenerated",
+      "description": "To track quality reports from suppliers post-delivery."
+    },
+    {
+      "name": "BatchRecallInitiated",
+      "description": "To manage the process of recalling a batch due to safety issues."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AcknowledgeShipment",
+      "description": "To capture when a shipment is received and acknowledged."
+    },
+    {
+      "name": "NotifyTemperatureAlert",
+      "description": "To indicate a deviation in cold chain temperatures that needs attention."
+    },
+    {
+      "name": "ReviewSupplierQuality",
+      "description": "To track quality reports from suppliers post-delivery."
+    },
+    {
+      "name": "InitiateRecall",
+      "description": "To manage the process of recalling a batch due to safety issues."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "QualityAssuranceContext",
+      "description": "Integration needed for sharing quality data between supplier traceability and quality assurance teams."
+    },
+    {
+      "name": "LogisticsContext",
+      "description": "To enhance shipment tracking and traceability across logistics."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:56:09.812Z"
+}

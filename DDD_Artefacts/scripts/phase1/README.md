@@ -46,7 +46,32 @@ DDD_Artefacts/docs/analysis/phase1/
 - `domain-orchestration-plan.md`
 ```
 
+## CI Integration
+
+Add the following GitHub Actions workflow file at `.github/workflows/phase1-discovery.yml` to automate Phase 1 discovery:
+
+```yaml
+name: Phase 1 Discovery Workflow
+on:
+  push:
+    paths:
+      - 'scripts/phase1/**'
+jobs:
+  phase1-discovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm ci
+      - run: npm run lint -- --fix
+      - run: npm run build
+      - run: npm test
+      - run: npm run discover:phase1
+```
+
 ## Next Steps
 
-- Add CI workflow to type-check, lint, and smoke-test Phase 1 discovery.
-- Migrate Phase 1 workflows into existing GitHub Actions pipelines.
+- Review and customize this workflow to fit your repository settings.
+- Merge into your main branch to trigger automated Phase 1 discovery.

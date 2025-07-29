@@ -1,65 +1,65 @@
 {
   "events": [
     {
-      "name": "ProductAdded",
-      "description": "Captures the event when a new product is added to the inventory."
+      "name": "ProductOrdered",
+      "description": "Initiates the order process for products purchased by a customer."
     },
     {
-      "name": "SupplierAdded",
-      "description": "Records the addition of a new supplier for sourcing products."
-    },
-    {
-      "name": "OrderPlaced",
-      "description": "Indicates that an order has been placed for products."
-    },
-    {
-      "name": "InventoryChecked",
-      "description": "Captures the event where inventory levels are checked before placing an order."
+      "name": "OrderConfirmed",
+      "description": "Indicates that an order has been confirmed by the system."
     },
     {
       "name": "OrderShipped",
-      "description": "Indicates that an order has been shipped to the customer."
+      "description": "Triggers when the order is dispatched to the customer."
+    },
+    {
+      "name": "OrderCancelled",
+      "description": "Allows customers to cancel their orders before shipment."
+    },
+    {
+      "name": "ProductReturned",
+      "description": "Handles returning a product after it has been delivered."
     }
   ],
   "commands": [
     {
-      "name": "AddProduct",
-      "description": "Captures the event when a new product is added to the inventory."
-    },
-    {
-      "name": "AddSupplier",
-      "description": "Records the addition of a new supplier for sourcing products."
-    },
-    {
       "name": "PlaceOrder",
-      "description": "Indicates that an order has been placed for products."
+      "description": "Initiates the order process for products purchased by a customer."
     },
     {
-      "name": "CheckInventory",
-      "description": "Captures the event where inventory levels are checked before placing an order."
+      "name": "ConfirmOrder",
+      "description": "Indicates that an order has been confirmed by the system."
     },
     {
       "name": "ShipOrder",
-      "description": "Indicates that an order has been shipped to the customer."
+      "description": "Triggers when the order is dispatched to the customer."
+    },
+    {
+      "name": "CancelOrder",
+      "description": "Allows customers to cancel their orders before shipment."
+    },
+    {
+      "name": "ReturnProduct",
+      "description": "Handles returning a product after it has been delivered."
     }
   ],
   "integrationPoints": [
     {
       "name": "InventoryManagement",
-      "description": "Integration point for managing product levels and stock."
+      "description": "Integration point to manage product quantity based on orders."
     },
     {
-      "name": "SupplierManagement",
-      "description": "Integration for managing supplier information and performance."
+      "name": "CustomerRelationshipManagement",
+      "description": "Sync customer order details with the CRM system."
     },
     {
-      "name": "OrderProcessing",
-      "description": "Integration needed for processing orders after placement."
+      "name": "ShippingServices",
+      "description": "Integrate with external shipping services for order dispatching."
     },
     {
-      "name": "ShippingManagement",
-      "description": "Integration for managing logistics and shipments."
+      "name": "PaymentGateway",
+      "description": "Integration for processing payments related to orders."
     }
   ],
-  "generatedAt": "2025-07-28T20:41:15.407Z"
+  "generatedAt": "2025-07-29T18:45:40.963Z"
 }

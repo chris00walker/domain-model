@@ -2,56 +2,48 @@
   "events": [
     {
       "name": "ReturnInitiated",
-      "description": "Start the return process for a specific item."
+      "description": "Represents the start of the return process."
     },
     {
       "name": "ReturnApproved",
-      "description": "Approval of a return request based on predefined criteria."
+      "description": "Indicates that a return request has been approved."
     },
     {
       "name": "ReturnRejected",
-      "description": "When a return request does not meet the conditions for approval."
+      "description": "Indicates that a return request has been rejected."
     },
     {
       "name": "ReturnRefunded",
-      "description": "Refund issued to the customer after the return is approved."
-    },
-    {
-      "name": "ReturnItemRestocked",
-      "description": "The item is restocked in inventory after a return is processed."
+      "description": "Confirms that a refund has been issued for the return."
     }
   ],
   "commands": [
     {
       "name": "InitiateReturn",
-      "description": "Start the return process for a specific item."
+      "description": "Represents the start of the return process."
     },
     {
       "name": "ApproveReturn",
-      "description": "Approval of a return request based on predefined criteria."
+      "description": "Indicates that a return request has been approved."
     },
     {
       "name": "RejectReturn",
-      "description": "When a return request does not meet the conditions for approval."
+      "description": "Indicates that a return request has been rejected."
     },
     {
-      "name": "RefundReturn",
-      "description": "Refund issued to the customer after the return is approved."
-    },
-    {
-      "name": "RestockItem",
-      "description": "The item is restocked in inventory after a return is processed."
+      "name": "ProcessRefund",
+      "description": "Confirms that a refund has been issued for the return."
     }
   ],
   "integrationPoints": [
     {
       "name": "InventoryManagement",
-      "description": "Integration with Inventory Management for restocking items."
+      "description": "Integration needed to update inventory levels after a return."
     },
     {
-      "name": "CustomerAccountManagement",
-      "description": "Integration with Customer Account Management for refund processing."
+      "name": "CustomerRelationshipManagement",
+      "description": "Integration to update customer records upon return approval."
     }
   ],
-  "generatedAt": "2025-07-28T20:48:20.906Z"
+  "generatedAt": "2025-07-29T18:52:47.954Z"
 }

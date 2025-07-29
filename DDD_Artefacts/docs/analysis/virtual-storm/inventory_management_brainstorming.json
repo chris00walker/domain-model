@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "InventoryAdded",
+      "description": "Track addition of new inventory items."
+    },
+    {
+      "name": "InventoryUpdated",
+      "description": "Capture updates to existing inventory details."
+    },
+    {
+      "name": "InventoryRemoved",
+      "description": "Log the removal of inventory items from stock."
+    },
+    {
+      "name": "InventoryChecked",
+      "description": "Check current inventory status and levels."
+    },
+    {
+      "name": "InventoryReplenished",
+      "description": "Trigger replenishment orders when stock is low."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddInventoryItem",
+      "description": "Track addition of new inventory items."
+    },
+    {
+      "name": "UpdateInventoryItem",
+      "description": "Capture updates to existing inventory details."
+    },
+    {
+      "name": "RemoveInventoryItem",
+      "description": "Log the removal of inventory items from stock."
+    },
+    {
+      "name": "CheckInventoryStatus",
+      "description": "Check current inventory status and levels."
+    },
+    {
+      "name": "ReplenishInventory",
+      "description": "Trigger replenishment orders when stock is low."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "OrderingSystem",
+      "description": "Integration needed to manage stock levels based on orders."
+    },
+    {
+      "name": "SalesSystem",
+      "description": "Sync inventory levels with sales transactions."
+    },
+    {
+      "name": "AccountingSystem",
+      "description": "Update financial records based on inventory changes."
+    },
+    {
+      "name": "SupplierManagement",
+      "description": "Access supplier information for restocking inventory."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:49:58.633Z"
+}

@@ -42,7 +42,7 @@ Return a JSON object matching the output schema with key 'orchestrationPlan' con
   });
 
   // Run the agent without a natural-language prompt
-  const runResult = await run(agent, [], {
+  const runResult = await run(agent, " ", {
     context: { logger: ports.logger, ...input },
     maxTurns: opts.maxTurns,
   });

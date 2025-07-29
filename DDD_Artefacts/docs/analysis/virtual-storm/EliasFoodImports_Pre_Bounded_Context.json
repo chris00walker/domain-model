@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "FoodItemAdded",
+      "description": "Represents the addition of a new food item to the inventory."
+    },
+    {
+      "name": "SupplierRegistered",
+      "description": "Captures the registration of a new supplier."
+    },
+    {
+      "name": "InventoryUpdated",
+      "description": "Tracks updates to the food inventory."
+    },
+    {
+      "name": "OrderPlaced",
+      "description": "Represents an order being placed by a customer."
+    },
+    {
+      "name": "OrderShipped",
+      "description": "Indicates that an order has been shipped."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddFoodItem",
+      "description": "Represents the addition of a new food item to the inventory."
+    },
+    {
+      "name": "RegisterSupplier",
+      "description": "Captures the registration of a new supplier."
+    },
+    {
+      "name": "UpdateInventory",
+      "description": "Tracks updates to the food inventory."
+    },
+    {
+      "name": "PlaceOrder",
+      "description": "Represents an order being placed by a customer."
+    },
+    {
+      "name": "ShipOrder",
+      "description": "Indicates that an order has been shipped."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integration with a supplier management system for better supplier tracking."
+    },
+    {
+      "name": "InventoryManagement",
+      "description": "Integration with inventory management to sync food item data."
+    },
+    {
+      "name": "OrderManagement",
+      "description": "Integration with order management to streamline order processing."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:44:46.914Z"
+}

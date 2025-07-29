@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "ReturnInitiated",
+      "description": "Captures the start of the return process."
+    },
+    {
+      "name": "ReturnReceived",
+      "description": "Indicates the returns department has received the item back."
+    },
+    {
+      "name": "ReturnApproved",
+      "description": "Represents the approval of the return request."
+    },
+    {
+      "name": "ReturnDenied",
+      "description": "Captures cases where a return request is denied."
+    },
+    {
+      "name": "RefundProcessed",
+      "description": "Signifies that a refund has been processed for the return."
+    }
+  ],
+  "commands": [
+    {
+      "name": "InitiateReturn",
+      "description": "Captures the start of the return process."
+    },
+    {
+      "name": "ReceiveReturn",
+      "description": "Indicates the returns department has received the item back."
+    },
+    {
+      "name": "ApproveReturn",
+      "description": "Represents the approval of the return request."
+    },
+    {
+      "name": "DenyReturn",
+      "description": "Captures cases where a return request is denied."
+    },
+    {
+      "name": "ProcessRefund",
+      "description": "Signifies that a refund has been processed for the return."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integration with inventory systems to update stock levels after returns."
+    },
+    {
+      "name": "CustomerService",
+      "description": "Integration with customer service systems for tracking returned products."
+    },
+    {
+      "name": "Accounting",
+      "description": "Integration point for processing financial aspects of returns."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:51:56.883Z"
+}

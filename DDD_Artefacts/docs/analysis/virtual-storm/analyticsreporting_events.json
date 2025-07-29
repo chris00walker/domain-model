@@ -2,52 +2,56 @@
   "events": [
     {
       "name": "ReportGenerated",
-      "description": "This event signifies that a report has been generated based on analytics data."
+      "description": "Triggered when a new report is successfully generated after processing data."
     },
     {
-      "name": "ReportSent",
-      "description": "This event indicates that a generated report has been sent to the stakeholders."
+      "name": "ReportFailed",
+      "description": "Occurs when there is an error in report generation, allowing for a retry."
     },
     {
-      "name": "ReportReviewed",
-      "description": "This event captures the review of the report by stakeholders or analysts."
+      "name": "ReportScheduled",
+      "description": "When a report is scheduled for future generation based on specific criteria."
     },
     {
-      "name": "ReportUpdated",
-      "description": "This event captures any updates made to an existing report."
+      "name": "ReportDelivered",
+      "description": "Indicates that the generated report has been delivered to the intended recipients."
     }
   ],
   "commands": [
     {
       "name": "GenerateReport",
-      "description": "This event signifies that a report has been generated based on analytics data."
+      "description": "Triggered when a new report is successfully generated after processing data."
     },
     {
-      "name": "SendReport",
-      "description": "This event indicates that a generated report has been sent to the stakeholders."
+      "name": "RetryReportGeneration",
+      "description": "Occurs when there is an error in report generation, allowing for a retry."
     },
     {
-      "name": "ReviewReport",
-      "description": "This event captures the review of the report by stakeholders or analysts."
+      "name": "ScheduleReportGeneration",
+      "description": "When a report is scheduled for future generation based on specific criteria."
     },
     {
-      "name": "UpdateReport",
-      "description": "This event captures any updates made to an existing report."
+      "name": "DeliverReport",
+      "description": "Indicates that the generated report has been delivered to the intended recipients."
     }
   ],
   "integrationPoints": [
     {
-      "name": "DataWarehouse",
-      "description": "Integration with the Data Warehouse for fetching historical analytics data."
+      "name": "DataProcessing",
+      "description": "Integration with data processing systems to gather metrics and data for reports."
     },
     {
       "name": "NotificationService",
-      "description": "Integration with a Notification Service to alert stakeholders when reports are generated."
+      "description": "Integration with a notification service to alert users when reports are generated or delivered."
     },
     {
-      "name": "UserManagementContext",
-      "description": "Integration with User Management to manage access rights for report generation."
+      "name": "UserManagement",
+      "description": "Integration with user management systems to manage report subscriptions and access."
+    },
+    {
+      "name": "ReportingDatabase",
+      "description": "Integration with a dedicated reporting database for storing historical report data."
     }
   ],
-  "generatedAt": "2025-07-28T20:53:47.272Z"
+  "generatedAt": "2025-07-29T18:59:33.843Z"
 }

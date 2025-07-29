@@ -1,0 +1,41 @@
+{
+  "events": [
+    {
+      "name": "ColdChainMonitoringAlertRaised",
+      "description": "An alert is raised when temperature anomalies are detected during monitoring."
+    },
+    {
+      "name": "ColdChainMonitoringReportGenerated",
+      "description": "A report is generated after the monitoring is complete."
+    },
+    {
+      "name": "ColdChainMonitoringDataReviewed",
+      "description": "Data is reviewed after monitoring to ensure compliance."
+    }
+  ],
+  "commands": [
+    {
+      "name": "RaiseAlert",
+      "description": "An alert is raised when temperature anomalies are detected during monitoring."
+    },
+    {
+      "name": "GenerateReport",
+      "description": "A report is generated after the monitoring is complete."
+    },
+    {
+      "name": "ReviewData",
+      "description": "Data is reviewed after monitoring to ensure compliance."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "AlertNotificationSystem",
+      "description": "Need an integration to notify stakeholders of alerts."
+    },
+    {
+      "name": "DataAnalyticsService",
+      "description": "Integrate with data analytics to leverage monitoring data."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:47:26.767Z"
+}

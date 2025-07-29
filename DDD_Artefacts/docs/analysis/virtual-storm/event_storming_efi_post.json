@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "PostCreated",
+      "description": "A new post is created for food products."
+    },
+    {
+      "name": "PostUpdated",
+      "description": "Existing post information is updated."
+    },
+    {
+      "name": "PostDeleted",
+      "description": "A post is removed from the system."
+    },
+    {
+      "name": "PostPublished",
+      "description": "A post is officially published and visible to customers."
+    },
+    {
+      "name": "PostArchived",
+      "description": "An archived post is stored for historical reference."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreatePost",
+      "description": "A new post is created for food products."
+    },
+    {
+      "name": "UpdatePost",
+      "description": "Existing post information is updated."
+    },
+    {
+      "name": "DeletePost",
+      "description": "A post is removed from the system."
+    },
+    {
+      "name": "PublishPost",
+      "description": "A post is officially published and visible to customers."
+    },
+    {
+      "name": "ArchivePost",
+      "description": "An archived post is stored for historical reference."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "ProductCatalog",
+      "description": "Integration needed to fetch product details for posts."
+    },
+    {
+      "name": "InventoryManagement",
+      "description": "Integration needed to check product availability for posts."
+    },
+    {
+      "name": "UserManagement",
+      "description": "Integration for associating posts with users."
+    },
+    {
+      "name": "AnalyticsService",
+      "description": "Integration to track post performances."
+    }
+  ],
+  "generatedAt": "2025-07-29T19:04:48.060Z"
+}

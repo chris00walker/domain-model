@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "name": "ColdChainBreachAlerted",
+      "description": "To notify stakeholders of any breaches in the cold chain."
+    },
+    {
+      "name": "TemperatureMonitoringReportGenerated",
+      "description": "To track and analyze temperature fluctuations over time."
+    },
+    {
+      "name": "ColdStorageFailureDetected",
+      "description": "To initiate maintenance service after a cold storage unit fails."
+    }
+  ],
+  "commands": [
+    {
+      "name": "Alert",
+      "description": "To notify stakeholders of any breaches in the cold chain."
+    },
+    {
+      "name": "GenerateReport",
+      "description": "To track and analyze temperature fluctuations over time."
+    },
+    {
+      "name": "NotifyMaintenance",
+      "description": "To initiate maintenance service after a cold storage unit fails."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "MonitoringService",
+      "description": "Integrate with a central monitoring service for real-time temperature and humidity tracking."
+    },
+    {
+      "name": "NotificationService",
+      "description": "Integrate with a notification service to send alerts via multiple channels."
+    },
+    {
+      "name": "ReportingService",
+      "description": "Integrate with a reporting service for generating analytics reports on cold chain monitoring."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:57:38.358Z"
+}

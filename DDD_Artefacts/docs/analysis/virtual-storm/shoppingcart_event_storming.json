@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "CartItemAdded",
+      "description": "Tracking the addition of items to the shopping cart."
+    },
+    {
+      "name": "CartItemRemoved",
+      "description": "Handling the removal of items from the shopping cart."
+    },
+    {
+      "name": "CartDiscountApplied",
+      "description": "Recording when a discount is applied to the cart."
+    },
+    {
+      "name": "CartSavedForLater",
+      "description": "Allowing customers to save items for future purchase."
+    },
+    {
+      "name": "CartTransferRequested",
+      "description": "Request to transfer the cart content to another user or session."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddItem",
+      "description": "Tracking the addition of items to the shopping cart."
+    },
+    {
+      "name": "RemoveItem",
+      "description": "Handling the removal of items from the shopping cart."
+    },
+    {
+      "name": "ApplyDiscount",
+      "description": "Recording when a discount is applied to the cart."
+    },
+    {
+      "name": "SaveForLater",
+      "description": "Allowing customers to save items for future purchase."
+    },
+    {
+      "name": "TransferCart",
+      "description": "Request to transfer the cart content to another user or session."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryService",
+      "description": "Integrating with the inventory service to check item availability."
+    },
+    {
+      "name": "PaymentGateway",
+      "description": "Integration with payment systems for processing payments."
+    },
+    {
+      "name": "ShippingService",
+      "description": "Integration with shipping service for shipping logistics."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:53:38.207Z"
+}

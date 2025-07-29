@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "ColdChainAlertTriggered",
+      "description": "To notify stakeholders of temperature deviations."
+    },
+    {
+      "name": "ColdChainMonitoringReviewed",
+      "description": "To document the review of completed monitoring for compliance."
+    },
+    {
+      "name": "ColdChainTemperatureLogged",
+      "description": "To record temperature readings at various checkpoints."
+    },
+    {
+      "name": "ColdChainShipmentInitialized",
+      "description": "To start the process for a new shipment."
+    }
+  ],
+  "commands": [
+    {
+      "name": "TriggerAlert",
+      "description": "To notify stakeholders of temperature deviations."
+    },
+    {
+      "name": "ReviewMonitoring",
+      "description": "To document the review of completed monitoring for compliance."
+    },
+    {
+      "name": "LogTemperature",
+      "description": "To record temperature readings at various checkpoints."
+    },
+    {
+      "name": "InitializeShipment",
+      "description": "To start the process for a new shipment."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "TemperatureSensorIntegration",
+      "description": "To integrate with temperature sensors for real-time data."
+    },
+    {
+      "name": "WarehouseManagementIntegration",
+      "description": "To communicate with warehouse systems."
+    },
+    {
+      "name": "SupplierManagementIntegration",
+      "description": "To update suppliers on shipment status."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:48:21.279Z"
+}
