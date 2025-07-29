@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "InventoryItemAdded",
+      "description": "Captures the event of a new item being added to the inventory."
+    },
+    {
+      "name": "InventoryItemRemoved",
+      "description": "Captures the event of an item being removed from the inventory."
+    },
+    {
+      "name": "InventoryItemUpdated",
+      "description": "Captures changes made to existing inventory items."
+    },
+    {
+      "name": "InventoryStockChecked",
+      "description": "Captures the action of checking current stock levels in the inventory."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddInventoryItem",
+      "description": "Captures the event of a new item being added to the inventory."
+    },
+    {
+      "name": "RemoveInventoryItem",
+      "description": "Captures the event of an item being removed from the inventory."
+    },
+    {
+      "name": "UpdateInventoryItem",
+      "description": "Captures changes made to existing inventory items."
+    },
+    {
+      "name": "CheckInventoryStock",
+      "description": "Captures the action of checking current stock levels in the inventory."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integration point for supplier details related to inventory items."
+    },
+    {
+      "name": "SalesManagement",
+      "description": "Integration point to link inventory with sales transactions."
+    },
+    {
+      "name": "WarehouseManagement",
+      "description": "Integration point for warehouse operations related to inventory."
+    },
+    {
+      "name": "Reporting",
+      "description": "Integration for generating reports based on inventory data."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:45:38.151Z"
+}

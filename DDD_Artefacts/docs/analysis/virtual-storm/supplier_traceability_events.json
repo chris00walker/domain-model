@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "name": "BatchInspectionCompleted",
+      "description": "Marks the completion of an inspection for a specific batch, ensuring quality standards."
+    },
+    {
+      "name": "SupplierAuditCompleted",
+      "description": "Indicates that an audit of the supplier's processes has been successfully completed."
+    },
+    {
+      "name": "TemperatureExcursionDetected",
+      "description": "Records an instance where temperature deviations occurred during transport."
+    },
+    {
+      "name": "EthicalSourcingVerified",
+      "description": "Tracks the verification of ethical sourcing claims for a batch of products."
+    }
+  ],
+  "commands": [
+    {
+      "name": "Complete",
+      "description": "Marks the completion of an inspection for a specific batch, ensuring quality standards."
+    },
+    {
+      "name": "Update",
+      "description": "Records an instance where temperature deviations occurred during transport."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integration with Supplier Management system for real-time tracking and audits."
+    },
+    {
+      "name": "QualityControl",
+      "description": "Integration with Quality Control systems to automate inspections and audits."
+    },
+    {
+      "name": "Logistics",
+      "description": "Integration with Logistics to track temperature and condition of shipments."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:52:13.663Z"
+}

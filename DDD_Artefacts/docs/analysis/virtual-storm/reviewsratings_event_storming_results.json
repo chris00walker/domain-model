@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "BatchQualityAssurancePassed",
+      "description": "Indicates that the batch has passed quality checks and can be approved."
+    },
+    {
+      "name": "CustomerFeedbackSubmitted",
+      "description": "Captures customer feedback for batches."
+    },
+    {
+      "name": "ProductReviewCreated",
+      "description": "Allows customers to submit reviews for specific products."
+    },
+    {
+      "name": "RatingAdded",
+      "description": "Facilitates the addition of a rating to a product review."
+    },
+    {
+      "name": "QualityReportGenerated",
+      "description": "Generates a quality report after reviews and ratings are processed."
+    }
+  ],
+  "commands": [
+    {
+      "name": "ApproveBatch",
+      "description": "Indicates that the batch has passed quality checks and can be approved."
+    },
+    {
+      "name": "CollectFeedback",
+      "description": "Captures customer feedback for batches."
+    },
+    {
+      "name": "SubmitReview",
+      "description": "Allows customers to submit reviews for specific products."
+    },
+    {
+      "name": "AddRating",
+      "description": "Facilitates the addition of a rating to a product review."
+    },
+    {
+      "name": "GenerateReport",
+      "description": "Generates a quality report after reviews and ratings are processed."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "CustomerFeedbackSystem",
+      "description": "Integration with a system to capture customer feedback."
+    },
+    {
+      "name": "ReviewManagementService",
+      "description": "Connection to manage product reviews and ratings."
+    },
+    {
+      "name": "QualityAssuranceSystem",
+      "description": "Integration needed for detailed quality assurance reporting."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:55:28.313Z"
+}

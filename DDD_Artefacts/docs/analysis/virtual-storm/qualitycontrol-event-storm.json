@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "QualityControlReportCreated",
+      "description": "Represents the creation of a quality control report after inspection of products."
+    },
+    {
+      "name": "QualityControlReportReviewed",
+      "description": "Evaluates the quality control report for compliance."
+    },
+    {
+      "name": "QualityControlReportApproved",
+      "description": "Indicates that a quality control report has been approved."
+    },
+    {
+      "name": "QualityControlReportRejected",
+      "description": "Signifies that the quality control report did not meet standards."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreateQualityControlReport",
+      "description": "Represents the creation of a quality control report after inspection of products."
+    },
+    {
+      "name": "ReviewQualityControlReport",
+      "description": "Evaluates the quality control report for compliance."
+    },
+    {
+      "name": "ApproveQualityControlReport",
+      "description": "Indicates that a quality control report has been approved."
+    },
+    {
+      "name": "RejectQualityControlReport",
+      "description": "Signifies that the quality control report did not meet standards."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integration with Inventory Management to reflect changes after quality control assessments."
+    },
+    {
+      "name": "SupplierManagement",
+      "description": "Integration with Supplier Management to report quality issues back to suppliers."
+    },
+    {
+      "name": "SalesManagement",
+      "description": "Integration with Sales Management for products on hold due to quality issues."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:46:10.633Z"
+}

@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "ColdChainAlertTriggered",
+      "description": "Indicates a temperature breach in the cold chain."
+    },
+    {
+      "name": "ColdChainAlertAcknowledged",
+      "description": "When the user acknowledges they understand the alert."
+    },
+    {
+      "name": "ColdChainMonitoringUpdated",
+      "description": "Indicates new monitoring parameters have been set."
+    },
+    {
+      "name": "ColdChainMonitoringFailed",
+      "description": "When the monitoring system fails to function as expected."
+    },
+    {
+      "name": "ColdChainAlertResolved",
+      "description": "When an alert is resolved after taking action."
+    }
+  ],
+  "commands": [
+    {
+      "name": "TriggerAlert",
+      "description": "Indicates a temperature breach in the cold chain."
+    },
+    {
+      "name": "AcknowledgeAlert",
+      "description": "When the user acknowledges they understand the alert."
+    },
+    {
+      "name": "UpdateMonitoring",
+      "description": "Indicates new monitoring parameters have been set."
+    },
+    {
+      "name": "FailMonitoring",
+      "description": "When the monitoring system fails to function as expected."
+    },
+    {
+      "name": "ResolveAlert",
+      "description": "When an alert is resolved after taking action."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "To notify about temperature issues affecting inventory."
+    },
+    {
+      "name": "DeliveryManagement",
+      "description": "To alert on delivery schedules impacted by cold chain issues."
+    },
+    {
+      "name": "ReportingSystem",
+      "description": "To provide insights and reports based on monitoring data."
+    },
+    {
+      "name": "UserNotifications",
+      "description": "To push relevant alerts to user devices."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:52:42.700Z"
+}

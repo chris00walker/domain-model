@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "CampaignCreated",
+      "description": "Triggered when a new marketing campaign is initiated."
+    },
+    {
+      "name": "CampaignLaunched",
+      "description": "Indicates that a campaign is live and actively running."
+    },
+    {
+      "name": "CampaignEnded",
+      "description": "Marks the completion of a marketing campaign."
+    },
+    {
+      "name": "TargetAudienceDefined",
+      "description": "Refers to the identification of the campaign's target audience."
+    },
+    {
+      "name": "CampaignPerformanceReviewed",
+      "description": "Indicates that the campaign's performance metrics have been analyzed."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreateCampaign",
+      "description": "Triggered when a new marketing campaign is initiated."
+    },
+    {
+      "name": "LaunchCampaign",
+      "description": "Indicates that a campaign is live and actively running."
+    },
+    {
+      "name": "EndCampaign",
+      "description": "Marks the completion of a marketing campaign."
+    },
+    {
+      "name": "DefineTargetAudience",
+      "description": "Refers to the identification of the campaign's target audience."
+    },
+    {
+      "name": "ReviewCampaignPerformance",
+      "description": "Indicates that the campaign's performance metrics have been analyzed."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "Sales",
+      "description": "Sales context should integrate to align on how campaigns impact sales."
+    },
+    {
+      "name": "CustomerSupport",
+      "description": "Customer Support should integrate to manage inquiries related to marketing campaigns."
+    },
+    {
+      "name": "Analytics",
+      "description": "Integrate with Analytics to track campaign effectiveness and customer engagement."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:50:45.342Z"
+}

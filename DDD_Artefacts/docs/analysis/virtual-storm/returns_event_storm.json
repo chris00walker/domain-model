@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "ReturnInitiated",
+      "description": "Captures the start of the return process when a customer decides to return a product."
+    },
+    {
+      "name": "ReturnApproved",
+      "description": "Denotes when a return request has been validated and approved."
+    },
+    {
+      "name": "ReturnRejected",
+      "description": "Indicates a return request that fails validation."
+    },
+    {
+      "name": "ReturnCompleted",
+      "description": "Marks the finalization of a return, including notifications to the customer."
+    }
+  ],
+  "commands": [
+    {
+      "name": "InitiateReturn",
+      "description": "Captures the start of the return process when a customer decides to return a product."
+    },
+    {
+      "name": "ApproveReturn",
+      "description": "Denotes when a return request has been validated and approved."
+    },
+    {
+      "name": "RejectReturn",
+      "description": "Indicates a return request that fails validation."
+    },
+    {
+      "name": "CompleteReturn",
+      "description": "Marks the finalization of a return, including notifications to the customer."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "OrderProcessing",
+      "description": "Integration with Order Processing to update order status on return initiation."
+    },
+    {
+      "name": "InventoryManagement",
+      "description": "Integration to update inventory levels when a return is completed."
+    },
+    {
+      "name": "CustomerNotification",
+      "description": "Integration for notifying customers about the status of their return."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:47:59.377Z"
+}

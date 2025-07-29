@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "ReturnInitiated",
+      "description": "Start the return process for a specific item."
+    },
+    {
+      "name": "ReturnApproved",
+      "description": "Approval of a return request based on predefined criteria."
+    },
+    {
+      "name": "ReturnRejected",
+      "description": "When a return request does not meet the conditions for approval."
+    },
+    {
+      "name": "ReturnRefunded",
+      "description": "Refund issued to the customer after the return is approved."
+    },
+    {
+      "name": "ReturnItemRestocked",
+      "description": "The item is restocked in inventory after a return is processed."
+    }
+  ],
+  "commands": [
+    {
+      "name": "InitiateReturn",
+      "description": "Start the return process for a specific item."
+    },
+    {
+      "name": "ApproveReturn",
+      "description": "Approval of a return request based on predefined criteria."
+    },
+    {
+      "name": "RejectReturn",
+      "description": "When a return request does not meet the conditions for approval."
+    },
+    {
+      "name": "RefundReturn",
+      "description": "Refund issued to the customer after the return is approved."
+    },
+    {
+      "name": "RestockItem",
+      "description": "The item is restocked in inventory after a return is processed."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integration with Inventory Management for restocking items."
+    },
+    {
+      "name": "CustomerAccountManagement",
+      "description": "Integration with Customer Account Management for refund processing."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:48:20.906Z"
+}

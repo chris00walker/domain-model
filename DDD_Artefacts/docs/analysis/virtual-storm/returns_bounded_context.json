@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "ReturnInitiated",
+      "description": "Captured at the start of the return process, signifying that a return has been requested by the customer."
+    },
+    {
+      "name": "ReturnRejected",
+      "description": "Indicates a return request was denied due to policy violations or other reasons."
+    },
+    {
+      "name": "ReturnApproved",
+      "description": "Signifies the successful approval of a return request."
+    },
+    {
+      "name": "ReturnShipped",
+      "description": "Indicates that the return shipment was dispatched, essential for tracking return logistics."
+    },
+    {
+      "name": "RefundProcessed",
+      "description": "Tracks the status of the refund processing for a returned item."
+    }
+  ],
+  "commands": [
+    {
+      "name": "InitiateReturn",
+      "description": "Captured at the start of the return process, signifying that a return has been requested by the customer."
+    },
+    {
+      "name": "RejectReturn",
+      "description": "Indicates a return request was denied due to policy violations or other reasons."
+    },
+    {
+      "name": "ApproveReturn",
+      "description": "Signifies the successful approval of a return request."
+    },
+    {
+      "name": "ShipReturn",
+      "description": "Indicates that the return shipment was dispatched, essential for tracking return logistics."
+    },
+    {
+      "name": "ProcessRefund",
+      "description": "Tracks the status of the refund processing for a returned item."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "PaymentGatewayIntegration",
+      "description": "Integration necessary for processing refunds back to the customer."
+    },
+    {
+      "name": "InventoryManagementIntegration",
+      "description": "Required for adjusting inventory levels after a return is processed."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:48:11.596Z"
+}

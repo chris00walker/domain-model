@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "name": "PostCreated",
+      "description": "A new post is created to share food import updates."
+    },
+    {
+      "name": "PostUpdated",
+      "description": "An existing post is updated with new information."
+    },
+    {
+      "name": "PostDeleted",
+      "description": "Removes a post from the system."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreatePost",
+      "description": "A new post is created to share food import updates."
+    },
+    {
+      "name": "UpdatePost",
+      "description": "An existing post is updated with new information."
+    },
+    {
+      "name": "DeletePost",
+      "description": "Removes a post from the system."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "UserManagement",
+      "description": "Integration needed to manage user permissions on posts."
+    },
+    {
+      "name": "InventoryManagement",
+      "description": "Posts should reflect available food inventory."
+    },
+    {
+      "name": "Analytics",
+      "description": "Post interactions should be sent for analytics."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:57:40.699Z"
+}

@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "InventoryItemAdded",
+      "description": "To track new items in inventory."
+    },
+    {
+      "name": "InventoryItemRemoved",
+      "description": "To manage and track the removal of items from inventory."
+    },
+    {
+      "name": "InventoryItemUpdated",
+      "description": "To allow updates to existing items, reflecting changes in quantity or details."
+    },
+    {
+      "name": "InventoryReportGenerated",
+      "description": "To provide insights into current inventory status and trends."
+    },
+    {
+      "name": "InventoryItemReserved",
+      "description": "To reserve items for a specific order or customer."
+    },
+    {
+      "name": "InventoryItemUnreserved",
+      "description": "To unreserve items that are no longer needed."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddInventoryItem",
+      "description": "To track new items in inventory."
+    },
+    {
+      "name": "RemoveInventoryItem",
+      "description": "To manage and track the removal of items from inventory."
+    },
+    {
+      "name": "UpdateInventoryItem",
+      "description": "To allow updates to existing items, reflecting changes in quantity or details."
+    },
+    {
+      "name": "GenerateInventoryReport",
+      "description": "To provide insights into current inventory status and trends."
+    },
+    {
+      "name": "ReserveInventoryItem",
+      "description": "To reserve items for a specific order or customer."
+    },
+    {
+      "name": "UnreserveInventoryItem",
+      "description": "To unreserve items that are no longer needed."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "OrderManagement",
+      "description": "Integration needed to synchronize inventory with order processing."
+    },
+    {
+      "name": "SupplierManagement",
+      "description": "Integration required to update inventory based on supplier deliveries."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:44:44.807Z"
+}

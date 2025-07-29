@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "CartItemAdded",
+      "description": "Captures the moment an item is added to the shopping cart."
+    },
+    {
+      "name": "CartItemRemoved",
+      "description": "Records when an item is removed from the shopping cart."
+    },
+    {
+      "name": "CartDiscountApplied",
+      "description": "Tracks when a discount is applied to the shopping cart."
+    },
+    {
+      "name": "CartShippingInfoUpdated",
+      "description": "Logs updates to shipping information for the cart."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddItem",
+      "description": "Captures the moment an item is added to the shopping cart."
+    },
+    {
+      "name": "RemoveItem",
+      "description": "Records when an item is removed from the shopping cart."
+    },
+    {
+      "name": "ApplyDiscount",
+      "description": "Tracks when a discount is applied to the shopping cart."
+    },
+    {
+      "name": "UpdateShippingInfo",
+      "description": "Logs updates to shipping information for the cart."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "Payment",
+      "description": "Integrate with payment processing when the cart is submitted."
+    },
+    {
+      "name": "Inventory",
+      "description": "Sync with inventory management when items are added or removed from the cart."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:49:30.556Z"
+}

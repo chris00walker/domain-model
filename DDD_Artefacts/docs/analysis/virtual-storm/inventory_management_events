@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "InventoryItemAdded",
+      "description": "To track when new items are introduced into the inventory."
+    },
+    {
+      "name": "InventoryItemRemoved",
+      "description": "To manage the removal of items from inventory, either due to sales or wastage."
+    },
+    {
+      "name": "InventoryLevelUpdated",
+      "description": "To adjust the quantity of items in inventory based on various transactions."
+    },
+    {
+      "name": "InventoryItemCheckedOut",
+      "description": "To register when an item is checked out for sale or use."
+    },
+    {
+      "name": "InventoryItemReturned",
+      "description": "To record items that are returned back into inventory."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddInventoryItem",
+      "description": "To track when new items are introduced into the inventory."
+    },
+    {
+      "name": "RemoveInventoryItem",
+      "description": "To manage the removal of items from inventory, either due to sales or wastage."
+    },
+    {
+      "name": "UpdateInventoryLevel",
+      "description": "To adjust the quantity of items in inventory based on various transactions."
+    },
+    {
+      "name": "CheckoutInventoryItem",
+      "description": "To register when an item is checked out for sale or use."
+    },
+    {
+      "name": "ReturnInventoryItem",
+      "description": "To record items that are returned back into inventory."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryTracking",
+      "description": "Integrate with an external system for real-time inventory tracking."
+    },
+    {
+      "name": "SupplierManagement",
+      "description": "Integrate with supplier systems to automate inventory replenishment."
+    },
+    {
+      "name": "SalesSystem",
+      "description": "To receive updates from sales transactions affecting inventory."
+    },
+    {
+      "name": "ShippingManagement",
+      "description": "To synchronize shipping and inventory statuses."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:45:22.837Z"
+}

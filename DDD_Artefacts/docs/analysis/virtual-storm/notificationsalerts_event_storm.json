@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "TemperatureThresholdExceeded",
+      "description": "To alert about temperature deviations beyond acceptable levels."
+    },
+    {
+      "name": "TemperatureRecoveryAchieved",
+      "description": "To inform when the temperature returns to safe levels."
+    },
+    {
+      "name": "SensorMalfunctionDetected",
+      "description": "To log any detected errors in sensor functionality."
+    },
+    {
+      "name": "ShipmentDelayed",
+      "description": "To dispatch notifications regarding shipment delays."
+    }
+  ],
+  "commands": [
+    {
+      "name": "NotifyTemperatureAlert",
+      "description": "To alert about temperature deviations beyond acceptable levels."
+    },
+    {
+      "name": "InformTemperatureRecovery",
+      "description": "To inform when the temperature returns to safe levels."
+    },
+    {
+      "name": "LogSensorError",
+      "description": "To log any detected errors in sensor functionality."
+    },
+    {
+      "name": "NotifyShipmentDelay",
+      "description": "To dispatch notifications regarding shipment delays."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "NotificationService",
+      "description": "To send alerts and notifications based on events like temperature alerts and shipment delays."
+    },
+    {
+      "name": "LoggingSystem",
+      "description": "To log sensor data and errors for monitoring and auditing purposes."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:53:36.671Z"
+}

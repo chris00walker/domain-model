@@ -1,44 +1,10 @@
 {
   "events": [
-    "ColdChainMonitoringCompleted",
-    "ColdChainMonitoringAlertTriggered",
-    "ColdChainMonitoringFailed",
-    "ColdChainMonitoringStatusUpdated",
-    "ColdChainMonitoringAssessmentCompleted",
-    "ColdChainMonitoringAssessmentFailed",
-    "ColdChainMonitoringAlertResolved",
-    "ColdChainMonitoringDataAnalyzed",
-    "ColdChainMonitoringExceptionOccurred"
+    "ColdChainMonitoringCompleted"
   ],
   "commands": [
-    "Complete",
-    "TriggerColdChainAlert",
-    "ReportColdChainMonitoringFailure",
-    "UpdateColdChainMonitoringStatus",
-    "AssessColdChainMonitoring",
-    "FailColdChainMonitoringAssessment",
-    "ResolveColdChainAlert",
-    "AnalyzeColdChainMonitoringData",
-    "ReportColdChainMonitoringException"
+    "Complete"
   ],
-  "integrationPoints": [
-    "UserManagement",
-    "UserActivityTracking",
-    "UserNotificationManagement",
-    "UserEngagement"
-  ],
-  "notes": [
-    "This event and command are introduced to handle scenarios where anomalies are detected in the cold chain monitoring process, prompting an immediate alert to necessary stakeholders for timely intervention.",
-    "This event captures situations where cold chain monitoring fails due to sensor malfunctions or data transmission issues. Triggering this command would help in logging the failure for further investigation and ensuring that the necessary actions are taken to rectify the issue.",
-    "This event can be triggered when there is a change in the status of cold chain monitoring, such as a successful completion, an alert being triggered, or a failure being reported. The corresponding command allows the system to explicitly update and track the current status of the cold chain monitoring process.",
-    "This event represents the completion of an assessment process for cold chain monitoring, which could include analyzing data trends and performance metrics. The corresponding command triggers the assessment process to ensure that the cold chain monitoring system is functioning effectively and that any potential issues are proactively addressed.",
-    "This new domain event captures the scenario where an assessment of the cold chain monitoring fails due to unexpected conditions, prompting the need for a specific command to handle the failure appropriately and ensure that the necessary follow-up actions are taken.",
-    "This event indicates that a previously triggered cold chain monitoring alert has been addressed and resolved. The corresponding command is intended to officially document the resolution of the alert, ensuring that all stakeholders are updated on the status and allowing for any necessary follow-up actions.",
-    "The new event 'ColdChainMonitoringDataAnalyzed' represents the successful analysis of the data collected from cold chain monitoring. This event can trigger when the command 'AnalyzeColdChainMonitoringData' is executed, allowing the system to react to insights gained from the data, such as identifying trends or anomalies that could affect the cold chain integrity.",
-    "This event and command allow for the handling of unexpected situations during cold chain monitoring, ensuring that any anomalies are logged and addressed promptly.",
-    "Integrating UserManagement with notificationsalerts would allow for timely notifications to users regarding account changes, password resets, and other critical events, enhancing user experience and security.",
-    "Integrating UserActivityTracking with notificationsalerts allows for real-time notifications to be sent to users based on their activities, enhancing user engagement and providing timely information about their interactions.",
-    "Integrating UserNotificationManagement with NotificationsAlerts allows for effective communication of user-related events, enhancing user engagement and ensuring timely alerts for account activities.",
-    "Integrating UserEngagement with notificationsalerts would enhance user interaction by providing timely updates and alerts based on user activities and engagement levels, ensuring users are informed and can respond promptly."
-  ]
+  "integrationPoints": [],
+  "notes": []
 }

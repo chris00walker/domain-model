@@ -1,0 +1,85 @@
+{
+  "events": [
+    {
+      "name": "CampaignCreated",
+      "description": "Initiate a new marketing campaign for product promotion."
+    },
+    {
+      "name": "CampaignLaunched",
+      "description": "Execute the planned marketing activities of a campaign."
+    },
+    {
+      "name": "CampaignCompleted",
+      "description": "Mark the campaign as completed and analyze results."
+    },
+    {
+      "name": "AdCreated",
+      "description": "Create a new advertisement for the campaign."
+    },
+    {
+      "name": "AdScheduled",
+      "description": "Schedule the ad to run at specified times."
+    },
+    {
+      "name": "AdEvaluated",
+      "description": "Evaluate the performance of the ad after it runs."
+    },
+    {
+      "name": "MarketResearchConducted",
+      "description": "Conduct research to understand target audience and market trends."
+    },
+    {
+      "name": "SegmentCreated",
+      "description": "Create a new customer segment based on market research."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreateCampaign",
+      "description": "Initiate a new marketing campaign for product promotion."
+    },
+    {
+      "name": "LaunchCampaign",
+      "description": "Execute the planned marketing activities of a campaign."
+    },
+    {
+      "name": "CompleteCampaign",
+      "description": "Mark the campaign as completed and analyze results."
+    },
+    {
+      "name": "CreateAd",
+      "description": "Create a new advertisement for the campaign."
+    },
+    {
+      "name": "ScheduleAd",
+      "description": "Schedule the ad to run at specified times."
+    },
+    {
+      "name": "EvaluateAd",
+      "description": "Evaluate the performance of the ad after it runs."
+    },
+    {
+      "name": "ConductMarketResearch",
+      "description": "Conduct research to understand target audience and market trends."
+    },
+    {
+      "name": "CreateSegment",
+      "description": "Create a new customer segment based on market research."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "Sales",
+      "description": "Integrate marketing campaigns with the sales data for better analysis."
+    },
+    {
+      "name": "CustomerService",
+      "description": "Share campaign feedback with customer service for improved customer insights."
+    },
+    {
+      "name": "ProductManagement",
+      "description": "Connect marketing feedback with product management to adapt products."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:50:34.284Z"
+}

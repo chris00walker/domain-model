@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "CartItemAdded",
+      "description": "Adding a new item to the shopping cart."
+    },
+    {
+      "name": "CartItemRemoved",
+      "description": "Removing an item from the shopping cart."
+    },
+    {
+      "name": "CartDiscountApplied",
+      "description": "Applying a discount to the cart."
+    },
+    {
+      "name": "CartItemReviewed",
+      "description": "Customer reviews an item in their cart."
+    },
+    {
+      "name": "CartShipmentInitiated",
+      "description": "Starting the shipment process for the cart items."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddItem",
+      "description": "Adding a new item to the shopping cart."
+    },
+    {
+      "name": "RemoveItem",
+      "description": "Removing an item from the shopping cart."
+    },
+    {
+      "name": "ApplyDiscount",
+      "description": "Applying a discount to the cart."
+    },
+    {
+      "name": "ReviewItem",
+      "description": "Customer reviews an item in their cart."
+    },
+    {
+      "name": "InitiateShipment",
+      "description": "Starting the shipment process for the cart items."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "PaymentGateway",
+      "description": "Integrating with an external payment processing system."
+    },
+    {
+      "name": "InventoryManagementSystem",
+      "description": "Integration to keep inventory updated with cart activity."
+    },
+    {
+      "name": "CustomerNotificationService",
+      "description": "Notifying customers about cart updates and promotions."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:48:30.304Z"
+}

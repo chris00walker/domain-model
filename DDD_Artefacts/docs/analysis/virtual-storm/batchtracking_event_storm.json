@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "BatchShipped",
+      "description": "Tracks the event of a batch being shipped to customers."
+    },
+    {
+      "name": "BatchReceived",
+      "description": "Records the acceptance of a batch upon arrival at the destination."
+    },
+    {
+      "name": "ColdChainAlertTriggered",
+      "description": "Notifies relevant parties if the cold chain temperature deviates from the acceptable range."
+    },
+    {
+      "name": "BatchInspectionFailed",
+      "description": "Logs instances where a batch fails inspection, requiring further action."
+    }
+  ],
+  "commands": [
+    {
+      "name": "ShipBatch",
+      "description": "Tracks the event of a batch being shipped to customers."
+    },
+    {
+      "name": "ReceiveBatch",
+      "description": "Records the acceptance of a batch upon arrival at the destination."
+    },
+    {
+      "name": "TriggerColdChainAlert",
+      "description": "Notifies relevant parties if the cold chain temperature deviates from the acceptable range."
+    },
+    {
+      "name": "FailBatchInspection",
+      "description": "Logs instances where a batch fails inspection, requiring further action."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "Logistics",
+      "description": "Integration with the logistics system to handle shipping and receiving of batches."
+    },
+    {
+      "name": "QualityControl",
+      "description": "Integration with the quality control system for inspections and alerts."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:42:58.478Z"
+}

@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "ReportGenerated",
+      "description": "This event signifies that a report has been generated based on analytics data."
+    },
+    {
+      "name": "ReportSent",
+      "description": "This event indicates that a generated report has been sent to the stakeholders."
+    },
+    {
+      "name": "ReportReviewed",
+      "description": "This event captures the review of the report by stakeholders or analysts."
+    },
+    {
+      "name": "ReportUpdated",
+      "description": "This event captures any updates made to an existing report."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateReport",
+      "description": "This event signifies that a report has been generated based on analytics data."
+    },
+    {
+      "name": "SendReport",
+      "description": "This event indicates that a generated report has been sent to the stakeholders."
+    },
+    {
+      "name": "ReviewReport",
+      "description": "This event captures the review of the report by stakeholders or analysts."
+    },
+    {
+      "name": "UpdateReport",
+      "description": "This event captures any updates made to an existing report."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "DataWarehouse",
+      "description": "Integration with the Data Warehouse for fetching historical analytics data."
+    },
+    {
+      "name": "NotificationService",
+      "description": "Integration with a Notification Service to alert stakeholders when reports are generated."
+    },
+    {
+      "name": "UserManagementContext",
+      "description": "Integration with User Management to manage access rights for report generation."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:53:47.272Z"
+}

@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "name": "ProductReviewed",
+      "description": "Captures user reviews of products."
+    },
+    {
+      "name": "ReviewAggregated",
+      "description": "Aggregates reviews for overall rating."
+    },
+    {
+      "name": "ReviewFlagged",
+      "description": "Allows users or moderators to flag inappropriate content."
+    }
+  ],
+  "commands": [
+    {
+      "name": "SubmitReview",
+      "description": "Captures user reviews of products."
+    },
+    {
+      "name": "AggregateReviews",
+      "description": "Aggregates reviews for overall rating."
+    },
+    {
+      "name": "FlagInappropriateReview",
+      "description": "Allows users or moderators to flag inappropriate content."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "UserManagement",
+      "description": "Integrate with User Management to verify reviewer identity."
+    },
+    {
+      "name": "ProductCatalog",
+      "description": "Integration with Product Catalog to fetch product details for reviews."
+    },
+    {
+      "name": "NotificationService",
+      "description": "Integration to notify users of new reviews."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:56:14.973Z"
+}

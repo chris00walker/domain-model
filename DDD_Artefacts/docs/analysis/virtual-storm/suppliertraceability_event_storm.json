@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "SupplierAdded",
+      "description": "Captures the event of adding a new supplier to the traceability system."
+    },
+    {
+      "name": "SupplierUpdated",
+      "description": "Tracks changes made to an existing supplier's details."
+    },
+    {
+      "name": "BatchQualityChecked",
+      "description": "Records the quality check event of a batch in the system."
+    },
+    {
+      "name": "ProductRecalled",
+      "description": "Handles the recall of a product due to safety concerns."
+    },
+    {
+      "name": "TraceabilityReportGenerated",
+      "description": "Initiates the generation of traceability reports for batches."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddSupplier",
+      "description": "Captures the event of adding a new supplier to the traceability system."
+    },
+    {
+      "name": "UpdateSupplier",
+      "description": "Tracks changes made to an existing supplier's details."
+    },
+    {
+      "name": "CheckBatchQuality",
+      "description": "Records the quality check event of a batch in the system."
+    },
+    {
+      "name": "RecallProduct",
+      "description": "Handles the recall of a product due to safety concerns."
+    },
+    {
+      "name": "GenerateReport",
+      "description": "Initiates the generation of traceability reports for batches."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integrate with an external supplier management system to align supplier data."
+    },
+    {
+      "name": "QualityAssurance",
+      "description": "Integrate with a quality assurance system for seamless quality checks."
+    },
+    {
+      "name": "RecallManagement",
+      "description": "Integration for managing product recalls."
+    },
+    {
+      "name": "ReportingSystem",
+      "description": "Connect to a reporting system for automated report generation."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:52:04.285Z"
+}

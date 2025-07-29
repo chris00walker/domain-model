@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "QualityAssurancePassed",
+      "description": "Indicates that the batch has passed quality assurance checks."
+    },
+    {
+      "name": "CustomerReviewSubmitted",
+      "description": "Represents a new customer review being submitted."
+    },
+    {
+      "name": "RatingUpdated",
+      "description": "Indicates that an existing rating has been updated."
+    },
+    {
+      "name": "BatchQualityAssuranceReassessed",
+      "description": "Represents a reassessment of batch quality."
+    }
+  ],
+  "commands": [
+    {
+      "name": "ProceedWithBatch",
+      "description": "Indicates that the batch has passed quality assurance checks."
+    },
+    {
+      "name": "NotifyCustomer",
+      "description": "Represents a new customer review being submitted."
+    },
+    {
+      "name": "UpdateRating",
+      "description": "Indicates that an existing rating has been updated."
+    },
+    {
+      "name": "ReassessBatchQuality",
+      "description": "Represents a reassessment of batch quality."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "CustomerFeedbackService",
+      "description": "Integration point to handle customer reviews and ratings."
+    },
+    {
+      "name": "QualityAssuranceService",
+      "description": "Integration with a dedicated quality assurance service."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:55:56.971Z"
+}

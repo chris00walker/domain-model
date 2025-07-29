@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "PostCreated",
+      "description": "This event signifies the creation of a new post for products."
+    },
+    {
+      "name": "PostUpdated",
+      "description": "This event denotes an update made to an existing post."
+    },
+    {
+      "name": "PostDeleted",
+      "description": "This event indicates that a post has been deleted."
+    },
+    {
+      "name": "PostPromoted",
+      "description": "This event mentions that a post has been promoted for better visibility."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreatePost",
+      "description": "This event signifies the creation of a new post for products."
+    },
+    {
+      "name": "UpdatePost",
+      "description": "This event denotes an update made to an existing post."
+    },
+    {
+      "name": "DeletePost",
+      "description": "This event indicates that a post has been deleted."
+    },
+    {
+      "name": "PromotePost",
+      "description": "This event mentions that a post has been promoted for better visibility."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "ProductService",
+      "description": "Integration with the Product Service to fetch product details for posts."
+    },
+    {
+      "name": "UserService",
+      "description": "Integration with the User Service for user details related to posts."
+    },
+    {
+      "name": "AnalyticsService",
+      "description": "Integration with the Analytics Service to track post engagement."
+    },
+    {
+      "name": "NotificationService",
+      "description": "Integration for notifications related to post activities."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:58:46.434Z"
+}

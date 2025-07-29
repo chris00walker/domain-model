@@ -1,42 +1,6 @@
 {
-  "events": [
-    "InventoryStockUpdated",
-    "InventoryStockDepleted",
-    "InventoryStockThresholdExceeded",
-    "InventoryStockReplenished",
-    "InventoryStockAdjusted",
-    "InventoryStockAuditCompleted",
-    "InventoryStockLowAlert",
-    "InventoryStockTransferred"
-  ],
-  "commands": [
-    "UpdateInventoryStock",
-    "DepleteInventoryStock",
-    "NotifyInventoryThresholdExceeded",
-    "ReplenishInventoryStock",
-    "AdjustInventoryStock",
-    "AuditInventoryStock",
-    "TriggerLowStockAlert",
-    "TransferInventoryStock"
-  ],
-  "integrationPoints": [
-    "OrderManagement",
-    "SalesManagement",
-    "InventoryManagementIntegration",
-    "SupplierManagement"
-  ],
-  "notes": [
-    "The 'UpdateInventoryStock' command is issued when the stock levels of products are modified due to various reasons such as sales, returns, or adjustments. This leads to the 'InventoryStockUpdated' event being triggered to notify other systems about the current state of inventory, ensuring accurate data mapping and EDI communications across the integrated ERP systems.",
-    "This event signifies that the stock of a particular item has reached zero, triggering necessary business processes such as reordering or notifying stakeholders. The corresponding command allows for the explicit action of depleting stock, ensuring that the system accurately reflects the inventory status.",
-    "This event indicates that the inventory level has exceeded a predefined threshold, triggering the need to notify relevant stakeholders for potential restocking or promotional activities.",
-    "The event 'InventoryStockReplenished' signifies that a certain quantity of stock has been added back to the inventory, which is essential for maintaining supply levels. The command 'ReplenishInventoryStock' would be invoked to initiate the process of adding stock to inventory, ensuring that inventory levels are updated accurately and in a timely manner.",
-    "This event and command are proposed to capture scenarios where inventory levels are modified due to adjustments such as corrections of stock counts, returns from customers, or other manual interventions. It ensures that the inventory reflects accurate stock levels and maintains consistency across the system.",
-    "This event signifies the completion of a comprehensive inventory audit, ensuring stock levels and records are accurate. The corresponding command triggers the auditing process to verify discrepancies and maintain integrity in inventory management.",
-    "This event represents a situation where the inventory level has dropped below a critical threshold, prompting an alert to relevant stakeholders. The corresponding command would trigger the alert mechanism, ensuring that appropriate actions can be taken to prevent stockouts.",
-    "This new event and command are proposed to handle the scenario where inventory is moved from one location to another. It is essential to track such transfers to maintain accurate inventory levels across different locations and ensure proper data synchronization in the system.",
-    "Integrating OrderManagement with InventoryManagement is essential to ensure that inventory levels are updated in real-time as orders are placed, preventing stockouts and enabling better order fulfillment.",
-    "Integrating SalesManagement with InventoryManagement allows for real-time updates on product availability based on sales orders, ensuring accurate inventory levels and enhancing customer satisfaction.",
-    "Integrating with InventoryManagement is essential to ensure accurate stock levels are maintained, which directly affects order fulfillment and sales processes.",
-    "Integrating SupplierManagement with InventoryManagement ensures that inventory levels are accurately maintained based on supplier orders and stock availability, facilitating better supply chain management and reducing the risk of stockouts."
-  ]
+  "events": [],
+  "commands": [],
+  "integrationPoints": [],
+  "notes": []
 }

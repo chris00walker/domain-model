@@ -1,40 +1,10 @@
 {
   "events": [
-    "ColdChainAuditCompleted",
-    "ColdChainAuditFailed",
-    "ColdChainAuditReassessmentInitiated",
-    "ColdChainAuditReassessmentCompleted",
-    "ColdChainAuditReassessmentFailed",
-    "ColdChainAuditReassessmentApproved",
-    "ColdChainAuditReassessmentRequested",
-    "ColdChainAuditReassessmentNeeded"
+    "ColdChainAuditCompleted"
   ],
   "commands": [
-    "Complete",
-    "InitiateColdChainAuditReassessment",
-    "CompleteColdChainAuditReassessment",
-    "FailColdChainAuditReassessment",
-    "ApproveColdChainAuditReassessment",
-    "RequestColdChainAuditReassessment"
+    "Complete"
   ],
-  "integrationPoints": [
-    "CustomerManagement",
-    "OrderManagement",
-    "ProductCatalog",
-    "PricingManagement"
-  ],
-  "notes": [
-    "If a cold chain audit does not meet the required standards, it is crucial to initiate a reassessment to identify issues and ensure compliance. This new event and command will facilitate timely corrective actions.",
-    "The 'ColdChainAuditReassessmentInitiated' event signifies that a reassessment of the cold chain audit process has been triggered, often due to failed audits or discrepancies. The command 'InitiateColdChainAuditReassessment' is used to formally start this process, ensuring that the necessary checks and balances are in place to maintain product quality and compliance.",
-    "This event signifies the successful completion of a reassessment of a cold chain audit, which is crucial for maintaining compliance and quality assurance in the supply chain. The corresponding command triggers the process to finalize the reassessment.",
-    "This event indicates that the reassessment of the cold chain audit did not meet the necessary requirements, prompting the need for further action or review. The corresponding command would allow operators to formally mark the reassessment as failed, ensuring proper tracking and accountability in the auditing process.",
-    "This event captures the successful approval of a cold chain audit reassessment, indicating that the audit findings have been validated and accepted. The corresponding command triggers the approval process, ensuring that all necessary checks and reviews are completed before finalizing the reassessment.",
-    "This event and command allow for the proactive request of a reassessment for the cold chain audit, enabling timely responses to emerging issues or changes in conditions that may affect compliance.",
-    "This event could be triggered when an initial cold chain audit identifies potential issues that require further investigation, prompting the need for a reassessment to ensure compliance and quality standards.",
-    "The 'ColdChainAuditReassessmentNeeded' event can be triggered when an audit identifies discrepancies that require further investigation, leading to the need for a reassessment. The corresponding command 'RequestColdChainAuditReassessment' initiates this process, ensuring that necessary follow-up actions are taken promptly.",
-    "Integrating with CustomerManagement allows SalesQuoting to access comprehensive customer profiles, ensuring quotes are tailored to specific customer needs and preferences, enhancing the overall sales process.",
-    "Integrating OrderManagement with SalesQuoting allows for seamless transition from quote to order, ensuring that customer quotes can be directly converted into orders, enhancing the sales process and improving customer experience.",
-    "Integrating with ProductCatalog allows SalesQuoting to access up-to-date product information, pricing, and availability, ensuring accurate quotes are generated based on the latest offerings.",
-    "Integrating PricingManagement with SalesQuoting is essential to ensure accurate pricing information is reflected in quotes, enabling dynamic pricing updates based on current market conditions and customer-specific agreements."
-  ]
+  "integrationPoints": [],
+  "notes": []
 }

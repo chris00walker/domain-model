@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "BatchQualityAssurancePassed",
+      "description": "Indicates successful quality assurance check."
+    },
+    {
+      "name": "ReviewSubmitted",
+      "description": "Captures the submission of a customer review."
+    },
+    {
+      "name": "ReviewFlaggedForModeration",
+      "description": "Indicates a review that has been flagged for inappropriate content."
+    },
+    {
+      "name": "ReviewModerationCompleted",
+      "description": "Indicates that a flagged review has been moderated."
+    },
+    {
+      "name": "ReviewRespondedTo",
+      "description": "Captures when a response is made to a customer review."
+    }
+  ],
+  "commands": [
+    {
+      "name": "NotifyQualityApproval",
+      "description": "Indicates successful quality assurance check."
+    },
+    {
+      "name": "ProcessReview",
+      "description": "Captures the submission of a customer review."
+    },
+    {
+      "name": "FlagReview",
+      "description": "Indicates a review that has been flagged for inappropriate content."
+    },
+    {
+      "name": "CompleteModeration",
+      "description": "Indicates that a flagged review has been moderated."
+    },
+    {
+      "name": "SubmitResponse",
+      "description": "Captures when a response is made to a customer review."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "FeedbackSystem",
+      "description": "Integration with an external feedback collection system."
+    },
+    {
+      "name": "UserNotificationService",
+      "description": "Integration for notifying users of review status."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:55:38.408Z"
+}

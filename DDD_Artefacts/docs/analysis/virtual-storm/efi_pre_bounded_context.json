@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "name": "ProductAdded",
+      "description": "Captures the event when a new product is added to the inventory."
+    },
+    {
+      "name": "SupplierAdded",
+      "description": "Records the addition of a new supplier for sourcing products."
+    },
+    {
+      "name": "OrderPlaced",
+      "description": "Indicates that an order has been placed for products."
+    },
+    {
+      "name": "InventoryChecked",
+      "description": "Captures the event where inventory levels are checked before placing an order."
+    },
+    {
+      "name": "OrderShipped",
+      "description": "Indicates that an order has been shipped to the customer."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddProduct",
+      "description": "Captures the event when a new product is added to the inventory."
+    },
+    {
+      "name": "AddSupplier",
+      "description": "Records the addition of a new supplier for sourcing products."
+    },
+    {
+      "name": "PlaceOrder",
+      "description": "Indicates that an order has been placed for products."
+    },
+    {
+      "name": "CheckInventory",
+      "description": "Captures the event where inventory levels are checked before placing an order."
+    },
+    {
+      "name": "ShipOrder",
+      "description": "Indicates that an order has been shipped to the customer."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integration point for managing product levels and stock."
+    },
+    {
+      "name": "SupplierManagement",
+      "description": "Integration for managing supplier information and performance."
+    },
+    {
+      "name": "OrderProcessing",
+      "description": "Integration needed for processing orders after placement."
+    },
+    {
+      "name": "ShippingManagement",
+      "description": "Integration for managing logistics and shipments."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:41:15.407Z"
+}

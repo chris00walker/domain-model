@@ -1,0 +1,73 @@
+{
+  "events": [
+    {
+      "name": "ImportOrderCreated",
+      "description": "This event is triggered when a new import order is initiated."
+    },
+    {
+      "name": "SupplierContacted",
+      "description": "This event occurs when the supplier is contacted regarding an import order."
+    },
+    {
+      "name": "ImportOrderConfirmed",
+      "description": "Once the supplier confirms the order, this event is triggered."
+    },
+    {
+      "name": "ImportOrderShipped",
+      "description": "This event indicates the shipment of the import order from the supplier."
+    },
+    {
+      "name": "ImportOrderReceived",
+      "description": "Triggered when the import order is received at EFI."
+    },
+    {
+      "name": "QualityCheckCompleted",
+      "description": "This event occurs when the quality check for the imported goods is completed."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreateImportOrder",
+      "description": "This event is triggered when a new import order is initiated."
+    },
+    {
+      "name": "ContactSupplier",
+      "description": "This event occurs when the supplier is contacted regarding an import order."
+    },
+    {
+      "name": "ConfirmImportOrder",
+      "description": "Once the supplier confirms the order, this event is triggered."
+    },
+    {
+      "name": "ShipImportOrder",
+      "description": "This event indicates the shipment of the import order from the supplier."
+    },
+    {
+      "name": "ReceiveImportOrder",
+      "description": "Triggered when the import order is received at EFI."
+    },
+    {
+      "name": "CompleteQualityCheck",
+      "description": "This event occurs when the quality check for the imported goods is completed."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integration with the supplier management system to fetch supplier details."
+    },
+    {
+      "name": "ShippingService",
+      "description": "Integration with shipping services to track shipment status."
+    },
+    {
+      "name": "InventoryManagement",
+      "description": "Integration to update inventory levels after goods are received."
+    },
+    {
+      "name": "QualityAssurance",
+      "description": "Integration with the quality assurance system for quality check processes."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:41:00.109Z"
+}

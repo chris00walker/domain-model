@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "FoodImportRequested",
+      "description": "Captures the initiation of a food import request by a client."
+    },
+    {
+      "name": "FoodImportConfirmed",
+      "description": "Indicates that the food import request has been confirmed by the supplier."
+    },
+    {
+      "name": "FoodImportShipped",
+      "description": "Denotes that the food items have been shipped from the supplier."
+    },
+    {
+      "name": "FoodImportReceived",
+      "description": "Marks the event of food items being received at the warehouse."
+    }
+  ],
+  "commands": [
+    {
+      "name": "RequestFoodImport",
+      "description": "Captures the initiation of a food import request by a client."
+    },
+    {
+      "name": "ConfirmFoodImport",
+      "description": "Indicates that the food import request has been confirmed by the supplier."
+    },
+    {
+      "name": "ShipFoodImport",
+      "description": "Denotes that the food items have been shipped from the supplier."
+    },
+    {
+      "name": "ReceiveFoodImport",
+      "description": "Marks the event of food items being received at the warehouse."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integration with the Supplier Management system for tracking supplier details and food import requests."
+    },
+    {
+      "name": "WarehouseManagement",
+      "description": "Integrates with the Warehouse Management system to update stock levels upon receiving food imports."
+    },
+    {
+      "name": "OrderProcessing",
+      "description": "Connection to Order Processing for handling customer orders related to food imports."
+    }
+  ],
+  "generatedAt": "2025-07-28T20:40:50.827Z"
+}
