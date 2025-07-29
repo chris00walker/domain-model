@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "ReportGenerated",
+      "description": "Triggered when a new analytics report is created."
+    },
+    {
+      "name": "ReportDistributed",
+      "description": "Triggered after the report is sent to stakeholders."
+    },
+    {
+      "name": "ReportReviewed",
+      "description": "Triggered when a report is reviewed by experts."
+    },
+    {
+      "name": "ReportArchived",
+      "description": "Triggered when a report is archived for future reference."
+    },
+    {
+      "name": "ReportUpdated",
+      "description": "Triggered when an existing report is updated."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateReport",
+      "description": "Triggered when a new analytics report is created."
+    },
+    {
+      "name": "DistributeReport",
+      "description": "Triggered after the report is sent to stakeholders."
+    },
+    {
+      "name": "ReviewReport",
+      "description": "Triggered when a report is reviewed by experts."
+    },
+    {
+      "name": "ArchiveReport",
+      "description": "Triggered when a report is archived for future reference."
+    },
+    {
+      "name": "UpdateReport",
+      "description": "Triggered when an existing report is updated."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "DataWarehouse",
+      "description": "Integration with the Data Warehouse for report data."
+    },
+    {
+      "name": "UserNotification",
+      "description": "Integration with a notification service to inform users."
+    },
+    {
+      "name": "ReportStorage",
+      "description": "Integration with a storage solution for saving reports."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:59:49.689Z"
+}

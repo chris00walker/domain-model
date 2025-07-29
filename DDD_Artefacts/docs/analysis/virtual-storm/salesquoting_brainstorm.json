@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "QuoteGenerated",
+      "description": "This event signifies the successful generation of a sales quote."
+    },
+    {
+      "name": "QuoteApproved",
+      "description": "This event indicates that a sales quote has been approved by the relevant parties."
+    },
+    {
+      "name": "QuoteRejected",
+      "description": "This event signifies that a sales quote has been rejected and requires revision."
+    },
+    {
+      "name": "QuoteExpired",
+      "description": "This event is triggered when a sales quote is no longer valid due to time limits."
+    },
+    {
+      "name": "QuoteSentToCustomer",
+      "description": "This event indicates that a sales quote has been sent to the customer for review."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateQuote",
+      "description": "This event signifies the successful generation of a sales quote."
+    },
+    {
+      "name": "ApproveQuote",
+      "description": "This event indicates that a sales quote has been approved by the relevant parties."
+    },
+    {
+      "name": "RejectQuote",
+      "description": "This event signifies that a sales quote has been rejected and requires revision."
+    },
+    {
+      "name": "ExpireQuote",
+      "description": "This event is triggered when a sales quote is no longer valid due to time limits."
+    },
+    {
+      "name": "SendQuote",
+      "description": "This event indicates that a sales quote has been sent to the customer for review."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "CustomerManagement",
+      "description": "Integrating with the Customer Management system allows for better cross-referencing customer data with sales quotes."
+    },
+    {
+      "name": "ProductCatalog",
+      "description": "Integration with Product Catalog ensures that the latest product information is available when generating quotes."
+    },
+    {
+      "name": "OrderManagement",
+      "description": "Connecting to the Order Management system will streamline the transition from quotes to orders."
+    }
+  ],
+  "generatedAt": "2025-07-29T19:01:36.353Z"
+}

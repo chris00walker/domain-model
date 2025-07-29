@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "InventoryItemAdded",
+      "description": "Captures the event of adding a new item to the inventory."
+    },
+    {
+      "name": "InventoryItemRemoved",
+      "description": "Records when an item is removed from inventory."
+    },
+    {
+      "name": "InventoryItemUpdated",
+      "description": "Tracks changes made to existing inventory items."
+    },
+    {
+      "name": "InventoryCountChecked",
+      "description": "Represents the action of checking the current count of an inventory item."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddInventoryItem",
+      "description": "Captures the event of adding a new item to the inventory."
+    },
+    {
+      "name": "RemoveInventoryItem",
+      "description": "Records when an item is removed from inventory."
+    },
+    {
+      "name": "UpdateInventoryItem",
+      "description": "Tracks changes made to existing inventory items."
+    },
+    {
+      "name": "CheckInventoryCount",
+      "description": "Represents the action of checking the current count of an inventory item."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integrate with Supplier Management to handle the sourcing of inventory items."
+    },
+    {
+      "name": "OrderManagement",
+      "description": "Link to Order Management for managing incoming and outgoing inventory related to orders."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:49:44.283Z"
+}

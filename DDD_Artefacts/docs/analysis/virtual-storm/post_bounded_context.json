@@ -2,48 +2,48 @@
   "events": [
     {
       "name": "PostCreated",
-      "description": "Triggered when a new post is created in the system."
+      "description": "This event signifies that a new post has been created."
     },
     {
       "name": "PostUpdated",
-      "description": "Occurs when a post is modified."
+      "description": "This event indicates that an existing post has been updated."
     },
     {
       "name": "PostDeleted",
-      "description": "Indicates that a post is removed from the system."
+      "description": "This event signals that a post has been deleted from the system."
     },
     {
       "name": "PostPublished",
-      "description": "Occurs when a post is published and made public."
+      "description": "This event signifies that a post has been published and is visible to users."
     }
   ],
   "commands": [
     {
       "name": "CreatePost",
-      "description": "Triggered when a new post is created in the system."
+      "description": "This event signifies that a new post has been created."
     },
     {
       "name": "UpdatePost",
-      "description": "Occurs when a post is modified."
+      "description": "This event indicates that an existing post has been updated."
     },
     {
       "name": "DeletePost",
-      "description": "Indicates that a post is removed from the system."
+      "description": "This event signals that a post has been deleted from the system."
     },
     {
       "name": "PublishPost",
-      "description": "Occurs when a post is published and made public."
+      "description": "This event signifies that a post has been published and is visible to users."
     }
   ],
   "integrationPoints": [
     {
-      "name": "UserManagement",
-      "description": "Integration for user authentication and permissions related to posts."
+      "name": "UserService",
+      "description": "Integration with the User Service to manage post authors."
     },
     {
-      "name": "ContentDeliveryNetwork",
-      "description": "Integration to serve images and media associated with posts."
+      "name": "NotificationService",
+      "description": "Integration to send notifications upon post creation or updates."
     }
   ],
-  "generatedAt": "2025-07-28T20:58:54.913Z"
+  "generatedAt": "2025-07-29T19:03:51.948Z"
 }

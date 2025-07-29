@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "name": "ColdChainMonitoringAlert",
+      "description": "To raise alerts when temperature deviations occur."
+    },
+    {
+      "name": "ColdChainMonitoringReviewed",
+      "description": "To signify that the monitoring data has been reviewed by an analyst."
+    },
+    {
+      "name": "ColdChainMonitoringAcknowledged",
+      "description": "Essential for tracking responses to alerts."
+    }
+  ],
+  "commands": [
+    {
+      "name": "TriggerAlert",
+      "description": "To raise alerts when temperature deviations occur."
+    },
+    {
+      "name": "ReviewMonitoring",
+      "description": "To signify that the monitoring data has been reviewed by an analyst."
+    },
+    {
+      "name": "AcknowledgeAlert",
+      "description": "Essential for tracking responses to alerts."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "NotificationService",
+      "description": "To send alerts and notifications about cold chain status."
+    },
+    {
+      "name": "ReportingService",
+      "description": "To generate reports based on monitoring data."
+    },
+    {
+      "name": "AnalyticsService",
+      "description": "For analyzing temperature data trends."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:48:12.606Z"
+}

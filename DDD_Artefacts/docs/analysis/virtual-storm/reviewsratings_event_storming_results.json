@@ -2,60 +2,40 @@
   "events": [
     {
       "name": "BatchQualityAssurancePassed",
-      "description": "Indicates that the batch has passed quality checks and can be approved."
+      "description": "Signifies that a batch has passed quality assurance and can proceed to the next stage."
     },
     {
-      "name": "CustomerFeedbackSubmitted",
-      "description": "Captures customer feedback for batches."
+      "name": "CustomerReviewSubmitted",
+      "description": "Captures when a customer submits a review for a product."
     },
     {
-      "name": "ProductReviewCreated",
-      "description": "Allows customers to submit reviews for specific products."
-    },
-    {
-      "name": "RatingAdded",
-      "description": "Facilitates the addition of a rating to a product review."
-    },
-    {
-      "name": "QualityReportGenerated",
-      "description": "Generates a quality report after reviews and ratings are processed."
+      "name": "ReviewModerated",
+      "description": "Indicates that a review has been reviewed and moderated for compliance."
     }
   ],
   "commands": [
     {
-      "name": "ApproveBatch",
-      "description": "Indicates that the batch has passed quality checks and can be approved."
+      "name": "Proceed",
+      "description": "Signifies that a batch has passed quality assurance and can proceed to the next stage."
     },
     {
-      "name": "CollectFeedback",
-      "description": "Captures customer feedback for batches."
+      "name": "NotifyCustomer",
+      "description": "Captures when a customer submits a review for a product."
     },
     {
-      "name": "SubmitReview",
-      "description": "Allows customers to submit reviews for specific products."
-    },
-    {
-      "name": "AddRating",
-      "description": "Facilitates the addition of a rating to a product review."
-    },
-    {
-      "name": "GenerateReport",
-      "description": "Generates a quality report after reviews and ratings are processed."
+      "name": "UpdateReviewStatus",
+      "description": "Indicates that a review has been reviewed and moderated for compliance."
     }
   ],
   "integrationPoints": [
     {
-      "name": "CustomerFeedbackSystem",
-      "description": "Integration with a system to capture customer feedback."
+      "name": "CustomerRelationshipManagement",
+      "description": "Integrate with CRM to manage customer feedback and reviews."
     },
     {
-      "name": "ReviewManagementService",
-      "description": "Connection to manage product reviews and ratings."
-    },
-    {
-      "name": "QualityAssuranceSystem",
-      "description": "Integration needed for detailed quality assurance reporting."
+      "name": "QualityControlSystem",
+      "description": "Integrate with Quality Control System for improved batch quality monitoring."
     }
   ],
-  "generatedAt": "2025-07-28T20:55:28.313Z"
+  "generatedAt": "2025-07-29T19:00:06.166Z"
 }

@@ -16,7 +16,7 @@ export const planImplementationOutputSchema = z.object({
 }).strict();
 
 export const prepareSessionInputSchema = z.object({
-  contextFilter: z.string().optional().describe("Optional context filter for session prep")
+  contextFilter: z.union([z.string(), z.null()]).describe("Optional context filter for session prep")
 }).strict();
 export const prepareSessionOutputSchema = z.object({
   content: z.string().describe("Session preparation markdown")
@@ -28,7 +28,7 @@ export const generateBriefOutputSchema = z.object({
 }).strict();
 
 export const orchestrateDomainInputSchema = z.object({
-  contextFilter: z.string().optional().describe("Optional context filter for full discovery")
+  contextFilter: z.union([z.string(), z.null()]).describe("Optional context filter for full discovery")
 }).strict();
 export const orchestrateDomainOutputSchema = z.object({
   orchestrationPlan: z.string().describe("Full discovery orchestration plan markdown")

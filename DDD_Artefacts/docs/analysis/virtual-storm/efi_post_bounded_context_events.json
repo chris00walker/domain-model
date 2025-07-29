@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "PostCreated",
+      "description": "A new post is created to showcase food products at EFI."
+    },
+    {
+      "name": "PostUpdated",
+      "description": "An existing post is modified for accuracy or updated product information."
+    },
+    {
+      "name": "PostDeleted",
+      "description": "A post is removed from the system, no longer showcased."
+    },
+    {
+      "name": "PostPublished",
+      "description": "Post is published and visible to customers."
+    },
+    {
+      "name": "PostUnpublished",
+      "description": "Post is unpublished and hidden from customers."
+    }
+  ],
+  "commands": [
+    {
+      "name": "CreatePost",
+      "description": "A new post is created to showcase food products at EFI."
+    },
+    {
+      "name": "UpdatePost",
+      "description": "An existing post is modified for accuracy or updated product information."
+    },
+    {
+      "name": "DeletePost",
+      "description": "A post is removed from the system, no longer showcased."
+    },
+    {
+      "name": "PublishPost",
+      "description": "Post is published and visible to customers."
+    },
+    {
+      "name": "UnpublishPost",
+      "description": "Post is unpublished and hidden from customers."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "UserManagement",
+      "description": "Integrate with user management for post author details."
+    },
+    {
+      "name": "ProductCatalog",
+      "description": "Integrate with product catalog to showcase products in posts."
+    },
+    {
+      "name": "Analytics",
+      "description": "Integrate with analytics to track post engagement and performance."
+    }
+  ],
+  "generatedAt": "2025-07-29T19:04:04.110Z"
+}

@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "TemperatureAlertGenerated",
+      "description": "Triggered when the temperature goes beyond acceptable limits."
+    },
+    {
+      "name": "FuelLevelMonitoringCompleted",
+      "description": "Monitor fuel levels for generators used in cold chains."
+    },
+    {
+      "name": "HumidityAlertGenerated",
+      "description": "Triggered when humidity levels are not within the predefined range."
+    },
+    {
+      "name": "AlertAcknowledged",
+      "description": "When a user acknowledges the notification alert."
+    },
+    {
+      "name": "NotificationsSent",
+      "description": "When alerts are sent to the respective parties."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateAlert",
+      "description": "Triggered when the temperature goes beyond acceptable limits."
+    },
+    {
+      "name": "CompleteMonitoring",
+      "description": "Monitor fuel levels for generators used in cold chains."
+    },
+    {
+      "name": "GenerateHumidityAlert",
+      "description": "Triggered when humidity levels are not within the predefined range."
+    },
+    {
+      "name": "AcknowledgeAlert",
+      "description": "When a user acknowledges the notification alert."
+    },
+    {
+      "name": "SendNotifications",
+      "description": "When alerts are sent to the respective parties."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "TemperatureMonitoring",
+      "description": "Integrate with temperature monitoring systems for real-time data."
+    },
+    {
+      "name": "NotificationService",
+      "description": "Integrate with external notification services for sending alerts."
+    },
+    {
+      "name": "MonitoringDashboard",
+      "description": "Integration point for displaying monitoring results."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:58:21.990Z"
+}

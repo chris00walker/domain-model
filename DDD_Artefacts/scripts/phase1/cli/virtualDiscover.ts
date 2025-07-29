@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 import "dotenv/config";
-import "../../../logs/tracing-to-windsurf";
+import "../../logs/tracing-to-windsurf";
 import { Command } from "commander";
 import { discoverPhase1 } from "../agents/index.js";
 import { ChalkConsoleLogger } from "../../phase2/infra/chalkConsoleLogger";

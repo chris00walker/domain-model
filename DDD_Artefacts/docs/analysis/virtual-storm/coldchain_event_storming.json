@@ -1,41 +1,73 @@
 {
   "events": [
     {
-      "name": "ColdChainAlertTriggered",
-      "description": "To notify stakeholders of temperature deviations."
+      "name": "ColdChainTemperatureAlert",
+      "description": "Triggers when temperature breaches limits in the cold chain."
     },
     {
-      "name": "ColdChainMonitoringDataReceived",
-      "description": "To process incoming monitoring data from sensors."
+      "name": "ColdChainShipmentDelayed",
+      "description": "Records delays in cold chain shipments affecting delivery times."
     },
     {
-      "name": "ColdChainMaintenanceScheduled",
-      "description": "To address maintenance issues proactively."
+      "name": "ColdChainEquipmentMaintenanceScheduled",
+      "description": "Indicates a scheduled maintenance for cold chain equipment."
+    },
+    {
+      "name": "ColdChainRouteOptimization",
+      "description": "Event for optimizing routes based on environmental factors."
+    },
+    {
+      "name": "ColdChainComplianceCheckFailed",
+      "description": "Logs a failure in meeting compliance standards for cold chain."
+    },
+    {
+      "name": "ColdChainInventoryLow",
+      "description": "Notification when inventory of cold chain items is low."
     }
   ],
   "commands": [
     {
-      "name": "TriggerAlert",
-      "description": "To notify stakeholders of temperature deviations."
+      "name": "TriggerTemperatureAlert",
+      "description": "Triggers when temperature breaches limits in the cold chain."
     },
     {
-      "name": "ReceiveData",
-      "description": "To process incoming monitoring data from sensors."
+      "name": "LogShipmentDelay",
+      "description": "Records delays in cold chain shipments affecting delivery times."
     },
     {
       "name": "ScheduleMaintenance",
-      "description": "To address maintenance issues proactively."
+      "description": "Indicates a scheduled maintenance for cold chain equipment."
+    },
+    {
+      "name": "OptimizeRoute",
+      "description": "Event for optimizing routes based on environmental factors."
+    },
+    {
+      "name": "LogComplianceFailure",
+      "description": "Logs a failure in meeting compliance standards for cold chain."
+    },
+    {
+      "name": "NotifyInventoryLow",
+      "description": "Notification when inventory of cold chain items is low."
     }
   ],
   "integrationPoints": [
     {
-      "name": "InventoryManagement",
-      "description": "Integrate with inventory management for proper stock handling."
+      "name": "ColdChainMonitoringSystem",
+      "description": "Integration with monitoring systems for real-time data."
     },
     {
-      "name": "ShippingManagement",
-      "description": "Integration needed to inform shipping decisions based on cold chain status."
+      "name": "ShippingManagementSystem",
+      "description": "Integration with shipping systems for delayed shipments."
+    },
+    {
+      "name": "EquipmentMaintenanceSystem",
+      "description": "Integration for scheduling and logging equipment maintenance."
+    },
+    {
+      "name": "ComplianceManagementSystem",
+      "description": "Integration to streamline compliance monitoring."
     }
   ],
-  "generatedAt": "2025-07-28T20:44:17.662Z"
+  "generatedAt": "2025-07-29T18:47:39.874Z"
 }

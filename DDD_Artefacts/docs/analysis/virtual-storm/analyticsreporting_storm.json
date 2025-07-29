@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "name": "ReportGenerated",
+      "description": "This event signifies that an analytics report has been successfully generated."
+    },
+    {
+      "name": "ReportViewed",
+      "description": "Triggered when a user views an analytics report."
+    },
+    {
+      "name": "ReportFailed",
+      "description": "Indicates that report generation has failed."
+    },
+    {
+      "name": "ReportUpdated",
+      "description": "Captured when an existing report is updated."
+    }
+  ],
+  "commands": [
+    {
+      "name": "GenerateReport",
+      "description": "This event signifies that an analytics report has been successfully generated."
+    },
+    {
+      "name": "ViewReport",
+      "description": "Triggered when a user views an analytics report."
+    },
+    {
+      "name": "HandleReportFailure",
+      "description": "Indicates that report generation has failed."
+    },
+    {
+      "name": "UpdateReport",
+      "description": "Captured when an existing report is updated."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "UserManagement",
+      "description": "Integration needed to verify user access for viewing reports."
+    },
+    {
+      "name": "DataWarehouse",
+      "description": "Integration to fetch data required for generating reports."
+    },
+    {
+      "name": "NotificationService",
+      "description": "Needed to notify users when a report is generated."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:58:46.234Z"
+}

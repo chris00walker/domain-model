@@ -1,53 +1,53 @@
 {
   "events": [
     {
-      "name": "QuoteCreated",
-      "description": "This event captures the creation of a new sales quote."
+      "name": "QuoteGenerated",
+      "description": "Captures the moment a quote is successfully created for a customer."
     },
     {
       "name": "QuoteApproved",
-      "description": "This event signifies that a sales quote has been approved."
+      "description": "Indicates that a quote has been reviewed and accepted by the customer or internal team."
     },
     {
-      "name": "QuoteRejected",
-      "description": "This event captures instances where a quote is rejected."
+      "name": "QuoteExpired",
+      "description": "Tracks when a quote is no longer valid after a specific time period."
     },
     {
-      "name": "QuoteSentToCustomer",
-      "description": "This event indicates that a quote has been sent to the customer."
+      "name": "QuoteRevised",
+      "description": "Denotes that an existing quote has been modified before approval."
     }
   ],
   "commands": [
     {
-      "name": "CreateQuote",
-      "description": "This event captures the creation of a new sales quote."
+      "name": "GenerateQuote",
+      "description": "Captures the moment a quote is successfully created for a customer."
     },
     {
       "name": "ApproveQuote",
-      "description": "This event signifies that a sales quote has been approved."
+      "description": "Indicates that a quote has been reviewed and accepted by the customer or internal team."
     },
     {
-      "name": "RejectQuote",
-      "description": "This event captures instances where a quote is rejected."
+      "name": "ExpireQuote",
+      "description": "Tracks when a quote is no longer valid after a specific time period."
     },
     {
-      "name": "SendQuote",
-      "description": "This event indicates that a quote has been sent to the customer."
+      "name": "ReviseQuote",
+      "description": "Denotes that an existing quote has been modified before approval."
     }
   ],
   "integrationPoints": [
     {
-      "name": "CustomerService",
-      "description": "Integrate with the Customer Service context to fetch customer details."
+      "name": "PricingService",
+      "description": "Integrates with an external pricing service to fetch real-time product prices."
+    },
+    {
+      "name": "CustomerRelationshipManagement",
+      "description": "Integrates with CRM systems to update customer information related to quotes."
     },
     {
       "name": "InventoryManagement",
-      "description": "Integrate with Inventory Management to confirm product availability for quotes."
-    },
-    {
-      "name": "PaymentProcessing",
-      "description": "Integrate with Payment Processing for quote that lead into payment workflows."
+      "description": "Coordinates with inventory system to check product availability for quoted items."
     }
   ],
-  "generatedAt": "2025-07-28T20:56:56.259Z"
+  "generatedAt": "2025-07-29T19:02:24.438Z"
 }

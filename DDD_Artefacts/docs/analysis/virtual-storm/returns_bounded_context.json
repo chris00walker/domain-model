@@ -2,56 +2,48 @@
   "events": [
     {
       "name": "ReturnInitiated",
-      "description": "Captured at the start of the return process, signifying that a return has been requested by the customer."
-    },
-    {
-      "name": "ReturnRejected",
-      "description": "Indicates a return request was denied due to policy violations or other reasons."
+      "description": "Captures the start of the return process by the customer."
     },
     {
       "name": "ReturnApproved",
-      "description": "Signifies the successful approval of a return request."
+      "description": "Indicates that the return request has been approved after review."
     },
     {
-      "name": "ReturnShipped",
-      "description": "Indicates that the return shipment was dispatched, essential for tracking return logistics."
+      "name": "ReturnDeclined",
+      "description": "Records the instance when a return request is denied."
     },
     {
-      "name": "RefundProcessed",
-      "description": "Tracks the status of the refund processing for a returned item."
+      "name": "ReturnCompleted",
+      "description": "Marks the return process as completed."
     }
   ],
   "commands": [
     {
       "name": "InitiateReturn",
-      "description": "Captured at the start of the return process, signifying that a return has been requested by the customer."
-    },
-    {
-      "name": "RejectReturn",
-      "description": "Indicates a return request was denied due to policy violations or other reasons."
+      "description": "Captures the start of the return process by the customer."
     },
     {
       "name": "ApproveReturn",
-      "description": "Signifies the successful approval of a return request."
+      "description": "Indicates that the return request has been approved after review."
     },
     {
-      "name": "ShipReturn",
-      "description": "Indicates that the return shipment was dispatched, essential for tracking return logistics."
+      "name": "DeclineReturn",
+      "description": "Records the instance when a return request is denied."
     },
     {
-      "name": "ProcessRefund",
-      "description": "Tracks the status of the refund processing for a returned item."
+      "name": "CompleteReturn",
+      "description": "Marks the return process as completed."
     }
   ],
   "integrationPoints": [
     {
-      "name": "PaymentGatewayIntegration",
-      "description": "Integration necessary for processing refunds back to the customer."
+      "name": "CustomerService",
+      "description": "Integration with Customer Service to handle inquiries related to returns."
     },
     {
-      "name": "InventoryManagementIntegration",
-      "description": "Required for adjusting inventory levels after a return is processed."
+      "name": "InventoryManagement",
+      "description": "Integrate with Inventory to adjust stock levels upon return processing."
     }
   ],
-  "generatedAt": "2025-07-28T20:48:11.596Z"
+  "generatedAt": "2025-07-29T18:52:20.821Z"
 }

@@ -2,19 +2,19 @@
   "events": [
     {
       "name": "ReportGenerated",
-      "description": "Triggered when a new report is created based on the specified criteria."
+      "description": "Triggered when a new analytics report is generated."
     },
     {
       "name": "ReportViewed",
-      "description": "Occurs when a user accesses a report for review."
+      "description": "Occurs when a user views an existing report."
     },
     {
       "name": "ReportExported",
-      "description": "Triggered when a report is exported in a specific format."
+      "description": "Triggered when a report is exported to a specific format."
     },
     {
       "name": "ReportScheduled",
-      "description": "Occurs when a new report is scheduled for future generation."
+      "description": "Occurs when a report is scheduled for future generation."
     },
     {
       "name": "ReportDeleted",
@@ -24,19 +24,19 @@
   "commands": [
     {
       "name": "GenerateReport",
-      "description": "Triggered when a new report is created based on the specified criteria."
+      "description": "Triggered when a new analytics report is generated."
     },
     {
       "name": "ViewReport",
-      "description": "Occurs when a user accesses a report for review."
+      "description": "Occurs when a user views an existing report."
     },
     {
       "name": "ExportReport",
-      "description": "Triggered when a report is exported in a specific format."
+      "description": "Triggered when a report is exported to a specific format."
     },
     {
       "name": "ScheduleReport",
-      "description": "Occurs when a new report is scheduled for future generation."
+      "description": "Occurs when a report is scheduled for future generation."
     },
     {
       "name": "DeleteReport",
@@ -45,17 +45,13 @@
   ],
   "integrationPoints": [
     {
+      "name": "ExternalReporting",
+      "description": "Integration with external reporting tools for enhanced analytics."
+    },
+    {
       "name": "DataWarehouse",
-      "description": "Integration with Data Warehouse for fetching data used in reports."
-    },
-    {
-      "name": "UserManagement",
-      "description": "Integration with User Management to handle report permissions."
-    },
-    {
-      "name": "NotificationService",
-      "description": "Integration with Notification Service for alerting users about report generation or issues."
+      "description": "Integration with a data warehouse for better data aggregation."
     }
   ],
-  "generatedAt": "2025-07-28T20:54:38.063Z"
+  "generatedAt": "2025-07-29T18:59:57.702Z"
 }

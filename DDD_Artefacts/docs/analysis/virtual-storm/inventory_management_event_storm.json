@@ -1,0 +1,61 @@
+{
+  "events": [
+    {
+      "name": "InventoryItemAdded",
+      "description": "Captures the event of adding a new item to inventory."
+    },
+    {
+      "name": "InventoryItemRemoved",
+      "description": "Captures the event of removing an item from inventory."
+    },
+    {
+      "name": "InventoryItemUpdated",
+      "description": "Captures changes to attributes of an inventory item."
+    },
+    {
+      "name": "InventoryItemChecked",
+      "description": "Records the action of checking the details of a specific inventory item."
+    },
+    {
+      "name": "InventoryStockLevelChanged",
+      "description": "Captures adjustments made to stock levels due to sales or restocking."
+    }
+  ],
+  "commands": [
+    {
+      "name": "AddInventoryItem",
+      "description": "Captures the event of adding a new item to inventory."
+    },
+    {
+      "name": "RemoveInventoryItem",
+      "description": "Captures the event of removing an item from inventory."
+    },
+    {
+      "name": "UpdateInventoryItem",
+      "description": "Captures changes to attributes of an inventory item."
+    },
+    {
+      "name": "CheckInventoryItem",
+      "description": "Records the action of checking the details of a specific inventory item."
+    },
+    {
+      "name": "AdjustStockLevel",
+      "description": "Captures adjustments made to stock levels due to sales or restocking."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integration with supplier management to keep inventory updated with incoming supplies."
+    },
+    {
+      "name": "OrderManagement",
+      "description": "Integration with order management to adjust inventory based on sales."
+    },
+    {
+      "name": "ShippingManagement",
+      "description": "Integration with shipping systems to track inventory as it moves in and out."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:49:04.003Z"
+}

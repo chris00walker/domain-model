@@ -2,52 +2,48 @@
   "events": [
     {
       "name": "ReturnInitiated",
-      "description": "Captures the start of the return process when a customer decides to return a product."
+      "description": "Capture the start of the return process."
     },
     {
       "name": "ReturnApproved",
-      "description": "Denotes when a return request has been validated and approved."
+      "description": "System approves the return based on policy."
     },
     {
       "name": "ReturnRejected",
-      "description": "Indicates a return request that fails validation."
+      "description": "A return is rejected due to criteria not being met."
     },
     {
-      "name": "ReturnCompleted",
-      "description": "Marks the finalization of a return, including notifications to the customer."
+      "name": "ReturnRefunded",
+      "description": "Refund is issued after return is processed."
     }
   ],
   "commands": [
     {
       "name": "InitiateReturn",
-      "description": "Captures the start of the return process when a customer decides to return a product."
+      "description": "Capture the start of the return process."
     },
     {
       "name": "ApproveReturn",
-      "description": "Denotes when a return request has been validated and approved."
+      "description": "System approves the return based on policy."
     },
     {
       "name": "RejectReturn",
-      "description": "Indicates a return request that fails validation."
+      "description": "A return is rejected due to criteria not being met."
     },
     {
-      "name": "CompleteReturn",
-      "description": "Marks the finalization of a return, including notifications to the customer."
+      "name": "ProcessRefund",
+      "description": "Refund is issued after return is processed."
     }
   ],
   "integrationPoints": [
     {
-      "name": "OrderProcessing",
-      "description": "Integration with Order Processing to update order status on return initiation."
-    },
-    {
       "name": "InventoryManagement",
-      "description": "Integration to update inventory levels when a return is completed."
+      "description": "Integration to update inventory based on returned items."
     },
     {
-      "name": "CustomerNotification",
-      "description": "Integration for notifying customers about the status of their return."
+      "name": "CustomerCommunication",
+      "description": "Notify customers about return status and refund."
     }
   ],
-  "generatedAt": "2025-07-28T20:47:59.377Z"
+  "generatedAt": "2025-07-29T18:52:35.279Z"
 }

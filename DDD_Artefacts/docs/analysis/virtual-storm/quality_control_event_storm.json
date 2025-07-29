@@ -1,0 +1,57 @@
+{
+  "events": [
+    {
+      "name": "QualityCheckInitiated",
+      "description": "To monitor and evaluate product quality at various stages."
+    },
+    {
+      "name": "QualityCheckCompleted",
+      "description": "Indicates the end of a quality check with results."
+    },
+    {
+      "name": "QualityIssueReported",
+      "description": "Captures a quality issue found during the checks."
+    },
+    {
+      "name": "QualityIssueResolved",
+      "description": "To track the resolution of reported quality issues."
+    }
+  ],
+  "commands": [
+    {
+      "name": "InitiateQualityCheck",
+      "description": "To monitor and evaluate product quality at various stages."
+    },
+    {
+      "name": "CompleteQualityCheck",
+      "description": "Indicates the end of a quality check with results."
+    },
+    {
+      "name": "ReportQualityIssue",
+      "description": "Captures a quality issue found during the checks."
+    },
+    {
+      "name": "ResolveQualityIssue",
+      "description": "To track the resolution of reported quality issues."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "InventoryManagement",
+      "description": "Integration needed to fetch and update inventory data during quality checks."
+    },
+    {
+      "name": "SupplierManagement",
+      "description": "To coordinate quality issues that may involve suppliers."
+    },
+    {
+      "name": "LogisticsManagement",
+      "description": "Coordinate with logistics to handle products with quality issues."
+    },
+    {
+      "name": "ReportingSystem",
+      "description": "To generate quality reports for stakeholders."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:51:18.247Z"
+}

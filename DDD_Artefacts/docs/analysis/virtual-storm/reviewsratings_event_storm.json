@@ -1,49 +1,61 @@
 {
   "events": [
     {
-      "name": "QualityAssurancePassed",
-      "description": "Indicates that the batch has passed quality assurance checks."
+      "name": "ReviewSubmitted",
+      "description": "Captures when a customer submits a review."
     },
     {
-      "name": "CustomerReviewSubmitted",
-      "description": "Represents a new customer review being submitted."
+      "name": "ReviewEdited",
+      "description": "Allows users to update their submitted reviews."
     },
     {
-      "name": "RatingUpdated",
-      "description": "Indicates that an existing rating has been updated."
+      "name": "ReviewFlagged",
+      "description": "Enables users to flag inappropriate reviews for moderation."
     },
     {
-      "name": "BatchQualityAssuranceReassessed",
-      "description": "Represents a reassessment of batch quality."
+      "name": "ReviewApproved",
+      "description": "Indicates that a flagged review has been approved."
+    },
+    {
+      "name": "ReviewRejected",
+      "description": "Indicates that a flagged review has been rejected."
     }
   ],
   "commands": [
     {
-      "name": "ProceedWithBatch",
-      "description": "Indicates that the batch has passed quality assurance checks."
+      "name": "SubmitReview",
+      "description": "Captures when a customer submits a review."
     },
     {
-      "name": "NotifyCustomer",
-      "description": "Represents a new customer review being submitted."
+      "name": "EditReview",
+      "description": "Allows users to update their submitted reviews."
     },
     {
-      "name": "UpdateRating",
-      "description": "Indicates that an existing rating has been updated."
+      "name": "FlagReview",
+      "description": "Enables users to flag inappropriate reviews for moderation."
     },
     {
-      "name": "ReassessBatchQuality",
-      "description": "Represents a reassessment of batch quality."
+      "name": "ApproveReview",
+      "description": "Indicates that a flagged review has been approved."
+    },
+    {
+      "name": "RejectReview",
+      "description": "Indicates that a flagged review has been rejected."
     }
   ],
   "integrationPoints": [
     {
-      "name": "CustomerFeedbackService",
-      "description": "Integration point to handle customer reviews and ratings."
+      "name": "UserManagement",
+      "description": "Integration point to fetch user information for reviews."
     },
     {
-      "name": "QualityAssuranceService",
-      "description": "Integration with a dedicated quality assurance service."
+      "name": "NotificationService",
+      "description": "Integration for notifying users about review status changes."
+    },
+    {
+      "name": "DataAnalytics",
+      "description": "Integration for analyzing review trends."
     }
   ],
-  "generatedAt": "2025-07-28T20:55:56.971Z"
+  "generatedAt": "2025-07-29T19:01:18.417Z"
 }

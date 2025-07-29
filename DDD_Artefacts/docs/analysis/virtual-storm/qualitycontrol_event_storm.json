@@ -2,60 +2,52 @@
   "events": [
     {
       "name": "QualityCheckInitiated",
-      "description": "Represents the start of the quality check process for a batch of food imports."
+      "description": "This event marks the start of a quality control check on a batch."
     },
     {
-      "name": "QualityCheckPassed",
-      "description": "Indicates that a batch has successfully passed the quality check."
+      "name": "QualityCheckCompleted",
+      "description": "This event signifies the completion of a quality control check."
     },
     {
-      "name": "QualityCheckFailed",
-      "description": "Indicates that a batch has failed the quality check and must be rejected."
+      "name": "QualityIssueDetected",
+      "description": "This event is triggered when a quality issue is identified during inspection."
     },
     {
-      "name": "QualityReportGenerated",
-      "description": "Represents the creation of a report detailing the results of the quality check."
-    },
-    {
-      "name": "QualityControlEscalation",
-      "description": "Represents an issue during quality control that needs further attention from higher authority."
+      "name": "QualityIssueResolved",
+      "description": "This event indicates that a reported quality issue has been resolved."
     }
   ],
   "commands": [
     {
       "name": "InitiateQualityCheck",
-      "description": "Represents the start of the quality check process for a batch of food imports."
+      "description": "This event marks the start of a quality control check on a batch."
     },
     {
-      "name": "ApproveBatch",
-      "description": "Indicates that a batch has successfully passed the quality check."
+      "name": "CompleteQualityCheck",
+      "description": "This event signifies the completion of a quality control check."
     },
     {
-      "name": "RejectBatch",
-      "description": "Indicates that a batch has failed the quality check and must be rejected."
+      "name": "ReportQualityIssue",
+      "description": "This event is triggered when a quality issue is identified during inspection."
     },
     {
-      "name": "GenerateQualityReport",
-      "description": "Represents the creation of a report detailing the results of the quality check."
-    },
-    {
-      "name": "EscalateQualityIssue",
-      "description": "Represents an issue during quality control that needs further attention from higher authority."
+      "name": "ResolveQualityIssue",
+      "description": "This event indicates that a reported quality issue has been resolved."
     }
   ],
   "integrationPoints": [
     {
-      "name": "Inventory",
-      "description": "Integration with Inventory context to update stock levels based on quality check results."
+      "name": "InventoryManagement",
+      "description": "Integration needed to check inventory levels when a quality issue arises."
     },
     {
-      "name": "OrderManagement",
-      "description": "Integration with Order Management context to flag batches that are rejections."
+      "name": "SupplierManagement",
+      "description": "Integration needed to notify suppliers if a batch fails quality checks."
     },
     {
-      "name": "Reporting",
-      "description": "Integration with Reporting context to deliver quality check reports."
+      "name": "ShippingManagement",
+      "description": "Integration required to hold shipping if quality issues are detected."
     }
   ],
-  "generatedAt": "2025-07-28T20:47:00.134Z"
+  "generatedAt": "2025-07-29T18:51:09.604Z"
 }

@@ -1,49 +1,65 @@
 {
   "events": [
     {
-      "name": "SupplierAudited",
-      "description": "To track when a supplier's audit is completed."
+      "name": "BatchQualityChecked",
+      "description": "Tracks when the quality of a batch has been verified."
     },
     {
-      "name": "BatchDispatched",
-      "description": "To indicate a batch has been dispatched to a customer."
+      "name": "SupplierAuditCompleted",
+      "description": "Indicates that an audit of the supplier has been finished."
     },
     {
-      "name": "SupplierRated",
-      "description": "To capture feedback and performance rating of suppliers."
+      "name": "BatchTemperatureMonitored",
+      "description": "Records the temperature at which the batch has been stored."
     },
     {
-      "name": "OrganicCertificationUpdated",
-      "description": "To monitor changes in organic certification status of suppliers."
+      "name": "SupplyChainInterruptionDetected",
+      "description": "Signals an interruption in the supply chain that might affect batch traceability."
+    },
+    {
+      "name": "SupplierPerformanceEvaluated",
+      "description": "Tracks the evaluation results of the supplier's performance."
     }
   ],
   "commands": [
     {
-      "name": "Audit",
-      "description": "To track when a supplier's audit is completed."
+      "name": "CheckQuality",
+      "description": "Tracks when the quality of a batch has been verified."
     },
     {
-      "name": "DispatchBatch",
-      "description": "To indicate a batch has been dispatched to a customer."
+      "name": "CompleteAudit",
+      "description": "Indicates that an audit of the supplier has been finished."
     },
     {
-      "name": "RateSupplier",
-      "description": "To capture feedback and performance rating of suppliers."
+      "name": "LogTemperature",
+      "description": "Records the temperature at which the batch has been stored."
     },
     {
-      "name": "UpdateCertification",
-      "description": "To monitor changes in organic certification status of suppliers."
+      "name": "AlertInterruption",
+      "description": "Signals an interruption in the supply chain that might affect batch traceability."
+    },
+    {
+      "name": "EvaluatePerformance",
+      "description": "Tracks the evaluation results of the supplier's performance."
     }
   ],
   "integrationPoints": [
     {
-      "name": "SupplierManagement",
-      "description": "Integrate with supplier management system for real-time updates."
+      "name": "QualityControlSystem",
+      "description": "Integration with the quality control system to check and log batch quality."
     },
     {
-      "name": "LogisticsTracking",
-      "description": "To connect with logistics tracking systems for batch movement updates."
+      "name": "SupplyChainManagementSystem",
+      "description": "Integration with supply chain management for real-time monitoring."
+    },
+    {
+      "name": "SupplierAuditSystem",
+      "description": "Integration to receive audit results directly from the auditing system."
+    },
+    {
+      "name": "TemperatureMonitoringSystem",
+      "description": "Integration to monitor and log temperatures of batches continuously."
     }
   ],
-  "generatedAt": "2025-07-28T20:51:32.954Z"
+  "generatedAt": "2025-07-29T18:55:51.627Z"
 }

@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "SupplierDocumentUpdated",
+      "description": "Captures updates made to supplier-related documentation."
+    },
+    {
+      "name": "BatchQualityAssessmentCompleted",
+      "description": "Indicates completion of quality assessments for a batch."
+    },
+    {
+      "name": "SupplierAuditCompleted",
+      "description": "Marks the completion of audits related to suppliers."
+    },
+    {
+      "name": "ColdChainAlertTriggered",
+      "description": "Triggers alerts when cold chain breaches occur."
+    }
+  ],
+  "commands": [
+    {
+      "name": "Update",
+      "description": "Captures updates made to supplier-related documentation."
+    },
+    {
+      "name": "Complete",
+      "description": "Indicates completion of quality assessments for a batch."
+    },
+    {
+      "name": "Cancel",
+      "description": "Triggers alerts when cold chain breaches occur."
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "SupplierManagement",
+      "description": "Integrates with a system managing supplier details to ensure traceability."
+    },
+    {
+      "name": "QualityAssurance",
+      "description": "Integrates with Quality Assurance systems to fetch batch quality results."
+    },
+    {
+      "name": "ColdChainMonitoring",
+      "description": "Integrates with Cold Chain Monitoring systems for real-time alerts."
+    }
+  ],
+  "generatedAt": "2025-07-29T18:56:02.910Z"
+}

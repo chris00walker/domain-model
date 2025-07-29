@@ -1,73 +1,61 @@
 {
   "events": [
     {
-      "name": "CampaignCreated",
-      "description": "Signals the initiation of a new marketing campaign."
+      "name": "MarketingCampaignCreated",
+      "description": "To represent the initiation of a new marketing campaign."
     },
     {
-      "name": "CampaignLaunched",
-      "description": "Represents the official launch of a marketing campaign."
+      "name": "MarketingCampaignLaunched",
+      "description": "To show when a marketing campaign is officially launched."
     },
     {
-      "name": "CampaignEnded",
-      "description": "Indicates the conclusion of a marketing campaign."
+      "name": "MarketingCampaignClosed",
+      "description": "To indicate the completion of a marketing campaign."
     },
     {
-      "name": "AdCreated",
-      "description": "Denotes the creation of a new advertisement for campaigns."
+      "name": "AudienceSegmentDefined",
+      "description": "To create audience segments for targeted marketing."
     },
     {
-      "name": "AdPublished",
-      "description": "Marks the publication of an advertisement."
-    },
-    {
-      "name": "LeadGenerated",
-      "description": "Represents the generation of a potential customer lead."
-    },
-    {
-      "name": "MarketAnalysisCompleted",
-      "description": "Indicates the completion of a market analysis for strategic decisions."
+      "name": "MarketingResourceAllocated",
+      "description": "To account for resources assigned to a marketing initiative."
     }
   ],
   "commands": [
     {
-      "name": "CreateCampaign",
-      "description": "Signals the initiation of a new marketing campaign."
+      "name": "CreateMarketingCampaign",
+      "description": "To represent the initiation of a new marketing campaign."
     },
     {
-      "name": "LaunchCampaign",
-      "description": "Represents the official launch of a marketing campaign."
+      "name": "LaunchMarketingCampaign",
+      "description": "To show when a marketing campaign is officially launched."
     },
     {
-      "name": "EndCampaign",
-      "description": "Indicates the conclusion of a marketing campaign."
+      "name": "CloseMarketingCampaign",
+      "description": "To indicate the completion of a marketing campaign."
     },
     {
-      "name": "CreateAd",
-      "description": "Denotes the creation of a new advertisement for campaigns."
+      "name": "DefineAudienceSegment",
+      "description": "To create audience segments for targeted marketing."
     },
     {
-      "name": "PublishAd",
-      "description": "Marks the publication of an advertisement."
-    },
-    {
-      "name": "GenerateLead",
-      "description": "Represents the generation of a potential customer lead."
-    },
-    {
-      "name": "CompleteMarketAnalysis",
-      "description": "Indicates the completion of a market analysis for strategic decisions."
+      "name": "AllocateMarketingResource",
+      "description": "To account for resources assigned to a marketing initiative."
     }
   ],
   "integrationPoints": [
     {
       "name": "Sales",
-      "description": "Integration with sales to track leads generated from campaigns."
+      "description": "To integrate marketing efforts with the sales process for better alignment."
     },
     {
-      "name": "CustomerSupport",
-      "description": "Integration with customer support to assist leads that converted."
+      "name": "Analytics",
+      "description": "To connect marketing campaigns with analytics for performance tracking."
+    },
+    {
+      "name": "CustomerRelationshipManagement",
+      "description": "To ensure marketing messages align with customer data."
     }
   ],
-  "generatedAt": "2025-07-28T20:49:52.899Z"
+  "generatedAt": "2025-07-29T18:54:23.901Z"
 }

@@ -1,81 +1,49 @@
 {
   "events": [
     {
-      "name": "CampaignCreated",
-      "description": "The event when a new marketing campaign is initiated."
+      "name": "MarketingCampaignCreated",
+      "description": "This event signifies the initiation of a new marketing campaign."
     },
     {
-      "name": "CampaignLaunched",
-      "description": "Triggered when a marketing campaign is officially launched."
+      "name": "MarketingCampaignUpdated",
+      "description": "This event indicates that an existing marketing campaign has been updated."
     },
     {
-      "name": "CampaignEnded",
-      "description": "Indicates the conclusion of a marketing campaign."
+      "name": "MarketingCampaignLaunched",
+      "description": "This event represents the launch of a marketing campaign to the public."
     },
     {
-      "name": "LeadGenerated",
-      "description": "Occurs when a new lead is acquired through marketing efforts."
-    },
-    {
-      "name": "LeadNurtured",
-      "description": "Triggered when a lead is actively engaged and nurtured through marketing activities."
-    },
-    {
-      "name": "MarketingMaterialReviewed",
-      "description": "When marketing materials are reviewed for campaigns."
-    },
-    {
-      "name": "MarketingBudgetAllocated",
-      "description": "Indicates the event where marketing budgets are allocated to campaigns."
-    },
-    {
-      "name": "MarketResearchConducted",
-      "description": "Triggered when market research is conducted to inform marketing strategies."
+      "name": "MarketingCampaignCompleted",
+      "description": "This event signifies the completion of a marketing campaign."
     }
   ],
   "commands": [
     {
-      "name": "CreateCampaign",
-      "description": "The event when a new marketing campaign is initiated."
+      "name": "CreateMarketingCampaign",
+      "description": "This event signifies the initiation of a new marketing campaign."
     },
     {
-      "name": "LaunchCampaign",
-      "description": "Triggered when a marketing campaign is officially launched."
+      "name": "UpdateMarketingCampaign",
+      "description": "This event indicates that an existing marketing campaign has been updated."
     },
     {
-      "name": "EndCampaign",
-      "description": "Indicates the conclusion of a marketing campaign."
+      "name": "LaunchMarketingCampaign",
+      "description": "This event represents the launch of a marketing campaign to the public."
     },
     {
-      "name": "GenerateLead",
-      "description": "Occurs when a new lead is acquired through marketing efforts."
-    },
-    {
-      "name": "NurtureLead",
-      "description": "Triggered when a lead is actively engaged and nurtured through marketing activities."
-    },
-    {
-      "name": "ReviewMarketingMaterial",
-      "description": "When marketing materials are reviewed for campaigns."
-    },
-    {
-      "name": "AllocateBudget",
-      "description": "Indicates the event where marketing budgets are allocated to campaigns."
-    },
-    {
-      "name": "ConductMarketResearch",
-      "description": "Triggered when market research is conducted to inform marketing strategies."
+      "name": "CompleteMarketingCampaign",
+      "description": "This event signifies the completion of a marketing campaign."
     }
   ],
   "integrationPoints": [
     {
       "name": "Sales",
-      "description": "Integration with sales to track conversion of leads generated from campaigns."
+      "description": "Sales context needs to be informed about new marketing campaigns."
     },
     {
-      "name": "Analytics",
-      "description": "Integration with analytics for tracking campaign performance metrics."
+      "name": "CustomerRelations",
+      "description": "Customer Relations might want insights on marketing campaigns to handle queries."
     }
   ],
-  "generatedAt": "2025-07-28T20:50:56.618Z"
+  "generatedAt": "2025-07-29T18:55:24.164Z"
 }
